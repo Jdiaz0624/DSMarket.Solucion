@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DSMarket.Logica.Comunes
 {
-    class VariablesGlobales
+    public class VariablesGlobales
     {
+        public string NombreSistema { get; set; }
     }
 }
