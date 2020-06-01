@@ -14,9 +14,12 @@ namespace DSMarket.Solucion
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Pantallas.MenuPrincipal.MenuPrincipal());
+            try {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new Pantallas.Pantallas.Seguridad.Login());
+            }
+            catch (Exception) { }
         }
     }
 }

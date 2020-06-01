@@ -32,14 +32,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
             BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
             this.PanelTop = new System.Windows.Forms.Panel();
-            this.PanelMenu = new System.Windows.Forms.Panel();
-            this.PanelCuerpo = new System.Windows.Forms.Panel();
+            this.PRestaurar = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.Curva = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.CurvaForms = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.lbLogoCorto = new System.Windows.Forms.PictureBox();
+            this.PMinimizar = new System.Windows.Forms.PictureBox();
+            this.PMaximizar = new System.Windows.Forms.PictureBox();
+            this.PCerrar = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PanelMenu = new System.Windows.Forms.Panel();
             this.PanelOpciones = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.lbLogoCorto = new System.Windows.Forms.PictureBox();
             this.btnSuplidores = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnNomina = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnClientes = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -51,22 +52,21 @@
             this.btnServicio = new Bunifu.Framework.UI.BunifuFlatButton();
             this.Separador = new Bunifu.Framework.UI.BunifuSeparator();
             this.pbLogolargo = new System.Windows.Forms.PictureBox();
-            this.PRestaurar = new System.Windows.Forms.PictureBox();
-            this.PMinimizar = new System.Windows.Forms.PictureBox();
-            this.PMaximizar = new System.Windows.Forms.PictureBox();
-            this.PCerrar = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PanelCuerpo = new System.Windows.Forms.Panel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.Curva = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.CurvaForms = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.EfectoIda = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.PanelTop.SuspendLayout();
-            this.PanelMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lbLogoCorto)).BeginInit();
-            this.PanelOpciones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogolargo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PRestaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.PanelMenu.SuspendLayout();
+            this.PanelOpciones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lbLogoCorto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogolargo)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelTop
@@ -86,25 +86,21 @@
             this.PanelTop.Size = new System.Drawing.Size(1400, 80);
             this.PanelTop.TabIndex = 0;
             // 
-            // PanelMenu
+            // PRestaurar
             // 
-            this.PanelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.PanelMenu.Controls.Add(this.PanelOpciones);
-            this.EfectoIda.SetDecoration(this.PanelMenu, BunifuAnimatorNS.DecorationType.None);
-            this.PanelMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PanelMenu.Location = new System.Drawing.Point(0, 80);
-            this.PanelMenu.Name = "PanelMenu";
-            this.PanelMenu.Size = new System.Drawing.Size(300, 820);
-            this.PanelMenu.TabIndex = 1;
-            // 
-            // PanelCuerpo
-            // 
-            this.EfectoIda.SetDecoration(this.PanelCuerpo, BunifuAnimatorNS.DecorationType.None);
-            this.PanelCuerpo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelCuerpo.Location = new System.Drawing.Point(300, 80);
-            this.PanelCuerpo.Name = "PanelCuerpo";
-            this.PanelCuerpo.Size = new System.Drawing.Size(1100, 820);
-            this.PanelCuerpo.TabIndex = 1;
+            this.PRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EfectoIda.SetDecoration(this.PRestaurar, BunifuAnimatorNS.DecorationType.None);
+            this.PRestaurar.Image = global::DSMarket.Solucion.Properties.Resources.Restore_Window_2_48px;
+            this.PRestaurar.Location = new System.Drawing.Point(1326, 29);
+            this.PRestaurar.Name = "PRestaurar";
+            this.PRestaurar.Size = new System.Drawing.Size(30, 30);
+            this.PRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PRestaurar.TabIndex = 4;
+            this.PRestaurar.TabStop = false;
+            this.toolTip1.SetToolTip(this.PRestaurar, "Restaurar");
+            this.PRestaurar.Visible = false;
+            this.PRestaurar.Click += new System.EventHandler(this.PRestaurar_Click);
             // 
             // label1
             // 
@@ -118,28 +114,74 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre Empresa";
             // 
-            // Curva
+            // PMinimizar
             // 
-            this.Curva.ElipseRadius = 10;
-            this.Curva.TargetControl = this.PanelOpciones;
+            this.PMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EfectoIda.SetDecoration(this.PMinimizar, BunifuAnimatorNS.DecorationType.None);
+            this.PMinimizar.Image = global::DSMarket.Solucion.Properties.Resources.Minimize_Window_2_48px;
+            this.PMinimizar.Location = new System.Drawing.Point(1294, 29);
+            this.PMinimizar.Name = "PMinimizar";
+            this.PMinimizar.Size = new System.Drawing.Size(30, 30);
+            this.PMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PMinimizar.TabIndex = 3;
+            this.PMinimizar.TabStop = false;
+            this.toolTip1.SetToolTip(this.PMinimizar, "Minimizar");
+            this.PMinimizar.Click += new System.EventHandler(this.PMinimizar_Click);
             // 
-            // CurvaForms
+            // PMaximizar
             // 
-            this.CurvaForms.ElipseRadius = 20;
-            this.CurvaForms.TargetControl = this;
+            this.PMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EfectoIda.SetDecoration(this.PMaximizar, BunifuAnimatorNS.DecorationType.None);
+            this.PMaximizar.Image = global::DSMarket.Solucion.Properties.Resources.Maximize_Window_2_48px;
+            this.PMaximizar.Location = new System.Drawing.Point(1326, 29);
+            this.PMaximizar.Name = "PMaximizar";
+            this.PMaximizar.Size = new System.Drawing.Size(30, 30);
+            this.PMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PMaximizar.TabIndex = 2;
+            this.PMaximizar.TabStop = false;
+            this.toolTip1.SetToolTip(this.PMaximizar, "Maximizar");
+            this.PMaximizar.Click += new System.EventHandler(this.PMaximizar_Click);
             // 
-            // lbLogoCorto
+            // PCerrar
             // 
-            this.lbLogoCorto.BackColor = System.Drawing.Color.Transparent;
-            this.EfectoIda.SetDecoration(this.lbLogoCorto, BunifuAnimatorNS.DecorationType.None);
-            this.lbLogoCorto.Image = global::DSMarket.Solucion.Properties.Resources.Iniciales;
-            this.lbLogoCorto.Location = new System.Drawing.Point(3, 3);
-            this.lbLogoCorto.Name = "lbLogoCorto";
-            this.lbLogoCorto.Size = new System.Drawing.Size(60, 44);
-            this.lbLogoCorto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.lbLogoCorto.TabIndex = 15;
-            this.lbLogoCorto.TabStop = false;
-            this.lbLogoCorto.Visible = false;
+            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EfectoIda.SetDecoration(this.PCerrar, BunifuAnimatorNS.DecorationType.None);
+            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
+            this.PCerrar.Location = new System.Drawing.Point(1358, 29);
+            this.PCerrar.Name = "PCerrar";
+            this.PCerrar.Size = new System.Drawing.Size(30, 30);
+            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PCerrar.TabIndex = 1;
+            this.PCerrar.TabStop = false;
+            this.toolTip1.SetToolTip(this.PCerrar, "Salir del Sistema");
+            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EfectoIda.SetDecoration(this.pictureBox1, BunifuAnimatorNS.DecorationType.None);
+            this.pictureBox1.Image = global::DSMarket.Solucion.Properties.Resources.Menu_48px;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 26);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // PanelMenu
+            // 
+            this.PanelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.PanelMenu.Controls.Add(this.PanelOpciones);
+            this.EfectoIda.SetDecoration(this.PanelMenu, BunifuAnimatorNS.DecorationType.None);
+            this.PanelMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PanelMenu.Location = new System.Drawing.Point(0, 80);
+            this.PanelMenu.Name = "PanelMenu";
+            this.PanelMenu.Size = new System.Drawing.Size(300, 820);
+            this.PanelMenu.TabIndex = 1;
             // 
             // PanelOpciones
             // 
@@ -169,6 +211,19 @@
             this.PanelOpciones.Quality = 10;
             this.PanelOpciones.Size = new System.Drawing.Size(270, 793);
             this.PanelOpciones.TabIndex = 0;
+            // 
+            // lbLogoCorto
+            // 
+            this.lbLogoCorto.BackColor = System.Drawing.Color.Transparent;
+            this.EfectoIda.SetDecoration(this.lbLogoCorto, BunifuAnimatorNS.DecorationType.None);
+            this.lbLogoCorto.Image = global::DSMarket.Solucion.Properties.Resources.Iniciales;
+            this.lbLogoCorto.Location = new System.Drawing.Point(3, 3);
+            this.lbLogoCorto.Name = "lbLogoCorto";
+            this.lbLogoCorto.Size = new System.Drawing.Size(60, 44);
+            this.lbLogoCorto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.lbLogoCorto.TabIndex = 15;
+            this.lbLogoCorto.TabStop = false;
+            this.lbLogoCorto.Visible = false;
             // 
             // btnSuplidores
             // 
@@ -205,6 +260,7 @@
             this.btnSuplidores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSuplidores.Textcolor = System.Drawing.Color.White;
             this.btnSuplidores.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSuplidores.Click += new System.EventHandler(this.btnSuplidores_Click);
             // 
             // btnNomina
             // 
@@ -241,6 +297,7 @@
             this.btnNomina.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNomina.Textcolor = System.Drawing.Color.White;
             this.btnNomina.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNomina.Click += new System.EventHandler(this.btnNomina_Click);
             // 
             // btnClientes
             // 
@@ -277,6 +334,7 @@
             this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClientes.Textcolor = System.Drawing.Color.White;
             this.btnClientes.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
             // btnCerrarSesion
             // 
@@ -313,6 +371,7 @@
             this.btnCerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCerrarSesion.Textcolor = System.Drawing.Color.White;
             this.btnCerrarSesion.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
             // btnSeguridad
             // 
@@ -349,6 +408,7 @@
             this.btnSeguridad.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSeguridad.Textcolor = System.Drawing.Color.White;
             this.btnSeguridad.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeguridad.Click += new System.EventHandler(this.btnSeguridad_Click);
             // 
             // btnConfiguracion
             // 
@@ -385,6 +445,7 @@
             this.btnConfiguracion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConfiguracion.Textcolor = System.Drawing.Color.White;
             this.btnConfiguracion.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfiguracion.Click += new System.EventHandler(this.btnConfiguracion_Click);
             // 
             // btnCaja
             // 
@@ -421,6 +482,7 @@
             this.btnCaja.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCaja.Textcolor = System.Drawing.Color.White;
             this.btnCaja.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCaja.Click += new System.EventHandler(this.btnCaja_Click);
             // 
             // btnInventario
             // 
@@ -521,78 +583,24 @@
             this.pbLogolargo.TabIndex = 5;
             this.pbLogolargo.TabStop = false;
             // 
-            // PRestaurar
+            // PanelCuerpo
             // 
-            this.PRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EfectoIda.SetDecoration(this.PRestaurar, BunifuAnimatorNS.DecorationType.None);
-            this.PRestaurar.Image = global::DSMarket.Solucion.Properties.Resources.Restore_Window_2_48px;
-            this.PRestaurar.Location = new System.Drawing.Point(1326, 29);
-            this.PRestaurar.Name = "PRestaurar";
-            this.PRestaurar.Size = new System.Drawing.Size(30, 30);
-            this.PRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PRestaurar.TabIndex = 4;
-            this.PRestaurar.TabStop = false;
-            this.toolTip1.SetToolTip(this.PRestaurar, "Restaurar");
-            this.PRestaurar.Visible = false;
-            this.PRestaurar.Click += new System.EventHandler(this.PRestaurar_Click);
+            this.EfectoIda.SetDecoration(this.PanelCuerpo, BunifuAnimatorNS.DecorationType.None);
+            this.PanelCuerpo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelCuerpo.Location = new System.Drawing.Point(300, 80);
+            this.PanelCuerpo.Name = "PanelCuerpo";
+            this.PanelCuerpo.Size = new System.Drawing.Size(1100, 820);
+            this.PanelCuerpo.TabIndex = 1;
             // 
-            // PMinimizar
+            // Curva
             // 
-            this.PMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EfectoIda.SetDecoration(this.PMinimizar, BunifuAnimatorNS.DecorationType.None);
-            this.PMinimizar.Image = global::DSMarket.Solucion.Properties.Resources.Minimize_Window_2_48px;
-            this.PMinimizar.Location = new System.Drawing.Point(1294, 29);
-            this.PMinimizar.Name = "PMinimizar";
-            this.PMinimizar.Size = new System.Drawing.Size(30, 30);
-            this.PMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PMinimizar.TabIndex = 3;
-            this.PMinimizar.TabStop = false;
-            this.toolTip1.SetToolTip(this.PMinimizar, "Minimizar");
-            this.PMinimizar.Click += new System.EventHandler(this.PMinimizar_Click);
+            this.Curva.ElipseRadius = 10;
+            this.Curva.TargetControl = this.PanelOpciones;
             // 
-            // PMaximizar
+            // CurvaForms
             // 
-            this.PMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EfectoIda.SetDecoration(this.PMaximizar, BunifuAnimatorNS.DecorationType.None);
-            this.PMaximizar.Image = global::DSMarket.Solucion.Properties.Resources.Maximize_Window_2_48px;
-            this.PMaximizar.Location = new System.Drawing.Point(1326, 29);
-            this.PMaximizar.Name = "PMaximizar";
-            this.PMaximizar.Size = new System.Drawing.Size(30, 30);
-            this.PMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PMaximizar.TabIndex = 2;
-            this.PMaximizar.TabStop = false;
-            this.toolTip1.SetToolTip(this.PMaximizar, "Maximizar");
-            this.PMaximizar.Click += new System.EventHandler(this.PMaximizar_Click);
-            // 
-            // PCerrar
-            // 
-            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EfectoIda.SetDecoration(this.PCerrar, BunifuAnimatorNS.DecorationType.None);
-            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(1358, 29);
-            this.PCerrar.Name = "PCerrar";
-            this.PCerrar.Size = new System.Drawing.Size(30, 30);
-            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PCerrar.TabIndex = 1;
-            this.PCerrar.TabStop = false;
-            this.toolTip1.SetToolTip(this.PCerrar, "Salir del Sistema");
-            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
-            // 
-            // pictureBox1
-            // 
-            this.EfectoIda.SetDecoration(this.pictureBox1, BunifuAnimatorNS.DecorationType.None);
-            this.pictureBox1.Image = global::DSMarket.Solucion.Properties.Resources.Menu_48px;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 26);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.CurvaForms.ElipseRadius = 20;
+            this.CurvaForms.TargetControl = this;
             // 
             // EfectoIda
             // 
@@ -631,15 +639,15 @@
             this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             this.PanelTop.ResumeLayout(false);
             this.PanelTop.PerformLayout();
-            this.PanelMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lbLogoCorto)).EndInit();
-            this.PanelOpciones.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogolargo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PRestaurar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PMaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.PanelMenu.ResumeLayout(false);
+            this.PanelOpciones.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lbLogoCorto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogolargo)).EndInit();
             this.ResumeLayout(false);
 
         }

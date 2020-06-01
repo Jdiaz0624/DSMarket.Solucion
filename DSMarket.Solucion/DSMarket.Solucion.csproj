@@ -157,19 +157,70 @@
     <Compile Include="Pantallas\Pantallas\Seguridad\NivelAcceso.Designer.cs">
       <DependentUpon>NivelAcceso.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\SubMenus\Caja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\SubMenus\Caja.Designer.cs">
+      <DependentUpon>Caja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\SubMenus\Clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\SubMenus\Clientes.Designer.cs">
+      <DependentUpon>Clientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\SubMenus\Configuracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\SubMenus\Configuracion.Designer.cs">
+      <DependentUpon>Configuracion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\SubMenus\Inventario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pantallas\SubMenus\Inventario.Designer.cs">
       <DependentUpon>Inventario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\SubMenus\Nomina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\SubMenus\Nomina.Designer.cs">
+      <DependentUpon>Nomina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\SubMenus\Seguridad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\SubMenus\Seguridad.Designer.cs">
+      <DependentUpon>Seguridad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\SubMenus\Servicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\SubMenus\Servicio.Designer.cs">
+      <DependentUpon>Servicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\SubMenus\Suplidores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\SubMenus\Suplidores.Designer.cs">
+      <DependentUpon>Suplidores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Pantallas\MenuPrincipal\MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Seguridad\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\SubMenus\Caja.resx">
+      <DependentUpon>Caja.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\SubMenus\Inventario.resx">
       <DependentUpon>Inventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\SubMenus\Servicio.resx">
+      <DependentUpon>Servicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -35,7 +35,8 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
         #endregion
         private void PCerrar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Quieres salir del Sistema?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+            if (MessageBox.Show("¿Quieres salir del sistema?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Application.Exit();
             }
@@ -43,7 +44,10 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
 
         private void PMinimizar_Click(object sender, EventArgs e)
         {
-            WindowState = FormWindowState.Minimized;
+            try {
+                this.WindowState = FormWindowState.Minimized;
+            }
+            catch (Exception) { }
         }
 
         private void PMaximizar_Click(object sender, EventArgs e)
@@ -92,13 +96,50 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
 
         private void btnServicio_Click(object sender, EventArgs e)
         {
-           
+            AbrirPantallasEnPanel(new DSMarket.Solucion.Pantallas.SubMenus.Servicio());
         }
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
            // IdUsuario = Convert.ToDecimal(lbiDUSUARIO.Text);
             AbrirPantallasEnPanel(new DSMarket.Solucion.Pantallas.SubMenus.Inventario());
+        }
+
+        private void btnCaja_Click(object sender, EventArgs e)
+        {
+            AbrirPantallasEnPanel(new DSMarket.Solucion.Pantallas.SubMenus.Caja());
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNomina_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSuplidores_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnConfiguracion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSeguridad_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Quieres cerrar sesión?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+                Application.Restart();
+            }
         }
     }
 }

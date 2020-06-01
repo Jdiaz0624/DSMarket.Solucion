@@ -10,16 +10,17 @@ using System.Windows.Forms;
 
 namespace DSMarket.Solucion.Pantallas.SubMenus
 {
-    public partial class Inventario : Form
+    public partial class Servicio : Form
     {
-        public Inventario()
+        public Servicio()
         {
             InitializeComponent();
         }
 
-        private void Inventario_Load(object sender, EventArgs e)
+        private void Servicio_Load(object sender, EventArgs e)
         {
-            lbTitulo.Text = "MANTENIMIENTO DE INVENTARIO";
+            lbTitulo.Text = "MENU - SERVICIO";
+            lbTitulo.ForeColor = Color.White;
         }
     }
 }

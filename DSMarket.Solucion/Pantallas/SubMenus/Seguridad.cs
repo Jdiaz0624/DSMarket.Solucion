@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace DSMarket.Solucion.Pantallas.SubMenus
 {
-    public partial class Inventario : Form
+    public partial class Seguridad : Form
     {
-        public Inventario()
+        public Seguridad()
         {
             InitializeComponent();
-        }
-
-        private void Inventario_Load(object sender, EventArgs e)
-        {
-            lbTitulo.Text = "MANTENIMIENTO DE INVENTARIO";
         }
     }
 }
