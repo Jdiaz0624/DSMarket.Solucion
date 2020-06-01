@@ -46,17 +46,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Pantallas\MenuPrincipal\MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Pantallas\MenuPrincipal\MenuPrincipal.Designer.cs">
+      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Seguridad\ClaveSeguridad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Seguridad\ClaveSeguridad.Designer.cs">
+      <DependentUpon>ClaveSeguridad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Seguridad\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Seguridad\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Seguridad\NivelAcceso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Seguridad\NivelAcceso.Designer.cs">
+      <DependentUpon>NivelAcceso.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -78,6 +93,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DSMarket.Data\DSMarket.Data.csproj">
+      <Project>{108368a3-9afa-48ce-ae5b-caef1082fe93}</Project>
+      <Name>DSMarket.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DSMarket.Logica\DSMarket.Logica.csproj">
+      <Project>{2fbe4d3c-9f8f-4ec5-936e-c45cc436b717}</Project>
+      <Name>DSMarket.Logica</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pantallas\Pantallas\Caja\" />
+    <Folder Include="Pantallas\Pantallas\Configuracion\" />
+    <Folder Include="Pantallas\Pantallas\CXC\" />
+    <Folder Include="Pantallas\Pantallas\CXP\" />
+    <Folder Include="Pantallas\Pantallas\Empresa\" />
+    <Folder Include="Pantallas\Pantallas\Inventario\" />
+    <Folder Include="Pantallas\SubMenus\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
