@@ -125,7 +125,7 @@
             // 
             // btnServicio
             // 
-            this.btnServicio.Active = false;
+          //  this.btnServicio.Active = false;
             this.btnServicio.Activecolor = System.Drawing.Color.Transparent;
             this.btnServicio.BackColor = System.Drawing.Color.Transparent;
             this.btnServicio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;

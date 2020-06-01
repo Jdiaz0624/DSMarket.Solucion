@@ -227,7 +227,7 @@
             // 
             // btnSuplidores
             // 
-            this.btnSuplidores.Active = false;
+         //   this.btnSuplidores.Active = false;
             this.btnSuplidores.Activecolor = System.Drawing.Color.Transparent;
             this.btnSuplidores.BackColor = System.Drawing.Color.Transparent;
             this.btnSuplidores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -264,7 +264,7 @@
             // 
             // btnNomina
             // 
-            this.btnNomina.Active = false;
+         //   this.btnNomina.Active = false;
             this.btnNomina.Activecolor = System.Drawing.Color.Transparent;
             this.btnNomina.BackColor = System.Drawing.Color.Transparent;
             this.btnNomina.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -301,7 +301,7 @@
             // 
             // btnClientes
             // 
-            this.btnClientes.Active = false;
+          //  this.btnClientes.Active = false;
             this.btnClientes.Activecolor = System.Drawing.Color.Transparent;
             this.btnClientes.BackColor = System.Drawing.Color.Transparent;
             this.btnClientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -338,7 +338,7 @@
             // 
             // btnCerrarSesion
             // 
-            this.btnCerrarSesion.Active = false;
+       //     this.btnCerrarSesion.Active = false;
             this.btnCerrarSesion.Activecolor = System.Drawing.Color.Transparent;
             this.btnCerrarSesion.BackColor = System.Drawing.Color.Transparent;
             this.btnCerrarSesion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -375,7 +375,7 @@
             // 
             // btnSeguridad
             // 
-            this.btnSeguridad.Active = false;
+        //    this.btnSeguridad.Active = false;
             this.btnSeguridad.Activecolor = System.Drawing.Color.Transparent;
             this.btnSeguridad.BackColor = System.Drawing.Color.Transparent;
             this.btnSeguridad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -412,7 +412,7 @@
             // 
             // btnConfiguracion
             // 
-            this.btnConfiguracion.Active = false;
+       //     this.btnConfiguracion.Active = false;
             this.btnConfiguracion.Activecolor = System.Drawing.Color.Transparent;
             this.btnConfiguracion.BackColor = System.Drawing.Color.Transparent;
             this.btnConfiguracion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -449,7 +449,7 @@
             // 
             // btnCaja
             // 
-            this.btnCaja.Active = false;
+         //   this.btnCaja.Active = false;
             this.btnCaja.Activecolor = System.Drawing.Color.Transparent;
             this.btnCaja.BackColor = System.Drawing.Color.Transparent;
             this.btnCaja.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -486,7 +486,7 @@
             // 
             // btnInventario
             // 
-            this.btnInventario.Active = false;
+         //   this.btnInventario.Active = false;
             this.btnInventario.Activecolor = System.Drawing.Color.Transparent;
             this.btnInventario.BackColor = System.Drawing.Color.Transparent;
             this.btnInventario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -523,7 +523,7 @@
             // 
             // btnServicio
             // 
-            this.btnServicio.Active = false;
+         //   this.btnServicio.Active = false;
             this.btnServicio.Activecolor = System.Drawing.Color.Transparent;
             this.btnServicio.BackColor = System.Drawing.Color.Transparent;
             this.btnServicio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
