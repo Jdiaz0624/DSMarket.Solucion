@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
-            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
             this.PanelTop = new System.Windows.Forms.Panel();
             this.PRestaurar = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -227,7 +227,6 @@
             // 
             // btnSuplidores
             // 
-         //   this.btnSuplidores.Active = false;
             this.btnSuplidores.Activecolor = System.Drawing.Color.Transparent;
             this.btnSuplidores.BackColor = System.Drawing.Color.Transparent;
             this.btnSuplidores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -264,7 +263,6 @@
             // 
             // btnNomina
             // 
-         //   this.btnNomina.Active = false;
             this.btnNomina.Activecolor = System.Drawing.Color.Transparent;
             this.btnNomina.BackColor = System.Drawing.Color.Transparent;
             this.btnNomina.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -301,7 +299,6 @@
             // 
             // btnClientes
             // 
-          //  this.btnClientes.Active = false;
             this.btnClientes.Activecolor = System.Drawing.Color.Transparent;
             this.btnClientes.BackColor = System.Drawing.Color.Transparent;
             this.btnClientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -338,7 +335,6 @@
             // 
             // btnCerrarSesion
             // 
-       //     this.btnCerrarSesion.Active = false;
             this.btnCerrarSesion.Activecolor = System.Drawing.Color.Transparent;
             this.btnCerrarSesion.BackColor = System.Drawing.Color.Transparent;
             this.btnCerrarSesion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -375,7 +371,6 @@
             // 
             // btnSeguridad
             // 
-        //    this.btnSeguridad.Active = false;
             this.btnSeguridad.Activecolor = System.Drawing.Color.Transparent;
             this.btnSeguridad.BackColor = System.Drawing.Color.Transparent;
             this.btnSeguridad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -412,7 +407,6 @@
             // 
             // btnConfiguracion
             // 
-       //     this.btnConfiguracion.Active = false;
             this.btnConfiguracion.Activecolor = System.Drawing.Color.Transparent;
             this.btnConfiguracion.BackColor = System.Drawing.Color.Transparent;
             this.btnConfiguracion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -449,7 +443,6 @@
             // 
             // btnCaja
             // 
-         //   this.btnCaja.Active = false;
             this.btnCaja.Activecolor = System.Drawing.Color.Transparent;
             this.btnCaja.BackColor = System.Drawing.Color.Transparent;
             this.btnCaja.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -486,7 +479,6 @@
             // 
             // btnInventario
             // 
-         //   this.btnInventario.Active = false;
             this.btnInventario.Activecolor = System.Drawing.Color.Transparent;
             this.btnInventario.BackColor = System.Drawing.Color.Transparent;
             this.btnInventario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -523,7 +515,6 @@
             // 
             // btnServicio
             // 
-         //   this.btnServicio.Active = false;
             this.btnServicio.Activecolor = System.Drawing.Color.Transparent;
             this.btnServicio.BackColor = System.Drawing.Color.Transparent;
             this.btnServicio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -606,22 +597,22 @@
             // 
             this.EfectoIda.AnimationType = BunifuAnimatorNS.AnimationType.Mosaic;
             this.EfectoIda.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 20;
-            animation2.Padding = new System.Windows.Forms.Padding(30);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 0F;
-            animation2.TransparencyCoeff = 0F;
-            this.EfectoIda.DefaultAnimation = animation2;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 20;
+            animation1.Padding = new System.Windows.Forms.Padding(30);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 0F;
+            animation1.TransparencyCoeff = 0F;
+            this.EfectoIda.DefaultAnimation = animation1;
             // 
             // MenuPrincipal
             // 

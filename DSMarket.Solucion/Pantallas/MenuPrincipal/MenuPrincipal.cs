@@ -67,6 +67,14 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
+            btnServicio.Visible = false;
+            btnInventario.Visible = false;
+            btnCaja.Visible = false;
+            btnClientes.Visible = false;
+            btnNomina.Visible = false;
+            btnSuplidores.Visible = false;
+            btnConfiguracion.Visible = false;
+            btnSeguridad.Visible = false;
             btnCerrarSesion.Visible = false;
         }
 
