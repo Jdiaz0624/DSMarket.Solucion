@@ -16,5 +16,11 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         {
             InitializeComponent();
         }
+
+        private void Configuracion_Load(object sender, EventArgs e)
+        {
+            lbTitulo.Text = "CONFIGURACION DEL SISTEMA";
+            lbTitulo.ForeColor = Color.White;
+        }
     }
 }

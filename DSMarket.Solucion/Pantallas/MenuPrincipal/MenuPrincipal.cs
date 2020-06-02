@@ -68,14 +68,23 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
             btnServicio.Visible = false;
+            EfectoBotones.Show(btnServicio);
             btnInventario.Visible = false;
+            EfectoBotones.Show(btnInventario);
             btnCaja.Visible = false;
+            EfectoBotones.Show(btnCaja);
             btnClientes.Visible = false;
+            EfectoBotones.Show(btnClientes);
             btnNomina.Visible = false;
-            btnSuplidores.Visible = false;
+            EfectoBotones.Show(btnNomina);
             btnConfiguracion.Visible = false;
+            EfectoBotones.Show(btnConfiguracion);
+            btnConfiguracion.Visible = false;
+            EfectoBotones.Show(btnConfiguracion);
             btnSeguridad.Visible = false;
+            EfectoBotones.Show(btnSeguridad);
             btnCerrarSesion.Visible = false;
+            EfectoBotones.Show(btnCerrarSesion);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -102,50 +111,49 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
             }
         }
 
-        private void btnServicio_Click(object sender, EventArgs e)
+
+
+
+        private void btnServicio_Click_1(object sender, EventArgs e)
         {
             AbrirPantallasEnPanel(new DSMarket.Solucion.Pantallas.SubMenus.Servicio());
         }
 
-        private void btnInventario_Click(object sender, EventArgs e)
+        private void btnInventario_Click_1(object sender, EventArgs e)
         {
-           // IdUsuario = Convert.ToDecimal(lbiDUSUARIO.Text);
+            // IdUsuario = Convert.ToDecimal(lbiDUSUARIO.Text);
             AbrirPantallasEnPanel(new DSMarket.Solucion.Pantallas.SubMenus.Inventario());
         }
 
-        private void btnCaja_Click(object sender, EventArgs e)
+        private void btnCaja_Click_1(object sender, EventArgs e)
         {
             AbrirPantallasEnPanel(new DSMarket.Solucion.Pantallas.SubMenus.Caja());
         }
 
-        private void btnClientes_Click(object sender, EventArgs e)
+        private void btnClientes_Click_1(object sender, EventArgs e)
         {
 
         }
 
-        private void btnNomina_Click(object sender, EventArgs e)
+        private void btnNomina_Click_1(object sender, EventArgs e)
         {
 
         }
 
-        private void btnSuplidores_Click(object sender, EventArgs e)
+        private void btnConfiguracion_Click_1(object sender, EventArgs e)
         {
 
         }
 
-        private void btnConfiguracion_Click(object sender, EventArgs e)
+        private void btnSeguridad_Click_1(object sender, EventArgs e)
         {
-
+            AbrirPantallasEnPanel(new DSMarket.Solucion.Pantallas.SubMenus.Seguridad());
         }
 
-        private void btnSeguridad_Click(object sender, EventArgs e)
+        private void btnCerrarSesion_Click_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnCerrarSesion_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("¿Quieres cerrar sesión?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+            if (MessageBox.Show("¿Quieres cerrar sesión?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
                 Application.Restart();
             }
         }

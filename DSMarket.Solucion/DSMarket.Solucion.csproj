@@ -132,8 +132,14 @@
     <EmbeddedResource Include="Pantallas\SubMenus\Caja.resx">
       <DependentUpon>Caja.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\SubMenus\Configuracion.resx">
+      <DependentUpon>Configuracion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\SubMenus\Inventario.resx">
       <DependentUpon>Inventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\SubMenus\Seguridad.resx">
+      <DependentUpon>Seguridad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\SubMenus\Servicio.resx">
       <DependentUpon>Servicio.cs</DependentUpon>
@@ -199,6 +205,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Iniciales.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ventas_48px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
