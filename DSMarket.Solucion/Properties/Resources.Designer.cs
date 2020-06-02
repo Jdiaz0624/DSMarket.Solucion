@@ -63,6 +63,26 @@ namespace DSMarket.Solucion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cambiar_tamano_de_imagen_png_7 {
+            get {
+                object obj = ResourceManager.GetObject("cambiar-tamano-de-imagen-png-7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cambiar_tamano_de_imagen_png_71 {
+            get {
+                object obj = ResourceManager.GetObject("cambiar-tamano-de-imagen-png-71", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Close_Window__2_48px {
             get {
                 object obj = ResourceManager.GetObject("Close Window_ 2 48px", resourceCulture);
@@ -73,9 +93,39 @@ namespace DSMarket.Solucion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Combo_Chart_64px {
+            get {
+                object obj = ResourceManager.GetObject("Combo Chart_64px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CONFIGURACION {
+            get {
+                object obj = ResourceManager.GetObject("CONFIGURACION", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DeveSoft {
             get {
                 object obj = ResourceManager.GetObject("DeveSoft", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Ganancias_48px {
+            get {
+                object obj = ResourceManager.GetObject("Ganancias_48px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +173,39 @@ namespace DSMarket.Solucion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Producto_48px {
+            get {
+                object obj = ResourceManager.GetObject("Producto_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Restore_Window_2_48px {
             get {
                 object obj = ResourceManager.GetObject("Restore Window 2_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap seguridad {
+            get {
+                object obj = ResourceManager.GetObject("seguridad", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap User_Groups_48px {
+            get {
+                object obj = ResourceManager.GetObject("User Groups_48px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

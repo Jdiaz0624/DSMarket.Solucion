@@ -22,5 +22,10 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
             lbTitulo.Text = "CONFIGURACION DEL SISTEMA";
             lbTitulo.ForeColor = Color.White;
         }
+
+        private void PCerrar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

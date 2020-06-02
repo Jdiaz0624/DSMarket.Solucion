@@ -16,5 +16,16 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         {
             InitializeComponent();
         }
+
+        private void PCerrar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void Nomina_Load(object sender, EventArgs e)
+        {
+            lbTitulo.Text = "MODULO DE EMPRESA";
+            lbTitulo.ForeColor = Color.White;
+        }
     }
 }

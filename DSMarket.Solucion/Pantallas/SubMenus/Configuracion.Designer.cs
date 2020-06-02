@@ -35,21 +35,21 @@
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnInformacionEmpresa = new System.Windows.Forms.Button();
             this.btnComprobantes = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
+            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.gbOpciones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.PCerrar);
             this.panel1.Controls.Add(this.lbTitulo);
-            this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1200, 44);
+            this.panel1.Size = new System.Drawing.Size(771, 44);
             this.panel1.TabIndex = 18;
             // 
             // lbTitulo
@@ -120,21 +120,25 @@
             this.btnComprobantes.Text = "Comprobantes";
             this.btnComprobantes.UseVisualStyleBackColor = true;
             // 
-            // btnCerrar
+            // PCerrar
             // 
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Location = new System.Drawing.Point(731, 10);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(29, 26);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnCerrar.TabIndex = 15;
-            this.btnCerrar.TabStop = false;
+            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PCerrar.BackColor = System.Drawing.Color.Transparent;
+            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
+            this.PCerrar.Location = new System.Drawing.Point(730, 10);
+            this.PCerrar.Name = "PCerrar";
+            this.PCerrar.Size = new System.Drawing.Size(30, 30);
+            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PCerrar.TabIndex = 19;
+            this.PCerrar.TabStop = false;
+            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
             // 
             // Configuracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(771, 187);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gbOpciones);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -148,7 +152,7 @@
             this.panel1.PerformLayout();
             this.gbOpciones.ResumeLayout(false);
             this.gbOpciones.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -157,11 +161,11 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbTitulo;
-        private System.Windows.Forms.PictureBox btnCerrar;
         public System.Windows.Forms.GroupBox gbOpciones;
         private System.Windows.Forms.Label lbUsuario;
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Button btnInformacionEmpresa;
         private System.Windows.Forms.Button btnComprobantes;
+        private System.Windows.Forms.PictureBox PCerrar;
     }
 }

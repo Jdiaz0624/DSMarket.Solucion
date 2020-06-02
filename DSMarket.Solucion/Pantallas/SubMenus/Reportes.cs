@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace DSMarket.Solucion.Pantallas.SubMenus
 {
-    public partial class Servicio : Form
+    public partial class Reportes : Form
     {
-        public Servicio()
+        public Reportes()
         {
             InitializeComponent();
         }
 
-        private void Servicio_Load(object sender, EventArgs e)
+        private void Reportes_Load(object sender, EventArgs e)
         {
-            lbTitulo.Text = "MENU - SERVICIO";
+            lbTitulo.Text = "MODULO DE REPORTES";
             lbTitulo.ForeColor = Color.White;
         }
 

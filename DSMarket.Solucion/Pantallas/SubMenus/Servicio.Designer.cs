@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.gbOpciones = new System.Windows.Forms.GroupBox();
             this.lbUsuario = new System.Windows.Forms.Label();
@@ -36,10 +37,9 @@
             this.btnCotizacion = new System.Windows.Forms.Button();
             this.btnFinanciamiento = new System.Windows.Forms.Button();
             this.btnFacturacion = new System.Windows.Forms.Button();
-            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            this.gbOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
+            this.gbOpciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -52,6 +52,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(742, 38);
             this.panel1.TabIndex = 17;
+            // 
+            // PCerrar
+            // 
+            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
+            this.PCerrar.Location = new System.Drawing.Point(704, 5);
+            this.PCerrar.Name = "PCerrar";
+            this.PCerrar.Size = new System.Drawing.Size(30, 30);
+            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PCerrar.TabIndex = 18;
+            this.PCerrar.TabStop = false;
+            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
             // 
             // lbTitulo
             // 
@@ -135,18 +148,6 @@
             this.btnFacturacion.Text = "Facturacion";
             this.btnFacturacion.UseVisualStyleBackColor = true;
             // 
-            // PCerrar
-            // 
-            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(704, 5);
-            this.PCerrar.Name = "PCerrar";
-            this.PCerrar.Size = new System.Drawing.Size(30, 30);
-            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PCerrar.TabIndex = 18;
-            this.PCerrar.TabStop = false;
-            // 
             // Servicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -162,9 +163,9 @@
             this.Load += new System.EventHandler(this.Servicio_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.gbOpciones.ResumeLayout(false);
             this.gbOpciones.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.ResumeLayout(false);
 
         }

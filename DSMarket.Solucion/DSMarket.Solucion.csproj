@@ -103,6 +103,12 @@
     <Compile Include="Pantallas\SubMenus\Nomina.Designer.cs">
       <DependentUpon>Nomina.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\SubMenus\Reportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\SubMenus\Reportes.Designer.cs">
+      <DependentUpon>Reportes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\SubMenus\Seguridad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\SubMenus\Inventario.resx">
       <DependentUpon>Inventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\SubMenus\Nomina.resx">
+      <DependentUpon>Nomina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\SubMenus\Reportes.resx">
+      <DependentUpon>Reportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\SubMenus\Seguridad.resx">
       <DependentUpon>Seguridad.cs</DependentUpon>
@@ -208,6 +220,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Ventas_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Producto_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ganancias_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User Groups_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Combo Chart_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CONFIGURACION.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\seguridad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cambiar-tamano-de-imagen-png-7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cambiar-tamano-de-imagen-png-71.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

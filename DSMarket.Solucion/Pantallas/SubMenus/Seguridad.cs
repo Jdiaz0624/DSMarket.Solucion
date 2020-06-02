@@ -16,5 +16,10 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         {
             InitializeComponent();
         }
+
+        private void PCerrar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

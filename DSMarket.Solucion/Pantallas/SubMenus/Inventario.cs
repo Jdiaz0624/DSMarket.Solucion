@@ -21,5 +21,10 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         {
             lbTitulo.Text = "MANTENIMIENTO DE INVENTARIO";
         }
+
+        private void PCerrar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

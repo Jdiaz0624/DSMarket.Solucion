@@ -36,14 +36,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.PanelMenu = new System.Windows.Forms.Panel();
             this.PanelCuerpo = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.Curva = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.CurvaForms = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.EfectoIda = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.EfectoBotones = new BunifuAnimatorNS.BunifuTransition(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnServicio = new System.Windows.Forms.Button();
             this.PanelOpciones = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.lbLogoCorto = new System.Windows.Forms.PictureBox();
             this.Separador = new Bunifu.Framework.UI.BunifuSeparator();
@@ -53,13 +52,14 @@
             this.PMaximizar = new System.Windows.Forms.PictureBox();
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnInventario = new System.Windows.Forms.Button();
-            this.btnCaja = new System.Windows.Forms.Button();
-            this.btnClientes = new System.Windows.Forms.Button();
-            this.btnNomina = new System.Windows.Forms.Button();
-            this.btnCerrarSesion = new System.Windows.Forms.Button();
-            this.btnSeguridad = new System.Windows.Forms.Button();
-            this.btnConfiguracion = new System.Windows.Forms.Button();
+            this.btnServicio = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnInventario = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnCaja = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btneEmpresa = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnReportes = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnConfiguracion = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnSeguridad = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnCerrarSesion = new Bunifu.Framework.UI.BunifuFlatButton();
             this.PanelTop.SuspendLayout();
             this.PanelMenu.SuspendLayout();
             this.PanelCuerpo.SuspendLayout();
@@ -128,6 +128,34 @@
             this.PanelCuerpo.Size = new System.Drawing.Size(1100, 820);
             this.PanelCuerpo.TabIndex = 1;
             // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label3.AutoSize = true;
+            this.EfectoIda.SetDecoration(this.label3, BunifuAnimatorNS.DecorationType.None);
+            this.EfectoBotones.SetDecoration(this.label3, BunifuAnimatorNS.DecorationType.None);
+            this.label3.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(429, 789);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(167, 25);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Nivel de Acceso";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.EfectoIda.SetDecoration(this.label2, BunifuAnimatorNS.DecorationType.None);
+            this.EfectoBotones.SetDecoration(this.label2, BunifuAnimatorNS.DecorationType.None);
+            this.label2.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(6, 789);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(194, 25);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Usuario Conectado";
+            // 
             // Curva
             // 
             this.Curva.ElipseRadius = 10;
@@ -180,71 +208,23 @@
             animation4.TransparencyCoeff = 0F;
             this.EfectoBotones.DefaultAnimation = animation4;
             // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.AutoSize = true;
-            this.EfectoIda.SetDecoration(this.label2, BunifuAnimatorNS.DecorationType.None);
-            this.EfectoBotones.SetDecoration(this.label2, BunifuAnimatorNS.DecorationType.None);
-            this.label2.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(6, 789);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(194, 25);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Usuario Conectado";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label3.AutoSize = true;
-            this.EfectoIda.SetDecoration(this.label3, BunifuAnimatorNS.DecorationType.None);
-            this.EfectoBotones.SetDecoration(this.label3, BunifuAnimatorNS.DecorationType.None);
-            this.label3.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(429, 789);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(167, 25);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Nivel de Acceso";
-            // 
-            // btnServicio
-            // 
-            this.btnServicio.BackColor = System.Drawing.Color.Transparent;
-            this.btnServicio.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EfectoIda.SetDecoration(this.btnServicio, BunifuAnimatorNS.DecorationType.None);
-            this.EfectoBotones.SetDecoration(this.btnServicio, BunifuAnimatorNS.DecorationType.None);
-            this.btnServicio.FlatAppearance.BorderSize = 0;
-            this.btnServicio.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnServicio.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnServicio.ForeColor = System.Drawing.Color.White;
-            this.btnServicio.Image = global::DSMarket.Solucion.Properties.Resources.Ventas_48px;
-            this.btnServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnServicio.Location = new System.Drawing.Point(12, 83);
-            this.btnServicio.Name = "btnServicio";
-            this.btnServicio.Size = new System.Drawing.Size(241, 48);
-            this.btnServicio.TabIndex = 7;
-            this.btnServicio.Text = "      SERVICIO";
-            this.btnServicio.UseVisualStyleBackColor = false;
-            this.btnServicio.Click += new System.EventHandler(this.btnServicio_Click_1);
-            // 
             // PanelOpciones
             // 
             this.PanelOpciones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.PanelOpciones.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelOpciones.BackgroundImage")));
             this.PanelOpciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PanelOpciones.Controls.Add(this.btnCerrarSesion);
             this.PanelOpciones.Controls.Add(this.btnSeguridad);
+            this.PanelOpciones.Controls.Add(this.btnCerrarSesion);
             this.PanelOpciones.Controls.Add(this.btnConfiguracion);
-            this.PanelOpciones.Controls.Add(this.btnNomina);
-            this.PanelOpciones.Controls.Add(this.btnClientes);
-            this.PanelOpciones.Controls.Add(this.btnCaja);
-            this.PanelOpciones.Controls.Add(this.btnInventario);
-            this.PanelOpciones.Controls.Add(this.btnServicio);
             this.PanelOpciones.Controls.Add(this.lbLogoCorto);
+            this.PanelOpciones.Controls.Add(this.btnReportes);
             this.PanelOpciones.Controls.Add(this.Separador);
+            this.PanelOpciones.Controls.Add(this.btneEmpresa);
             this.PanelOpciones.Controls.Add(this.pbLogolargo);
+            this.PanelOpciones.Controls.Add(this.btnCaja);
+            this.PanelOpciones.Controls.Add(this.btnServicio);
+            this.PanelOpciones.Controls.Add(this.btnInventario);
             this.EfectoBotones.SetDecoration(this.PanelOpciones, BunifuAnimatorNS.DecorationType.None);
             this.EfectoIda.SetDecoration(this.PanelOpciones, BunifuAnimatorNS.DecorationType.None);
             this.PanelOpciones.GradientBottomLeft = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(21)))), ((int)(((byte)(80)))));
@@ -377,145 +357,301 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // btnServicio
+            // 
+            this.btnServicio.Activecolor = System.Drawing.Color.Transparent;
+            this.btnServicio.BackColor = System.Drawing.Color.Transparent;
+            this.btnServicio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnServicio.BorderRadius = 0;
+            this.btnServicio.ButtonText = "      SERVICIO";
+            this.btnServicio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EfectoIda.SetDecoration(this.btnServicio, BunifuAnimatorNS.DecorationType.None);
+            this.EfectoBotones.SetDecoration(this.btnServicio, BunifuAnimatorNS.DecorationType.None);
+            this.btnServicio.DisabledColor = System.Drawing.Color.Gray;
+            this.btnServicio.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnServicio.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnServicio.Iconimage")));
+            this.btnServicio.Iconimage_right = null;
+            this.btnServicio.Iconimage_right_Selected = null;
+            this.btnServicio.Iconimage_Selected = null;
+            this.btnServicio.IconMarginLeft = 0;
+            this.btnServicio.IconMarginRight = 0;
+            this.btnServicio.IconRightVisible = true;
+            this.btnServicio.IconRightZoom = 0D;
+            this.btnServicio.IconVisible = true;
+            this.btnServicio.IconZoom = 90D;
+            this.btnServicio.IsTab = false;
+            this.btnServicio.Location = new System.Drawing.Point(9, 60);
+            this.btnServicio.Name = "btnServicio";
+            this.btnServicio.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnServicio.OnHovercolor = System.Drawing.Color.Transparent;
+            this.btnServicio.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnServicio.selected = false;
+            this.btnServicio.Size = new System.Drawing.Size(241, 48);
+            this.btnServicio.TabIndex = 7;
+            this.btnServicio.Text = "      SERVICIO";
+            this.btnServicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnServicio.Textcolor = System.Drawing.Color.White;
+            this.btnServicio.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnServicio.Click += new System.EventHandler(this.btnServicio_Click);
+            // 
             // btnInventario
             // 
+            this.btnInventario.Activecolor = System.Drawing.Color.Transparent;
             this.btnInventario.BackColor = System.Drawing.Color.Transparent;
+            this.btnInventario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnInventario.BorderRadius = 0;
+            this.btnInventario.ButtonText = "      INVENTARIO";
             this.btnInventario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EfectoIda.SetDecoration(this.btnInventario, BunifuAnimatorNS.DecorationType.None);
             this.EfectoBotones.SetDecoration(this.btnInventario, BunifuAnimatorNS.DecorationType.None);
-            this.btnInventario.FlatAppearance.BorderSize = 0;
-            this.btnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnInventario.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInventario.ForeColor = System.Drawing.Color.White;
-            this.btnInventario.Image = global::DSMarket.Solucion.Properties.Resources.Ventas_48px;
-            this.btnInventario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInventario.Location = new System.Drawing.Point(12, 133);
+            this.btnInventario.DisabledColor = System.Drawing.Color.Gray;
+            this.btnInventario.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnInventario.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnInventario.Iconimage")));
+            this.btnInventario.Iconimage_right = null;
+            this.btnInventario.Iconimage_right_Selected = null;
+            this.btnInventario.Iconimage_Selected = null;
+            this.btnInventario.IconMarginLeft = 0;
+            this.btnInventario.IconMarginRight = 0;
+            this.btnInventario.IconRightVisible = true;
+            this.btnInventario.IconRightZoom = 0D;
+            this.btnInventario.IconVisible = true;
+            this.btnInventario.IconZoom = 90D;
+            this.btnInventario.IsTab = false;
+            this.btnInventario.Location = new System.Drawing.Point(9, 110);
             this.btnInventario.Name = "btnInventario";
+            this.btnInventario.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnInventario.OnHovercolor = System.Drawing.Color.Transparent;
+            this.btnInventario.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnInventario.selected = false;
             this.btnInventario.Size = new System.Drawing.Size(241, 48);
-            this.btnInventario.TabIndex = 16;
-            this.btnInventario.Text = "      SERVICIO";
-            this.btnInventario.UseVisualStyleBackColor = false;
-            this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click_1);
+            this.btnInventario.TabIndex = 8;
+            this.btnInventario.Text = "      INVENTARIO";
+            this.btnInventario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInventario.Textcolor = System.Drawing.Color.White;
+            this.btnInventario.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
             // 
             // btnCaja
             // 
+            this.btnCaja.Activecolor = System.Drawing.Color.Transparent;
             this.btnCaja.BackColor = System.Drawing.Color.Transparent;
+            this.btnCaja.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCaja.BorderRadius = 0;
+            this.btnCaja.ButtonText = "      CAJA";
             this.btnCaja.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EfectoIda.SetDecoration(this.btnCaja, BunifuAnimatorNS.DecorationType.None);
             this.EfectoBotones.SetDecoration(this.btnCaja, BunifuAnimatorNS.DecorationType.None);
-            this.btnCaja.FlatAppearance.BorderSize = 0;
-            this.btnCaja.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCaja.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCaja.ForeColor = System.Drawing.Color.White;
-            this.btnCaja.Image = global::DSMarket.Solucion.Properties.Resources.Ventas_48px;
-            this.btnCaja.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCaja.Location = new System.Drawing.Point(12, 184);
+            this.btnCaja.DisabledColor = System.Drawing.Color.Gray;
+            this.btnCaja.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnCaja.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnCaja.Iconimage")));
+            this.btnCaja.Iconimage_right = null;
+            this.btnCaja.Iconimage_right_Selected = null;
+            this.btnCaja.Iconimage_Selected = null;
+            this.btnCaja.IconMarginLeft = 0;
+            this.btnCaja.IconMarginRight = 0;
+            this.btnCaja.IconRightVisible = true;
+            this.btnCaja.IconRightZoom = 0D;
+            this.btnCaja.IconVisible = true;
+            this.btnCaja.IconZoom = 90D;
+            this.btnCaja.IsTab = false;
+            this.btnCaja.Location = new System.Drawing.Point(9, 161);
             this.btnCaja.Name = "btnCaja";
+            this.btnCaja.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnCaja.OnHovercolor = System.Drawing.Color.Transparent;
+            this.btnCaja.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnCaja.selected = false;
             this.btnCaja.Size = new System.Drawing.Size(241, 48);
-            this.btnCaja.TabIndex = 17;
-            this.btnCaja.Text = "      SERVICIO";
-            this.btnCaja.UseVisualStyleBackColor = false;
-            this.btnCaja.Click += new System.EventHandler(this.btnCaja_Click_1);
+            this.btnCaja.TabIndex = 9;
+            this.btnCaja.Text = "      CAJA";
+            this.btnCaja.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCaja.Textcolor = System.Drawing.Color.White;
+            this.btnCaja.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCaja.Click += new System.EventHandler(this.btnCaja_Click);
             // 
-            // btnClientes
+            // btneEmpresa
             // 
-            this.btnClientes.BackColor = System.Drawing.Color.Transparent;
-            this.btnClientes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EfectoIda.SetDecoration(this.btnClientes, BunifuAnimatorNS.DecorationType.None);
-            this.EfectoBotones.SetDecoration(this.btnClientes, BunifuAnimatorNS.DecorationType.None);
-            this.btnClientes.FlatAppearance.BorderSize = 0;
-            this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnClientes.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClientes.ForeColor = System.Drawing.Color.White;
-            this.btnClientes.Image = global::DSMarket.Solucion.Properties.Resources.Ventas_48px;
-            this.btnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClientes.Location = new System.Drawing.Point(12, 235);
-            this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(241, 48);
-            this.btnClientes.TabIndex = 18;
-            this.btnClientes.Text = "      SERVICIO";
-            this.btnClientes.UseVisualStyleBackColor = false;
-            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click_1);
+            this.btneEmpresa.Activecolor = System.Drawing.Color.Transparent;
+            this.btneEmpresa.BackColor = System.Drawing.Color.Transparent;
+            this.btneEmpresa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btneEmpresa.BorderRadius = 0;
+            this.btneEmpresa.ButtonText = "      EMPRESA";
+            this.btneEmpresa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EfectoIda.SetDecoration(this.btneEmpresa, BunifuAnimatorNS.DecorationType.None);
+            this.EfectoBotones.SetDecoration(this.btneEmpresa, BunifuAnimatorNS.DecorationType.None);
+            this.btneEmpresa.DisabledColor = System.Drawing.Color.Gray;
+            this.btneEmpresa.Iconcolor = System.Drawing.Color.Transparent;
+            this.btneEmpresa.Iconimage = ((System.Drawing.Image)(resources.GetObject("btneEmpresa.Iconimage")));
+            this.btneEmpresa.Iconimage_right = null;
+            this.btneEmpresa.Iconimage_right_Selected = null;
+            this.btneEmpresa.Iconimage_Selected = null;
+            this.btneEmpresa.IconMarginLeft = 0;
+            this.btneEmpresa.IconMarginRight = 0;
+            this.btneEmpresa.IconRightVisible = true;
+            this.btneEmpresa.IconRightZoom = 0D;
+            this.btneEmpresa.IconVisible = true;
+            this.btneEmpresa.IconZoom = 90D;
+            this.btneEmpresa.IsTab = false;
+            this.btneEmpresa.Location = new System.Drawing.Point(9, 212);
+            this.btneEmpresa.Name = "btneEmpresa";
+            this.btneEmpresa.Normalcolor = System.Drawing.Color.Transparent;
+            this.btneEmpresa.OnHovercolor = System.Drawing.Color.Transparent;
+            this.btneEmpresa.OnHoverTextColor = System.Drawing.Color.White;
+            this.btneEmpresa.selected = false;
+            this.btneEmpresa.Size = new System.Drawing.Size(241, 48);
+            this.btneEmpresa.TabIndex = 10;
+            this.btneEmpresa.Text = "      EMPRESA";
+            this.btneEmpresa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btneEmpresa.Textcolor = System.Drawing.Color.White;
+            this.btneEmpresa.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btneEmpresa.Click += new System.EventHandler(this.btneEmpresa_Click);
             // 
-            // btnNomina
+            // btnReportes
             // 
-            this.btnNomina.BackColor = System.Drawing.Color.Transparent;
-            this.btnNomina.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EfectoIda.SetDecoration(this.btnNomina, BunifuAnimatorNS.DecorationType.None);
-            this.EfectoBotones.SetDecoration(this.btnNomina, BunifuAnimatorNS.DecorationType.None);
-            this.btnNomina.FlatAppearance.BorderSize = 0;
-            this.btnNomina.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnNomina.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNomina.ForeColor = System.Drawing.Color.White;
-            this.btnNomina.Image = global::DSMarket.Solucion.Properties.Resources.Ventas_48px;
-            this.btnNomina.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNomina.Location = new System.Drawing.Point(12, 286);
-            this.btnNomina.Name = "btnNomina";
-            this.btnNomina.Size = new System.Drawing.Size(241, 48);
-            this.btnNomina.TabIndex = 19;
-            this.btnNomina.Text = "      SERVICIO";
-            this.btnNomina.UseVisualStyleBackColor = false;
-            this.btnNomina.Click += new System.EventHandler(this.btnNomina_Click_1);
-            // 
-            // btnCerrarSesion
-            // 
-            this.btnCerrarSesion.BackColor = System.Drawing.Color.Transparent;
-            this.btnCerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EfectoIda.SetDecoration(this.btnCerrarSesion, BunifuAnimatorNS.DecorationType.None);
-            this.EfectoBotones.SetDecoration(this.btnCerrarSesion, BunifuAnimatorNS.DecorationType.None);
-            this.btnCerrarSesion.FlatAppearance.BorderSize = 0;
-            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCerrarSesion.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrarSesion.ForeColor = System.Drawing.Color.White;
-            this.btnCerrarSesion.Image = global::DSMarket.Solucion.Properties.Resources.Ventas_48px;
-            this.btnCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(12, 439);
-            this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(241, 48);
-            this.btnCerrarSesion.TabIndex = 22;
-            this.btnCerrarSesion.Text = "      SERVICIO";
-            this.btnCerrarSesion.UseVisualStyleBackColor = false;
-            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click_1);
-            // 
-            // btnSeguridad
-            // 
-            this.btnSeguridad.BackColor = System.Drawing.Color.Transparent;
-            this.btnSeguridad.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EfectoIda.SetDecoration(this.btnSeguridad, BunifuAnimatorNS.DecorationType.None);
-            this.EfectoBotones.SetDecoration(this.btnSeguridad, BunifuAnimatorNS.DecorationType.None);
-            this.btnSeguridad.FlatAppearance.BorderSize = 0;
-            this.btnSeguridad.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSeguridad.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeguridad.ForeColor = System.Drawing.Color.White;
-            this.btnSeguridad.Image = global::DSMarket.Solucion.Properties.Resources.Ventas_48px;
-            this.btnSeguridad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSeguridad.Location = new System.Drawing.Point(12, 388);
-            this.btnSeguridad.Name = "btnSeguridad";
-            this.btnSeguridad.Size = new System.Drawing.Size(241, 48);
-            this.btnSeguridad.TabIndex = 21;
-            this.btnSeguridad.Text = "      SERVICIO";
-            this.btnSeguridad.UseVisualStyleBackColor = false;
-            this.btnSeguridad.Click += new System.EventHandler(this.btnSeguridad_Click_1);
+            this.btnReportes.Activecolor = System.Drawing.Color.Transparent;
+            this.btnReportes.BackColor = System.Drawing.Color.Transparent;
+            this.btnReportes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnReportes.BorderRadius = 0;
+            this.btnReportes.ButtonText = "      REPORTES";
+            this.btnReportes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EfectoIda.SetDecoration(this.btnReportes, BunifuAnimatorNS.DecorationType.None);
+            this.EfectoBotones.SetDecoration(this.btnReportes, BunifuAnimatorNS.DecorationType.None);
+            this.btnReportes.DisabledColor = System.Drawing.Color.Gray;
+            this.btnReportes.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnReportes.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnReportes.Iconimage")));
+            this.btnReportes.Iconimage_right = null;
+            this.btnReportes.Iconimage_right_Selected = null;
+            this.btnReportes.Iconimage_Selected = null;
+            this.btnReportes.IconMarginLeft = 0;
+            this.btnReportes.IconMarginRight = 0;
+            this.btnReportes.IconRightVisible = true;
+            this.btnReportes.IconRightZoom = 0D;
+            this.btnReportes.IconVisible = true;
+            this.btnReportes.IconZoom = 90D;
+            this.btnReportes.IsTab = false;
+            this.btnReportes.Location = new System.Drawing.Point(9, 263);
+            this.btnReportes.Name = "btnReportes";
+            this.btnReportes.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnReportes.OnHovercolor = System.Drawing.Color.Transparent;
+            this.btnReportes.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnReportes.selected = false;
+            this.btnReportes.Size = new System.Drawing.Size(241, 48);
+            this.btnReportes.TabIndex = 11;
+            this.btnReportes.Text = "      REPORTES";
+            this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportes.Textcolor = System.Drawing.Color.White;
+            this.btnReportes.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // btnConfiguracion
             // 
+            this.btnConfiguracion.Activecolor = System.Drawing.Color.Transparent;
             this.btnConfiguracion.BackColor = System.Drawing.Color.Transparent;
+            this.btnConfiguracion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnConfiguracion.BorderRadius = 0;
+            this.btnConfiguracion.ButtonText = "      CONFIGURACION";
             this.btnConfiguracion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EfectoIda.SetDecoration(this.btnConfiguracion, BunifuAnimatorNS.DecorationType.None);
             this.EfectoBotones.SetDecoration(this.btnConfiguracion, BunifuAnimatorNS.DecorationType.None);
-            this.btnConfiguracion.FlatAppearance.BorderSize = 0;
-            this.btnConfiguracion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnConfiguracion.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfiguracion.ForeColor = System.Drawing.Color.White;
-            this.btnConfiguracion.Image = global::DSMarket.Solucion.Properties.Resources.Ventas_48px;
-            this.btnConfiguracion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfiguracion.Location = new System.Drawing.Point(12, 337);
+            this.btnConfiguracion.DisabledColor = System.Drawing.Color.Gray;
+            this.btnConfiguracion.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnConfiguracion.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnConfiguracion.Iconimage")));
+            this.btnConfiguracion.Iconimage_right = null;
+            this.btnConfiguracion.Iconimage_right_Selected = null;
+            this.btnConfiguracion.Iconimage_Selected = null;
+            this.btnConfiguracion.IconMarginLeft = 0;
+            this.btnConfiguracion.IconMarginRight = 0;
+            this.btnConfiguracion.IconRightVisible = true;
+            this.btnConfiguracion.IconRightZoom = 0D;
+            this.btnConfiguracion.IconVisible = true;
+            this.btnConfiguracion.IconZoom = 90D;
+            this.btnConfiguracion.IsTab = false;
+            this.btnConfiguracion.Location = new System.Drawing.Point(9, 314);
             this.btnConfiguracion.Name = "btnConfiguracion";
+            this.btnConfiguracion.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnConfiguracion.OnHovercolor = System.Drawing.Color.Transparent;
+            this.btnConfiguracion.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnConfiguracion.selected = false;
             this.btnConfiguracion.Size = new System.Drawing.Size(241, 48);
-            this.btnConfiguracion.TabIndex = 20;
-            this.btnConfiguracion.Text = "      SERVICIO";
-            this.btnConfiguracion.UseVisualStyleBackColor = false;
-            this.btnConfiguracion.Click += new System.EventHandler(this.btnConfiguracion_Click_1);
+            this.btnConfiguracion.TabIndex = 12;
+            this.btnConfiguracion.Text = "      CONFIGURACION";
+            this.btnConfiguracion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConfiguracion.Textcolor = System.Drawing.Color.White;
+            this.btnConfiguracion.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfiguracion.Click += new System.EventHandler(this.btnConfiguracion_Click);
+            // 
+            // btnSeguridad
+            // 
+            this.btnSeguridad.Activecolor = System.Drawing.Color.Transparent;
+            this.btnSeguridad.BackColor = System.Drawing.Color.Transparent;
+            this.btnSeguridad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSeguridad.BorderRadius = 0;
+            this.btnSeguridad.ButtonText = "      SEGURIDAD";
+            this.btnSeguridad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EfectoIda.SetDecoration(this.btnSeguridad, BunifuAnimatorNS.DecorationType.None);
+            this.EfectoBotones.SetDecoration(this.btnSeguridad, BunifuAnimatorNS.DecorationType.None);
+            this.btnSeguridad.DisabledColor = System.Drawing.Color.Gray;
+            this.btnSeguridad.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnSeguridad.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnSeguridad.Iconimage")));
+            this.btnSeguridad.Iconimage_right = null;
+            this.btnSeguridad.Iconimage_right_Selected = null;
+            this.btnSeguridad.Iconimage_Selected = null;
+            this.btnSeguridad.IconMarginLeft = 0;
+            this.btnSeguridad.IconMarginRight = 0;
+            this.btnSeguridad.IconRightVisible = true;
+            this.btnSeguridad.IconRightZoom = 0D;
+            this.btnSeguridad.IconVisible = true;
+            this.btnSeguridad.IconZoom = 90D;
+            this.btnSeguridad.IsTab = false;
+            this.btnSeguridad.Location = new System.Drawing.Point(9, 365);
+            this.btnSeguridad.Name = "btnSeguridad";
+            this.btnSeguridad.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnSeguridad.OnHovercolor = System.Drawing.Color.Transparent;
+            this.btnSeguridad.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnSeguridad.selected = false;
+            this.btnSeguridad.Size = new System.Drawing.Size(241, 48);
+            this.btnSeguridad.TabIndex = 13;
+            this.btnSeguridad.Text = "      SEGURIDAD";
+            this.btnSeguridad.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSeguridad.Textcolor = System.Drawing.Color.White;
+            this.btnSeguridad.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeguridad.Click += new System.EventHandler(this.btnSeguridad_Click);
+            // 
+            // btnCerrarSesion
+            // 
+            this.btnCerrarSesion.Activecolor = System.Drawing.Color.Transparent;
+            this.btnCerrarSesion.BackColor = System.Drawing.Color.Transparent;
+            this.btnCerrarSesion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCerrarSesion.BorderRadius = 0;
+            this.btnCerrarSesion.ButtonText = "      CERRAR SESION";
+            this.btnCerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EfectoIda.SetDecoration(this.btnCerrarSesion, BunifuAnimatorNS.DecorationType.None);
+            this.EfectoBotones.SetDecoration(this.btnCerrarSesion, BunifuAnimatorNS.DecorationType.None);
+            this.btnCerrarSesion.DisabledColor = System.Drawing.Color.Gray;
+            this.btnCerrarSesion.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnCerrarSesion.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnCerrarSesion.Iconimage")));
+            this.btnCerrarSesion.Iconimage_right = null;
+            this.btnCerrarSesion.Iconimage_right_Selected = null;
+            this.btnCerrarSesion.Iconimage_Selected = null;
+            this.btnCerrarSesion.IconMarginLeft = 0;
+            this.btnCerrarSesion.IconMarginRight = 0;
+            this.btnCerrarSesion.IconRightVisible = true;
+            this.btnCerrarSesion.IconRightZoom = 0D;
+            this.btnCerrarSesion.IconVisible = true;
+            this.btnCerrarSesion.IconZoom = 90D;
+            this.btnCerrarSesion.IsTab = false;
+            this.btnCerrarSesion.Location = new System.Drawing.Point(9, 419);
+            this.btnCerrarSesion.Name = "btnCerrarSesion";
+            this.btnCerrarSesion.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnCerrarSesion.OnHovercolor = System.Drawing.Color.Transparent;
+            this.btnCerrarSesion.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnCerrarSesion.selected = false;
+            this.btnCerrarSesion.Size = new System.Drawing.Size(241, 48);
+            this.btnCerrarSesion.TabIndex = 14;
+            this.btnCerrarSesion.Text = "      CERRAR SESION";
+            this.btnCerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCerrarSesion.Textcolor = System.Drawing.Color.White;
+            this.btnCerrarSesion.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
             // MenuPrincipal
             // 
@@ -572,13 +708,13 @@
         private BunifuAnimatorNS.BunifuTransition EfectoBotones;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnServicio;
-        private System.Windows.Forms.Button btnCerrarSesion;
-        private System.Windows.Forms.Button btnSeguridad;
-        private System.Windows.Forms.Button btnConfiguracion;
-        private System.Windows.Forms.Button btnNomina;
-        private System.Windows.Forms.Button btnClientes;
-        private System.Windows.Forms.Button btnCaja;
-        private System.Windows.Forms.Button btnInventario;
+        private Bunifu.Framework.UI.BunifuFlatButton btnCerrarSesion;
+        private Bunifu.Framework.UI.BunifuFlatButton btnSeguridad;
+        private Bunifu.Framework.UI.BunifuFlatButton btnConfiguracion;
+        private Bunifu.Framework.UI.BunifuFlatButton btnReportes;
+        private Bunifu.Framework.UI.BunifuFlatButton btneEmpresa;
+        private Bunifu.Framework.UI.BunifuFlatButton btnCaja;
+        private Bunifu.Framework.UI.BunifuFlatButton btnInventario;
+        private Bunifu.Framework.UI.BunifuFlatButton btnServicio;
     }
 }

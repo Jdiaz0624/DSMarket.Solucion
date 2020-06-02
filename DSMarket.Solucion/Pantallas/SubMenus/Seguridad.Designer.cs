@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.gbOpciones = new System.Windows.Forms.GroupBox();
             this.lbusuario = new System.Windows.Forms.Label();
@@ -39,10 +40,9 @@
             this.btnClaveSeguridad = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnPerfilesUsuarios = new System.Windows.Forms.Button();
-            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            this.gbOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
+            this.gbOpciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -55,6 +55,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(742, 44);
             this.panel1.TabIndex = 15;
+            // 
+            // PCerrar
+            // 
+            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PCerrar.BackColor = System.Drawing.Color.Transparent;
+            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
+            this.PCerrar.Location = new System.Drawing.Point(700, 9);
+            this.PCerrar.Name = "PCerrar";
+            this.PCerrar.Size = new System.Drawing.Size(30, 30);
+            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PCerrar.TabIndex = 15;
+            this.PCerrar.TabStop = false;
+            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
             // 
             // lbTitulo
             // 
@@ -181,19 +195,6 @@
             this.btnPerfilesUsuarios.UseVisualStyleBackColor = true;
             this.btnPerfilesUsuarios.Visible = false;
             // 
-            // PCerrar
-            // 
-            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PCerrar.BackColor = System.Drawing.Color.Transparent;
-            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(700, 9);
-            this.PCerrar.Name = "PCerrar";
-            this.PCerrar.Size = new System.Drawing.Size(30, 30);
-            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PCerrar.TabIndex = 15;
-            this.PCerrar.TabStop = false;
-            // 
             // Seguridad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -203,15 +204,15 @@
             this.Controls.Add(this.gbOpciones);
             this.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Seguridad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Seguridad";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.gbOpciones.ResumeLayout(false);
             this.gbOpciones.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.ResumeLayout(false);
 
         }
