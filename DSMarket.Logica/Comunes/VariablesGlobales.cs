@@ -9,5 +9,7 @@ namespace DSMarket.Logica.Comunes
     public class VariablesGlobales
     {
         public string NombreSistema { get; set; }
+        public bool ConvertirCotizacionFactura = false;
+        public string Accion { get; set; }
     }
 }

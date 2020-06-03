@@ -27,5 +27,23 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         {
             this.Dispose();
         }
+
+        private void btnFacturacion_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Servicio.Facturacion FActuracion = new Pantallas.Servicio.Facturacion();
+            FActuracion.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Servicio.TipoPago MantenimientoTipoPago = new Pantallas.Servicio.TipoPago();
+            MantenimientoTipoPago.ShowDialog();
+        }
+
+        private void btnCotizacion_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Servicio.HistorialFActuracion Historial = new Pantallas.Servicio.HistorialFActuracion();
+            Historial.ShowDialog();
+        }
     }
 }

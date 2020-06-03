@@ -73,6 +73,42 @@
     <Compile Include="Pantallas\Pantallas\Seguridad\NivelAcceso.Designer.cs">
       <DependentUpon>NivelAcceso.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Servicio\AgregarProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Servicio\AgregarProductos.Designer.cs">
+      <DependentUpon>AgregarProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Servicio\AnularFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Servicio\AnularFactura.Designer.cs">
+      <DependentUpon>AnularFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Servicio\Facturacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Servicio\Facturacion.Designer.cs">
+      <DependentUpon>Facturacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Servicio\HistorialFActuracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Servicio\HistorialFActuracion.Designer.cs">
+      <DependentUpon>HistorialFActuracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Servicio\MantenimientoTipoPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Servicio\MantenimientoTipoPago.Designer.cs">
+      <DependentUpon>MantenimientoTipoPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Servicio\TipoPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Servicio\TipoPago.Designer.cs">
+      <DependentUpon>TipoPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\SubMenus\Caja.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +170,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Seguridad\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Servicio\AgregarProductos.resx">
+      <DependentUpon>AgregarProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Servicio\AnularFactura.resx">
+      <DependentUpon>AnularFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Servicio\Facturacion.resx">
+      <DependentUpon>Facturacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Servicio\HistorialFActuracion.resx">
+      <DependentUpon>HistorialFActuracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Servicio\MantenimientoTipoPago.resx">
+      <DependentUpon>MantenimientoTipoPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Servicio\TipoPago.resx">
+      <DependentUpon>TipoPago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\SubMenus\Caja.resx">
       <DependentUpon>Caja.cs</DependentUpon>
@@ -244,6 +298,51 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cambiar-tamano-de-imagen-png-71.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Zoom-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back-158491_640.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Editar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Agregar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Eliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Completar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Deshabilitar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Guardar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Facturar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Imprimir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Restablecer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reporte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Anular.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Anular2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Estadistica.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

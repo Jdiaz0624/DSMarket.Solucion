@@ -33,6 +33,15 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
             Formulario.Show();
         }
         #endregion
+        #region APLICAR TEMA
+        private void TemaGenerico()
+        {
+            //COLOR DE FONDO
+            this.BackColor = Color.FloralWhite;
+
+
+        }
+        #endregion
         private void PCerrar_Click(object sender, EventArgs e)
         {
 
@@ -67,6 +76,7 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
+            TemaGenerico();
             btnServicio.Visible = false;
             EfectoBotones.Show(btnServicio);
             btnInventario.Visible = false;
