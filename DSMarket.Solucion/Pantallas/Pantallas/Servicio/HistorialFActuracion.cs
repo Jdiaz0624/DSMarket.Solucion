@@ -258,5 +258,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     break;
             }
         }
+
+        private void PCerrar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }
