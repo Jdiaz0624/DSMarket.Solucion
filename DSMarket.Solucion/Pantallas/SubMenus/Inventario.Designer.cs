@@ -31,21 +31,21 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbTitulo = new System.Windows.Forms.Label();
+            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbIdUsuario = new System.Windows.Forms.Label();
             this.gbOpciones = new System.Windows.Forms.GroupBox();
+            this.btnSuplidores = new System.Windows.Forms.Button();
+            this.btnTipoSuplidores = new System.Windows.Forms.Button();
             this.btnCategoria = new System.Windows.Forms.Button();
             this.btnMArcas = new System.Windows.Forms.Button();
             this.btnUnidaMedida = new System.Windows.Forms.Button();
             this.btnMonedas = new System.Windows.Forms.Button();
             this.btnTipoProducto = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
-            this.PCerrar = new System.Windows.Forms.PictureBox();
-            this.btnTipoSuplidores = new System.Windows.Forms.Button();
-            this.btnSuplidores = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
-            this.gbOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
+            this.gbOpciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -70,6 +70,19 @@
             this.lbTitulo.Size = new System.Drawing.Size(54, 20);
             this.lbTitulo.TabIndex = 16;
             this.lbTitulo.Text = "label6";
+            // 
+            // PCerrar
+            // 
+            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
+            this.PCerrar.Location = new System.Drawing.Point(937, 10);
+            this.PCerrar.Name = "PCerrar";
+            this.PCerrar.Size = new System.Drawing.Size(30, 30);
+            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PCerrar.TabIndex = 15;
+            this.PCerrar.TabStop = false;
+            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
             // 
             // lbIdUsuario
             // 
@@ -99,6 +112,34 @@
             this.gbOpciones.TabIndex = 16;
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Inventario - Seleccionar Opcion";
+            // 
+            // btnSuplidores
+            // 
+            this.btnSuplidores.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSuplidores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSuplidores.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSuplidores.Location = new System.Drawing.Point(714, 103);
+            this.btnSuplidores.Name = "btnSuplidores";
+            this.btnSuplidores.Size = new System.Drawing.Size(230, 68);
+            this.btnSuplidores.TabIndex = 7;
+            this.btnSuplidores.Text = "Suplidores";
+            this.toolTip1.SetToolTip(this.btnSuplidores, "Mantenimiento de suplidores");
+            this.btnSuplidores.UseVisualStyleBackColor = true;
+            this.btnSuplidores.Visible = false;
+            // 
+            // btnTipoSuplidores
+            // 
+            this.btnTipoSuplidores.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTipoSuplidores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTipoSuplidores.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTipoSuplidores.Location = new System.Drawing.Point(714, 29);
+            this.btnTipoSuplidores.Name = "btnTipoSuplidores";
+            this.btnTipoSuplidores.Size = new System.Drawing.Size(230, 68);
+            this.btnTipoSuplidores.TabIndex = 6;
+            this.btnTipoSuplidores.Text = "Tipo de Suplidores";
+            this.toolTip1.SetToolTip(this.btnTipoSuplidores, "Mantenimiento de tipo de suplidores");
+            this.btnTipoSuplidores.UseVisualStyleBackColor = true;
+            this.btnTipoSuplidores.Visible = false;
             // 
             // btnCategoria
             // 
@@ -165,6 +206,7 @@
             this.btnTipoProducto.Text = "Tipo de Producto";
             this.toolTip1.SetToolTip(this.btnTipoProducto, "Mantenimiento de tipo de producto");
             this.btnTipoProducto.UseVisualStyleBackColor = true;
+            this.btnTipoProducto.Click += new System.EventHandler(this.btnTipoProducto_Click);
             // 
             // btnProductos
             // 
@@ -180,47 +222,6 @@
             this.btnProductos.UseVisualStyleBackColor = true;
             this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
-            // PCerrar
-            // 
-            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(937, 10);
-            this.PCerrar.Name = "PCerrar";
-            this.PCerrar.Size = new System.Drawing.Size(30, 30);
-            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PCerrar.TabIndex = 15;
-            this.PCerrar.TabStop = false;
-            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
-            // 
-            // btnTipoSuplidores
-            // 
-            this.btnTipoSuplidores.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTipoSuplidores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTipoSuplidores.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTipoSuplidores.Location = new System.Drawing.Point(714, 29);
-            this.btnTipoSuplidores.Name = "btnTipoSuplidores";
-            this.btnTipoSuplidores.Size = new System.Drawing.Size(230, 68);
-            this.btnTipoSuplidores.TabIndex = 6;
-            this.btnTipoSuplidores.Text = "Tipo de Suplidores";
-            this.toolTip1.SetToolTip(this.btnTipoSuplidores, "Mantenimiento de tipo de suplidores");
-            this.btnTipoSuplidores.UseVisualStyleBackColor = true;
-            this.btnTipoSuplidores.Visible = false;
-            // 
-            // btnSuplidores
-            // 
-            this.btnSuplidores.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSuplidores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSuplidores.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSuplidores.Location = new System.Drawing.Point(714, 103);
-            this.btnSuplidores.Name = "btnSuplidores";
-            this.btnSuplidores.Size = new System.Drawing.Size(230, 68);
-            this.btnSuplidores.TabIndex = 7;
-            this.btnSuplidores.Text = "Suplidores";
-            this.toolTip1.SetToolTip(this.btnSuplidores, "Mantenimiento de suplidores");
-            this.btnSuplidores.UseVisualStyleBackColor = true;
-            this.btnSuplidores.Visible = false;
-            // 
             // Inventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,8 +236,8 @@
             this.Load += new System.EventHandler(this.Inventario_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.gbOpciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
+            this.gbOpciones.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

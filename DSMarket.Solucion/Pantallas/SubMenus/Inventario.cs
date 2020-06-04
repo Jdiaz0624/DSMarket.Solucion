@@ -32,5 +32,11 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.ProductoConsulta Producto = new Pantallas.Inventario.ProductoConsulta();
             Producto.ShowDialog();
         }
+
+        private void btnTipoProducto_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Inventario.TipoProductoConsulta TipoProducto = new Pantallas.Inventario.TipoProductoConsulta();
+            TipoProducto.ShowDialog();
+        }
     }
 }
