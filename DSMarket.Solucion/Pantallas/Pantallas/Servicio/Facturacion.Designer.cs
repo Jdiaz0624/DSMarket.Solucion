@@ -57,9 +57,13 @@
             this.dtProductosAgregados = new System.Windows.Forms.DataGridView();
             this.Quitar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnARS = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnRestablecerFActura = new System.Windows.Forms.Button();
             this.cbAgregarCliente = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnRegresar = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.txtComentario = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -69,6 +73,8 @@
             this.txtIdentificacion = new System.Windows.Forms.MaskedTextBox();
             this.ddlTipoIdentificacion = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnAgregarAlmacen = new System.Windows.Forms.Button();
             this.txtTelefono = new System.Windows.Forms.MaskedTextBox();
             this.txtNombrePaciente = new System.Windows.Forms.TextBox();
             this.ddlTipoFacturacion = new System.Windows.Forms.ComboBox();
@@ -82,16 +88,12 @@
             this.lbCredito = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbMontoCredito = new System.Windows.Forms.Label();
+            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnARS = new System.Windows.Forms.Button();
-            this.btnRestablecerFActura = new System.Windows.Forms.Button();
-            this.btnRegresar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnAgregarAlmacen = new System.Windows.Forms.Button();
-            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtCantidadServicios = new System.Windows.Forms.TextBox();
             this.gbGeneral.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtProductosAgregados)).BeginInit();
@@ -103,6 +105,8 @@
             // 
             // gbGeneral
             // 
+            this.gbGeneral.Controls.Add(this.txtCantidadServicios);
+            this.gbGeneral.Controls.Add(this.label6);
             this.gbGeneral.Controls.Add(this.rbCotizar);
             this.gbGeneral.Controls.Add(this.ddlCantidadDias);
             this.gbGeneral.Controls.Add(this.rbFacturar);
@@ -293,6 +297,7 @@
             // txtTotalDescuento
             // 
             this.txtTotalDescuento.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTotalDescuento.Enabled = false;
             this.txtTotalDescuento.Location = new System.Drawing.Point(896, 313);
             this.txtTotalDescuento.Name = "txtTotalDescuento";
             this.txtTotalDescuento.Size = new System.Drawing.Size(165, 27);
@@ -302,7 +307,7 @@
             // 
             this.txtCantidadArtiuclos.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtCantidadArtiuclos.Enabled = false;
-            this.txtCantidadArtiuclos.Location = new System.Drawing.Point(896, 278);
+            this.txtCantidadArtiuclos.Location = new System.Drawing.Point(765, 280);
             this.txtCantidadArtiuclos.Name = "txtCantidadArtiuclos";
             this.txtCantidadArtiuclos.Size = new System.Drawing.Size(165, 27);
             this.txtCantidadArtiuclos.TabIndex = 29;
@@ -364,11 +369,11 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(722, 281);
+            this.label14.Location = new System.Drawing.Point(685, 284);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(170, 20);
+            this.label14.Size = new System.Drawing.Size(76, 20);
             this.label14.TabIndex = 29;
-            this.label14.Text = "Cantidad de Articulos";
+            this.label14.Text = "Articulos";
             // 
             // groupBox1
             // 
@@ -422,6 +427,39 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Opciones";
             // 
+            // button2
+            // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderSize = 10;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(17, 23);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(406, 41);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Agregar Productos";
+            this.toolTip1.SetToolTip(this.button2, "Agregar Productos a factura");
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnARS
+            // 
+            this.btnARS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnARS.FlatAppearance.BorderSize = 10;
+            this.btnARS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnARS.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnARS.Image = global::DSMarket.Solucion.Properties.Resources.Completar;
+            this.btnARS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnARS.Location = new System.Drawing.Point(738, 23);
+            this.btnARS.Name = "btnARS";
+            this.btnARS.Size = new System.Drawing.Size(406, 41);
+            this.btnARS.TabIndex = 3;
+            this.btnARS.Text = "Completar Operación";
+            this.toolTip1.SetToolTip(this.btnARS, "Completar Operación");
+            this.btnARS.UseVisualStyleBackColor = true;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnRestablecerFActura);
@@ -456,6 +494,19 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de Cliente";
             // 
+            // btnRestablecerFActura
+            // 
+            this.btnRestablecerFActura.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestablecerFActura.Enabled = false;
+            this.btnRestablecerFActura.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRestablecerFActura.Image = global::DSMarket.Solucion.Properties.Resources.back_158491_640;
+            this.btnRestablecerFActura.Location = new System.Drawing.Point(1056, 54);
+            this.btnRestablecerFActura.Name = "btnRestablecerFActura";
+            this.btnRestablecerFActura.Size = new System.Drawing.Size(41, 29);
+            this.btnRestablecerFActura.TabIndex = 39;
+            this.toolTip1.SetToolTip(this.btnRestablecerFActura, "Volver a modo facturación");
+            this.btnRestablecerFActura.UseVisualStyleBackColor = true;
+            // 
             // cbAgregarCliente
             // 
             this.cbAgregarCliente.AutoSize = true;
@@ -478,6 +529,19 @@
             this.label4.Size = new System.Drawing.Size(172, 20);
             this.label4.TabIndex = 36;
             this.label4.Text = "No. de Identificacion *";
+            // 
+            // btnRegresar
+            // 
+            this.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegresar.Enabled = false;
+            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRegresar.Image = global::DSMarket.Solucion.Properties.Resources.back_158491_640;
+            this.btnRegresar.Location = new System.Drawing.Point(513, 54);
+            this.btnRegresar.Name = "btnRegresar";
+            this.btnRegresar.Size = new System.Drawing.Size(41, 29);
+            this.btnRegresar.TabIndex = 29;
+            this.toolTip1.SetToolTip(this.btnRegresar, "Volver Atras");
+            this.btnRegresar.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
@@ -563,6 +627,30 @@
             this.label9.Size = new System.Drawing.Size(180, 20);
             this.label9.TabIndex = 18;
             this.label9.Text = "Tipo de Identificacion *";
+            // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
+            this.button1.Location = new System.Drawing.Point(1013, 54);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(41, 29);
+            this.button1.TabIndex = 17;
+            this.toolTip1.SetToolTip(this.button1, "Buscar Cotización mediante el numero de la miama");
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregarAlmacen
+            // 
+            this.btnAgregarAlmacen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarAlmacen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAgregarAlmacen.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
+            this.btnAgregarAlmacen.Location = new System.Drawing.Point(470, 54);
+            this.btnAgregarAlmacen.Name = "btnAgregarAlmacen";
+            this.btnAgregarAlmacen.Size = new System.Drawing.Size(41, 29);
+            this.btnAgregarAlmacen.TabIndex = 16;
+            this.toolTip1.SetToolTip(this.btnAgregarAlmacen, "Buscar Cliente mediante el codigo");
+            this.btnAgregarAlmacen.UseVisualStyleBackColor = true;
             // 
             // txtTelefono
             // 
@@ -687,98 +775,6 @@
             this.lbMontoCredito.Text = "Credito";
             this.lbMontoCredito.Visible = false;
             // 
-            // lbTitulo
-            // 
-            this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Location = new System.Drawing.Point(15, 9);
-            this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(54, 20);
-            this.lbTitulo.TabIndex = 13;
-            this.lbTitulo.Text = "label6";
-            // 
-            // button2
-            // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 10;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(17, 23);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(406, 41);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Agregar Productos";
-            this.toolTip1.SetToolTip(this.button2, "Agregar Productos a factura");
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // btnARS
-            // 
-            this.btnARS.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnARS.FlatAppearance.BorderSize = 10;
-            this.btnARS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnARS.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnARS.Image = global::DSMarket.Solucion.Properties.Resources.Completar;
-            this.btnARS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnARS.Location = new System.Drawing.Point(738, 23);
-            this.btnARS.Name = "btnARS";
-            this.btnARS.Size = new System.Drawing.Size(406, 41);
-            this.btnARS.TabIndex = 3;
-            this.btnARS.Text = "Completar Operación";
-            this.toolTip1.SetToolTip(this.btnARS, "Completar Operación");
-            this.btnARS.UseVisualStyleBackColor = true;
-            // 
-            // btnRestablecerFActura
-            // 
-            this.btnRestablecerFActura.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestablecerFActura.Enabled = false;
-            this.btnRestablecerFActura.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRestablecerFActura.Image = global::DSMarket.Solucion.Properties.Resources.back_158491_640;
-            this.btnRestablecerFActura.Location = new System.Drawing.Point(1056, 54);
-            this.btnRestablecerFActura.Name = "btnRestablecerFActura";
-            this.btnRestablecerFActura.Size = new System.Drawing.Size(41, 29);
-            this.btnRestablecerFActura.TabIndex = 39;
-            this.toolTip1.SetToolTip(this.btnRestablecerFActura, "Volver a modo facturación");
-            this.btnRestablecerFActura.UseVisualStyleBackColor = true;
-            // 
-            // btnRegresar
-            // 
-            this.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegresar.Enabled = false;
-            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRegresar.Image = global::DSMarket.Solucion.Properties.Resources.back_158491_640;
-            this.btnRegresar.Location = new System.Drawing.Point(513, 54);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(41, 29);
-            this.btnRegresar.TabIndex = 29;
-            this.toolTip1.SetToolTip(this.btnRegresar, "Volver Atras");
-            this.btnRegresar.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
-            this.button1.Location = new System.Drawing.Point(1013, 54);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(41, 29);
-            this.button1.TabIndex = 17;
-            this.toolTip1.SetToolTip(this.button1, "Buscar Cotización mediante el numero de la miama");
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // btnAgregarAlmacen
-            // 
-            this.btnAgregarAlmacen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregarAlmacen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAgregarAlmacen.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
-            this.btnAgregarAlmacen.Location = new System.Drawing.Point(470, 54);
-            this.btnAgregarAlmacen.Name = "btnAgregarAlmacen";
-            this.btnAgregarAlmacen.Size = new System.Drawing.Size(41, 29);
-            this.btnAgregarAlmacen.TabIndex = 16;
-            this.toolTip1.SetToolTip(this.btnAgregarAlmacen, "Buscar Cliente mediante el codigo");
-            this.btnAgregarAlmacen.UseVisualStyleBackColor = true;
-            // 
             // PCerrar
             // 
             this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -793,10 +789,37 @@
             this.toolTip1.SetToolTip(this.PCerrar, "Cerrar");
             this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
             // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(15, 9);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(54, 20);
+            this.lbTitulo.TabIndex = 13;
+            this.lbTitulo.Text = "label6";
+            // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(930, 282);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 20);
+            this.label6.TabIndex = 52;
+            this.label6.Text = "Servicios";
+            // 
+            // txtCantidadServicios
+            // 
+            this.txtCantidadServicios.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCantidadServicios.Enabled = false;
+            this.txtCantidadServicios.Location = new System.Drawing.Point(1008, 278);
+            this.txtCantidadServicios.Name = "txtCantidadServicios";
+            this.txtCantidadServicios.Size = new System.Drawing.Size(165, 27);
+            this.txtCantidadServicios.TabIndex = 53;
             // 
             // Facturacion
             // 
@@ -897,5 +920,7 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnRestablecerFActura;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private System.Windows.Forms.TextBox txtCantidadServicios;
+        private System.Windows.Forms.Label label6;
     }
 }

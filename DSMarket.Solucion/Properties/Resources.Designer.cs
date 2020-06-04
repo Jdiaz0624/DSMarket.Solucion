@@ -223,6 +223,16 @@ namespace DSMarket.Solucion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap foto {
+            get {
+                object obj = ResourceManager.GetObject("foto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Ganancias_48px {
             get {
                 object obj = ResourceManager.GetObject("Ganancias_48px", resourceCulture);
@@ -263,6 +273,16 @@ namespace DSMarket.Solucion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Mas_Dinero {
+            get {
+                object obj = ResourceManager.GetObject("Mas Dinero", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Maximize_Window_2_48px {
             get {
                 object obj = ResourceManager.GetObject("Maximize Window_2 48px", resourceCulture);
@@ -286,6 +306,16 @@ namespace DSMarket.Solucion.Properties {
         internal static System.Drawing.Bitmap Minimize_Window_2_48px {
             get {
                 object obj = ResourceManager.GetObject("Minimize Window_2 48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ojo {
+            get {
+                object obj = ResourceManager.GetObject("ojo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -336,6 +366,26 @@ namespace DSMarket.Solucion.Properties {
         internal static System.Drawing.Bitmap seguridad {
             get {
                 object obj = ResourceManager.GetObject("seguridad", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SinImagen {
+            get {
+                object obj = ResourceManager.GetObject("SinImagen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Suplir {
+            get {
+                object obj = ResourceManager.GetObject("Suplir", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

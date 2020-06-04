@@ -96,6 +96,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             ddltIPago.BackColor = Color.WhiteSmoke;
             txtMontoPagar.BackColor = Color.WhiteSmoke;
             txtCambio.BackColor = Color.WhiteSmoke;
+            txtCantidadServicios.BackColor = Color.WhiteSmoke;
 
             //COLOR DE FUENTE
             txtCodigoCliente.ForeColor = Color.Black;
@@ -119,6 +120,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             ddltIPago.ForeColor = Color.Black;
             txtMontoPagar.ForeColor = Color.Black;
             txtCambio.ForeColor = Color.Black;
+            txtCantidadServicios.ForeColor = Color.Black;
 
             dtProductosAgregados.BackgroundColor = SystemColors.Control;
 

@@ -55,6 +55,30 @@
     <Compile Include="Pantallas\MenuPrincipal\MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\AgregarOferta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\AgregarOferta.Designer.cs">
+      <DependentUpon>AgregarOferta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\AgregarQuitarProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\AgregarQuitarProductos.Designer.cs">
+      <DependentUpon>AgregarQuitarProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoProducto.Designer.cs">
+      <DependentUpon>MantenimientoProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\ProductoConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\ProductoConsulta.Designer.cs">
+      <DependentUpon>ProductoConsulta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Seguridad\ClaveSeguridad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +192,18 @@
     <EmbeddedResource Include="Pantallas\MenuPrincipal\MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\AgregarOferta.resx">
+      <DependentUpon>AgregarOferta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\AgregarQuitarProductos.resx">
+      <DependentUpon>AgregarQuitarProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MantenimientoProducto.resx">
+      <DependentUpon>MantenimientoProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\ProductoConsulta.resx">
+      <DependentUpon>ProductoConsulta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Seguridad\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -249,7 +285,6 @@
     <Folder Include="Pantallas\Pantallas\CXC\" />
     <Folder Include="Pantallas\Pantallas\CXP\" />
     <Folder Include="Pantallas\Pantallas\Empresa\" />
-    <Folder Include="Pantallas\Pantallas\Inventario\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Menu_48px.png" />
@@ -343,6 +378,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Estadistica.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\foto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Suplir.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SinImagen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mas Dinero.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ojo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -34,6 +34,7 @@
             this.lbTitulo = new System.Windows.Forms.Label();
             this.lbCredito = new System.Windows.Forms.Label();
             this.cbAgregarCategoria = new System.Windows.Forms.GroupBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.gbProductosAgregados = new System.Windows.Forms.GroupBox();
@@ -80,13 +81,13 @@
             this.dtSeleccionarproducto = new System.Windows.Forms.DataGridView();
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.btnQuitar = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.PCerrar = new System.Windows.Forms.PictureBox();
-            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel1.SuspendLayout();
             this.cbAgregarCategoria.SuspendLayout();
             this.gbProductosAgregados.SuspendLayout();
@@ -143,6 +144,7 @@
             // 
             // cbAgregarCategoria
             // 
+            this.cbAgregarCategoria.Controls.Add(this.button1);
             this.cbAgregarCategoria.Controls.Add(this.checkBox2);
             this.cbAgregarCategoria.Controls.Add(this.label6);
             this.cbAgregarCategoria.Controls.Add(this.label7);
@@ -195,6 +197,18 @@
             this.cbAgregarCategoria.TabIndex = 9;
             this.cbAgregarCategoria.TabStop = false;
             this.cbAgregarCategoria.Text = "Buscar Productos";
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.checkBox2.Location = new System.Drawing.Point(869, 24);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(164, 24);
+            this.checkBox2.TabIndex = 75;
+            this.checkBox2.Text = "Agregar Categoria";
+            this.toolTip1.SetToolTip(this.checkBox2, "Agregar el filtro por categoria");
+            this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -292,7 +306,7 @@
             // 
             this.Separador.BackColor = System.Drawing.Color.Transparent;
             this.Separador.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.Separador.LineThickness = 3;
+            this.Separador.LineThickness = 5;
             this.Separador.Location = new System.Drawing.Point(7, 362);
             this.Separador.Margin = new System.Windows.Forms.Padding(5);
             this.Separador.Name = "Separador";
@@ -664,17 +678,26 @@
             this.Select.UseColumnTextForButtonValue = true;
             this.Select.Width = 59;
             // 
-            // checkBox2
+            // bunifuElipse1
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.checkBox2.Location = new System.Drawing.Point(869, 24);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(164, 24);
-            this.checkBox2.TabIndex = 75;
-            this.checkBox2.Text = "Agregar Categoria";
-            this.toolTip1.SetToolTip(this.checkBox2, "Agregar el filtro por categoria");
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.bunifuElipse1.ElipseRadius = 30;
+            this.bunifuElipse1.TargetControl = this;
+            // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = global::DSMarket.Solucion.Properties.Resources.foto;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(879, 416);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(73, 74);
+            this.button1.TabIndex = 76;
+            this.button1.Text = "     ";
+            this.toolTip1.SetToolTip(this.button1, "Muestra la foto del producto seleccionado");
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // btnQuitar
             // 
@@ -732,7 +755,7 @@
             this.button2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(1009, 53);
+            this.button2.Location = new System.Drawing.Point(1016, 53);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(142, 41);
             this.button2.TabIndex = 4;
@@ -752,11 +775,6 @@
             this.PCerrar.TabStop = false;
             this.toolTip1.SetToolTip(this.PCerrar, "Cerrar");
             this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
-            // 
-            // bunifuElipse1
-            // 
-            this.bunifuElipse1.ElipseRadius = 30;
-            this.bunifuElipse1.TargetControl = this;
             // 
             // AgregarProductos
             // 
@@ -851,5 +869,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn Select;
         private System.Windows.Forms.CheckBox checkBox2;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private System.Windows.Forms.Button button1;
     }
 }
