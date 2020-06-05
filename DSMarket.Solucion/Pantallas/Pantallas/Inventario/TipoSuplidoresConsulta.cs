@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
+{
+    public partial class TipoSuplidoresConsulta : Form
+    {
+        public TipoSuplidoresConsulta()
+        {
+            InitializeComponent();
+        }
+
+        private void TipoSuplidoresConsulta_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+}

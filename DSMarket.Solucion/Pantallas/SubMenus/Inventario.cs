@@ -38,5 +38,41 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.TipoProductoConsulta TipoProducto = new Pantallas.Inventario.TipoProductoConsulta();
             TipoProducto.ShowDialog();
         }
+
+        private void btnCategoria_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Inventario.CategoriaConsulta MantenimientoCategoria = new Pantallas.Inventario.CategoriaConsulta();
+            MantenimientoCategoria.ShowDialog();
+        }
+
+        private void btnTipoSuplidores_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Inventario.TipoSuplidoresConsulta MantenimientoTipoSuplidor = new Pantallas.Inventario.TipoSuplidoresConsulta();
+            MantenimientoTipoSuplidor.ShowDialog();
+        }
+
+        private void btnUnidaMedida_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Inventario.UnidadMedidaConsulta MantenimientoUnidadMedida = new Pantallas.Inventario.UnidadMedidaConsulta();
+            MantenimientoUnidadMedida.ShowDialog();
+        }
+
+        private void btnMArcas_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Inventario.MarcasConsulta MantenimientoMArcas = new Pantallas.Inventario.MarcasConsulta();
+            MantenimientoMArcas.ShowDialog();
+        }
+
+        private void btnMonedas_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Inventario.ModelosConsulta MantenimientoModelos = new Pantallas.Inventario.ModelosConsulta();
+            MantenimientoModelos.ShowDialog();
+        }
+
+        private void btnSuplidores_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Inventario.SuplidoresConsulta MantenimeintoSuplidores = new Pantallas.Inventario.SuplidoresConsulta();
+            MantenimeintoSuplidores.ShowDialog();
+        }
     }
 }

@@ -125,7 +125,7 @@
             this.btnSuplidores.Text = "Suplidores";
             this.toolTip1.SetToolTip(this.btnSuplidores, "Mantenimiento de suplidores");
             this.btnSuplidores.UseVisualStyleBackColor = true;
-            this.btnSuplidores.Visible = false;
+            this.btnSuplidores.Click += new System.EventHandler(this.btnSuplidores_Click);
             // 
             // btnTipoSuplidores
             // 
@@ -139,7 +139,7 @@
             this.btnTipoSuplidores.Text = "Tipo de Suplidores";
             this.toolTip1.SetToolTip(this.btnTipoSuplidores, "Mantenimiento de tipo de suplidores");
             this.btnTipoSuplidores.UseVisualStyleBackColor = true;
-            this.btnTipoSuplidores.Visible = false;
+            this.btnTipoSuplidores.Click += new System.EventHandler(this.btnTipoSuplidores_Click);
             // 
             // btnCategoria
             // 
@@ -153,6 +153,7 @@
             this.btnCategoria.Text = "Categoria";
             this.toolTip1.SetToolTip(this.btnCategoria, "Mantenimiento de Categorias");
             this.btnCategoria.UseVisualStyleBackColor = true;
+            this.btnCategoria.Click += new System.EventHandler(this.btnCategoria_Click);
             // 
             // btnMArcas
             // 
@@ -166,6 +167,7 @@
             this.btnMArcas.Text = "Marcas";
             this.toolTip1.SetToolTip(this.btnMArcas, "Mantenimiento de marcas");
             this.btnMArcas.UseVisualStyleBackColor = true;
+            this.btnMArcas.Click += new System.EventHandler(this.btnMArcas_Click);
             // 
             // btnUnidaMedida
             // 
@@ -179,6 +181,7 @@
             this.btnUnidaMedida.Text = "Unidad de Medida";
             this.toolTip1.SetToolTip(this.btnUnidaMedida, "Mantenimiento de unidad de medida");
             this.btnUnidaMedida.UseVisualStyleBackColor = true;
+            this.btnUnidaMedida.Click += new System.EventHandler(this.btnUnidaMedida_Click);
             // 
             // btnMonedas
             // 
@@ -192,7 +195,7 @@
             this.btnMonedas.Text = "Modelos";
             this.toolTip1.SetToolTip(this.btnMonedas, "Mantenimeinto de modelos");
             this.btnMonedas.UseVisualStyleBackColor = true;
-            this.btnMonedas.Visible = false;
+            this.btnMonedas.Click += new System.EventHandler(this.btnMonedas_Click);
             // 
             // btnTipoProducto
             // 

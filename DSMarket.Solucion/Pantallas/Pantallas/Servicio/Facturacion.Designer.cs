@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gbGeneral = new System.Windows.Forms.GroupBox();
+            this.txtCantidadServicios = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.rbCotizar = new System.Windows.Forms.RadioButton();
             this.ddlCantidadDias = new System.Windows.Forms.ComboBox();
             this.rbFacturar = new System.Windows.Forms.RadioButton();
@@ -92,8 +94,9 @@
             this.lbTitulo = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtCantidadServicios = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.rbfacturaspanish = new System.Windows.Forms.RadioButton();
+            this.rbfacturaenglish = new System.Windows.Forms.RadioButton();
             this.gbGeneral.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtProductosAgregados)).BeginInit();
@@ -141,6 +144,24 @@
             this.gbGeneral.TabIndex = 3;
             this.gbGeneral.TabStop = false;
             this.gbGeneral.Text = "Datos de Facturación";
+            // 
+            // txtCantidadServicios
+            // 
+            this.txtCantidadServicios.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCantidadServicios.Enabled = false;
+            this.txtCantidadServicios.Location = new System.Drawing.Point(1008, 278);
+            this.txtCantidadServicios.Name = "txtCantidadServicios";
+            this.txtCantidadServicios.Size = new System.Drawing.Size(165, 27);
+            this.txtCantidadServicios.TabIndex = 53;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(930, 282);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 20);
+            this.label6.TabIndex = 52;
+            this.label6.Text = "Servicios";
             // 
             // rbCotizar
             // 
@@ -462,6 +483,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.rbfacturaenglish);
+            this.groupBox2.Controls.Add(this.rbfacturaspanish);
+            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.btnRestablecerFActura);
             this.groupBox2.Controls.Add(this.cbAgregarCliente);
             this.groupBox2.Controls.Add(this.label4);
@@ -803,23 +827,44 @@
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
             // 
-            // label6
+            // label7
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(930, 282);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 20);
-            this.label6.TabIndex = 52;
-            this.label6.Text = "Servicios";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(572, 23);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(160, 20);
+            this.label7.TabIndex = 40;
+            this.label7.Text = "Formato de Factura:";
             // 
-            // txtCantidadServicios
+            // rbfacturaspanish
             // 
-            this.txtCantidadServicios.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtCantidadServicios.Enabled = false;
-            this.txtCantidadServicios.Location = new System.Drawing.Point(1008, 278);
-            this.txtCantidadServicios.Name = "txtCantidadServicios";
-            this.txtCantidadServicios.Size = new System.Drawing.Size(165, 27);
-            this.txtCantidadServicios.TabIndex = 53;
+            this.rbfacturaspanish.AutoSize = true;
+            this.rbfacturaspanish.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbfacturaspanish.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbfacturaspanish.Location = new System.Drawing.Point(738, 21);
+            this.rbfacturaspanish.Name = "rbfacturaspanish";
+            this.rbfacturaspanish.Size = new System.Drawing.Size(86, 24);
+            this.rbfacturaspanish.TabIndex = 41;
+            this.rbfacturaspanish.TabStop = true;
+            this.rbfacturaspanish.Text = "Español";
+            this.toolTip1.SetToolTip(this.rbfacturaspanish, "Generar la factura en español");
+            this.rbfacturaspanish.UseVisualStyleBackColor = true;
+            this.rbfacturaspanish.CheckedChanged += new System.EventHandler(this.rbfacturaspanish_CheckedChanged);
+            // 
+            // rbfacturaenglish
+            // 
+            this.rbfacturaenglish.AutoSize = true;
+            this.rbfacturaenglish.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbfacturaenglish.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbfacturaenglish.Location = new System.Drawing.Point(831, 21);
+            this.rbfacturaenglish.Name = "rbfacturaenglish";
+            this.rbfacturaenglish.Size = new System.Drawing.Size(72, 24);
+            this.rbfacturaenglish.TabIndex = 42;
+            this.rbfacturaenglish.TabStop = true;
+            this.rbfacturaenglish.Text = "Ingles";
+            this.toolTip1.SetToolTip(this.rbfacturaenglish, "Generar la factura en ingles");
+            this.rbfacturaenglish.UseVisualStyleBackColor = true;
+            this.rbfacturaenglish.CheckedChanged += new System.EventHandler(this.rbfacturaenglish_CheckedChanged);
             // 
             // Facturacion
             // 
@@ -922,5 +967,8 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private System.Windows.Forms.TextBox txtCantidadServicios;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.RadioButton rbfacturaenglish;
+        private System.Windows.Forms.RadioButton rbfacturaspanish;
+        private System.Windows.Forms.Label label7;
     }
 }

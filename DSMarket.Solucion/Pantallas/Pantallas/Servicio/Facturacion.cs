@@ -141,6 +141,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             rbFacturar.ForeColor = Color.LimeGreen;
             rbCotizar.ForeColor = Color.DarkRed;
             cbAgregarCliente.ForeColor = Color.DarkRed;
+            rbfacturaspanish.Checked = true;
+            rbfacturaspanish.ForeColor = Color.LimeGreen;
+            rbfacturaenglish.ForeColor = Color.DarkRed;
         }
 
         private void PCerrar_Click(object sender, EventArgs e)
@@ -222,6 +225,34 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 case CloseReason.UserClosing:
                     e.Cancel = true;
                     break;
+            }
+        }
+
+        private void rbfacturaspanish_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbfacturaspanish.Checked == true)
+            {
+                rbfacturaspanish.ForeColor = Color.LimeGreen;
+                rbfacturaenglish.ForeColor = Color.DarkRed;
+            }
+            else
+            {
+                rbfacturaspanish.ForeColor = Color.DarkRed;
+                rbfacturaenglish.ForeColor = Color.DarkRed;
+            }
+        }
+
+        private void rbfacturaenglish_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbfacturaenglish.Checked == true)
+            {
+                rbfacturaspanish.ForeColor = Color.DarkRed;
+                rbfacturaenglish.ForeColor = Color.LimeGreen;
+            }
+            else
+            {
+                rbfacturaspanish.ForeColor = Color.DarkRed;
+                rbfacturaenglish.ForeColor = Color.DarkRed;
             }
         }
     }
