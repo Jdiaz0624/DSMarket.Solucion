@@ -91,6 +91,18 @@
     <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoTipoProducto.Designer.cs">
       <DependentUpon>MantenimientoTipoProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoTipoSuplidores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoTipoSuplidores.Designer.cs">
+      <DependentUpon>MantenimientoTipoSuplidores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoUnidadMedida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoUnidadMedida.Designer.cs">
+      <DependentUpon>MantenimientoUnidadMedida.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\MarcasConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -264,6 +276,15 @@
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MantenimientoTipoProducto.resx">
       <DependentUpon>MantenimientoTipoProducto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MantenimientoTipoSuplidores.resx">
+      <DependentUpon>MantenimientoTipoSuplidores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MantenimientoUnidadMedida.resx">
+      <DependentUpon>MantenimientoUnidadMedida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MarcasConsulta.resx">
+      <DependentUpon>MarcasConsulta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\ProductoConsulta.resx">
       <DependentUpon>ProductoConsulta.cs</DependentUpon>
     </EmbeddedResource>
@@ -272,6 +293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\TipoSuplidoresConsulta.resx">
       <DependentUpon>TipoSuplidoresConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\UnidadMedidaConsulta.resx">
+      <DependentUpon>UnidadMedidaConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Seguridad\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

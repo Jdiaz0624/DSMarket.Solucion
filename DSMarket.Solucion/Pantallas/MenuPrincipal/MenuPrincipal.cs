@@ -83,10 +83,10 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
             EfectoBotones.Show(btnInventario);
             btnCaja.Visible = false;
             EfectoBotones.Show(btnCaja);
-            btneEmpresa.Visible = false;
-            EfectoBotones.Show(btneEmpresa);
-            btnReportes.Visible = false;
-            EfectoBotones.Show(btnReportes);
+           // btneEmpresa.Visible = false;
+          //  EfectoBotones.Show(btneEmpresa);
+          //  btnReportes.Visible = false;
+         //   EfectoBotones.Show(btnReportes);
             btnConfiguracion.Visible = false;
             EfectoBotones.Show(btnConfiguracion);
             btnSeguridad.Visible = false;
