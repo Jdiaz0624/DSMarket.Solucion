@@ -97,6 +97,12 @@
     <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoProducto.Designer.cs">
       <DependentUpon>MantenimientoProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoSupidores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoSupidores.Designer.cs">
+      <DependentUpon>MantenimientoSupidores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoTipoProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,6 +297,9 @@
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MantenimientoProducto.resx">
       <DependentUpon>MantenimientoProducto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MantenimientoSupidores.resx">
+      <DependentUpon>MantenimientoSupidores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MantenimientoTipoProducto.resx">
       <DependentUpon>MantenimientoTipoProducto.cs</DependentUpon>
     </EmbeddedResource>
@@ -308,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\ProductoConsulta.resx">
       <DependentUpon>ProductoConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\SuplidoresConsulta.resx">
+      <DependentUpon>SuplidoresConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\TipoProductoConsulta.resx">
       <DependentUpon>TipoProductoConsulta.cs</DependentUpon>
