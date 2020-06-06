@@ -31,7 +31,7 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         private void btnFacturacion_Click(object sender, EventArgs e)
         {
             DSMarket.Solucion.Pantallas.Pantallas.Servicio.Facturacion FActuracion = new Pantallas.Servicio.Facturacion();
-            FActuracion.ShowDialog();
+            FActuracion.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)

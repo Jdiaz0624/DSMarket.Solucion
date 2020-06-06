@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Facturacion));
             this.gbGeneral = new System.Windows.Forms.GroupBox();
             this.txtCantidadServicios = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -62,6 +63,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btnARS = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbFacturaPuntoVenta = new System.Windows.Forms.CheckBox();
+            this.rbfacturaenglish = new System.Windows.Forms.RadioButton();
+            this.rbfacturaspanish = new System.Windows.Forms.RadioButton();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnRestablecerFActura = new System.Windows.Forms.Button();
             this.cbAgregarCliente = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -90,13 +95,10 @@
             this.lbCredito = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbMontoCredito = new System.Windows.Forms.Label();
-            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.label7 = new System.Windows.Forms.Label();
-            this.rbfacturaspanish = new System.Windows.Forms.RadioButton();
-            this.rbfacturaenglish = new System.Windows.Forms.RadioButton();
+            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.gbGeneral.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtProductosAgregados)).BeginInit();
@@ -483,6 +485,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbFacturaPuntoVenta);
             this.groupBox2.Controls.Add(this.rbfacturaenglish);
             this.groupBox2.Controls.Add(this.rbfacturaspanish);
             this.groupBox2.Controls.Add(this.label7);
@@ -517,6 +520,59 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de Cliente";
+            // 
+            // cbFacturaPuntoVenta
+            // 
+            this.cbFacturaPuntoVenta.AutoSize = true;
+            this.cbFacturaPuntoVenta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbFacturaPuntoVenta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbFacturaPuntoVenta.Location = new System.Drawing.Point(909, 21);
+            this.cbFacturaPuntoVenta.Name = "cbFacturaPuntoVenta";
+            this.cbFacturaPuntoVenta.Size = new System.Drawing.Size(141, 24);
+            this.cbFacturaPuntoVenta.TabIndex = 43;
+            this.cbFacturaPuntoVenta.Text = "Punto de Venta";
+            this.toolTip1.SetToolTip(this.cbFacturaPuntoVenta, "Generar la factura en formato de punto de venta.");
+            this.cbFacturaPuntoVenta.UseVisualStyleBackColor = true;
+            this.cbFacturaPuntoVenta.CheckedChanged += new System.EventHandler(this.cbFacturaPuntoVenta_CheckedChanged);
+            // 
+            // rbfacturaenglish
+            // 
+            this.rbfacturaenglish.AutoSize = true;
+            this.rbfacturaenglish.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbfacturaenglish.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbfacturaenglish.Location = new System.Drawing.Point(831, 21);
+            this.rbfacturaenglish.Name = "rbfacturaenglish";
+            this.rbfacturaenglish.Size = new System.Drawing.Size(72, 24);
+            this.rbfacturaenglish.TabIndex = 42;
+            this.rbfacturaenglish.TabStop = true;
+            this.rbfacturaenglish.Text = "Ingles";
+            this.toolTip1.SetToolTip(this.rbfacturaenglish, "Generar la factura en ingles");
+            this.rbfacturaenglish.UseVisualStyleBackColor = true;
+            this.rbfacturaenglish.CheckedChanged += new System.EventHandler(this.rbfacturaenglish_CheckedChanged);
+            // 
+            // rbfacturaspanish
+            // 
+            this.rbfacturaspanish.AutoSize = true;
+            this.rbfacturaspanish.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbfacturaspanish.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbfacturaspanish.Location = new System.Drawing.Point(738, 21);
+            this.rbfacturaspanish.Name = "rbfacturaspanish";
+            this.rbfacturaspanish.Size = new System.Drawing.Size(86, 24);
+            this.rbfacturaspanish.TabIndex = 41;
+            this.rbfacturaspanish.TabStop = true;
+            this.rbfacturaspanish.Text = "Español";
+            this.toolTip1.SetToolTip(this.rbfacturaspanish, "Generar la factura en español");
+            this.rbfacturaspanish.UseVisualStyleBackColor = true;
+            this.rbfacturaspanish.CheckedChanged += new System.EventHandler(this.rbfacturaspanish_CheckedChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(572, 23);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(160, 20);
+            this.label7.TabIndex = 40;
+            this.label7.Text = "Formato de Factura:";
             // 
             // btnRestablecerFActura
             // 
@@ -778,8 +834,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.panel1.Controls.Add(this.lbMontoCredito);
             this.panel1.Controls.Add(this.PCerrar);
+            this.panel1.Controls.Add(this.lbMontoCredito);
             this.panel1.Controls.Add(this.lbTitulo);
             this.panel1.Controls.Add(this.lbCredito);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -788,6 +844,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1207, 38);
             this.panel1.TabIndex = 2;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // lbMontoCredito
             // 
@@ -798,20 +855,6 @@
             this.lbMontoCredito.TabIndex = 31;
             this.lbMontoCredito.Text = "Credito";
             this.lbMontoCredito.Visible = false;
-            // 
-            // PCerrar
-            // 
-            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(1165, 5);
-            this.PCerrar.Name = "PCerrar";
-            this.PCerrar.Size = new System.Drawing.Size(30, 30);
-            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PCerrar.TabIndex = 15;
-            this.PCerrar.TabStop = false;
-            this.toolTip1.SetToolTip(this.PCerrar, "Cerrar");
-            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
             // 
             // lbTitulo
             // 
@@ -827,57 +870,30 @@
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
             // 
-            // label7
+            // PCerrar
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(572, 23);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(160, 20);
-            this.label7.TabIndex = 40;
-            this.label7.Text = "Formato de Factura:";
-            // 
-            // rbfacturaspanish
-            // 
-            this.rbfacturaspanish.AutoSize = true;
-            this.rbfacturaspanish.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbfacturaspanish.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbfacturaspanish.Location = new System.Drawing.Point(738, 21);
-            this.rbfacturaspanish.Name = "rbfacturaspanish";
-            this.rbfacturaspanish.Size = new System.Drawing.Size(86, 24);
-            this.rbfacturaspanish.TabIndex = 41;
-            this.rbfacturaspanish.TabStop = true;
-            this.rbfacturaspanish.Text = "Español";
-            this.toolTip1.SetToolTip(this.rbfacturaspanish, "Generar la factura en español");
-            this.rbfacturaspanish.UseVisualStyleBackColor = true;
-            this.rbfacturaspanish.CheckedChanged += new System.EventHandler(this.rbfacturaspanish_CheckedChanged);
-            // 
-            // rbfacturaenglish
-            // 
-            this.rbfacturaenglish.AutoSize = true;
-            this.rbfacturaenglish.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbfacturaenglish.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbfacturaenglish.Location = new System.Drawing.Point(831, 21);
-            this.rbfacturaenglish.Name = "rbfacturaenglish";
-            this.rbfacturaenglish.Size = new System.Drawing.Size(72, 24);
-            this.rbfacturaenglish.TabIndex = 42;
-            this.rbfacturaenglish.TabStop = true;
-            this.rbfacturaenglish.Text = "Ingles";
-            this.toolTip1.SetToolTip(this.rbfacturaenglish, "Generar la factura en ingles");
-            this.rbfacturaenglish.UseVisualStyleBackColor = true;
-            this.rbfacturaenglish.CheckedChanged += new System.EventHandler(this.rbfacturaenglish_CheckedChanged);
+            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
+            this.PCerrar.Location = new System.Drawing.Point(1163, 5);
+            this.PCerrar.Name = "PCerrar";
+            this.PCerrar.Size = new System.Drawing.Size(30, 30);
+            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PCerrar.TabIndex = 19;
+            this.PCerrar.TabStop = false;
+            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click_1);
             // 
             // Facturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(1207, 668);
             this.Controls.Add(this.gbGeneral);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -958,7 +974,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Label lbTitulo;
-        private System.Windows.Forms.PictureBox PCerrar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbMontoCredito;
         private System.Windows.Forms.CheckBox cbAgregarCliente;
@@ -970,5 +985,7 @@
         private System.Windows.Forms.RadioButton rbfacturaenglish;
         private System.Windows.Forms.RadioButton rbfacturaspanish;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox cbFacturaPuntoVenta;
+        private System.Windows.Forms.PictureBox PCerrar;
     }
 }

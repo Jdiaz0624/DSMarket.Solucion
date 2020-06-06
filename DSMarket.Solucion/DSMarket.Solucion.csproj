@@ -487,5 +487,8 @@
   <ItemGroup>
     <None Include="Resources\ojo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minimize Window_2 48px1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

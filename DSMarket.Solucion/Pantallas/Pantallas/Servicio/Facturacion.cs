@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 {
@@ -127,6 +128,12 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         }
         #endregion
+        #region METODOS PARA MOVER LA PANTALLA
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+        #endregion
         private void Facturacion_Load(object sender, EventArgs e)
         {
             TemaGenerico();
@@ -144,11 +151,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             rbfacturaspanish.Checked = true;
             rbfacturaspanish.ForeColor = Color.LimeGreen;
             rbfacturaenglish.ForeColor = Color.DarkRed;
+            cbFacturaPuntoVenta.ForeColor = Color.DarkRed;
+            cbFacturaPuntoVenta.Checked = false;
         }
 
         private void PCerrar_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            
         }
 
         private void rbFacturar_CheckedChanged(object sender, EventArgs e)
@@ -220,12 +229,12 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void Facturacion_FormClosing(object sender, FormClosingEventArgs e)
         {
-            switch (e.CloseReason)
-            {
-                case CloseReason.UserClosing:
-                    e.Cancel = true;
-                    break;
-            }
+            //switch (e.CloseReason)
+            //{
+            //    case CloseReason.UserClosing:
+            //        e.Cancel = true;
+            //        break;
+            //}
         }
 
         private void rbfacturaspanish_CheckedChanged(object sender, EventArgs e)
@@ -254,6 +263,34 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 rbfacturaspanish.ForeColor = Color.DarkRed;
                 rbfacturaenglish.ForeColor = Color.DarkRed;
             }
+        }
+
+        private void cbFacturaPuntoVenta_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbFacturaPuntoVenta.Checked == true)
+            {
+                cbFacturaPuntoVenta.ForeColor = Color.LimeGreen;
+            }
+            else
+            {
+                cbFacturaPuntoVenta.ForeColor = Color.DarkRed;
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void PCerrar_Click_1(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }
