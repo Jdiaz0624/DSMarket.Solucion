@@ -55,6 +55,24 @@
     <Compile Include="Pantallas\MenuPrincipal\MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Caja\Caja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Caja\Caja.Designer.cs">
+      <DependentUpon>Caja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Caja\CuadreCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Caja\CuadreCaja.Designer.cs">
+      <DependentUpon>CuadreCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Caja\MomedasConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Caja\MomedasConsulta.Designer.cs">
+      <DependentUpon>MomedasConsulta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\AgregarOferta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -276,6 +294,15 @@
     <EmbeddedResource Include="Pantallas\MenuPrincipal\MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Caja\Caja.resx">
+      <DependentUpon>Caja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Caja\CuadreCaja.resx">
+      <DependentUpon>CuadreCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Caja\MomedasConsulta.resx">
+      <DependentUpon>MomedasConsulta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\AgregarOferta.resx">
       <DependentUpon>AgregarOferta.cs</DependentUpon>
     </EmbeddedResource>
@@ -406,7 +433,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Pantallas\Pantallas\Caja\" />
     <Folder Include="Pantallas\Pantallas\Configuracion\" />
     <Folder Include="Pantallas\Pantallas\CXC\" />
     <Folder Include="Pantallas\Pantallas\CXP\" />

@@ -32,5 +32,23 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         {
             this.Dispose();
         }
+
+        private void btnAbirCerrarCaja_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Caja.Caja Caja = new Pantallas.Caja.Caja();
+            Caja.ShowDialog();
+        }
+
+        private void btnCuadreCaja_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Caja.CuadreCaja Cudre = new Pantallas.Caja.CuadreCaja();
+            Cudre.ShowDialog();
+        }
+
+        private void btnMonedas_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Caja.MomedasConsulta Modedas = new Pantallas.Caja.MomedasConsulta();
+            Modedas.ShowDialog();
+        }
     }
 }

@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Caja));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.lbusuario = new System.Windows.Forms.Label();
             this.gbOpciones = new System.Windows.Forms.GroupBox();
@@ -41,9 +40,10 @@
             this.btnCuadreCaja = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.Efecto = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.gbOpciones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -58,20 +58,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(742, 44);
             this.panel1.TabIndex = 13;
-            // 
-            // PCerrar
-            // 
-            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Efecto.SetDecoration(this.PCerrar, BunifuAnimatorNS.DecorationType.None);
-            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(700, 8);
-            this.PCerrar.Name = "PCerrar";
-            this.PCerrar.Size = new System.Drawing.Size(30, 30);
-            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PCerrar.TabIndex = 14;
-            this.PCerrar.TabStop = false;
-            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
             // 
             // lbTitulo
             // 
@@ -122,6 +108,7 @@
             this.btnMonedas.TabIndex = 7;
             this.btnMonedas.Text = "Monedas";
             this.btnMonedas.UseVisualStyleBackColor = true;
+            this.btnMonedas.Click += new System.EventHandler(this.btnMonedas_Click);
             // 
             // btnAbirCerrarCaja
             // 
@@ -135,6 +122,7 @@
             this.btnAbirCerrarCaja.TabIndex = 6;
             this.btnAbirCerrarCaja.Text = "Abrir / Cerrar";
             this.btnAbirCerrarCaja.UseVisualStyleBackColor = true;
+            this.btnAbirCerrarCaja.Click += new System.EventHandler(this.btnAbirCerrarCaja_Click);
             // 
             // btnCuadreCaja
             // 
@@ -148,27 +136,42 @@
             this.btnCuadreCaja.TabIndex = 5;
             this.btnCuadreCaja.Text = "Cuadre";
             this.btnCuadreCaja.UseVisualStyleBackColor = true;
+            this.btnCuadreCaja.Click += new System.EventHandler(this.btnCuadreCaja_Click);
             // 
             // Efecto
             // 
             this.Efecto.AnimationType = BunifuAnimatorNS.AnimationType.HorizSlide;
             this.Efecto.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 0F;
-            this.Efecto.DefaultAnimation = animation1;
+            animation2.AnimateOnlyDifferences = true;
+            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            animation2.LeafCoeff = 0F;
+            animation2.MaxTime = 1F;
+            animation2.MinTime = 0F;
+            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            animation2.MosaicSize = 0;
+            animation2.Padding = new System.Windows.Forms.Padding(0);
+            animation2.RotateCoeff = 0F;
+            animation2.RotateLimit = 0F;
+            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            animation2.TimeCoeff = 0F;
+            animation2.TransparencyCoeff = 0F;
+            this.Efecto.DefaultAnimation = animation2;
+            // 
+            // PCerrar
+            // 
+            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Efecto.SetDecoration(this.PCerrar, BunifuAnimatorNS.DecorationType.None);
+            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
+            this.PCerrar.Location = new System.Drawing.Point(700, 8);
+            this.PCerrar.Name = "PCerrar";
+            this.PCerrar.Size = new System.Drawing.Size(30, 30);
+            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PCerrar.TabIndex = 14;
+            this.PCerrar.TabStop = false;
+            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
             // 
             // Caja
             // 
@@ -187,8 +190,8 @@
             this.Load += new System.EventHandler(this.Caja_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.gbOpciones.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.ResumeLayout(false);
 
         }
