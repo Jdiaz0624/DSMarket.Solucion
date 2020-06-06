@@ -85,6 +85,12 @@
     <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoMarcas.Designer.cs">
       <DependentUpon>MantenimientoMarcas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoModelos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoModelos.Designer.cs">
+      <DependentUpon>MantenimientoModelos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,6 +285,9 @@
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MantenimientoMarcas.resx">
       <DependentUpon>MantenimientoMarcas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MantenimientoModelos.resx">
+      <DependentUpon>MantenimientoModelos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MantenimientoProducto.resx">
       <DependentUpon>MantenimientoProducto.cs</DependentUpon>
     </EmbeddedResource>
@@ -293,6 +302,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MarcasConsulta.resx">
       <DependentUpon>MarcasConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\ModelosConsulta.resx">
+      <DependentUpon>ModelosConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\ProductoConsulta.resx">
       <DependentUpon>ProductoConsulta.cs</DependentUpon>

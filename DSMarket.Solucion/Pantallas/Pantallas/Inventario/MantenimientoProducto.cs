@@ -26,7 +26,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         private void MantenimientoProducto_Load(object sender, EventArgs e)
         {
-           
+
+            lbTitulo.ForeColor = Color.WhiteSmoke;
             if (VariablesGlobales.Accion == "INSERT")
             {
                 lbTitulo.Text = "CREAR NUEVO PRODUCTO";
