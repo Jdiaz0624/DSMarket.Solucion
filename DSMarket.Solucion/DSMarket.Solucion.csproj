@@ -73,6 +73,30 @@
     <Compile Include="Pantallas\Pantallas\Caja\MomedasConsulta.Designer.cs">
       <DependentUpon>MomedasConsulta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\CargosConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\CargosConsulta.Designer.cs">
+      <DependentUpon>CargosConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\ClientesConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\ClientesConsulta.Designer.cs">
+      <DependentUpon>ClientesConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\DepartamentosConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\DepartamentosConsulta.Designer.cs">
+      <DependentUpon>DepartamentosConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\NominaConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\NominaConsulta.Designer.cs">
+      <DependentUpon>NominaConsulta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\AgregarOferta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -436,7 +460,6 @@
     <Folder Include="Pantallas\Pantallas\Configuracion\" />
     <Folder Include="Pantallas\Pantallas\CXC\" />
     <Folder Include="Pantallas\Pantallas\CXP\" />
-    <Folder Include="Pantallas\Pantallas\Empresa\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Menu_48px.png" />

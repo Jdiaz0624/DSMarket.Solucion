@@ -124,7 +124,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             txtCantidadServicios.ForeColor = Color.Black;
 
             dtProductosAgregados.BackgroundColor = SystemColors.Control;
-
+            dtFacturasMinimizadas.BackgroundColor = SystemColors.Control;
 
         }
         #endregion

@@ -27,5 +27,29 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
             lbTitulo.Text = "MODULO DE EMPRESA";
             lbTitulo.ForeColor = Color.White;
         }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Empresa.ClientesConsulta Clientes = new Pantallas.Empresa.ClientesConsulta();
+            Clientes.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Empresa.NominaConsulta Nomina = new Pantallas.Empresa.NominaConsulta();
+            Nomina.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Empresa.DepartamentosConsulta Departamentos = new Pantallas.Empresa.DepartamentosConsulta();
+            Departamentos.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Empresa.CargosConsulta Cargos = new Pantallas.Empresa.CargosConsulta();
+            Cargos.ShowDialog();
+        }
     }
 }

@@ -247,7 +247,7 @@
             this.btnSeguridad.IconVisible = true;
             this.btnSeguridad.IconZoom = 90D;
             this.btnSeguridad.IsTab = false;
-            this.btnSeguridad.Location = new System.Drawing.Point(9, 266);
+            this.btnSeguridad.Location = new System.Drawing.Point(9, 320);
             this.btnSeguridad.Name = "btnSeguridad";
             this.btnSeguridad.Normalcolor = System.Drawing.Color.Transparent;
             this.btnSeguridad.OnHovercolor = System.Drawing.Color.Transparent;
@@ -284,7 +284,7 @@
             this.btnCerrarSesion.IconVisible = true;
             this.btnCerrarSesion.IconZoom = 90D;
             this.btnCerrarSesion.IsTab = false;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(9, 320);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(9, 374);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Normalcolor = System.Drawing.Color.Transparent;
             this.btnCerrarSesion.OnHovercolor = System.Drawing.Color.Transparent;
@@ -321,7 +321,7 @@
             this.btnConfiguracion.IconVisible = true;
             this.btnConfiguracion.IconZoom = 90D;
             this.btnConfiguracion.IsTab = false;
-            this.btnConfiguracion.Location = new System.Drawing.Point(9, 215);
+            this.btnConfiguracion.Location = new System.Drawing.Point(9, 269);
             this.btnConfiguracion.Name = "btnConfiguracion";
             this.btnConfiguracion.Normalcolor = System.Drawing.Color.Transparent;
             this.btnConfiguracion.OnHovercolor = System.Drawing.Color.Transparent;
@@ -424,7 +424,7 @@
             this.btneEmpresa.IconVisible = true;
             this.btneEmpresa.IconZoom = 90D;
             this.btneEmpresa.IsTab = false;
-            this.btneEmpresa.Location = new System.Drawing.Point(9, 497);
+            this.btneEmpresa.Location = new System.Drawing.Point(9, 215);
             this.btneEmpresa.Name = "btneEmpresa";
             this.btneEmpresa.Normalcolor = System.Drawing.Color.Transparent;
             this.btneEmpresa.OnHovercolor = System.Drawing.Color.Transparent;
