@@ -210,6 +210,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 lbMontoCredito.Visible = true;
                 DesbloquearControlesClientes();
                 cbAgregarCliente.ForeColor = Color.LimeGreen;
+                cbBuscarPorCodigo.Enabled = true;
             }
             else
             {
@@ -217,6 +218,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 lbMontoCredito.Visible = false;
                 BloarControlesClientes();
                 cbAgregarCliente.ForeColor = Color.DarkRed;
+                cbBuscarPorCodigo.Enabled = false;
+                cbBuscarPorCodigo.Checked = false;
+                cbBuscarPorCodigo.ForeColor = Color.DarkRed;
+                btnAgregarAlmacen.Visible = true;
+                btnRegresar.Visible = false;
             }
         }
 
@@ -291,6 +297,48 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            btnAgregarAlmacen.Visible = true;
+            btnRegresar.Visible = false;
+        }
+
+        private void btnAgregarAlmacen_Click(object sender, EventArgs e)
+        {
+            btnAgregarAlmacen.Visible = false;
+            btnRegresar.Visible = true;
+        }
+
+        private void btnBuscarCotizacion_Click(object sender, EventArgs e)
+        {
+            btnBuscarCotizacion.Visible = false;
+            btnRefresarCotizacion.Visible = true;
+        }
+
+        private void btnRefresarCotizacion_Click(object sender, EventArgs e)
+        {
+            btnBuscarCotizacion.Visible = true;
+            btnRefresarCotizacion.Visible = false;
+        }
+
+        private void cbBuscarPorCodigo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbBuscarPorCodigo.Checked == true)
+            {
+                btnBuscarCodigoCliente.Visible = true;
+                txtCodigoConsulta.Visible = true;
+                txtCodigoConsulta.Text = string.Empty;
+                txtCodigoConsulta.Focus();
+                cbBuscarPorCodigo.ForeColor = Color.LimeGreen;
+            }
+            else
+            {
+                btnBuscarCodigoCliente.Visible = false;
+                txtCodigoConsulta.Visible = false;
+                cbBuscarPorCodigo.ForeColor = Color.DarkRed;
+            }
         }
     }
 }

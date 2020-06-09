@@ -57,7 +57,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(979, 44);
+            this.panel1.Size = new System.Drawing.Size(606, 44);
             this.panel1.TabIndex = 17;
             // 
             // lbTitulo
@@ -76,7 +76,7 @@
             this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(937, 10);
+            this.PCerrar.Location = new System.Drawing.Point(564, 10);
             this.PCerrar.Name = "PCerrar";
             this.PCerrar.Size = new System.Drawing.Size(30, 30);
             this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -108,19 +108,19 @@
             this.gbOpciones.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbOpciones.Location = new System.Drawing.Point(12, 50);
             this.gbOpciones.Name = "gbOpciones";
-            this.gbOpciones.Size = new System.Drawing.Size(957, 184);
+            this.gbOpciones.Size = new System.Drawing.Size(584, 218);
             this.gbOpciones.TabIndex = 16;
             this.gbOpciones.TabStop = false;
-            this.gbOpciones.Text = "Inventario - Seleccionar Opcion";
+            this.gbOpciones.Text = "Inventario - Seleccionar Opción";
             // 
             // btnSuplidores
             // 
             this.btnSuplidores.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSuplidores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSuplidores.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSuplidores.Location = new System.Drawing.Point(714, 103);
+            this.btnSuplidores.Location = new System.Drawing.Point(198, 153);
             this.btnSuplidores.Name = "btnSuplidores";
-            this.btnSuplidores.Size = new System.Drawing.Size(230, 68);
+            this.btnSuplidores.Size = new System.Drawing.Size(186, 56);
             this.btnSuplidores.TabIndex = 7;
             this.btnSuplidores.Text = "Suplidores";
             this.toolTip1.SetToolTip(this.btnSuplidores, "Mantenimiento de suplidores");
@@ -132,9 +132,9 @@
             this.btnTipoSuplidores.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTipoSuplidores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTipoSuplidores.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTipoSuplidores.Location = new System.Drawing.Point(714, 29);
+            this.btnTipoSuplidores.Location = new System.Drawing.Point(6, 153);
             this.btnTipoSuplidores.Name = "btnTipoSuplidores";
-            this.btnTipoSuplidores.Size = new System.Drawing.Size(230, 68);
+            this.btnTipoSuplidores.Size = new System.Drawing.Size(186, 56);
             this.btnTipoSuplidores.TabIndex = 6;
             this.btnTipoSuplidores.Text = "Tipo de Suplidores";
             this.toolTip1.SetToolTip(this.btnTipoSuplidores, "Mantenimiento de tipo de suplidores");
@@ -146,9 +146,9 @@
             this.btnCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCategoria.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCategoria.Location = new System.Drawing.Point(478, 29);
+            this.btnCategoria.Location = new System.Drawing.Point(390, 29);
             this.btnCategoria.Name = "btnCategoria";
-            this.btnCategoria.Size = new System.Drawing.Size(230, 68);
+            this.btnCategoria.Size = new System.Drawing.Size(186, 56);
             this.btnCategoria.TabIndex = 5;
             this.btnCategoria.Text = "Categoria";
             this.toolTip1.SetToolTip(this.btnCategoria, "Mantenimiento de Categorias");
@@ -160,9 +160,9 @@
             this.btnMArcas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMArcas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMArcas.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMArcas.Location = new System.Drawing.Point(242, 103);
+            this.btnMArcas.Location = new System.Drawing.Point(198, 91);
             this.btnMArcas.Name = "btnMArcas";
-            this.btnMArcas.Size = new System.Drawing.Size(230, 68);
+            this.btnMArcas.Size = new System.Drawing.Size(186, 56);
             this.btnMArcas.TabIndex = 4;
             this.btnMArcas.Text = "Marcas";
             this.toolTip1.SetToolTip(this.btnMArcas, "Mantenimiento de marcas");
@@ -174,9 +174,9 @@
             this.btnUnidaMedida.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUnidaMedida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUnidaMedida.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUnidaMedida.Location = new System.Drawing.Point(6, 103);
+            this.btnUnidaMedida.Location = new System.Drawing.Point(6, 91);
             this.btnUnidaMedida.Name = "btnUnidaMedida";
-            this.btnUnidaMedida.Size = new System.Drawing.Size(230, 68);
+            this.btnUnidaMedida.Size = new System.Drawing.Size(186, 56);
             this.btnUnidaMedida.TabIndex = 3;
             this.btnUnidaMedida.Text = "Unidad de Medida";
             this.toolTip1.SetToolTip(this.btnUnidaMedida, "Mantenimiento de unidad de medida");
@@ -188,9 +188,9 @@
             this.btnMonedas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMonedas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMonedas.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMonedas.Location = new System.Drawing.Point(478, 103);
+            this.btnMonedas.Location = new System.Drawing.Point(390, 91);
             this.btnMonedas.Name = "btnMonedas";
-            this.btnMonedas.Size = new System.Drawing.Size(230, 68);
+            this.btnMonedas.Size = new System.Drawing.Size(186, 56);
             this.btnMonedas.TabIndex = 2;
             this.btnMonedas.Text = "Modelos";
             this.toolTip1.SetToolTip(this.btnMonedas, "Mantenimeinto de modelos");
@@ -202,9 +202,9 @@
             this.btnTipoProducto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTipoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTipoProducto.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTipoProducto.Location = new System.Drawing.Point(242, 29);
+            this.btnTipoProducto.Location = new System.Drawing.Point(198, 29);
             this.btnTipoProducto.Name = "btnTipoProducto";
-            this.btnTipoProducto.Size = new System.Drawing.Size(230, 68);
+            this.btnTipoProducto.Size = new System.Drawing.Size(186, 56);
             this.btnTipoProducto.TabIndex = 1;
             this.btnTipoProducto.Text = "Tipo de Producto";
             this.toolTip1.SetToolTip(this.btnTipoProducto, "Mantenimiento de tipo de producto");
@@ -218,7 +218,7 @@
             this.btnProductos.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProductos.Location = new System.Drawing.Point(6, 29);
             this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Size = new System.Drawing.Size(230, 68);
+            this.btnProductos.Size = new System.Drawing.Size(186, 56);
             this.btnProductos.TabIndex = 0;
             this.btnProductos.Text = "Producto / Inventario";
             this.toolTip1.SetToolTip(this.btnProductos, "Inventario");
@@ -229,7 +229,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(979, 246);
+            this.ClientSize = new System.Drawing.Size(606, 279);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gbOpciones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

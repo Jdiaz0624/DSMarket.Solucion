@@ -79,6 +79,12 @@
     <Compile Include="Pantallas\Pantallas\Empresa\CargosConsulta.Designer.cs">
       <DependentUpon>CargosConsulta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\CargosMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\CargosMantenimiento.Designer.cs">
+      <DependentUpon>CargosMantenimiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Empresa\ClientesConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -339,6 +345,12 @@
     <EmbeddedResource Include="Pantallas\Pantallas\Caja\MomedasConsulta.resx">
       <DependentUpon>MomedasConsulta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\CargosConsulta.resx">
+      <DependentUpon>CargosConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\CargosMantenimiento.resx">
+      <DependentUpon>CargosMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\ClientesConsulta.resx">
       <DependentUpon>ClientesConsulta.cs</DependentUpon>
     </EmbeddedResource>
@@ -595,6 +607,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Minimize Window_2 48px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tulogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

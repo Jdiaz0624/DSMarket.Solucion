@@ -16,5 +16,27 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
         {
             InitializeComponent();
         }
+
+        private void PCerrar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void CargosConsulta_Load(object sender, EventArgs e)
+        {
+            this.BackColor = SystemColors.Control;
+            dtListado.BackgroundColor = SystemColors.Control;
+            ddlSeleccionarDepartamento.BackColor = Color.WhiteSmoke;
+            txtCargo.BackColor = Color.WhiteSmoke;
+            txtNumeroPagina.BackColor = Color.WhiteSmoke;
+            txtNumeroRegistros.BackColor = Color.WhiteSmoke;
+
+            ddlSeleccionarDepartamento.ForeColor = Color.Black;
+            txtCargo.ForeColor = Color.Black;
+            txtNumeroPagina.ForeColor = Color.Black;
+            txtNumeroRegistros.ForeColor = Color.Black;
+
+
+        }
     }
 }

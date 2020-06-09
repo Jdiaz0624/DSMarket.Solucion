@@ -254,9 +254,9 @@
             this.cbNoagregarRangofecha.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbNoagregarRangofecha.Location = new System.Drawing.Point(775, 32);
             this.cbNoagregarRangofecha.Name = "cbNoagregarRangofecha";
-            this.cbNoagregarRangofecha.Size = new System.Drawing.Size(231, 24);
+            this.cbNoagregarRangofecha.Size = new System.Drawing.Size(209, 24);
             this.cbNoagregarRangofecha.TabIndex = 7;
-            this.cbNoagregarRangofecha.Text = "No agregar Rango de Fecha";
+            this.cbNoagregarRangofecha.Text = "Agregar Rango de Fecha";
             this.toolTip1.SetToolTip(this.cbNoagregarRangofecha, "Aregar o no agregar el rango de fecha");
             this.cbNoagregarRangofecha.UseVisualStyleBackColor = true;
             this.cbNoagregarRangofecha.CheckedChanged += new System.EventHandler(this.cbNoagregarRangofecha_CheckedChanged);

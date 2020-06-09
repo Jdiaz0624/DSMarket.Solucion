@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.gbOpciones = new System.Windows.Forms.GroupBox();
             this.lbUsuario = new System.Windows.Forms.Label();
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnInformacionEmpresa = new System.Windows.Forms.Button();
             this.btnComprobantes = new System.Windows.Forms.Button();
-            this.PCerrar = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.gbOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
+            this.gbOpciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -49,8 +50,22 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(771, 44);
+            this.panel1.Size = new System.Drawing.Size(603, 44);
             this.panel1.TabIndex = 18;
+            // 
+            // PCerrar
+            // 
+            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PCerrar.BackColor = System.Drawing.Color.Transparent;
+            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
+            this.PCerrar.Location = new System.Drawing.Point(562, 10);
+            this.PCerrar.Name = "PCerrar";
+            this.PCerrar.Size = new System.Drawing.Size(30, 30);
+            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PCerrar.TabIndex = 19;
+            this.PCerrar.TabStop = false;
+            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
             // 
             // lbTitulo
             // 
@@ -63,13 +78,14 @@
             // 
             // gbOpciones
             // 
+            this.gbOpciones.Controls.Add(this.button1);
             this.gbOpciones.Controls.Add(this.lbUsuario);
             this.gbOpciones.Controls.Add(this.btnReportes);
             this.gbOpciones.Controls.Add(this.btnInformacionEmpresa);
             this.gbOpciones.Controls.Add(this.btnComprobantes);
             this.gbOpciones.Location = new System.Drawing.Point(12, 60);
             this.gbOpciones.Name = "gbOpciones";
-            this.gbOpciones.Size = new System.Drawing.Size(748, 114);
+            this.gbOpciones.Size = new System.Drawing.Size(584, 158);
             this.gbOpciones.TabIndex = 17;
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Configuración - Seleccionar Opcion";
@@ -89,9 +105,9 @@
             this.btnReportes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReportes.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReportes.Location = new System.Drawing.Point(514, 29);
+            this.btnReportes.Location = new System.Drawing.Point(390, 29);
             this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Size = new System.Drawing.Size(230, 68);
+            this.btnReportes.Size = new System.Drawing.Size(186, 56);
             this.btnReportes.TabIndex = 4;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.UseVisualStyleBackColor = true;
@@ -103,7 +119,7 @@
             this.btnInformacionEmpresa.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInformacionEmpresa.Location = new System.Drawing.Point(6, 29);
             this.btnInformacionEmpresa.Name = "btnInformacionEmpresa";
-            this.btnInformacionEmpresa.Size = new System.Drawing.Size(246, 68);
+            this.btnInformacionEmpresa.Size = new System.Drawing.Size(186, 56);
             this.btnInformacionEmpresa.TabIndex = 3;
             this.btnInformacionEmpresa.Text = "Información de Empresa";
             this.btnInformacionEmpresa.UseVisualStyleBackColor = true;
@@ -113,32 +129,30 @@
             this.btnComprobantes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnComprobantes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnComprobantes.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnComprobantes.Location = new System.Drawing.Point(258, 29);
+            this.btnComprobantes.Location = new System.Drawing.Point(198, 29);
             this.btnComprobantes.Name = "btnComprobantes";
-            this.btnComprobantes.Size = new System.Drawing.Size(252, 68);
+            this.btnComprobantes.Size = new System.Drawing.Size(186, 56);
             this.btnComprobantes.TabIndex = 1;
             this.btnComprobantes.Text = "Comprobantes";
             this.btnComprobantes.UseVisualStyleBackColor = true;
             // 
-            // PCerrar
+            // button1
             // 
-            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PCerrar.BackColor = System.Drawing.Color.Transparent;
-            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(730, 10);
-            this.PCerrar.Name = "PCerrar";
-            this.PCerrar.Size = new System.Drawing.Size(30, 30);
-            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PCerrar.TabIndex = 19;
-            this.PCerrar.TabStop = false;
-            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(6, 91);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(186, 56);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Mail";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Configuracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(771, 187);
+            this.ClientSize = new System.Drawing.Size(603, 226);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gbOpciones);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -150,9 +164,9 @@
             this.Load += new System.EventHandler(this.Configuracion_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.gbOpciones.ResumeLayout(false);
             this.gbOpciones.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -167,5 +181,6 @@
         private System.Windows.Forms.Button btnInformacionEmpresa;
         private System.Windows.Forms.Button btnComprobantes;
         private System.Windows.Forms.PictureBox PCerrar;
+        private System.Windows.Forms.Button button1;
     }
 }
