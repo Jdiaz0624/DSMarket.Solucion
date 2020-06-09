@@ -31,6 +31,34 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             txtCargo.BackColor = Color.WhiteSmoke;
             ddlSeleccionarDepartamento.BackColor = Color.WhiteSmoke;
 
+            if (VariablesGlobales.Accion == "INSERT")
+            {
+                lbTitulo.Text = "CREAR NUEVO REGISTRO";
+                btnGuardar.Text = "Guardar registro";
+                lbclaveSeguridad.Visible = false;
+                txtClaveSeguridad.Visible = false;
+                cbEstatus.Checked = true;
+            }
+            else if (VariablesGlobales.Accion == "UPDATE")
+            {
+                lbTitulo.Text = "MODIFICAR REGISTRO SELECCIONADO";
+                btnGuardar.Text = "Modificar registro";
+                lbclaveSeguridad.Visible = true;
+                txtClaveSeguridad.Visible = true;
+                txtClaveSeguridad.PasswordChar = '•';
+                txtClaveSeguridad.Text = string.Empty;
+            }
+
+        }
+
+        private void CargosMantenimiento_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            switch (e.CloseReason)
+            {
+                case CloseReason.UserClosing:
+                    e.Cancel = true;
+                    break;
+            }
         }
     }
 }

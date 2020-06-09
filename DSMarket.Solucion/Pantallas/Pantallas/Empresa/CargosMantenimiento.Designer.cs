@@ -31,36 +31,27 @@
             this.components = new System.ComponentModel.Container();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.lbclaveSeguridad = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.cbEstatus = new System.Windows.Forms.CheckBox();
+            this.PCerrar = new System.Windows.Forms.PictureBox();
+            this.lbclaveSeguridad = new System.Windows.Forms.Label();
             this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbEstatus = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCargo = new System.Windows.Forms.TextBox();
             this.ddlSeleccionarDepartamento = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
-            // 
-            // lbclaveSeguridad
-            // 
-            this.lbclaveSeguridad.AutoSize = true;
-            this.lbclaveSeguridad.Location = new System.Drawing.Point(19, 174);
-            this.lbclaveSeguridad.Name = "lbclaveSeguridad";
-            this.lbclaveSeguridad.Size = new System.Drawing.Size(153, 20);
-            this.lbclaveSeguridad.TabIndex = 33;
-            this.lbclaveSeguridad.Text = "Clave de Seguridad";
             // 
             // btnGuardar
             // 
@@ -77,6 +68,42 @@
             this.btnGuardar.Text = "Accion";
             this.toolTip1.SetToolTip(this.btnGuardar, "Completar Operación");
             this.btnGuardar.UseVisualStyleBackColor = true;
+            // 
+            // cbEstatus
+            // 
+            this.cbEstatus.AutoSize = true;
+            this.cbEstatus.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbEstatus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbEstatus.Location = new System.Drawing.Point(129, 93);
+            this.cbEstatus.Name = "cbEstatus";
+            this.cbEstatus.Size = new System.Drawing.Size(83, 24);
+            this.cbEstatus.TabIndex = 6;
+            this.cbEstatus.Text = "Estatus";
+            this.toolTip1.SetToolTip(this.cbEstatus, "Estatus de Tipo de Producto");
+            this.cbEstatus.UseVisualStyleBackColor = true;
+            // 
+            // PCerrar
+            // 
+            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
+            this.PCerrar.Location = new System.Drawing.Point(412, 5);
+            this.PCerrar.Name = "PCerrar";
+            this.PCerrar.Size = new System.Drawing.Size(30, 30);
+            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PCerrar.TabIndex = 15;
+            this.PCerrar.TabStop = false;
+            this.toolTip1.SetToolTip(this.PCerrar, "Cerrar");
+            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
+            // 
+            // lbclaveSeguridad
+            // 
+            this.lbclaveSeguridad.AutoSize = true;
+            this.lbclaveSeguridad.Location = new System.Drawing.Point(19, 174);
+            this.lbclaveSeguridad.Name = "lbclaveSeguridad";
+            this.lbclaveSeguridad.Size = new System.Drawing.Size(153, 20);
+            this.lbclaveSeguridad.TabIndex = 33;
+            this.lbclaveSeguridad.Text = "Clave de Seguridad";
             // 
             // txtClaveSeguridad
             // 
@@ -99,20 +126,7 @@
             this.groupBox1.Size = new System.Drawing.Size(432, 123);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Mantenimiento de Departamentos";
-            // 
-            // cbEstatus
-            // 
-            this.cbEstatus.AutoSize = true;
-            this.cbEstatus.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbEstatus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbEstatus.Location = new System.Drawing.Point(129, 93);
-            this.cbEstatus.Name = "cbEstatus";
-            this.cbEstatus.Size = new System.Drawing.Size(83, 24);
-            this.cbEstatus.TabIndex = 6;
-            this.cbEstatus.Text = "Estatus";
-            this.toolTip1.SetToolTip(this.cbEstatus, "Estatus de Tipo de Producto");
-            this.cbEstatus.UseVisualStyleBackColor = true;
+            this.groupBox1.Text = "Mantenimiento de Cargos";
             // 
             // label1
             // 
@@ -164,20 +178,6 @@
             this.panel1.Size = new System.Drawing.Size(454, 38);
             this.panel1.TabIndex = 34;
             // 
-            // PCerrar
-            // 
-            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(412, 5);
-            this.PCerrar.Name = "PCerrar";
-            this.PCerrar.Size = new System.Drawing.Size(30, 30);
-            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PCerrar.TabIndex = 15;
-            this.PCerrar.TabStop = false;
-            this.toolTip1.SetToolTip(this.PCerrar, "Cerrar");
-            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
-            // 
             // lbTitulo
             // 
             this.lbTitulo.AutoSize = true;
@@ -199,18 +199,19 @@
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CargosMantenimiento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CargosMantenimiento";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CargosMantenimiento_FormClosing);
             this.Load += new System.EventHandler(this.CargosMantenimiento_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

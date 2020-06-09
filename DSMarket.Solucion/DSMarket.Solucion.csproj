@@ -115,6 +115,12 @@
     <Compile Include="Pantallas\Pantallas\Empresa\NominaConsulta.Designer.cs">
       <DependentUpon>NominaConsulta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\NominaMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\NominaMantenimiento.Designer.cs">
+      <DependentUpon>NominaMantenimiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\AgregarOferta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -362,6 +368,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\DepartamentosMantenimiento.resx">
       <DependentUpon>DepartamentosMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\NominaConsulta.resx">
+      <DependentUpon>NominaConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\NominaMantenimiento.resx">
+      <DependentUpon>NominaMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\AgregarOferta.resx">
       <DependentUpon>AgregarOferta.cs</DependentUpon>

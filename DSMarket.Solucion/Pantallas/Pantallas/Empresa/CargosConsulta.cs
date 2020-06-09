@@ -38,5 +38,31 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
 
 
         }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DSMarket.Solucion.Pantallas.Pantallas.Empresa.CargosMantenimiento mantenimiento = new CargosMantenimiento();
+            mantenimiento.VariablesGlobales.Accion = "INSERT";
+            mantenimiento.ShowDialog();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DSMarket.Solucion.Pantallas.Pantallas.Empresa.CargosMantenimiento mantenimiento = new CargosMantenimiento();
+            mantenimiento.VariablesGlobales.Accion = "UPDATE";
+            mantenimiento.ShowDialog();
+        }
+
+        private void CargosConsulta_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            switch (e.CloseReason)
+            {
+                case CloseReason.UserClosing:
+                    e.Cancel = true;
+                    break;
+            }
+        }
     }
 }

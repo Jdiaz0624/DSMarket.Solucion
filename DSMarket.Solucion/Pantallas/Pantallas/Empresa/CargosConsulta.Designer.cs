@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.cbAgregarDepartamentos = new System.Windows.Forms.CheckBox();
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtListado = new System.Windows.Forms.DataGridView();
@@ -39,21 +43,16 @@
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtCargo = new System.Windows.Forms.TextBox();
+            this.ddlSeleccionarDepartamento = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnDeshabilitar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbCantidadRegistrosVariable = new System.Windows.Forms.Label();
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.lbCantidadRegistrosTitulo = new System.Windows.Forms.Label();
-            this.txtCargo = new System.Windows.Forms.TextBox();
-            this.ddlSeleccionarDepartamento = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbAgregarDepartamentos = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
@@ -68,6 +67,69 @@
             // 
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditar.FlatAppearance.BorderSize = 0;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEditar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.Image = global::DSMarket.Solucion.Properties.Resources.Editar;
+            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditar.Location = new System.Drawing.Point(355, 7);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(170, 41);
+            this.btnEditar.TabIndex = 66;
+            this.btnEditar.Text = "      Editar";
+            this.toolTip1.SetToolTip(this.btnEditar, "Modificar registro seleccionado");
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNuevo.FlatAppearance.BorderSize = 0;
+            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
+            this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevo.Location = new System.Drawing.Point(179, 7);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(170, 41);
+            this.btnNuevo.TabIndex = 65;
+            this.btnNuevo.Text = "      Nuevo";
+            this.toolTip1.SetToolTip(this.btnNuevo, "Crear registro nuevo");
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscar.Location = new System.Drawing.Point(3, 7);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(170, 41);
+            this.btnBuscar.TabIndex = 64;
+            this.btnBuscar.Text = "      Buscar";
+            this.toolTip1.SetToolTip(this.btnBuscar, "Consultar registros");
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            // 
+            // cbAgregarDepartamentos
+            // 
+            this.cbAgregarDepartamentos.AutoSize = true;
+            this.cbAgregarDepartamentos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbAgregarDepartamentos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbAgregarDepartamentos.Location = new System.Drawing.Point(424, 27);
+            this.cbAgregarDepartamentos.Name = "cbAgregarDepartamentos";
+            this.cbAgregarDepartamentos.Size = new System.Drawing.Size(87, 24);
+            this.cbAgregarDepartamentos.TabIndex = 103;
+            this.cbAgregarDepartamentos.Text = "Agregar";
+            this.toolTip1.SetToolTip(this.cbAgregarDepartamentos, "Agregar los departamentos a la consulta");
+            this.cbAgregarDepartamentos.UseVisualStyleBackColor = true;
             // 
             // txtNumeroRegistros
             // 
@@ -180,6 +242,35 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cargo - Filtro";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(72, 65);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 20);
+            this.label1.TabIndex = 102;
+            this.label1.Text = "Cargo";
+            // 
+            // txtCargo
+            // 
+            this.txtCargo.BackColor = System.Drawing.Color.Silver;
+            this.txtCargo.Location = new System.Drawing.Point(129, 61);
+            this.txtCargo.Name = "txtCargo";
+            this.txtCargo.Size = new System.Drawing.Size(291, 27);
+            this.txtCargo.TabIndex = 6;
+            // 
+            // ddlSeleccionarDepartamento
+            // 
+            this.ddlSeleccionarDepartamento.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlSeleccionarDepartamento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarDepartamento.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarDepartamento.FormattingEnabled = true;
+            this.ddlSeleccionarDepartamento.Location = new System.Drawing.Point(129, 27);
+            this.ddlSeleccionarDepartamento.Name = "ddlSeleccionarDepartamento";
+            this.ddlSeleccionarDepartamento.Size = new System.Drawing.Size(291, 28);
+            this.ddlSeleccionarDepartamento.TabIndex = 101;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -192,7 +283,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Linen;
-            this.panel2.Controls.Add(this.btnDeshabilitar);
             this.panel2.Controls.Add(this.btnEditar);
             this.panel2.Controls.Add(this.btnNuevo);
             this.panel2.Controls.Add(this.btnBuscar);
@@ -202,70 +292,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1072, 58);
             this.panel2.TabIndex = 94;
-            // 
-            // btnDeshabilitar
-            // 
-            this.btnDeshabilitar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDeshabilitar.FlatAppearance.BorderSize = 0;
-            this.btnDeshabilitar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDeshabilitar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeshabilitar.Image = global::DSMarket.Solucion.Properties.Resources.Deshabilitar;
-            this.btnDeshabilitar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeshabilitar.Location = new System.Drawing.Point(531, 7);
-            this.btnDeshabilitar.Name = "btnDeshabilitar";
-            this.btnDeshabilitar.Size = new System.Drawing.Size(170, 41);
-            this.btnDeshabilitar.TabIndex = 67;
-            this.btnDeshabilitar.Text = "      Deshabilitar";
-            this.toolTip1.SetToolTip(this.btnDeshabilitar, "Deshabilitar registro seleccionado");
-            this.btnDeshabilitar.UseVisualStyleBackColor = true;
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditar.FlatAppearance.BorderSize = 0;
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEditar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.Image = global::DSMarket.Solucion.Properties.Resources.Editar;
-            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(355, 7);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(170, 41);
-            this.btnEditar.TabIndex = 66;
-            this.btnEditar.Text = "      Editar";
-            this.toolTip1.SetToolTip(this.btnEditar, "Modificar registro seleccionado");
-            this.btnEditar.UseVisualStyleBackColor = true;
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNuevo.FlatAppearance.BorderSize = 0;
-            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
-            this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(179, 7);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(170, 41);
-            this.btnNuevo.TabIndex = 65;
-            this.btnNuevo.Text = "      Nuevo";
-            this.toolTip1.SetToolTip(this.btnNuevo, "Crear registro nuevo");
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
-            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(3, 7);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(170, 41);
-            this.btnBuscar.TabIndex = 64;
-            this.btnBuscar.Text = "      Buscar";
-            this.toolTip1.SetToolTip(this.btnBuscar, "Consultar registros");
-            this.btnBuscar.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -321,48 +347,6 @@
             this.lbCantidadRegistrosTitulo.TabIndex = 30;
             this.lbCantidadRegistrosTitulo.Text = "Cantidad de Registros";
             // 
-            // txtCargo
-            // 
-            this.txtCargo.BackColor = System.Drawing.Color.Silver;
-            this.txtCargo.Location = new System.Drawing.Point(129, 61);
-            this.txtCargo.Name = "txtCargo";
-            this.txtCargo.Size = new System.Drawing.Size(291, 27);
-            this.txtCargo.TabIndex = 6;
-            // 
-            // ddlSeleccionarDepartamento
-            // 
-            this.ddlSeleccionarDepartamento.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ddlSeleccionarDepartamento.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlSeleccionarDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlSeleccionarDepartamento.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ddlSeleccionarDepartamento.FormattingEnabled = true;
-            this.ddlSeleccionarDepartamento.Location = new System.Drawing.Point(129, 27);
-            this.ddlSeleccionarDepartamento.Name = "ddlSeleccionarDepartamento";
-            this.ddlSeleccionarDepartamento.Size = new System.Drawing.Size(291, 28);
-            this.ddlSeleccionarDepartamento.TabIndex = 101;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(72, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 20);
-            this.label1.TabIndex = 102;
-            this.label1.Text = "Cargo";
-            // 
-            // cbAgregarDepartamentos
-            // 
-            this.cbAgregarDepartamentos.AutoSize = true;
-            this.cbAgregarDepartamentos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbAgregarDepartamentos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbAgregarDepartamentos.Location = new System.Drawing.Point(424, 27);
-            this.cbAgregarDepartamentos.Name = "cbAgregarDepartamentos";
-            this.cbAgregarDepartamentos.Size = new System.Drawing.Size(87, 24);
-            this.cbAgregarDepartamentos.TabIndex = 103;
-            this.cbAgregarDepartamentos.Text = "Agregar";
-            this.toolTip1.SetToolTip(this.cbAgregarDepartamentos, "Agregar los departamentos a la consulta");
-            this.cbAgregarDepartamentos.UseVisualStyleBackColor = true;
-            // 
             // CargosConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -378,12 +362,13 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CargosConsulta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CargosConsulta";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CargosConsulta_FormClosing);
             this.Load += new System.EventHandler(this.CargosConsulta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -415,7 +400,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnDeshabilitar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnBuscar;
