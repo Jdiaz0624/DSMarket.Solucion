@@ -73,6 +73,36 @@
     <Compile Include="Pantallas\Pantallas\Caja\MomedasConsulta.Designer.cs">
       <DependentUpon>MomedasConsulta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\Comprobantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\Comprobantes.Designer.cs">
+      <DependentUpon>Comprobantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\CredencialesBD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\CredencialesBD.Designer.cs">
+      <DependentUpon>CredencialesBD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\InformacionEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\InformacionEmpresa.Designer.cs">
+      <DependentUpon>InformacionEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\Mail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\Mail.Designer.cs">
+      <DependentUpon>Mail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\Reportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\Reportes.Designer.cs">
+      <DependentUpon>Reportes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Empresa\CargosConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -351,6 +381,21 @@
     <EmbeddedResource Include="Pantallas\Pantallas\Caja\MomedasConsulta.resx">
       <DependentUpon>MomedasConsulta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\Comprobantes.resx">
+      <DependentUpon>Comprobantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\CredencialesBD.resx">
+      <DependentUpon>CredencialesBD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\InformacionEmpresa.resx">
+      <DependentUpon>InformacionEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\Mail.resx">
+      <DependentUpon>Mail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\Reportes.resx">
+      <DependentUpon>Reportes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\CargosConsulta.resx">
       <DependentUpon>CargosConsulta.cs</DependentUpon>
     </EmbeddedResource>
@@ -505,7 +550,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Pantallas\Pantallas\Configuracion\" />
     <Folder Include="Pantallas\Pantallas\CXC\" />
     <Folder Include="Pantallas\Pantallas\CXP\" />
   </ItemGroup>

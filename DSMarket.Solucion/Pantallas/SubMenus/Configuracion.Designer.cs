@@ -32,11 +32,11 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.gbOpciones = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.lbUsuario = new System.Windows.Forms.Label();
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnInformacionEmpresa = new System.Windows.Forms.Button();
             this.btnComprobantes = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.gbOpciones.SuspendLayout();
@@ -90,6 +90,18 @@
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Configuración - Seleccionar Opcion";
             // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(6, 91);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(186, 56);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Mail";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // lbUsuario
             // 
             this.lbUsuario.AutoSize = true;
@@ -111,6 +123,7 @@
             this.btnReportes.TabIndex = 4;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.UseVisualStyleBackColor = true;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // btnInformacionEmpresa
             // 
@@ -123,6 +136,7 @@
             this.btnInformacionEmpresa.TabIndex = 3;
             this.btnInformacionEmpresa.Text = "Información de Empresa";
             this.btnInformacionEmpresa.UseVisualStyleBackColor = true;
+            this.btnInformacionEmpresa.Click += new System.EventHandler(this.btnInformacionEmpresa_Click);
             // 
             // btnComprobantes
             // 
@@ -135,18 +149,7 @@
             this.btnComprobantes.TabIndex = 1;
             this.btnComprobantes.Text = "Comprobantes";
             this.btnComprobantes.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(6, 91);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(186, 56);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Mail";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnComprobantes.Click += new System.EventHandler(this.btnComprobantes_Click);
             // 
             // Configuracion
             // 

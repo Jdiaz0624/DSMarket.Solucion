@@ -27,5 +27,23 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         {
             this.Dispose();
         }
+
+        private void btnInformacionEmpresa_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Configuracion.InformacionEmpresa Informacion = new Pantallas.Configuracion.InformacionEmpresa();
+            Informacion.ShowDialog();
+        }
+
+        private void btnComprobantes_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Configuracion.Comprobantes Comprobantes = new Pantallas.Configuracion.Comprobantes();
+            Comprobantes.ShowDialog();
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Configuracion.Reportes Reportes = new Pantallas.Configuracion.Reportes();
+            Reportes.ShowDialog();
+        }
     }
 }
