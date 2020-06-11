@@ -39,5 +39,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
             lbTitulo.Text = "CREDENCIALES DE BASE DE DATOS";
             lbTitulo.ForeColor = Color.WhiteSmoke;
         }
+
+        private void CredencialesBD_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            switch (e.CloseReason)
+            {
+                case CloseReason.UserClosing:
+                    e.Cancel = true;
+                    break;
+            }
+        }
     }
 }

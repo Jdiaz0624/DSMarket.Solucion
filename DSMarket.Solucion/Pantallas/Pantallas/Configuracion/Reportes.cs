@@ -36,5 +36,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
             lbTitulo.ForeColor = Color.WhiteSmoke;
             dtListado.BackgroundColor = SystemColors.Control;
         }
+
+        private void Reportes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            switch (e.CloseReason)
+            {
+                case CloseReason.UserClosing:
+                    e.Cancel = true;
+                    break;
+            }
+        }
     }
 }

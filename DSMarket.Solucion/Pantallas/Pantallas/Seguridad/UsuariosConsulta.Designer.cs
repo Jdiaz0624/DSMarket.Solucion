@@ -1,6 +1,6 @@
 ﻿namespace DSMarket.Solucion.Pantallas.Pantallas.Seguridad
 {
-    partial class ClaveSeguridad
+    partial class UsuariosConsulta
     {
         /// <summary>
         /// Required designer variable.
@@ -38,6 +38,8 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.lbCantidadRegistrosTitulo = new System.Windows.Forms.Label();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
@@ -45,19 +47,11 @@
             this.gbListado = new System.Windows.Forms.GroupBox();
             this.dtListado = new System.Windows.Forms.DataGridView();
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.gbMantenimiento = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtConfirmarClave = new System.Windows.Forms.TextBox();
-            this.cbEstatus = new System.Windows.Forms.CheckBox();
-            this.txtClave = new System.Windows.Forms.TextBox();
-            this.ddlSeleccionarUsuario = new System.Windows.Forms.ComboBox();
+            this.gbConsulta = new System.Windows.Forms.GroupBox();
+            this.txtPersona = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtUsuaio = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
@@ -65,13 +59,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).BeginInit();
             this.gbListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
-            this.gbMantenimiento.SuspendLayout();
+            this.gbConsulta.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Linen;
-            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.btnEditar);
             this.panel2.Controls.Add(this.btnNuevo);
             this.panel2.Controls.Add(this.btnBuscar);
@@ -79,7 +72,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 38);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1057, 58);
+            this.panel2.Size = new System.Drawing.Size(1056, 58);
             this.panel2.TabIndex = 96;
             // 
             // btnEditar
@@ -95,8 +88,8 @@
             this.btnEditar.Size = new System.Drawing.Size(170, 41);
             this.btnEditar.TabIndex = 66;
             this.btnEditar.Text = "      Editar";
-            this.toolTip1.SetToolTip(this.btnEditar, "Modificar Registro Seleccionado");
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnNuevo
             // 
@@ -104,15 +97,15 @@
             this.btnNuevo.FlatAppearance.BorderSize = 0;
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.Image = global::DSMarket.Solucion.Properties.Resources.Guardar;
+            this.btnNuevo.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevo.Location = new System.Drawing.Point(179, 7);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(170, 41);
             this.btnNuevo.TabIndex = 65;
-            this.btnNuevo.Text = "      Guardar";
-            this.toolTip1.SetToolTip(this.btnNuevo, "Guardar Registros");
+            this.btnNuevo.Text = "      Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnBuscar
             // 
@@ -127,7 +120,6 @@
             this.btnBuscar.Size = new System.Drawing.Size(170, 41);
             this.btnBuscar.TabIndex = 64;
             this.btnBuscar.Text = "      Buscar";
-            this.toolTip1.SetToolTip(this.btnBuscar, "Consultar Registros");
             this.btnBuscar.UseVisualStyleBackColor = true;
             // 
             // panel1
@@ -141,7 +133,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1057, 38);
+            this.panel1.Size = new System.Drawing.Size(1056, 38);
             this.panel1.TabIndex = 95;
             // 
             // lbCantidadRegistrosVariable
@@ -158,7 +150,7 @@
             this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(1015, 5);
+            this.PCerrar.Location = new System.Drawing.Point(1014, 5);
             this.PCerrar.Name = "PCerrar";
             this.PCerrar.Size = new System.Drawing.Size(30, 30);
             this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -184,11 +176,16 @@
             this.lbCantidadRegistrosTitulo.TabIndex = 30;
             this.lbCantidadRegistrosTitulo.Text = "Cantidad de Registros";
             // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 30;
+            this.bunifuElipse1.TargetControl = this;
+            // 
             // txtNumeroRegistros
             // 
             this.txtNumeroRegistros.BackColor = System.Drawing.Color.LightGray;
             this.txtNumeroRegistros.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtNumeroRegistros.Location = new System.Drawing.Point(308, 583);
+            this.txtNumeroRegistros.Location = new System.Drawing.Point(281, 565);
             this.txtNumeroRegistros.Maximum = new decimal(new int[] {
             999999999,
             0,
@@ -206,7 +203,7 @@
             // lbNumeroRegistros
             // 
             this.lbNumeroRegistros.AutoSize = true;
-            this.lbNumeroRegistros.Location = new System.Drawing.Point(203, 586);
+            this.lbNumeroRegistros.Location = new System.Drawing.Point(175, 568);
             this.lbNumeroRegistros.Name = "lbNumeroRegistros";
             this.lbNumeroRegistros.Size = new System.Drawing.Size(103, 20);
             this.lbNumeroRegistros.TabIndex = 101;
@@ -216,7 +213,7 @@
             // 
             this.txtNumeroPagina.BackColor = System.Drawing.Color.LightGray;
             this.txtNumeroPagina.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtNumeroPagina.Location = new System.Drawing.Point(92, 585);
+            this.txtNumeroPagina.Location = new System.Drawing.Point(117, 563);
             this.txtNumeroPagina.Maximum = new decimal(new int[] {
             999999999,
             0,
@@ -234,7 +231,7 @@
             // lbNumeroPagina
             // 
             this.lbNumeroPagina.AutoSize = true;
-            this.lbNumeroPagina.Location = new System.Drawing.Point(6, 588);
+            this.lbNumeroPagina.Location = new System.Drawing.Point(24, 566);
             this.lbNumeroPagina.Name = "lbNumeroPagina";
             this.lbNumeroPagina.Size = new System.Drawing.Size(87, 20);
             this.lbNumeroPagina.TabIndex = 99;
@@ -243,12 +240,12 @@
             // gbListado
             // 
             this.gbListado.Controls.Add(this.dtListado);
-            this.gbListado.Location = new System.Drawing.Point(3, 279);
+            this.gbListado.Location = new System.Drawing.Point(18, 257);
             this.gbListado.Name = "gbListado";
-            this.gbListado.Size = new System.Drawing.Size(1032, 298);
+            this.gbListado.Size = new System.Drawing.Size(1003, 298);
             this.gbListado.TabIndex = 98;
             this.gbListado.TabStop = false;
-            this.gbListado.Text = "Listado de Claves";
+            this.gbListado.Text = "Listado de Usuarios";
             // 
             // dtListado
             // 
@@ -269,7 +266,7 @@
             this.dtListado.Name = "dtListado";
             this.dtListado.ReadOnly = true;
             this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(1026, 272);
+            this.dtListado.Size = new System.Drawing.Size(997, 272);
             this.dtListado.TabIndex = 0;
             // 
             // Select
@@ -283,140 +280,66 @@
             this.Select.UseColumnTextForButtonValue = true;
             this.Select.Width = 59;
             // 
-            // gbMantenimiento
+            // gbConsulta
             // 
-            this.gbMantenimiento.Controls.Add(this.label4);
-            this.gbMantenimiento.Controls.Add(this.txtClaveSeguridad);
-            this.gbMantenimiento.Controls.Add(this.label3);
-            this.gbMantenimiento.Controls.Add(this.txtConfirmarClave);
-            this.gbMantenimiento.Controls.Add(this.cbEstatus);
-            this.gbMantenimiento.Controls.Add(this.txtClave);
-            this.gbMantenimiento.Controls.Add(this.ddlSeleccionarUsuario);
-            this.gbMantenimiento.Controls.Add(this.label2);
-            this.gbMantenimiento.Controls.Add(this.label1);
-            this.gbMantenimiento.Location = new System.Drawing.Point(3, 105);
-            this.gbMantenimiento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gbMantenimiento.Name = "gbMantenimiento";
-            this.gbMantenimiento.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gbMantenimiento.Size = new System.Drawing.Size(413, 176);
-            this.gbMantenimiento.TabIndex = 97;
-            this.gbMantenimiento.TabStop = false;
-            this.gbMantenimiento.Text = "Controles";
+            this.gbConsulta.Controls.Add(this.txtPersona);
+            this.gbConsulta.Controls.Add(this.label2);
+            this.gbConsulta.Controls.Add(this.txtUsuaio);
+            this.gbConsulta.Controls.Add(this.label1);
+            this.gbConsulta.Location = new System.Drawing.Point(19, 105);
+            this.gbConsulta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gbConsulta.Name = "gbConsulta";
+            this.gbConsulta.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gbConsulta.Size = new System.Drawing.Size(397, 144);
+            this.gbConsulta.TabIndex = 97;
+            this.gbConsulta.TabStop = false;
+            this.gbConsulta.Text = "Usuario - Consulta";
             // 
-            // label3
+            // txtPersona
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 83);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 20);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Confirmar *";
-            // 
-            // txtConfirmarClave
-            // 
-            this.txtConfirmarClave.Location = new System.Drawing.Point(119, 79);
-            this.txtConfirmarClave.MaxLength = 20;
-            this.txtConfirmarClave.Name = "txtConfirmarClave";
-            this.txtConfirmarClave.Size = new System.Drawing.Size(283, 27);
-            this.txtConfirmarClave.TabIndex = 5;
-            // 
-            // cbEstatus
-            // 
-            this.cbEstatus.AutoSize = true;
-            this.cbEstatus.Location = new System.Drawing.Point(119, 141);
-            this.cbEstatus.Name = "cbEstatus";
-            this.cbEstatus.Size = new System.Drawing.Size(85, 24);
-            this.cbEstatus.TabIndex = 4;
-            this.cbEstatus.Text = "Estatus";
-            this.cbEstatus.UseVisualStyleBackColor = true;
-            this.cbEstatus.Visible = false;
-            // 
-            // txtClave
-            // 
-            this.txtClave.Location = new System.Drawing.Point(119, 50);
-            this.txtClave.MaxLength = 20;
-            this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(283, 27);
-            this.txtClave.TabIndex = 3;
-            // 
-            // ddlSeleccionarUsuario
-            // 
-            this.ddlSeleccionarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlSeleccionarUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlSeleccionarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ddlSeleccionarUsuario.FormattingEnabled = true;
-            this.ddlSeleccionarUsuario.Location = new System.Drawing.Point(119, 19);
-            this.ddlSeleccionarUsuario.Name = "ddlSeleccionarUsuario";
-            this.ddlSeleccionarUsuario.Size = new System.Drawing.Size(283, 28);
-            this.ddlSeleccionarUsuario.TabIndex = 2;
+            this.txtPersona.Location = new System.Drawing.Point(103, 74);
+            this.txtPersona.Name = "txtPersona";
+            this.txtPersona.Size = new System.Drawing.Size(276, 27);
+            this.txtPersona.TabIndex = 3;
+            this.txtPersona.Visible = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(50, 53);
+            this.label2.Location = new System.Drawing.Point(30, 76);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Clave *";
+            this.label2.Size = new System.Drawing.Size(69, 20);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Persona";
+            this.label2.Visible = false;
+            // 
+            // txtUsuaio
+            // 
+            this.txtUsuaio.Location = new System.Drawing.Point(104, 45);
+            this.txtUsuaio.Name = "txtUsuaio";
+            this.txtUsuaio.Size = new System.Drawing.Size(276, 27);
+            this.txtUsuaio.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 23);
+            this.label1.Location = new System.Drawing.Point(31, 48);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 20);
+            this.label1.Size = new System.Drawing.Size(68, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Usuario *";
+            this.label1.Text = "Usuario";
             // 
-            // bunifuElipse1
-            // 
-            this.bunifuElipse1.ElipseRadius = 30;
-            this.bunifuElipse1.TargetControl = this;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(30, 111);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 20);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Seguridad";
-            // 
-            // txtClaveSeguridad
-            // 
-            this.txtClaveSeguridad.Location = new System.Drawing.Point(119, 108);
-            this.txtClaveSeguridad.MaxLength = 20;
-            this.txtClaveSeguridad.Name = "txtClaveSeguridad";
-            this.txtClaveSeguridad.Size = new System.Drawing.Size(283, 27);
-            this.txtClaveSeguridad.TabIndex = 7;
-            // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = global::DSMarket.Solucion.Properties.Resources.Deshabilitar;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(531, 7);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(170, 41);
-            this.button1.TabIndex = 67;
-            this.button1.Text = "      Deshabilitar";
-            this.toolTip1.SetToolTip(this.button1, "Deshabilitar Registro Seleccionado");
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // ClaveSeguridad
+            // UsuariosConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1057, 621);
+            this.ClientSize = new System.Drawing.Size(1056, 609);
             this.Controls.Add(this.txtNumeroRegistros);
             this.Controls.Add(this.lbNumeroRegistros);
             this.Controls.Add(this.txtNumeroPagina);
             this.Controls.Add(this.lbNumeroPagina);
             this.Controls.Add(this.gbListado);
-            this.Controls.Add(this.gbMantenimiento);
+            this.Controls.Add(this.gbConsulta);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -424,11 +347,11 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "ClaveSeguridad";
+            this.Name = "UsuariosConsulta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ClaveSeguridad";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClaveSeguridad_FormClosing);
-            this.Load += new System.EventHandler(this.ClaveSeguridad_Load);
+            this.Text = "UsuariosConsulta";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UsuariosConsulta_FormClosing);
+            this.Load += new System.EventHandler(this.UsuariosConsulta_Load);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -437,8 +360,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).EndInit();
             this.gbListado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).EndInit();
-            this.gbMantenimiento.ResumeLayout(false);
-            this.gbMantenimiento.PerformLayout();
+            this.gbConsulta.ResumeLayout(false);
+            this.gbConsulta.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -455,6 +378,8 @@
         private System.Windows.Forms.PictureBox PCerrar;
         public System.Windows.Forms.Label lbTitulo;
         private System.Windows.Forms.Label lbCantidadRegistrosTitulo;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.NumericUpDown txtNumeroRegistros;
         private System.Windows.Forms.Label lbNumeroRegistros;
         private System.Windows.Forms.NumericUpDown txtNumeroPagina;
@@ -462,18 +387,10 @@
         private System.Windows.Forms.GroupBox gbListado;
         private System.Windows.Forms.DataGridView dtListado;
         private System.Windows.Forms.DataGridViewButtonColumn Select;
-        private System.Windows.Forms.GroupBox gbMantenimiento;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtConfirmarClave;
-        private System.Windows.Forms.CheckBox cbEstatus;
-        private System.Windows.Forms.TextBox txtClave;
-        private System.Windows.Forms.ComboBox ddlSeleccionarUsuario;
+        private System.Windows.Forms.GroupBox gbConsulta;
+        private System.Windows.Forms.TextBox txtPersona;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtUsuaio;
         private System.Windows.Forms.Label label1;
-        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
-        private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtClaveSeguridad;
     }
 }

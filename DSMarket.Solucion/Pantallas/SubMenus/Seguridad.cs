@@ -21,5 +21,17 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         {
             this.Dispose();
         }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Seguridad.UsuariosConsulta ConsultaUsuarios = new Pantallas.Seguridad.UsuariosConsulta();
+            ConsultaUsuarios.ShowDialog();
+        }
+
+        private void btnClaveSeguridad_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Seguridad.ClaveSeguridad ClaveSeguridad = new Pantallas.Seguridad.ClaveSeguridad();
+            ClaveSeguridad.ShowDialog();
+        }
     }
 }

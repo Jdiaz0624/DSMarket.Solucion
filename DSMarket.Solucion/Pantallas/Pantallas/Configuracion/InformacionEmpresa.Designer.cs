@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnBucaImagen = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
-            this.btnBucaImagen = new System.Windows.Forms.Button();
             this.cbCambiarLogo = new System.Windows.Forms.CheckBox();
             this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
-            this.btnModificar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -71,6 +71,35 @@
             // 
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
+            // 
+            // btnBucaImagen
+            // 
+            this.btnBucaImagen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBucaImagen.Enabled = false;
+            this.btnBucaImagen.FlatAppearance.BorderSize = 2;
+            this.btnBucaImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBucaImagen.Image = global::DSMarket.Solucion.Properties.Resources.foto;
+            this.btnBucaImagen.Location = new System.Drawing.Point(982, 295);
+            this.btnBucaImagen.Name = "btnBucaImagen";
+            this.btnBucaImagen.Size = new System.Drawing.Size(76, 71);
+            this.btnBucaImagen.TabIndex = 103;
+            this.toolTip1.SetToolTip(this.btnBucaImagen, "Buscar Logo");
+            this.btnBucaImagen.UseVisualStyleBackColor = true;
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar.FlatAppearance.BorderSize = 2;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Image = global::DSMarket.Solucion.Properties.Resources.Editar;
+            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar.Location = new System.Drawing.Point(571, 296);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(207, 40);
+            this.btnModificar.TabIndex = 99;
+            this.btnModificar.Text = "      Modificar";
+            this.toolTip1.SetToolTip(this.btnModificar, "Modificar Información");
+            this.btnModificar.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -106,20 +135,6 @@
             this.lbTitulo.TabIndex = 13;
             this.lbTitulo.Text = "label6";
             // 
-            // btnBucaImagen
-            // 
-            this.btnBucaImagen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBucaImagen.Enabled = false;
-            this.btnBucaImagen.FlatAppearance.BorderSize = 2;
-            this.btnBucaImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBucaImagen.Image = global::DSMarket.Solucion.Properties.Resources.foto;
-            this.btnBucaImagen.Location = new System.Drawing.Point(982, 295);
-            this.btnBucaImagen.Name = "btnBucaImagen";
-            this.btnBucaImagen.Size = new System.Drawing.Size(76, 71);
-            this.btnBucaImagen.TabIndex = 103;
-            this.toolTip1.SetToolTip(this.btnBucaImagen, "Buscar Logo");
-            this.btnBucaImagen.UseVisualStyleBackColor = true;
-            // 
             // cbCambiarLogo
             // 
             this.cbCambiarLogo.AutoSize = true;
@@ -141,21 +156,6 @@
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
             this.txtClaveSeguridad.Size = new System.Drawing.Size(329, 27);
             this.txtClaveSeguridad.TabIndex = 101;
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificar.FlatAppearance.BorderSize = 2;
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Image = global::DSMarket.Solucion.Properties.Resources.Editar;
-            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(571, 296);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(207, 40);
-            this.btnModificar.TabIndex = 99;
-            this.btnModificar.Text = "      Modificar";
-            this.toolTip1.SetToolTip(this.btnModificar, "Modificar Información");
-            this.btnModificar.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -407,6 +407,7 @@
             this.Name = "InformacionEmpresa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InformacionEmpresa";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InformacionEmpresa_FormClosing);
             this.Load += new System.EventHandler(this.InformacionEmpresa_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

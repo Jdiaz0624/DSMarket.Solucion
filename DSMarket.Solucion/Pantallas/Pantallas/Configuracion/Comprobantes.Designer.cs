@@ -443,6 +443,7 @@
             this.Name = "Comprobantes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Comprobantes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Comprobantes_FormClosing);
             this.Load += new System.EventHandler(this.Comprobantes_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

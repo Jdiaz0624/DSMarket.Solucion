@@ -277,6 +277,18 @@
     <Compile Include="Pantallas\Pantallas\Seguridad\NivelAcceso.Designer.cs">
       <DependentUpon>NivelAcceso.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Seguridad\UsuariosConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Seguridad\UsuariosConsulta.Designer.cs">
+      <DependentUpon>UsuariosConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Seguridad\UsuariosMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Seguridad\UsuariosMantenimiento.Designer.cs">
+      <DependentUpon>UsuariosMantenimiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Servicio\AgregarProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -474,8 +486,17 @@
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\UnidadMedidaConsulta.resx">
       <DependentUpon>UnidadMedidaConsulta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Seguridad\ClaveSeguridad.resx">
+      <DependentUpon>ClaveSeguridad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Seguridad\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Seguridad\UsuariosConsulta.resx">
+      <DependentUpon>UsuariosConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Seguridad\UsuariosMantenimiento.resx">
+      <DependentUpon>UsuariosMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Servicio\AgregarProductos.resx">
       <DependentUpon>AgregarProductos.cs</DependentUpon>

@@ -169,6 +169,7 @@
             this.btnClaveSeguridad.TabIndex = 2;
             this.btnClaveSeguridad.Text = "Clave de Seguridad";
             this.btnClaveSeguridad.UseVisualStyleBackColor = true;
+            this.btnClaveSeguridad.Click += new System.EventHandler(this.btnClaveSeguridad_Click);
             // 
             // btnUsuarios
             // 
@@ -181,6 +182,7 @@
             this.btnUsuarios.TabIndex = 1;
             this.btnUsuarios.Text = "Usuarios";
             this.btnUsuarios.UseVisualStyleBackColor = true;
+            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
             // btnPerfilesUsuarios
             // 

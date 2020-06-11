@@ -273,6 +273,7 @@
             this.Name = "Reportes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reportes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Reportes_FormClosing);
             this.Load += new System.EventHandler(this.Reportes_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

@@ -194,6 +194,7 @@
             this.Name = "CredencialesBD";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CredencialesBD";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CredencialesBD_FormClosing);
             this.Load += new System.EventHandler(this.CredencialesBD_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

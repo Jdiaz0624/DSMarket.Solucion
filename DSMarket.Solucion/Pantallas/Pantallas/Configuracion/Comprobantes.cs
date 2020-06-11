@@ -80,5 +80,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
                 cbPorDefecto.ForeColor = Color.DarkRed;
             }
         }
+
+        private void Comprobantes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            switch (e.CloseReason)
+            {
+                case CloseReason.UserClosing:
+                    e.Cancel = true;
+                    break;
+            }
+        }
     }
 }

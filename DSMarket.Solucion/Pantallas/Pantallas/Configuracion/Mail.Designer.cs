@@ -51,6 +51,7 @@
             this.Name = "Mail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mail";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Mail_FormClosing);
             this.ResumeLayout(false);
 
         }

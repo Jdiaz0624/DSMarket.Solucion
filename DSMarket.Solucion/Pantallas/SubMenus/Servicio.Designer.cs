@@ -82,6 +82,7 @@
             this.gbOpciones.Controls.Add(this.btnCotizacion);
             this.gbOpciones.Controls.Add(this.btnFinanciamiento);
             this.gbOpciones.Controls.Add(this.btnFacturacion);
+            this.gbOpciones.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbOpciones.Location = new System.Drawing.Point(12, 44);
             this.gbOpciones.Name = "gbOpciones";
             this.gbOpciones.Size = new System.Drawing.Size(587, 108);
@@ -94,7 +95,7 @@
             this.lbUsuario.AutoSize = true;
             this.lbUsuario.Location = new System.Drawing.Point(610, 126);
             this.lbUsuario.Name = "lbUsuario";
-            this.lbUsuario.Size = new System.Drawing.Size(54, 20);
+            this.lbUsuario.Size = new System.Drawing.Size(57, 21);
             this.lbUsuario.TabIndex = 8;
             this.lbUsuario.Text = "label1";
             this.lbUsuario.Visible = false;
