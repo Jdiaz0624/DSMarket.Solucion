@@ -20,6 +20,7 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         private void Inventario_Load(object sender, EventArgs e)
         {
             lbTitulo.Text = "MANTENIMIENTO DE INVENTARIO";
+            lbIdUsuario.Text = DSMarket.Solucion.Pantallas.MenuPrincipal.MenuPrincipal.IdUsuarioMantenimientos.ToString();
         }
 
         private void PCerrar_Click(object sender, EventArgs e)

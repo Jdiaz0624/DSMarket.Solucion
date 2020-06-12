@@ -48,10 +48,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.gbDatosCaja.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -67,6 +67,7 @@
             this.groupBox1.Controls.Add(this.Monto);
             this.groupBox1.Controls.Add(this.rbSacar);
             this.groupBox1.Controls.Add(this.rbIngresar);
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(400, 45);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(399, 230);
@@ -77,9 +78,9 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 118);
+            this.label5.Location = new System.Drawing.Point(27, 118);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 20);
+            this.label5.Size = new System.Drawing.Size(91, 21);
             this.label5.TabIndex = 11;
             this.label5.Text = "Concepto";
             // 
@@ -114,9 +115,9 @@
             // Monto
             // 
             this.Monto.AutoSize = true;
-            this.Monto.Location = new System.Drawing.Point(31, 84);
+            this.Monto.Location = new System.Drawing.Point(46, 84);
             this.Monto.Name = "Monto";
-            this.Monto.Size = new System.Drawing.Size(68, 20);
+            this.Monto.Size = new System.Drawing.Size(72, 21);
             this.Monto.TabIndex = 8;
             this.Monto.Text = "Monto *";
             // 
@@ -127,7 +128,7 @@
             this.rbSacar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbSacar.Location = new System.Drawing.Point(215, 32);
             this.rbSacar.Name = "rbSacar";
-            this.rbSacar.Size = new System.Drawing.Size(132, 24);
+            this.rbSacar.Size = new System.Drawing.Size(140, 25);
             this.rbSacar.TabIndex = 1;
             this.rbSacar.TabStop = true;
             this.rbSacar.Text = "Sacar Efectivo";
@@ -140,7 +141,7 @@
             this.rbIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbIngresar.Location = new System.Drawing.Point(17, 32);
             this.rbIngresar.Name = "rbIngresar";
-            this.rbIngresar.Size = new System.Drawing.Size(154, 24);
+            this.rbIngresar.Size = new System.Drawing.Size(158, 25);
             this.rbIngresar.TabIndex = 0;
             this.rbIngresar.TabStop = true;
             this.rbIngresar.Text = "Ingresar Efectivo";
@@ -150,6 +151,7 @@
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(12, 239);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(382, 36);
@@ -168,6 +170,7 @@
             this.gbDatosCaja.Controls.Add(this.label3);
             this.gbDatosCaja.Controls.Add(this.label2);
             this.gbDatosCaja.Controls.Add(this.label1);
+            this.gbDatosCaja.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbDatosCaja.Location = new System.Drawing.Point(12, 45);
             this.gbDatosCaja.Name = "gbDatosCaja";
             this.gbDatosCaja.Size = new System.Drawing.Size(382, 188);
@@ -189,7 +192,7 @@
             this.lbNombreCaja.AutoSize = true;
             this.lbNombreCaja.Location = new System.Drawing.Point(183, 81);
             this.lbNombreCaja.Name = "lbNombreCaja";
-            this.lbNombreCaja.Size = new System.Drawing.Size(68, 20);
+            this.lbNombreCaja.Size = new System.Drawing.Size(73, 21);
             this.lbNombreCaja.TabIndex = 6;
             this.lbNombreCaja.Text = "Nombre";
             // 
@@ -198,7 +201,7 @@
             this.lbMonto.AutoSize = true;
             this.lbMonto.Location = new System.Drawing.Point(183, 115);
             this.lbMonto.Name = "lbMonto";
-            this.lbMonto.Size = new System.Drawing.Size(109, 20);
+            this.lbMonto.Size = new System.Drawing.Size(120, 21);
             this.lbMonto.TabIndex = 5;
             this.lbMonto.Text = "Monto Actual";
             // 
@@ -207,7 +210,7 @@
             this.lbEstatus.AutoSize = true;
             this.lbEstatus.Location = new System.Drawing.Point(183, 155);
             this.lbEstatus.Name = "lbEstatus";
-            this.lbEstatus.Size = new System.Drawing.Size(66, 20);
+            this.lbEstatus.Size = new System.Drawing.Size(66, 21);
             this.lbEstatus.TabIndex = 4;
             this.lbEstatus.Text = "Estatus";
             // 
@@ -216,34 +219,34 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(82, 155);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 20);
+            this.label4.Size = new System.Drawing.Size(66, 21);
             this.label4.TabIndex = 3;
             this.label4.Text = "Estatus";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 115);
+            this.label3.Location = new System.Drawing.Point(43, 115);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 20);
+            this.label3.Size = new System.Drawing.Size(120, 21);
             this.label3.TabIndex = 2;
             this.label3.Text = "Monto Actual";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(68, 81);
+            this.label2.Location = new System.Drawing.Point(96, 81);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 20);
+            this.label2.Size = new System.Drawing.Size(73, 21);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 46);
+            this.label1.Location = new System.Drawing.Point(48, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 20);
+            this.label1.Size = new System.Drawing.Size(135, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Codigo de Caja";
             // 
@@ -259,20 +262,6 @@
             this.panel1.Size = new System.Drawing.Size(814, 38);
             this.panel1.TabIndex = 5;
             // 
-            // lbTitulo
-            // 
-            this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Location = new System.Drawing.Point(5, 7);
-            this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(54, 20);
-            this.lbTitulo.TabIndex = 12;
-            this.lbTitulo.Text = "label6";
-            // 
-            // bunifuElipse1
-            // 
-            this.bunifuElipse1.ElipseRadius = 30;
-            this.bunifuElipse1.TargetControl = this;
-            // 
             // PCerrar
             // 
             this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -287,6 +276,20 @@
             this.toolTip1.SetToolTip(this.PCerrar, "Cerrar");
             this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
             // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(5, 7);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(54, 20);
+            this.lbTitulo.TabIndex = 12;
+            this.lbTitulo.Text = "label6";
+            // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 30;
+            this.bunifuElipse1.TargetControl = this;
+            // 
             // Caja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -298,7 +301,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Caja";

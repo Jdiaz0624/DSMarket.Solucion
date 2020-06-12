@@ -93,7 +93,6 @@
             this.lbIdUsuario.Size = new System.Drawing.Size(35, 13);
             this.lbIdUsuario.TabIndex = 9;
             this.lbIdUsuario.Text = "label1";
-            this.lbIdUsuario.Visible = false;
             // 
             // gbOpciones
             // 

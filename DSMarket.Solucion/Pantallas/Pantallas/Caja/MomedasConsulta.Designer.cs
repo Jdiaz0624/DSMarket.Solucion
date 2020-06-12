@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnDeshabilitar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtListado = new System.Windows.Forms.DataGridView();
@@ -46,10 +50,7 @@
             this.lbCantidadRegistrosVariable = new System.Windows.Forms.Label();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.lbCantidadRegistrosTitulo = new System.Windows.Forms.Label();
-            this.btnDeshabilitar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.PCerrar = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
@@ -57,192 +58,12 @@
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
-            // 
-            // txtNumeroRegistros
-            // 
-            this.txtNumeroRegistros.BackColor = System.Drawing.Color.LightGray;
-            this.txtNumeroRegistros.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtNumeroRegistros.Location = new System.Drawing.Point(263, 475);
-            this.txtNumeroRegistros.Maximum = new decimal(new int[] {
-            999999999,
-            0,
-            0,
-            0});
-            this.txtNumeroRegistros.Name = "txtNumeroRegistros";
-            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 27);
-            this.txtNumeroRegistros.TabIndex = 76;
-            this.txtNumeroRegistros.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.dtListado);
-            this.groupBox2.Location = new System.Drawing.Point(9, 187);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1059, 282);
-            this.groupBox2.TabIndex = 72;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Listado de Monedas";
-            // 
-            // dtListado
-            // 
-            this.dtListado.AllowUserToAddRows = false;
-            this.dtListado.AllowUserToDeleteRows = false;
-            this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dtListado.BackgroundColor = System.Drawing.Color.LightGray;
-            this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Select});
-            this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtListado.Location = new System.Drawing.Point(3, 23);
-            this.dtListado.Name = "dtListado";
-            this.dtListado.ReadOnly = true;
-            this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(1053, 256);
-            this.dtListado.TabIndex = 0;
-            // 
-            // Select
-            // 
-            this.Select.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Select.HeaderText = "Select";
-            this.Select.Name = "Select";
-            this.Select.ReadOnly = true;
-            this.Select.Text = "Select";
-            this.Select.ToolTipText = "Select";
-            this.Select.UseColumnTextForButtonValue = true;
-            this.Select.Width = 59;
-            // 
-            // lbNumeroRegistros
-            // 
-            this.lbNumeroRegistros.AutoSize = true;
-            this.lbNumeroRegistros.Location = new System.Drawing.Point(154, 476);
-            this.lbNumeroRegistros.Name = "lbNumeroRegistros";
-            this.lbNumeroRegistros.Size = new System.Drawing.Size(103, 20);
-            this.lbNumeroRegistros.TabIndex = 75;
-            this.lbNumeroRegistros.Text = "No.Registros";
-            // 
-            // txtNumeroPagina
-            // 
-            this.txtNumeroPagina.BackColor = System.Drawing.Color.LightGray;
-            this.txtNumeroPagina.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtNumeroPagina.Location = new System.Drawing.Point(99, 472);
-            this.txtNumeroPagina.Maximum = new decimal(new int[] {
-            999999999,
-            0,
-            0,
-            0});
-            this.txtNumeroPagina.Name = "txtNumeroPagina";
-            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 27);
-            this.txtNumeroPagina.TabIndex = 74;
-            this.txtNumeroPagina.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lbNumeroPagina
-            // 
-            this.lbNumeroPagina.AutoSize = true;
-            this.lbNumeroPagina.Location = new System.Drawing.Point(8, 475);
-            this.lbNumeroPagina.Name = "lbNumeroPagina";
-            this.lbNumeroPagina.Size = new System.Drawing.Size(87, 20);
-            this.lbNumeroPagina.TabIndex = 73;
-            this.lbNumeroPagina.Text = "No.Pagina";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtTipoProducto);
-            this.groupBox1.Location = new System.Drawing.Point(9, 103);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(455, 78);
-            this.groupBox1.TabIndex = 71;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Moneda - Filtro";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Moneda";
-            // 
-            // txtTipoProducto
-            // 
-            this.txtTipoProducto.BackColor = System.Drawing.Color.Silver;
-            this.txtTipoProducto.Location = new System.Drawing.Point(91, 26);
-            this.txtTipoProducto.Name = "txtTipoProducto";
-            this.txtTipoProducto.Size = new System.Drawing.Size(280, 27);
-            this.txtTipoProducto.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Linen;
-            this.panel2.Controls.Add(this.btnDeshabilitar);
-            this.panel2.Controls.Add(this.btnEditar);
-            this.panel2.Controls.Add(this.btnBuscar);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 38);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1079, 58);
-            this.panel2.TabIndex = 70;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.panel1.Controls.Add(this.lbCantidadRegistrosVariable);
-            this.panel1.Controls.Add(this.PCerrar);
-            this.panel1.Controls.Add(this.lbTitulo);
-            this.panel1.Controls.Add(this.lbCantidadRegistrosTitulo);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1079, 38);
-            this.panel1.TabIndex = 69;
-            // 
-            // lbCantidadRegistrosVariable
-            // 
-            this.lbCantidadRegistrosVariable.AutoSize = true;
-            this.lbCantidadRegistrosVariable.Location = new System.Drawing.Point(607, 9);
-            this.lbCantidadRegistrosVariable.Name = "lbCantidadRegistrosVariable";
-            this.lbCantidadRegistrosVariable.Size = new System.Drawing.Size(18, 20);
-            this.lbCantidadRegistrosVariable.TabIndex = 31;
-            this.lbCantidadRegistrosVariable.Text = "0";
-            // 
-            // lbTitulo
-            // 
-            this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Location = new System.Drawing.Point(15, 9);
-            this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(54, 20);
-            this.lbTitulo.TabIndex = 13;
-            this.lbTitulo.Text = "label6";
-            // 
-            // lbCantidadRegistrosTitulo
-            // 
-            this.lbCantidadRegistrosTitulo.AutoSize = true;
-            this.lbCantidadRegistrosTitulo.Location = new System.Drawing.Point(429, 9);
-            this.lbCantidadRegistrosTitulo.Name = "lbCantidadRegistrosTitulo";
-            this.lbCantidadRegistrosTitulo.Size = new System.Drawing.Size(172, 20);
-            this.lbCantidadRegistrosTitulo.TabIndex = 30;
-            this.lbCantidadRegistrosTitulo.Text = "Cantidad de Registros";
             // 
             // btnDeshabilitar
             // 
@@ -307,6 +128,193 @@
             this.toolTip1.SetToolTip(this.PCerrar, "Cerrar");
             this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
             // 
+            // txtNumeroRegistros
+            // 
+            this.txtNumeroRegistros.BackColor = System.Drawing.Color.LightGray;
+            this.txtNumeroRegistros.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtNumeroRegistros.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumeroRegistros.Location = new System.Drawing.Point(263, 475);
+            this.txtNumeroRegistros.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.txtNumeroRegistros.Name = "txtNumeroRegistros";
+            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 27);
+            this.txtNumeroRegistros.TabIndex = 76;
+            this.txtNumeroRegistros.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dtListado);
+            this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(9, 187);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1059, 282);
+            this.groupBox2.TabIndex = 72;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Listado de Monedas";
+            // 
+            // dtListado
+            // 
+            this.dtListado.AllowUserToAddRows = false;
+            this.dtListado.AllowUserToDeleteRows = false;
+            this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtListado.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Select});
+            this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtListado.Location = new System.Drawing.Point(3, 23);
+            this.dtListado.Name = "dtListado";
+            this.dtListado.ReadOnly = true;
+            this.dtListado.RowTemplate.Height = 24;
+            this.dtListado.Size = new System.Drawing.Size(1053, 256);
+            this.dtListado.TabIndex = 0;
+            // 
+            // Select
+            // 
+            this.Select.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Select.HeaderText = "Select";
+            this.Select.Name = "Select";
+            this.Select.ReadOnly = true;
+            this.Select.Text = "Select";
+            this.Select.ToolTipText = "Select";
+            this.Select.UseColumnTextForButtonValue = true;
+            this.Select.Width = 64;
+            // 
+            // lbNumeroRegistros
+            // 
+            this.lbNumeroRegistros.AutoSize = true;
+            this.lbNumeroRegistros.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNumeroRegistros.Location = new System.Drawing.Point(154, 476);
+            this.lbNumeroRegistros.Name = "lbNumeroRegistros";
+            this.lbNumeroRegistros.Size = new System.Drawing.Size(104, 21);
+            this.lbNumeroRegistros.TabIndex = 75;
+            this.lbNumeroRegistros.Text = "No.Registros";
+            // 
+            // txtNumeroPagina
+            // 
+            this.txtNumeroPagina.BackColor = System.Drawing.Color.LightGray;
+            this.txtNumeroPagina.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtNumeroPagina.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumeroPagina.Location = new System.Drawing.Point(99, 472);
+            this.txtNumeroPagina.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.txtNumeroPagina.Name = "txtNumeroPagina";
+            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 27);
+            this.txtNumeroPagina.TabIndex = 74;
+            this.txtNumeroPagina.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lbNumeroPagina
+            // 
+            this.lbNumeroPagina.AutoSize = true;
+            this.lbNumeroPagina.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNumeroPagina.Location = new System.Drawing.Point(8, 475);
+            this.lbNumeroPagina.Name = "lbNumeroPagina";
+            this.lbNumeroPagina.Size = new System.Drawing.Size(91, 21);
+            this.lbNumeroPagina.TabIndex = 73;
+            this.lbNumeroPagina.Text = "No.Pagina";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtTipoProducto);
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(9, 103);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(455, 78);
+            this.groupBox1.TabIndex = 71;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Moneda - Filtro";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 21);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Moneda";
+            // 
+            // txtTipoProducto
+            // 
+            this.txtTipoProducto.BackColor = System.Drawing.Color.Silver;
+            this.txtTipoProducto.Location = new System.Drawing.Point(102, 26);
+            this.txtTipoProducto.Name = "txtTipoProducto";
+            this.txtTipoProducto.Size = new System.Drawing.Size(269, 27);
+            this.txtTipoProducto.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Linen;
+            this.panel2.Controls.Add(this.btnDeshabilitar);
+            this.panel2.Controls.Add(this.btnEditar);
+            this.panel2.Controls.Add(this.btnBuscar);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel2.Location = new System.Drawing.Point(0, 38);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1079, 58);
+            this.panel2.TabIndex = 70;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.lbCantidadRegistrosVariable);
+            this.panel1.Controls.Add(this.PCerrar);
+            this.panel1.Controls.Add(this.lbTitulo);
+            this.panel1.Controls.Add(this.lbCantidadRegistrosTitulo);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1079, 38);
+            this.panel1.TabIndex = 69;
+            // 
+            // lbCantidadRegistrosVariable
+            // 
+            this.lbCantidadRegistrosVariable.AutoSize = true;
+            this.lbCantidadRegistrosVariable.Location = new System.Drawing.Point(607, 9);
+            this.lbCantidadRegistrosVariable.Name = "lbCantidadRegistrosVariable";
+            this.lbCantidadRegistrosVariable.Size = new System.Drawing.Size(19, 21);
+            this.lbCantidadRegistrosVariable.TabIndex = 31;
+            this.lbCantidadRegistrosVariable.Text = "0";
+            // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(15, 9);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(57, 21);
+            this.lbTitulo.TabIndex = 13;
+            this.lbTitulo.Text = "label6";
+            // 
+            // lbCantidadRegistrosTitulo
+            // 
+            this.lbCantidadRegistrosTitulo.AutoSize = true;
+            this.lbCantidadRegistrosTitulo.Location = new System.Drawing.Point(429, 9);
+            this.lbCantidadRegistrosTitulo.Name = "lbCantidadRegistrosTitulo";
+            this.lbCantidadRegistrosTitulo.Size = new System.Drawing.Size(184, 21);
+            this.lbCantidadRegistrosTitulo.TabIndex = 30;
+            this.lbCantidadRegistrosTitulo.Text = "Cantidad de Registros";
+            // 
             // MomedasConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -322,13 +330,14 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MomedasConsulta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MomedasConsulta";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MomedasConsulta_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).EndInit();
@@ -338,7 +347,6 @@
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

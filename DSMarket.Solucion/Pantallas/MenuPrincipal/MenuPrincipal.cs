@@ -16,7 +16,10 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
         {
             InitializeComponent();
         }
-        DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
+        public static decimal IdUsuarioMantenimientos;
+        Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjdataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
+      public  DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
+
 
         #region FUNCION PARA LLAMAR LOS FORMULARIOS
         private void AbrirPantallasEnPanel(object Pantalla)
@@ -93,6 +96,16 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
             EfectoBotones.Show(btnSeguridad);
             btnCerrarSesion.Visible = false;
             EfectoBotones.Show(btnCerrarSesion);
+
+            //SACAMOS LOS DATOS DEL USUARIO
+            var SacarDatosUsuario = ObjdataSeguridad.Value.BuscaUsuarios(VariablesGlobales.IdUsuario, null, null, null, null, 1, 1);
+            foreach (var n in SacarDatosUsuario)
+            {
+                lbIdUsuario.Text = n.IdUsuario.ToString();
+                lbIdNivel.Text = n.IdNivelAcceso.ToString();
+                lbusuarioConectado.Text = n.Persona;
+                lbNivelAcceso.Text = n.Nivel;
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -123,36 +136,43 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
 
         private void btnServicio_Click(object sender, EventArgs e)
         {
+            IdUsuarioMantenimientos = Convert.ToDecimal(lbIdUsuario.Text);
             AbrirPantallasEnPanel(new DSMarket.Solucion.Pantallas.SubMenus.Servicio());
         }
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
+            IdUsuarioMantenimientos = Convert.ToDecimal(lbIdUsuario.Text);
             AbrirPantallasEnPanel(new DSMarket.Solucion.Pantallas.SubMenus.Inventario());
         }
 
         private void btnCaja_Click(object sender, EventArgs e)
         {
+            IdUsuarioMantenimientos = Convert.ToDecimal(lbIdUsuario.Text);
             AbrirPantallasEnPanel(new DSMarket.Solucion.Pantallas.SubMenus.Caja());
         }
 
         private void btneEmpresa_Click(object sender, EventArgs e)
         {
+            IdUsuarioMantenimientos = Convert.ToDecimal(lbIdUsuario.Text);
             AbrirPantallasEnPanel(new DSMarket.Solucion.Pantallas.SubMenus.Nomina());
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
+            IdUsuarioMantenimientos = Convert.ToDecimal(lbIdUsuario.Text);
             AbrirPantallasEnPanel(new DSMarket.Solucion.Pantallas.SubMenus.Reportes());
         }
 
         private void btnConfiguracion_Click(object sender, EventArgs e)
         {
+            IdUsuarioMantenimientos = Convert.ToDecimal(lbIdUsuario.Text);
             AbrirPantallasEnPanel(new DSMarket.Solucion.Pantallas.SubMenus.Configuracion());
         }
 
         private void btnSeguridad_Click(object sender, EventArgs e)
         {
+            IdUsuarioMantenimientos = Convert.ToDecimal(lbIdUsuario.Text);
             AbrirPantallasEnPanel(new DSMarket.Solucion.Pantallas.SubMenus.Seguridad());
         }
 

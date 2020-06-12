@@ -259,6 +259,12 @@
     <Compile Include="Pantallas\Pantallas\Inventario\UnidadMedidaConsulta.Designer.cs">
       <DependentUpon>UnidadMedidaConsulta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Seguridad\CambiaClaveUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Seguridad\CambiaClaveUsuario.Designer.cs">
+      <DependentUpon>CambiaClaveUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Seguridad\ClaveSeguridad.cs">
       <SubType>Form</SubType>
     </Compile>
