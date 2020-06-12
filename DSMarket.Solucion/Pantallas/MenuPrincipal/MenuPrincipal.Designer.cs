@@ -33,6 +33,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
             BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
             this.PanelTop = new System.Windows.Forms.Panel();
+            this.lbIdNivel = new System.Windows.Forms.Label();
+            this.lbIdUsuario = new System.Windows.Forms.Label();
             this.PRestaurar = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.PMinimizar = new System.Windows.Forms.PictureBox();
@@ -53,7 +55,6 @@
             this.btnServicio = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnInventario = new Bunifu.Framework.UI.BunifuFlatButton();
             this.PanelCuerpo = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lbNivelAcceso = new System.Windows.Forms.Label();
             this.lbusuarioConectado = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -61,8 +62,6 @@
             this.CurvaForms = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.EfectoIda = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.EfectoBotones = new BunifuAnimatorNS.BunifuTransition(this.components);
-            this.lbIdUsuario = new System.Windows.Forms.Label();
-            this.lbIdNivel = new System.Windows.Forms.Label();
             this.PanelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PRestaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PMinimizar)).BeginInit();
@@ -73,15 +72,15 @@
             this.PanelOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lbLogoCorto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogolargo)).BeginInit();
-            this.PanelCuerpo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelTop
             // 
             this.PanelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
             this.PanelTop.Controls.Add(this.lbIdNivel);
+            this.PanelTop.Controls.Add(this.lbNivelAcceso);
             this.PanelTop.Controls.Add(this.lbIdUsuario);
+            this.PanelTop.Controls.Add(this.lbusuarioConectado);
             this.PanelTop.Controls.Add(this.PRestaurar);
             this.PanelTop.Controls.Add(this.label1);
             this.PanelTop.Controls.Add(this.PMinimizar);
@@ -96,6 +95,36 @@
             this.PanelTop.Name = "PanelTop";
             this.PanelTop.Size = new System.Drawing.Size(1200, 80);
             this.PanelTop.TabIndex = 0;
+            // 
+            // lbIdNivel
+            // 
+            this.lbIdNivel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbIdNivel.AutoSize = true;
+            this.EfectoIda.SetDecoration(this.lbIdNivel, BunifuAnimatorNS.DecorationType.None);
+            this.EfectoBotones.SetDecoration(this.lbIdNivel, BunifuAnimatorNS.DecorationType.None);
+            this.lbIdNivel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbIdNivel.ForeColor = System.Drawing.Color.Black;
+            this.lbIdNivel.Location = new System.Drawing.Point(761, 26);
+            this.lbIdNivel.Name = "lbIdNivel";
+            this.lbIdNivel.Size = new System.Drawing.Size(245, 30);
+            this.lbIdNivel.TabIndex = 18;
+            this.lbIdNivel.Text = "Usuario Conectado";
+            this.lbIdNivel.Visible = false;
+            // 
+            // lbIdUsuario
+            // 
+            this.lbIdUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbIdUsuario.AutoSize = true;
+            this.EfectoIda.SetDecoration(this.lbIdUsuario, BunifuAnimatorNS.DecorationType.None);
+            this.EfectoBotones.SetDecoration(this.lbIdUsuario, BunifuAnimatorNS.DecorationType.None);
+            this.lbIdUsuario.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbIdUsuario.ForeColor = System.Drawing.Color.Black;
+            this.lbIdUsuario.Location = new System.Drawing.Point(510, 25);
+            this.lbIdUsuario.Name = "lbIdUsuario";
+            this.lbIdUsuario.Size = new System.Drawing.Size(245, 30);
+            this.lbIdUsuario.TabIndex = 17;
+            this.lbIdUsuario.Text = "Usuario Conectado";
+            this.lbIdUsuario.Visible = false;
             // 
             // PRestaurar
             // 
@@ -571,9 +600,6 @@
             // 
             // PanelCuerpo
             // 
-            this.PanelCuerpo.Controls.Add(this.pictureBox2);
-            this.PanelCuerpo.Controls.Add(this.lbNivelAcceso);
-            this.PanelCuerpo.Controls.Add(this.lbusuarioConectado);
             this.EfectoBotones.SetDecoration(this.PanelCuerpo, BunifuAnimatorNS.DecorationType.None);
             this.EfectoIda.SetDecoration(this.PanelCuerpo, BunifuAnimatorNS.DecorationType.None);
             this.PanelCuerpo.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -581,22 +607,6 @@
             this.PanelCuerpo.Name = "PanelCuerpo";
             this.PanelCuerpo.Size = new System.Drawing.Size(900, 520);
             this.PanelCuerpo.TabIndex = 1;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.EfectoIda.SetDecoration(this.pictureBox2, BunifuAnimatorNS.DecorationType.None);
-            this.EfectoBotones.SetDecoration(this.pictureBox2, BunifuAnimatorNS.DecorationType.None);
-            this.pictureBox2.Image = global::DSMarket.Solucion.Properties.Resources.tulogo;
-            this.pictureBox2.Location = new System.Drawing.Point(324, 167);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(205, 152);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 16;
-            this.pictureBox2.TabStop = false;
             // 
             // lbNivelAcceso
             // 
@@ -606,7 +616,7 @@
             this.EfectoBotones.SetDecoration(this.lbNivelAcceso, BunifuAnimatorNS.DecorationType.None);
             this.lbNivelAcceso.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNivelAcceso.ForeColor = System.Drawing.Color.Black;
-            this.lbNivelAcceso.Location = new System.Drawing.Point(6, 446);
+            this.lbNivelAcceso.Location = new System.Drawing.Point(473, 45);
             this.lbNivelAcceso.Name = "lbNivelAcceso";
             this.lbNivelAcceso.Size = new System.Drawing.Size(211, 30);
             this.lbNivelAcceso.TabIndex = 6;
@@ -620,7 +630,7 @@
             this.EfectoBotones.SetDecoration(this.lbusuarioConectado, BunifuAnimatorNS.DecorationType.None);
             this.lbusuarioConectado.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbusuarioConectado.ForeColor = System.Drawing.Color.Black;
-            this.lbusuarioConectado.Location = new System.Drawing.Point(6, 416);
+            this.lbusuarioConectado.Location = new System.Drawing.Point(468, 5);
             this.lbusuarioConectado.Name = "lbusuarioConectado";
             this.lbusuarioConectado.Size = new System.Drawing.Size(245, 30);
             this.lbusuarioConectado.TabIndex = 5;
@@ -678,34 +688,6 @@
             animation2.TransparencyCoeff = 0F;
             this.EfectoBotones.DefaultAnimation = animation2;
             // 
-            // lbIdUsuario
-            // 
-            this.lbIdUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbIdUsuario.AutoSize = true;
-            this.EfectoIda.SetDecoration(this.lbIdUsuario, BunifuAnimatorNS.DecorationType.None);
-            this.EfectoBotones.SetDecoration(this.lbIdUsuario, BunifuAnimatorNS.DecorationType.None);
-            this.lbIdUsuario.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbIdUsuario.ForeColor = System.Drawing.Color.Black;
-            this.lbIdUsuario.Location = new System.Drawing.Point(510, 25);
-            this.lbIdUsuario.Name = "lbIdUsuario";
-            this.lbIdUsuario.Size = new System.Drawing.Size(245, 30);
-            this.lbIdUsuario.TabIndex = 17;
-            this.lbIdUsuario.Text = "Usuario Conectado";
-            // 
-            // lbIdNivel
-            // 
-            this.lbIdNivel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbIdNivel.AutoSize = true;
-            this.EfectoIda.SetDecoration(this.lbIdNivel, BunifuAnimatorNS.DecorationType.None);
-            this.EfectoBotones.SetDecoration(this.lbIdNivel, BunifuAnimatorNS.DecorationType.None);
-            this.lbIdNivel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbIdNivel.ForeColor = System.Drawing.Color.Black;
-            this.lbIdNivel.Location = new System.Drawing.Point(761, 26);
-            this.lbIdNivel.Name = "lbIdNivel";
-            this.lbIdNivel.Size = new System.Drawing.Size(245, 30);
-            this.lbIdNivel.TabIndex = 18;
-            this.lbIdNivel.Text = "Usuario Conectado";
-            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -733,9 +715,6 @@
             this.PanelOpciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lbLogoCorto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogolargo)).EndInit();
-            this.PanelCuerpo.ResumeLayout(false);
-            this.PanelCuerpo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -770,7 +749,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnCaja;
         private Bunifu.Framework.UI.BunifuFlatButton btnInventario;
         private Bunifu.Framework.UI.BunifuFlatButton btnServicio;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lbIdUsuario;
         private System.Windows.Forms.Label lbIdNivel;
     }

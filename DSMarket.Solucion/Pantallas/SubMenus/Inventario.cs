@@ -17,6 +17,7 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
             InitializeComponent();
         }
 
+
         private void Inventario_Load(object sender, EventArgs e)
         {
             lbTitulo.Text = "MANTENIMIENTO DE INVENTARIO";
@@ -37,6 +38,7 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         private void btnTipoProducto_Click(object sender, EventArgs e)
         {
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.TipoProductoConsulta TipoProducto = new Pantallas.Inventario.TipoProductoConsulta();
+            TipoProducto.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
             TipoProducto.ShowDialog();
         }
 

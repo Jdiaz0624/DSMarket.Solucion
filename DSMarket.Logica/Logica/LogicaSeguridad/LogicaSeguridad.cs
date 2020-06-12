@@ -41,5 +41,22 @@ namespace DSMarket.Logica.Logica.LogicaSeguridad
             return BuscarUsuario;
         }
         #endregion
+        #region MANTENIMIENTO DE CLAVE DE SEGURIDAD
+        public List<DSMarket.Logica.Entidades.EntidadesSeguridad.EClaveSeguridad> BuscaClaveSeguridad(decimal? IdClaveSeguridad = null, decimal? IdUsuario = null, string Clave = null, int? NumeroPagina = null, int? Numeroregistros = null)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            var Buscar = (from n in ObjData.SP_BUSCA_CLAVE_SEGURIDAD(IdClaveSeguridad, IdUsuario, Clave, NumeroPagina, Numeroregistros)
+                          select new DSMarket.Logica.Entidades.EntidadesSeguridad.EClaveSeguridad
+                          {
+                              IdClaveSeguridad=n.IdClaveSeguridad,
+                              IdUsuario=n.IdUsuario,
+                              Clave=n.Clave,
+                              Estatus0=n.Estatus0,
+                              Estatus=n.Estatus
+                          }).ToList();
+            return Buscar;
+        }
+        #endregion
     }
 }

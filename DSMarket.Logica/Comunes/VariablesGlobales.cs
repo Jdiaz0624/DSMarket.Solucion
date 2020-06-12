@@ -11,7 +11,8 @@ namespace DSMarket.Logica.Comunes
         public string NombreSistema { get; set; }
         public bool ConvertirCotizacionFactura = false;
         public string Accion { get; set; }
-
+        public decimal IdMantenimeinto { get; set; }
+        public decimal Conector { get; set; }
 
 
         #region DATOS SACADOS DEL USUARIO EN EL LOGIN

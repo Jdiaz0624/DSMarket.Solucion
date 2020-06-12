@@ -33,7 +33,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
     #endregion
 		
 		public BDConexionSeguridadDataContext() : 
-				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString, mappingSource)
+				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -67,6 +67,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, usuarioLogin, clave, usuario, persona, numeroPagina, numeroRegistros);
 			return ((ISingleResult<SP_BUSCA_USUARIOSResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Seguridad.SP_BUSCA_CLAVE_SEGURIDAD")]
+		public ISingleResult<SP_BUSCA_CLAVE_SEGURIDADResult> SP_BUSCA_CLAVE_SEGURIDAD([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdClaveSeguridad", DbType="Decimal(20,0)")] System.Nullable<decimal> idClaveSeguridad, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Decimal(20,0)")] System.Nullable<decimal> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Clave", DbType="VarChar(8000)")] string clave, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroPagina", DbType="Int")] System.Nullable<int> numeroPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Numeroregistros", DbType="Int")] System.Nullable<int> numeroregistros)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idClaveSeguridad, idUsuario, clave, numeroPagina, numeroregistros);
+			return ((ISingleResult<SP_BUSCA_CLAVE_SEGURIDADResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -397,6 +404,104 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._FechaModificado != value))
 				{
 					this._FechaModificado = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCA_CLAVE_SEGURIDADResult
+	{
+		
+		private decimal _IdClaveSeguridad;
+		
+		private decimal _IdUsuario;
+		
+		private string _Clave;
+		
+		private System.Nullable<bool> _Estatus0;
+		
+		private string _Estatus;
+		
+		public SP_BUSCA_CLAVE_SEGURIDADResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdClaveSeguridad", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdClaveSeguridad
+		{
+			get
+			{
+				return this._IdClaveSeguridad;
+			}
+			set
+			{
+				if ((this._IdClaveSeguridad != value))
+				{
+					this._IdClaveSeguridad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdUsuario
+		{
+			get
+			{
+				return this._IdUsuario;
+			}
+			set
+			{
+				if ((this._IdUsuario != value))
+				{
+					this._IdUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Clave", DbType="VarChar(8000)")]
+		public string Clave
+		{
+			get
+			{
+				return this._Clave;
+			}
+			set
+			{
+				if ((this._Clave != value))
+				{
+					this._Clave = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus0", DbType="Bit")]
+		public System.Nullable<bool> Estatus0
+		{
+			get
+			{
+				return this._Estatus0;
+			}
+			set
+			{
+				if ((this._Estatus0 != value))
+				{
+					this._Estatus0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="VarChar(8) NOT NULL", CanBeNull=false)]
+		public string Estatus
+		{
+			get
+			{
+				return this._Estatus;
+			}
+			set
+			{
+				if ((this._Estatus != value))
+				{
+					this._Estatus = value;
 				}
 			}
 		}

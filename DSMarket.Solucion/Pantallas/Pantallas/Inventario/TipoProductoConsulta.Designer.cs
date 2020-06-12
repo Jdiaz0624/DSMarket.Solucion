@@ -40,17 +40,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtTipoProducto = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lbCantidadRegistrosVariable = new System.Windows.Forms.Label();
-            this.lbTitulo = new System.Windows.Forms.Label();
-            this.lbCantidadRegistrosTitulo = new System.Windows.Forms.Label();
-            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnDeshabilitar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lbCantidadRegistrosVariable = new System.Windows.Forms.Label();
             this.PCerrar = new System.Windows.Forms.PictureBox();
+            this.lbTitulo = new System.Windows.Forms.Label();
+            this.lbCantidadRegistrosTitulo = new System.Windows.Forms.Label();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
@@ -65,6 +65,7 @@
             // 
             this.txtNumeroRegistros.BackColor = System.Drawing.Color.LightGray;
             this.txtNumeroRegistros.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtNumeroRegistros.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumeroRegistros.Location = new System.Drawing.Point(261, 473);
             this.txtNumeroRegistros.Maximum = new decimal(new int[] {
             999999999,
@@ -79,10 +80,12 @@
             0,
             0,
             0});
+            this.txtNumeroRegistros.ValueChanged += new System.EventHandler(this.txtNumeroRegistros_ValueChanged);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dtListado);
+            this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(3, 185);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1059, 282);
@@ -109,6 +112,7 @@
             this.dtListado.RowTemplate.Height = 24;
             this.dtListado.Size = new System.Drawing.Size(1053, 256);
             this.dtListado.TabIndex = 0;
+            this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
             // Select
             // 
@@ -119,14 +123,15 @@
             this.Select.Text = "Select";
             this.Select.ToolTipText = "Select";
             this.Select.UseColumnTextForButtonValue = true;
-            this.Select.Width = 59;
+            this.Select.Width = 64;
             // 
             // lbNumeroRegistros
             // 
             this.lbNumeroRegistros.AutoSize = true;
+            this.lbNumeroRegistros.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumeroRegistros.Location = new System.Drawing.Point(152, 474);
             this.lbNumeroRegistros.Name = "lbNumeroRegistros";
-            this.lbNumeroRegistros.Size = new System.Drawing.Size(103, 20);
+            this.lbNumeroRegistros.Size = new System.Drawing.Size(104, 21);
             this.lbNumeroRegistros.TabIndex = 59;
             this.lbNumeroRegistros.Text = "No.Registros";
             // 
@@ -134,6 +139,7 @@
             // 
             this.txtNumeroPagina.BackColor = System.Drawing.Color.LightGray;
             this.txtNumeroPagina.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtNumeroPagina.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumeroPagina.Location = new System.Drawing.Point(97, 470);
             this.txtNumeroPagina.Maximum = new decimal(new int[] {
             999999999,
@@ -148,13 +154,15 @@
             0,
             0,
             0});
+            this.txtNumeroPagina.ValueChanged += new System.EventHandler(this.txtNumeroPagina_ValueChanged);
             // 
             // lbNumeroPagina
             // 
             this.lbNumeroPagina.AutoSize = true;
+            this.lbNumeroPagina.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumeroPagina.Location = new System.Drawing.Point(6, 473);
             this.lbNumeroPagina.Name = "lbNumeroPagina";
-            this.lbNumeroPagina.Size = new System.Drawing.Size(87, 20);
+            this.lbNumeroPagina.Size = new System.Drawing.Size(91, 21);
             this.lbNumeroPagina.TabIndex = 57;
             this.lbNumeroPagina.Text = "No.Pagina";
             // 
@@ -182,6 +190,7 @@
             // 
             this.txtTipoProducto.BackColor = System.Drawing.Color.Silver;
             this.txtTipoProducto.Location = new System.Drawing.Point(145, 31);
+            this.txtTipoProducto.MaxLength = 100;
             this.txtTipoProducto.Name = "txtTipoProducto";
             this.txtTipoProducto.Size = new System.Drawing.Size(274, 27);
             this.txtTipoProducto.TabIndex = 0;
@@ -194,57 +203,12 @@
             this.panel2.Controls.Add(this.btnNuevo);
             this.panel2.Controls.Add(this.btnBuscar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(0, 38);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1073, 58);
             this.panel2.TabIndex = 54;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.panel1.Controls.Add(this.lbCantidadRegistrosVariable);
-            this.panel1.Controls.Add(this.PCerrar);
-            this.panel1.Controls.Add(this.lbTitulo);
-            this.panel1.Controls.Add(this.lbCantidadRegistrosTitulo);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1073, 38);
-            this.panel1.TabIndex = 53;
-            // 
-            // lbCantidadRegistrosVariable
-            // 
-            this.lbCantidadRegistrosVariable.AutoSize = true;
-            this.lbCantidadRegistrosVariable.Location = new System.Drawing.Point(607, 9);
-            this.lbCantidadRegistrosVariable.Name = "lbCantidadRegistrosVariable";
-            this.lbCantidadRegistrosVariable.Size = new System.Drawing.Size(18, 20);
-            this.lbCantidadRegistrosVariable.TabIndex = 31;
-            this.lbCantidadRegistrosVariable.Text = "0";
-            // 
-            // lbTitulo
-            // 
-            this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Location = new System.Drawing.Point(15, 9);
-            this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(54, 20);
-            this.lbTitulo.TabIndex = 13;
-            this.lbTitulo.Text = "label6";
-            // 
-            // lbCantidadRegistrosTitulo
-            // 
-            this.lbCantidadRegistrosTitulo.AutoSize = true;
-            this.lbCantidadRegistrosTitulo.Location = new System.Drawing.Point(429, 9);
-            this.lbCantidadRegistrosTitulo.Name = "lbCantidadRegistrosTitulo";
-            this.lbCantidadRegistrosTitulo.Size = new System.Drawing.Size(172, 20);
-            this.lbCantidadRegistrosTitulo.TabIndex = 30;
-            this.lbCantidadRegistrosTitulo.Text = "Cantidad de Registros";
-            // 
-            // bunifuElipse1
-            // 
-            this.bunifuElipse1.ElipseRadius = 30;
-            this.bunifuElipse1.TargetControl = this;
             // 
             // btnDeshabilitar
             // 
@@ -252,19 +216,21 @@
             this.btnDeshabilitar.FlatAppearance.BorderSize = 0;
             this.btnDeshabilitar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDeshabilitar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeshabilitar.Image = global::DSMarket.Solucion.Properties.Resources.Deshabilitar;
+            this.btnDeshabilitar.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
             this.btnDeshabilitar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeshabilitar.Location = new System.Drawing.Point(531, 7);
             this.btnDeshabilitar.Name = "btnDeshabilitar";
             this.btnDeshabilitar.Size = new System.Drawing.Size(170, 41);
             this.btnDeshabilitar.TabIndex = 67;
-            this.btnDeshabilitar.Text = "      Deshabilitar";
-            this.toolTip1.SetToolTip(this.btnDeshabilitar, "Deshabilitar registro seleccionado");
+            this.btnDeshabilitar.Text = "      Restablecer";
+            this.toolTip1.SetToolTip(this.btnDeshabilitar, "Restabelcer Pantalla");
             this.btnDeshabilitar.UseVisualStyleBackColor = true;
+            this.btnDeshabilitar.Click += new System.EventHandler(this.btnDeshabilitar_Click);
             // 
             // btnEditar
             // 
             this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditar.Enabled = false;
             this.btnEditar.FlatAppearance.BorderSize = 0;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -311,6 +277,31 @@
             this.btnBuscar.Text = "      Buscar";
             this.toolTip1.SetToolTip(this.btnBuscar, "Buscar Registros");
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.lbCantidadRegistrosVariable);
+            this.panel1.Controls.Add(this.PCerrar);
+            this.panel1.Controls.Add(this.lbTitulo);
+            this.panel1.Controls.Add(this.lbCantidadRegistrosTitulo);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1073, 38);
+            this.panel1.TabIndex = 53;
+            // 
+            // lbCantidadRegistrosVariable
+            // 
+            this.lbCantidadRegistrosVariable.AutoSize = true;
+            this.lbCantidadRegistrosVariable.Location = new System.Drawing.Point(607, 9);
+            this.lbCantidadRegistrosVariable.Name = "lbCantidadRegistrosVariable";
+            this.lbCantidadRegistrosVariable.Size = new System.Drawing.Size(19, 21);
+            this.lbCantidadRegistrosVariable.TabIndex = 31;
+            this.lbCantidadRegistrosVariable.Text = "0";
             // 
             // PCerrar
             // 
@@ -325,6 +316,29 @@
             this.PCerrar.TabStop = false;
             this.toolTip1.SetToolTip(this.PCerrar, "Cerrar");
             this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
+            // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(15, 9);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(57, 21);
+            this.lbTitulo.TabIndex = 13;
+            this.lbTitulo.Text = "label6";
+            // 
+            // lbCantidadRegistrosTitulo
+            // 
+            this.lbCantidadRegistrosTitulo.AutoSize = true;
+            this.lbCantidadRegistrosTitulo.Location = new System.Drawing.Point(429, 9);
+            this.lbCantidadRegistrosTitulo.Name = "lbCantidadRegistrosTitulo";
+            this.lbCantidadRegistrosTitulo.Size = new System.Drawing.Size(184, 21);
+            this.lbCantidadRegistrosTitulo.TabIndex = 30;
+            this.lbCantidadRegistrosTitulo.Text = "Cantidad de Registros";
+            // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 30;
+            this.bunifuElipse1.TargetControl = this;
             // 
             // TipoProductoConsulta
             // 

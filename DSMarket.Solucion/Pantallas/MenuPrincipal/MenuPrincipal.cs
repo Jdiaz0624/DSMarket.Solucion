@@ -106,6 +106,8 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
                 lbusuarioConectado.Text = n.Persona;
                 lbNivelAcceso.Text = n.Nivel;
             }
+            lbusuarioConectado.ForeColor = Color.WhiteSmoke;
+            lbNivelAcceso.ForeColor = Color.WhiteSmoke;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
