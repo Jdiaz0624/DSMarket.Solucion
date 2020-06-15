@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DSMarket" Class="BDConexionConfiguracionDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="Configuracion.SP_BUSCA_LISTAS" Method="SP_BUSCA_LISTAS">
+    <Parameter Name="NombreLista" Parameter="nombreLista" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="PrimerFiltro" Parameter="primerFiltro" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="SegundoFiltro" Parameter="segundoFiltro" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="TerceFiltro" Parameter="terceFiltro" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="CuartoFiltro" Parameter="cuartoFiltro" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="QuintoFiltro" Parameter="quintoFiltro" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_BUSCA_LISTASResult">
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="PrimerValor" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="SegundoValor" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="TerceValor" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

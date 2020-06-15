@@ -68,9 +68,9 @@
             // 
             this.cbNoAgregarTipoProducto.AutoSize = true;
             this.cbNoAgregarTipoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbNoAgregarTipoProducto.Location = new System.Drawing.Point(145, 65);
+            this.cbNoAgregarTipoProducto.Location = new System.Drawing.Point(157, 64);
             this.cbNoAgregarTipoProducto.Name = "cbNoAgregarTipoProducto";
-            this.cbNoAgregarTipoProducto.Size = new System.Drawing.Size(230, 24);
+            this.cbNoAgregarTipoProducto.Size = new System.Drawing.Size(255, 25);
             this.cbNoAgregarTipoProducto.TabIndex = 12;
             this.cbNoAgregarTipoProducto.Text = "No agregar tipo de producto";
             this.toolTip1.SetToolTip(this.cbNoAgregarTipoProducto, "No aregar tipo de producto a la consulta");
@@ -161,6 +161,7 @@
             // 
             this.txtNumeroRegistros.BackColor = System.Drawing.Color.LightGray;
             this.txtNumeroRegistros.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtNumeroRegistros.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumeroRegistros.Location = new System.Drawing.Point(264, 525);
             this.txtNumeroRegistros.Maximum = new decimal(new int[] {
             999999999,
@@ -179,6 +180,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dtListado);
+            this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(6, 237);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1059, 282);
@@ -215,14 +217,15 @@
             this.Select.Text = "Select";
             this.Select.ToolTipText = "Select";
             this.Select.UseColumnTextForButtonValue = true;
-            this.Select.Width = 59;
+            this.Select.Width = 64;
             // 
             // lbNumeroRegistros
             // 
             this.lbNumeroRegistros.AutoSize = true;
+            this.lbNumeroRegistros.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumeroRegistros.Location = new System.Drawing.Point(155, 526);
             this.lbNumeroRegistros.Name = "lbNumeroRegistros";
-            this.lbNumeroRegistros.Size = new System.Drawing.Size(103, 20);
+            this.lbNumeroRegistros.Size = new System.Drawing.Size(104, 21);
             this.lbNumeroRegistros.TabIndex = 67;
             this.lbNumeroRegistros.Text = "No.Registros";
             // 
@@ -230,6 +233,7 @@
             // 
             this.txtNumeroPagina.BackColor = System.Drawing.Color.LightGray;
             this.txtNumeroPagina.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtNumeroPagina.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumeroPagina.Location = new System.Drawing.Point(100, 522);
             this.txtNumeroPagina.Maximum = new decimal(new int[] {
             999999999,
@@ -248,9 +252,10 @@
             // lbNumeroPagina
             // 
             this.lbNumeroPagina.AutoSize = true;
+            this.lbNumeroPagina.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumeroPagina.Location = new System.Drawing.Point(9, 525);
             this.lbNumeroPagina.Name = "lbNumeroPagina";
-            this.lbNumeroPagina.Size = new System.Drawing.Size(87, 20);
+            this.lbNumeroPagina.Size = new System.Drawing.Size(91, 21);
             this.lbNumeroPagina.TabIndex = 65;
             this.lbNumeroPagina.Text = "No.Pagina";
             // 
@@ -261,6 +266,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtTipoProducto);
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(6, 103);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(455, 128);
@@ -275,33 +281,33 @@
             this.ddlTipoProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlTipoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ddlTipoProducto.FormattingEnabled = true;
-            this.ddlTipoProducto.Location = new System.Drawing.Point(145, 31);
+            this.ddlTipoProducto.Location = new System.Drawing.Point(157, 34);
             this.ddlTipoProducto.Name = "ddlTipoProducto";
-            this.ddlTipoProducto.Size = new System.Drawing.Size(280, 28);
+            this.ddlTipoProducto.Size = new System.Drawing.Size(280, 29);
             this.ddlTipoProducto.TabIndex = 11;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 34);
+            this.label2.Location = new System.Drawing.Point(10, 38);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(133, 20);
+            this.label2.Size = new System.Drawing.Size(143, 21);
             this.label2.TabIndex = 4;
             this.label2.Text = "Tipo de Producto";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(60, 99);
+            this.label1.Location = new System.Drawing.Point(63, 98);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 20);
+            this.label1.Size = new System.Drawing.Size(91, 21);
             this.label1.TabIndex = 3;
             this.label1.Text = "Categoria";
             // 
             // txtTipoProducto
             // 
             this.txtTipoProducto.BackColor = System.Drawing.Color.Silver;
-            this.txtTipoProducto.Location = new System.Drawing.Point(145, 95);
+            this.txtTipoProducto.Location = new System.Drawing.Point(157, 95);
             this.txtTipoProducto.Name = "txtTipoProducto";
             this.txtTipoProducto.Size = new System.Drawing.Size(280, 27);
             this.txtTipoProducto.TabIndex = 0;
@@ -314,6 +320,7 @@
             this.panel2.Controls.Add(this.btnNuevo);
             this.panel2.Controls.Add(this.btnBuscar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(0, 38);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
@@ -328,6 +335,7 @@
             this.panel1.Controls.Add(this.lbTitulo);
             this.panel1.Controls.Add(this.lbCantidadRegistrosTitulo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
@@ -339,7 +347,7 @@
             this.lbCantidadRegistrosVariable.AutoSize = true;
             this.lbCantidadRegistrosVariable.Location = new System.Drawing.Point(607, 9);
             this.lbCantidadRegistrosVariable.Name = "lbCantidadRegistrosVariable";
-            this.lbCantidadRegistrosVariable.Size = new System.Drawing.Size(18, 20);
+            this.lbCantidadRegistrosVariable.Size = new System.Drawing.Size(19, 21);
             this.lbCantidadRegistrosVariable.TabIndex = 31;
             this.lbCantidadRegistrosVariable.Text = "0";
             // 
@@ -348,7 +356,7 @@
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Location = new System.Drawing.Point(15, 9);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(54, 20);
+            this.lbTitulo.Size = new System.Drawing.Size(57, 21);
             this.lbTitulo.TabIndex = 13;
             this.lbTitulo.Text = "label6";
             // 
@@ -357,7 +365,7 @@
             this.lbCantidadRegistrosTitulo.AutoSize = true;
             this.lbCantidadRegistrosTitulo.Location = new System.Drawing.Point(429, 9);
             this.lbCantidadRegistrosTitulo.Name = "lbCantidadRegistrosTitulo";
-            this.lbCantidadRegistrosTitulo.Size = new System.Drawing.Size(172, 20);
+            this.lbCantidadRegistrosTitulo.Size = new System.Drawing.Size(184, 21);
             this.lbCantidadRegistrosTitulo.TabIndex = 30;
             this.lbCantidadRegistrosTitulo.Text = "Cantidad de Registros";
             // 

@@ -16,6 +16,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         {
             InitializeComponent();
         }
+        Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjDataCOnfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
+
         #region Aplicar Tema
         private void APlicarTema()
         {
@@ -28,6 +30,20 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             dtListado.BackgroundColor = SystemColors.Control;
         }
         #endregion
+        #region CARGAR LOS TIPOS DE PRODUCTOS
+        private void CargarTipoProductos()
+        {
+            try {
+                var CargarTipoproductos = ObjDataCOnfiguracion.Value.BuscaListas("TIPOPRODUCTO", null, null);
+                ddlTipoProducto.DataSource = CargarTipoproductos;
+                ddlTipoProducto.DisplayMember = "Descripcion";
+                ddlTipoProducto.ValueMember = "IdTipoproducto";
+            }
+            catch (Exception) {
+              
+            }
+        }
+        #endregion
         private void CategoriaConsulta_Load(object sender, EventArgs e)
         {
             lbTitulo.Text = "CONSULTA DE CATEGORIAS";
@@ -35,7 +51,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             lbCantidadRegistrosVariable.ForeColor = Color.WhiteSmoke;
             lbCantidadRegistrosTitulo.ForeColor = Color.WhiteSmoke;
             APlicarTema();
-
+            CargarTipoProductos();
         }
 
         private void PCerrar_Click(object sender, EventArgs e)
