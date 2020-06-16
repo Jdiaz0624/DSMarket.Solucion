@@ -73,14 +73,16 @@ namespace DSMarket.Logica.Logica.LogicaInventario
 
         #region MANTENIMIENTO DE CATEGORIAS
         //LISTADO DE CATEGORIAS
-        public List<DSMarket.Logica.Entidades.EntidadesInventario.ECategorias> Buscacategoria(decimal? Idcategoria = null, string Descripcion = null, int? NumeroPagina = null, int? Numeroregistros = null)
+        public List<DSMarket.Logica.Entidades.EntidadesInventario.ECategorias> Buscacategoria(decimal? Idcategoria = null,decimal? IdTipoProducto = null, string Descripcion = null, int? NumeroPagina = null, int? Numeroregistros = null)
         {
             Objdata.CommandTimeout = 999999999;
 
-            var Buscar = (from n in Objdata.SP_BUSCA_CATEGORIAS(Idcategoria, Descripcion, NumeroPagina, Numeroregistros)
+            var Buscar = (from n in Objdata.SP_BUSCA_CATEGORIAS(Idcategoria,IdTipoProducto, Descripcion, NumeroPagina, Numeroregistros)
                           select new DSMarket.Logica.Entidades.EntidadesInventario.ECategorias
                           {
                               IdCategoria=n.IdCategoria,
+                              IdTipoProducto=n.IdTipoProducto,
+                              TipoProducto=n.TipoProducto,
                               Categoria=n.Categoria,
                               Estatus0=n.Estatus0,
                               Estatus=n.Estatus,
@@ -106,6 +108,7 @@ namespace DSMarket.Logica.Logica.LogicaInventario
 
             var Categoria = Objdata.SP_MANTENIMIENTO_CATEGORIAS(
                 Item.IdCategoria,
+                Item.IdTipoProducto,
                 Item.Categoria,
                 Item.Estatus0,
                 Item.UsuarioAdiciona,
@@ -116,6 +119,7 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                                  select new DSMarket.Logica.Entidades.EntidadesInventario.ECategorias
                                  {
                                      IdCategoria=n.IdCategoria,
+                                     IdTipoProducto=n.IdTipoProducto,
                                      Categoria=n.Descripcion,
                                      Estatus0=n.Estatus,
                                      UsuarioAdiciona=n.UsuarioAdiciona,

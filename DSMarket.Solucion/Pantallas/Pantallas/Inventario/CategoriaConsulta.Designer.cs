@@ -47,7 +47,7 @@
             this.ddlTipoProducto = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtTipoProducto = new System.Windows.Forms.TextBox();
+            this.txtCategorias = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbCantidadRegistrosVariable = new System.Windows.Forms.Label();
@@ -91,6 +91,7 @@
             this.btnDeshabilitar.Text = "      Restablecer";
             this.toolTip1.SetToolTip(this.btnDeshabilitar, "Deshabilitar registro seleccionado");
             this.btnDeshabilitar.UseVisualStyleBackColor = true;
+            this.btnDeshabilitar.Click += new System.EventHandler(this.btnDeshabilitar_Click);
             // 
             // btnEditar
             // 
@@ -142,6 +143,7 @@
             this.btnBuscar.Text = "      Buscar";
             this.toolTip1.SetToolTip(this.btnBuscar, "Buscar Registros");
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // PCerrar
             // 
@@ -176,6 +178,7 @@
             0,
             0,
             0});
+            this.txtNumeroRegistros.ValueChanged += new System.EventHandler(this.txtNumeroRegistros_ValueChanged);
             // 
             // groupBox2
             // 
@@ -207,6 +210,7 @@
             this.dtListado.RowTemplate.Height = 24;
             this.dtListado.Size = new System.Drawing.Size(1053, 256);
             this.dtListado.TabIndex = 0;
+            this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
             // Select
             // 
@@ -248,6 +252,7 @@
             0,
             0,
             0});
+            this.txtNumeroPagina.ValueChanged += new System.EventHandler(this.txtNumeroPagina_ValueChanged);
             // 
             // lbNumeroPagina
             // 
@@ -265,7 +270,7 @@
             this.groupBox1.Controls.Add(this.ddlTipoProducto);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtTipoProducto);
+            this.groupBox1.Controls.Add(this.txtCategorias);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(6, 103);
             this.groupBox1.Name = "groupBox1";
@@ -304,13 +309,13 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Categoria";
             // 
-            // txtTipoProducto
+            // txtCategorias
             // 
-            this.txtTipoProducto.BackColor = System.Drawing.Color.Silver;
-            this.txtTipoProducto.Location = new System.Drawing.Point(157, 95);
-            this.txtTipoProducto.Name = "txtTipoProducto";
-            this.txtTipoProducto.Size = new System.Drawing.Size(280, 27);
-            this.txtTipoProducto.TabIndex = 0;
+            this.txtCategorias.BackColor = System.Drawing.Color.Silver;
+            this.txtCategorias.Location = new System.Drawing.Point(157, 95);
+            this.txtCategorias.Name = "txtCategorias";
+            this.txtCategorias.Size = new System.Drawing.Size(280, 27);
+            this.txtCategorias.TabIndex = 0;
             // 
             // panel2
             // 
@@ -424,7 +429,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtTipoProducto;
+        private System.Windows.Forms.TextBox txtCategorias;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnDeshabilitar;
         private System.Windows.Forms.Button btnEditar;

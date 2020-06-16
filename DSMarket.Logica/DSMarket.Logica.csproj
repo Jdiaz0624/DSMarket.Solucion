@@ -53,10 +53,12 @@
     <Compile Include="Entidades\EntidadesInventario\ECategorias.cs" />
     <Compile Include="Entidades\EntidadesInventario\Emarcas.cs" />
     <Compile Include="Entidades\EntidadesInventario\ETipoProducto.cs" />
+    <Compile Include="Entidades\EntidadesListas\EListaTipoProducto.cs" />
     <Compile Include="Entidades\EntidadesSeguridad\EUsuarios.cs" />
     <Compile Include="Logica\LogicaConfiguracion\LogicaCOnfiguracion.cs" />
     <Compile Include="Logica\LogicaInventario\LogicaInventario.cs" />
     <Compile Include="Entidades\EntidadesSeguridad\EClaveSeguridad.cs" />
+    <Compile Include="Logica\LogicaListas\LogicaListas.cs" />
     <Compile Include="Logica\LogicaSeguridad\LogicaSeguridad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
