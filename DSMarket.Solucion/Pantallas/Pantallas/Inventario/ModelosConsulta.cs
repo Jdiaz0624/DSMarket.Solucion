@@ -16,7 +16,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         {
             InitializeComponent();
         }
-
+        public DSMarket.Logica.Comunes.VariablesGlobales variablesGlobales = new Logica.Comunes.VariablesGlobales();
         private void PCerrar_Click(object sender, EventArgs e)
         {
             this.Dispose();

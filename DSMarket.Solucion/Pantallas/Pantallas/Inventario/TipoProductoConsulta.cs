@@ -17,6 +17,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             InitializeComponent();
         }
         Lazy<DSMarket.Logica.Logica.LogicaInventario.LogicaInventario> ObjDataInventario = new Lazy<Logica.Logica.LogicaInventario.LogicaInventario>();
+        Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjDataCOnfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region CONSULTA DE REGISTROS
@@ -67,6 +68,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         }
         #endregion
+        #region SACAR LA INFORMACION DE LA EMPRESA
+        private void SacarInformacionEmpresa()
+        {
+            var SacarInformacionEmpresa = ObjDataCOnfiguracion.Value.BuscaInformacionEmpresa();
+            foreach (var n in SacarInformacionEmpresa)
+            {
+                VariablesGlobales.NombreSistema = n.NombreEmpresa;
+            }
+        }
+        #endregion
         private void PCerrar_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -104,6 +115,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         private void TipoProductoConsulta_Load(object sender, EventArgs e)
         {
+            SacarInformacionEmpresa();
             AplicarTema();
             lbTitulo.Text = "CONSULTA DE TIPO DE PRODUCTO";
             lbTitulo.ForeColor = Color.WhiteSmoke;

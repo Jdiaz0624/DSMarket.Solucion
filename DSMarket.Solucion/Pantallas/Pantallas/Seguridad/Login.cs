@@ -18,6 +18,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Seguridad
             InitializeComponent();
         }
         Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjdataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
+        Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjDataCOnfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region INGRESAR AL SISTEMA
@@ -92,6 +93,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Seguridad
             }
         }
         #endregion
+        #region SACAR LA INFORMACION DE LA EMPRESA
+        private void SacarInformacionEmpresa()
+        {
+            var SacarInformacionEmpresa = ObjDataCOnfiguracion.Value.BuscaInformacionEmpresa();
+            foreach (var n in SacarInformacionEmpresa)
+            {
+                VariablesGlobales.NombreSistema = n.NombreEmpresa;
+                lbNombreEmpresa.Text = VariablesGlobales.NombreSistema;
+            }
+        }
+        #endregion
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -105,6 +117,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Seguridad
 
         private void Login_Load(object sender, EventArgs e)
         {
+            SacarInformacionEmpresa();
             txtclave.PasswordChar = '•';
             gbLogin.Visible = false;
             Efecto.Show(gbLogin);

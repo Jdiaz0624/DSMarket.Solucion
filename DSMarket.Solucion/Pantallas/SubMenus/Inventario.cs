@@ -32,6 +32,7 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         private void btnProductos_Click(object sender, EventArgs e)
         {
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.ProductoConsulta Producto = new Pantallas.Inventario.ProductoConsulta();
+            Producto.variablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
             Producto.ShowDialog();
         }
 
@@ -45,36 +46,42 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         private void btnCategoria_Click(object sender, EventArgs e)
         {
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.CategoriaConsulta MantenimientoCategoria = new Pantallas.Inventario.CategoriaConsulta();
+            MantenimientoCategoria.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
             MantenimientoCategoria.ShowDialog();
         }
 
         private void btnTipoSuplidores_Click(object sender, EventArgs e)
         {
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.TipoSuplidoresConsulta MantenimientoTipoSuplidor = new Pantallas.Inventario.TipoSuplidoresConsulta();
+            MantenimientoTipoSuplidor.variablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
             MantenimientoTipoSuplidor.ShowDialog();
         }
 
         private void btnUnidaMedida_Click(object sender, EventArgs e)
         {
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.UnidadMedidaConsulta MantenimientoUnidadMedida = new Pantallas.Inventario.UnidadMedidaConsulta();
+            MantenimientoUnidadMedida.variablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
             MantenimientoUnidadMedida.ShowDialog();
         }
 
         private void btnMArcas_Click(object sender, EventArgs e)
         {
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.MarcasConsulta MantenimientoMArcas = new Pantallas.Inventario.MarcasConsulta();
+            MantenimientoMArcas.variablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
             MantenimientoMArcas.ShowDialog();
         }
 
         private void btnMonedas_Click(object sender, EventArgs e)
         {
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.ModelosConsulta MantenimientoModelos = new Pantallas.Inventario.ModelosConsulta();
+            MantenimientoModelos.variablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
             MantenimientoModelos.ShowDialog();
         }
 
         private void btnSuplidores_Click(object sender, EventArgs e)
         {
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.SuplidoresConsulta MantenimeintoSuplidores = new Pantallas.Inventario.SuplidoresConsulta();
+            MantenimeintoSuplidores.variablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
             MantenimeintoSuplidores.ShowDialog();
         }
     }

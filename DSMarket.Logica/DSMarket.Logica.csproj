@@ -49,6 +49,7 @@
     <Compile Include="Comunes\SeguridadEncriptacion.cs" />
     <Compile Include="Comunes\ValidarControles.cs" />
     <Compile Include="Comunes\VariablesGlobales.cs" />
+    <Compile Include="Entidades\EntidadesConfiguracion\EInformacionEmpresa.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EListas.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECategorias.cs" />
     <Compile Include="Entidades\EntidadesInventario\Emarcas.cs" />

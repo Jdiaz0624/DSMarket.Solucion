@@ -16,7 +16,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         {
             InitializeComponent();
         }
+        Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjdataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
+        Lazy<DSMarket.Logica.Logica.LogicaInventario.LogicaInventario> ObjDataInventario = new Lazy<Logica.Logica.LogicaInventario.LogicaInventario>();
+        public DSMarket.Logica.Comunes.VariablesGlobales variablesGlobales = new Logica.Comunes.VariablesGlobales();
 
+        #region SACAR LA INFORMACION DE LA EMPRESA
+
+        #endregion
         private void PCerrar_Click(object sender, EventArgs e)
         {
             this.Dispose();

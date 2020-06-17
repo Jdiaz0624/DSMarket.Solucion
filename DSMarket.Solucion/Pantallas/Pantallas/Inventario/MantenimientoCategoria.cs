@@ -20,6 +20,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjDataCOnfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
         Lazy<DSMarket.Logica.Logica.LogicaInventario.LogicaInventario> ObjdataInventario = new Lazy<Logica.Logica.LogicaInventario.LogicaInventario>();
         Lazy<DSMarket.Logica.Logica.LogicaListas.LogicaListas> ObjDataListas = new Lazy<Logica.Logica.LogicaListas.LogicaListas>();
+        Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjdataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
 
         #region APLICAR TEMA
         private void AplicarTema()
@@ -69,7 +70,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         #endregion
         #region CERRAR Y LIMPIAR CONTROLES
         private void LimpiarControles() {
-
+            CargarTipoProductos();
+            txtCategoria.Text = string.Empty;
+            cbEstatus.Checked = true;
         }
         private void Cerrar() {
             this.Dispose();
@@ -78,10 +81,23 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         }
 
         #endregion
+        #region SACAR LA INFORMACION DE LA EMPRESA
+        private void SacarInformacionEmpresa()
+        {
+            var SacarInformacionEmpresa = ObjDataCOnfiguracion.Value.BuscaInformacionEmpresa();
+            foreach (var n in SacarInformacionEmpresa)
+            {
+                VariablesGlobales.NombreSistema = n.NombreEmpresa;
+            }
+        }
+        #endregion
         private void MantenimientoCategoria_Load(object sender, EventArgs e)
         {
+            SacarInformacionEmpresa();
             lbTitulo.ForeColor = Color.WhiteSmoke;
             AplicarTema();
+            cbEstatus.Checked = true;
+            CargarTipoProductos();
             if (VariablesGlobales.Accion == "INSERT")
             {
                 lbTitulo.Text = "CREAR NUEVO REGISTRO";
@@ -93,6 +109,19 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             {
                 lbTitulo.Text = "MODIFICAR REGISTRO SELECCIONADO";
                 btnGuardar.Text = "Modificar Registro";
+
+                //SACAMOS LOS DATOS 
+                var SacarDatos = ObjdataInventario.Value.Buscacategoria(
+                    VariablesGlobales.IdMantenimeinto,
+                    null,
+                    null,
+                    1, 1);
+                foreach (var n in SacarDatos)
+                {
+                    ddlTipoProducto.Text = n.TipoProducto;
+                    txtCategoria.Text = n.Categoria;
+                    cbEstatus.Checked = (n.Estatus0.HasValue ? n.Estatus0.Value : false);
+                }
             }
         }
 
@@ -118,11 +147,38 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                     {
                         LimpiarControles();
                     }
+                    else
+                    {
+                        Cerrar();
+                    }
 
                 }
                 else
                 {
-
+                    //VALIDAMOS LA CLAVE DE SEGURIDAD
+                    if (string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()))
+                    {
+                        MessageBox.Show("La clave de seguridad no peude estar vacia, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        var ValidarClave = ObjdataSeguridad.Value.BuscaClaveSeguridad(
+                            new Nullable<decimal>(),
+                            null,
+                           DSMarket.Logica.Comunes.SeguridadEncriptacion.Encriptar(txtClaveSeguridad.Text),
+                           1, 1);
+                        if (ValidarClave.Count() < 1)
+                        {
+                            MessageBox.Show("La clave de seguridad ingresada no es valida, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            //GUARDAMOS LOS DATOS
+                            MANCategoria("UPDATE");
+                            MessageBox.Show("Registro modificado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Cerrar();
+                        }
+                    }
                 }
             }
         }

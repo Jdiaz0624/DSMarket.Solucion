@@ -36,13 +36,13 @@
             this.lbClaveSeguridad = new System.Windows.Forms.Label();
             this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ddlTipoProducto = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCategoria = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.ddlTipoProducto = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -53,7 +53,7 @@
             this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuardar.FlatAppearance.BorderSize = 10;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::DSMarket.Solucion.Properties.Resources.Guardar;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardar.Location = new System.Drawing.Point(12, 209);
@@ -72,7 +72,7 @@
             this.cbEstatus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbEstatus.Location = new System.Drawing.Point(155, 93);
             this.cbEstatus.Name = "cbEstatus";
-            this.cbEstatus.Size = new System.Drawing.Size(83, 24);
+            this.cbEstatus.Size = new System.Drawing.Size(83, 25);
             this.cbEstatus.TabIndex = 6;
             this.cbEstatus.Text = "Estatus";
             this.toolTip1.SetToolTip(this.cbEstatus, "Estatus de Tipo de Producto");
@@ -95,18 +95,21 @@
             // lbClaveSeguridad
             // 
             this.lbClaveSeguridad.AutoSize = true;
+            this.lbClaveSeguridad.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbClaveSeguridad.Location = new System.Drawing.Point(17, 179);
             this.lbClaveSeguridad.Name = "lbClaveSeguridad";
-            this.lbClaveSeguridad.Size = new System.Drawing.Size(153, 20);
+            this.lbClaveSeguridad.Size = new System.Drawing.Size(166, 21);
             this.lbClaveSeguridad.TabIndex = 19;
             this.lbClaveSeguridad.Text = "Clave de Seguridad";
             // 
             // txtClaveSeguridad
             // 
             this.txtClaveSeguridad.BackColor = System.Drawing.Color.Silver;
-            this.txtClaveSeguridad.Location = new System.Drawing.Point(176, 176);
+            this.txtClaveSeguridad.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClaveSeguridad.Location = new System.Drawing.Point(189, 176);
             this.txtClaveSeguridad.MaxLength = 20;
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
+            this.txtClaveSeguridad.PasswordChar = '•';
             this.txtClaveSeguridad.Size = new System.Drawing.Size(225, 27);
             this.txtClaveSeguridad.TabIndex = 18;
             // 
@@ -117,6 +120,7 @@
             this.groupBox1.Controls.Add(this.cbEstatus);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtCategoria);
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 45);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(440, 125);
@@ -124,12 +128,33 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Mantenimiento de Categorias";
             // 
+            // ddlTipoProducto
+            // 
+            this.ddlTipoProducto.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlTipoProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlTipoProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlTipoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlTipoProducto.FormattingEnabled = true;
+            this.ddlTipoProducto.Location = new System.Drawing.Point(155, 26);
+            this.ddlTipoProducto.Name = "ddlTipoProducto";
+            this.ddlTipoProducto.Size = new System.Drawing.Size(280, 29);
+            this.ddlTipoProducto.TabIndex = 13;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(143, 21);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Tipo de Producto";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(68, 63);
+            this.label1.Location = new System.Drawing.Point(61, 63);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 20);
+            this.label1.Size = new System.Drawing.Size(91, 21);
             this.label1.TabIndex = 5;
             this.label1.Text = "Categoria";
             // 
@@ -148,6 +173,7 @@
             this.panel1.Controls.Add(this.PCerrar);
             this.panel1.Controls.Add(this.lbTitulo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
@@ -159,7 +185,7 @@
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Location = new System.Drawing.Point(15, 9);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(54, 20);
+            this.lbTitulo.Size = new System.Drawing.Size(57, 21);
             this.lbTitulo.TabIndex = 13;
             this.lbTitulo.Text = "label6";
             // 
@@ -167,27 +193,6 @@
             // 
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
-            // 
-            // ddlTipoProducto
-            // 
-            this.ddlTipoProducto.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ddlTipoProducto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlTipoProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlTipoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ddlTipoProducto.FormattingEnabled = true;
-            this.ddlTipoProducto.Location = new System.Drawing.Point(155, 26);
-            this.ddlTipoProducto.Name = "ddlTipoProducto";
-            this.ddlTipoProducto.Size = new System.Drawing.Size(280, 28);
-            this.ddlTipoProducto.TabIndex = 13;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(133, 20);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Tipo de Producto";
             // 
             // MantenimientoCategoria
             // 

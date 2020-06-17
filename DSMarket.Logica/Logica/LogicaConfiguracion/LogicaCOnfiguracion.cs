@@ -27,5 +27,68 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             return BuscaListas;
         }
         #endregion
+        #region MANTENIMIENTO DE INFORACION DE EMPRESA
+        //LISTADO DE INFORMACION DE EMPRESA
+        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EInformacionEmpresa> BuscaInformacionEmpresa()
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            var Informacion = (from n in ObjData.SP_SACAR_INFORMACION_EMPRESA()
+                               select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EInformacionEmpresa
+                               {
+                                   IdInformacionEmpresa = n.IdInformacionEmpresa,
+                                   NombreEmpresa = n.NombreEmpresa,
+                                   RNC = n.RNC,
+                                   Direccion = n.Direccion,
+                                   Email = n.Email,
+                                   Email2 = n.Email2,
+                                   Facebook = n.Facebook,
+                                   Instagran = n.Instagran,
+                                   Telefonos = n.Telefonos,
+                                   IdLogoEmpresa = n.IdLogoEmpresa,
+                                   LogoEmpresa=n.LogoEmpresa
+                               }).ToList();
+            return Informacion;
+        }
+
+        //MANTENIMIENTO INFORMACION EMPRESA
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EInformacionEmpresa ModificarInformacionEmpresa(DSMarket.Logica.Entidades.EntidadesConfiguracion.EInformacionEmpresa Item, string Accion)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesConfiguracion.EInformacionEmpresa Modificar = null;
+
+            var InformacionEmpresa = ObjData.SP_MODIFICAR_INFORMACION_EMPRESA(
+                Item.IdInformacionEmpresa,
+                Item.NombreEmpresa,
+                Item.RNC,
+                Item.Direccion,
+                Item.Email,
+                Item.Email2,
+                Item.Facebook,
+                Item.Instagran,
+                Item.Telefonos,
+                Item.IdLogoEmpresa,
+                Accion);
+            if (InformacionEmpresa != null)
+            {
+                Modificar = (from n in InformacionEmpresa
+                             select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EInformacionEmpresa
+                             {
+                                 IdInformacionEmpresa=n.IdInformacionEmpresa,
+                                 NombreEmpresa=n.NombreEmpresa,
+                                 RNC=n.RNC,
+                                 Direccion=n.Direccion,
+                                 Email=n.Email,
+                                 Email2=n.Email2,
+                                 Facebook=n.Facebook,
+                                 Instagran=n.Instagran,
+                                 Telefonos=n.Telefonos,
+                                 IdLogoEmpresa=n.IdLogoEmpresa
+                             }).FirstOrDefault();
+            }
+            return Modificar;
+        }
+        #endregion
     }
 }

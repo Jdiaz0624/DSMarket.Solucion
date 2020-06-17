@@ -27,6 +27,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         #endregion
         Lazy<DSMarket.Logica.Logica.LogicaInventario.LogicaInventario> ObjdataInventario = new Lazy<Logica.Logica.LogicaInventario.LogicaInventario>();
         Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
+        Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjDataCOnfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region CERRAR LA PANTALLA y LIMPIAR
@@ -58,6 +59,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             Mantenimiento.FechaModifica = DateTime.Now;
 
             var MAN = ObjdataInventario.Value.MantenimeintoTipoProducto(Mantenimiento, Accion);
+        }
+        #endregion
+        #region SACAR LA INFORMACION DE LA EMPRESA
+        private void SacarInformacionEmpresa()
+        {
+            var SacarInformacionEmpresa = ObjDataCOnfiguracion.Value.BuscaInformacionEmpresa();
+            foreach (var n in SacarInformacionEmpresa)
+            {
+                VariablesGlobales.NombreSistema = n.NombreEmpresa;
+            }
         }
         #endregion
         private void cbacumulativo_CheckedChanged(object sender, EventArgs e)
@@ -95,6 +106,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         private void MantenimientoTipoProducto_Load(object sender, EventArgs e)
         {
+            SacarInformacionEmpresa();
             cbacumulativo.Checked = true;
             cbEstatus.Checked = true;
             cbacumulativo.ForeColor = Color.DarkRed;

@@ -18,7 +18,8 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
         }
         public static decimal IdUsuarioMantenimientos;
         Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjdataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
-      public  DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
+        Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjDataCOnfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
+        public  DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
 
         #region FUNCION PARA LLAMAR LOS FORMULARIOS
@@ -43,6 +44,17 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
             this.BackColor = Color.FloralWhite;
 
 
+        }
+        #endregion
+        #region SACAR LA INFORMACION DE LA EMPRESA
+        private void SacarInformacionEmpresa()
+        {
+            var SacarInformacionEmpresa = ObjDataCOnfiguracion.Value.BuscaInformacionEmpresa();
+            foreach (var n in SacarInformacionEmpresa)
+            {
+                VariablesGlobales.NombreSistema = n.NombreEmpresa;
+               lbNombreEmpresa.Text = VariablesGlobales.NombreSistema;
+            }
         }
         #endregion
         private void PCerrar_Click(object sender, EventArgs e)
@@ -79,6 +91,7 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
+            SacarInformacionEmpresa();
             TemaGenerico();
             btnServicio.Visible = false;
             EfectoBotones.Show(btnServicio);

@@ -93,14 +93,27 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.dtListado.Columns["CantidadRegistros"].Visible = false;
         }
         #endregion
+        #region SACAR LA INFORMACION DE LA EMPRESA
+        private void SacarInformacionEmpresa()
+        {
+            var SacarInformacionEmpresa = ObjDataCOnfiguracion.Value.BuscaInformacionEmpresa();
+            foreach (var n in SacarInformacionEmpresa)
+            {
+                VariablesGlobales.NombreSistema = n.NombreEmpresa;
+            }
+        }
+        #endregion
         private void CategoriaConsulta_Load(object sender, EventArgs e)
         {
+            SacarInformacionEmpresa();
             lbTitulo.Text = "CONSULTA DE CATEGORIAS";
             lbTitulo.ForeColor = Color.WhiteSmoke;
             lbCantidadRegistrosVariable.ForeColor = Color.WhiteSmoke;
             lbCantidadRegistrosTitulo.ForeColor = Color.WhiteSmoke;
             APlicarTema();
             CargarTipoProductos();
+            this.dtListado.RowsDefaultCellStyle.BackColor = SystemColors.Control;
+            this.dtListado.AlternatingRowsDefaultCellStyle.BackColor = SystemColors.Control;
         }
 
         private void PCerrar_Click(object sender, EventArgs e)
@@ -113,6 +126,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.Hide();
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.MantenimientoCategoria Mantenimiento = new MantenimientoCategoria();
             Mantenimiento.VariablesGlobales.Accion = "INSERT";
+            Mantenimiento.VariablesGlobales.IdMantenimeinto = 0;
+            Mantenimiento.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
             Mantenimiento.ShowDialog();
         }
 
@@ -121,6 +136,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.Hide();
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.MantenimientoCategoria Mantenimiento = new MantenimientoCategoria();
             Mantenimiento.VariablesGlobales.Accion = "UPDATE";
+            Mantenimiento.VariablesGlobales.IdMantenimeinto = VariablesGlobales.IdMantenimeinto;
+            Mantenimiento.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
             Mantenimiento.ShowDialog();
         }
 
@@ -161,7 +178,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         {
             if (MessageBox.Show("¿Quieres selecionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdTipoproducto"].Value.ToString());
+                this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdCategoria"].Value.ToString());
 
                 var Buscar = ObjdataInventario.Value.Buscacategoria(VariablesGlobales.IdMantenimeinto, null, null, 1, 1);
                 dtListado.DataSource = Buscar;
