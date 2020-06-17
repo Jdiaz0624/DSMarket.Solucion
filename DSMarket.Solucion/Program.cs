@@ -19,7 +19,7 @@ namespace DSMarket.Solucion
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Pantallas.Pantallas.Seguridad.Login());
             }
-            catch (Exception) { }
+            catch (Exception) { } 
         }
     }
 }
