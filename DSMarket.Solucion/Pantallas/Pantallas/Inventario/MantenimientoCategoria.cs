@@ -77,6 +77,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         private void Cerrar() {
             this.Dispose();
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.CategoriaConsulta Consulta = new CategoriaConsulta();
+            Consulta.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
             Consulta.ShowDialog();
         }
 

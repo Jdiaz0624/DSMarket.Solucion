@@ -29,11 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbCantidadRegistrosVariable = new System.Windows.Forms.Label();
+            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.lbCantidadRegistrosTitulo = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnReporte = new System.Windows.Forms.Button();
+            this.btnOferta = new System.Windows.Forms.Button();
+            this.btnSuplir = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtFechaHasta = new System.Windows.Forms.DateTimePicker();
@@ -41,6 +51,7 @@
             this.txtFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.lbFechaDesde = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.pbFoto = new System.Windows.Forms.PictureBox();
             this.ddlSeleccionarUnidadMedida = new System.Windows.Forms.ComboBox();
             this.ddlSeleccionarModelo = new System.Windows.Forms.ComboBox();
             this.ddlSeleccionarMarca = new System.Windows.Forms.ComboBox();
@@ -63,10 +74,11 @@
             this.txtCodigoBarra = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtdescripcion = new System.Windows.Forms.TextBox();
+            this.btnVerProductosPoximoAgotar = new System.Windows.Forms.Button();
+            this.btnVerProductosAgotados = new System.Windows.Forms.Button();
+            this.btnProductoConOfertas = new System.Windows.Forms.Button();
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.dtListado = new System.Windows.Forms.DataGridView();
-            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
@@ -80,29 +92,19 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.pbFoto = new System.Windows.Forms.PictureBox();
-            this.btnReporte = new System.Windows.Forms.Button();
-            this.btnOferta = new System.Windows.Forms.Button();
-            this.btnSuplir = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.PCerrar = new System.Windows.Forms.PictureBox();
-            this.btnVerProductosPoximoAgotar = new System.Windows.Forms.Button();
-            this.btnVerProductosAgotados = new System.Windows.Forms.Button();
-            this.btnProductoConOfertas = new System.Windows.Forms.Button();
+            this.dtListado = new System.Windows.Forms.DataGridView();
+            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -127,6 +129,20 @@
             this.lbCantidadRegistrosVariable.Size = new System.Drawing.Size(13, 15);
             this.lbCantidadRegistrosVariable.TabIndex = 31;
             this.lbCantidadRegistrosVariable.Text = "0";
+            // 
+            // PCerrar
+            // 
+            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
+            this.PCerrar.Location = new System.Drawing.Point(1200, 5);
+            this.PCerrar.Name = "PCerrar";
+            this.PCerrar.Size = new System.Drawing.Size(30, 30);
+            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PCerrar.TabIndex = 15;
+            this.PCerrar.TabStop = false;
+            this.toolTip1.SetToolTip(this.PCerrar, "Cerrar");
+            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
             // 
             // lbTitulo
             // 
@@ -163,6 +179,123 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1242, 58);
             this.panel2.TabIndex = 5;
+            // 
+            // btnReporte
+            // 
+            this.btnReporte.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReporte.FlatAppearance.BorderSize = 0;
+            this.btnReporte.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnReporte.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporte.Image = global::DSMarket.Solucion.Properties.Resources.Reporte;
+            this.btnReporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReporte.Location = new System.Drawing.Point(1059, 7);
+            this.btnReporte.Name = "btnReporte";
+            this.btnReporte.Size = new System.Drawing.Size(170, 41);
+            this.btnReporte.TabIndex = 70;
+            this.btnReporte.Text = "      Reporte";
+            this.toolTip1.SetToolTip(this.btnReporte, "Agregar ofertas a productos");
+            this.btnReporte.UseVisualStyleBackColor = true;
+            // 
+            // btnOferta
+            // 
+            this.btnOferta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOferta.FlatAppearance.BorderSize = 0;
+            this.btnOferta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnOferta.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOferta.Image = global::DSMarket.Solucion.Properties.Resources.Eliminar;
+            this.btnOferta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOferta.Location = new System.Drawing.Point(883, 7);
+            this.btnOferta.Name = "btnOferta";
+            this.btnOferta.Size = new System.Drawing.Size(170, 41);
+            this.btnOferta.TabIndex = 69;
+            this.btnOferta.Text = "      Ofertas";
+            this.toolTip1.SetToolTip(this.btnOferta, "Agregar ofertas a productos");
+            this.btnOferta.UseVisualStyleBackColor = true;
+            this.btnOferta.Click += new System.EventHandler(this.btnOferta_Click);
+            // 
+            // btnSuplir
+            // 
+            this.btnSuplir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSuplir.FlatAppearance.BorderSize = 0;
+            this.btnSuplir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSuplir.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSuplir.Image = global::DSMarket.Solucion.Properties.Resources.Suplir;
+            this.btnSuplir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSuplir.Location = new System.Drawing.Point(707, 7);
+            this.btnSuplir.Name = "btnSuplir";
+            this.btnSuplir.Size = new System.Drawing.Size(170, 41);
+            this.btnSuplir.TabIndex = 68;
+            this.btnSuplir.Text = "      Suplir";
+            this.toolTip1.SetToolTip(this.btnSuplir, "Suplir producto en stock");
+            this.btnSuplir.UseVisualStyleBackColor = true;
+            this.btnSuplir.Click += new System.EventHandler(this.btnSuplir_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Image = global::DSMarket.Solucion.Properties.Resources.Eliminar;
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(531, 7);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(170, 41);
+            this.btnEliminar.TabIndex = 67;
+            this.btnEliminar.Text = "      Eliminar";
+            this.toolTip1.SetToolTip(this.btnEliminar, "Eliminar registro seleccionado");
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditar.FlatAppearance.BorderSize = 0;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEditar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.Image = global::DSMarket.Solucion.Properties.Resources.Editar;
+            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditar.Location = new System.Drawing.Point(355, 7);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(170, 41);
+            this.btnEditar.TabIndex = 66;
+            this.btnEditar.Text = "      Editar";
+            this.toolTip1.SetToolTip(this.btnEditar, "Modificar registro seleccionado");
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNuevo.FlatAppearance.BorderSize = 0;
+            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
+            this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevo.Location = new System.Drawing.Point(179, 7);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(170, 41);
+            this.btnNuevo.TabIndex = 65;
+            this.btnNuevo.Text = "      Nuevo";
+            this.toolTip1.SetToolTip(this.btnNuevo, "Crear Nuevo Registro");
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscar.Location = new System.Drawing.Point(3, 7);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(170, 41);
+            this.btnBuscar.TabIndex = 64;
+            this.btnBuscar.Text = "      Buscar";
+            this.toolTip1.SetToolTip(this.btnBuscar, "Consultar Registros");
+            this.btnBuscar.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -244,6 +377,17 @@
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Foto de Producto";
+            // 
+            // pbFoto
+            // 
+            this.pbFoto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbFoto.Image = global::DSMarket.Solucion.Properties.Resources.SinImagen;
+            this.pbFoto.Location = new System.Drawing.Point(3, 23);
+            this.pbFoto.Name = "pbFoto";
+            this.pbFoto.Size = new System.Drawing.Size(194, 134);
+            this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFoto.TabIndex = 0;
+            this.pbFoto.TabStop = false;
             // 
             // ddlSeleccionarUnidadMedida
             // 
@@ -481,6 +625,42 @@
             this.txtdescripcion.Size = new System.Drawing.Size(274, 27);
             this.txtdescripcion.TabIndex = 0;
             // 
+            // btnVerProductosPoximoAgotar
+            // 
+            this.btnVerProductosPoximoAgotar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVerProductosPoximoAgotar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnVerProductosPoximoAgotar.Image = global::DSMarket.Solucion.Properties.Resources.ojo;
+            this.btnVerProductosPoximoAgotar.Location = new System.Drawing.Point(1104, 627);
+            this.btnVerProductosPoximoAgotar.Name = "btnVerProductosPoximoAgotar";
+            this.btnVerProductosPoximoAgotar.Size = new System.Drawing.Size(41, 29);
+            this.btnVerProductosPoximoAgotar.TabIndex = 69;
+            this.toolTip1.SetToolTip(this.btnVerProductosPoximoAgotar, "Ver listado de los productos proximo a agotarse");
+            this.btnVerProductosPoximoAgotar.UseVisualStyleBackColor = true;
+            // 
+            // btnVerProductosAgotados
+            // 
+            this.btnVerProductosAgotados.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVerProductosAgotados.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnVerProductosAgotados.Image = global::DSMarket.Solucion.Properties.Resources.ojo;
+            this.btnVerProductosAgotados.Location = new System.Drawing.Point(1104, 662);
+            this.btnVerProductosAgotados.Name = "btnVerProductosAgotados";
+            this.btnVerProductosAgotados.Size = new System.Drawing.Size(41, 29);
+            this.btnVerProductosAgotados.TabIndex = 70;
+            this.toolTip1.SetToolTip(this.btnVerProductosAgotados, "Ver listado de los productos agotados");
+            this.btnVerProductosAgotados.UseVisualStyleBackColor = true;
+            // 
+            // btnProductoConOfertas
+            // 
+            this.btnProductoConOfertas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProductoConOfertas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnProductoConOfertas.Image = global::DSMarket.Solucion.Properties.Resources.ojo;
+            this.btnProductoConOfertas.Location = new System.Drawing.Point(707, 662);
+            this.btnProductoConOfertas.Name = "btnProductoConOfertas";
+            this.btnProductoConOfertas.Size = new System.Drawing.Size(41, 29);
+            this.btnProductoConOfertas.TabIndex = 71;
+            this.toolTip1.SetToolTip(this.btnProductoConOfertas, "Ver listado de los productos con oferta");
+            this.btnProductoConOfertas.UseVisualStyleBackColor = true;
+            // 
             // txtNumeroRegistros
             // 
             this.txtNumeroRegistros.BackColor = System.Drawing.Color.LightGray;
@@ -511,37 +691,6 @@
             this.groupBox4.TabIndex = 53;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Listado de Tipos de Pagos";
-            // 
-            // dtListado
-            // 
-            this.dtListado.AllowUserToAddRows = false;
-            this.dtListado.AllowUserToDeleteRows = false;
-            this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dtListado.BackgroundColor = System.Drawing.Color.LightGray;
-            this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Select});
-            this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtListado.Location = new System.Drawing.Point(3, 23);
-            this.dtListado.Name = "dtListado";
-            this.dtListado.ReadOnly = true;
-            this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(1220, 243);
-            this.dtListado.TabIndex = 0;
-            // 
-            // Select
-            // 
-            this.Select.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Select.HeaderText = "Select";
-            this.Select.Name = "Select";
-            this.Select.ReadOnly = true;
-            this.Select.Text = "Select";
-            this.Select.ToolTipText = "Select";
-            this.Select.UseColumnTextForButtonValue = true;
-            this.Select.Width = 59;
             // 
             // lbNumeroRegistros
             // 
@@ -678,183 +827,48 @@
             this.label12.TabIndex = 66;
             this.label12.Text = "0";
             // 
-            // pbFoto
+            // dtListado
             // 
-            this.pbFoto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbFoto.Image = global::DSMarket.Solucion.Properties.Resources.SinImagen;
-            this.pbFoto.Location = new System.Drawing.Point(3, 23);
-            this.pbFoto.Name = "pbFoto";
-            this.pbFoto.Size = new System.Drawing.Size(194, 134);
-            this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbFoto.TabIndex = 0;
-            this.pbFoto.TabStop = false;
+            this.dtListado.AllowUserToAddRows = false;
+            this.dtListado.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtListado.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Select});
+            this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtListado.EnableHeadersVisualStyles = false;
+            this.dtListado.Location = new System.Drawing.Point(3, 23);
+            this.dtListado.Name = "dtListado";
+            this.dtListado.ReadOnly = true;
+            this.dtListado.RowTemplate.Height = 24;
+            this.dtListado.Size = new System.Drawing.Size(1220, 243);
+            this.dtListado.TabIndex = 2;
             // 
-            // btnReporte
+            // Select
             // 
-            this.btnReporte.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReporte.FlatAppearance.BorderSize = 0;
-            this.btnReporte.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnReporte.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReporte.Image = global::DSMarket.Solucion.Properties.Resources.Reporte;
-            this.btnReporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReporte.Location = new System.Drawing.Point(1059, 7);
-            this.btnReporte.Name = "btnReporte";
-            this.btnReporte.Size = new System.Drawing.Size(170, 41);
-            this.btnReporte.TabIndex = 70;
-            this.btnReporte.Text = "      Reporte";
-            this.toolTip1.SetToolTip(this.btnReporte, "Agregar ofertas a productos");
-            this.btnReporte.UseVisualStyleBackColor = true;
-            // 
-            // btnOferta
-            // 
-            this.btnOferta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOferta.FlatAppearance.BorderSize = 0;
-            this.btnOferta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnOferta.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOferta.Image = global::DSMarket.Solucion.Properties.Resources.Eliminar;
-            this.btnOferta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOferta.Location = new System.Drawing.Point(883, 7);
-            this.btnOferta.Name = "btnOferta";
-            this.btnOferta.Size = new System.Drawing.Size(170, 41);
-            this.btnOferta.TabIndex = 69;
-            this.btnOferta.Text = "      Ofertas";
-            this.toolTip1.SetToolTip(this.btnOferta, "Agregar ofertas a productos");
-            this.btnOferta.UseVisualStyleBackColor = true;
-            this.btnOferta.Click += new System.EventHandler(this.btnOferta_Click);
-            // 
-            // btnSuplir
-            // 
-            this.btnSuplir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSuplir.FlatAppearance.BorderSize = 0;
-            this.btnSuplir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSuplir.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSuplir.Image = global::DSMarket.Solucion.Properties.Resources.Suplir;
-            this.btnSuplir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSuplir.Location = new System.Drawing.Point(707, 7);
-            this.btnSuplir.Name = "btnSuplir";
-            this.btnSuplir.Size = new System.Drawing.Size(170, 41);
-            this.btnSuplir.TabIndex = 68;
-            this.btnSuplir.Text = "      Suplir";
-            this.toolTip1.SetToolTip(this.btnSuplir, "Suplir producto en stock");
-            this.btnSuplir.UseVisualStyleBackColor = true;
-            this.btnSuplir.Click += new System.EventHandler(this.btnSuplir_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatAppearance.BorderSize = 0;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Image = global::DSMarket.Solucion.Properties.Resources.Eliminar;
-            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(531, 7);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(170, 41);
-            this.btnEliminar.TabIndex = 67;
-            this.btnEliminar.Text = "      Eliminar";
-            this.toolTip1.SetToolTip(this.btnEliminar, "Eliminar registro seleccionado");
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditar.FlatAppearance.BorderSize = 0;
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEditar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.Image = global::DSMarket.Solucion.Properties.Resources.Editar;
-            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(355, 7);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(170, 41);
-            this.btnEditar.TabIndex = 66;
-            this.btnEditar.Text = "      Editar";
-            this.toolTip1.SetToolTip(this.btnEditar, "Modificar registro seleccionado");
-            this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNuevo.FlatAppearance.BorderSize = 0;
-            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
-            this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(179, 7);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(170, 41);
-            this.btnNuevo.TabIndex = 65;
-            this.btnNuevo.Text = "      Nuevo";
-            this.toolTip1.SetToolTip(this.btnNuevo, "Crear Nuevo Registro");
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
-            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(3, 7);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(170, 41);
-            this.btnBuscar.TabIndex = 64;
-            this.btnBuscar.Text = "      Buscar";
-            this.toolTip1.SetToolTip(this.btnBuscar, "Consultar Registros");
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // PCerrar
-            // 
-            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(1200, 5);
-            this.PCerrar.Name = "PCerrar";
-            this.PCerrar.Size = new System.Drawing.Size(30, 30);
-            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PCerrar.TabIndex = 15;
-            this.PCerrar.TabStop = false;
-            this.toolTip1.SetToolTip(this.PCerrar, "Cerrar");
-            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
-            // 
-            // btnVerProductosPoximoAgotar
-            // 
-            this.btnVerProductosPoximoAgotar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnVerProductosPoximoAgotar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnVerProductosPoximoAgotar.Image = global::DSMarket.Solucion.Properties.Resources.ojo;
-            this.btnVerProductosPoximoAgotar.Location = new System.Drawing.Point(1104, 627);
-            this.btnVerProductosPoximoAgotar.Name = "btnVerProductosPoximoAgotar";
-            this.btnVerProductosPoximoAgotar.Size = new System.Drawing.Size(41, 29);
-            this.btnVerProductosPoximoAgotar.TabIndex = 69;
-            this.toolTip1.SetToolTip(this.btnVerProductosPoximoAgotar, "Ver listado de los productos proximo a agotarse");
-            this.btnVerProductosPoximoAgotar.UseVisualStyleBackColor = true;
-            // 
-            // btnVerProductosAgotados
-            // 
-            this.btnVerProductosAgotados.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnVerProductosAgotados.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnVerProductosAgotados.Image = global::DSMarket.Solucion.Properties.Resources.ojo;
-            this.btnVerProductosAgotados.Location = new System.Drawing.Point(1104, 662);
-            this.btnVerProductosAgotados.Name = "btnVerProductosAgotados";
-            this.btnVerProductosAgotados.Size = new System.Drawing.Size(41, 29);
-            this.btnVerProductosAgotados.TabIndex = 70;
-            this.toolTip1.SetToolTip(this.btnVerProductosAgotados, "Ver listado de los productos agotados");
-            this.btnVerProductosAgotados.UseVisualStyleBackColor = true;
-            // 
-            // btnProductoConOfertas
-            // 
-            this.btnProductoConOfertas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProductoConOfertas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnProductoConOfertas.Image = global::DSMarket.Solucion.Properties.Resources.ojo;
-            this.btnProductoConOfertas.Location = new System.Drawing.Point(707, 662);
-            this.btnProductoConOfertas.Name = "btnProductoConOfertas";
-            this.btnProductoConOfertas.Size = new System.Drawing.Size(41, 29);
-            this.btnProductoConOfertas.TabIndex = 71;
-            this.toolTip1.SetToolTip(this.btnProductoConOfertas, "Ver listado de los productos con oferta");
-            this.btnProductoConOfertas.UseVisualStyleBackColor = true;
+            this.Select.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Select.HeaderText = "Select";
+            this.Select.Name = "Select";
+            this.Select.ReadOnly = true;
+            this.Select.Text = "Select";
+            this.Select.ToolTipText = "Select";
+            this.Select.UseColumnTextForButtonValue = true;
+            this.Select.Width = 59;
             // 
             // ProductoConsulta
             // 
@@ -894,18 +908,18 @@
             this.Load += new System.EventHandler(this.ProductoConsulta_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).EndInit();
             this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -954,8 +968,6 @@
         private System.Windows.Forms.ComboBox ddlSeleccionarTipoProducto;
         private System.Windows.Forms.NumericUpDown txtNumeroRegistros;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.DataGridView dtListado;
-        private System.Windows.Forms.DataGridViewButtonColumn Select;
         private System.Windows.Forms.Label lbNumeroRegistros;
         private System.Windows.Forms.NumericUpDown txtNumeroPagina;
         private System.Windows.Forms.Label lbNumeroPagina;
@@ -976,5 +988,7 @@
         private System.Windows.Forms.Button btnProductoConOfertas;
         private System.Windows.Forms.Button btnVerProductosAgotados;
         private System.Windows.Forms.Button btnVerProductosPoximoAgotar;
+        private System.Windows.Forms.DataGridView dtListado;
+        private System.Windows.Forms.DataGridViewButtonColumn Select;
     }
 }

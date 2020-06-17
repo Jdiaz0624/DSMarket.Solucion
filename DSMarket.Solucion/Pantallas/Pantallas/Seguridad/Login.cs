@@ -117,7 +117,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Seguridad
 
         private void Login_Load(object sender, EventArgs e)
         {
-            SacarInformacionEmpresa();
+            /// SacarInformacionEmpresa();
+            lbNombreEmpresa.Text = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             txtclave.PasswordChar = '•';
             gbLogin.Visible = false;
             Efecto.Show(gbLogin);

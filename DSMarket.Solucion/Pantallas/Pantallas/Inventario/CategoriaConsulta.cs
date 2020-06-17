@@ -61,7 +61,19 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                         Convert.ToInt32(txtNumeroPagina.Value),
                         Convert.ToInt32(txtNumeroRegistros.Value));
                     dtListado.DataSource = Buscar;
+                if (Buscar.Count() < 1)
+                {
+                    lbCantidadRegistrosVariable.Text = "0";
                 }
+                else
+                {
+                    foreach (var n in Buscar)
+                    {
+                        int Cantidad = Convert.ToInt32(n.CantidadRegistros);
+                        lbCantidadRegistrosVariable.Text = Cantidad.ToString("N0");
+                    }
+                }
+            }
                 else
                 {
                     string _Categorias = string.IsNullOrEmpty(txtCategorias.Text.Trim()) ? null : txtCategorias.Text.Trim();
@@ -73,7 +85,19 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                         Convert.ToInt32(txtNumeroPagina.Value),
                         Convert.ToInt32(txtNumeroRegistros.Value));
                     dtListado.DataSource = Buscar;
+                if (Buscar.Count() < 1)
+                {
+                    lbCantidadRegistrosVariable.Text = "0";
                 }
+                else
+                {
+                    foreach (var n in Buscar)
+                    {
+                        int Cantidad = Convert.ToInt32(n.CantidadRegistros);
+                        lbCantidadRegistrosVariable.Text = Cantidad.ToString("N0");
+                    }
+                }
+            }
                 OcultarColumnas();
             //}
             //catch (Exception ex)
@@ -176,6 +200,21 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+        }
+
+        private void btnDeshabilitar_Click(object sender, EventArgs e)
+        {
+            btnBuscar.Enabled = true;
+            btnEditar.Enabled = false;
+            txtNumeroPagina.Enabled = true;
+            txtNumeroRegistros.Enabled = true;
+            CargarTipoProductos();
+            txtCategorias.Text = string.Empty;
+        }
+
+        private void dtListado_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
             if (MessageBox.Show("¿Quieres selecionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdCategoria"].Value.ToString());
@@ -188,16 +227,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 txtNumeroPagina.Enabled = false;
                 txtNumeroRegistros.Enabled = false;
             }
-        }
 
-        private void btnDeshabilitar_Click(object sender, EventArgs e)
-        {
-            btnBuscar.Enabled = true;
-            btnEditar.Enabled = false;
-            txtNumeroPagina.Enabled = true;
-            txtNumeroRegistros.Enabled = true;
-            CargarTipoProductos();
-            txtCategorias.Text = string.Empty;
         }
     }
 }

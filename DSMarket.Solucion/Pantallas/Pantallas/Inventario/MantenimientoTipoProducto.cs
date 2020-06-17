@@ -35,6 +35,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         {
             this.Dispose();
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.TipoProductoConsulta Consulta = new TipoProductoConsulta();
+            Consulta.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
             Consulta.ShowDialog();
         }
         private void LimpiarControles()

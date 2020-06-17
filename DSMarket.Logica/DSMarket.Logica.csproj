@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comunes\AutoCompletarControles.cs" />
+    <Compile Include="Comunes\InformacionEmpresa.cs" />
     <Compile Include="Comunes\Mails.cs" />
     <Compile Include="Comunes\SeguridadEncriptacion.cs" />
     <Compile Include="Comunes\ValidarControles.cs" />

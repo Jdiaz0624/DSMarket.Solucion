@@ -152,7 +152,8 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                               UsuarioModifica=n.UsuarioModifica,
                               ModificadoPor=n.ModificadoPor,
                               FechaModifica=n.FechaModifica,
-                              FechaModificado=n.FechaModificado
+                              FechaModificado=n.FechaModificado,
+                              CantidadRegistros=n.CantidadRegistros
                           }).ToList();
             return Buscar;
         }
