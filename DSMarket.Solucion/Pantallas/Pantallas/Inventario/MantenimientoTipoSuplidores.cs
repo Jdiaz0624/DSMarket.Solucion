@@ -16,10 +16,49 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         {
             InitializeComponent();
         }
+        Lazy<DSMarket.Logica.Logica.LogicaInventario.LogicaInventario> ObjdataInventario = new Lazy<Logica.Logica.LogicaInventario.LogicaInventario>();
+        Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjdataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
+
+        #region MANTENIIMEINTO DE TIPO DE SUPLIDORES
+        private void MANTipoSUplidores(string Accion)
+        {
+            try {
+                DSMarket.Logica.Entidades.EntidadesInventario.ETipoSuplidores Mantenimiento = new Logica.Entidades.EntidadesInventario.ETipoSuplidores();
+
+                Mantenimiento.IdTipoSuplidor = VariablesGlobales.IdMantenimeinto;
+                Mantenimiento.TipoSuplidor = txtTiposuplidor.Text;
+                Mantenimiento.Estatus0 = cbEstatus.Checked;
+                Mantenimiento.UsuarioAdiciona = VariablesGlobales.IdUsuario;
+                Mantenimiento.FechaAdiciona = DateTime.Now;
+                Mantenimiento.UsuarioModifica = VariablesGlobales.IdUsuario;
+                Mantenimiento.FechaModifica = DateTime.Now;
+
+                var MAN = ObjdataInventario.Value.MantenimientoTipoSuplidores(Mantenimiento, Accion);
+
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al realizar el mantenimiento codigo de rrror: " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
+        #region CERRAR Y RESTABLECER
+        private void CerrarPantalla()
+        {
+            this.Dispose();
+            DSMarket.Solucion.Pantallas.Pantallas.Inventario.TipoSuplidoresConsulta Consulta = new TipoSuplidoresConsulta();
+            VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+            Consulta.ShowDialog();
+        }
+        private void RestablecerPantalla()
+        {
+
+        }
+        #endregion
         private void MantenimientoTipoSuplidores_Load(object sender, EventArgs e)
         {
+            VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             lbTitulo.ForeColor = Color.WhiteSmoke;
             this.BackColor = SystemColors.Control;
             txtTiposuplidor.BackColor = Color.WhiteSmoke;
@@ -54,9 +93,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         private void PCerrar_Click(object sender, EventArgs e)
         {
-            this.Dispose();
-            DSMarket.Solucion.Pantallas.Pantallas.Inventario.TipoSuplidoresConsulta Consulta = new TipoSuplidoresConsulta();
-            Consulta.ShowDialog();
+            CerrarPantalla();
+
         }
     }
 }
