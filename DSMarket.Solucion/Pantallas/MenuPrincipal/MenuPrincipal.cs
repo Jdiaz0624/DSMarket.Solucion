@@ -121,6 +121,14 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
             }
             lbusuarioConectado.ForeColor = Color.WhiteSmoke;
             lbNivelAcceso.ForeColor = Color.WhiteSmoke;
+
+            btnServicio.Enabled = false;
+            btnInventario.Enabled = true;
+            btnCaja.Enabled = false;
+            btneEmpresa.Enabled = false;
+            btnConfiguracion.Enabled = false;
+            btnSeguridad.Enabled = false;
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
