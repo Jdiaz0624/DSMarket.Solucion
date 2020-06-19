@@ -55,6 +55,7 @@
     <Compile Include="Entidades\EntidadesInventario\ECategorias.cs" />
     <Compile Include="Entidades\EntidadesInventario\Emarcas.cs" />
     <Compile Include="Entidades\EntidadesInventario\ETipoProducto.cs" />
+    <Compile Include="Entidades\EntidadesInventario\EUnidadMedida.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoProducto.cs" />
     <Compile Include="Entidades\EntidadesSeguridad\EUsuarios.cs" />
     <Compile Include="Logica\LogicaConfiguracion\LogicaCOnfiguracion.cs" />

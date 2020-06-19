@@ -40,6 +40,8 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dtListado = new System.Windows.Forms.DataGridView();
+            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
@@ -51,16 +53,14 @@
             this.lbCantidadRegistrosVariable = new System.Windows.Forms.Label();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.lbCantidadRegistrosTitulo = new System.Windows.Forms.Label();
-            this.dtListado = new System.Windows.Forms.DataGridView();
-            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -74,14 +74,14 @@
             this.btnDeshabilitar.FlatAppearance.BorderSize = 0;
             this.btnDeshabilitar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDeshabilitar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeshabilitar.Image = global::DSMarket.Solucion.Properties.Resources.Deshabilitar;
+            this.btnDeshabilitar.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
             this.btnDeshabilitar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeshabilitar.Location = new System.Drawing.Point(531, 7);
             this.btnDeshabilitar.Name = "btnDeshabilitar";
             this.btnDeshabilitar.Size = new System.Drawing.Size(170, 41);
             this.btnDeshabilitar.TabIndex = 67;
-            this.btnDeshabilitar.Text = "      Deshabilitar";
-            this.toolTip1.SetToolTip(this.btnDeshabilitar, "Deshabilitar registro seleccionado");
+            this.btnDeshabilitar.Text = "      Restabelcer";
+            this.toolTip1.SetToolTip(this.btnDeshabilitar, "Restablecer Pantalla");
             this.btnDeshabilitar.UseVisualStyleBackColor = true;
             // 
             // btnEditar
@@ -133,6 +133,7 @@
             this.btnBuscar.Text = "      Buscar";
             this.toolTip1.SetToolTip(this.btnBuscar, "Buscar Registros");
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // PCerrar
             // 
@@ -152,6 +153,7 @@
             // 
             this.txtNumeroRegistros.BackColor = System.Drawing.Color.LightGray;
             this.txtNumeroRegistros.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtNumeroRegistros.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumeroRegistros.Location = new System.Drawing.Point(258, 476);
             this.txtNumeroRegistros.Maximum = new decimal(new int[] {
             999999999,
@@ -166,136 +168,18 @@
             0,
             0,
             0});
+            this.txtNumeroRegistros.ValueChanged += new System.EventHandler(this.txtNumeroRegistros_ValueChanged);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dtListado);
+            this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(6, 185);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1059, 282);
             this.groupBox2.TabIndex = 64;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Listado de Unidades de medidas";
-            // 
-            // lbNumeroRegistros
-            // 
-            this.lbNumeroRegistros.AutoSize = true;
-            this.lbNumeroRegistros.Location = new System.Drawing.Point(149, 477);
-            this.lbNumeroRegistros.Name = "lbNumeroRegistros";
-            this.lbNumeroRegistros.Size = new System.Drawing.Size(103, 20);
-            this.lbNumeroRegistros.TabIndex = 67;
-            this.lbNumeroRegistros.Text = "No.Registros";
-            // 
-            // txtNumeroPagina
-            // 
-            this.txtNumeroPagina.BackColor = System.Drawing.Color.LightGray;
-            this.txtNumeroPagina.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtNumeroPagina.Location = new System.Drawing.Point(94, 473);
-            this.txtNumeroPagina.Maximum = new decimal(new int[] {
-            999999999,
-            0,
-            0,
-            0});
-            this.txtNumeroPagina.Name = "txtNumeroPagina";
-            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 27);
-            this.txtNumeroPagina.TabIndex = 66;
-            this.txtNumeroPagina.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lbNumeroPagina
-            // 
-            this.lbNumeroPagina.AutoSize = true;
-            this.lbNumeroPagina.Location = new System.Drawing.Point(3, 476);
-            this.lbNumeroPagina.Name = "lbNumeroPagina";
-            this.lbNumeroPagina.Size = new System.Drawing.Size(87, 20);
-            this.lbNumeroPagina.TabIndex = 65;
-            this.lbNumeroPagina.Text = "No.Pagina";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtunidadmedida);
-            this.groupBox1.Location = new System.Drawing.Point(6, 103);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(455, 76);
-            this.groupBox1.TabIndex = 63;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Unidad de Medida - Filtro";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Unidad de Medida";
-            // 
-            // txtunidadmedida
-            // 
-            this.txtunidadmedida.BackColor = System.Drawing.Color.Silver;
-            this.txtunidadmedida.Location = new System.Drawing.Point(156, 31);
-            this.txtunidadmedida.Name = "txtunidadmedida";
-            this.txtunidadmedida.Size = new System.Drawing.Size(293, 27);
-            this.txtunidadmedida.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Linen;
-            this.panel2.Controls.Add(this.btnDeshabilitar);
-            this.panel2.Controls.Add(this.btnEditar);
-            this.panel2.Controls.Add(this.btnNuevo);
-            this.panel2.Controls.Add(this.btnBuscar);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 38);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1078, 58);
-            this.panel2.TabIndex = 62;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.panel1.Controls.Add(this.lbCantidadRegistrosVariable);
-            this.panel1.Controls.Add(this.PCerrar);
-            this.panel1.Controls.Add(this.lbTitulo);
-            this.panel1.Controls.Add(this.lbCantidadRegistrosTitulo);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1078, 38);
-            this.panel1.TabIndex = 61;
-            // 
-            // lbCantidadRegistrosVariable
-            // 
-            this.lbCantidadRegistrosVariable.AutoSize = true;
-            this.lbCantidadRegistrosVariable.Location = new System.Drawing.Point(607, 9);
-            this.lbCantidadRegistrosVariable.Name = "lbCantidadRegistrosVariable";
-            this.lbCantidadRegistrosVariable.Size = new System.Drawing.Size(18, 20);
-            this.lbCantidadRegistrosVariable.TabIndex = 31;
-            this.lbCantidadRegistrosVariable.Text = "0";
-            // 
-            // lbTitulo
-            // 
-            this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Location = new System.Drawing.Point(15, 9);
-            this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(54, 20);
-            this.lbTitulo.TabIndex = 13;
-            this.lbTitulo.Text = "label6";
-            // 
-            // lbCantidadRegistrosTitulo
-            // 
-            this.lbCantidadRegistrosTitulo.AutoSize = true;
-            this.lbCantidadRegistrosTitulo.Location = new System.Drawing.Point(429, 9);
-            this.lbCantidadRegistrosTitulo.Name = "lbCantidadRegistrosTitulo";
-            this.lbCantidadRegistrosTitulo.Size = new System.Drawing.Size(172, 20);
-            this.lbCantidadRegistrosTitulo.TabIndex = 30;
-            this.lbCantidadRegistrosTitulo.Text = "Cantidad de Registros";
             // 
             // dtListado
             // 
@@ -310,7 +194,7 @@
             this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Control;
@@ -328,6 +212,7 @@
             this.dtListado.RowTemplate.Height = 24;
             this.dtListado.Size = new System.Drawing.Size(1053, 256);
             this.dtListado.TabIndex = 2;
+            this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
             // Select
             // 
@@ -338,7 +223,134 @@
             this.Select.Text = "Select";
             this.Select.ToolTipText = "Select";
             this.Select.UseColumnTextForButtonValue = true;
-            this.Select.Width = 59;
+            this.Select.Width = 64;
+            // 
+            // lbNumeroRegistros
+            // 
+            this.lbNumeroRegistros.AutoSize = true;
+            this.lbNumeroRegistros.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNumeroRegistros.Location = new System.Drawing.Point(149, 477);
+            this.lbNumeroRegistros.Name = "lbNumeroRegistros";
+            this.lbNumeroRegistros.Size = new System.Drawing.Size(104, 21);
+            this.lbNumeroRegistros.TabIndex = 67;
+            this.lbNumeroRegistros.Text = "No.Registros";
+            // 
+            // txtNumeroPagina
+            // 
+            this.txtNumeroPagina.BackColor = System.Drawing.Color.LightGray;
+            this.txtNumeroPagina.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtNumeroPagina.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumeroPagina.Location = new System.Drawing.Point(94, 473);
+            this.txtNumeroPagina.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.txtNumeroPagina.Name = "txtNumeroPagina";
+            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 27);
+            this.txtNumeroPagina.TabIndex = 66;
+            this.txtNumeroPagina.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtNumeroPagina.ValueChanged += new System.EventHandler(this.txtNumeroPagina_ValueChanged);
+            // 
+            // lbNumeroPagina
+            // 
+            this.lbNumeroPagina.AutoSize = true;
+            this.lbNumeroPagina.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNumeroPagina.Location = new System.Drawing.Point(3, 476);
+            this.lbNumeroPagina.Name = "lbNumeroPagina";
+            this.lbNumeroPagina.Size = new System.Drawing.Size(91, 21);
+            this.lbNumeroPagina.TabIndex = 65;
+            this.lbNumeroPagina.Text = "No.Pagina";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtunidadmedida);
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(6, 103);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(455, 76);
+            this.groupBox1.TabIndex = 63;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Unidad de Medida - Filtro";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(157, 21);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Unidad de Medida";
+            // 
+            // txtunidadmedida
+            // 
+            this.txtunidadmedida.BackColor = System.Drawing.Color.Silver;
+            this.txtunidadmedida.Location = new System.Drawing.Point(169, 31);
+            this.txtunidadmedida.Name = "txtunidadmedida";
+            this.txtunidadmedida.Size = new System.Drawing.Size(280, 27);
+            this.txtunidadmedida.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Linen;
+            this.panel2.Controls.Add(this.btnDeshabilitar);
+            this.panel2.Controls.Add(this.btnEditar);
+            this.panel2.Controls.Add(this.btnNuevo);
+            this.panel2.Controls.Add(this.btnBuscar);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel2.Location = new System.Drawing.Point(0, 38);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1078, 58);
+            this.panel2.TabIndex = 62;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.lbCantidadRegistrosVariable);
+            this.panel1.Controls.Add(this.PCerrar);
+            this.panel1.Controls.Add(this.lbTitulo);
+            this.panel1.Controls.Add(this.lbCantidadRegistrosTitulo);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1078, 38);
+            this.panel1.TabIndex = 61;
+            // 
+            // lbCantidadRegistrosVariable
+            // 
+            this.lbCantidadRegistrosVariable.AutoSize = true;
+            this.lbCantidadRegistrosVariable.Location = new System.Drawing.Point(607, 9);
+            this.lbCantidadRegistrosVariable.Name = "lbCantidadRegistrosVariable";
+            this.lbCantidadRegistrosVariable.Size = new System.Drawing.Size(19, 21);
+            this.lbCantidadRegistrosVariable.TabIndex = 31;
+            this.lbCantidadRegistrosVariable.Text = "0";
+            // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(15, 9);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(57, 21);
+            this.lbTitulo.TabIndex = 13;
+            this.lbTitulo.Text = "label6";
+            // 
+            // lbCantidadRegistrosTitulo
+            // 
+            this.lbCantidadRegistrosTitulo.AutoSize = true;
+            this.lbCantidadRegistrosTitulo.Location = new System.Drawing.Point(429, 9);
+            this.lbCantidadRegistrosTitulo.Name = "lbCantidadRegistrosTitulo";
+            this.lbCantidadRegistrosTitulo.Size = new System.Drawing.Size(184, 21);
+            this.lbCantidadRegistrosTitulo.TabIndex = 30;
+            this.lbCantidadRegistrosTitulo.Text = "Cantidad de Registros";
             // 
             // UnidadMedidaConsulta
             // 
@@ -366,13 +378,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
