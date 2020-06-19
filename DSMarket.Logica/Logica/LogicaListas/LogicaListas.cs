@@ -24,5 +24,19 @@ namespace DSMarket.Logica.Logica.LogicaListas
             return Listado;
         }
         #endregion
+        #region LISTA DE MARCAS
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EListaMarcas> BucaLisaMarcas()
+        {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Buscar = (from n in ObjDataListas.SP_CARGAR_MARCAS()
+                          select new DSMarket.Logica.Entidades.EntidadesListas.EListaMarcas
+                          {
+                              IdMarca = n.IdMarca,
+                              Descripcion = n.Descripcion
+                          }).ToList();
+            return Buscar;
+        }
+        #endregion
     }
 }

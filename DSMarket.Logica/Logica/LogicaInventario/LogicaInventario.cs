@@ -245,5 +245,66 @@ namespace DSMarket.Logica.Logica.LogicaInventario
             return Mantenimiento;
         }
         #endregion
+
+        #region MANTENIMIENTO DE MODELOS
+        //LISTADO DE MODELOS
+        public List<DSMarket.Logica.Entidades.EntidadesInventario.EModelos> BuscaModelos(decimal? IdMarca = null, decimal? IdModelo = null, string Descripcion = null, int? NumeroPagina = null, int? Numeroregistro = null)
+        {
+            Objdata.CommandTimeout = 999999999;
+
+            var Buscar = (from n in Objdata.SP_BUSCA_MODELOS(IdMarca, IdModelo, Descripcion, NumeroPagina, Numeroregistro)
+                          select new DSMarket.Logica.Entidades.EntidadesInventario.EModelos
+                          {
+                              IdMarca=n.IdMarca,
+                              IdModelo=n.IdModelo,
+                              Marca=n.Marca,
+                              Modelo=n.Modelo,
+                              Estatus0=n.Estatus0,
+                              Estatus=n.Estatus,
+                              UsuarioAdiciona=n.UsuarioAdiciona,
+                              CreadoPor=n.CreadoPor,
+                              FechaAdiciona=n.FechaAdiciona,
+                              FechaCreado=n.FechaCreado,
+                              UsuarioModifica=n.UsuarioModifica,
+                              ModificadoPor=n.ModificadoPor,
+                              FechaModifica=n.FechaModifica,
+                              FechaModificado=n.FechaModificado,
+                              CantidadRegistros=n.CantidadRegistros
+                          }).ToList();
+            return Buscar;
+        }
+
+        //MANTENIMIENTO DE MODELOS
+        public DSMarket.Logica.Entidades.EntidadesInventario.EModelos MantenimientoModelos(DSMarket.Logica.Entidades.EntidadesInventario.EModelos Item, string Accion)
+        {
+            Objdata.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesInventario.EModelos Mantenimiento = null;
+
+            var Modelos = Objdata.SP_MANTENIMIENTO_MODELO(
+                Item.IdMarca,
+                Item.IdModelo,
+                Item.Modelo,
+                Item.Estatus0,
+                Item.UsuarioAdiciona,
+               Accion);
+            if (Modelos != null)
+            {
+                Mantenimiento = (from n in Modelos
+                                 select new DSMarket.Logica.Entidades.EntidadesInventario.EModelos
+                                 {
+                                     IdMarca=n.IdMarca,
+                                     IdModelo=n.IdModelo,
+                                     Modelo=n.Descripcion,
+                                     Estatus0=n.Estatus,
+                                     UsuarioAdiciona=n.UsuarioAdiciona,
+                                     FechaAdiciona=n.FechaAdiciona,
+                                     UsuarioModifica=n.UsuarioModifica,
+                                     FechaModifica=n.FechaModifica
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
+        #endregion
     }
 }

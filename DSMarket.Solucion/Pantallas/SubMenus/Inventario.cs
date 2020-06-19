@@ -74,7 +74,7 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         private void btnMonedas_Click(object sender, EventArgs e)
         {
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.ModelosConsulta MantenimientoModelos = new Pantallas.Inventario.ModelosConsulta();
-            MantenimientoModelos.variablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
+            MantenimientoModelos.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
             MantenimientoModelos.ShowDialog();
         }
 
