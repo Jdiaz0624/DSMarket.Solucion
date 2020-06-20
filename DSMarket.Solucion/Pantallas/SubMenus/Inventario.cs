@@ -53,7 +53,7 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         private void btnTipoSuplidores_Click(object sender, EventArgs e)
         {
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.TipoSuplidoresConsulta MantenimientoTipoSuplidor = new Pantallas.Inventario.TipoSuplidoresConsulta();
-            MantenimientoTipoSuplidor.variablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
+            MantenimientoTipoSuplidor.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
             MantenimientoTipoSuplidor.ShowDialog();
         }
 

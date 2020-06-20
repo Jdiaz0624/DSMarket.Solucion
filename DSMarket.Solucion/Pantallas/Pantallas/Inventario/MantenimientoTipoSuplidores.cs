@@ -53,12 +53,14 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         }
         private void RestablecerPantalla()
         {
-
+            txtTiposuplidor.Text = string.Empty;
+            cbEstatus.Checked = true;
         }
         #endregion
         private void MantenimientoTipoSuplidores_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+            cbEstatus.Checked = true;
             lbTitulo.ForeColor = Color.WhiteSmoke;
             this.BackColor = SystemColors.Control;
             txtTiposuplidor.BackColor = Color.WhiteSmoke;
@@ -77,6 +79,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 lbTitulo.Text = "MODIFICAR REGISTRO SELECCIONADO";
                 lbclaveSeguridad.Visible = true;
                 txtClaveSeguridad.Visible = true;
+
+                var SacarInformacion = ObjdataInventario.Value.BuscaTipoSupidores(
+                    VariablesGlobales.IdMantenimeinto,
+                    null, 1, 1);
+                foreach (var n in SacarInformacion)
+                {
+                    txtTiposuplidor.Text = n.TipoSuplidor;
+                    cbEstatus.Checked = (n.Estatus0.HasValue ? n.Estatus0.Value : false);
+                }
             }
         }
 
@@ -94,6 +105,65 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         private void PCerrar_Click(object sender, EventArgs e)
         {
             CerrarPantalla();
+
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtTiposuplidor.Text.Trim()))
+            {
+                MessageBox.Show("El campo tipo de suplidor no puede estar vacio para realziar esta operación", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else {
+                if (VariablesGlobales.Accion == "INSERT")
+                {
+                    MANTipoSUplidores(VariablesGlobales.Accion);
+                    MessageBox.Show("Registro guardado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (MessageBox.Show("¿Quieres guardar otro registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        RestablecerPantalla();
+                    }
+                    else
+                    {
+                        CerrarPantalla();
+                    }
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()))
+                    {
+                        MessageBox.Show("El campo clave de seguridad no puede estar vacio", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtClaveSeguridad.Focus();
+                    }
+                    else
+                    {
+                        string _ClaveSeguridad = string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()) ? null : txtClaveSeguridad.Text.Trim();
+
+                        var ValidarClaveSeguridad = ObjdataSeguridad.Value.BuscaClaveSeguridad(
+                            new Nullable<decimal>(),
+                            null,
+                            DSMarket.Logica.Comunes.SeguridadEncriptacion.Encriptar(_ClaveSeguridad), 1, 1);
+                        if (ValidarClaveSeguridad.Count() < 1)
+                        {
+                            MessageBox.Show("La clave de seguridad ingresada no es valida, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            txtClaveSeguridad.Text = string.Empty;
+                            txtClaveSeguridad.Focus();
+                        }
+                        else
+                        {
+                            MANTipoSUplidores(VariablesGlobales.Accion);
+                            MessageBox.Show("Registro modificado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            CerrarPantalla();
+                        }
+                    }
+                }
+            }
+
+          
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
 
         }
     }
