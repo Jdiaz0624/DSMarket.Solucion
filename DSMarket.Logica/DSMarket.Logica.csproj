@@ -61,6 +61,7 @@
     <Compile Include="Entidades\EntidadesInventario\EUnidadMedida.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaMarcas.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoProducto.cs" />
+    <Compile Include="Entidades\EntidadesListas\EListaTipoSuplidor.cs" />
     <Compile Include="Entidades\EntidadesSeguridad\EUsuarios.cs" />
     <Compile Include="Logica\LogicaConfiguracion\LogicaCOnfiguracion.cs" />
     <Compile Include="Logica\LogicaInventario\LogicaInventario.cs" />

@@ -38,5 +38,19 @@ namespace DSMarket.Logica.Logica.LogicaListas
             return Buscar;
         }
         #endregion
+        #region BUSCA LISTA TIPO SUPLIDOR
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EListaTipoSuplidor> BuscaListaTipoSuplidor()
+        {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Lista = (from n in ObjDataListas.SP_BUSCA_LISTA_TIPO_SUPLIDOR()
+                         select new DSMarket.Logica.Entidades.EntidadesListas.EListaTipoSuplidor
+                         {
+                             IdTipoSuplidor=n.IdTipoSuplidor,
+                             Descripcion=n.Descripcion
+                         }).ToList();
+            return Lista;
+        }
+        #endregion
     }
 }

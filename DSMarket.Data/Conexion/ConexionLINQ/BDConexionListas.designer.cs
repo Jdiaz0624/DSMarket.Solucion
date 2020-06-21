@@ -75,6 +75,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<SP_CARGAR_MARCASResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_BUSCA_LISTA_TIPO_SUPLIDOR")]
+		public ISingleResult<SP_BUSCA_LISTA_TIPO_SUPLIDORResult> SP_BUSCA_LISTA_TIPO_SUPLIDOR()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_BUSCA_LISTA_TIPO_SUPLIDORResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_CARGAR_LISTA_TIPO_PRODUCTOResult
@@ -144,6 +151,50 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._IdMarca != value))
 				{
 					this._IdMarca = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(100)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCA_LISTA_TIPO_SUPLIDORResult
+	{
+		
+		private decimal _IdTipoSuplidor;
+		
+		private string _Descripcion;
+		
+		public SP_BUSCA_LISTA_TIPO_SUPLIDORResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoSuplidor", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdTipoSuplidor
+		{
+			get
+			{
+				return this._IdTipoSuplidor;
+			}
+			set
+			{
+				if ((this._IdTipoSuplidor != value))
+				{
+					this._IdTipoSuplidor = value;
 				}
 			}
 		}
