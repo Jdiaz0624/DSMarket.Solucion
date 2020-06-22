@@ -33,61 +33,61 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lbTipoProducto = new System.Windows.Forms.Label();
-            this.lbCategoria = new System.Windows.Forms.Label();
-            this.lbUnidadMedida = new System.Windows.Forms.Label();
-            this.lbMarca = new System.Windows.Forms.Label();
-            this.lbModelo = new System.Windows.Forms.Label();
-            this.lbTipoSuplidor = new System.Windows.Forms.Label();
-            this.lbSuplidor = new System.Windows.Forms.Label();
-            this.lbDescripcion = new System.Windows.Forms.Label();
-            this.lbCodigoBarra = new System.Windows.Forms.Label();
-            this.lbReferencia = new System.Windows.Forms.Label();
-            this.lbPrecioCOmpra = new System.Windows.Forms.Label();
-            this.lbPrecioVenta = new System.Windows.Forms.Label();
-            this.lbStock = new System.Windows.Forms.Label();
-            this.lbStockMinimo = new System.Windows.Forms.Label();
-            this.lbPorcientoDescuento = new System.Windows.Forms.Label();
-            this.lbComentario = new System.Windows.Forms.Label();
-            this.ddlSeleccionarTipoProducto = new System.Windows.Forms.ComboBox();
-            this.ddlSeleccionarCategoria = new System.Windows.Forms.ComboBox();
-            this.ddlSeleccionarUnidadMedida = new System.Windows.Forms.ComboBox();
-            this.ddlSeleccionarMarca = new System.Windows.Forms.ComboBox();
-            this.ddlSeleccionarModelo = new System.Windows.Forms.ComboBox();
-            this.ddlSeleccionarTipoSuplidor = new System.Windows.Forms.ComboBox();
-            this.ddlSeleccionarSuplidor = new System.Windows.Forms.ComboBox();
-            this.txtdescripcion = new System.Windows.Forms.TextBox();
-            this.txtCodigoBarra = new System.Windows.Forms.TextBox();
-            this.txtReferencia = new System.Windows.Forms.TextBox();
-            this.txtPrecioCompra = new System.Windows.Forms.TextBox();
-            this.txtPrecioVenta = new System.Windows.Forms.TextBox();
-            this.txtStock = new System.Windows.Forms.TextBox();
-            this.txtStockMinimo = new System.Windows.Forms.TextBox();
-            this.txtPorcientoDescuento = new System.Windows.Forms.TextBox();
-            this.btnRefrescarTipoProducto = new System.Windows.Forms.Button();
-            this.btnAgregarTipoProducto = new System.Windows.Forms.Button();
-            this.btnRefrescarCategoria = new System.Windows.Forms.Button();
-            this.btnAgregarCategoria = new System.Windows.Forms.Button();
-            this.btnRefrescarUnidadMedida = new System.Windows.Forms.Button();
-            this.btnAgregarUnidadMedida = new System.Windows.Forms.Button();
+            this.btnBuscarFoto = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.pbFoto = new System.Windows.Forms.PictureBox();
+            this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
+            this.lbCLaveSeguridad = new System.Windows.Forms.Label();
+            this.cbAceptaOferta = new System.Windows.Forms.CheckBox();
+            this.txtComentario = new System.Windows.Forms.TextBox();
+            this.btnRefrescarSuplidor = new System.Windows.Forms.Button();
+            this.btnAgregarSuplidor = new System.Windows.Forms.Button();
             this.btnRefrescarTipoSuplidor = new System.Windows.Forms.Button();
             this.btnAgregarTipoSuplidor = new System.Windows.Forms.Button();
             this.btnRefrescarModelo = new System.Windows.Forms.Button();
             this.btnAgregarModelo = new System.Windows.Forms.Button();
             this.btnRefrescarMarca = new System.Windows.Forms.Button();
             this.btnAgregarMarca = new System.Windows.Forms.Button();
-            this.btnRefrescarSuplidor = new System.Windows.Forms.Button();
-            this.btnAgregarSuplidor = new System.Windows.Forms.Button();
-            this.txtComentario = new System.Windows.Forms.TextBox();
+            this.btnRefrescarUnidadMedida = new System.Windows.Forms.Button();
+            this.btnAgregarUnidadMedida = new System.Windows.Forms.Button();
+            this.btnRefrescarCategoria = new System.Windows.Forms.Button();
+            this.btnAgregarCategoria = new System.Windows.Forms.Button();
+            this.btnRefrescarTipoProducto = new System.Windows.Forms.Button();
+            this.btnAgregarTipoProducto = new System.Windows.Forms.Button();
+            this.txtPorcientoDescuento = new System.Windows.Forms.TextBox();
+            this.txtStockMinimo = new System.Windows.Forms.TextBox();
+            this.txtStock = new System.Windows.Forms.TextBox();
+            this.txtPrecioVenta = new System.Windows.Forms.TextBox();
+            this.txtPrecioCompra = new System.Windows.Forms.TextBox();
+            this.txtReferencia = new System.Windows.Forms.TextBox();
+            this.txtCodigoBarra = new System.Windows.Forms.TextBox();
+            this.txtdescripcion = new System.Windows.Forms.TextBox();
+            this.ddlSeleccionarSuplidor = new System.Windows.Forms.ComboBox();
+            this.ddlSeleccionarTipoSuplidor = new System.Windows.Forms.ComboBox();
+            this.ddlSeleccionarModelo = new System.Windows.Forms.ComboBox();
+            this.ddlSeleccionarMarca = new System.Windows.Forms.ComboBox();
+            this.ddlSeleccionarUnidadMedida = new System.Windows.Forms.ComboBox();
+            this.ddlSeleccionarCategoria = new System.Windows.Forms.ComboBox();
+            this.ddlSeleccionarTipoProducto = new System.Windows.Forms.ComboBox();
+            this.lbComentario = new System.Windows.Forms.Label();
+            this.lbPorcientoDescuento = new System.Windows.Forms.Label();
+            this.lbStockMinimo = new System.Windows.Forms.Label();
+            this.lbStock = new System.Windows.Forms.Label();
+            this.lbPrecioVenta = new System.Windows.Forms.Label();
+            this.lbPrecioCOmpra = new System.Windows.Forms.Label();
+            this.lbReferencia = new System.Windows.Forms.Label();
+            this.lbCodigoBarra = new System.Windows.Forms.Label();
+            this.lbDescripcion = new System.Windows.Forms.Label();
+            this.lbSuplidor = new System.Windows.Forms.Label();
+            this.lbTipoSuplidor = new System.Windows.Forms.Label();
+            this.lbModelo = new System.Windows.Forms.Label();
+            this.lbMarca = new System.Windows.Forms.Label();
+            this.lbUnidadMedida = new System.Windows.Forms.Label();
+            this.lbCategoria = new System.Windows.Forms.Label();
+            this.lbTipoProducto = new System.Windows.Forms.Label();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.cbAceptaOferta = new System.Windows.Forms.CheckBox();
-            this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
-            this.lbCLaveSeguridad = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.pbFoto = new System.Windows.Forms.PictureBox();
-            this.btnBuscarFoto = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -101,6 +101,7 @@
             this.panel1.Controls.Add(this.PCerrar);
             this.panel1.Controls.Add(this.lbTitulo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
@@ -185,7 +186,7 @@
             this.groupBox1.Controls.Add(this.lbUnidadMedida);
             this.groupBox1.Controls.Add(this.lbCategoria);
             this.groupBox1.Controls.Add(this.lbTipoProducto);
-            this.groupBox1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 45);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1237, 391);
@@ -194,369 +195,105 @@
             this.groupBox1.Text = "Datos del Producto";
             this.toolTip1.SetToolTip(this.groupBox1, "Buscar Foto del Articulo");
             // 
-            // lbTipoProducto
-            // 
-            this.lbTipoProducto.AutoSize = true;
-            this.lbTipoProducto.Location = new System.Drawing.Point(17, 30);
-            this.lbTipoProducto.Name = "lbTipoProducto";
-            this.lbTipoProducto.Size = new System.Drawing.Size(133, 20);
-            this.lbTipoProducto.TabIndex = 0;
-            this.lbTipoProducto.Text = "Tipo de Producto";
-            // 
-            // lbCategoria
-            // 
-            this.lbCategoria.AutoSize = true;
-            this.lbCategoria.Location = new System.Drawing.Point(67, 63);
-            this.lbCategoria.Name = "lbCategoria";
-            this.lbCategoria.Size = new System.Drawing.Size(82, 20);
-            this.lbCategoria.TabIndex = 1;
-            this.lbCategoria.Text = "Categoria";
-            // 
-            // lbUnidadMedida
-            // 
-            this.lbUnidadMedida.AutoSize = true;
-            this.lbUnidadMedida.Location = new System.Drawing.Point(6, 94);
-            this.lbUnidadMedida.Name = "lbUnidadMedida";
-            this.lbUnidadMedida.Size = new System.Drawing.Size(144, 20);
-            this.lbUnidadMedida.TabIndex = 2;
-            this.lbUnidadMedida.Text = "Unidad de Medida";
-            // 
-            // lbMarca
-            // 
-            this.lbMarca.AutoSize = true;
-            this.lbMarca.Location = new System.Drawing.Point(93, 126);
-            this.lbMarca.Name = "lbMarca";
-            this.lbMarca.Size = new System.Drawing.Size(56, 20);
-            this.lbMarca.TabIndex = 3;
-            this.lbMarca.Text = "Marca";
-            // 
-            // lbModelo
-            // 
-            this.lbModelo.AutoSize = true;
-            this.lbModelo.Location = new System.Drawing.Point(87, 159);
-            this.lbModelo.Name = "lbModelo";
-            this.lbModelo.Size = new System.Drawing.Size(62, 20);
-            this.lbModelo.TabIndex = 4;
-            this.lbModelo.Text = "Modelo";
-            // 
-            // lbTipoSuplidor
-            // 
-            this.lbTipoSuplidor.AutoSize = true;
-            this.lbTipoSuplidor.Location = new System.Drawing.Point(20, 192);
-            this.lbTipoSuplidor.Name = "lbTipoSuplidor";
-            this.lbTipoSuplidor.Size = new System.Drawing.Size(130, 20);
-            this.lbTipoSuplidor.TabIndex = 5;
-            this.lbTipoSuplidor.Text = "Tipo de Suplidor";
-            // 
-            // lbSuplidor
-            // 
-            this.lbSuplidor.AutoSize = true;
-            this.lbSuplidor.Location = new System.Drawing.Point(78, 223);
-            this.lbSuplidor.Name = "lbSuplidor";
-            this.lbSuplidor.Size = new System.Drawing.Size(72, 20);
-            this.lbSuplidor.TabIndex = 6;
-            this.lbSuplidor.Text = "Suplidor";
-            // 
-            // lbDescripcion
-            // 
-            this.lbDescripcion.AutoSize = true;
-            this.lbDescripcion.Location = new System.Drawing.Point(57, 256);
-            this.lbDescripcion.Name = "lbDescripcion";
-            this.lbDescripcion.Size = new System.Drawing.Size(94, 20);
-            this.lbDescripcion.TabIndex = 7;
-            this.lbDescripcion.Text = "Descripción";
-            // 
-            // lbCodigoBarra
-            // 
-            this.lbCodigoBarra.AutoSize = true;
-            this.lbCodigoBarra.Location = new System.Drawing.Point(534, 29);
-            this.lbCodigoBarra.Name = "lbCodigoBarra";
-            this.lbCodigoBarra.Size = new System.Drawing.Size(129, 20);
-            this.lbCodigoBarra.TabIndex = 8;
-            this.lbCodigoBarra.Text = "Codigo de Barra";
-            // 
-            // lbReferencia
-            // 
-            this.lbReferencia.AutoSize = true;
-            this.lbReferencia.Location = new System.Drawing.Point(575, 61);
-            this.lbReferencia.Name = "lbReferencia";
-            this.lbReferencia.Size = new System.Drawing.Size(88, 20);
-            this.lbReferencia.TabIndex = 9;
-            this.lbReferencia.Text = "Referencia";
-            // 
-            // lbPrecioCOmpra
-            // 
-            this.lbPrecioCOmpra.AutoSize = true;
-            this.lbPrecioCOmpra.Location = new System.Drawing.Point(524, 94);
-            this.lbPrecioCOmpra.Name = "lbPrecioCOmpra";
-            this.lbPrecioCOmpra.Size = new System.Drawing.Size(139, 20);
-            this.lbPrecioCOmpra.TabIndex = 10;
-            this.lbPrecioCOmpra.Text = "Precio de Compra";
-            // 
-            // lbPrecioVenta
-            // 
-            this.lbPrecioVenta.AutoSize = true;
-            this.lbPrecioVenta.Location = new System.Drawing.Point(538, 125);
-            this.lbPrecioVenta.Name = "lbPrecioVenta";
-            this.lbPrecioVenta.Size = new System.Drawing.Size(125, 20);
-            this.lbPrecioVenta.TabIndex = 11;
-            this.lbPrecioVenta.Text = "Precio de Venta";
-            // 
-            // lbStock
-            // 
-            this.lbStock.AutoSize = true;
-            this.lbStock.Location = new System.Drawing.Point(614, 158);
-            this.lbStock.Name = "lbStock";
-            this.lbStock.Size = new System.Drawing.Size(49, 20);
-            this.lbStock.TabIndex = 12;
-            this.lbStock.Text = "Stock";
-            // 
-            // lbStockMinimo
-            // 
-            this.lbStockMinimo.AutoSize = true;
-            this.lbStockMinimo.Location = new System.Drawing.Point(553, 189);
-            this.lbStockMinimo.Name = "lbStockMinimo";
-            this.lbStockMinimo.Size = new System.Drawing.Size(110, 20);
-            this.lbStockMinimo.TabIndex = 13;
-            this.lbStockMinimo.Text = "Stock Minimo";
-            // 
-            // lbPorcientoDescuento
-            // 
-            this.lbPorcientoDescuento.AutoSize = true;
-            this.lbPorcientoDescuento.Location = new System.Drawing.Point(540, 222);
-            this.lbPorcientoDescuento.Name = "lbPorcientoDescuento";
-            this.lbPorcientoDescuento.Size = new System.Drawing.Size(123, 20);
-            this.lbPorcientoDescuento.TabIndex = 15;
-            this.lbPorcientoDescuento.Text = "% de Descuento";
-            // 
-            // lbComentario
-            // 
-            this.lbComentario.AutoSize = true;
-            this.lbComentario.Location = new System.Drawing.Point(55, 287);
-            this.lbComentario.Name = "lbComentario";
-            this.lbComentario.Size = new System.Drawing.Size(96, 20);
-            this.lbComentario.TabIndex = 16;
-            this.lbComentario.Text = "Comentario";
-            // 
-            // ddlSeleccionarTipoProducto
-            // 
-            this.ddlSeleccionarTipoProducto.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ddlSeleccionarTipoProducto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlSeleccionarTipoProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlSeleccionarTipoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ddlSeleccionarTipoProducto.FormattingEnabled = true;
-            this.ddlSeleccionarTipoProducto.Location = new System.Drawing.Point(154, 26);
-            this.ddlSeleccionarTipoProducto.Name = "ddlSeleccionarTipoProducto";
-            this.ddlSeleccionarTipoProducto.Size = new System.Drawing.Size(280, 28);
-            this.ddlSeleccionarTipoProducto.TabIndex = 18;
-            // 
-            // ddlSeleccionarCategoria
-            // 
-            this.ddlSeleccionarCategoria.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ddlSeleccionarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlSeleccionarCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlSeleccionarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ddlSeleccionarCategoria.FormattingEnabled = true;
-            this.ddlSeleccionarCategoria.Location = new System.Drawing.Point(154, 58);
-            this.ddlSeleccionarCategoria.Name = "ddlSeleccionarCategoria";
-            this.ddlSeleccionarCategoria.Size = new System.Drawing.Size(280, 28);
-            this.ddlSeleccionarCategoria.TabIndex = 19;
-            // 
-            // ddlSeleccionarUnidadMedida
-            // 
-            this.ddlSeleccionarUnidadMedida.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ddlSeleccionarUnidadMedida.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlSeleccionarUnidadMedida.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlSeleccionarUnidadMedida.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ddlSeleccionarUnidadMedida.FormattingEnabled = true;
-            this.ddlSeleccionarUnidadMedida.Location = new System.Drawing.Point(154, 90);
-            this.ddlSeleccionarUnidadMedida.Name = "ddlSeleccionarUnidadMedida";
-            this.ddlSeleccionarUnidadMedida.Size = new System.Drawing.Size(280, 28);
-            this.ddlSeleccionarUnidadMedida.TabIndex = 20;
-            // 
-            // ddlSeleccionarMarca
-            // 
-            this.ddlSeleccionarMarca.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ddlSeleccionarMarca.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlSeleccionarMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlSeleccionarMarca.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ddlSeleccionarMarca.FormattingEnabled = true;
-            this.ddlSeleccionarMarca.Location = new System.Drawing.Point(154, 122);
-            this.ddlSeleccionarMarca.Name = "ddlSeleccionarMarca";
-            this.ddlSeleccionarMarca.Size = new System.Drawing.Size(280, 28);
-            this.ddlSeleccionarMarca.TabIndex = 21;
-            // 
-            // ddlSeleccionarModelo
-            // 
-            this.ddlSeleccionarModelo.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ddlSeleccionarModelo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlSeleccionarModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlSeleccionarModelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ddlSeleccionarModelo.FormattingEnabled = true;
-            this.ddlSeleccionarModelo.Location = new System.Drawing.Point(154, 155);
-            this.ddlSeleccionarModelo.Name = "ddlSeleccionarModelo";
-            this.ddlSeleccionarModelo.Size = new System.Drawing.Size(280, 28);
-            this.ddlSeleccionarModelo.TabIndex = 22;
-            // 
-            // ddlSeleccionarTipoSuplidor
-            // 
-            this.ddlSeleccionarTipoSuplidor.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ddlSeleccionarTipoSuplidor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlSeleccionarTipoSuplidor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlSeleccionarTipoSuplidor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ddlSeleccionarTipoSuplidor.FormattingEnabled = true;
-            this.ddlSeleccionarTipoSuplidor.Location = new System.Drawing.Point(154, 187);
-            this.ddlSeleccionarTipoSuplidor.Name = "ddlSeleccionarTipoSuplidor";
-            this.ddlSeleccionarTipoSuplidor.Size = new System.Drawing.Size(280, 28);
-            this.ddlSeleccionarTipoSuplidor.TabIndex = 23;
-            // 
-            // ddlSeleccionarSuplidor
-            // 
-            this.ddlSeleccionarSuplidor.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ddlSeleccionarSuplidor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlSeleccionarSuplidor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlSeleccionarSuplidor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ddlSeleccionarSuplidor.FormattingEnabled = true;
-            this.ddlSeleccionarSuplidor.Location = new System.Drawing.Point(154, 219);
-            this.ddlSeleccionarSuplidor.Name = "ddlSeleccionarSuplidor";
-            this.ddlSeleccionarSuplidor.Size = new System.Drawing.Size(280, 28);
-            this.ddlSeleccionarSuplidor.TabIndex = 24;
-            // 
-            // txtdescripcion
-            // 
-            this.txtdescripcion.BackColor = System.Drawing.Color.Silver;
-            this.txtdescripcion.Location = new System.Drawing.Point(154, 253);
-            this.txtdescripcion.Name = "txtdescripcion";
-            this.txtdescripcion.Size = new System.Drawing.Size(792, 27);
-            this.txtdescripcion.TabIndex = 25;
-            // 
-            // txtCodigoBarra
-            // 
-            this.txtCodigoBarra.BackColor = System.Drawing.Color.Silver;
-            this.txtCodigoBarra.Location = new System.Drawing.Point(666, 26);
-            this.txtCodigoBarra.Name = "txtCodigoBarra";
-            this.txtCodigoBarra.Size = new System.Drawing.Size(280, 27);
-            this.txtCodigoBarra.TabIndex = 26;
-            // 
-            // txtReferencia
-            // 
-            this.txtReferencia.BackColor = System.Drawing.Color.Silver;
-            this.txtReferencia.Location = new System.Drawing.Point(666, 57);
-            this.txtReferencia.Name = "txtReferencia";
-            this.txtReferencia.Size = new System.Drawing.Size(280, 27);
-            this.txtReferencia.TabIndex = 27;
-            // 
-            // txtPrecioCompra
-            // 
-            this.txtPrecioCompra.BackColor = System.Drawing.Color.Silver;
-            this.txtPrecioCompra.Location = new System.Drawing.Point(666, 90);
-            this.txtPrecioCompra.Name = "txtPrecioCompra";
-            this.txtPrecioCompra.Size = new System.Drawing.Size(280, 27);
-            this.txtPrecioCompra.TabIndex = 28;
-            // 
-            // txtPrecioVenta
-            // 
-            this.txtPrecioVenta.BackColor = System.Drawing.Color.Silver;
-            this.txtPrecioVenta.Location = new System.Drawing.Point(666, 122);
-            this.txtPrecioVenta.Name = "txtPrecioVenta";
-            this.txtPrecioVenta.Size = new System.Drawing.Size(280, 27);
-            this.txtPrecioVenta.TabIndex = 29;
-            // 
-            // txtStock
-            // 
-            this.txtStock.BackColor = System.Drawing.Color.Silver;
-            this.txtStock.Location = new System.Drawing.Point(666, 154);
-            this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(280, 27);
-            this.txtStock.TabIndex = 30;
-            // 
-            // txtStockMinimo
-            // 
-            this.txtStockMinimo.BackColor = System.Drawing.Color.Silver;
-            this.txtStockMinimo.Location = new System.Drawing.Point(666, 186);
-            this.txtStockMinimo.Name = "txtStockMinimo";
-            this.txtStockMinimo.Size = new System.Drawing.Size(280, 27);
-            this.txtStockMinimo.TabIndex = 31;
-            // 
-            // txtPorcientoDescuento
-            // 
-            this.txtPorcientoDescuento.BackColor = System.Drawing.Color.Silver;
-            this.txtPorcientoDescuento.Location = new System.Drawing.Point(666, 218);
-            this.txtPorcientoDescuento.Name = "txtPorcientoDescuento";
-            this.txtPorcientoDescuento.Size = new System.Drawing.Size(280, 27);
-            this.txtPorcientoDescuento.TabIndex = 32;
-            // 
-            // btnRefrescarTipoProducto
-            // 
-            this.btnRefrescarTipoProducto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRefrescarTipoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRefrescarTipoProducto.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
-            this.btnRefrescarTipoProducto.Location = new System.Drawing.Point(479, 26);
-            this.btnRefrescarTipoProducto.Name = "btnRefrescarTipoProducto";
-            this.btnRefrescarTipoProducto.Size = new System.Drawing.Size(41, 29);
-            this.btnRefrescarTipoProducto.TabIndex = 34;
-            this.toolTip1.SetToolTip(this.btnRefrescarTipoProducto, "Refrescar Listado de Tipo de Producto");
-            this.btnRefrescarTipoProducto.UseVisualStyleBackColor = true;
-            // 
-            // btnAgregarTipoProducto
-            // 
-            this.btnAgregarTipoProducto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregarTipoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAgregarTipoProducto.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
-            this.btnAgregarTipoProducto.Location = new System.Drawing.Point(436, 26);
-            this.btnAgregarTipoProducto.Name = "btnAgregarTipoProducto";
-            this.btnAgregarTipoProducto.Size = new System.Drawing.Size(41, 29);
-            this.btnAgregarTipoProducto.TabIndex = 33;
-            this.toolTip1.SetToolTip(this.btnAgregarTipoProducto, "Agregar Tipo de Producto");
-            this.btnAgregarTipoProducto.UseVisualStyleBackColor = true;
-            // 
-            // btnRefrescarCategoria
-            // 
-            this.btnRefrescarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRefrescarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRefrescarCategoria.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
-            this.btnRefrescarCategoria.Location = new System.Drawing.Point(479, 58);
-            this.btnRefrescarCategoria.Name = "btnRefrescarCategoria";
-            this.btnRefrescarCategoria.Size = new System.Drawing.Size(41, 29);
-            this.btnRefrescarCategoria.TabIndex = 36;
-            this.toolTip1.SetToolTip(this.btnRefrescarCategoria, "Refrescar Listado de Categoria");
-            this.btnRefrescarCategoria.UseVisualStyleBackColor = true;
-            // 
-            // btnAgregarCategoria
-            // 
-            this.btnAgregarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAgregarCategoria.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
-            this.btnAgregarCategoria.Location = new System.Drawing.Point(436, 58);
-            this.btnAgregarCategoria.Name = "btnAgregarCategoria";
-            this.btnAgregarCategoria.Size = new System.Drawing.Size(41, 29);
-            this.btnAgregarCategoria.TabIndex = 35;
-            this.toolTip1.SetToolTip(this.btnAgregarCategoria, "Agregar Categoria");
-            this.btnAgregarCategoria.UseVisualStyleBackColor = true;
-            // 
-            // btnRefrescarUnidadMedida
-            // 
-            this.btnRefrescarUnidadMedida.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRefrescarUnidadMedida.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRefrescarUnidadMedida.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
-            this.btnRefrescarUnidadMedida.Location = new System.Drawing.Point(479, 90);
-            this.btnRefrescarUnidadMedida.Name = "btnRefrescarUnidadMedida";
-            this.btnRefrescarUnidadMedida.Size = new System.Drawing.Size(41, 29);
-            this.btnRefrescarUnidadMedida.TabIndex = 38;
-            this.toolTip1.SetToolTip(this.btnRefrescarUnidadMedida, "Refrescar Listado de Unidad de Medida");
-            this.btnRefrescarUnidadMedida.UseVisualStyleBackColor = true;
-            // 
-            // btnAgregarUnidadMedida
-            // 
-            this.btnAgregarUnidadMedida.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregarUnidadMedida.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAgregarUnidadMedida.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
-            this.btnAgregarUnidadMedida.Location = new System.Drawing.Point(436, 90);
-            this.btnAgregarUnidadMedida.Name = "btnAgregarUnidadMedida";
-            this.btnAgregarUnidadMedida.Size = new System.Drawing.Size(41, 29);
-            this.btnAgregarUnidadMedida.TabIndex = 37;
-            this.toolTip1.SetToolTip(this.btnAgregarUnidadMedida, "Agregar Unidad de Medida");
-            this.btnAgregarUnidadMedida.UseVisualStyleBackColor = true;
+            // btnBuscarFoto
+            // 
+            this.btnBuscarFoto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarFoto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBuscarFoto.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
+            this.btnBuscarFoto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarFoto.Location = new System.Drawing.Point(955, 313);
+            this.btnBuscarFoto.Name = "btnBuscarFoto";
+            this.btnBuscarFoto.Size = new System.Drawing.Size(273, 29);
+            this.btnBuscarFoto.TabIndex = 52;
+            this.btnBuscarFoto.Text = "Buscar Foto";
+            this.toolTip1.SetToolTip(this.btnBuscarFoto, "Buscar Cliente mediante el codigo");
+            this.btnBuscarFoto.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.pbFoto);
+            this.groupBox3.Location = new System.Drawing.Point(952, 19);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(279, 291);
+            this.groupBox3.TabIndex = 51;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Foto de Producto";
+            // 
+            // pbFoto
+            // 
+            this.pbFoto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbFoto.Image = global::DSMarket.Solucion.Properties.Resources.SinImagen;
+            this.pbFoto.Location = new System.Drawing.Point(3, 23);
+            this.pbFoto.Name = "pbFoto";
+            this.pbFoto.Size = new System.Drawing.Size(273, 265);
+            this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFoto.TabIndex = 0;
+            this.pbFoto.TabStop = false;
+            // 
+            // txtClaveSeguridad
+            // 
+            this.txtClaveSeguridad.BackColor = System.Drawing.Color.Silver;
+            this.txtClaveSeguridad.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClaveSeguridad.Location = new System.Drawing.Point(467, 338);
+            this.txtClaveSeguridad.Name = "txtClaveSeguridad";
+            this.txtClaveSeguridad.PasswordChar = '•';
+            this.txtClaveSeguridad.Size = new System.Drawing.Size(349, 27);
+            this.txtClaveSeguridad.TabIndex = 50;
+            // 
+            // lbCLaveSeguridad
+            // 
+            this.lbCLaveSeguridad.AutoSize = true;
+            this.lbCLaveSeguridad.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCLaveSeguridad.Location = new System.Drawing.Point(565, 315);
+            this.lbCLaveSeguridad.Name = "lbCLaveSeguridad";
+            this.lbCLaveSeguridad.Size = new System.Drawing.Size(153, 20);
+            this.lbCLaveSeguridad.TabIndex = 49;
+            this.lbCLaveSeguridad.Text = "Clave de Seguridad";
+            // 
+            // cbAceptaOferta
+            // 
+            this.cbAceptaOferta.AutoSize = true;
+            this.cbAceptaOferta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbAceptaOferta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbAceptaOferta.Location = new System.Drawing.Point(154, 316);
+            this.cbAceptaOferta.Name = "cbAceptaOferta";
+            this.cbAceptaOferta.Size = new System.Drawing.Size(163, 25);
+            this.cbAceptaOferta.TabIndex = 48;
+            this.cbAceptaOferta.Text = "¿Acepta Oferta?";
+            this.toolTip1.SetToolTip(this.cbAceptaOferta, "Programar producto para aceptar ofertas");
+            this.cbAceptaOferta.UseVisualStyleBackColor = true;
+            // 
+            // txtComentario
+            // 
+            this.txtComentario.BackColor = System.Drawing.Color.Silver;
+            this.txtComentario.Location = new System.Drawing.Point(154, 283);
+            this.txtComentario.Name = "txtComentario";
+            this.txtComentario.Size = new System.Drawing.Size(792, 27);
+            this.txtComentario.TabIndex = 47;
+            // 
+            // btnRefrescarSuplidor
+            // 
+            this.btnRefrescarSuplidor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefrescarSuplidor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRefrescarSuplidor.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
+            this.btnRefrescarSuplidor.Location = new System.Drawing.Point(479, 218);
+            this.btnRefrescarSuplidor.Name = "btnRefrescarSuplidor";
+            this.btnRefrescarSuplidor.Size = new System.Drawing.Size(41, 29);
+            this.btnRefrescarSuplidor.TabIndex = 46;
+            this.toolTip1.SetToolTip(this.btnRefrescarSuplidor, "Refrescar Listado de Suplidores");
+            this.btnRefrescarSuplidor.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregarSuplidor
+            // 
+            this.btnAgregarSuplidor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarSuplidor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAgregarSuplidor.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
+            this.btnAgregarSuplidor.Location = new System.Drawing.Point(436, 218);
+            this.btnAgregarSuplidor.Name = "btnAgregarSuplidor";
+            this.btnAgregarSuplidor.Size = new System.Drawing.Size(41, 29);
+            this.btnAgregarSuplidor.TabIndex = 45;
+            this.toolTip1.SetToolTip(this.btnAgregarSuplidor, "Agregar Suplidores");
+            this.btnAgregarSuplidor.UseVisualStyleBackColor = true;
             // 
             // btnRefrescarTipoSuplidor
             // 
@@ -630,37 +367,371 @@
             this.toolTip1.SetToolTip(this.btnAgregarMarca, "Agregar Marcas");
             this.btnAgregarMarca.UseVisualStyleBackColor = true;
             // 
-            // btnRefrescarSuplidor
+            // btnRefrescarUnidadMedida
             // 
-            this.btnRefrescarSuplidor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRefrescarSuplidor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRefrescarSuplidor.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
-            this.btnRefrescarSuplidor.Location = new System.Drawing.Point(479, 218);
-            this.btnRefrescarSuplidor.Name = "btnRefrescarSuplidor";
-            this.btnRefrescarSuplidor.Size = new System.Drawing.Size(41, 29);
-            this.btnRefrescarSuplidor.TabIndex = 46;
-            this.toolTip1.SetToolTip(this.btnRefrescarSuplidor, "Refrescar Listado de Suplidores");
-            this.btnRefrescarSuplidor.UseVisualStyleBackColor = true;
+            this.btnRefrescarUnidadMedida.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefrescarUnidadMedida.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRefrescarUnidadMedida.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
+            this.btnRefrescarUnidadMedida.Location = new System.Drawing.Point(479, 90);
+            this.btnRefrescarUnidadMedida.Name = "btnRefrescarUnidadMedida";
+            this.btnRefrescarUnidadMedida.Size = new System.Drawing.Size(41, 29);
+            this.btnRefrescarUnidadMedida.TabIndex = 38;
+            this.toolTip1.SetToolTip(this.btnRefrescarUnidadMedida, "Refrescar Listado de Unidad de Medida");
+            this.btnRefrescarUnidadMedida.UseVisualStyleBackColor = true;
             // 
-            // btnAgregarSuplidor
+            // btnAgregarUnidadMedida
             // 
-            this.btnAgregarSuplidor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregarSuplidor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAgregarSuplidor.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
-            this.btnAgregarSuplidor.Location = new System.Drawing.Point(436, 218);
-            this.btnAgregarSuplidor.Name = "btnAgregarSuplidor";
-            this.btnAgregarSuplidor.Size = new System.Drawing.Size(41, 29);
-            this.btnAgregarSuplidor.TabIndex = 45;
-            this.toolTip1.SetToolTip(this.btnAgregarSuplidor, "Agregar Suplidores");
-            this.btnAgregarSuplidor.UseVisualStyleBackColor = true;
+            this.btnAgregarUnidadMedida.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarUnidadMedida.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAgregarUnidadMedida.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
+            this.btnAgregarUnidadMedida.Location = new System.Drawing.Point(436, 90);
+            this.btnAgregarUnidadMedida.Name = "btnAgregarUnidadMedida";
+            this.btnAgregarUnidadMedida.Size = new System.Drawing.Size(41, 29);
+            this.btnAgregarUnidadMedida.TabIndex = 37;
+            this.toolTip1.SetToolTip(this.btnAgregarUnidadMedida, "Agregar Unidad de Medida");
+            this.btnAgregarUnidadMedida.UseVisualStyleBackColor = true;
             // 
-            // txtComentario
+            // btnRefrescarCategoria
             // 
-            this.txtComentario.BackColor = System.Drawing.Color.Silver;
-            this.txtComentario.Location = new System.Drawing.Point(154, 283);
-            this.txtComentario.Name = "txtComentario";
-            this.txtComentario.Size = new System.Drawing.Size(792, 27);
-            this.txtComentario.TabIndex = 47;
+            this.btnRefrescarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefrescarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRefrescarCategoria.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
+            this.btnRefrescarCategoria.Location = new System.Drawing.Point(479, 58);
+            this.btnRefrescarCategoria.Name = "btnRefrescarCategoria";
+            this.btnRefrescarCategoria.Size = new System.Drawing.Size(41, 29);
+            this.btnRefrescarCategoria.TabIndex = 36;
+            this.toolTip1.SetToolTip(this.btnRefrescarCategoria, "Refrescar Listado de Categoria");
+            this.btnRefrescarCategoria.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregarCategoria
+            // 
+            this.btnAgregarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAgregarCategoria.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
+            this.btnAgregarCategoria.Location = new System.Drawing.Point(436, 58);
+            this.btnAgregarCategoria.Name = "btnAgregarCategoria";
+            this.btnAgregarCategoria.Size = new System.Drawing.Size(41, 29);
+            this.btnAgregarCategoria.TabIndex = 35;
+            this.toolTip1.SetToolTip(this.btnAgregarCategoria, "Agregar Categoria");
+            this.btnAgregarCategoria.UseVisualStyleBackColor = true;
+            // 
+            // btnRefrescarTipoProducto
+            // 
+            this.btnRefrescarTipoProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefrescarTipoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRefrescarTipoProducto.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
+            this.btnRefrescarTipoProducto.Location = new System.Drawing.Point(479, 26);
+            this.btnRefrescarTipoProducto.Name = "btnRefrescarTipoProducto";
+            this.btnRefrescarTipoProducto.Size = new System.Drawing.Size(41, 29);
+            this.btnRefrescarTipoProducto.TabIndex = 34;
+            this.toolTip1.SetToolTip(this.btnRefrescarTipoProducto, "Refrescar Listado de Tipo de Producto");
+            this.btnRefrescarTipoProducto.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregarTipoProducto
+            // 
+            this.btnAgregarTipoProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarTipoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAgregarTipoProducto.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
+            this.btnAgregarTipoProducto.Location = new System.Drawing.Point(436, 26);
+            this.btnAgregarTipoProducto.Name = "btnAgregarTipoProducto";
+            this.btnAgregarTipoProducto.Size = new System.Drawing.Size(41, 29);
+            this.btnAgregarTipoProducto.TabIndex = 33;
+            this.toolTip1.SetToolTip(this.btnAgregarTipoProducto, "Agregar Tipo de Producto");
+            this.btnAgregarTipoProducto.UseVisualStyleBackColor = true;
+            // 
+            // txtPorcientoDescuento
+            // 
+            this.txtPorcientoDescuento.BackColor = System.Drawing.Color.Silver;
+            this.txtPorcientoDescuento.Location = new System.Drawing.Point(696, 218);
+            this.txtPorcientoDescuento.Name = "txtPorcientoDescuento";
+            this.txtPorcientoDescuento.Size = new System.Drawing.Size(250, 27);
+            this.txtPorcientoDescuento.TabIndex = 32;
+            // 
+            // txtStockMinimo
+            // 
+            this.txtStockMinimo.BackColor = System.Drawing.Color.Silver;
+            this.txtStockMinimo.Location = new System.Drawing.Point(696, 186);
+            this.txtStockMinimo.Name = "txtStockMinimo";
+            this.txtStockMinimo.Size = new System.Drawing.Size(250, 27);
+            this.txtStockMinimo.TabIndex = 31;
+            // 
+            // txtStock
+            // 
+            this.txtStock.BackColor = System.Drawing.Color.Silver;
+            this.txtStock.Location = new System.Drawing.Point(696, 154);
+            this.txtStock.Name = "txtStock";
+            this.txtStock.Size = new System.Drawing.Size(250, 27);
+            this.txtStock.TabIndex = 30;
+            // 
+            // txtPrecioVenta
+            // 
+            this.txtPrecioVenta.BackColor = System.Drawing.Color.Silver;
+            this.txtPrecioVenta.Location = new System.Drawing.Point(696, 122);
+            this.txtPrecioVenta.Name = "txtPrecioVenta";
+            this.txtPrecioVenta.Size = new System.Drawing.Size(250, 27);
+            this.txtPrecioVenta.TabIndex = 29;
+            // 
+            // txtPrecioCompra
+            // 
+            this.txtPrecioCompra.BackColor = System.Drawing.Color.Silver;
+            this.txtPrecioCompra.Location = new System.Drawing.Point(696, 90);
+            this.txtPrecioCompra.Name = "txtPrecioCompra";
+            this.txtPrecioCompra.Size = new System.Drawing.Size(250, 27);
+            this.txtPrecioCompra.TabIndex = 28;
+            // 
+            // txtReferencia
+            // 
+            this.txtReferencia.BackColor = System.Drawing.Color.Silver;
+            this.txtReferencia.Location = new System.Drawing.Point(696, 57);
+            this.txtReferencia.Name = "txtReferencia";
+            this.txtReferencia.Size = new System.Drawing.Size(250, 27);
+            this.txtReferencia.TabIndex = 27;
+            // 
+            // txtCodigoBarra
+            // 
+            this.txtCodigoBarra.BackColor = System.Drawing.Color.Silver;
+            this.txtCodigoBarra.Location = new System.Drawing.Point(696, 26);
+            this.txtCodigoBarra.Name = "txtCodigoBarra";
+            this.txtCodigoBarra.Size = new System.Drawing.Size(250, 27);
+            this.txtCodigoBarra.TabIndex = 26;
+            // 
+            // txtdescripcion
+            // 
+            this.txtdescripcion.BackColor = System.Drawing.Color.Silver;
+            this.txtdescripcion.Location = new System.Drawing.Point(154, 253);
+            this.txtdescripcion.Name = "txtdescripcion";
+            this.txtdescripcion.Size = new System.Drawing.Size(792, 27);
+            this.txtdescripcion.TabIndex = 25;
+            // 
+            // ddlSeleccionarSuplidor
+            // 
+            this.ddlSeleccionarSuplidor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlSeleccionarSuplidor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarSuplidor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarSuplidor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarSuplidor.FormattingEnabled = true;
+            this.ddlSeleccionarSuplidor.Location = new System.Drawing.Point(169, 219);
+            this.ddlSeleccionarSuplidor.Name = "ddlSeleccionarSuplidor";
+            this.ddlSeleccionarSuplidor.Size = new System.Drawing.Size(235, 29);
+            this.ddlSeleccionarSuplidor.TabIndex = 24;
+            // 
+            // ddlSeleccionarTipoSuplidor
+            // 
+            this.ddlSeleccionarTipoSuplidor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlSeleccionarTipoSuplidor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarTipoSuplidor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarTipoSuplidor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarTipoSuplidor.FormattingEnabled = true;
+            this.ddlSeleccionarTipoSuplidor.Location = new System.Drawing.Point(169, 187);
+            this.ddlSeleccionarTipoSuplidor.Name = "ddlSeleccionarTipoSuplidor";
+            this.ddlSeleccionarTipoSuplidor.Size = new System.Drawing.Size(235, 29);
+            this.ddlSeleccionarTipoSuplidor.TabIndex = 23;
+            // 
+            // ddlSeleccionarModelo
+            // 
+            this.ddlSeleccionarModelo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlSeleccionarModelo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarModelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarModelo.FormattingEnabled = true;
+            this.ddlSeleccionarModelo.Location = new System.Drawing.Point(169, 155);
+            this.ddlSeleccionarModelo.Name = "ddlSeleccionarModelo";
+            this.ddlSeleccionarModelo.Size = new System.Drawing.Size(235, 29);
+            this.ddlSeleccionarModelo.TabIndex = 22;
+            // 
+            // ddlSeleccionarMarca
+            // 
+            this.ddlSeleccionarMarca.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlSeleccionarMarca.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarMarca.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarMarca.FormattingEnabled = true;
+            this.ddlSeleccionarMarca.Location = new System.Drawing.Point(169, 122);
+            this.ddlSeleccionarMarca.Name = "ddlSeleccionarMarca";
+            this.ddlSeleccionarMarca.Size = new System.Drawing.Size(235, 29);
+            this.ddlSeleccionarMarca.TabIndex = 21;
+            this.ddlSeleccionarMarca.SelectedIndexChanged += new System.EventHandler(this.ddlSeleccionarMarca_SelectedIndexChanged);
+            // 
+            // ddlSeleccionarUnidadMedida
+            // 
+            this.ddlSeleccionarUnidadMedida.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlSeleccionarUnidadMedida.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarUnidadMedida.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarUnidadMedida.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarUnidadMedida.FormattingEnabled = true;
+            this.ddlSeleccionarUnidadMedida.Location = new System.Drawing.Point(169, 90);
+            this.ddlSeleccionarUnidadMedida.Name = "ddlSeleccionarUnidadMedida";
+            this.ddlSeleccionarUnidadMedida.Size = new System.Drawing.Size(235, 29);
+            this.ddlSeleccionarUnidadMedida.TabIndex = 20;
+            // 
+            // ddlSeleccionarCategoria
+            // 
+            this.ddlSeleccionarCategoria.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlSeleccionarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarCategoria.FormattingEnabled = true;
+            this.ddlSeleccionarCategoria.Location = new System.Drawing.Point(169, 58);
+            this.ddlSeleccionarCategoria.Name = "ddlSeleccionarCategoria";
+            this.ddlSeleccionarCategoria.Size = new System.Drawing.Size(235, 29);
+            this.ddlSeleccionarCategoria.TabIndex = 19;
+            // 
+            // ddlSeleccionarTipoProducto
+            // 
+            this.ddlSeleccionarTipoProducto.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlSeleccionarTipoProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarTipoProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarTipoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarTipoProducto.FormattingEnabled = true;
+            this.ddlSeleccionarTipoProducto.Location = new System.Drawing.Point(169, 26);
+            this.ddlSeleccionarTipoProducto.Name = "ddlSeleccionarTipoProducto";
+            this.ddlSeleccionarTipoProducto.Size = new System.Drawing.Size(235, 29);
+            this.ddlSeleccionarTipoProducto.TabIndex = 18;
+            this.ddlSeleccionarTipoProducto.SelectedIndexChanged += new System.EventHandler(this.ddlSeleccionarTipoProducto_SelectedIndexChanged);
+            // 
+            // lbComentario
+            // 
+            this.lbComentario.AutoSize = true;
+            this.lbComentario.Location = new System.Drawing.Point(55, 287);
+            this.lbComentario.Name = "lbComentario";
+            this.lbComentario.Size = new System.Drawing.Size(104, 21);
+            this.lbComentario.TabIndex = 16;
+            this.lbComentario.Text = "Comentario";
+            // 
+            // lbPorcientoDescuento
+            // 
+            this.lbPorcientoDescuento.AutoSize = true;
+            this.lbPorcientoDescuento.Location = new System.Drawing.Point(556, 220);
+            this.lbPorcientoDescuento.Name = "lbPorcientoDescuento";
+            this.lbPorcientoDescuento.Size = new System.Drawing.Size(136, 21);
+            this.lbPorcientoDescuento.TabIndex = 15;
+            this.lbPorcientoDescuento.Text = "% de Descuento";
+            // 
+            // lbStockMinimo
+            // 
+            this.lbStockMinimo.AutoSize = true;
+            this.lbStockMinimo.Location = new System.Drawing.Point(553, 189);
+            this.lbStockMinimo.Name = "lbStockMinimo";
+            this.lbStockMinimo.Size = new System.Drawing.Size(113, 21);
+            this.lbStockMinimo.TabIndex = 13;
+            this.lbStockMinimo.Text = "Stock Minimo";
+            // 
+            // lbStock
+            // 
+            this.lbStock.AutoSize = true;
+            this.lbStock.Location = new System.Drawing.Point(614, 158);
+            this.lbStock.Name = "lbStock";
+            this.lbStock.Size = new System.Drawing.Size(53, 21);
+            this.lbStock.TabIndex = 12;
+            this.lbStock.Text = "Stock";
+            // 
+            // lbPrecioVenta
+            // 
+            this.lbPrecioVenta.AutoSize = true;
+            this.lbPrecioVenta.Location = new System.Drawing.Point(538, 125);
+            this.lbPrecioVenta.Name = "lbPrecioVenta";
+            this.lbPrecioVenta.Size = new System.Drawing.Size(135, 21);
+            this.lbPrecioVenta.TabIndex = 11;
+            this.lbPrecioVenta.Text = "Precio de Venta";
+            // 
+            // lbPrecioCOmpra
+            // 
+            this.lbPrecioCOmpra.AutoSize = true;
+            this.lbPrecioCOmpra.Location = new System.Drawing.Point(524, 94);
+            this.lbPrecioCOmpra.Name = "lbPrecioCOmpra";
+            this.lbPrecioCOmpra.Size = new System.Drawing.Size(151, 21);
+            this.lbPrecioCOmpra.TabIndex = 10;
+            this.lbPrecioCOmpra.Text = "Precio de Compra";
+            // 
+            // lbReferencia
+            // 
+            this.lbReferencia.AutoSize = true;
+            this.lbReferencia.Location = new System.Drawing.Point(575, 61);
+            this.lbReferencia.Name = "lbReferencia";
+            this.lbReferencia.Size = new System.Drawing.Size(94, 21);
+            this.lbReferencia.TabIndex = 9;
+            this.lbReferencia.Text = "Referencia";
+            // 
+            // lbCodigoBarra
+            // 
+            this.lbCodigoBarra.AutoSize = true;
+            this.lbCodigoBarra.Location = new System.Drawing.Point(534, 29);
+            this.lbCodigoBarra.Name = "lbCodigoBarra";
+            this.lbCodigoBarra.Size = new System.Drawing.Size(138, 21);
+            this.lbCodigoBarra.TabIndex = 8;
+            this.lbCodigoBarra.Text = "Codigo de Barra";
+            // 
+            // lbDescripcion
+            // 
+            this.lbDescripcion.AutoSize = true;
+            this.lbDescripcion.Location = new System.Drawing.Point(57, 256);
+            this.lbDescripcion.Name = "lbDescripcion";
+            this.lbDescripcion.Size = new System.Drawing.Size(100, 21);
+            this.lbDescripcion.TabIndex = 7;
+            this.lbDescripcion.Text = "Descripción";
+            // 
+            // lbSuplidor
+            // 
+            this.lbSuplidor.AutoSize = true;
+            this.lbSuplidor.Location = new System.Drawing.Point(78, 223);
+            this.lbSuplidor.Name = "lbSuplidor";
+            this.lbSuplidor.Size = new System.Drawing.Size(71, 21);
+            this.lbSuplidor.TabIndex = 6;
+            this.lbSuplidor.Text = "Suplidor";
+            // 
+            // lbTipoSuplidor
+            // 
+            this.lbTipoSuplidor.AutoSize = true;
+            this.lbTipoSuplidor.Location = new System.Drawing.Point(20, 192);
+            this.lbTipoSuplidor.Name = "lbTipoSuplidor";
+            this.lbTipoSuplidor.Size = new System.Drawing.Size(132, 21);
+            this.lbTipoSuplidor.TabIndex = 5;
+            this.lbTipoSuplidor.Text = "Tipo de Suplidor";
+            // 
+            // lbModelo
+            // 
+            this.lbModelo.AutoSize = true;
+            this.lbModelo.Location = new System.Drawing.Point(87, 159);
+            this.lbModelo.Name = "lbModelo";
+            this.lbModelo.Size = new System.Drawing.Size(69, 21);
+            this.lbModelo.TabIndex = 4;
+            this.lbModelo.Text = "Modelo";
+            // 
+            // lbMarca
+            // 
+            this.lbMarca.AutoSize = true;
+            this.lbMarca.Location = new System.Drawing.Point(93, 126);
+            this.lbMarca.Name = "lbMarca";
+            this.lbMarca.Size = new System.Drawing.Size(62, 21);
+            this.lbMarca.TabIndex = 3;
+            this.lbMarca.Text = "Marca";
+            // 
+            // lbUnidadMedida
+            // 
+            this.lbUnidadMedida.AutoSize = true;
+            this.lbUnidadMedida.Location = new System.Drawing.Point(6, 94);
+            this.lbUnidadMedida.Name = "lbUnidadMedida";
+            this.lbUnidadMedida.Size = new System.Drawing.Size(157, 21);
+            this.lbUnidadMedida.TabIndex = 2;
+            this.lbUnidadMedida.Text = "Unidad de Medida";
+            // 
+            // lbCategoria
+            // 
+            this.lbCategoria.AutoSize = true;
+            this.lbCategoria.Location = new System.Drawing.Point(67, 63);
+            this.lbCategoria.Name = "lbCategoria";
+            this.lbCategoria.Size = new System.Drawing.Size(91, 21);
+            this.lbCategoria.TabIndex = 1;
+            this.lbCategoria.Text = "Categoria";
+            // 
+            // lbTipoProducto
+            // 
+            this.lbTipoProducto.AutoSize = true;
+            this.lbTipoProducto.Location = new System.Drawing.Point(17, 30);
+            this.lbTipoProducto.Name = "lbTipoProducto";
+            this.lbTipoProducto.Size = new System.Drawing.Size(143, 21);
+            this.lbTipoProducto.TabIndex = 0;
+            this.lbTipoProducto.Text = "Tipo de Producto";
             // 
             // bunifuElipse1
             // 
@@ -672,7 +743,7 @@
             this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuardar.FlatAppearance.BorderSize = 10;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::DSMarket.Solucion.Properties.Resources.Guardar;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardar.Location = new System.Drawing.Point(454, 442);
@@ -682,74 +753,6 @@
             this.btnGuardar.Text = "Accion";
             this.toolTip1.SetToolTip(this.btnGuardar, "Completar Operación");
             this.btnGuardar.UseVisualStyleBackColor = true;
-            // 
-            // cbAceptaOferta
-            // 
-            this.cbAceptaOferta.AutoSize = true;
-            this.cbAceptaOferta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbAceptaOferta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbAceptaOferta.Location = new System.Drawing.Point(154, 316);
-            this.cbAceptaOferta.Name = "cbAceptaOferta";
-            this.cbAceptaOferta.Size = new System.Drawing.Size(142, 24);
-            this.cbAceptaOferta.TabIndex = 48;
-            this.cbAceptaOferta.Text = "¿Acepta Oferta?";
-            this.toolTip1.SetToolTip(this.cbAceptaOferta, "Programar producto para aceptar ofertas");
-            this.cbAceptaOferta.UseVisualStyleBackColor = true;
-            // 
-            // txtClaveSeguridad
-            // 
-            this.txtClaveSeguridad.BackColor = System.Drawing.Color.Silver;
-            this.txtClaveSeguridad.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtClaveSeguridad.Location = new System.Drawing.Point(467, 338);
-            this.txtClaveSeguridad.Name = "txtClaveSeguridad";
-            this.txtClaveSeguridad.PasswordChar = '•';
-            this.txtClaveSeguridad.Size = new System.Drawing.Size(349, 27);
-            this.txtClaveSeguridad.TabIndex = 50;
-            // 
-            // lbCLaveSeguridad
-            // 
-            this.lbCLaveSeguridad.AutoSize = true;
-            this.lbCLaveSeguridad.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCLaveSeguridad.Location = new System.Drawing.Point(565, 315);
-            this.lbCLaveSeguridad.Name = "lbCLaveSeguridad";
-            this.lbCLaveSeguridad.Size = new System.Drawing.Size(153, 20);
-            this.lbCLaveSeguridad.TabIndex = 49;
-            this.lbCLaveSeguridad.Text = "Clave de Seguridad";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.pbFoto);
-            this.groupBox3.Location = new System.Drawing.Point(952, 19);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(279, 291);
-            this.groupBox3.TabIndex = 51;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Foto de Producto";
-            // 
-            // pbFoto
-            // 
-            this.pbFoto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbFoto.Image = global::DSMarket.Solucion.Properties.Resources.SinImagen;
-            this.pbFoto.Location = new System.Drawing.Point(3, 23);
-            this.pbFoto.Name = "pbFoto";
-            this.pbFoto.Size = new System.Drawing.Size(273, 265);
-            this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbFoto.TabIndex = 0;
-            this.pbFoto.TabStop = false;
-            // 
-            // btnBuscarFoto
-            // 
-            this.btnBuscarFoto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscarFoto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBuscarFoto.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
-            this.btnBuscarFoto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarFoto.Location = new System.Drawing.Point(955, 313);
-            this.btnBuscarFoto.Name = "btnBuscarFoto";
-            this.btnBuscarFoto.Size = new System.Drawing.Size(273, 29);
-            this.btnBuscarFoto.TabIndex = 52;
-            this.btnBuscarFoto.Text = "Buscar Foto";
-            this.toolTip1.SetToolTip(this.btnBuscarFoto, "Buscar Cliente mediante el codigo");
-            this.btnBuscarFoto.UseVisualStyleBackColor = true;
             // 
             // MantenimientoProducto
             // 

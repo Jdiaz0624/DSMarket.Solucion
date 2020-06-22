@@ -52,5 +52,47 @@ namespace DSMarket.Logica.Logica.LogicaListas
             return Lista;
         }
         #endregion
+        #region OSTRAR EL LOSTADO DE LA CATEGORIAS
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EListaCategorias> ListadoCategorias(decimal? IdTipoProducto = null)
+        {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Lista = (from n in ObjDataListas.SP_LISTADO_CATEGORIAS(IdTipoProducto)
+                         select new DSMarket.Logica.Entidades.EntidadesListas.EListaCategorias
+                         {
+                             IdCategoria=n.IdCategoria,
+                             Descripcion=n.Descripcion
+                         }).ToList();
+            return Lista;
+        }
+        #endregion
+        #region MOSTRAR UNIDAD DE MEDIDA
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EUnidadMedida> BuscaUnidadMedida() {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjDataListas.SP_LISTADO_UNIDAD_MEDIDA()
+                           select new DSMarket.Logica.Entidades.EntidadesListas.EUnidadMedida
+                           {
+                               IdUnidadMedida = n.IdUnidadMedida,
+                               Descripcion=n.Descripcion
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
+        #region MOSTRAR LISTADO DE MODELOS
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EListaModeos> BuscaListaModelos(decimal? IdMarca = null)
+        {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjDataListas.SP_CARGAR_LISTA_MODELOS(IdMarca)
+                           select new DSMarket.Logica.Entidades.EntidadesListas.EListaModeos
+                           {
+                               IdModelo=n.IdModelo,
+                               Descripcion=n.Descripcion
+                           }).ToList();
+            return Listado;
+        }
+        
+        #endregion
     }
 }

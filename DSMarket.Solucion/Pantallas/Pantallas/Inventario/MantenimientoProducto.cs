@@ -16,17 +16,65 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         {
             InitializeComponent();
         }
+        Lazy<DSMarket.Logica.Logica.LogicaListas.LogicaListas> ObjDataListas = new Lazy<Logica.Logica.LogicaListas.LogicaListas>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
+
+        #region CARGAR LAS LISTAS DESPLEGABLES
+        private void CargarTipoProducto() {
+            var TipoPrducto = ObjDataListas.Value.ListaTipoProducto(
+                new Nullable<decimal>(), null);
+            ddlSeleccionarTipoProducto.DataSource = TipoPrducto;
+            ddlSeleccionarTipoProducto.DisplayMember = "Descripcion";
+            ddlSeleccionarTipoProducto.ValueMember = "IdTipoproducto";
+        }
+        private void CargarCategorias() {
+            try {
+                var Categorias = ObjDataListas.Value.ListadoCategorias(Convert.ToDecimal(ddlSeleccionarTipoProducto.SelectedValue));
+                ddlSeleccionarCategoria.DataSource = Categorias;
+                ddlSeleccionarCategoria.DisplayMember = "Descripcion";
+                ddlSeleccionarCategoria.ValueMember = "IdCategoria";
+            }
+            catch (Exception) { }
+        }
+        private void CargarUnidadMedida() {
+            var UnidadMeddida = ObjDataListas.Value.BuscaUnidadMedida();
+            ddlSeleccionarUnidadMedida.DataSource = UnidadMeddida;
+            ddlSeleccionarUnidadMedida.DisplayMember = "Descripcion";
+            ddlSeleccionarUnidadMedida.ValueMember = "IdUnidadMedida";
+        }
+        private void CargarMarcas() {
+            var MArcas = ObjDataListas.Value.BucaLisaMarcas();
+            ddlSeleccionarMarca.DataSource = MArcas;
+            ddlSeleccionarMarca.DisplayMember = "Descripcion";
+            ddlSeleccionarMarca.ValueMember = "IdMarca";
+        }
+        private void CargarModelos() {
+            try {
+                var CargarModelos = ObjDataListas.Value.BuscaListaModelos(Convert.ToDecimal(ddlSeleccionarMarca.SelectedValue));
+                ddlSeleccionarModelo.DataSource = CargarModelos;
+                ddlSeleccionarModelo.DisplayMember = "Descripcion";
+                ddlSeleccionarModelo.ValueMember = "IdModelo";
+            }
+            catch (Exception) { }
+        }
+
+        #endregion
         private void PCerrar_Click(object sender, EventArgs e)
         {
             this.Dispose();
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.ProductoConsulta Consulta = new ProductoConsulta();
+            Consulta.variablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
             Consulta.ShowDialog();
         }
 
         private void MantenimientoProducto_Load(object sender, EventArgs e)
         {
-
+            VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+            CargarTipoProducto();
+            CargarCategorias();
+            CargarUnidadMedida();
+            CargarMarcas();
+            CargarModelos();
             lbTitulo.ForeColor = Color.WhiteSmoke;
             if (VariablesGlobales.Accion == "INSERT")
             {
@@ -89,6 +137,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             }
 
             
+        }
+
+        private void ddlSeleccionarTipoProducto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarCategorias();
+        }
+
+        private void ddlSeleccionarMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarModelos();
         }
     }
 }

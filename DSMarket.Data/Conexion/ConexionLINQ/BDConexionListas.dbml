@@ -20,4 +20,24 @@
       <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Listas.SP_LISTADO_CATEGORIAS" Method="SP_LISTADO_CATEGORIAS">
+    <Parameter Name="IdTipoProducto" Parameter="idTipoProducto" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <ElementType Name="SP_LISTADO_CATEGORIASResult">
+      <Column Name="IdCategoria" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_LISTADO_UNIDAD_MEDIDA" Method="SP_LISTADO_UNIDAD_MEDIDA">
+    <ElementType Name="SP_LISTADO_UNIDAD_MEDIDAResult">
+      <Column Name="IdUnidadMedida" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_CARGAR_LISTA_MODELOS" Method="SP_CARGAR_LISTA_MODELOS">
+    <Parameter Name="IdMarca" Parameter="idMarca" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <ElementType Name="SP_CARGAR_LISTA_MODELOSResult">
+      <Column Name="IdModelo" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

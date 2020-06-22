@@ -82,6 +82,27 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<SP_BUSCA_LISTA_TIPO_SUPLIDORResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTADO_CATEGORIAS")]
+		public ISingleResult<SP_LISTADO_CATEGORIASResult> SP_LISTADO_CATEGORIAS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoProducto", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoProducto)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idTipoProducto);
+			return ((ISingleResult<SP_LISTADO_CATEGORIASResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTADO_UNIDAD_MEDIDA")]
+		public ISingleResult<SP_LISTADO_UNIDAD_MEDIDAResult> SP_LISTADO_UNIDAD_MEDIDA()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_LISTADO_UNIDAD_MEDIDAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_CARGAR_LISTA_MODELOS")]
+		public ISingleResult<SP_CARGAR_LISTA_MODELOSResult> SP_CARGAR_LISTA_MODELOS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdMarca", DbType="Decimal(20,0)")] System.Nullable<decimal> idMarca)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idMarca);
+			return ((ISingleResult<SP_CARGAR_LISTA_MODELOSResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_CARGAR_LISTA_TIPO_PRODUCTOResult
@@ -195,6 +216,138 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._IdTipoSuplidor != value))
 				{
 					this._IdTipoSuplidor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(100)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_LISTADO_CATEGORIASResult
+	{
+		
+		private decimal _IdCategoria;
+		
+		private string _Descripcion;
+		
+		public SP_LISTADO_CATEGORIASResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCategoria", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdCategoria
+		{
+			get
+			{
+				return this._IdCategoria;
+			}
+			set
+			{
+				if ((this._IdCategoria != value))
+				{
+					this._IdCategoria = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(100)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_LISTADO_UNIDAD_MEDIDAResult
+	{
+		
+		private decimal _IdUnidadMedida;
+		
+		private string _Descripcion;
+		
+		public SP_LISTADO_UNIDAD_MEDIDAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUnidadMedida", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdUnidadMedida
+		{
+			get
+			{
+				return this._IdUnidadMedida;
+			}
+			set
+			{
+				if ((this._IdUnidadMedida != value))
+				{
+					this._IdUnidadMedida = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(100)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_CARGAR_LISTA_MODELOSResult
+	{
+		
+		private decimal _IdModelo;
+		
+		private string _Descripcion;
+		
+		public SP_CARGAR_LISTA_MODELOSResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdModelo", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdModelo
+		{
+			get
+			{
+				return this._IdModelo;
+			}
+			set
+			{
+				if ((this._IdModelo != value))
+				{
+					this._IdModelo = value;
 				}
 			}
 		}
