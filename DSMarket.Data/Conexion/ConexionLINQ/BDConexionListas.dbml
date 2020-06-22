@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DSMarket" Class="BDConexionListasDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=172.26.24.199;Initial Catalog=DSMarket;User ID=SA" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString2" Provider="System.Data.SqlClient" />
   <Function Name="Listas.SP_CARGAR_LISTA_TIPO_PRODUCTO" Method="SP_CARGAR_LISTA_TIPO_PRODUCTO">
     <Parameter Name="IdTipoproducto" Parameter="idTipoproducto" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(100)" />
@@ -38,6 +38,13 @@
     <ElementType Name="SP_CARGAR_LISTA_MODELOSResult">
       <Column Name="IdModelo" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
       <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_LISTAS_SUPLIDORES" Method="SP_LISTAS_SUPLIDORES">
+    <Parameter Name="IdTipoSuplidor" Parameter="idTipoSuplidor" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <ElementType Name="SP_LISTAS_SUPLIDORESResult">
+      <Column Name="IdSuplidor" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

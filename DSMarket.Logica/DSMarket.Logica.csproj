@@ -55,6 +55,7 @@
     <Compile Include="Entidades\EntidadesInventario\ECategorias.cs" />
     <Compile Include="Entidades\EntidadesInventario\Emarcas.cs" />
     <Compile Include="Entidades\EntidadesInventario\EModelos.cs" />
+    <Compile Include="Entidades\EntidadesInventario\EProducto.cs" />
     <Compile Include="Entidades\EntidadesInventario\ESuplidores.cs" />
     <Compile Include="Entidades\EntidadesInventario\ETipoProducto.cs" />
     <Compile Include="Entidades\EntidadesInventario\ETipoSuplidores.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Entidades\EntidadesListas\EListaCategorias.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaMarcas.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaModeos.cs" />
+    <Compile Include="Entidades\EntidadesListas\EListaSuplidor.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoProducto.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoSuplidor.cs" />
     <Compile Include="Entidades\EntidadesListas\EUnidadMedida.cs" />

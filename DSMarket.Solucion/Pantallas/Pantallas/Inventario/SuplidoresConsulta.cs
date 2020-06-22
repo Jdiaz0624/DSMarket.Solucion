@@ -142,6 +142,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         {
             this.Hide();
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.MantenimientoSupidores Mantenimiento = new MantenimientoSupidores();
+            Mantenimiento.VariablesGlobales.ModoRecarga = false;
             Mantenimiento.VariablesGlobales.Accion = "INSERT";
             Mantenimiento.VariablesGlobales.IdMantenimeinto = 0;
             Mantenimiento.VariablesGlobales.IdUsuario = variablesGlobales.IdUsuario;
@@ -182,7 +183,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         {
             if (MessageBox.Show("¿Quieres seleccionar este registro?", variablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                this.variablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdTipoSuplidor"].Value.ToString());
+                this.variablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdSuplidor"].Value.ToString());
 
                 var BuscarRegistro = ObjDataInventario.Value.BuscaSupervisores(
                    null,

@@ -153,6 +153,14 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                         Cerrar();
                     }
 
+                    if (VariablesGlobales.ModoRecarga == false)
+                    {
+
+                    }
+                    else
+                    {
+
+                    }
                 }
                 else
                 {

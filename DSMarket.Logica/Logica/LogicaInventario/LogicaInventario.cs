@@ -435,5 +435,128 @@ namespace DSMarket.Logica.Logica.LogicaInventario
             return Mantenimiento;
         }
         #endregion
+
+        #region MANTENIMIENTO DE PRODUCTO
+        //LISTADO DE PRODUCTOS
+        public List<DSMarket.Logica.Entidades.EntidadesInventario.EProducto> BuscaProductos(decimal? IdProducto = null, decimal? NumeroConector = null, string Descripcion = null, string CodigoBarra = null, string Referencia = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null, decimal? IdTipoProducto = null, decimal? IdCategoria = null, decimal? IdUnidadMedida = null, decimal? IdMarca = null, decimal? IdModelo = null,bool? TieneOferta = null, int? NumeroPagina = null, int? NumeroRegistros = null)
+        {
+            Objdata.CommandTimeout = 999999999;
+
+            var Buscar = (from n in Objdata.SP_BUSCA_PRODUCTO(IdProducto, NumeroConector, Descripcion, CodigoBarra, Referencia, FechaDesde, FechaHasta, IdTipoProducto, IdCategoria, IdUnidadMedida, IdMarca, IdModelo, TieneOferta, NumeroPagina, NumeroRegistros)
+                          select new DSMarket.Logica.Entidades.EntidadesInventario.EProducto
+                          {
+                              IdProducto=n.IdProducto,
+                              NumeroConector=n.NumeroConector,
+                              IdTipoProducto=n.IdTipoProducto,
+                              Producto=n.Producto,
+                              TipoProducto=n.TipoProducto,
+                              IdCategoria=n.IdCategoria,
+                              Categoria=n.Categoria,
+                              IdUnidadMedida=n.IdUnidadMedida,
+                              UnidadMedida=n.UnidadMedida,
+                              IdMarca=n.IdMarca,
+                              Marca=n.Marca,
+                              IdModelo=n.IdModelo,
+                              Modelo=n.Modelo,
+                              IdTipoSuplidor=n.IdTipoSuplidor,
+                              TipoSuplidor=n.TipoSuplidor,
+                              IdSuplidor=n.IdSuplidor,
+                              Suplidor=n.Suplidor,
+                              CodigoBarra=n.CodigoBarra,
+                              Referencia=n.Referencia,
+                              PrecioCompra=n.PrecioCompra,
+                              PrecioVenta=n.PrecioVenta,
+                              Stock=n.Stock,
+                              StockMinimo=n.StockMinimo,
+                              PorcientoDescuento=n.PorcientoDescuento,
+                              AfectaOferta0=n.AfectaOferta0,
+                              AceptaOferta=n.AceptaOferta,
+                              ProductoAcumulativo0=n.ProductoAcumulativo0,
+                              ProductoAcumulativo=n.ProductoAcumulativo,
+                              LlevaImagen0=n.LlevaImagen0,
+                              LlevaImagen=n.LlevaImagen,
+                              UsuarioAdicion=n.UsuarioAdicion,
+                              CreadoPor=n.CreadoPor,
+                              FechaAdiciona=n.FechaAdiciona,
+                              FechaCreado=n.FechaCreado,
+                              UsuarioModifica=n.UsuarioModifica,
+                              ModificadoPor=n.ModificadoPor,
+                              FechaModifica=n.FechaModifica,
+                              FechaModificado=n.FechaModificado,
+                              Fecha=n.Fecha,
+                              CantidadRegistros=n.CantidadRegistros,
+                              ProductosConOferta=n.ProductosConOferta,
+                              ProductoProximoAgotarse=n.ProductoProximoAgotarse,
+                              ProductosAgostados=n.ProductosAgostados
+                          }).ToList();
+            return Buscar;
+        }
+
+
+        //MANTENIMIENTO DE PRODUCTOS
+        public DSMarket.Logica.Entidades.EntidadesInventario.EProducto MantenimientoProducto(DSMarket.Logica.Entidades.EntidadesInventario.EProducto Item, string Accion)
+        {
+            Objdata.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesInventario.EProducto Mantenimiento = null;
+
+            var Producto = Objdata.SP_MANTENIMIENTO_PRODUCTO(
+                Item.IdProducto
+                , Item.NumeroConector
+                , Item.IdTipoProducto
+                , Item.IdCategoria
+                , Item.IdUnidadMedida
+                , Item.IdMarca
+                , Item.IdModelo
+                , Item.IdTipoSuplidor
+                , Item.IdSuplidor
+                , Item.Producto
+                , Item.CodigoBarra
+                , Item.Referencia
+                , Item.PrecioCompra
+                , Item.PrecioVenta
+                , Item.Stock
+                , Item.StockMinimo
+                , Item.PorcientoDescuento
+                , Item.AfectaOferta0
+                , Item.ProductoAcumulativo0
+                , Item.LlevaImagen0
+                , Item.UsuarioAdicion
+                , Accion);
+            if (Producto != null)
+            {
+                Mantenimiento = (from n in Producto
+                                 select new DSMarket.Logica.Entidades.EntidadesInventario.EProducto
+                                 {
+                                      IdProducto=n.IdProducto,
+                              NumeroConector=n.NumeroConector,
+                              IdTipoProducto=n.IdTipoProducto,
+                              Producto=n.Descripcion,
+                              IdCategoria=n.IdCategoria,
+                              IdUnidadMedida=n.IdUnidadMedida,
+                              IdMarca=n.IdMarca,
+                              IdModelo=n.IdModelo,
+                              IdTipoSuplidor=n.IdTipoSuplidor,
+                              IdSuplidor=n.IdSuplidor,
+                              CodigoBarra=n.CodigoBarra,
+                              Referencia=n.Referencia,
+                              PrecioCompra=n.PrecioCompra,
+                              PrecioVenta=n.PrecioVenta,
+                              Stock=n.Stock,
+                              StockMinimo=n.StockMinimo,
+                              PorcientoDescuento=n.PorcientoDescuento,
+                              AfectaOferta0=n.AfectaOferta,
+                              ProductoAcumulativo0=n.ProductoAcumulativo,
+                              LlevaImagen0=n.LlevaImagen,
+                              UsuarioAdicion=n.UsuarioAdicion,
+                              FechaAdiciona=n.FechaAdiciona,
+                              UsuarioModifica=n.UsuarioModifica,
+                              FechaModifica=n.FechaModifica,
+                              Fecha=n.Fecha
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
+        #endregion
     }
 }

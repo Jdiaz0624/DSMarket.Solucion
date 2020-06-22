@@ -92,7 +92,21 @@ namespace DSMarket.Logica.Logica.LogicaListas
                            }).ToList();
             return Listado;
         }
-        
+
+        #endregion
+        #region MOSTRAR LISTADO DE SUPLIDORES
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EListaSuplidor> BuscaListaSuplidores(decimal? IdTipoSuplidor = null)
+        {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Buscar = (from n in ObjDataListas.SP_LISTAS_SUPLIDORES(IdTipoSuplidor)
+                          select new DSMarket.Logica.Entidades.EntidadesListas.EListaSuplidor
+                          {
+                              IdSuplidor=n.IdSuplidor,
+                              Nombre=n.Nombre
+                          }).ToList();
+            return Buscar;
+        }
         #endregion
     }
 }

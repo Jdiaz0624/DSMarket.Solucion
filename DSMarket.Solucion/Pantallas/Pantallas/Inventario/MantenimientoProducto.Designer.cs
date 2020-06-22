@@ -33,6 +33,7 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbacumulativo = new System.Windows.Forms.CheckBox();
             this.btnBuscarFoto = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pbFoto = new System.Windows.Forms.PictureBox();
@@ -88,6 +89,7 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.cbLlevaImagen = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -135,6 +137,8 @@
             // groupBox1
             // 
             this.groupBox1.AutoSize = true;
+            this.groupBox1.Controls.Add(this.cbLlevaImagen);
+            this.groupBox1.Controls.Add(this.cbacumulativo);
             this.groupBox1.Controls.Add(this.btnBuscarFoto);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.txtClaveSeguridad);
@@ -189,15 +193,29 @@
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 45);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1237, 391);
+            this.groupBox1.Size = new System.Drawing.Size(1237, 399);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Producto";
             this.toolTip1.SetToolTip(this.groupBox1, "Buscar Foto del Articulo");
             // 
+            // cbacumulativo
+            // 
+            this.cbacumulativo.AutoSize = true;
+            this.cbacumulativo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbacumulativo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbacumulativo.Location = new System.Drawing.Point(323, 316);
+            this.cbacumulativo.Name = "cbacumulativo";
+            this.cbacumulativo.Size = new System.Drawing.Size(129, 25);
+            this.cbacumulativo.TabIndex = 53;
+            this.cbacumulativo.Text = "Acumulativo";
+            this.toolTip1.SetToolTip(this.cbacumulativo, "Producto acumulativo");
+            this.cbacumulativo.UseVisualStyleBackColor = true;
+            // 
             // btnBuscarFoto
             // 
             this.btnBuscarFoto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarFoto.Enabled = false;
             this.btnBuscarFoto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnBuscarFoto.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
             this.btnBuscarFoto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -208,6 +226,7 @@
             this.btnBuscarFoto.Text = "Buscar Foto";
             this.toolTip1.SetToolTip(this.btnBuscarFoto, "Buscar Cliente mediante el codigo");
             this.btnBuscarFoto.UseVisualStyleBackColor = true;
+            this.btnBuscarFoto.Click += new System.EventHandler(this.btnBuscarFoto_Click);
             // 
             // groupBox3
             // 
@@ -282,6 +301,7 @@
             this.btnRefrescarSuplidor.TabIndex = 46;
             this.toolTip1.SetToolTip(this.btnRefrescarSuplidor, "Refrescar Listado de Suplidores");
             this.btnRefrescarSuplidor.UseVisualStyleBackColor = true;
+            this.btnRefrescarSuplidor.Click += new System.EventHandler(this.btnRefrescarSuplidor_Click);
             // 
             // btnAgregarSuplidor
             // 
@@ -306,6 +326,7 @@
             this.btnRefrescarTipoSuplidor.TabIndex = 44;
             this.toolTip1.SetToolTip(this.btnRefrescarTipoSuplidor, "Refrescar Listado de Tipo de Suplidores");
             this.btnRefrescarTipoSuplidor.UseVisualStyleBackColor = true;
+            this.btnRefrescarTipoSuplidor.Click += new System.EventHandler(this.btnRefrescarTipoSuplidor_Click);
             // 
             // btnAgregarTipoSuplidor
             // 
@@ -330,6 +351,7 @@
             this.btnRefrescarModelo.TabIndex = 42;
             this.toolTip1.SetToolTip(this.btnRefrescarModelo, "Refrescar Listado de Modelos");
             this.btnRefrescarModelo.UseVisualStyleBackColor = true;
+            this.btnRefrescarModelo.Click += new System.EventHandler(this.btnRefrescarModelo_Click);
             // 
             // btnAgregarModelo
             // 
@@ -354,6 +376,7 @@
             this.btnRefrescarMarca.TabIndex = 40;
             this.toolTip1.SetToolTip(this.btnRefrescarMarca, "Refrescar Listado de Marcas");
             this.btnRefrescarMarca.UseVisualStyleBackColor = true;
+            this.btnRefrescarMarca.Click += new System.EventHandler(this.btnRefrescarMarca_Click);
             // 
             // btnAgregarMarca
             // 
@@ -378,6 +401,7 @@
             this.btnRefrescarUnidadMedida.TabIndex = 38;
             this.toolTip1.SetToolTip(this.btnRefrescarUnidadMedida, "Refrescar Listado de Unidad de Medida");
             this.btnRefrescarUnidadMedida.UseVisualStyleBackColor = true;
+            this.btnRefrescarUnidadMedida.Click += new System.EventHandler(this.btnRefrescarUnidadMedida_Click);
             // 
             // btnAgregarUnidadMedida
             // 
@@ -402,6 +426,7 @@
             this.btnRefrescarCategoria.TabIndex = 36;
             this.toolTip1.SetToolTip(this.btnRefrescarCategoria, "Refrescar Listado de Categoria");
             this.btnRefrescarCategoria.UseVisualStyleBackColor = true;
+            this.btnRefrescarCategoria.Click += new System.EventHandler(this.btnRefrescarCategoria_Click);
             // 
             // btnAgregarCategoria
             // 
@@ -426,6 +451,7 @@
             this.btnRefrescarTipoProducto.TabIndex = 34;
             this.toolTip1.SetToolTip(this.btnRefrescarTipoProducto, "Refrescar Listado de Tipo de Producto");
             this.btnRefrescarTipoProducto.UseVisualStyleBackColor = true;
+            this.btnRefrescarTipoProducto.Click += new System.EventHandler(this.btnRefrescarTipoProducto_Click);
             // 
             // btnAgregarTipoProducto
             // 
@@ -443,9 +469,11 @@
             // 
             this.txtPorcientoDescuento.BackColor = System.Drawing.Color.Silver;
             this.txtPorcientoDescuento.Location = new System.Drawing.Point(696, 218);
+            this.txtPorcientoDescuento.MaxLength = 3;
             this.txtPorcientoDescuento.Name = "txtPorcientoDescuento";
             this.txtPorcientoDescuento.Size = new System.Drawing.Size(250, 27);
             this.txtPorcientoDescuento.TabIndex = 32;
+            this.txtPorcientoDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioCompra_KeyPress);
             // 
             // txtStockMinimo
             // 
@@ -454,6 +482,7 @@
             this.txtStockMinimo.Name = "txtStockMinimo";
             this.txtStockMinimo.Size = new System.Drawing.Size(250, 27);
             this.txtStockMinimo.TabIndex = 31;
+            this.txtStockMinimo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioCompra_KeyPress);
             // 
             // txtStock
             // 
@@ -462,6 +491,7 @@
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(250, 27);
             this.txtStock.TabIndex = 30;
+            this.txtStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioCompra_KeyPress);
             // 
             // txtPrecioVenta
             // 
@@ -470,6 +500,7 @@
             this.txtPrecioVenta.Name = "txtPrecioVenta";
             this.txtPrecioVenta.Size = new System.Drawing.Size(250, 27);
             this.txtPrecioVenta.TabIndex = 29;
+            this.txtPrecioVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioCompra_KeyPress);
             // 
             // txtPrecioCompra
             // 
@@ -478,6 +509,7 @@
             this.txtPrecioCompra.Name = "txtPrecioCompra";
             this.txtPrecioCompra.Size = new System.Drawing.Size(250, 27);
             this.txtPrecioCompra.TabIndex = 28;
+            this.txtPrecioCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioCompra_KeyPress);
             // 
             // txtReferencia
             // 
@@ -526,6 +558,7 @@
             this.ddlSeleccionarTipoSuplidor.Name = "ddlSeleccionarTipoSuplidor";
             this.ddlSeleccionarTipoSuplidor.Size = new System.Drawing.Size(235, 29);
             this.ddlSeleccionarTipoSuplidor.TabIndex = 23;
+            this.ddlSeleccionarTipoSuplidor.SelectedIndexChanged += new System.EventHandler(this.ddlSeleccionarTipoSuplidor_SelectedIndexChanged);
             // 
             // ddlSeleccionarModelo
             // 
@@ -754,6 +787,20 @@
             this.toolTip1.SetToolTip(this.btnGuardar, "Completar Operación");
             this.btnGuardar.UseVisualStyleBackColor = true;
             // 
+            // cbLlevaImagen
+            // 
+            this.cbLlevaImagen.AutoSize = true;
+            this.cbLlevaImagen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbLlevaImagen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbLlevaImagen.Location = new System.Drawing.Point(955, 348);
+            this.cbLlevaImagen.Name = "cbLlevaImagen";
+            this.cbLlevaImagen.Size = new System.Drawing.Size(134, 25);
+            this.cbLlevaImagen.TabIndex = 54;
+            this.cbLlevaImagen.Text = "Lleva Imagen";
+            this.toolTip1.SetToolTip(this.cbLlevaImagen, "Producto acumulativo");
+            this.cbLlevaImagen.UseVisualStyleBackColor = true;
+            this.cbLlevaImagen.CheckedChanged += new System.EventHandler(this.cbLlevaImagen_CheckedChanged);
+            // 
             // MantenimientoProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -843,5 +890,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.PictureBox pbFoto;
         private System.Windows.Forms.Button btnBuscarFoto;
+        private System.Windows.Forms.CheckBox cbacumulativo;
+        private System.Windows.Forms.CheckBox cbLlevaImagen;
     }
 }

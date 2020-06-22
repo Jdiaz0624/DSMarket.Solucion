@@ -74,6 +74,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         {
             this.Hide();
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.MantenimientoMarcas Mantenimiento = new MantenimientoMarcas();
+            Mantenimiento.VariablesGlobales.ModoRecarga = false;
             Mantenimiento.VariablesGlobales.Accion = "INSERT";
             Mantenimiento.VariablesGlobales.IdMantenimeinto = 0;
             Mantenimiento.VariablesGlobales.IdUsuario = variablesGlobales.IdUsuario;

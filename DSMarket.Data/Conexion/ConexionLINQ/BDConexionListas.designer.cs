@@ -33,7 +33,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
     #endregion
 		
 		public BDConexionListasDataContext() : 
-				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString, mappingSource)
+				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -102,6 +102,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idMarca);
 			return ((ISingleResult<SP_CARGAR_LISTA_MODELOSResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTAS_SUPLIDORES")]
+		public ISingleResult<SP_LISTAS_SUPLIDORESResult> SP_LISTAS_SUPLIDORES([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoSuplidor", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoSuplidor)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idTipoSuplidor);
+			return ((ISingleResult<SP_LISTAS_SUPLIDORESResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -364,6 +371,50 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._Descripcion != value))
 				{
 					this._Descripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_LISTAS_SUPLIDORESResult
+	{
+		
+		private decimal _IdSuplidor;
+		
+		private string _Nombre;
+		
+		public SP_LISTAS_SUPLIDORESResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdSuplidor", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdSuplidor
+		{
+			get
+			{
+				return this._IdSuplidor;
+			}
+			set
+			{
+				if ((this._IdSuplidor != value))
+				{
+					this._IdSuplidor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(100)")]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this._Nombre = value;
 				}
 			}
 		}

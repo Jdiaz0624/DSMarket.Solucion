@@ -115,6 +115,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         {
             this.Hide();
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.MantenimientoTipoSuplidores Mantenimiento = new MantenimientoTipoSuplidores();
+            Mantenimiento.VariablesGlobales.ModoRecarga = false;
             Mantenimiento.VariablesGlobales.Accion = "INSERT";
             Mantenimiento.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
             Mantenimiento.VariablesGlobales.IdMantenimeinto = 0;

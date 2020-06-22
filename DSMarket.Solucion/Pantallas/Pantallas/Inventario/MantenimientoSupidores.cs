@@ -160,14 +160,24 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             {
                 if (VariablesGlobales.Accion == "INSERT")
                 {
-                    MANSuplidores(VariablesGlobales.Accion);
-                    MessageBox.Show("Registro guardado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (MessageBox.Show("¿Quieres guardar otro registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                   
+
+                    if (VariablesGlobales.ModoRecarga == false)
                     {
-                        RestabelcerPantalla();
+                        MANSuplidores(VariablesGlobales.Accion);
+                        MessageBox.Show("Registro guardado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (MessageBox.Show("¿Quieres guardar otro registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            RestabelcerPantalla();
+                        }
+                        else
+                        {
+                            CerrarPantalla();
+                        }
                     }
-                    else {
-                        CerrarPantalla();
+                    else
+                    {
+
                     }
                 }
                 else

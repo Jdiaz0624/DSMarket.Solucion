@@ -16,7 +16,61 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         {
             InitializeComponent();
         }
+        Lazy<DSMarket.Logica.Logica.LogicaListas.LogicaListas> ObjDataListas = new Lazy<Logica.Logica.LogicaListas.LogicaListas>();
+        Lazy<DSMarket.Logica.Logica.LogicaInventario.LogicaInventario> ObjDataInventario = new Lazy<Logica.Logica.LogicaInventario.LogicaInventario>();
         public DSMarket.Logica.Comunes.VariablesGlobales variablesGlobales = new Logica.Comunes.VariablesGlobales();
+
+        #region CARGAR LAS LISTAS
+        private void CargarTipoPdoducto() {
+            try {
+                var TipoProducto = ObjDataListas.Value.ListaTipoProducto(
+                    new Nullable<decimal>(),
+                    null);
+                ddlSeleccionarTipoProducto.DataSource = TipoProducto;
+                ddlSeleccionarTipoProducto.DisplayMember = "Descripcion";
+                ddlSeleccionarTipoProducto.ValueMember = "IdTipoproducto";
+            }
+            catch (Exception) { }
+        }
+        private void CargarCategorias() {
+            try {
+                var Categoria = ObjDataListas.Value.ListadoCategorias(
+                    Convert.ToDecimal(ddlSeleccionarTipoProducto.SelectedValue));
+                ddlSeleccionarCategoria.DataSource = Categoria;
+                ddlSeleccionarCategoria.DisplayMember = "Descripcion";
+                ddlSeleccionarCategoria.ValueMember = "IdCategoria";
+            }
+            catch (Exception) { }
+        }
+        private void UnidadMedida() {
+            try {
+                var UnidadMedida = ObjDataListas.Value.BuscaUnidadMedida();
+                ddlSeleccionarUnidadMedida.DataSource = UnidadMedida;
+                ddlSeleccionarUnidadMedida.DisplayMember = "Descripcion";
+                ddlSeleccionarUnidadMedida.ValueMember = "IdUnidadMedida";
+            }
+            catch (Exception) { }
+        }
+        private void CargarMarcas() {
+            try {
+                var Marca = ObjDataListas.Value.BucaLisaMarcas();
+                ddlSeleccionarMarca.DataSource = Marca;
+                ddlSeleccionarMarca.DisplayMember = "Descripcion";
+                ddlSeleccionarMarca.ValueMember = "IdMarca";
+            }
+            catch (Exception) { }
+          
+        }
+        private void CargarModelos() {
+            try {
+                var Modelos = ObjDataListas.Value.BuscaListaModelos(Convert.ToDecimal(ddlSeleccionarMarca.SelectedValue));
+                ddlSeleccionarModelo.DataSource = Modelos;
+                ddlSeleccionarModelo.DisplayMember = "Descripcion";
+                ddlSeleccionarModelo.ValueMember = "IdModelo";
+            }
+            catch (Exception) { }
+        }
+        #endregion
         #region APLICAR TEMA
         private void TemaPredeterminado()
         {
@@ -50,6 +104,443 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         }
         #endregion
+        #region MOSTRAR LISTADO DE PRODUCTOS
+        private void MostrarListadoProducto() {
+            try {
+                string _Descripcion = string.IsNullOrEmpty(txtdescripcion.Text.Trim()) ? null : txtdescripcion.Text.Trim();
+                string _CodigoBarra = string.IsNullOrEmpty(txtCodigoBarra.Text.Trim()) ? null : txtCodigoBarra.Text.Trim();
+                string _Referencia = string.IsNullOrEmpty(txtReferencia.Text.Trim()) ? null : txtReferencia.Text.Trim();
+
+                //TODOS LOS PRODUCTOS
+                if (rbAmbos.Checked == true)
+                {
+
+                    if (cbAgregarRangoFecha.Checked == true)
+                    {
+                        //AGREGANDO RANGO DE FECHA
+                        if (cbAgregarFiltroPreciso.Checked == true)
+                        {
+                            //AGREGAR FILTRO PRECISO
+                            var BuscarProducto = ObjDataInventario.Value.BuscaProductos(
+                                new Nullable<decimal>(),
+                                null,
+                                _Descripcion,
+                                _CodigoBarra,
+                                _Referencia,
+                                Convert.ToDateTime(txtFechaDesde.Text),
+                                Convert.ToDateTime(txtFechaHasta.Text),
+                                Convert.ToDecimal(ddlSeleccionarTipoProducto.SelectedValue),
+                                Convert.ToDecimal(ddlSeleccionarCategoria.SelectedValue),
+                                Convert.ToDecimal(ddlSeleccionarUnidadMedida.SelectedValue),
+                                Convert.ToDecimal(ddlSeleccionarMarca.SelectedValue),
+                                Convert.ToDecimal(ddlSeleccionarModelo.SelectedValue),
+                                null,
+                                Convert.ToInt32(txtNumeroPagina.Value),
+                                Convert.ToInt32(txtNumeroRegistros.Value));
+                            dtListado.DataSource = BuscarProducto;
+                            if (BuscarProducto.Count() < 1)
+                            {
+                                lbCantidadProductos.Text = "0";
+                                lbCantidadProductosConOferta.Text = "0";
+                                lbCantidadPoductosAgotarse.Text = "0";
+                                lbProductosAgotados.Text = "0";
+                            }
+                            else
+                            {
+                                foreach (var n in BuscarProducto)
+                                {
+                                    int CantidadProductos = Convert.ToInt32(n.CantidadRegistros);
+                                    int ProductosConOferta = Convert.ToInt32(n.CantidadRegistros);
+                                    int ProductoProximoAgotarse = Convert.ToInt32(n.CantidadRegistros);
+                                    int ProductosAgotados = Convert.ToInt32(n.CantidadRegistros);
+
+                                    lbCantidadProductos.Text = CantidadProductos.ToString("N0");
+                                    lbCantidadProductosConOferta.Text = ProductosConOferta.ToString("N0");
+                                    lbCantidadPoductosAgotarse.Text = ProductoProximoAgotarse.ToString("N0");
+                                    lbProductosAgotados.Text = ProductosAgotados.ToString("N0");
+                                }
+                            }
+                        }
+                        else {
+                            //NO AGREGAR FILTRO PRECISO
+                            var BuscarProducto = ObjDataInventario.Value.BuscaProductos(
+                               new Nullable<decimal>(),
+                               null,
+                               _Descripcion,
+                               _CodigoBarra,
+                               _Referencia,
+                               Convert.ToDateTime(txtFechaDesde.Text),
+                               Convert.ToDateTime(txtFechaHasta.Text),
+                               null,
+                               null,
+                               null,
+                               null,
+                               null,
+                               null,
+                               Convert.ToInt32(txtNumeroPagina.Value),
+                               Convert.ToInt32(txtNumeroRegistros.Value));
+                            dtListado.DataSource = BuscarProducto;
+                            if (BuscarProducto.Count() < 1)
+                            {
+                                lbCantidadProductos.Text = "0";
+                                lbCantidadProductosConOferta.Text = "0";
+                                lbCantidadPoductosAgotarse.Text = "0";
+                                lbProductosAgotados.Text = "0";
+                            }
+                            else
+                            {
+                                foreach (var n in BuscarProducto)
+                                {
+                                    int CantidadProductos = Convert.ToInt32(n.CantidadRegistros);
+                                    int ProductosConOferta = Convert.ToInt32(n.CantidadRegistros);
+                                    int ProductoProximoAgotarse = Convert.ToInt32(n.CantidadRegistros);
+                                    int ProductosAgotados = Convert.ToInt32(n.CantidadRegistros);
+
+                                    lbCantidadProductos.Text = CantidadProductos.ToString("N0");
+                                    lbCantidadProductosConOferta.Text = ProductosConOferta.ToString("N0");
+                                    lbCantidadPoductosAgotarse.Text = ProductoProximoAgotarse.ToString("N0");
+                                    lbProductosAgotados.Text = ProductosAgotados.ToString("N0");
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        //SIN AGREGAR RANGO DE FECHA
+                        if (cbAgregarFiltroPreciso.Checked == true)
+                        {
+                            //AGREGAR FILTRO PRECISO
+                            var BuscarProducto = ObjDataInventario.Value.BuscaProductos(
+                                new Nullable<decimal>(),
+                                null,
+                                _Descripcion,
+                                _CodigoBarra,
+                                _Referencia,
+                                null,
+                                null,
+                                Convert.ToDecimal(ddlSeleccionarTipoProducto.SelectedValue),
+                                Convert.ToDecimal(ddlSeleccionarCategoria.SelectedValue),
+                                Convert.ToDecimal(ddlSeleccionarUnidadMedida.SelectedValue),
+                                Convert.ToDecimal(ddlSeleccionarMarca.SelectedValue),
+                                Convert.ToDecimal(ddlSeleccionarModelo.SelectedValue),
+                                null,
+                                Convert.ToInt32(txtNumeroPagina.Value),
+                                Convert.ToInt32(txtNumeroRegistros.Value));
+                            dtListado.DataSource = BuscarProducto;
+                            if (BuscarProducto.Count() < 1)
+                            {
+                                lbCantidadProductos.Text = "0";
+                                lbCantidadProductosConOferta.Text = "0";
+                                lbCantidadPoductosAgotarse.Text = "0";
+                                lbProductosAgotados.Text = "0";
+                            }
+                            else
+                            {
+                                foreach (var n in BuscarProducto)
+                                {
+                                    int CantidadProductos = Convert.ToInt32(n.CantidadRegistros);
+                                    int ProductosConOferta = Convert.ToInt32(n.CantidadRegistros);
+                                    int ProductoProximoAgotarse = Convert.ToInt32(n.CantidadRegistros);
+                                    int ProductosAgotados = Convert.ToInt32(n.CantidadRegistros);
+
+                                    lbCantidadProductos.Text = CantidadProductos.ToString("N0");
+                                    lbCantidadProductosConOferta.Text = ProductosConOferta.ToString("N0");
+                                    lbCantidadPoductosAgotarse.Text = ProductoProximoAgotarse.ToString("N0");
+                                    lbProductosAgotados.Text = ProductosAgotados.ToString("N0");
+                                }
+                            }
+                        }
+                        else
+                        {
+                            //NO AGREGAR FILTRO PRECISO
+                            var BuscarProducto = ObjDataInventario.Value.BuscaProductos(
+                                new Nullable<decimal>(),
+                                null,
+                                _Descripcion,
+                                _CodigoBarra,
+                                _Referencia,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                Convert.ToInt32(txtNumeroPagina.Value),
+                                Convert.ToInt32(txtNumeroRegistros.Value));
+                            dtListado.DataSource = BuscarProducto;
+                            if (BuscarProducto.Count() < 1)
+                            {
+                                lbCantidadProductos.Text = "0";
+                                lbCantidadProductosConOferta.Text = "0";
+                                lbCantidadPoductosAgotarse.Text = "0";
+                                lbProductosAgotados.Text = "0";
+                            }
+                            else
+                            {
+                                foreach (var n in BuscarProducto)
+                                {
+                                    int CantidadProductos = Convert.ToInt32(n.CantidadRegistros);
+                                    int ProductosConOferta = Convert.ToInt32(n.CantidadRegistros);
+                                    int ProductoProximoAgotarse = Convert.ToInt32(n.CantidadRegistros);
+                                    int ProductosAgotados = Convert.ToInt32(n.CantidadRegistros);
+
+                                    lbCantidadProductos.Text = CantidadProductos.ToString("N0");
+                                    lbCantidadProductosConOferta.Text = ProductosConOferta.ToString("N0");
+                                    lbCantidadPoductosAgotarse.Text = ProductoProximoAgotarse.ToString("N0");
+                                    lbProductosAgotados.Text = ProductosAgotados.ToString("N0");
+                                }
+                            }
+                        }
+                    }
+                }
+
+                //PRODUCTO CON OFERTA
+                else if (rbConOferta.Checked == true)
+                {
+                    if (cbAgregarRangoFecha.Checked == true)
+                    {
+                        //AGREGANDO RANGO DE FECHA
+                        if (cbAgregarFiltroPreciso.Checked == true)
+                        {
+                            //AGREGAR FILTRO PRECISO
+                            var BuscarProducto = ObjDataInventario.Value.BuscaProductos(
+                                new Nullable<decimal>(),
+                                null,
+                                _Descripcion,
+                                _CodigoBarra,
+                                _Referencia,
+                                Convert.ToDateTime(txtFechaDesde.Text),
+                                Convert.ToDateTime(txtFechaHasta.Text),
+                                Convert.ToDecimal(ddlSeleccionarTipoProducto.SelectedValue),
+                                Convert.ToDecimal(ddlSeleccionarCategoria.SelectedValue),
+                                Convert.ToDecimal(ddlSeleccionarUnidadMedida.SelectedValue),
+                                Convert.ToDecimal(ddlSeleccionarMarca.SelectedValue),
+                                Convert.ToDecimal(ddlSeleccionarModelo.SelectedValue),
+                                true,
+                                Convert.ToInt32(txtNumeroPagina.Value),
+                                Convert.ToInt32(txtNumeroRegistros.Value));
+                            dtListado.DataSource = BuscarProducto;
+                            if (BuscarProducto.Count() < 1)
+                            {
+                                lbCantidadProductos.Text = "0";
+                                lbCantidadProductosConOferta.Text = "0";
+                                lbCantidadPoductosAgotarse.Text = "0";
+                                lbProductosAgotados.Text = "0";
+                            }
+                            else
+                            {
+                                foreach (var n in BuscarProducto)
+                                {
+                                    int CantidadProductos = Convert.ToInt32(n.CantidadRegistros);
+                                    int ProductosConOferta = Convert.ToInt32(n.CantidadRegistros);
+                                    int ProductoProximoAgotarse = Convert.ToInt32(n.CantidadRegistros);
+                                    int ProductosAgotados = Convert.ToInt32(n.CantidadRegistros);
+
+                                    lbCantidadProductos.Text = CantidadProductos.ToString("N0");
+                                    lbCantidadProductosConOferta.Text = ProductosConOferta.ToString("N0");
+                                    lbCantidadPoductosAgotarse.Text = ProductoProximoAgotarse.ToString("N0");
+                                    lbProductosAgotados.Text = ProductosAgotados.ToString("N0");
+                                }
+                            }
+                        }
+                        else
+                        {
+                            //NO AGREGAR FILTRO PRECISO
+                            var BuscarProducto = ObjDataInventario.Value.BuscaProductos(
+                                new Nullable<decimal>(),
+                                null,
+                                _Descripcion,
+                                _CodigoBarra,
+                                _Referencia,
+                                Convert.ToDateTime(txtFechaDesde.Text),
+                                Convert.ToDateTime(txtFechaHasta.Text),
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                true,
+                                Convert.ToInt32(txtNumeroPagina.Value),
+                                Convert.ToInt32(txtNumeroRegistros.Value));
+                            dtListado.DataSource = BuscarProducto;
+                            if (BuscarProducto.Count() < 1)
+                            {
+                                lbCantidadProductos.Text = "0";
+                                lbCantidadProductosConOferta.Text = "0";
+                                lbCantidadPoductosAgotarse.Text = "0";
+                                lbProductosAgotados.Text = "0";
+                            }
+                            else
+                            {
+                                foreach (var n in BuscarProducto)
+                                {
+                                    int CantidadProductos = Convert.ToInt32(n.CantidadRegistros);
+                                    int ProductosConOferta = Convert.ToInt32(n.CantidadRegistros);
+                                    int ProductoProximoAgotarse = Convert.ToInt32(n.CantidadRegistros);
+                                    int ProductosAgotados = Convert.ToInt32(n.CantidadRegistros);
+
+                                    lbCantidadProductos.Text = CantidadProductos.ToString("N0");
+                                    lbCantidadProductosConOferta.Text = ProductosConOferta.ToString("N0");
+                                    lbCantidadPoductosAgotarse.Text = ProductoProximoAgotarse.ToString("N0");
+                                    lbProductosAgotados.Text = ProductosAgotados.ToString("N0");
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        //SIN AGREGAR RANGO DE FECHA
+                        if (cbAgregarFiltroPreciso.Checked == true)
+                        {
+                            //AGREGAR FILTRO PRECISO
+                            var BuscarProducto = ObjDataInventario.Value.BuscaProductos(
+                                new Nullable<decimal>(),
+                                null,
+                                _Descripcion,
+                                _CodigoBarra,
+                                _Referencia,
+                                null,
+                                null,
+                                Convert.ToDecimal(ddlSeleccionarTipoProducto.SelectedValue),
+                                Convert.ToDecimal(ddlSeleccionarCategoria.SelectedValue),
+                                Convert.ToDecimal(ddlSeleccionarUnidadMedida.SelectedValue),
+                                Convert.ToDecimal(ddlSeleccionarMarca.SelectedValue),
+                                Convert.ToDecimal(ddlSeleccionarModelo.SelectedValue),
+                                true,
+                                Convert.ToInt32(txtNumeroPagina.Value),
+                                Convert.ToInt32(txtNumeroRegistros.Value));
+                            dtListado.DataSource = BuscarProducto;
+                            if (BuscarProducto.Count() < 1)
+                            {
+                                lbCantidadProductos.Text = "0";
+                                lbCantidadProductosConOferta.Text = "0";
+                                lbCantidadPoductosAgotarse.Text = "0";
+                                lbProductosAgotados.Text = "0";
+                            }
+                            else
+                            {
+                                foreach (var n in BuscarProducto)
+                                {
+                                    int CantidadProductos = Convert.ToInt32(n.CantidadRegistros);
+                                    int ProductosConOferta = Convert.ToInt32(n.CantidadRegistros);
+                                    int ProductoProximoAgotarse = Convert.ToInt32(n.CantidadRegistros);
+                                    int ProductosAgotados = Convert.ToInt32(n.CantidadRegistros);
+
+                                    lbCantidadProductos.Text = CantidadProductos.ToString("N0");
+                                    lbCantidadProductosConOferta.Text = ProductosConOferta.ToString("N0");
+                                    lbCantidadPoductosAgotarse.Text = ProductoProximoAgotarse.ToString("N0");
+                                    lbProductosAgotados.Text = ProductosAgotados.ToString("N0");
+                                }
+                            }
+                        }
+                        else
+                        {
+                            //NO AGREGAR FILTRO PRECISO
+                            var BuscarProducto = ObjDataInventario.Value.BuscaProductos(
+                                new Nullable<decimal>(),
+                                null,
+                                _Descripcion,
+                                _CodigoBarra,
+                                _Referencia,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                true,
+                                Convert.ToInt32(txtNumeroPagina.Value),
+                                Convert.ToInt32(txtNumeroRegistros.Value));
+                            if (BuscarProducto.Count() < 1)
+                            {
+                                lbCantidadProductos.Text = "0";
+                                lbCantidadProductosConOferta.Text = "0";
+                                lbCantidadPoductosAgotarse.Text = "0";
+                                lbProductosAgotados.Text = "0";
+                            }
+                            else
+                            {
+                                foreach (var n in BuscarProducto)
+                                {
+                                    int CantidadProductos = Convert.ToInt32(n.CantidadRegistros);
+                                    int ProductosConOferta = Convert.ToInt32(n.CantidadRegistros);
+                                    int ProductoProximoAgotarse = Convert.ToInt32(n.CantidadRegistros);
+                                    int ProductosAgotados = Convert.ToInt32(n.CantidadRegistros);
+
+                                    lbCantidadProductos.Text = CantidadProductos.ToString("N0");
+                                    lbCantidadProductosConOferta.Text = ProductosConOferta.ToString("N0");
+                                    lbCantidadPoductosAgotarse.Text = ProductoProximoAgotarse.ToString("N0");
+                                    lbProductosAgotados.Text = ProductosAgotados.ToString("N0");
+                                }
+                            }
+                        }
+                    }
+                }
+
+                //PRODUCTO SIN OFERTA
+                else if (rbSinOferta.Checked == true)
+                {
+                    if (cbAgregarRangoFecha.Checked == true)
+                    {
+                        //AGREGANDO RANGO DE FECHA
+                        if (cbAgregarFiltroPreciso.Checked == true)
+                        {
+                            //AGREGAR FILTRO PRECISO
+                        }
+                        else
+                        {
+                            //NO AGREGAR FILTRO PRECISO
+                        }
+                    }
+                    else
+                    {
+                        //SIN AGREGAR RANGO DE FECHA
+                        if (cbAgregarFiltroPreciso.Checked == true)
+                        {
+                            //AGREGAR FILTRO PRECISO
+                        }
+                        else
+                        {
+                            //NO AGREGAR FILTRO PRECISO
+                        }
+                    }
+                }
+                OcultarColumnas();
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al mostrar el listado de los productos, codigo de error: " + ex.Message, variablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void OcultarColumnas() {
+            this.dtListado.Columns["IdProducto"].Visible = false;
+            this.dtListado.Columns["NumeroConector"].Visible = false;
+            this.dtListado.Columns["IdTipoProducto"].Visible = false;
+            this.dtListado.Columns["IdCategoria"].Visible = false;
+            this.dtListado.Columns["IdUnidadMedida"].Visible = false;
+            this.dtListado.Columns["IdMarca"].Visible = false;
+            this.dtListado.Columns["IdModelo"].Visible = false;
+            this.dtListado.Columns["IdTipoSuplidor"].Visible = false;
+            this.dtListado.Columns["IdSuplidor"].Visible = false;
+            this.dtListado.Columns["PrecioCompra"].Visible = false;
+            this.dtListado.Columns["AfectaOferta0"].Visible = false;
+            this.dtListado.Columns["ProductoAcumulativo0"].Visible = false;
+            this.dtListado.Columns["LlevaImagen0"].Visible = false;
+            this.dtListado.Columns["UsuarioAdicion"].Visible = false;
+            this.dtListado.Columns["FechaAdiciona"].Visible = false;
+            this.dtListado.Columns["UsuarioModifica"].Visible = false;
+            this.dtListado.Columns["ModificadoPor"].Visible = false;
+            this.dtListado.Columns["FechaModifica"].Visible = false;
+            this.dtListado.Columns["FechaModificado"].Visible = false;
+            this.dtListado.Columns["Fecha"].Visible = false;
+            this.dtListado.Columns["CantidadRegistros"].Visible = false;
+            this.dtListado.Columns["ProductosConOferta"].Visible = false;
+            this.dtListado.Columns["ProductoProximoAgotarse"].Visible = false;
+            this.dtListado.Columns["ProductosAgostados"].Visible = false;
+        }
+        #endregion
 
         private void PCerrar_Click(object sender, EventArgs e)
         {
@@ -68,6 +559,12 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         private void ProductoConsulta_Load(object sender, EventArgs e)
         {
+            variablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+            CargarTipoPdoducto();
+            CargarCategorias();
+            UnidadMedida();
+            CargarMarcas();
+            CargarModelos();
             lbTitulo.Text = "CONSULTA DE INVENTARIO";
             lbTitulo.ForeColor = Color.WhiteSmoke;
             TemaPredeterminado();
@@ -234,6 +731,46 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.Hide();
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.AgregarOferta Oferta = new AgregarOferta();
             Oferta.ShowDialog();
+        }
+
+        private void ddlSeleccionarTipoProducto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarCategorias();
+        }
+
+        private void ddlSeleccionarMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarModelos();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            MostrarListadoProducto();
+        }
+
+        private void txtNumeroPagina_ValueChanged(object sender, EventArgs e)
+        {
+            if (txtNumeroPagina.Value < 1)
+            {
+                txtNumeroPagina.Value = 1;
+                MostrarListadoProducto();
+            }
+            else {
+                MostrarListadoProducto();
+            }
+        }
+
+        private void txtNumeroRegistros_ValueChanged(object sender, EventArgs e)
+        {
+            if (txtNumeroRegistros.Value < 1)
+            {
+                txtNumeroRegistros.Value = 10;
+                MostrarListadoProducto();
+            }
+            else
+            {
+                MostrarListadoProducto();
+            }
         }
     }
 }
