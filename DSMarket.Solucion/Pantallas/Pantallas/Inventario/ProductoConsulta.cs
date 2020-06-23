@@ -859,6 +859,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.Hide();
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.MantenimientoProducto Mantenimiento = new MantenimientoProducto();
             Mantenimiento.VariablesGlobales.Accion = "INSERT";
+            Mantenimiento.VariablesGlobales.IdUsuario = variablesGlobales.IdUsuario;
+            Mantenimiento.VariablesGlobales.IdMantenimeinto = 0;
             Mantenimiento.ShowDialog();
         }
 
@@ -867,6 +869,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.Hide();
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.MantenimientoProducto Mantenimiento = new MantenimientoProducto();
             Mantenimiento.VariablesGlobales.Accion = "UPDATE";
+            Mantenimiento.VariablesGlobales.IdUsuario = variablesGlobales.IdUsuario;
+            Mantenimiento.VariablesGlobales.IdMantenimeinto = variablesGlobales.IdMantenimeinto;
+            Mantenimiento.VariablesGlobales.NumeroConector = variablesGlobales.NumeroConector;
             Mantenimiento.ShowDialog();
         }
 
@@ -875,6 +880,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.Hide();
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.MantenimientoProducto Mantenimiento = new MantenimientoProducto();
             Mantenimiento.VariablesGlobales.Accion = "DELETE";
+            Mantenimiento.VariablesGlobales.IdUsuario = variablesGlobales.IdUsuario;
+            Mantenimiento.VariablesGlobales.IdMantenimeinto = variablesGlobales.IdMantenimeinto;
+            Mantenimiento.VariablesGlobales.NumeroConector = variablesGlobales.NumeroConector;
             Mantenimiento.ShowDialog();
         }
 
@@ -882,6 +890,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         {
             this.Hide();
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.AgregarQuitarProductos Suplir = new AgregarQuitarProductos();
+            Suplir.VariablesGlobales.IdMantenimeinto = variablesGlobales.IdMantenimeinto;
+            Suplir.VariablesGlobales.NumeroConector = variablesGlobales.NumeroConector;
             Suplir.ShowDialog();
         }
 
@@ -930,6 +940,54 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             {
                 MostrarListadoProducto();
             }
+        }
+
+        private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (MessageBox.Show("¿Quieres seleccionar este producto?", variablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.variablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdProducto"].Value.ToString());
+                this.variablesGlobales.NumeroConector = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["NumeroConector"].Value.ToString());
+
+                var SeleccionarRegistro = ObjDataInventario.Value.BuscaProductos(variablesGlobales.IdMantenimeinto, variablesGlobales.NumeroConector, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                dtListado.DataSource = SeleccionarRegistro;
+                OcultarColumnas();
+                txtNumeroPagina.Enabled = false;
+                txtNumeroRegistros.Enabled = false;
+                btnNuevo.Enabled = false;
+                btnEditar.Enabled = true;
+                btnEliminar.Enabled = true;
+                btnSuplir.Enabled = true;
+                btnOferta.Enabled = true;
+            }
+        }
+
+        private void btnRestablecer_Click(object sender, EventArgs e)
+        {
+            txtNumeroPagina.Enabled = true;
+            txtNumeroRegistros.Enabled = true;
+            btnNuevo.Enabled = true;
+            btnEditar.Enabled = false;
+            btnEliminar.Enabled = false;
+            btnSuplir.Enabled = false;
+            btnOferta.Enabled = false;
+
+            txtNumeroPagina.Value = 1;
+            txtNumeroRegistros.Value = 10;
+            txtdescripcion.Text = string.Empty;
+            txtCodigoBarra.Text = string.Empty;
+            txtReferencia.Text = string.Empty;
+
+            CargarTipoPdoducto();
+            CargarCategorias();
+            UnidadMedida();
+            CargarMarcas();
+            CargarModelos();
+
+            cbAgregarRangoFecha.Checked = false;
+            cbAgregarFiltroPreciso.Checked = false;
+            rbAmbos.Checked = true;
+            MostrarListadoProducto();
         }
     }
 }

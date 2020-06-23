@@ -32,14 +32,28 @@
             this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtCantidad = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.rbSacarProducto = new System.Windows.Forms.RadioButton();
             this.rbIngresarProducto = new System.Windows.Forms.RadioButton();
             this.btnProcesar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtCantidad = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lbTitulo = new System.Windows.Forms.Label();
+            this.lbTipoProductoVariable = new System.Windows.Forms.Label();
+            this.lbPorcientoDescuentoVariable = new System.Windows.Forms.Label();
+            this.lbStockMinimoVariable = new System.Windows.Forms.Label();
+            this.lbStickVariable = new System.Windows.Forms.Label();
+            this.lbPrecioVentaVariable = new System.Windows.Forms.Label();
+            this.lbPrecioCompraVariable = new System.Windows.Forms.Label();
+            this.lbReferenciaVariable = new System.Windows.Forms.Label();
+            this.lbCodigoBarraVariable = new System.Windows.Forms.Label();
+            this.lbComentarioVariable = new System.Windows.Forms.Label();
+            this.lbDescripcionVariable = new System.Windows.Forms.Label();
+            this.lbSuplidorVariable = new System.Windows.Forms.Label();
+            this.lbTipoSuplidorvariable = new System.Windows.Forms.Label();
+            this.lbModeloVariable = new System.Windows.Forms.Label();
+            this.lbMarcaVariable = new System.Windows.Forms.Label();
+            this.lbUnidadMedidaVariable = new System.Windows.Forms.Label();
+            this.lbCategoriaVariable = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pbFoto = new System.Windows.Forms.PictureBox();
             this.lbComentario = new System.Windows.Forms.Label();
@@ -58,31 +72,17 @@
             this.lbUnidadMedida = new System.Windows.Forms.Label();
             this.lbCategoria = new System.Windows.Forms.Label();
             this.lbTipoProducto = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.label12 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.PCerrar = new System.Windows.Forms.PictureBox();
+            this.lbTitulo = new System.Windows.Forms.Label();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,6 +93,7 @@
             this.txtClaveSeguridad.Location = new System.Drawing.Point(247, 336);
             this.txtClaveSeguridad.MaxLength = 100;
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
+            this.txtClaveSeguridad.PasswordChar = '•';
             this.txtClaveSeguridad.Size = new System.Drawing.Size(193, 27);
             this.txtClaveSeguridad.TabIndex = 31;
             // 
@@ -119,6 +120,26 @@
             this.groupBox2.TabIndex = 29;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tipo de Operación";
+            // 
+            // txtCantidad
+            // 
+            this.txtCantidad.BackColor = System.Drawing.Color.Silver;
+            this.txtCantidad.Location = new System.Drawing.Point(438, 26);
+            this.txtCantidad.MaxLength = 100;
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Size = new System.Drawing.Size(204, 27);
+            this.txtCantidad.TabIndex = 22;
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(356, 29);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(78, 20);
+            this.label18.TabIndex = 86;
+            this.label18.Text = "Cantidad";
             // 
             // rbSacarProducto
             // 
@@ -165,29 +186,30 @@
             this.btnProcesar.Text = "Procesar";
             this.toolTip1.SetToolTip(this.btnProcesar, "Procesar Data");
             this.btnProcesar.UseVisualStyleBackColor = false;
+            this.btnProcesar.Click += new System.EventHandler(this.btnProcesar_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtClaveSeguridad);
             this.groupBox1.Controls.Add(this.btnProcesar);
-            this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.lbTipoProductoVariable);
+            this.groupBox1.Controls.Add(this.lbPorcientoDescuentoVariable);
             this.groupBox1.Controls.Add(this.label24);
-            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.lbStockMinimoVariable);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.lbStickVariable);
+            this.groupBox1.Controls.Add(this.lbPrecioVentaVariable);
+            this.groupBox1.Controls.Add(this.lbPrecioCompraVariable);
+            this.groupBox1.Controls.Add(this.lbReferenciaVariable);
+            this.groupBox1.Controls.Add(this.lbCodigoBarraVariable);
+            this.groupBox1.Controls.Add(this.lbComentarioVariable);
+            this.groupBox1.Controls.Add(this.lbDescripcionVariable);
+            this.groupBox1.Controls.Add(this.lbSuplidorVariable);
+            this.groupBox1.Controls.Add(this.lbTipoSuplidorvariable);
+            this.groupBox1.Controls.Add(this.lbModeloVariable);
+            this.groupBox1.Controls.Add(this.lbMarcaVariable);
+            this.groupBox1.Controls.Add(this.lbUnidadMedidaVariable);
+            this.groupBox1.Controls.Add(this.lbCategoriaVariable);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.lbComentario);
             this.groupBox1.Controls.Add(this.lbPorcientoDescuento);
@@ -205,60 +227,162 @@
             this.groupBox1.Controls.Add(this.lbUnidadMedida);
             this.groupBox1.Controls.Add(this.lbCategoria);
             this.groupBox1.Controls.Add(this.lbTipoProducto);
-            this.groupBox1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(6, 52);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1363, 387);
+            this.groupBox1.Size = new System.Drawing.Size(1176, 387);
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle del Producto Seleccionado";
             // 
-            // txtCantidad
+            // lbTipoProductoVariable
             // 
-            this.txtCantidad.BackColor = System.Drawing.Color.Silver;
-            this.txtCantidad.Location = new System.Drawing.Point(438, 26);
-            this.txtCantidad.MaxLength = 100;
-            this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(204, 27);
-            this.txtCantidad.TabIndex = 22;
+            this.lbTipoProductoVariable.AutoSize = true;
+            this.lbTipoProductoVariable.Location = new System.Drawing.Point(163, 33);
+            this.lbTipoProductoVariable.Name = "lbTipoProductoVariable";
+            this.lbTipoProductoVariable.Size = new System.Drawing.Size(50, 21);
+            this.lbTipoProductoVariable.TabIndex = 85;
+            this.lbTipoProductoVariable.Text = "Dato";
             // 
-            // label12
+            // lbPorcientoDescuentoVariable
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(969, 403);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(86, 20);
-            this.label12.TabIndex = 11;
-            this.label12.Text = "Cantidad:";
+            this.lbPorcientoDescuentoVariable.AutoSize = true;
+            this.lbPorcientoDescuentoVariable.Location = new System.Drawing.Point(629, 169);
+            this.lbPorcientoDescuentoVariable.Name = "lbPorcientoDescuentoVariable";
+            this.lbPorcientoDescuentoVariable.Size = new System.Drawing.Size(50, 21);
+            this.lbPorcientoDescuentoVariable.TabIndex = 84;
+            this.lbPorcientoDescuentoVariable.Text = "Dato";
             // 
-            // panel1
+            // lbStockMinimoVariable
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.panel1.Controls.Add(this.PCerrar);
-            this.panel1.Controls.Add(this.lbTitulo);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1385, 44);
-            this.panel1.TabIndex = 26;
+            this.lbStockMinimoVariable.AutoSize = true;
+            this.lbStockMinimoVariable.Location = new System.Drawing.Point(629, 147);
+            this.lbStockMinimoVariable.Name = "lbStockMinimoVariable";
+            this.lbStockMinimoVariable.Size = new System.Drawing.Size(50, 21);
+            this.lbStockMinimoVariable.TabIndex = 83;
+            this.lbStockMinimoVariable.Text = "Dato";
             // 
-            // lbTitulo
+            // lbStickVariable
             // 
-            this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitulo.Location = new System.Drawing.Point(19, 10);
-            this.lbTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(59, 21);
-            this.lbTitulo.TabIndex = 18;
-            this.lbTitulo.Text = "label6";
+            this.lbStickVariable.AutoSize = true;
+            this.lbStickVariable.Location = new System.Drawing.Point(629, 124);
+            this.lbStickVariable.Name = "lbStickVariable";
+            this.lbStickVariable.Size = new System.Drawing.Size(50, 21);
+            this.lbStickVariable.TabIndex = 82;
+            this.lbStickVariable.Text = "Dato";
+            // 
+            // lbPrecioVentaVariable
+            // 
+            this.lbPrecioVentaVariable.AutoSize = true;
+            this.lbPrecioVentaVariable.Location = new System.Drawing.Point(629, 104);
+            this.lbPrecioVentaVariable.Name = "lbPrecioVentaVariable";
+            this.lbPrecioVentaVariable.Size = new System.Drawing.Size(50, 21);
+            this.lbPrecioVentaVariable.TabIndex = 81;
+            this.lbPrecioVentaVariable.Text = "Dato";
+            // 
+            // lbPrecioCompraVariable
+            // 
+            this.lbPrecioCompraVariable.AutoSize = true;
+            this.lbPrecioCompraVariable.Location = new System.Drawing.Point(629, 81);
+            this.lbPrecioCompraVariable.Name = "lbPrecioCompraVariable";
+            this.lbPrecioCompraVariable.Size = new System.Drawing.Size(50, 21);
+            this.lbPrecioCompraVariable.TabIndex = 80;
+            this.lbPrecioCompraVariable.Text = "Dato";
+            // 
+            // lbReferenciaVariable
+            // 
+            this.lbReferenciaVariable.AutoSize = true;
+            this.lbReferenciaVariable.Location = new System.Drawing.Point(629, 57);
+            this.lbReferenciaVariable.Name = "lbReferenciaVariable";
+            this.lbReferenciaVariable.Size = new System.Drawing.Size(50, 21);
+            this.lbReferenciaVariable.TabIndex = 79;
+            this.lbReferenciaVariable.Text = "Dato";
+            // 
+            // lbCodigoBarraVariable
+            // 
+            this.lbCodigoBarraVariable.AutoSize = true;
+            this.lbCodigoBarraVariable.Location = new System.Drawing.Point(629, 32);
+            this.lbCodigoBarraVariable.Name = "lbCodigoBarraVariable";
+            this.lbCodigoBarraVariable.Size = new System.Drawing.Size(50, 21);
+            this.lbCodigoBarraVariable.TabIndex = 78;
+            this.lbCodigoBarraVariable.Text = "Dato";
+            // 
+            // lbComentarioVariable
+            // 
+            this.lbComentarioVariable.AutoSize = true;
+            this.lbComentarioVariable.Location = new System.Drawing.Point(164, 211);
+            this.lbComentarioVariable.Name = "lbComentarioVariable";
+            this.lbComentarioVariable.Size = new System.Drawing.Size(50, 21);
+            this.lbComentarioVariable.TabIndex = 77;
+            this.lbComentarioVariable.Text = "Dato";
+            // 
+            // lbDescripcionVariable
+            // 
+            this.lbDescripcionVariable.AutoSize = true;
+            this.lbDescripcionVariable.Location = new System.Drawing.Point(164, 190);
+            this.lbDescripcionVariable.Name = "lbDescripcionVariable";
+            this.lbDescripcionVariable.Size = new System.Drawing.Size(50, 21);
+            this.lbDescripcionVariable.TabIndex = 76;
+            this.lbDescripcionVariable.Text = "Dato";
+            // 
+            // lbSuplidorVariable
+            // 
+            this.lbSuplidorVariable.AutoSize = true;
+            this.lbSuplidorVariable.Location = new System.Drawing.Point(162, 169);
+            this.lbSuplidorVariable.Name = "lbSuplidorVariable";
+            this.lbSuplidorVariable.Size = new System.Drawing.Size(50, 21);
+            this.lbSuplidorVariable.TabIndex = 75;
+            this.lbSuplidorVariable.Text = "Dato";
+            // 
+            // lbTipoSuplidorvariable
+            // 
+            this.lbTipoSuplidorvariable.AutoSize = true;
+            this.lbTipoSuplidorvariable.Location = new System.Drawing.Point(162, 146);
+            this.lbTipoSuplidorvariable.Name = "lbTipoSuplidorvariable";
+            this.lbTipoSuplidorvariable.Size = new System.Drawing.Size(50, 21);
+            this.lbTipoSuplidorvariable.TabIndex = 74;
+            this.lbTipoSuplidorvariable.Text = "Dato";
+            // 
+            // lbModeloVariable
+            // 
+            this.lbModeloVariable.AutoSize = true;
+            this.lbModeloVariable.Location = new System.Drawing.Point(162, 125);
+            this.lbModeloVariable.Name = "lbModeloVariable";
+            this.lbModeloVariable.Size = new System.Drawing.Size(50, 21);
+            this.lbModeloVariable.TabIndex = 73;
+            this.lbModeloVariable.Text = "Dato";
+            // 
+            // lbMarcaVariable
+            // 
+            this.lbMarcaVariable.AutoSize = true;
+            this.lbMarcaVariable.Location = new System.Drawing.Point(162, 104);
+            this.lbMarcaVariable.Name = "lbMarcaVariable";
+            this.lbMarcaVariable.Size = new System.Drawing.Size(50, 21);
+            this.lbMarcaVariable.TabIndex = 72;
+            this.lbMarcaVariable.Text = "Dato";
+            // 
+            // lbUnidadMedidaVariable
+            // 
+            this.lbUnidadMedidaVariable.AutoSize = true;
+            this.lbUnidadMedidaVariable.Location = new System.Drawing.Point(163, 81);
+            this.lbUnidadMedidaVariable.Name = "lbUnidadMedidaVariable";
+            this.lbUnidadMedidaVariable.Size = new System.Drawing.Size(50, 21);
+            this.lbUnidadMedidaVariable.TabIndex = 71;
+            this.lbUnidadMedidaVariable.Text = "Dato";
+            // 
+            // lbCategoriaVariable
+            // 
+            this.lbCategoriaVariable.AutoSize = true;
+            this.lbCategoriaVariable.Location = new System.Drawing.Point(161, 58);
+            this.lbCategoriaVariable.Name = "lbCategoriaVariable";
+            this.lbCategoriaVariable.Size = new System.Drawing.Size(50, 21);
+            this.lbCategoriaVariable.TabIndex = 70;
+            this.lbCategoriaVariable.Text = "Dato";
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.pbFoto);
-            this.groupBox3.Location = new System.Drawing.Point(1078, 26);
+            this.groupBox3.Location = new System.Drawing.Point(887, 32);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(279, 291);
             this.groupBox3.TabIndex = 69;
@@ -279,54 +403,54 @@
             // lbComentario
             // 
             this.lbComentario.AutoSize = true;
-            this.lbComentario.Location = new System.Drawing.Point(59, 216);
+            this.lbComentario.Location = new System.Drawing.Point(61, 212);
             this.lbComentario.Name = "lbComentario";
-            this.lbComentario.Size = new System.Drawing.Size(96, 20);
+            this.lbComentario.Size = new System.Drawing.Size(104, 21);
             this.lbComentario.TabIndex = 67;
             this.lbComentario.Text = "Comentario";
             // 
             // lbPorcientoDescuento
             // 
             this.lbPorcientoDescuento.AutoSize = true;
-            this.lbPorcientoDescuento.Location = new System.Drawing.Point(500, 169);
+            this.lbPorcientoDescuento.Location = new System.Drawing.Point(494, 169);
             this.lbPorcientoDescuento.Name = "lbPorcientoDescuento";
-            this.lbPorcientoDescuento.Size = new System.Drawing.Size(123, 20);
+            this.lbPorcientoDescuento.Size = new System.Drawing.Size(136, 21);
             this.lbPorcientoDescuento.TabIndex = 66;
             this.lbPorcientoDescuento.Text = "% de Descuento";
             // 
             // lbStockMinimo
             // 
             this.lbStockMinimo.AutoSize = true;
-            this.lbStockMinimo.Location = new System.Drawing.Point(513, 147);
+            this.lbStockMinimo.Location = new System.Drawing.Point(517, 147);
             this.lbStockMinimo.Name = "lbStockMinimo";
-            this.lbStockMinimo.Size = new System.Drawing.Size(110, 20);
+            this.lbStockMinimo.Size = new System.Drawing.Size(113, 21);
             this.lbStockMinimo.TabIndex = 65;
             this.lbStockMinimo.Text = "Stock Minimo";
             // 
             // lbStock
             // 
             this.lbStock.AutoSize = true;
-            this.lbStock.Location = new System.Drawing.Point(574, 125);
+            this.lbStock.Location = new System.Drawing.Point(577, 125);
             this.lbStock.Name = "lbStock";
-            this.lbStock.Size = new System.Drawing.Size(49, 20);
+            this.lbStock.Size = new System.Drawing.Size(53, 21);
             this.lbStock.TabIndex = 64;
             this.lbStock.Text = "Stock";
             // 
             // lbPrecioVenta
             // 
             this.lbPrecioVenta.AutoSize = true;
-            this.lbPrecioVenta.Location = new System.Drawing.Point(498, 104);
+            this.lbPrecioVenta.Location = new System.Drawing.Point(495, 104);
             this.lbPrecioVenta.Name = "lbPrecioVenta";
-            this.lbPrecioVenta.Size = new System.Drawing.Size(125, 20);
+            this.lbPrecioVenta.Size = new System.Drawing.Size(135, 21);
             this.lbPrecioVenta.TabIndex = 63;
             this.lbPrecioVenta.Text = "Precio de Venta";
             // 
             // lbPrecioCOmpra
             // 
             this.lbPrecioCOmpra.AutoSize = true;
-            this.lbPrecioCOmpra.Location = new System.Drawing.Point(484, 81);
+            this.lbPrecioCOmpra.Location = new System.Drawing.Point(479, 81);
             this.lbPrecioCOmpra.Name = "lbPrecioCOmpra";
-            this.lbPrecioCOmpra.Size = new System.Drawing.Size(139, 20);
+            this.lbPrecioCOmpra.Size = new System.Drawing.Size(151, 21);
             this.lbPrecioCOmpra.TabIndex = 62;
             this.lbPrecioCOmpra.Text = "Precio de Compra";
             // 
@@ -335,70 +459,70 @@
             this.lbReferencia.AutoSize = true;
             this.lbReferencia.Location = new System.Drawing.Point(535, 57);
             this.lbReferencia.Name = "lbReferencia";
-            this.lbReferencia.Size = new System.Drawing.Size(88, 20);
+            this.lbReferencia.Size = new System.Drawing.Size(94, 21);
             this.lbReferencia.TabIndex = 61;
             this.lbReferencia.Text = "Referencia";
             // 
             // lbCodigoBarra
             // 
             this.lbCodigoBarra.AutoSize = true;
-            this.lbCodigoBarra.Location = new System.Drawing.Point(494, 32);
+            this.lbCodigoBarra.Location = new System.Drawing.Point(493, 32);
             this.lbCodigoBarra.Name = "lbCodigoBarra";
-            this.lbCodigoBarra.Size = new System.Drawing.Size(129, 20);
+            this.lbCodigoBarra.Size = new System.Drawing.Size(138, 21);
             this.lbCodigoBarra.TabIndex = 60;
             this.lbCodigoBarra.Text = "Codigo de Barra";
             // 
             // lbDescripcion
             // 
             this.lbDescripcion.AutoSize = true;
-            this.lbDescripcion.Location = new System.Drawing.Point(61, 192);
+            this.lbDescripcion.Location = new System.Drawing.Point(64, 191);
             this.lbDescripcion.Name = "lbDescripcion";
-            this.lbDescripcion.Size = new System.Drawing.Size(94, 20);
+            this.lbDescripcion.Size = new System.Drawing.Size(100, 21);
             this.lbDescripcion.TabIndex = 59;
             this.lbDescripcion.Text = "Descripción";
             // 
             // lbSuplidor
             // 
             this.lbSuplidor.AutoSize = true;
-            this.lbSuplidor.Location = new System.Drawing.Point(82, 169);
+            this.lbSuplidor.Location = new System.Drawing.Point(91, 169);
             this.lbSuplidor.Name = "lbSuplidor";
-            this.lbSuplidor.Size = new System.Drawing.Size(72, 20);
+            this.lbSuplidor.Size = new System.Drawing.Size(71, 21);
             this.lbSuplidor.TabIndex = 58;
             this.lbSuplidor.Text = "Suplidor";
             // 
             // lbTipoSuplidor
             // 
             this.lbTipoSuplidor.AutoSize = true;
-            this.lbTipoSuplidor.Location = new System.Drawing.Point(24, 146);
+            this.lbTipoSuplidor.Location = new System.Drawing.Point(30, 146);
             this.lbTipoSuplidor.Name = "lbTipoSuplidor";
-            this.lbTipoSuplidor.Size = new System.Drawing.Size(130, 20);
+            this.lbTipoSuplidor.Size = new System.Drawing.Size(132, 21);
             this.lbTipoSuplidor.TabIndex = 57;
             this.lbTipoSuplidor.Text = "Tipo de Suplidor";
             // 
             // lbModelo
             // 
             this.lbModelo.AutoSize = true;
-            this.lbModelo.Location = new System.Drawing.Point(91, 125);
+            this.lbModelo.Location = new System.Drawing.Point(93, 125);
             this.lbModelo.Name = "lbModelo";
-            this.lbModelo.Size = new System.Drawing.Size(62, 20);
+            this.lbModelo.Size = new System.Drawing.Size(69, 21);
             this.lbModelo.TabIndex = 56;
             this.lbModelo.Text = "Modelo";
             // 
             // lbMarca
             // 
             this.lbMarca.AutoSize = true;
-            this.lbMarca.Location = new System.Drawing.Point(97, 103);
+            this.lbMarca.Location = new System.Drawing.Point(101, 104);
             this.lbMarca.Name = "lbMarca";
-            this.lbMarca.Size = new System.Drawing.Size(56, 20);
+            this.lbMarca.Size = new System.Drawing.Size(62, 21);
             this.lbMarca.TabIndex = 55;
             this.lbMarca.Text = "Marca";
             // 
             // lbUnidadMedida
             // 
             this.lbUnidadMedida.AutoSize = true;
-            this.lbUnidadMedida.Location = new System.Drawing.Point(10, 82);
+            this.lbUnidadMedida.Location = new System.Drawing.Point(7, 82);
             this.lbUnidadMedida.Name = "lbUnidadMedida";
-            this.lbUnidadMedida.Size = new System.Drawing.Size(144, 20);
+            this.lbUnidadMedida.Size = new System.Drawing.Size(157, 21);
             this.lbUnidadMedida.TabIndex = 54;
             this.lbUnidadMedida.Text = "Unidad de Medida";
             // 
@@ -407,7 +531,7 @@
             this.lbCategoria.AutoSize = true;
             this.lbCategoria.Location = new System.Drawing.Point(71, 58);
             this.lbCategoria.Name = "lbCategoria";
-            this.lbCategoria.Size = new System.Drawing.Size(82, 20);
+            this.lbCategoria.Size = new System.Drawing.Size(91, 21);
             this.lbCategoria.TabIndex = 53;
             this.lbCategoria.Text = "Categoria";
             // 
@@ -416,175 +540,38 @@
             this.lbTipoProducto.AutoSize = true;
             this.lbTipoProducto.Location = new System.Drawing.Point(21, 33);
             this.lbTipoProducto.Name = "lbTipoProducto";
-            this.lbTipoProducto.Size = new System.Drawing.Size(133, 20);
+            this.lbTipoProducto.Size = new System.Drawing.Size(143, 21);
             this.lbTipoProducto.TabIndex = 52;
             this.lbTipoProducto.Text = "Tipo de Producto";
             // 
-            // label1
+            // label12
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(159, 58);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 20);
-            this.label1.TabIndex = 70;
-            this.label1.Text = "Dato";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(969, 403);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(86, 20);
+            this.label12.TabIndex = 11;
+            this.label12.Text = "Cantidad:";
             // 
-            // label2
+            // panel1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(160, 82);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 20);
-            this.label2.TabIndex = 71;
-            this.label2.Text = "Dato";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(159, 103);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 20);
-            this.label3.TabIndex = 72;
-            this.label3.Text = "Dato";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(159, 125);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 20);
-            this.label4.TabIndex = 73;
-            this.label4.Text = "Dato";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(160, 146);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 20);
-            this.label5.TabIndex = 74;
-            this.label5.Text = "Dato";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(160, 169);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 20);
-            this.label6.TabIndex = 75;
-            this.label6.Text = "Dato";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(161, 192);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 20);
-            this.label7.TabIndex = 76;
-            this.label7.Text = "Dato";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(161, 216);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 20);
-            this.label8.TabIndex = 77;
-            this.label8.Text = "Dato";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(629, 32);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(44, 20);
-            this.label9.TabIndex = 78;
-            this.label9.Text = "Dato";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(629, 57);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 20);
-            this.label10.TabIndex = 79;
-            this.label10.Text = "Dato";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(629, 81);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(44, 20);
-            this.label11.TabIndex = 80;
-            this.label11.Text = "Dato";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(629, 104);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(44, 20);
-            this.label13.TabIndex = 81;
-            this.label13.Text = "Dato";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(629, 124);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(44, 20);
-            this.label14.TabIndex = 82;
-            this.label14.Text = "Dato";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(629, 147);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(44, 20);
-            this.label15.TabIndex = 83;
-            this.label15.Text = "Dato";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(629, 169);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(44, 20);
-            this.label16.TabIndex = 84;
-            this.label16.Text = "Dato";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(161, 33);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(44, 20);
-            this.label17.TabIndex = 85;
-            this.label17.Text = "Dato";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(348, 32);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(78, 20);
-            this.label18.TabIndex = 86;
-            this.label18.Text = "Cantidad";
-            // 
-            // bunifuElipse1
-            // 
-            this.bunifuElipse1.ElipseRadius = 30;
-            this.bunifuElipse1.TargetControl = this;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.PCerrar);
+            this.panel1.Controls.Add(this.lbTitulo);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1193, 44);
+            this.panel1.TabIndex = 26;
             // 
             // PCerrar
             // 
             this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(1339, 10);
+            this.PCerrar.Location = new System.Drawing.Point(1147, 10);
             this.PCerrar.Name = "PCerrar";
             this.PCerrar.Size = new System.Drawing.Size(30, 30);
             this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -592,11 +579,27 @@
             this.PCerrar.TabStop = false;
             this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
             // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitulo.Location = new System.Drawing.Point(19, 10);
+            this.lbTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(59, 21);
+            this.lbTitulo.TabIndex = 18;
+            this.lbTitulo.Text = "label6";
+            // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 30;
+            this.bunifuElipse1.TargetControl = this;
+            // 
             // AgregarQuitarProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1385, 453);
+            this.ClientSize = new System.Drawing.Size(1193, 453);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label12);
@@ -612,10 +615,10 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -636,22 +639,22 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbTitulo;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbTipoProductoVariable;
+        private System.Windows.Forms.Label lbPorcientoDescuentoVariable;
+        private System.Windows.Forms.Label lbStockMinimoVariable;
+        private System.Windows.Forms.Label lbStickVariable;
+        private System.Windows.Forms.Label lbPrecioVentaVariable;
+        private System.Windows.Forms.Label lbPrecioCompraVariable;
+        private System.Windows.Forms.Label lbReferenciaVariable;
+        private System.Windows.Forms.Label lbCodigoBarraVariable;
+        private System.Windows.Forms.Label lbComentarioVariable;
+        private System.Windows.Forms.Label lbDescripcionVariable;
+        private System.Windows.Forms.Label lbSuplidorVariable;
+        private System.Windows.Forms.Label lbTipoSuplidorvariable;
+        private System.Windows.Forms.Label lbModeloVariable;
+        private System.Windows.Forms.Label lbMarcaVariable;
+        private System.Windows.Forms.Label lbUnidadMedidaVariable;
+        private System.Windows.Forms.Label lbCategoriaVariable;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.PictureBox pbFoto;
         private System.Windows.Forms.Label lbComentario;

@@ -33,6 +33,7 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbLlevaImagen = new System.Windows.Forms.CheckBox();
             this.cbacumulativo = new System.Windows.Forms.CheckBox();
             this.btnBuscarFoto = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -89,7 +90,7 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.cbLlevaImagen = new System.Windows.Forms.CheckBox();
+            this.cbProductoAcumulativo = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -137,6 +138,7 @@
             // groupBox1
             // 
             this.groupBox1.AutoSize = true;
+            this.groupBox1.Controls.Add(this.cbProductoAcumulativo);
             this.groupBox1.Controls.Add(this.cbLlevaImagen);
             this.groupBox1.Controls.Add(this.cbacumulativo);
             this.groupBox1.Controls.Add(this.btnBuscarFoto);
@@ -198,6 +200,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Producto";
             this.toolTip1.SetToolTip(this.groupBox1, "Buscar Foto del Articulo");
+            // 
+            // cbLlevaImagen
+            // 
+            this.cbLlevaImagen.AutoSize = true;
+            this.cbLlevaImagen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbLlevaImagen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbLlevaImagen.Location = new System.Drawing.Point(955, 348);
+            this.cbLlevaImagen.Name = "cbLlevaImagen";
+            this.cbLlevaImagen.Size = new System.Drawing.Size(134, 25);
+            this.cbLlevaImagen.TabIndex = 54;
+            this.cbLlevaImagen.Text = "Lleva Imagen";
+            this.toolTip1.SetToolTip(this.cbLlevaImagen, "Producto acumulativo");
+            this.cbLlevaImagen.UseVisualStyleBackColor = true;
+            this.cbLlevaImagen.CheckedChanged += new System.EventHandler(this.cbLlevaImagen_CheckedChanged);
             // 
             // cbacumulativo
             // 
@@ -473,6 +489,7 @@
             this.txtPorcientoDescuento.Name = "txtPorcientoDescuento";
             this.txtPorcientoDescuento.Size = new System.Drawing.Size(250, 27);
             this.txtPorcientoDescuento.TabIndex = 32;
+            this.txtPorcientoDescuento.Text = "0";
             this.txtPorcientoDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioCompra_KeyPress);
             // 
             // txtStockMinimo
@@ -625,7 +642,7 @@
             // lbComentario
             // 
             this.lbComentario.AutoSize = true;
-            this.lbComentario.Location = new System.Drawing.Point(55, 287);
+            this.lbComentario.Location = new System.Drawing.Point(47, 286);
             this.lbComentario.Name = "lbComentario";
             this.lbComentario.Size = new System.Drawing.Size(104, 21);
             this.lbComentario.TabIndex = 16;
@@ -634,52 +651,52 @@
             // lbPorcientoDescuento
             // 
             this.lbPorcientoDescuento.AutoSize = true;
-            this.lbPorcientoDescuento.Location = new System.Drawing.Point(556, 220);
+            this.lbPorcientoDescuento.Location = new System.Drawing.Point(547, 221);
             this.lbPorcientoDescuento.Name = "lbPorcientoDescuento";
-            this.lbPorcientoDescuento.Size = new System.Drawing.Size(136, 21);
+            this.lbPorcientoDescuento.Size = new System.Drawing.Size(146, 21);
             this.lbPorcientoDescuento.TabIndex = 15;
-            this.lbPorcientoDescuento.Text = "% de Descuento";
+            this.lbPorcientoDescuento.Text = "% de Descuento *";
             // 
             // lbStockMinimo
             // 
             this.lbStockMinimo.AutoSize = true;
-            this.lbStockMinimo.Location = new System.Drawing.Point(553, 189);
+            this.lbStockMinimo.Location = new System.Drawing.Point(570, 189);
             this.lbStockMinimo.Name = "lbStockMinimo";
-            this.lbStockMinimo.Size = new System.Drawing.Size(113, 21);
+            this.lbStockMinimo.Size = new System.Drawing.Size(123, 21);
             this.lbStockMinimo.TabIndex = 13;
-            this.lbStockMinimo.Text = "Stock Minimo";
+            this.lbStockMinimo.Text = "Stock Minimo *";
             // 
             // lbStock
             // 
             this.lbStock.AutoSize = true;
-            this.lbStock.Location = new System.Drawing.Point(614, 158);
+            this.lbStock.Location = new System.Drawing.Point(630, 157);
             this.lbStock.Name = "lbStock";
-            this.lbStock.Size = new System.Drawing.Size(53, 21);
+            this.lbStock.Size = new System.Drawing.Size(63, 21);
             this.lbStock.TabIndex = 12;
-            this.lbStock.Text = "Stock";
+            this.lbStock.Text = "Stock *";
             // 
             // lbPrecioVenta
             // 
             this.lbPrecioVenta.AutoSize = true;
-            this.lbPrecioVenta.Location = new System.Drawing.Point(538, 125);
+            this.lbPrecioVenta.Location = new System.Drawing.Point(549, 125);
             this.lbPrecioVenta.Name = "lbPrecioVenta";
-            this.lbPrecioVenta.Size = new System.Drawing.Size(135, 21);
+            this.lbPrecioVenta.Size = new System.Drawing.Size(145, 21);
             this.lbPrecioVenta.TabIndex = 11;
-            this.lbPrecioVenta.Text = "Precio de Venta";
+            this.lbPrecioVenta.Text = "Precio de Venta *";
             // 
             // lbPrecioCOmpra
             // 
             this.lbPrecioCOmpra.AutoSize = true;
-            this.lbPrecioCOmpra.Location = new System.Drawing.Point(524, 94);
+            this.lbPrecioCOmpra.Location = new System.Drawing.Point(533, 93);
             this.lbPrecioCOmpra.Name = "lbPrecioCOmpra";
-            this.lbPrecioCOmpra.Size = new System.Drawing.Size(151, 21);
+            this.lbPrecioCOmpra.Size = new System.Drawing.Size(161, 21);
             this.lbPrecioCOmpra.TabIndex = 10;
-            this.lbPrecioCOmpra.Text = "Precio de Compra";
+            this.lbPrecioCOmpra.Text = "Precio de Compra *";
             // 
             // lbReferencia
             // 
             this.lbReferencia.AutoSize = true;
-            this.lbReferencia.Location = new System.Drawing.Point(575, 61);
+            this.lbReferencia.Location = new System.Drawing.Point(599, 60);
             this.lbReferencia.Name = "lbReferencia";
             this.lbReferencia.Size = new System.Drawing.Size(94, 21);
             this.lbReferencia.TabIndex = 9;
@@ -688,7 +705,7 @@
             // lbCodigoBarra
             // 
             this.lbCodigoBarra.AutoSize = true;
-            this.lbCodigoBarra.Location = new System.Drawing.Point(534, 29);
+            this.lbCodigoBarra.Location = new System.Drawing.Point(555, 29);
             this.lbCodigoBarra.Name = "lbCodigoBarra";
             this.lbCodigoBarra.Size = new System.Drawing.Size(138, 21);
             this.lbCodigoBarra.TabIndex = 8;
@@ -697,74 +714,74 @@
             // lbDescripcion
             // 
             this.lbDescripcion.AutoSize = true;
-            this.lbDescripcion.Location = new System.Drawing.Point(57, 256);
+            this.lbDescripcion.Location = new System.Drawing.Point(41, 256);
             this.lbDescripcion.Name = "lbDescripcion";
-            this.lbDescripcion.Size = new System.Drawing.Size(100, 21);
+            this.lbDescripcion.Size = new System.Drawing.Size(110, 21);
             this.lbDescripcion.TabIndex = 7;
-            this.lbDescripcion.Text = "Descripción";
+            this.lbDescripcion.Text = "Descripción *";
             // 
             // lbSuplidor
             // 
             this.lbSuplidor.AutoSize = true;
-            this.lbSuplidor.Location = new System.Drawing.Point(78, 223);
+            this.lbSuplidor.Location = new System.Drawing.Point(83, 224);
             this.lbSuplidor.Name = "lbSuplidor";
-            this.lbSuplidor.Size = new System.Drawing.Size(71, 21);
+            this.lbSuplidor.Size = new System.Drawing.Size(81, 21);
             this.lbSuplidor.TabIndex = 6;
-            this.lbSuplidor.Text = "Suplidor";
+            this.lbSuplidor.Text = "Suplidor *";
             // 
             // lbTipoSuplidor
             // 
             this.lbTipoSuplidor.AutoSize = true;
-            this.lbTipoSuplidor.Location = new System.Drawing.Point(20, 192);
+            this.lbTipoSuplidor.Location = new System.Drawing.Point(22, 192);
             this.lbTipoSuplidor.Name = "lbTipoSuplidor";
-            this.lbTipoSuplidor.Size = new System.Drawing.Size(132, 21);
+            this.lbTipoSuplidor.Size = new System.Drawing.Size(142, 21);
             this.lbTipoSuplidor.TabIndex = 5;
-            this.lbTipoSuplidor.Text = "Tipo de Suplidor";
+            this.lbTipoSuplidor.Text = "Tipo de Suplidor *";
             // 
             // lbModelo
             // 
             this.lbModelo.AutoSize = true;
             this.lbModelo.Location = new System.Drawing.Point(87, 159);
             this.lbModelo.Name = "lbModelo";
-            this.lbModelo.Size = new System.Drawing.Size(69, 21);
+            this.lbModelo.Size = new System.Drawing.Size(79, 21);
             this.lbModelo.TabIndex = 4;
-            this.lbModelo.Text = "Modelo";
+            this.lbModelo.Text = "Modelo *";
             // 
             // lbMarca
             // 
             this.lbMarca.AutoSize = true;
             this.lbMarca.Location = new System.Drawing.Point(93, 126);
             this.lbMarca.Name = "lbMarca";
-            this.lbMarca.Size = new System.Drawing.Size(62, 21);
+            this.lbMarca.Size = new System.Drawing.Size(72, 21);
             this.lbMarca.TabIndex = 3;
-            this.lbMarca.Text = "Marca";
+            this.lbMarca.Text = "Marca *";
             // 
             // lbUnidadMedida
             // 
             this.lbUnidadMedida.AutoSize = true;
-            this.lbUnidadMedida.Location = new System.Drawing.Point(6, 94);
+            this.lbUnidadMedida.Location = new System.Drawing.Point(-3, 94);
             this.lbUnidadMedida.Name = "lbUnidadMedida";
-            this.lbUnidadMedida.Size = new System.Drawing.Size(157, 21);
+            this.lbUnidadMedida.Size = new System.Drawing.Size(167, 21);
             this.lbUnidadMedida.TabIndex = 2;
-            this.lbUnidadMedida.Text = "Unidad de Medida";
+            this.lbUnidadMedida.Text = "Unidad de Medida *";
             // 
             // lbCategoria
             // 
             this.lbCategoria.AutoSize = true;
-            this.lbCategoria.Location = new System.Drawing.Point(67, 63);
+            this.lbCategoria.Location = new System.Drawing.Point(64, 63);
             this.lbCategoria.Name = "lbCategoria";
-            this.lbCategoria.Size = new System.Drawing.Size(91, 21);
+            this.lbCategoria.Size = new System.Drawing.Size(101, 21);
             this.lbCategoria.TabIndex = 1;
-            this.lbCategoria.Text = "Categoria";
+            this.lbCategoria.Text = "Categoria *";
             // 
             // lbTipoProducto
             // 
             this.lbTipoProducto.AutoSize = true;
-            this.lbTipoProducto.Location = new System.Drawing.Point(17, 30);
+            this.lbTipoProducto.Location = new System.Drawing.Point(12, 30);
             this.lbTipoProducto.Name = "lbTipoProducto";
-            this.lbTipoProducto.Size = new System.Drawing.Size(143, 21);
+            this.lbTipoProducto.Size = new System.Drawing.Size(153, 21);
             this.lbTipoProducto.TabIndex = 0;
-            this.lbTipoProducto.Text = "Tipo de Producto";
+            this.lbTipoProducto.Text = "Tipo de Producto *";
             // 
             // bunifuElipse1
             // 
@@ -786,20 +803,20 @@
             this.btnGuardar.Text = "Accion";
             this.toolTip1.SetToolTip(this.btnGuardar, "Completar Operación");
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // cbLlevaImagen
+            // cbProductoAcumulativo
             // 
-            this.cbLlevaImagen.AutoSize = true;
-            this.cbLlevaImagen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbLlevaImagen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbLlevaImagen.Location = new System.Drawing.Point(955, 348);
-            this.cbLlevaImagen.Name = "cbLlevaImagen";
-            this.cbLlevaImagen.Size = new System.Drawing.Size(134, 25);
-            this.cbLlevaImagen.TabIndex = 54;
-            this.cbLlevaImagen.Text = "Lleva Imagen";
-            this.toolTip1.SetToolTip(this.cbLlevaImagen, "Producto acumulativo");
-            this.cbLlevaImagen.UseVisualStyleBackColor = true;
-            this.cbLlevaImagen.CheckedChanged += new System.EventHandler(this.cbLlevaImagen_CheckedChanged);
+            this.cbProductoAcumulativo.AutoSize = true;
+            this.cbProductoAcumulativo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbProductoAcumulativo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbProductoAcumulativo.Location = new System.Drawing.Point(154, 340);
+            this.cbProductoAcumulativo.Name = "cbProductoAcumulativo";
+            this.cbProductoAcumulativo.Size = new System.Drawing.Size(205, 25);
+            this.cbProductoAcumulativo.TabIndex = 55;
+            this.cbProductoAcumulativo.Text = "Producto Acumulativo";
+            this.toolTip1.SetToolTip(this.cbProductoAcumulativo, "Programar producto para aceptar ofertas");
+            this.cbProductoAcumulativo.UseVisualStyleBackColor = true;
             // 
             // MantenimientoProducto
             // 
@@ -892,5 +909,6 @@
         private System.Windows.Forms.Button btnBuscarFoto;
         private System.Windows.Forms.CheckBox cbacumulativo;
         private System.Windows.Forms.CheckBox cbLlevaImagen;
+        private System.Windows.Forms.CheckBox cbProductoAcumulativo;
     }
 }

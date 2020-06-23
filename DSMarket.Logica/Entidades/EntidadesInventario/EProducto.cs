@@ -87,10 +87,13 @@ namespace DSMarket.Logica.Entidades.EntidadesInventario
         public System.Nullable<System.DateTime> Fecha {get;set;}
 
         public System.Nullable<int> CantidadRegistros {get;set;}
-        public System.Nullable<int> ProductosConOferta { get; set; }
 
-        public System.Nullable<int> ProductoProximoAgotarse { get; set; }
+        public System.Nullable<int> ProductosConOferta {get;set;}
 
-        public System.Nullable<int> ProductosAgostados { get; set; }
+        public System.Nullable<int> ProductoProximoAgotarse {get;set;}
+
+        public System.Nullable<int> ProductosAgostados {get;set;}
+
+        public string Comentario {get;set;}
     }
 }

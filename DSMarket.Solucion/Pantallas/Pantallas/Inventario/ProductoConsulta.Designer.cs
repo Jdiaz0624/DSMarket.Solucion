@@ -92,6 +92,7 @@
             this.lbCantidadProductosConOferta = new System.Windows.Forms.Label();
             this.lbCantidadPoductosAgotarse = new System.Windows.Forms.Label();
             this.lbProductosAgotados = new System.Windows.Forms.Label();
+            this.btnRestablecer = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel2.SuspendLayout();
@@ -177,6 +178,7 @@
             // btnOferta
             // 
             this.btnOferta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOferta.Enabled = false;
             this.btnOferta.FlatAppearance.BorderSize = 0;
             this.btnOferta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnOferta.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -194,6 +196,7 @@
             // btnSuplir
             // 
             this.btnSuplir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSuplir.Enabled = false;
             this.btnSuplir.FlatAppearance.BorderSize = 0;
             this.btnSuplir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSuplir.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -211,6 +214,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.Enabled = false;
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -228,6 +232,7 @@
             // btnEditar
             // 
             this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditar.Enabled = false;
             this.btnEditar.FlatAppearance.BorderSize = 0;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -278,6 +283,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnRestablecer);
             this.groupBox1.Controls.Add(this.txtFechaHasta);
             this.groupBox1.Controls.Add(this.lbFechaHasta);
             this.groupBox1.Controls.Add(this.txtFechaDesde);
@@ -350,9 +356,9 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.pbFoto);
-            this.groupBox3.Location = new System.Drawing.Point(945, 60);
+            this.groupBox3.Location = new System.Drawing.Point(889, 55);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 160);
+            this.groupBox3.Size = new System.Drawing.Size(274, 191);
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Foto de Producto";
@@ -363,7 +369,7 @@
             this.pbFoto.Image = global::DSMarket.Solucion.Properties.Resources.SinImagen;
             this.pbFoto.Location = new System.Drawing.Point(3, 23);
             this.pbFoto.Name = "pbFoto";
-            this.pbFoto.Size = new System.Drawing.Size(194, 134);
+            this.pbFoto.Size = new System.Drawing.Size(268, 165);
             this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbFoto.TabIndex = 0;
             this.pbFoto.TabStop = false;
@@ -705,6 +711,7 @@
             this.dtListado.RowTemplate.Height = 24;
             this.dtListado.Size = new System.Drawing.Size(1220, 243);
             this.dtListado.TabIndex = 2;
+            this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
             // Select
             // 
@@ -853,6 +860,22 @@
             this.lbProductosAgotados.TabIndex = 66;
             this.lbProductosAgotados.Text = "0";
             // 
+            // btnRestablecer
+            // 
+            this.btnRestablecer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestablecer.FlatAppearance.BorderSize = 0;
+            this.btnRestablecer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRestablecer.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestablecer.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
+            this.btnRestablecer.Location = new System.Drawing.Point(1174, 15);
+            this.btnRestablecer.Name = "btnRestablecer";
+            this.btnRestablecer.Size = new System.Drawing.Size(47, 41);
+            this.btnRestablecer.TabIndex = 71;
+            this.btnRestablecer.Text = "      Reporte";
+            this.toolTip1.SetToolTip(this.btnRestablecer, "Agregar ofertas a productos");
+            this.btnRestablecer.UseVisualStyleBackColor = true;
+            this.btnRestablecer.Click += new System.EventHandler(this.btnRestablecer_Click);
+            // 
             // ProductoConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -971,5 +994,6 @@
         private System.Windows.Forms.Button btnVerProductosPoximoAgotar;
         private System.Windows.Forms.DataGridView dtListado;
         private System.Windows.Forms.DataGridViewButtonColumn Select;
+        private System.Windows.Forms.Button btnRestablecer;
     }
 }

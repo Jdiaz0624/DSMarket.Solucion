@@ -487,7 +487,8 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                               CantidadRegistros=n.CantidadRegistros,
                               ProductosConOferta=n.ProductosConOferta,
                               ProductoProximoAgotarse=n.ProductoProximoAgotarse,
-                              ProductosAgostados=n.ProductosAgostados
+                              ProductosAgostados=n.ProductosAgostados,
+                              Comentario=n.Comentario,
                           }).ToList();
             return Buscar;
         }
@@ -522,6 +523,7 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                 , Item.ProductoAcumulativo0
                 , Item.LlevaImagen0
                 , Item.UsuarioAdicion
+                , Item.Comentario
                 , Accion);
             if (Producto != null)
             {
@@ -529,30 +531,31 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                                  select new DSMarket.Logica.Entidades.EntidadesInventario.EProducto
                                  {
                                       IdProducto=n.IdProducto,
-                              NumeroConector=n.NumeroConector,
-                              IdTipoProducto=n.IdTipoProducto,
-                              Producto=n.Descripcion,
-                              IdCategoria=n.IdCategoria,
-                              IdUnidadMedida=n.IdUnidadMedida,
-                              IdMarca=n.IdMarca,
-                              IdModelo=n.IdModelo,
-                              IdTipoSuplidor=n.IdTipoSuplidor,
-                              IdSuplidor=n.IdSuplidor,
-                              CodigoBarra=n.CodigoBarra,
-                              Referencia=n.Referencia,
-                              PrecioCompra=n.PrecioCompra,
-                              PrecioVenta=n.PrecioVenta,
-                              Stock=n.Stock,
-                              StockMinimo=n.StockMinimo,
-                              PorcientoDescuento=n.PorcientoDescuento,
-                              AfectaOferta0=n.AfectaOferta,
-                              ProductoAcumulativo0=n.ProductoAcumulativo,
-                              LlevaImagen0=n.LlevaImagen,
-                              UsuarioAdicion=n.UsuarioAdicion,
-                              FechaAdiciona=n.FechaAdiciona,
-                              UsuarioModifica=n.UsuarioModifica,
-                              FechaModifica=n.FechaModifica,
-                              Fecha=n.Fecha
+                                      NumeroConector=n.NumeroConector,
+                                      IdTipoProducto=n.IdTipoProducto,
+                                      Producto=n.Descripcion,
+                                      IdCategoria=n.IdCategoria,
+                                      IdUnidadMedida=n.IdUnidadMedida,
+                                      IdMarca=n.IdMarca,
+                                      IdModelo=n.IdModelo,
+                                      IdTipoSuplidor=n.IdTipoSuplidor,
+                                      IdSuplidor=n.IdSuplidor,
+                                      CodigoBarra=n.CodigoBarra,
+                                      Referencia=n.Referencia,
+                                      PrecioCompra=n.PrecioCompra,
+                                      PrecioVenta=n.PrecioVenta,
+                                      Stock=n.Stock,
+                                      StockMinimo=n.StockMinimo,
+                                      PorcientoDescuento=n.PorcientoDescuento,
+                                      AfectaOferta0=n.AfectaOferta,
+                                      ProductoAcumulativo0=n.ProductoAcumulativo,
+                                      LlevaImagen0=n.LlevaImagen,
+                                      UsuarioAdicion=n.UsuarioAdicion,
+                                      FechaAdiciona=n.FechaAdiciona,
+                                      UsuarioModifica=n.UsuarioModifica,
+                                      FechaModifica=n.FechaModifica,
+                                      Fecha=n.Fecha,
+                                      Comentario=n.Comentario
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
