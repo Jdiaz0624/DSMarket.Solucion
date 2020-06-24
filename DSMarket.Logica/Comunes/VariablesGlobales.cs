@@ -11,6 +11,7 @@ namespace DSMarket.Logica.Comunes
         public string NombreSistema { get; set; }
         public bool ConvertirCotizacionFactura = false;
         public bool ModoRecarga { get; set; }
+        public bool LlevaDescuentoPregunta { get; set; }
         public string Accion { get; set; }
         public decimal IdMantenimeinto { get; set; }
         public decimal Conector { get; set; }

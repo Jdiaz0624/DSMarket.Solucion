@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.IO;
 
 namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 {
@@ -699,6 +701,33 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.dtListado.Columns["ProductosAgostados"].Visible = false;
         }
         #endregion
+        #region MOSTRAR LA IMAGEN POR DEFECTO
+        private void MostrarImagenPorDefecto(PictureBox Imagen) {
+            SqlCommand comando = new SqlCommand("select LogoEmpresa from Configuracion.ImagenesSistema where IdLogoEmpresa = 2", DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion());
+            SqlDataAdapter adaptar = new SqlDataAdapter(comando);
+            DataSet ds = new DataSet("LogoEmpresa");
+            adaptar.Fill(ds, "LogoEmpresa");
+            byte[] DATOS = new byte[0];
+            DataRow dr = ds.Tables["LogoEmpresa"].Rows[0];
+            DATOS = (byte[])dr["LogoEmpresa"];
+            MemoryStream ms = new MemoryStream(DATOS);
+            Imagen.Image = System.Drawing.Bitmap.FromStream(ms);
+        }
+        #endregion
+        #region MOSTRAR LA IMAGEN DEL PRODUCTO SELECCIONADO
+        private void MostrarImagenSeleccionado(PictureBox Imaen)
+        {
+            SqlCommand comando = new SqlCommand("select FotoProducto from Inventario.FotoProducto where IdProducto = " + variablesGlobales.IdMantenimeinto + " and NumeroConector = " + variablesGlobales.NumeroConector, DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion());
+            SqlDataAdapter adaptar = new SqlDataAdapter(comando);
+            DataSet ds = new DataSet("FotoProducto");
+            adaptar.Fill(ds, "FotoProducto");
+            byte[] DATOS = new byte[0];
+            DataRow dr = ds.Tables["FotoProducto"].Rows[0];
+            DATOS = (byte[])dr["FotoProducto"];
+            MemoryStream ms = new MemoryStream(DATOS);
+            Imaen.Image = System.Drawing.Bitmap.FromStream(ms);
+        }
+        #endregion
 
         private void PCerrar_Click(object sender, EventArgs e)
         {
@@ -718,6 +747,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         private void ProductoConsulta_Load(object sender, EventArgs e)
         {
             variablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+            MostrarImagenPorDefecto(pbFoto);
             CargarTipoPdoducto();
             CargarCategorias();
             UnidadMedida();
@@ -948,6 +978,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             {
                 this.variablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdProducto"].Value.ToString());
                 this.variablesGlobales.NumeroConector = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["NumeroConector"].Value.ToString());
+                this.variablesGlobales.LlevaDescuentoPregunta = Convert.ToBoolean(this.dtListado.CurrentRow.Cells["LlevaImagen0"].Value.ToString());
 
                 var SeleccionarRegistro = ObjDataInventario.Value.BuscaProductos(variablesGlobales.IdMantenimeinto, variablesGlobales.NumeroConector, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
                 dtListado.DataSource = SeleccionarRegistro;
@@ -959,6 +990,12 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 btnEliminar.Enabled = true;
                 btnSuplir.Enabled = true;
                 btnOferta.Enabled = true;
+
+                if (variablesGlobales.LlevaDescuentoPregunta == true)
+                {
+                    MostrarImagenSeleccionado(pbFoto);
+                }
+                
             }
         }
 
@@ -988,6 +1025,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             cbAgregarFiltroPreciso.Checked = false;
             rbAmbos.Checked = true;
             MostrarListadoProducto();
+            MostrarImagenPorDefecto(pbFoto);
         }
     }
 }

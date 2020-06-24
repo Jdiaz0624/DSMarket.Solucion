@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.IO;
 
 namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 {
@@ -97,6 +99,20 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             Consulta.ShowDialog();
         }
         #endregion
+        #region MOSTRAR LA IMAGEN DEL PRODUCTO SELECCIONADO
+        private void MostrarImagenSeleccionado(PictureBox Imaen)
+        {
+            SqlCommand comando = new SqlCommand("select FotoProducto from Inventario.FotoProducto where IdProducto = " + VariablesGlobales.IdMantenimeinto + " and NumeroConector = " + VariablesGlobales.NumeroConector, DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion());
+            SqlDataAdapter adaptar = new SqlDataAdapter(comando);
+            DataSet ds = new DataSet("FotoProducto");
+            adaptar.Fill(ds, "FotoProducto");
+            byte[] DATOS = new byte[0];
+            DataRow dr = ds.Tables["FotoProducto"].Rows[0];
+            DATOS = (byte[])dr["FotoProducto"];
+            MemoryStream ms = new MemoryStream(DATOS);
+            Imaen.Image = System.Drawing.Bitmap.FromStream(ms);
+        }
+        #endregion
         private void PCerrar_Click(object sender, EventArgs e)
         {
             CerrarPantalla();
@@ -112,6 +128,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             SacardatosProducto(VariablesGlobales.IdMantenimeinto, VariablesGlobales.NumeroConector);
             VariablesGlobales.Accion = "ADDPRODUCT";
             rbIngresarProducto.Checked = true;
+            MostrarImagenSeleccionado(pbFoto);
         }
 
         private void rbIngresarProducto_CheckedChanged(object sender, EventArgs e)

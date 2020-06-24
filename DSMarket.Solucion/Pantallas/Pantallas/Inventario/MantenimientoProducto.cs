@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 {
@@ -192,7 +193,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             txtReferencia.Text = string.Empty;
             txtStock.Text = string.Empty;
             txtStockMinimo.Text = string.Empty;
-            
+            GenerarConector();
+            MostrarImagenPorDefecto(pbFoto);
         }
         #endregion
         #region SACAR LOS DATOS DEL PRODUCTO
@@ -231,6 +233,87 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             }
         }
         #endregion
+        #region MOSTRAR LA IMAGEN POR DEFECTO
+        private void MostrarImagenPorDefecto(PictureBox Imagen)
+        {
+            SqlCommand comando = new SqlCommand("select LogoEmpresa from Configuracion.ImagenesSistema where IdLogoEmpresa = 2", DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion());
+            SqlDataAdapter adaptar = new SqlDataAdapter(comando);
+            DataSet ds = new DataSet("LogoEmpresa");
+            adaptar.Fill(ds, "LogoEmpresa");
+            byte[] DATOS = new byte[0];
+            DataRow dr = ds.Tables["LogoEmpresa"].Rows[0];
+            DATOS = (byte[])dr["LogoEmpresa"];
+            MemoryStream ms = new MemoryStream(DATOS);
+            Imagen.Image = System.Drawing.Bitmap.FromStream(ms);
+        }
+        #endregion
+        #region GUARDAR FOTO DE PRODUCTO
+        private void GuardarFotoProducto() {
+            SqlCommand comando = new SqlCommand();
+            comando.CommandText = "EXEC Inventario.SP_GUARDAR_FOTO_PRODUCTO @IdProducto,@NumeroConector,@FotoProducto";
+            comando.Connection = DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion();
+
+            comando.Parameters.Add("@IdProducto", SqlDbType.Decimal);
+            comando.Parameters.Add("@NumeroConector", SqlDbType.Decimal);
+            comando.Parameters.Add("@FotoProducto", SqlDbType.Image);
+
+            comando.Parameters["@IdProducto"].Value = Convert.ToDecimal(VariablesGlobales.IdMantenimeinto);
+            comando.Parameters["@NumeroConector"].Value = Convert.ToDecimal(VariablesGlobales.NumeroConector);
+
+            MemoryStream ms = new MemoryStream();
+            pbFoto.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            comando.Parameters["@FotoProducto"].Value = ms.GetBuffer();
+
+            DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion();
+            comando.ExecuteNonQuery();
+            DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion().Close();
+        }
+        #endregion
+        #region SACAR EL ID DEL DEL PRODUCTO CREADO
+        private void SacarIdProductoCreado(decimal NumeroConector)
+        {
+            var SacarId = ObjDataInventario.Value.BuscaProductos(
+                new Nullable<decimal>(),
+                NumeroConector,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null, 1, 1);
+            foreach (var n in SacarId)
+            {
+                VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(n.IdProducto);
+            }
+        }
+        #endregion
+        #region GENERAR NUMERO DE CONECTOR
+        private void GenerarConector() {
+            Random Aleatorio = new Random();
+            decimal Numero = Aleatorio.Next(0, 999999999);
+            VariablesGlobales.NumeroConector = Numero;
+        }
+        #endregion
+
+        #region MOSTRAR LA IMAGEN DEL PRODUCTO SELECCIONADO
+        private void MostrarImagenSeleccionado(PictureBox Imaen)
+        {
+            SqlCommand comando = new SqlCommand("select FotoProducto from Inventario.FotoProducto where IdProducto = " + VariablesGlobales.IdMantenimeinto + " and NumeroConector = " + VariablesGlobales.NumeroConector, DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion());
+            SqlDataAdapter adaptar = new SqlDataAdapter(comando);
+            DataSet ds = new DataSet("FotoProducto");
+            adaptar.Fill(ds, "FotoProducto");
+            byte[] DATOS = new byte[0];
+            DataRow dr = ds.Tables["FotoProducto"].Rows[0];
+            DATOS = (byte[])dr["FotoProducto"];
+            MemoryStream ms = new MemoryStream(DATOS);
+            Imaen.Image = System.Drawing.Bitmap.FromStream(ms);
+        }
+        #endregion
         private void PCerrar_Click(object sender, EventArgs e)
         {
             CerrarPantalla();
@@ -239,6 +322,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         private void MantenimientoProducto_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+            MostrarImagenPorDefecto(pbFoto);
             AplicarTema();
             CargarTipoProducto();
             CargarCategorias();
@@ -256,9 +340,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 lbCLaveSeguridad.Visible = false;
                 txtClaveSeguridad.Visible = false;
 
-                Random Aleatorio = new Random();
-                decimal Numero = Aleatorio.Next(0, 999999999);
-                VariablesGlobales.NumeroConector = Numero;
+                GenerarConector();
             }
             else if (VariablesGlobales.Accion == "UPDATE")
             {
@@ -270,6 +352,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 txtStock.Enabled = false;
 
                 SacardatosProducto(VariablesGlobales.IdMantenimeinto, VariablesGlobales.NumeroConector);
+                if (cbLlevaImagen.Checked == true)
+                {
+                    MostrarImagenSeleccionado(pbFoto);
+                }
             }
             else if(VariablesGlobales.Accion=="DELETE")
             {
@@ -314,6 +400,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 btnBuscarFoto.Enabled = false;
 
                 SacardatosProducto(VariablesGlobales.IdMantenimeinto, VariablesGlobales.NumeroConector);
+                if (cbLlevaImagen.Checked == true)
+                {
+                    MostrarImagenSeleccionado(pbFoto);
+                }
             }
 
             
@@ -417,6 +507,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 if (VariablesGlobales.Accion == "INSERT")
                 {
                     MANProductos();
+                    if (cbLlevaImagen.Checked == true)
+                    {
+                        SacarIdProductoCreado(VariablesGlobales.NumeroConector);
+                        GuardarFotoProducto();
+                    }
                     MessageBox.Show("Registro guardado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (MessageBox.Show("¿Quieres guardar otro registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {

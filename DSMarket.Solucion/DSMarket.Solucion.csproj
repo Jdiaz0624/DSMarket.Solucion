@@ -259,6 +259,12 @@
     <Compile Include="Pantallas\Pantallas\Inventario\UnidadMedidaConsulta.Designer.cs">
       <DependentUpon>UnidadMedidaConsulta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\PRUEBAS\PRUEBAS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\PRUEBAS\PRUEBAS.Designer.cs">
+      <DependentUpon>PRUEBAS.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Seguridad\CambiaClaveUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -492,6 +498,9 @@
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\UnidadMedidaConsulta.resx">
       <DependentUpon>UnidadMedidaConsulta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\PRUEBAS\PRUEBAS.resx">
+      <DependentUpon>PRUEBAS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Seguridad\ClaveSeguridad.resx">
       <DependentUpon>ClaveSeguridad.cs</DependentUpon>
     </EmbeddedResource>
@@ -693,6 +702,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\tulogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q.JPG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

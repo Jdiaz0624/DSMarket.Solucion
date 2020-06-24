@@ -44,6 +44,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnRestablecer = new System.Windows.Forms.Button();
             this.txtFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.lbFechaHasta = new System.Windows.Forms.Label();
             this.txtFechaDesde = new System.Windows.Forms.DateTimePicker();
@@ -92,7 +93,6 @@
             this.lbCantidadProductosConOferta = new System.Windows.Forms.Label();
             this.lbCantidadPoductosAgotarse = new System.Windows.Forms.Label();
             this.lbProductosAgotados = new System.Windows.Forms.Label();
-            this.btnRestablecer = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel2.SuspendLayout();
@@ -319,6 +319,22 @@
             this.groupBox1.Text = "Datos de producto";
             this.toolTip1.SetToolTip(this.groupBox1, "Filtrar de manera precisa");
             // 
+            // btnRestablecer
+            // 
+            this.btnRestablecer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestablecer.FlatAppearance.BorderSize = 0;
+            this.btnRestablecer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRestablecer.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestablecer.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
+            this.btnRestablecer.Location = new System.Drawing.Point(1174, 15);
+            this.btnRestablecer.Name = "btnRestablecer";
+            this.btnRestablecer.Size = new System.Drawing.Size(47, 41);
+            this.btnRestablecer.TabIndex = 71;
+            this.btnRestablecer.Text = "      Reporte";
+            this.toolTip1.SetToolTip(this.btnRestablecer, "Agregar ofertas a productos");
+            this.btnRestablecer.UseVisualStyleBackColor = true;
+            this.btnRestablecer.Click += new System.EventHandler(this.btnRestablecer_Click);
+            // 
             // txtFechaHasta
             // 
             this.txtFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -365,8 +381,7 @@
             // 
             // pbFoto
             // 
-            this.pbFoto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbFoto.Image = global::DSMarket.Solucion.Properties.Resources.SinImagen;
+            this.pbFoto.Image = global::DSMarket.Solucion.Properties.Resources.q;
             this.pbFoto.Location = new System.Drawing.Point(3, 23);
             this.pbFoto.Name = "pbFoto";
             this.pbFoto.Size = new System.Drawing.Size(268, 165);
@@ -859,22 +874,6 @@
             this.lbProductosAgotados.Size = new System.Drawing.Size(18, 20);
             this.lbProductosAgotados.TabIndex = 66;
             this.lbProductosAgotados.Text = "0";
-            // 
-            // btnRestablecer
-            // 
-            this.btnRestablecer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestablecer.FlatAppearance.BorderSize = 0;
-            this.btnRestablecer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRestablecer.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRestablecer.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
-            this.btnRestablecer.Location = new System.Drawing.Point(1174, 15);
-            this.btnRestablecer.Name = "btnRestablecer";
-            this.btnRestablecer.Size = new System.Drawing.Size(47, 41);
-            this.btnRestablecer.TabIndex = 71;
-            this.btnRestablecer.Text = "      Reporte";
-            this.toolTip1.SetToolTip(this.btnRestablecer, "Agregar ofertas a productos");
-            this.btnRestablecer.UseVisualStyleBackColor = true;
-            this.btnRestablecer.Click += new System.EventHandler(this.btnRestablecer_Click);
             // 
             // ProductoConsulta
             // 

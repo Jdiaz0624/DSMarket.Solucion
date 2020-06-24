@@ -33,6 +33,7 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbProductoAcumulativo = new System.Windows.Forms.CheckBox();
             this.cbLlevaImagen = new System.Windows.Forms.CheckBox();
             this.cbacumulativo = new System.Windows.Forms.CheckBox();
             this.btnBuscarFoto = new System.Windows.Forms.Button();
@@ -90,7 +91,6 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.cbProductoAcumulativo = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -200,6 +200,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Producto";
             this.toolTip1.SetToolTip(this.groupBox1, "Buscar Foto del Articulo");
+            // 
+            // cbProductoAcumulativo
+            // 
+            this.cbProductoAcumulativo.AutoSize = true;
+            this.cbProductoAcumulativo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbProductoAcumulativo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbProductoAcumulativo.Location = new System.Drawing.Point(154, 340);
+            this.cbProductoAcumulativo.Name = "cbProductoAcumulativo";
+            this.cbProductoAcumulativo.Size = new System.Drawing.Size(205, 25);
+            this.cbProductoAcumulativo.TabIndex = 55;
+            this.cbProductoAcumulativo.Text = "Producto Acumulativo";
+            this.toolTip1.SetToolTip(this.cbProductoAcumulativo, "Programar producto para aceptar ofertas");
+            this.cbProductoAcumulativo.UseVisualStyleBackColor = true;
             // 
             // cbLlevaImagen
             // 
@@ -796,7 +809,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::DSMarket.Solucion.Properties.Resources.Guardar;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(454, 442);
+            this.btnGuardar.Location = new System.Drawing.Point(448, 450);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(406, 41);
             this.btnGuardar.TabIndex = 7;
@@ -804,19 +817,6 @@
             this.toolTip1.SetToolTip(this.btnGuardar, "Completar Operación");
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // cbProductoAcumulativo
-            // 
-            this.cbProductoAcumulativo.AutoSize = true;
-            this.cbProductoAcumulativo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbProductoAcumulativo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbProductoAcumulativo.Location = new System.Drawing.Point(154, 340);
-            this.cbProductoAcumulativo.Name = "cbProductoAcumulativo";
-            this.cbProductoAcumulativo.Size = new System.Drawing.Size(205, 25);
-            this.cbProductoAcumulativo.TabIndex = 55;
-            this.cbProductoAcumulativo.Text = "Producto Acumulativo";
-            this.toolTip1.SetToolTip(this.cbProductoAcumulativo, "Programar producto para aceptar ofertas");
-            this.cbProductoAcumulativo.UseVisualStyleBackColor = true;
             // 
             // MantenimientoProducto
             // 
