@@ -33,7 +33,6 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbProductoAcumulativo = new System.Windows.Forms.CheckBox();
             this.cbLlevaImagen = new System.Windows.Forms.CheckBox();
             this.cbacumulativo = new System.Windows.Forms.CheckBox();
             this.btnBuscarFoto = new System.Windows.Forms.Button();
@@ -138,7 +137,6 @@
             // groupBox1
             // 
             this.groupBox1.AutoSize = true;
-            this.groupBox1.Controls.Add(this.cbProductoAcumulativo);
             this.groupBox1.Controls.Add(this.cbLlevaImagen);
             this.groupBox1.Controls.Add(this.cbacumulativo);
             this.groupBox1.Controls.Add(this.btnBuscarFoto);
@@ -200,19 +198,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Producto";
             this.toolTip1.SetToolTip(this.groupBox1, "Buscar Foto del Articulo");
-            // 
-            // cbProductoAcumulativo
-            // 
-            this.cbProductoAcumulativo.AutoSize = true;
-            this.cbProductoAcumulativo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbProductoAcumulativo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbProductoAcumulativo.Location = new System.Drawing.Point(154, 340);
-            this.cbProductoAcumulativo.Name = "cbProductoAcumulativo";
-            this.cbProductoAcumulativo.Size = new System.Drawing.Size(205, 25);
-            this.cbProductoAcumulativo.TabIndex = 55;
-            this.cbProductoAcumulativo.Text = "Producto Acumulativo";
-            this.toolTip1.SetToolTip(this.cbProductoAcumulativo, "Programar producto para aceptar ofertas");
-            this.cbProductoAcumulativo.UseVisualStyleBackColor = true;
             // 
             // cbLlevaImagen
             // 
@@ -517,10 +502,12 @@
             // txtStock
             // 
             this.txtStock.BackColor = System.Drawing.Color.Silver;
+            this.txtStock.Enabled = false;
             this.txtStock.Location = new System.Drawing.Point(696, 154);
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(250, 27);
             this.txtStock.TabIndex = 30;
+            this.txtStock.Text = "1";
             this.txtStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioCompra_KeyPress);
             // 
             // txtPrecioVenta
@@ -909,6 +896,5 @@
         private System.Windows.Forms.Button btnBuscarFoto;
         private System.Windows.Forms.CheckBox cbacumulativo;
         private System.Windows.Forms.CheckBox cbLlevaImagen;
-        private System.Windows.Forms.CheckBox cbProductoAcumulativo;
     }
 }

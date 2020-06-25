@@ -154,7 +154,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 Mantenimiento.StockMinimo = Convert.ToDecimal(txtStockMinimo.Text);
                 Mantenimiento.PorcientoDescuento = Convert.ToDecimal(txtPorcientoDescuento.Text);
                 Mantenimiento.AfectaOferta0 = cbAceptaOferta.Checked;
-                Mantenimiento.ProductoAcumulativo0 = cbProductoAcumulativo.Checked;
+              //  Mantenimiento.ProductoAcumulativo0 = cbProductoAcumulativo.Checked;
                 Mantenimiento.LlevaImagen0 = cbLlevaImagen.Checked;
                 Mantenimiento.UsuarioAdicion = VariablesGlobales.IdUsuario;
                 Mantenimiento.FechaAdiciona = DateTime.Now;
