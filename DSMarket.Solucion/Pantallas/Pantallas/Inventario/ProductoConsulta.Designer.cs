@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
@@ -162,12 +162,13 @@
             // btnReporte
             // 
             this.btnReporte.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReporte.Enabled = false;
             this.btnReporte.FlatAppearance.BorderSize = 0;
             this.btnReporte.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnReporte.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReporte.Image = global::DSMarket.Solucion.Properties.Resources.Reporte;
             this.btnReporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReporte.Location = new System.Drawing.Point(1059, 7);
+            this.btnReporte.Location = new System.Drawing.Point(883, 7);
             this.btnReporte.Name = "btnReporte";
             this.btnReporte.Size = new System.Drawing.Size(170, 41);
             this.btnReporte.TabIndex = 70;
@@ -184,13 +185,14 @@
             this.btnOferta.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOferta.Image = global::DSMarket.Solucion.Properties.Resources.Eliminar;
             this.btnOferta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOferta.Location = new System.Drawing.Point(883, 7);
+            this.btnOferta.Location = new System.Drawing.Point(1060, 7);
             this.btnOferta.Name = "btnOferta";
             this.btnOferta.Size = new System.Drawing.Size(170, 41);
             this.btnOferta.TabIndex = 69;
             this.btnOferta.Text = "      Ofertas";
             this.toolTip1.SetToolTip(this.btnOferta, "Agregar ofertas a productos");
             this.btnOferta.UseVisualStyleBackColor = true;
+            this.btnOferta.Visible = false;
             this.btnOferta.Click += new System.EventHandler(this.btnOferta_Click);
             // 
             // btnSuplir
@@ -374,17 +376,18 @@
             this.groupBox3.Controls.Add(this.pbFoto);
             this.groupBox3.Location = new System.Drawing.Point(889, 55);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(274, 191);
+            this.groupBox3.Size = new System.Drawing.Size(332, 191);
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Foto de Producto";
             // 
             // pbFoto
             // 
+            this.pbFoto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbFoto.Image = global::DSMarket.Solucion.Properties.Resources.q;
             this.pbFoto.Location = new System.Drawing.Point(3, 23);
             this.pbFoto.Name = "pbFoto";
-            this.pbFoto.Size = new System.Drawing.Size(268, 165);
+            this.pbFoto.Size = new System.Drawing.Size(326, 165);
             this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbFoto.TabIndex = 0;
             this.pbFoto.TabStop = false;
@@ -638,6 +641,7 @@
             this.btnVerProductosPoximoAgotar.TabIndex = 69;
             this.toolTip1.SetToolTip(this.btnVerProductosPoximoAgotar, "Ver listado de los productos proximo a agotarse");
             this.btnVerProductosPoximoAgotar.UseVisualStyleBackColor = true;
+            this.btnVerProductosPoximoAgotar.Click += new System.EventHandler(this.btnVerProductosPoximoAgotar_Click);
             // 
             // btnVerProductosAgotados
             // 
@@ -650,6 +654,7 @@
             this.btnVerProductosAgotados.TabIndex = 70;
             this.toolTip1.SetToolTip(this.btnVerProductosAgotados, "Ver listado de los productos agotados");
             this.btnVerProductosAgotados.UseVisualStyleBackColor = true;
+            this.btnVerProductosAgotados.Click += new System.EventHandler(this.btnVerProductosAgotados_Click);
             // 
             // btnProductoConOfertas
             // 
@@ -662,6 +667,8 @@
             this.btnProductoConOfertas.TabIndex = 71;
             this.toolTip1.SetToolTip(this.btnProductoConOfertas, "Ver listado de los productos con oferta");
             this.btnProductoConOfertas.UseVisualStyleBackColor = true;
+            this.btnProductoConOfertas.Visible = false;
+            this.btnProductoConOfertas.Click += new System.EventHandler(this.btnProductoConOfertas_Click);
             // 
             // txtNumeroRegistros
             // 
@@ -693,27 +700,27 @@
             this.groupBox4.Size = new System.Drawing.Size(1226, 269);
             this.groupBox4.TabIndex = 53;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Listado de Tipos de Pagos";
+            this.groupBox4.Text = "Listado de Productos";
             // 
             // dtListado
             // 
             this.dtListado.AllowUserToAddRows = false;
             this.dtListado.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtListado.BackgroundColor = System.Drawing.Color.LightGray;
             this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Select});
@@ -804,6 +811,7 @@
             this.label5.Size = new System.Drawing.Size(166, 20);
             this.label5.TabIndex = 59;
             this.label5.Text = "Productos con Oferta:";
+            this.label5.Visible = false;
             // 
             // label6
             // 
@@ -854,6 +862,7 @@
             this.lbCantidadProductosConOferta.Size = new System.Drawing.Size(18, 20);
             this.lbCantidadProductosConOferta.TabIndex = 64;
             this.lbCantidadProductosConOferta.Text = "0";
+            this.lbCantidadProductosConOferta.Visible = false;
             // 
             // lbCantidadPoductosAgotarse
             // 

@@ -668,7 +668,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
                 }
 
-
+             
             }
             catch (Exception ex) {
                 MessageBox.Show("Error al mostrar la consulta, codigo de error: " + ex.Message, variablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -699,6 +699,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.dtListado.Columns["ProductosConOferta"].Visible = false;
             this.dtListado.Columns["ProductoProximoAgotarse"].Visible = false;
             this.dtListado.Columns["ProductosAgostados"].Visible = false;
+
+          
+
+
         }
         #endregion
         #region MOSTRAR LA IMAGEN POR DEFECTO
@@ -1026,6 +1030,35 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             rbAmbos.Checked = true;
             MostrarListadoProducto();
             MostrarImagenPorDefecto(pbFoto);
+        }
+
+        private void btnProductoConOfertas_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DSMarket.Solucion.Pantallas.Pantallas.Inventario.EstadisticaProductos Estadistica = new EstadisticaProductos();
+            Estadistica.VariablesGlobales.IdUsuario = variablesGlobales.IdUsuario;
+            Estadistica.VariablesGlobales.EstadisticaProducto = 1;
+            Estadistica.ShowDialog();
+        }
+
+        private void btnVerProductosPoximoAgotar_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            DSMarket.Solucion.Pantallas.Pantallas.Inventario.EstadisticaProductos Estadistica = new EstadisticaProductos();
+            Estadistica.VariablesGlobales.IdUsuario = variablesGlobales.IdUsuario;
+            Estadistica.VariablesGlobales.EstadisticaProducto = 2;
+            Estadistica.ShowDialog();
+        }
+
+        private void btnVerProductosAgotados_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            DSMarket.Solucion.Pantallas.Pantallas.Inventario.EstadisticaProductos Estadistica = new EstadisticaProductos();
+            Estadistica.VariablesGlobales.IdUsuario = variablesGlobales.IdUsuario;
+            Estadistica.VariablesGlobales.EstadisticaProducto = 3;
+            Estadistica.ShowDialog();
         }
     }
 }

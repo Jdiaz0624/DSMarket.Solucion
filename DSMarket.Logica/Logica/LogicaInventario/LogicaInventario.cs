@@ -560,6 +560,113 @@ namespace DSMarket.Logica.Logica.LogicaInventario
             }
             return Mantenimiento;
         }
+
+        //LISTADO DE LOS PRODUCTOS PROXIMOS A AGOTARSE
+        public List<DSMarket.Logica.Entidades.EntidadesInventario.EProductoProximoAgotarse> ProductosProximoAgotarse(decimal? IdProducto = null, decimal? NumeroConector = null, string Descripcion = null, string CodigoBarra = null, string Referencia = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null, decimal? IdTipoProducto = null, decimal? IdCategoria = null, decimal? IdUnidadMedida = null, decimal? IdMarca = null, decimal? IdModelo = null, bool? TieneOferta = null, int? NumeroPagina = null, int? NumeroRegistros = null)
+        {
+            Objdata.CommandTimeout = 999999999;
+
+            var Listado = (from n in Objdata.SP_BUSCA_PRODUCTO_PRIXIMO_AGOTARSE(IdProducto, NumeroConector, Descripcion, CodigoBarra, Referencia, FechaDesde, FechaHasta, IdTipoProducto, IdCategoria, IdUnidadMedida, IdMarca, IdModelo, TieneOferta, NumeroPagina, NumeroRegistros)
+                           select new DSMarket.Logica.Entidades.EntidadesInventario.EProductoProximoAgotarse
+                           {
+                               IdProducto = n.IdProducto,
+                               NumeroConector = n.NumeroConector,
+                               IdTipoProducto = n.IdTipoProducto,
+                               Producto = n.Producto,
+                               TipoProducto = n.TipoProducto,
+                               IdCategoria = n.IdCategoria,
+                               Categoria = n.Categoria,
+                               IdUnidadMedida = n.IdUnidadMedida,
+                               UnidadMedida = n.UnidadMedida,
+                               IdMarca = n.IdMarca,
+                               Marca = n.Marca,
+                               IdModelo = n.IdModelo,
+                               Modelo = n.Modelo,
+                               IdTipoSuplidor = n.IdTipoSuplidor,
+                               TipoSuplidor = n.TipoSuplidor,
+                               IdSuplidor = n.IdSuplidor,
+                               Suplidor = n.Suplidor,
+                               CodigoBarra = n.CodigoBarra,
+                               Referencia = n.Referencia,
+                               PrecioCompra = n.PrecioCompra,
+                               PrecioVenta = n.PrecioVenta,
+                               Stock = n.Stock,
+                               StockMinimo = n.StockMinimo,
+                               PorcientoDescuento = n.PorcientoDescuento,
+                               AfectaOferta0 = n.AfectaOferta0,
+                               AceptaOferta = n.AceptaOferta,
+                               ProductoAcumulativo0 = n.ProductoAcumulativo0,
+                               ProductoAcumulativo = n.ProductoAcumulativo,
+                               LlevaImagen0 = n.LlevaImagen0,
+                               LlevaImagen = n.LlevaImagen,
+                               UsuarioAdicion = n.UsuarioAdicion,
+                               CreadoPor = n.CreadoPor,
+                               FechaAdiciona = n.FechaAdiciona,
+                               FechaCreado = n.FechaCreado,
+                               UsuarioModifica = n.UsuarioModifica,
+                               ModificadoPor = n.ModificadoPor,
+                               FechaModifica = n.FechaModifica,
+                               FechaModificado = n.FechaModificado,
+                               Fecha = n.Fecha,
+                               CantidadRegistros = n.CantidadRegistros,
+                               Comentario = n.Comentario,
+                           }).ToList();
+            return Listado;
+        }
+
+
+        //LISTADO DE LOS PRODUCTOS PROXIMOS A AGOTADOS
+        public List<DSMarket.Logica.Entidades.EntidadesInventario.EProductosAgotados> ProductosAgotados(decimal? IdProducto = null, decimal? NumeroConector = null, string Descripcion = null, string CodigoBarra = null, string Referencia = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null, decimal? IdTipoProducto = null, decimal? IdCategoria = null, decimal? IdUnidadMedida = null, decimal? IdMarca = null, decimal? IdModelo = null, bool? TieneOferta = null, int? NumeroPagina = null, int? NumeroRegistros = null)
+        {
+            Objdata.CommandTimeout = 999999999;
+
+            var Listado = (from n in Objdata.SP_BUSCA_PRODUCTOS_AGOTADOS(IdProducto, NumeroConector, Descripcion, CodigoBarra, Referencia, FechaDesde, FechaHasta, IdTipoProducto, IdCategoria, IdUnidadMedida, IdMarca, IdModelo, TieneOferta, NumeroPagina, NumeroRegistros)
+                           select new DSMarket.Logica.Entidades.EntidadesInventario.EProductosAgotados
+                           {
+                               IdProducto = n.IdProducto,
+                               NumeroConector = n.NumeroConector,
+                               IdTipoProducto = n.IdTipoProducto,
+                               Producto = n.Producto,
+                               TipoProducto = n.TipoProducto,
+                               IdCategoria = n.IdCategoria,
+                               Categoria = n.Categoria,
+                               IdUnidadMedida = n.IdUnidadMedida,
+                               UnidadMedida = n.UnidadMedida,
+                               IdMarca = n.IdMarca,
+                               Marca = n.Marca,
+                               IdModelo = n.IdModelo,
+                               Modelo = n.Modelo,
+                               IdTipoSuplidor = n.IdTipoSuplidor,
+                               TipoSuplidor = n.TipoSuplidor,
+                               IdSuplidor = n.IdSuplidor,
+                               Suplidor = n.Suplidor,
+                               CodigoBarra = n.CodigoBarra,
+                               Referencia = n.Referencia,
+                               PrecioCompra = n.PrecioCompra,
+                               PrecioVenta = n.PrecioVenta,
+                               Stock = n.Stock,
+                               StockMinimo = n.StockMinimo,
+                               PorcientoDescuento = n.PorcientoDescuento,
+                               AfectaOferta0 = n.AfectaOferta0,
+                               AceptaOferta = n.AceptaOferta,
+                               ProductoAcumulativo0 = n.ProductoAcumulativo0,
+                               ProductoAcumulativo = n.ProductoAcumulativo,
+                               LlevaImagen0 = n.LlevaImagen0,
+                               LlevaImagen = n.LlevaImagen,
+                               UsuarioAdicion = n.UsuarioAdicion,
+                               CreadoPor = n.CreadoPor,
+                               FechaAdiciona = n.FechaAdiciona,
+                               FechaCreado = n.FechaCreado,
+                               UsuarioModifica = n.UsuarioModifica,
+                               ModificadoPor = n.ModificadoPor,
+                               FechaModifica = n.FechaModifica,
+                               FechaModificado = n.FechaModificado,
+                               Fecha = n.Fecha,
+                               CantidadRegistros = n.CantidadRegistros,
+                               Comentario = n.Comentario,
+                           }).ToList();
+            return Listado;
+        }
         #endregion
     }
 }

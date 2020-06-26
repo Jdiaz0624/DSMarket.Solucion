@@ -17,6 +17,7 @@ namespace DSMarket.Logica.Comunes
         public decimal Conector { get; set; }
         public string RutaImagen { get; set; }
         public decimal NumeroConector { get; set; }
+        public int EstadisticaProducto { get; set; }
 
         #region DATOS SACADOS DEL USUARIO EN EL LOGIN
         public bool Estatus { get; set; }

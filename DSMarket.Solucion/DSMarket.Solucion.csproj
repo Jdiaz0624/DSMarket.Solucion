@@ -169,6 +169,12 @@
     <Compile Include="Pantallas\Pantallas\Inventario\CategoriaConsulta.Designer.cs">
       <DependentUpon>CategoriaConsulta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\EstadisticaProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\EstadisticaProductos.Designer.cs">
+      <DependentUpon>EstadisticaProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -452,6 +458,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\CategoriaConsulta.resx">
       <DependentUpon>CategoriaConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\EstadisticaProductos.resx">
+      <DependentUpon>EstadisticaProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MantenimientoCategoria.resx">
       <DependentUpon>MantenimientoCategoria.cs</DependentUpon>

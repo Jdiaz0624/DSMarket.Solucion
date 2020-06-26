@@ -225,6 +225,7 @@
             this.cbacumulativo.Text = "Acumulativo";
             this.toolTip1.SetToolTip(this.cbacumulativo, "Producto acumulativo");
             this.cbacumulativo.UseVisualStyleBackColor = true;
+            this.cbacumulativo.CheckedChanged += new System.EventHandler(this.cbacumulativo_CheckedChanged);
             // 
             // btnBuscarFoto
             // 

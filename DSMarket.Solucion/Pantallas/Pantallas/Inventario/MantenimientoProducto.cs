@@ -154,7 +154,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 Mantenimiento.StockMinimo = Convert.ToDecimal(txtStockMinimo.Text);
                 Mantenimiento.PorcientoDescuento = Convert.ToDecimal(txtPorcientoDescuento.Text);
                 Mantenimiento.AfectaOferta0 = cbAceptaOferta.Checked;
-              //  Mantenimiento.ProductoAcumulativo0 = cbProductoAcumulativo.Checked;
+                Mantenimiento.ProductoAcumulativo0 = cbacumulativo.Checked;
                 Mantenimiento.LlevaImagen0 = cbLlevaImagen.Checked;
                 Mantenimiento.UsuarioAdicion = VariablesGlobales.IdUsuario;
                 Mantenimiento.FechaAdiciona = DateTime.Now;
@@ -558,6 +558,20 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                         }
                     }
                 }
+            }
+        }
+
+        private void cbacumulativo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbacumulativo.Checked == true)
+            {
+                txtStock.Enabled = true;
+                txtStock.Text = string.Empty;
+            }
+            else
+            {
+                txtStock.Enabled = false;
+                txtStock.Text = "1";
             }
         }
     }

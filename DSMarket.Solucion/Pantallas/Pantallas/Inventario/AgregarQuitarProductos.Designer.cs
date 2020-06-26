@@ -179,7 +179,7 @@
             this.btnProcesar.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProcesar.Image = global::DSMarket.Solucion.Properties.Resources.Completar;
             this.btnProcesar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProcesar.Location = new System.Drawing.Point(614, 325);
+            this.btnProcesar.Location = new System.Drawing.Point(660, 326);
             this.btnProcesar.Name = "btnProcesar";
             this.btnProcesar.Size = new System.Drawing.Size(231, 49);
             this.btnProcesar.TabIndex = 28;
