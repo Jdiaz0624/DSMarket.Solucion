@@ -50,6 +50,7 @@
     <Compile Include="Comunes\SeguridadEncriptacion.cs" />
     <Compile Include="Comunes\ValidarControles.cs" />
     <Compile Include="Comunes\VariablesGlobales.cs" />
+    <Compile Include="Entidades\EntidadesCaja\ECajaGeneral.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EInformacionEmpresa.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EListas.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECategorias.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Entidades\EntidadesListas\EUnidadMedida.cs" />
     <Compile Include="Entidades\EntidadesSeguridad\EUsuarios.cs" />
     <Compile Include="Entidades\EntidadesServicio\ETipoPago.cs" />
+    <Compile Include="Logica\LogicaCaja\LogicaCaja.cs" />
     <Compile Include="Logica\LogicaConfiguracion\LogicaCOnfiguracion.cs" />
     <Compile Include="Logica\LogicaInventario\LogicaInventario.cs" />
     <Compile Include="Entidades\EntidadesSeguridad\EClaveSeguridad.cs" />

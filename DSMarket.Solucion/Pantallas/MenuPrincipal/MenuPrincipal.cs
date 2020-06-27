@@ -122,9 +122,9 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
             lbusuarioConectado.ForeColor = Color.WhiteSmoke;
             lbNivelAcceso.ForeColor = Color.WhiteSmoke;
 
-            //btnServicio.Enabled = false;
+            btnServicio.Enabled = true;
             btnInventario.Enabled = true;
-            btnCaja.Enabled = false;
+            btnCaja.Enabled = true;
             btneEmpresa.Enabled = false;
             btnConfiguracion.Enabled = false;
             btnSeguridad.Enabled = false;

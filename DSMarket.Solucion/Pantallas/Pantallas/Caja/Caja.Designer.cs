@@ -37,9 +37,9 @@
             this.Monto = new System.Windows.Forms.Label();
             this.rbSacar = new System.Windows.Forms.RadioButton();
             this.rbIngresar = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAbrirCerrar = new System.Windows.Forms.Button();
             this.gbDatosCaja = new System.Windows.Forms.GroupBox();
-            this.txtCodigoCaja = new System.Windows.Forms.TextBox();
+            this.txtClaveSegrudiad = new System.Windows.Forms.TextBox();
             this.lbNombreCaja = new System.Windows.Forms.Label();
             this.lbMonto = new System.Windows.Forms.Label();
             this.lbEstatus = new System.Windows.Forms.Label();
@@ -52,6 +52,7 @@
             this.lbTitulo = new System.Windows.Forms.Label();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gbDatosCaja.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -62,7 +63,6 @@
             // 
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtConcepto);
-            this.groupBox1.Controls.Add(this.btnProcesar);
             this.groupBox1.Controls.Add(this.txtMonto);
             this.groupBox1.Controls.Add(this.Monto);
             this.groupBox1.Controls.Add(this.rbSacar);
@@ -70,7 +70,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(400, 45);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(399, 230);
+            this.groupBox1.Size = new System.Drawing.Size(399, 188);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Opciones";
@@ -95,14 +95,16 @@
             // btnProcesar
             // 
             this.btnProcesar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProcesar.Enabled = false;
             this.btnProcesar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProcesar.Location = new System.Drawing.Point(46, 175);
+            this.btnProcesar.Location = new System.Drawing.Point(400, 239);
             this.btnProcesar.Name = "btnProcesar";
-            this.btnProcesar.Size = new System.Drawing.Size(304, 36);
+            this.btnProcesar.Size = new System.Drawing.Size(399, 36);
             this.btnProcesar.TabIndex = 5;
             this.btnProcesar.Text = "Procesar";
             this.toolTip1.SetToolTip(this.btnProcesar, "Procesar");
             this.btnProcesar.UseVisualStyleBackColor = true;
+            this.btnProcesar.Click += new System.EventHandler(this.btnProcesar_Click);
             // 
             // txtMonto
             // 
@@ -147,29 +149,29 @@
             this.rbIngresar.Text = "Ingresar Efectivo";
             this.rbIngresar.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnAbrirCerrar
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(12, 239);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(382, 36);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Abrir / Cerrar";
-            this.toolTip1.SetToolTip(this.button1, "Abrir / Cerrar Caja");
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAbrirCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAbrirCerrar.Enabled = false;
+            this.btnAbrirCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAbrirCerrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAbrirCerrar.Location = new System.Drawing.Point(12, 239);
+            this.btnAbrirCerrar.Name = "btnAbrirCerrar";
+            this.btnAbrirCerrar.Size = new System.Drawing.Size(382, 36);
+            this.btnAbrirCerrar.TabIndex = 7;
+            this.btnAbrirCerrar.Text = "Abrir / Cerrar";
+            this.toolTip1.SetToolTip(this.btnAbrirCerrar, "Abrir / Cerrar Caja");
+            this.btnAbrirCerrar.UseVisualStyleBackColor = true;
+            this.btnAbrirCerrar.Click += new System.EventHandler(this.btnAbrirCerrar_Click);
             // 
             // gbDatosCaja
             // 
-            this.gbDatosCaja.Controls.Add(this.txtCodigoCaja);
             this.gbDatosCaja.Controls.Add(this.lbNombreCaja);
             this.gbDatosCaja.Controls.Add(this.lbMonto);
             this.gbDatosCaja.Controls.Add(this.lbEstatus);
             this.gbDatosCaja.Controls.Add(this.label4);
             this.gbDatosCaja.Controls.Add(this.label3);
             this.gbDatosCaja.Controls.Add(this.label2);
-            this.gbDatosCaja.Controls.Add(this.label1);
             this.gbDatosCaja.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbDatosCaja.Location = new System.Drawing.Point(12, 45);
             this.gbDatosCaja.Name = "gbDatosCaja";
@@ -178,19 +180,20 @@
             this.gbDatosCaja.TabStop = false;
             this.gbDatosCaja.Text = "Abrir / Cerrar";
             // 
-            // txtCodigoCaja
+            // txtClaveSegrudiad
             // 
-            this.txtCodigoCaja.BackColor = System.Drawing.Color.White;
-            this.txtCodigoCaja.Enabled = false;
-            this.txtCodigoCaja.Location = new System.Drawing.Point(187, 42);
-            this.txtCodigoCaja.Name = "txtCodigoCaja";
-            this.txtCodigoCaja.Size = new System.Drawing.Size(120, 27);
-            this.txtCodigoCaja.TabIndex = 7;
+            this.txtClaveSegrudiad.BackColor = System.Drawing.Color.White;
+            this.txtClaveSegrudiad.Location = new System.Drawing.Point(181, 298);
+            this.txtClaveSegrudiad.MaxLength = 20;
+            this.txtClaveSegrudiad.Name = "txtClaveSegrudiad";
+            this.txtClaveSegrudiad.PasswordChar = '•';
+            this.txtClaveSegrudiad.Size = new System.Drawing.Size(213, 27);
+            this.txtClaveSegrudiad.TabIndex = 7;
             // 
             // lbNombreCaja
             // 
             this.lbNombreCaja.AutoSize = true;
-            this.lbNombreCaja.Location = new System.Drawing.Point(183, 81);
+            this.lbNombreCaja.Location = new System.Drawing.Point(183, 52);
             this.lbNombreCaja.Name = "lbNombreCaja";
             this.lbNombreCaja.Size = new System.Drawing.Size(73, 21);
             this.lbNombreCaja.TabIndex = 6;
@@ -199,7 +202,7 @@
             // lbMonto
             // 
             this.lbMonto.AutoSize = true;
-            this.lbMonto.Location = new System.Drawing.Point(183, 115);
+            this.lbMonto.Location = new System.Drawing.Point(183, 86);
             this.lbMonto.Name = "lbMonto";
             this.lbMonto.Size = new System.Drawing.Size(120, 21);
             this.lbMonto.TabIndex = 5;
@@ -208,7 +211,7 @@
             // lbEstatus
             // 
             this.lbEstatus.AutoSize = true;
-            this.lbEstatus.Location = new System.Drawing.Point(183, 155);
+            this.lbEstatus.Location = new System.Drawing.Point(183, 126);
             this.lbEstatus.Name = "lbEstatus";
             this.lbEstatus.Size = new System.Drawing.Size(66, 21);
             this.lbEstatus.TabIndex = 4;
@@ -217,7 +220,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(82, 155);
+            this.label4.Location = new System.Drawing.Point(82, 126);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 21);
             this.label4.TabIndex = 3;
@@ -226,7 +229,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(43, 115);
+            this.label3.Location = new System.Drawing.Point(43, 86);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(120, 21);
             this.label3.TabIndex = 2;
@@ -235,7 +238,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(96, 81);
+            this.label2.Location = new System.Drawing.Point(96, 52);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 21);
             this.label2.TabIndex = 1;
@@ -244,11 +247,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 44);
+            this.label1.Location = new System.Drawing.Point(24, 302);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 21);
+            this.label1.Size = new System.Drawing.Size(153, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Codigo de Caja";
+            this.label1.Text = "Clave de Seguridad";
             // 
             // panel1
             // 
@@ -290,15 +293,33 @@
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
             // 
+            // button2
+            // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(400, 293);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(96, 36);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Validar";
+            this.toolTip1.SetToolTip(this.button2, "Validar Clave de Seguridad");
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Caja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(814, 296);
+            this.ClientSize = new System.Drawing.Size(814, 364);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.txtClaveSegrudiad);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAbrirCerrar);
+            this.Controls.Add(this.btnProcesar);
             this.Controls.Add(this.gbDatosCaja);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5);
@@ -316,6 +337,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -329,9 +351,9 @@
         private System.Windows.Forms.Label Monto;
         private System.Windows.Forms.RadioButton rbSacar;
         private System.Windows.Forms.RadioButton rbIngresar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAbrirCerrar;
         private System.Windows.Forms.GroupBox gbDatosCaja;
-        private System.Windows.Forms.TextBox txtCodigoCaja;
+        private System.Windows.Forms.TextBox txtClaveSegrudiad;
         private System.Windows.Forms.Label lbNombreCaja;
         private System.Windows.Forms.Label lbMonto;
         private System.Windows.Forms.Label lbEstatus;
@@ -344,5 +366,6 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.PictureBox PCerrar;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -16,6 +16,40 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
         {
             InitializeComponent();
         }
+        Lazy<DSMarket.Logica.Logica.LogicaCaja.LogicaCaja> ObjDataLogica = new Lazy<Logica.Logica.LogicaCaja.LogicaCaja>();
+        Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
+        public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
+
+        #region MOSTRAR EL ESTATUS DE LA CAJA
+        private void MostrarEstatusCaja() {
+            var Mostrar = ObjDataLogica.Value.BuscaEstatusCaja();
+            foreach (var n in Mostrar)
+            {
+                lbNombreCaja.Text = n.Caja;
+                lbEstatus.Text = n.Estatus;
+                decimal MontoCaja = Convert.ToDecimal(n.MontoActual);
+                lbMonto.Text = MontoCaja.ToString("N2");
+            }
+        }
+        #endregion
+        #region ABRIR CERRAR CAJA
+        private void AbrirCerrarCaja(string Accion) {
+            try {
+                DSMarket.Logica.Entidades.EntidadesCaja.ECajaGeneral AbrirCerrar = new Logica.Entidades.EntidadesCaja.ECajaGeneral();
+
+                AbrirCerrar.IdCaja = 1;
+                AbrirCerrar.Caja = "Caja General";
+                AbrirCerrar.MontoActual = Convert.ToDecimal(txtMonto.Text);
+                AbrirCerrar.Estatus0 = true;
+
+                var MAN = ObjDataLogica.Value.AfectarCaja(AbrirCerrar, Accion);
+
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al abrir o cerrar caja, codigo de error --> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
 
         private void PCerrar_Click(object sender, EventArgs e)
         {
@@ -24,8 +58,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
 
         private void Caja_Load(object sender, EventArgs e)
         {
+            VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+            MostrarEstatusCaja();
             this.BackColor = SystemColors.Control;
-            txtCodigoCaja.BackColor = Color.WhiteSmoke;
+            txtClaveSegrudiad.BackColor = Color.WhiteSmoke;
             txtConcepto.BackColor = Color.WhiteSmoke;
             txtMonto.BackColor = Color.WhiteSmoke;
             rbIngresar.ForeColor = Color.LimeGreen;
@@ -33,6 +69,88 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
             rbIngresar.Checked = true;
             lbTitulo.Text = "CAJA";
             lbTitulo.ForeColor = Color.WhiteSmoke;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtClaveSegrudiad.Text.Trim()))
+            {
+                MessageBox.Show("La clave de seguridad no puede estar vacia, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else {
+                string _ClaveSeguridad = string.IsNullOrEmpty(txtClaveSegrudiad.Text.Trim()) ? null : txtClaveSegrudiad.Text.Trim();
+
+                var Validar = ObjDataSeguridad.Value.BuscaClaveSeguridad(
+                    new Nullable<decimal>(),
+                    null,
+                    DSMarket.Logica.Comunes.SeguridadEncriptacion.Encriptar(_ClaveSeguridad),
+                    1, 1);
+                if (Validar.Count() < 1)
+                {
+                    MessageBox.Show("La clave de seguridad ingresada no es valida, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtClaveSegrudiad.Text = string.Empty;
+                    txtClaveSegrudiad.Focus();
+                }
+                else
+                {
+                    btnAbrirCerrar.Enabled = true;
+                    btnProcesar.Enabled = true;
+                }
+            }
+        }
+
+        private void btnAbrirCerrar_Click(object sender, EventArgs e)
+        {
+            if (lbEstatus.Text == "ABIERTA")
+            {
+                AbrirCerrarCaja("CLOSEBOX");
+                MostrarEstatusCaja();
+            }
+            else {
+                AbrirCerrarCaja("OPENBOX");
+                MostrarEstatusCaja();
+            }
+        }
+
+        private void btnProcesar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtMonto.Text.Trim()))
+            {
+                MessageBox.Show("El campo monto no puede estar vacio, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMonto.Focus();
+            }
+            else {
+                if (rbIngresar.Checked == true)
+                {
+                    if (string.IsNullOrEmpty(txtConcepto.Text.Trim()))
+                    {
+                        txtConcepto.Text = "INGRESO DE EFECTIVO";
+                    }
+                    AbrirCerrarCaja("ADDMONEY");
+                    MostrarEstatusCaja();
+                    txtConcepto.Text = string.Empty;
+                }
+                else if (rbSacar.Checked == true)
+                {
+                    if (string.IsNullOrEmpty(txtConcepto.Text.Trim()))
+                    {
+                        txtConcepto.Text = "EGRESO DE EFECTIVO";
+                    }
+                    double MontoActual = Convert.ToDouble(lbMonto.Text);
+                    double MontoProcesar = Convert.ToDouble(txtMonto.Text);
+
+                    if (MontoActual < MontoProcesar)
+                    {
+                        MessageBox.Show("El valor que intentas retirar supera a la cantidad actual de la caja, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        AbrirCerrarCaja("LESSMONEY");
+                        MostrarEstatusCaja();
+                        txtConcepto.Text = string.Empty;
+                    }
+                }
+            }
         }
     }
 }
