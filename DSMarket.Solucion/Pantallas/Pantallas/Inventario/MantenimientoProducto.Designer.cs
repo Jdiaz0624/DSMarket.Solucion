@@ -316,6 +316,7 @@
             this.btnRefrescarSuplidor.TabIndex = 46;
             this.toolTip1.SetToolTip(this.btnRefrescarSuplidor, "Refrescar Listado de Suplidores");
             this.btnRefrescarSuplidor.UseVisualStyleBackColor = true;
+            this.btnRefrescarSuplidor.Visible = false;
             this.btnRefrescarSuplidor.Click += new System.EventHandler(this.btnRefrescarSuplidor_Click);
             // 
             // btnAgregarSuplidor
@@ -329,6 +330,7 @@
             this.btnAgregarSuplidor.TabIndex = 45;
             this.toolTip1.SetToolTip(this.btnAgregarSuplidor, "Agregar Suplidores");
             this.btnAgregarSuplidor.UseVisualStyleBackColor = true;
+            this.btnAgregarSuplidor.Visible = false;
             // 
             // btnRefrescarTipoSuplidor
             // 
@@ -341,6 +343,7 @@
             this.btnRefrescarTipoSuplidor.TabIndex = 44;
             this.toolTip1.SetToolTip(this.btnRefrescarTipoSuplidor, "Refrescar Listado de Tipo de Suplidores");
             this.btnRefrescarTipoSuplidor.UseVisualStyleBackColor = true;
+            this.btnRefrescarTipoSuplidor.Visible = false;
             this.btnRefrescarTipoSuplidor.Click += new System.EventHandler(this.btnRefrescarTipoSuplidor_Click);
             // 
             // btnAgregarTipoSuplidor
@@ -354,6 +357,7 @@
             this.btnAgregarTipoSuplidor.TabIndex = 43;
             this.toolTip1.SetToolTip(this.btnAgregarTipoSuplidor, "Agregar Tipo de Suplidor");
             this.btnAgregarTipoSuplidor.UseVisualStyleBackColor = true;
+            this.btnAgregarTipoSuplidor.Visible = false;
             // 
             // btnRefrescarModelo
             // 
@@ -366,6 +370,7 @@
             this.btnRefrescarModelo.TabIndex = 42;
             this.toolTip1.SetToolTip(this.btnRefrescarModelo, "Refrescar Listado de Modelos");
             this.btnRefrescarModelo.UseVisualStyleBackColor = true;
+            this.btnRefrescarModelo.Visible = false;
             this.btnRefrescarModelo.Click += new System.EventHandler(this.btnRefrescarModelo_Click);
             // 
             // btnAgregarModelo
@@ -379,6 +384,7 @@
             this.btnAgregarModelo.TabIndex = 41;
             this.toolTip1.SetToolTip(this.btnAgregarModelo, "Agregar Modelos");
             this.btnAgregarModelo.UseVisualStyleBackColor = true;
+            this.btnAgregarModelo.Visible = false;
             // 
             // btnRefrescarMarca
             // 
@@ -391,6 +397,7 @@
             this.btnRefrescarMarca.TabIndex = 40;
             this.toolTip1.SetToolTip(this.btnRefrescarMarca, "Refrescar Listado de Marcas");
             this.btnRefrescarMarca.UseVisualStyleBackColor = true;
+            this.btnRefrescarMarca.Visible = false;
             this.btnRefrescarMarca.Click += new System.EventHandler(this.btnRefrescarMarca_Click);
             // 
             // btnAgregarMarca
@@ -404,6 +411,7 @@
             this.btnAgregarMarca.TabIndex = 39;
             this.toolTip1.SetToolTip(this.btnAgregarMarca, "Agregar Marcas");
             this.btnAgregarMarca.UseVisualStyleBackColor = true;
+            this.btnAgregarMarca.Visible = false;
             // 
             // btnRefrescarUnidadMedida
             // 
@@ -416,6 +424,7 @@
             this.btnRefrescarUnidadMedida.TabIndex = 38;
             this.toolTip1.SetToolTip(this.btnRefrescarUnidadMedida, "Refrescar Listado de Unidad de Medida");
             this.btnRefrescarUnidadMedida.UseVisualStyleBackColor = true;
+            this.btnRefrescarUnidadMedida.Visible = false;
             this.btnRefrescarUnidadMedida.Click += new System.EventHandler(this.btnRefrescarUnidadMedida_Click);
             // 
             // btnAgregarUnidadMedida
@@ -429,6 +438,7 @@
             this.btnAgregarUnidadMedida.TabIndex = 37;
             this.toolTip1.SetToolTip(this.btnAgregarUnidadMedida, "Agregar Unidad de Medida");
             this.btnAgregarUnidadMedida.UseVisualStyleBackColor = true;
+            this.btnAgregarUnidadMedida.Visible = false;
             // 
             // btnRefrescarCategoria
             // 
@@ -441,6 +451,7 @@
             this.btnRefrescarCategoria.TabIndex = 36;
             this.toolTip1.SetToolTip(this.btnRefrescarCategoria, "Refrescar Listado de Categoria");
             this.btnRefrescarCategoria.UseVisualStyleBackColor = true;
+            this.btnRefrescarCategoria.Visible = false;
             this.btnRefrescarCategoria.Click += new System.EventHandler(this.btnRefrescarCategoria_Click);
             // 
             // btnAgregarCategoria
@@ -454,6 +465,7 @@
             this.btnAgregarCategoria.TabIndex = 35;
             this.toolTip1.SetToolTip(this.btnAgregarCategoria, "Agregar Categoria");
             this.btnAgregarCategoria.UseVisualStyleBackColor = true;
+            this.btnAgregarCategoria.Visible = false;
             // 
             // btnRefrescarTipoProducto
             // 
@@ -466,6 +478,7 @@
             this.btnRefrescarTipoProducto.TabIndex = 34;
             this.toolTip1.SetToolTip(this.btnRefrescarTipoProducto, "Refrescar Listado de Tipo de Producto");
             this.btnRefrescarTipoProducto.UseVisualStyleBackColor = true;
+            this.btnRefrescarTipoProducto.Visible = false;
             this.btnRefrescarTipoProducto.Click += new System.EventHandler(this.btnRefrescarTipoProducto_Click);
             // 
             // btnAgregarTipoProducto
@@ -479,6 +492,7 @@
             this.btnAgregarTipoProducto.TabIndex = 33;
             this.toolTip1.SetToolTip(this.btnAgregarTipoProducto, "Agregar Tipo de Producto");
             this.btnAgregarTipoProducto.UseVisualStyleBackColor = true;
+            this.btnAgregarTipoProducto.Visible = false;
             // 
             // txtPorcientoDescuento
             // 
@@ -810,7 +824,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1255, 510);
+            this.ClientSize = new System.Drawing.Size(1255, 498);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);

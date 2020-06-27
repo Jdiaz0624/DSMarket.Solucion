@@ -44,6 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion\ConexionADO\BDConexion.cs" />
+    <Compile Include="Conexion\ConexionLINQ\BDConecionServicio.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BDConecionServicio.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Conexion\ConexionLINQ\BDConexionConfiguracion.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -72,6 +77,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Conexion\ConexionLINQ\BDConecionServicio.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>BDConecionServicio.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Conexion\ConexionLINQ\BDConexionConfiguracion.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>BDConexionConfiguracion.designer.cs</LastGenOutput>
@@ -119,6 +129,11 @@
   <ItemGroup>
     <None Include="Conexion\ConexionLINQ\BDConexionListas.dbml.layout">
       <DependentUpon>BDConexionListas.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Conexion\ConexionLINQ\BDConecionServicio.dbml.layout">
+      <DependentUpon>BDConecionServicio.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

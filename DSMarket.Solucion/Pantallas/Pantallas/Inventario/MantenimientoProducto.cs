@@ -25,11 +25,40 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         #region CARGAR LAS LISTAS DESPLEGABLES
         private void CargarTipoProducto() {
-            var TipoPrducto = ObjDataListas.Value.ListaTipoProducto(
-                new Nullable<decimal>(), null);
-            ddlSeleccionarTipoProducto.DataSource = TipoPrducto;
-            ddlSeleccionarTipoProducto.DisplayMember = "Descripcion";
-            ddlSeleccionarTipoProducto.ValueMember = "IdTipoproducto";
+            try {
+                var TipoPrducto = ObjDataListas.Value.ListaTipoProducto(
+              new Nullable<decimal>(), null);
+                ddlSeleccionarTipoProducto.DataSource = TipoPrducto;
+                ddlSeleccionarTipoProducto.DisplayMember = "Descripcion";
+                ddlSeleccionarTipoProducto.ValueMember = "IdTipoproducto";
+
+                int TipoProducto = Convert.ToInt32(ddlSeleccionarTipoProducto.SelectedValue);
+                if (TipoProducto == 2)
+                {
+                    cbacumulativo.Checked = false;
+                    cbacumulativo.Enabled = false;
+                    txtStock.Enabled = false;
+                    txtStock.Text = "1";
+
+                    txtStockMinimo.Enabled = false;
+                    txtPrecioCompra.Enabled = false;
+                    txtStockMinimo.Text = "0";
+                    txtPrecioCompra.Text = "0";
+                }
+                else
+                {
+                    cbacumulativo.Checked = false;
+                    cbacumulativo.Enabled = true;
+                    txtStock.Enabled = false;
+                    txtStock.Text = "1";
+
+                    txtStockMinimo.Enabled = true;
+                    txtPrecioCompra.Enabled = true;
+                    txtStockMinimo.Text = string.Empty;
+                    txtPrecioCompra.Text = string.Empty;
+                }
+            }
+            catch (Exception) { }
         }
         private void CargarCategorias() {
             try {
@@ -225,6 +254,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 cbAceptaOferta.Checked = (n.AfectaOferta0.HasValue ? n.AfectaOferta0.Value : false);
                 cbacumulativo.Checked = (n.ProductoAcumulativo0.HasValue ? n.ProductoAcumulativo0.Value : false);
                 cbLlevaImagen.Checked = (n.LlevaImagen0.HasValue ? n.LlevaImagen0.Value : false);
+                txtStock.Text = n.Stock.ToString();
 
                 if (cbLlevaImagen.Checked == true)
                 {
@@ -411,7 +441,36 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         private void ddlSeleccionarTipoProducto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CargarCategorias();
+            try {
+                CargarCategorias();
+                int TipoProducto = Convert.ToInt32(ddlSeleccionarTipoProducto.SelectedValue);
+                if (TipoProducto == 2)
+                {
+                    cbacumulativo.Checked = false;
+                    cbacumulativo.Enabled = false;
+                    txtStock.Enabled = false;
+                    txtStock.Text = "1";
+                    txtStockMinimo.Enabled = false;
+                    txtPrecioCompra.Enabled = false;
+                    txtStockMinimo.Text = "0";
+                    txtPrecioCompra.Text = "0";
+
+                  
+                }
+                else
+                {
+                    cbacumulativo.Checked = false;
+                    cbacumulativo.Enabled = true;
+                    txtStock.Enabled = false;
+                    txtStock.Text = "1";
+
+                    txtStockMinimo.Enabled = true;
+                    txtPrecioCompra.Enabled = true;
+                    txtStockMinimo.Text = string.Empty;
+                    txtPrecioCompra.Text = string.Empty;
+                }
+            }
+            catch (Exception) { }
         }
 
         private void ddlSeleccionarMarca_SelectedIndexChanged(object sender, EventArgs e)

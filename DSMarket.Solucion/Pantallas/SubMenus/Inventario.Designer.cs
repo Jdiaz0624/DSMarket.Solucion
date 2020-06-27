@@ -118,7 +118,7 @@
             this.btnSuplidores.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSuplidores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSuplidores.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSuplidores.Location = new System.Drawing.Point(198, 153);
+            this.btnSuplidores.Location = new System.Drawing.Point(7, 153);
             this.btnSuplidores.Name = "btnSuplidores";
             this.btnSuplidores.Size = new System.Drawing.Size(186, 56);
             this.btnSuplidores.TabIndex = 7;
@@ -132,7 +132,7 @@
             this.btnTipoSuplidores.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTipoSuplidores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTipoSuplidores.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTipoSuplidores.Location = new System.Drawing.Point(6, 153);
+            this.btnTipoSuplidores.Location = new System.Drawing.Point(390, 91);
             this.btnTipoSuplidores.Name = "btnTipoSuplidores";
             this.btnTipoSuplidores.Size = new System.Drawing.Size(186, 56);
             this.btnTipoSuplidores.TabIndex = 6;
@@ -146,7 +146,7 @@
             this.btnCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCategoria.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCategoria.Location = new System.Drawing.Point(390, 29);
+            this.btnCategoria.Location = new System.Drawing.Point(198, 29);
             this.btnCategoria.Name = "btnCategoria";
             this.btnCategoria.Size = new System.Drawing.Size(186, 56);
             this.btnCategoria.TabIndex = 5;
@@ -160,7 +160,7 @@
             this.btnMArcas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMArcas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMArcas.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMArcas.Location = new System.Drawing.Point(198, 91);
+            this.btnMArcas.Location = new System.Drawing.Point(7, 91);
             this.btnMArcas.Name = "btnMArcas";
             this.btnMArcas.Size = new System.Drawing.Size(186, 56);
             this.btnMArcas.TabIndex = 4;
@@ -174,7 +174,7 @@
             this.btnUnidaMedida.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUnidaMedida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUnidaMedida.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUnidaMedida.Location = new System.Drawing.Point(6, 91);
+            this.btnUnidaMedida.Location = new System.Drawing.Point(390, 29);
             this.btnUnidaMedida.Name = "btnUnidaMedida";
             this.btnUnidaMedida.Size = new System.Drawing.Size(186, 56);
             this.btnUnidaMedida.TabIndex = 3;
@@ -188,7 +188,7 @@
             this.btnMonedas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMonedas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMonedas.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMonedas.Location = new System.Drawing.Point(390, 91);
+            this.btnMonedas.Location = new System.Drawing.Point(198, 91);
             this.btnMonedas.Name = "btnMonedas";
             this.btnMonedas.Size = new System.Drawing.Size(186, 56);
             this.btnMonedas.TabIndex = 2;
@@ -202,13 +202,14 @@
             this.btnTipoProducto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTipoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTipoProducto.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTipoProducto.Location = new System.Drawing.Point(198, 29);
+            this.btnTipoProducto.Location = new System.Drawing.Point(199, 153);
             this.btnTipoProducto.Name = "btnTipoProducto";
             this.btnTipoProducto.Size = new System.Drawing.Size(186, 56);
             this.btnTipoProducto.TabIndex = 1;
             this.btnTipoProducto.Text = "Tipo de Producto";
             this.toolTip1.SetToolTip(this.btnTipoProducto, "Mantenimiento de tipo de producto");
             this.btnTipoProducto.UseVisualStyleBackColor = true;
+            this.btnTipoProducto.Visible = false;
             this.btnTipoProducto.Click += new System.EventHandler(this.btnTipoProducto_Click);
             // 
             // btnProductos
