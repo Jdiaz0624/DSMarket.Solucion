@@ -56,7 +56,6 @@
             this.btnAgregarCategoria = new System.Windows.Forms.Button();
             this.btnRefrescarTipoProducto = new System.Windows.Forms.Button();
             this.btnAgregarTipoProducto = new System.Windows.Forms.Button();
-            this.txtPorcientoDescuento = new System.Windows.Forms.TextBox();
             this.txtStockMinimo = new System.Windows.Forms.TextBox();
             this.txtStock = new System.Windows.Forms.TextBox();
             this.txtPrecioVenta = new System.Windows.Forms.TextBox();
@@ -90,11 +89,13 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.txtPorcientoDescuento = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPorcientoDescuento)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -137,6 +138,7 @@
             // groupBox1
             // 
             this.groupBox1.AutoSize = true;
+            this.groupBox1.Controls.Add(this.txtPorcientoDescuento);
             this.groupBox1.Controls.Add(this.cbLlevaImagen);
             this.groupBox1.Controls.Add(this.cbacumulativo);
             this.groupBox1.Controls.Add(this.btnBuscarFoto);
@@ -159,7 +161,6 @@
             this.groupBox1.Controls.Add(this.btnAgregarCategoria);
             this.groupBox1.Controls.Add(this.btnRefrescarTipoProducto);
             this.groupBox1.Controls.Add(this.btnAgregarTipoProducto);
-            this.groupBox1.Controls.Add(this.txtPorcientoDescuento);
             this.groupBox1.Controls.Add(this.txtStockMinimo);
             this.groupBox1.Controls.Add(this.txtStock);
             this.groupBox1.Controls.Add(this.txtPrecioVenta);
@@ -296,6 +297,7 @@
             this.cbAceptaOferta.Text = "¿Acepta Oferta?";
             this.toolTip1.SetToolTip(this.cbAceptaOferta, "Programar producto para aceptar ofertas");
             this.cbAceptaOferta.UseVisualStyleBackColor = true;
+            this.cbAceptaOferta.Visible = false;
             // 
             // txtComentario
             // 
@@ -494,24 +496,15 @@
             this.btnAgregarTipoProducto.UseVisualStyleBackColor = true;
             this.btnAgregarTipoProducto.Visible = false;
             // 
-            // txtPorcientoDescuento
-            // 
-            this.txtPorcientoDescuento.BackColor = System.Drawing.Color.Silver;
-            this.txtPorcientoDescuento.Location = new System.Drawing.Point(696, 218);
-            this.txtPorcientoDescuento.MaxLength = 3;
-            this.txtPorcientoDescuento.Name = "txtPorcientoDescuento";
-            this.txtPorcientoDescuento.Size = new System.Drawing.Size(250, 27);
-            this.txtPorcientoDescuento.TabIndex = 32;
-            this.txtPorcientoDescuento.Text = "0";
-            this.txtPorcientoDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioCompra_KeyPress);
-            // 
             // txtStockMinimo
             // 
             this.txtStockMinimo.BackColor = System.Drawing.Color.Silver;
+            this.txtStockMinimo.Enabled = false;
             this.txtStockMinimo.Location = new System.Drawing.Point(696, 186);
             this.txtStockMinimo.Name = "txtStockMinimo";
             this.txtStockMinimo.Size = new System.Drawing.Size(250, 27);
             this.txtStockMinimo.TabIndex = 31;
+            this.txtStockMinimo.Text = "1";
             this.txtStockMinimo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioCompra_KeyPress);
             // 
             // txtStock
@@ -820,6 +813,16 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // txtPorcientoDescuento
+            // 
+            this.txtPorcientoDescuento.BackColor = System.Drawing.Color.LightGray;
+            this.txtPorcientoDescuento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtPorcientoDescuento.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPorcientoDescuento.Location = new System.Drawing.Point(696, 215);
+            this.txtPorcientoDescuento.Name = "txtPorcientoDescuento";
+            this.txtPorcientoDescuento.Size = new System.Drawing.Size(250, 27);
+            this.txtPorcientoDescuento.TabIndex = 56;
+            // 
             // MantenimientoProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -843,6 +846,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPorcientoDescuento)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -877,7 +881,6 @@
         private System.Windows.Forms.ComboBox ddlSeleccionarUnidadMedida;
         private System.Windows.Forms.ComboBox ddlSeleccionarCategoria;
         private System.Windows.Forms.ComboBox ddlSeleccionarTipoProducto;
-        private System.Windows.Forms.TextBox txtPorcientoDescuento;
         private System.Windows.Forms.TextBox txtStockMinimo;
         private System.Windows.Forms.TextBox txtStock;
         private System.Windows.Forms.TextBox txtPrecioVenta;
@@ -911,5 +914,6 @@
         private System.Windows.Forms.Button btnBuscarFoto;
         private System.Windows.Forms.CheckBox cbacumulativo;
         private System.Windows.Forms.CheckBox cbLlevaImagen;
+        private System.Windows.Forms.NumericUpDown txtPorcientoDescuento;
     }
 }

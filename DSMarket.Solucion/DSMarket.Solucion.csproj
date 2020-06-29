@@ -537,6 +537,9 @@
     <EmbeddedResource Include="Pantallas\Pantallas\Servicio\Facturacion.resx">
       <DependentUpon>Facturacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Servicio\FotoProducto.resx">
+      <DependentUpon>FotoProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Servicio\HistorialFActuracion.resx">
       <DependentUpon>HistorialFActuracion.cs</DependentUpon>
     </EmbeddedResource>

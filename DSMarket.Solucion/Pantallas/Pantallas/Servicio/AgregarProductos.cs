@@ -115,6 +115,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         Convert.ToInt32(txtNumeroPagina.Value),
                         Convert.ToInt32(txtNumeroRegistros.Value));
                     dtSeleccionarproducto.DataSource = BuscaRegistros;
+                    if (BuscaRegistros.Count() < 1)
+                    {
+                        lbCantidadMostradaVariable.Text = "000";
+                    }
+                    else {
+                        foreach (var n in BuscaRegistros) {
+                            int CantidadExistenteSeleccionada = Convert.ToInt32(n.CantidadRegistros);
+                            lbCantidadMostradaVariable.Text = CantidadExistenteSeleccionada.ToString("N0");
+                        }
+                    }
                     OcultarColumnas();
                 }
                 else
@@ -136,6 +146,18 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                           Convert.ToInt32(txtNumeroPagina.Value),
                           Convert.ToInt32(txtNumeroRegistros.Value));
                     dtSeleccionarproducto.DataSource = BuscaRegistros;
+                    if (BuscaRegistros.Count() < 1)
+                    {
+                        lbCantidadMostradaVariable.Text = "000";
+                    }
+                    else
+                    {
+                        foreach (var n in BuscaRegistros)
+                        {
+                            int CantidadExistenteSeleccionada = Convert.ToInt32(n.CantidadRegistros);
+                            lbCantidadMostradaVariable.Text = CantidadExistenteSeleccionada.ToString("N0");
+                        }
+                    }
                     OcultarColumnas();
 
                 }
@@ -241,6 +263,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlbales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 decimal IdProductoSeleccionado = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["IdProducto"].Value.ToString());
+                this.VariablesGlbales.IdProductoSeleccionadoAgregarPorpductos = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["IdProducto"].Value.ToString());
+                this.VariablesGlbales.NumeroConectorSeleccionadoAgregarPorpductos = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["NumeroConector"].Value.ToString());
                 int CantidadAlmcen = Convert.ToInt32(this.dtSeleccionarproducto.CurrentRow.Cells["Stock"].Value.ToString());
                 bool LlevaImagen = Convert.ToBoolean(this.dtSeleccionarproducto.CurrentRow.Cells["LlevaImagen0"].Value.ToString());
 
@@ -273,11 +297,21 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             {
                                 lbAlerta.Visible = true;
                             }
+                            txtCantidadUsar.Text = string.Empty;
+                            txtCantidadUsar.Enabled = true;
+                            txtCantidadUsar.Focus();
+                        }
+                        else {
+                            txtCantidadUsar.Text = "1";
+                            txtCantidadUsar.Enabled = false;
                         }
 
                         if (LlevaImagen == true)
                         {
                             btnfoto.Enabled = true;
+                        }
+                        else {
+                            btnfoto.Enabled = false;
                         }
                     }
                 }
@@ -287,6 +321,14 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void txtDescuento_KeyPress(object sender, KeyPressEventArgs e)
         {
             DSMarket.Logica.Comunes.ValidarControles.SoloNumeros(e);
+        }
+
+        private void btnfoto_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Servicio.FotoProducto Foto = new FotoProducto();
+            Foto.VariablesGlovbales.IdProductoSeleccionadoAgregarPorpductos = VariablesGlbales.IdProductoSeleccionadoAgregarPorpductos;
+            Foto.VariablesGlovbales.NumeroConectorSeleccionadoAgregarPorpductos = VariablesGlbales.NumeroConectorSeleccionadoAgregarPorpductos;
+            Foto.ShowDialog();
         }
     }
 }

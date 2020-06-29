@@ -447,7 +447,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 }
             }
 
-            
+            txtStockMinimo.Enabled = false;
+            txtStockMinimo.Text = "1";
         }
 
         private void ddlSeleccionarTipoProducto_SelectedIndexChanged(object sender, EventArgs e)
@@ -632,12 +633,18 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             if (cbacumulativo.Checked == true)
             {
                 txtStock.Enabled = true;
-                txtStock.Text = string.Empty;
+               // txtStock.Text = string.Empty;
+                
+                txtStockMinimo.Enabled = true;
+              //  txtStockMinimo.Text = string.Empty;
             }
             else
             {
                 txtStock.Enabled = false;
                 txtStock.Text = "1";
+
+                txtStockMinimo.Enabled = false;
+                txtStockMinimo.Text = "1";
             }
         }
     }

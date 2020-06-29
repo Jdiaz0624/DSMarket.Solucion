@@ -55,6 +55,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
             dtListado.BackgroundColor = SystemColors.Control;
             cbEstatus.ForeColor = Color.DarkRed;
             cbPorDefecto.ForeColor = Color.DarkRed;
+            cbUsarComprobantes.ForeColor = Color.DarkRed;
         }
 
         private void cbEstatus_CheckedChanged(object sender, EventArgs e)
@@ -88,6 +89,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
                 case CloseReason.UserClosing:
                     e.Cancel = true;
                     break;
+            }
+        }
+
+        private void cbUsarComprobantes_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbUsarComprobantes.Checked == true)
+            {
+                cbUsarComprobantes.ForeColor = Color.LimeGreen;
+            }
+            else {
+                cbUsarComprobantes.ForeColor = Color.DarkRed;
             }
         }
     }

@@ -63,6 +63,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtListado = new System.Windows.Forms.DataGridView();
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.cbUsarComprobantes = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel2.SuspendLayout();
@@ -97,7 +98,7 @@
             this.cbPorDefecto.AutoSize = true;
             this.cbPorDefecto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbPorDefecto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbPorDefecto.Location = new System.Drawing.Point(276, 189);
+            this.cbPorDefecto.Location = new System.Drawing.Point(319, 190);
             this.cbPorDefecto.Name = "cbPorDefecto";
             this.cbPorDefecto.Size = new System.Drawing.Size(119, 25);
             this.cbPorDefecto.TabIndex = 21;
@@ -111,7 +112,7 @@
             this.cbEstatus.AutoSize = true;
             this.cbEstatus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbEstatus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbEstatus.Location = new System.Drawing.Point(187, 189);
+            this.cbEstatus.Location = new System.Drawing.Point(230, 187);
             this.cbEstatus.Name = "cbEstatus";
             this.cbEstatus.Size = new System.Drawing.Size(83, 25);
             this.cbEstatus.TabIndex = 20;
@@ -174,6 +175,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Linen;
+            this.panel2.Controls.Add(this.cbUsarComprobantes);
             this.panel2.Controls.Add(this.btnNuevo);
             this.panel2.Controls.Add(this.btnBuscar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -430,6 +432,20 @@
             this.Select.UseColumnTextForButtonValue = true;
             this.Select.Width = 64;
             // 
+            // cbUsarComprobantes
+            // 
+            this.cbUsarComprobantes.AutoSize = true;
+            this.cbUsarComprobantes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbUsarComprobantes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbUsarComprobantes.Location = new System.Drawing.Point(355, 15);
+            this.cbUsarComprobantes.Name = "cbUsarComprobantes";
+            this.cbUsarComprobantes.Size = new System.Drawing.Size(183, 25);
+            this.cbUsarComprobantes.TabIndex = 24;
+            this.cbUsarComprobantes.Text = "Usar Comprobantes";
+            this.toolTip1.SetToolTip(this.cbUsarComprobantes, "Estatus de Comprobante");
+            this.cbUsarComprobantes.UseVisualStyleBackColor = true;
+            this.cbUsarComprobantes.CheckedChanged += new System.EventHandler(this.cbUsarComprobantes_CheckedChanged);
+            // 
             // Comprobantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -453,6 +469,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.gnConfiguracion.ResumeLayout(false);
             this.gnConfiguracion.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -497,5 +514,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.CheckBox cbUsarComprobantes;
     }
 }

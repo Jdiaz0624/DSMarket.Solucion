@@ -19,6 +19,10 @@ namespace DSMarket.Logica.Comunes
         public decimal NumeroConector { get; set; }
         public int EstadisticaProducto { get; set; }
 
+
+        public decimal IdProductoSeleccionadoAgregarPorpductos { get; set; }
+        public decimal NumeroConectorSeleccionadoAgregarPorpductos { get; set; }
+
         #region DATOS SACADOS DEL USUARIO EN EL LOGIN
         public bool Estatus { get; set; }
         public bool CambiaClave { get; set; }

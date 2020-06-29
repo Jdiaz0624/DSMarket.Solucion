@@ -35,6 +35,8 @@
             this.lbTitulo = new System.Windows.Forms.Label();
             this.lbCredito = new System.Windows.Forms.Label();
             this.cbAgregarCategoria = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtAcumulativo = new System.Windows.Forms.TextBox();
             this.lbCantidadMostradaVariable = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.btnfoto = new System.Windows.Forms.Button();
@@ -77,8 +79,6 @@
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.lbCantidadExistente = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
@@ -88,8 +88,6 @@
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.txtAcumulativo = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.cbAgregarCategoria.SuspendLayout();
@@ -202,8 +200,6 @@
             this.cbAgregarCategoria.Controls.Add(this.txtNumeroPagina);
             this.cbAgregarCategoria.Controls.Add(this.lbNumeroPagina);
             this.cbAgregarCategoria.Controls.Add(this.button2);
-            this.cbAgregarCategoria.Controls.Add(this.lbCantidadExistente);
-            this.cbAgregarCategoria.Controls.Add(this.label17);
             this.cbAgregarCategoria.Controls.Add(this.label16);
             this.cbAgregarCategoria.Controls.Add(this.label14);
             this.cbAgregarCategoria.Controls.Add(this.txtDescripcion);
@@ -215,6 +211,24 @@
             this.cbAgregarCategoria.TabIndex = 9;
             this.cbAgregarCategoria.TabStop = false;
             this.cbAgregarCategoria.Text = "Buscar Productos";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(526, 470);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(104, 20);
+            this.label4.TabIndex = 80;
+            this.label4.Text = "Acumulativo";
+            // 
+            // txtAcumulativo
+            // 
+            this.txtAcumulativo.BackColor = System.Drawing.Color.Silver;
+            this.txtAcumulativo.Enabled = false;
+            this.txtAcumulativo.Location = new System.Drawing.Point(634, 467);
+            this.txtAcumulativo.Name = "txtAcumulativo";
+            this.txtAcumulativo.Size = new System.Drawing.Size(193, 27);
+            this.txtAcumulativo.TabIndex = 79;
             // 
             // lbCantidadMostradaVariable
             // 
@@ -252,6 +266,7 @@
             this.btnfoto.Text = "     ";
             this.toolTip1.SetToolTip(this.btnfoto, "Mostrar la foto del producto seleccionado");
             this.btnfoto.UseVisualStyleBackColor = true;
+            this.btnfoto.Click += new System.EventHandler(this.btnfoto_Click);
             // 
             // cbAgregarCategorias
             // 
@@ -361,9 +376,9 @@
             // 
             this.Separador.BackColor = System.Drawing.Color.Transparent;
             this.Separador.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.Separador.LineThickness = 12;
+            this.Separador.LineThickness = 18;
             this.Separador.Location = new System.Drawing.Point(7, 362);
-            this.Separador.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Separador.Margin = new System.Windows.Forms.Padding(5);
             this.Separador.Name = "Separador";
             this.Separador.Size = new System.Drawing.Size(1152, 14);
             this.Separador.TabIndex = 69;
@@ -688,26 +703,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // lbCantidadExistente
-            // 
-            this.lbCantidadExistente.AutoSize = true;
-            this.lbCantidadExistente.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCantidadExistente.Location = new System.Drawing.Point(678, 98);
-            this.lbCantidadExistente.Name = "lbCantidadExistente";
-            this.lbCantidadExistente.Size = new System.Drawing.Size(39, 20);
-            this.lbCantidadExistente.TabIndex = 34;
-            this.lbCantidadExistente.Text = "000";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(501, 98);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(171, 20);
-            this.label17.TabIndex = 33;
-            this.label17.Text = "Cantidad Existente";
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -794,24 +789,6 @@
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
             // 
-            // txtAcumulativo
-            // 
-            this.txtAcumulativo.BackColor = System.Drawing.Color.Silver;
-            this.txtAcumulativo.Enabled = false;
-            this.txtAcumulativo.Location = new System.Drawing.Point(634, 467);
-            this.txtAcumulativo.Name = "txtAcumulativo";
-            this.txtAcumulativo.Size = new System.Drawing.Size(193, 27);
-            this.txtAcumulativo.TabIndex = 79;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(526, 470);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 20);
-            this.label4.TabIndex = 80;
-            this.label4.Text = "Acumulativo";
-            // 
             // AgregarProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -881,8 +858,6 @@
         private System.Windows.Forms.NumericUpDown txtNumeroPagina;
         private System.Windows.Forms.Label lbNumeroPagina;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label lbCantidadExistente;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtDescripcion;
