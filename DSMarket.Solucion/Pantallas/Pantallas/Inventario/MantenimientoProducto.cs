@@ -192,6 +192,14 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 Mantenimiento.Fecha = DateTime.Now;
 
                 var MAn = ObjDataInventario.Value.MantenimientoProducto(Mantenimiento, VariablesGlobales.Accion);
+
+
+
+                if (cbLlevaImagen.Checked == true)
+                {
+                    SacarIdProductoCreado(VariablesGlobales.NumeroConector);
+                    GuardarFotoProducto();
+                }
             }
             catch (Exception ex) {
                 MessageBox.Show("Error al realizar el mantenimiento, codigo de error: " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -224,6 +232,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             txtStockMinimo.Text = string.Empty;
             GenerarConector();
             MostrarImagenPorDefecto(pbFoto);
+            txtStock.Text = "1";
+            txtStockMinimo.Text = "1";
+            cbacumulativo.Checked = false;
         }
         #endregion
         #region SACAR LOS DATOS DEL PRODUCTO
@@ -566,11 +577,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 if (VariablesGlobales.Accion == "INSERT")
                 {
                     MANProductos();
-                    if (cbLlevaImagen.Checked == true)
-                    {
-                        SacarIdProductoCreado(VariablesGlobales.NumeroConector);
-                        GuardarFotoProducto();
-                    }
+                   
                     MessageBox.Show("Registro guardado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (MessageBox.Show("¿Quieres guardar otro registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {

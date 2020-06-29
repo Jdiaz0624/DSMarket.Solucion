@@ -31,10 +31,14 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbMontoCredito = new System.Windows.Forms.Label();
+            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.lbCredito = new System.Windows.Forms.Label();
             this.cbAgregarCategoria = new System.Windows.Forms.GroupBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.lbCantidadMostradaVariable = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnfoto = new System.Windows.Forms.Button();
+            this.cbAgregarCategorias = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.gbProductosAgregados = new System.Windows.Forms.GroupBox();
@@ -44,8 +48,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtCategoria = new System.Windows.Forms.TextBox();
             this.Separador = new Bunifu.Framework.UI.BunifuSeparator();
-            this.txtTercerprecio = new System.Windows.Forms.TextBox();
-            this.txtSegundoPrecio = new System.Windows.Forms.TextBox();
+            this.btnQuitar = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.txtDescuento = new System.Windows.Forms.TextBox();
+            this.txtPorcientoDescyento = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.lbTercerPrecio = new System.Windows.Forms.Label();
             this.lbSegundoPrecio = new System.Windows.Forms.Label();
@@ -58,7 +65,7 @@
             this.lbcantidadDisponible = new System.Windows.Forms.Label();
             this.lbProducto = new System.Windows.Forms.Label();
             this.lbTipoProducto = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbAlerta = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtReferencia = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -69,26 +76,22 @@
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
-            this.lbCantidaRegistros = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.lbCantidadExistente = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.ddlTipoProducto = new System.Windows.Forms.ComboBox();
             this.gbListadoProductos = new System.Windows.Forms.GroupBox();
             this.dtSeleccionarproducto = new System.Windows.Forms.DataGridView();
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnQuitar = new System.Windows.Forms.Button();
-            this.btnVolver = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.PCerrar = new System.Windows.Forms.PictureBox();
+            this.txtAcumulativo = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.cbAgregarCategoria.SuspendLayout();
             this.gbProductosAgregados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtProductosAgregados)).BeginInit();
@@ -96,7 +99,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).BeginInit();
             this.gbListadoProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtSeleccionarproducto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -123,6 +125,20 @@
             this.lbMontoCredito.Text = "Credito";
             this.lbMontoCredito.Visible = false;
             // 
+            // PCerrar
+            // 
+            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
+            this.PCerrar.Location = new System.Drawing.Point(1142, 5);
+            this.PCerrar.Name = "PCerrar";
+            this.PCerrar.Size = new System.Drawing.Size(30, 30);
+            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PCerrar.TabIndex = 15;
+            this.PCerrar.TabStop = false;
+            this.toolTip1.SetToolTip(this.PCerrar, "Cerrar");
+            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
+            // 
             // lbTitulo
             // 
             this.lbTitulo.AutoSize = true;
@@ -144,8 +160,12 @@
             // 
             // cbAgregarCategoria
             // 
-            this.cbAgregarCategoria.Controls.Add(this.button1);
-            this.cbAgregarCategoria.Controls.Add(this.checkBox2);
+            this.cbAgregarCategoria.Controls.Add(this.label4);
+            this.cbAgregarCategoria.Controls.Add(this.txtAcumulativo);
+            this.cbAgregarCategoria.Controls.Add(this.lbCantidadMostradaVariable);
+            this.cbAgregarCategoria.Controls.Add(this.label9);
+            this.cbAgregarCategoria.Controls.Add(this.btnfoto);
+            this.cbAgregarCategoria.Controls.Add(this.cbAgregarCategorias);
             this.cbAgregarCategoria.Controls.Add(this.label6);
             this.cbAgregarCategoria.Controls.Add(this.label7);
             this.cbAgregarCategoria.Controls.Add(this.gbProductosAgregados);
@@ -156,8 +176,8 @@
             this.cbAgregarCategoria.Controls.Add(this.btnQuitar);
             this.cbAgregarCategoria.Controls.Add(this.btnVolver);
             this.cbAgregarCategoria.Controls.Add(this.btnAgregar);
-            this.cbAgregarCategoria.Controls.Add(this.txtTercerprecio);
-            this.cbAgregarCategoria.Controls.Add(this.txtSegundoPrecio);
+            this.cbAgregarCategoria.Controls.Add(this.txtDescuento);
+            this.cbAgregarCategoria.Controls.Add(this.txtPorcientoDescyento);
             this.cbAgregarCategoria.Controls.Add(this.txtPrecio);
             this.cbAgregarCategoria.Controls.Add(this.lbTercerPrecio);
             this.cbAgregarCategoria.Controls.Add(this.lbSegundoPrecio);
@@ -170,7 +190,7 @@
             this.cbAgregarCategoria.Controls.Add(this.lbcantidadDisponible);
             this.cbAgregarCategoria.Controls.Add(this.lbProducto);
             this.cbAgregarCategoria.Controls.Add(this.lbTipoProducto);
-            this.cbAgregarCategoria.Controls.Add(this.label4);
+            this.cbAgregarCategoria.Controls.Add(this.lbAlerta);
             this.cbAgregarCategoria.Controls.Add(this.label3);
             this.cbAgregarCategoria.Controls.Add(this.txtReferencia);
             this.cbAgregarCategoria.Controls.Add(this.label2);
@@ -182,13 +202,11 @@
             this.cbAgregarCategoria.Controls.Add(this.txtNumeroPagina);
             this.cbAgregarCategoria.Controls.Add(this.lbNumeroPagina);
             this.cbAgregarCategoria.Controls.Add(this.button2);
-            this.cbAgregarCategoria.Controls.Add(this.lbCantidaRegistros);
+            this.cbAgregarCategoria.Controls.Add(this.lbCantidadExistente);
             this.cbAgregarCategoria.Controls.Add(this.label17);
             this.cbAgregarCategoria.Controls.Add(this.label16);
-            this.cbAgregarCategoria.Controls.Add(this.label15);
             this.cbAgregarCategoria.Controls.Add(this.label14);
             this.cbAgregarCategoria.Controls.Add(this.txtDescripcion);
-            this.cbAgregarCategoria.Controls.Add(this.txtCodigo);
             this.cbAgregarCategoria.Controls.Add(this.ddlTipoProducto);
             this.cbAgregarCategoria.Controls.Add(this.gbListadoProductos);
             this.cbAgregarCategoria.Location = new System.Drawing.Point(12, 45);
@@ -198,23 +216,60 @@
             this.cbAgregarCategoria.TabStop = false;
             this.cbAgregarCategoria.Text = "Buscar Productos";
             // 
-            // checkBox2
+            // lbCantidadMostradaVariable
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.checkBox2.Location = new System.Drawing.Point(869, 24);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(164, 24);
-            this.checkBox2.TabIndex = 75;
-            this.checkBox2.Text = "Agregar Categoria";
-            this.toolTip1.SetToolTip(this.checkBox2, "Agregar el filtro por categoria");
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.lbCantidadMostradaVariable.AutoSize = true;
+            this.lbCantidadMostradaVariable.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCantidadMostradaVariable.Location = new System.Drawing.Point(678, 64);
+            this.lbCantidadMostradaVariable.Name = "lbCantidadMostradaVariable";
+            this.lbCantidadMostradaVariable.Size = new System.Drawing.Size(39, 20);
+            this.lbCantidadMostradaVariable.TabIndex = 78;
+            this.lbCantidadMostradaVariable.Text = "000";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(501, 64);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(169, 20);
+            this.label9.TabIndex = 77;
+            this.label9.Text = "Cantidad Mostrada";
+            // 
+            // btnfoto
+            // 
+            this.btnfoto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnfoto.Enabled = false;
+            this.btnfoto.FlatAppearance.BorderSize = 0;
+            this.btnfoto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnfoto.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnfoto.Image = global::DSMarket.Solucion.Properties.Resources.foto;
+            this.btnfoto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnfoto.Location = new System.Drawing.Point(879, 416);
+            this.btnfoto.Name = "btnfoto";
+            this.btnfoto.Size = new System.Drawing.Size(73, 74);
+            this.btnfoto.TabIndex = 76;
+            this.btnfoto.Text = "     ";
+            this.toolTip1.SetToolTip(this.btnfoto, "Mostrar la foto del producto seleccionado");
+            this.btnfoto.UseVisualStyleBackColor = true;
+            // 
+            // cbAgregarCategorias
+            // 
+            this.cbAgregarCategorias.AutoSize = true;
+            this.cbAgregarCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbAgregarCategorias.Location = new System.Drawing.Point(869, 24);
+            this.cbAgregarCategorias.Name = "cbAgregarCategorias";
+            this.cbAgregarCategorias.Size = new System.Drawing.Size(164, 24);
+            this.cbAgregarCategorias.TabIndex = 75;
+            this.cbAgregarCategorias.Text = "Agregar Categoria";
+            this.toolTip1.SetToolTip(this.cbAgregarCategorias, "Agregar el filtro por categoria");
+            this.cbAgregarCategorias.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(875, 496);
+            this.label6.Location = new System.Drawing.Point(875, 508);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(39, 20);
             this.label6.TabIndex = 74;
@@ -225,7 +280,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(580, 493);
+            this.label7.Location = new System.Drawing.Point(580, 506);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(289, 20);
             this.label7.TabIndex = 73;
@@ -306,32 +361,83 @@
             // 
             this.Separador.BackColor = System.Drawing.Color.Transparent;
             this.Separador.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.Separador.LineThickness = 5;
+            this.Separador.LineThickness = 12;
             this.Separador.Location = new System.Drawing.Point(7, 362);
-            this.Separador.Margin = new System.Windows.Forms.Padding(5);
+            this.Separador.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Separador.Name = "Separador";
-            this.Separador.Size = new System.Drawing.Size(1151, 14);
+            this.Separador.Size = new System.Drawing.Size(1152, 14);
             this.Separador.TabIndex = 69;
             this.Separador.Transparency = 255;
             this.Separador.Vertical = false;
             // 
-            // txtTercerprecio
+            // btnQuitar
             // 
-            this.txtTercerprecio.BackColor = System.Drawing.Color.Silver;
-            this.txtTercerprecio.Enabled = false;
-            this.txtTercerprecio.Location = new System.Drawing.Point(634, 436);
-            this.txtTercerprecio.Name = "txtTercerprecio";
-            this.txtTercerprecio.Size = new System.Drawing.Size(193, 27);
-            this.txtTercerprecio.TabIndex = 60;
+            this.btnQuitar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnQuitar.Enabled = false;
+            this.btnQuitar.FlatAppearance.BorderSize = 0;
+            this.btnQuitar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnQuitar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitar.Image = global::DSMarket.Solucion.Properties.Resources.Eliminar;
+            this.btnQuitar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnQuitar.Location = new System.Drawing.Point(1009, 476);
+            this.btnQuitar.Name = "btnQuitar";
+            this.btnQuitar.Size = new System.Drawing.Size(142, 41);
+            this.btnQuitar.TabIndex = 68;
+            this.btnQuitar.Text = "      Quitar";
+            this.toolTip1.SetToolTip(this.btnQuitar, "Quitar Producto Seleccionado");
+            this.btnQuitar.UseVisualStyleBackColor = true;
             // 
-            // txtSegundoPrecio
+            // btnVolver
             // 
-            this.txtSegundoPrecio.BackColor = System.Drawing.Color.Silver;
-            this.txtSegundoPrecio.Enabled = false;
-            this.txtSegundoPrecio.Location = new System.Drawing.Point(634, 406);
-            this.txtSegundoPrecio.Name = "txtSegundoPrecio";
-            this.txtSegundoPrecio.Size = new System.Drawing.Size(193, 27);
-            this.txtSegundoPrecio.TabIndex = 59;
+            this.btnVolver.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVolver.Enabled = false;
+            this.btnVolver.FlatAppearance.BorderSize = 0;
+            this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnVolver.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.Image = global::DSMarket.Solucion.Properties.Resources.Editar;
+            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVolver.Location = new System.Drawing.Point(1009, 431);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(142, 41);
+            this.btnVolver.TabIndex = 64;
+            this.btnVolver.Text = "      Editar";
+            this.toolTip1.SetToolTip(this.btnVolver, "Editar Registro seleccionado");
+            this.btnVolver.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAgregar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
+            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregar.Location = new System.Drawing.Point(1009, 384);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(142, 41);
+            this.btnAgregar.TabIndex = 63;
+            this.btnAgregar.Text = "      Agregar";
+            this.toolTip1.SetToolTip(this.btnAgregar, "Agregar Registro");
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            // 
+            // txtDescuento
+            // 
+            this.txtDescuento.BackColor = System.Drawing.Color.Silver;
+            this.txtDescuento.Location = new System.Drawing.Point(634, 436);
+            this.txtDescuento.Name = "txtDescuento";
+            this.txtDescuento.Size = new System.Drawing.Size(193, 27);
+            this.txtDescuento.TabIndex = 60;
+            this.txtDescuento.Text = "0";
+            this.txtDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescuento_KeyPress);
+            // 
+            // txtPorcientoDescyento
+            // 
+            this.txtPorcientoDescyento.BackColor = System.Drawing.Color.Silver;
+            this.txtPorcientoDescyento.Enabled = false;
+            this.txtPorcientoDescyento.Location = new System.Drawing.Point(634, 406);
+            this.txtPorcientoDescyento.Name = "txtPorcientoDescyento";
+            this.txtPorcientoDescyento.Size = new System.Drawing.Size(193, 27);
+            this.txtPorcientoDescyento.TabIndex = 59;
             // 
             // txtPrecio
             // 
@@ -385,6 +491,7 @@
             this.txtCantidadUsar.Name = "txtCantidadUsar";
             this.txtCantidadUsar.Size = new System.Drawing.Size(327, 27);
             this.txtCantidadUsar.TabIndex = 53;
+            this.txtCantidadUsar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescuento_KeyPress);
             // 
             // txtCantidadDisponible
             // 
@@ -440,16 +547,17 @@
             this.lbTipoProducto.TabIndex = 47;
             this.lbTipoProducto.Text = "Tipo de Producto";
             // 
-            // label4
+            // lbAlerta
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DarkRed;
-            this.label4.Location = new System.Drawing.Point(475, 118);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(676, 23);
-            this.label4.TabIndex = 46;
-            this.label4.Text = "PRODUCTO PROXIMO AGOTARSE, CONSIDERE COMPRAR MAS";
+            this.lbAlerta.AutoSize = true;
+            this.lbAlerta.Font = new System.Drawing.Font("Century", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAlerta.ForeColor = System.Drawing.Color.DarkRed;
+            this.lbAlerta.Location = new System.Drawing.Point(475, 118);
+            this.lbAlerta.Name = "lbAlerta";
+            this.lbAlerta.Size = new System.Drawing.Size(676, 23);
+            this.lbAlerta.TabIndex = 46;
+            this.lbAlerta.Text = "PRODUCTO PROXIMO AGOTARSE, CONSIDERE COMPRAR MAS";
+            this.lbAlerta.Visible = false;
             // 
             // label3
             // 
@@ -524,6 +632,7 @@
             0,
             0,
             0});
+            this.txtNumeroRegistros.ValueChanged += new System.EventHandler(this.txtNumeroRegistros_ValueChanged);
             // 
             // lbNumeroRegistros
             // 
@@ -552,6 +661,7 @@
             0,
             0,
             0});
+            this.txtNumeroPagina.ValueChanged += new System.EventHandler(this.txtNumeroPagina_ValueChanged);
             // 
             // lbNumeroPagina
             // 
@@ -562,15 +672,31 @@
             this.lbNumeroPagina.TabIndex = 36;
             this.lbNumeroPagina.Text = "No.Pagina";
             // 
-            // lbCantidaRegistros
+            // button2
             // 
-            this.lbCantidaRegistros.AutoSize = true;
-            this.lbCantidaRegistros.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCantidaRegistros.Location = new System.Drawing.Point(678, 98);
-            this.lbCantidaRegistros.Name = "lbCantidaRegistros";
-            this.lbCantidaRegistros.Size = new System.Drawing.Size(39, 20);
-            this.lbCantidaRegistros.TabIndex = 34;
-            this.lbCantidaRegistros.Text = "000";
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(1016, 53);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(142, 41);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "      Consultar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // lbCantidadExistente
+            // 
+            this.lbCantidadExistente.AutoSize = true;
+            this.lbCantidadExistente.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCantidadExistente.Location = new System.Drawing.Point(678, 98);
+            this.lbCantidadExistente.Name = "lbCantidadExistente";
+            this.lbCantidadExistente.Size = new System.Drawing.Size(39, 20);
+            this.lbCantidadExistente.TabIndex = 34;
+            this.lbCantidadExistente.Text = "000";
             // 
             // label17
             // 
@@ -585,20 +711,11 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(467, 57);
+            this.label16.Location = new System.Drawing.Point(67, 55);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(94, 20);
             this.label16.TabIndex = 32;
             this.label16.Text = "Descripción";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(14, 57);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(151, 20);
-            this.label15.TabIndex = 31;
-            this.label15.Text = "Codigo de Producto";
             // 
             // label14
             // 
@@ -612,18 +729,10 @@
             // txtDescripcion
             // 
             this.txtDescripcion.BackColor = System.Drawing.Color.Silver;
-            this.txtDescripcion.Location = new System.Drawing.Point(567, 54);
+            this.txtDescripcion.Location = new System.Drawing.Point(167, 52);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(295, 27);
             this.txtDescripcion.TabIndex = 30;
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.BackColor = System.Drawing.Color.Silver;
-            this.txtCodigo.Location = new System.Drawing.Point(168, 53);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(295, 27);
-            this.txtCodigo.TabIndex = 29;
             // 
             // ddlTipoProducto
             // 
@@ -636,6 +745,7 @@
             this.ddlTipoProducto.Name = "ddlTipoProducto";
             this.ddlTipoProducto.Size = new System.Drawing.Size(294, 28);
             this.ddlTipoProducto.TabIndex = 29;
+            this.ddlTipoProducto.SelectedIndexChanged += new System.EventHandler(this.ddlTipoProducto_SelectedIndexChanged);
             // 
             // gbListadoProductos
             // 
@@ -666,6 +776,7 @@
             this.dtSeleccionarproducto.RowTemplate.Height = 24;
             this.dtSeleccionarproducto.Size = new System.Drawing.Size(1140, 166);
             this.dtSeleccionarproducto.TabIndex = 0;
+            this.dtSeleccionarproducto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtSeleccionarproducto_CellContentClick);
             // 
             // Select
             // 
@@ -683,98 +794,23 @@
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
             // 
-            // button1
+            // txtAcumulativo
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = global::DSMarket.Solucion.Properties.Resources.foto;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(879, 416);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(73, 74);
-            this.button1.TabIndex = 76;
-            this.button1.Text = "     ";
-            this.toolTip1.SetToolTip(this.button1, "Muestra la foto del producto seleccionado");
-            this.button1.UseVisualStyleBackColor = true;
+            this.txtAcumulativo.BackColor = System.Drawing.Color.Silver;
+            this.txtAcumulativo.Enabled = false;
+            this.txtAcumulativo.Location = new System.Drawing.Point(634, 467);
+            this.txtAcumulativo.Name = "txtAcumulativo";
+            this.txtAcumulativo.Size = new System.Drawing.Size(193, 27);
+            this.txtAcumulativo.TabIndex = 79;
             // 
-            // btnQuitar
+            // label4
             // 
-            this.btnQuitar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnQuitar.FlatAppearance.BorderSize = 0;
-            this.btnQuitar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnQuitar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuitar.Image = global::DSMarket.Solucion.Properties.Resources.Eliminar;
-            this.btnQuitar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQuitar.Location = new System.Drawing.Point(1009, 476);
-            this.btnQuitar.Name = "btnQuitar";
-            this.btnQuitar.Size = new System.Drawing.Size(142, 41);
-            this.btnQuitar.TabIndex = 68;
-            this.btnQuitar.Text = "      Quitar";
-            this.toolTip1.SetToolTip(this.btnQuitar, "Quitar Producto Seleccionado");
-            this.btnQuitar.UseVisualStyleBackColor = true;
-            // 
-            // btnVolver
-            // 
-            this.btnVolver.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnVolver.FlatAppearance.BorderSize = 0;
-            this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnVolver.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolver.Image = global::DSMarket.Solucion.Properties.Resources.Editar;
-            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVolver.Location = new System.Drawing.Point(1009, 431);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(142, 41);
-            this.btnVolver.TabIndex = 64;
-            this.btnVolver.Text = "      Editar";
-            this.toolTip1.SetToolTip(this.btnVolver, "Editar Registro seleccionado");
-            this.btnVolver.UseVisualStyleBackColor = true;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregar.FlatAppearance.BorderSize = 0;
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAgregar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
-            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(1009, 384);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(142, 41);
-            this.btnAgregar.TabIndex = 63;
-            this.btnAgregar.Text = "      Agregar";
-            this.toolTip1.SetToolTip(this.btnAgregar, "Agregar Registro");
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(1016, 53);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(142, 41);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "      Consultar";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // PCerrar
-            // 
-            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(1142, 5);
-            this.PCerrar.Name = "PCerrar";
-            this.PCerrar.Size = new System.Drawing.Size(30, 30);
-            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PCerrar.TabIndex = 15;
-            this.PCerrar.TabStop = false;
-            this.toolTip1.SetToolTip(this.PCerrar, "Cerrar");
-            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(526, 470);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(104, 20);
+            this.label4.TabIndex = 80;
+            this.label4.Text = "Acumulativo";
             // 
             // AgregarProductos
             // 
@@ -796,6 +832,7 @@
             this.Load += new System.EventHandler(this.AgregarProductos_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.cbAgregarCategoria.ResumeLayout(false);
             this.cbAgregarCategoria.PerformLayout();
             this.gbProductosAgregados.ResumeLayout(false);
@@ -804,7 +841,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).EndInit();
             this.gbListadoProductos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtSeleccionarproducto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -819,8 +855,8 @@
         private System.Windows.Forms.GroupBox cbAgregarCategoria;
         private System.Windows.Forms.Button btnQuitar;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.TextBox txtTercerprecio;
-        private System.Windows.Forms.TextBox txtSegundoPrecio;
+        private System.Windows.Forms.TextBox txtDescuento;
+        private System.Windows.Forms.TextBox txtPorcientoDescyento;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label lbTercerPrecio;
         private System.Windows.Forms.Label lbSegundoPrecio;
@@ -833,7 +869,7 @@
         private System.Windows.Forms.Label lbcantidadDisponible;
         private System.Windows.Forms.Label lbProducto;
         private System.Windows.Forms.Label lbTipoProducto;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbAlerta;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtReferencia;
         private System.Windows.Forms.Label label2;
@@ -845,13 +881,11 @@
         private System.Windows.Forms.NumericUpDown txtNumeroPagina;
         private System.Windows.Forms.Label lbNumeroPagina;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label lbCantidaRegistros;
+        private System.Windows.Forms.Label lbCantidadExistente;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.ComboBox ddlTipoProducto;
         private System.Windows.Forms.GroupBox gbListadoProductos;
         private System.Windows.Forms.DataGridView dtSeleccionarproducto;
@@ -867,8 +901,12 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
         private System.Windows.Forms.DataGridViewButtonColumn Select;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox cbAgregarCategorias;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnfoto;
+        private System.Windows.Forms.Label lbCantidadMostradaVariable;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtAcumulativo;
     }
 }

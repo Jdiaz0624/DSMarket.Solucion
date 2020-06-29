@@ -325,6 +325,12 @@
     <Compile Include="Pantallas\Pantallas\Servicio\Facturacion.Designer.cs">
       <DependentUpon>Facturacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Servicio\FotoProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Servicio\FotoProducto.Designer.cs">
+      <DependentUpon>FotoProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Servicio\HistorialFActuracion.cs">
       <SubType>Form</SubType>
     </Compile>

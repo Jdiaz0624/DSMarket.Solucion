@@ -32,20 +32,20 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtConcepto = new System.Windows.Forms.TextBox();
-            this.btnProcesar = new System.Windows.Forms.Button();
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.Monto = new System.Windows.Forms.Label();
             this.rbSacar = new System.Windows.Forms.RadioButton();
             this.rbIngresar = new System.Windows.Forms.RadioButton();
+            this.btnProcesar = new System.Windows.Forms.Button();
             this.btnAbrirCerrar = new System.Windows.Forms.Button();
             this.gbDatosCaja = new System.Windows.Forms.GroupBox();
-            this.txtClaveSegrudiad = new System.Windows.Forms.TextBox();
             this.lbNombreCaja = new System.Windows.Forms.Label();
             this.lbMonto = new System.Windows.Forms.Label();
             this.lbEstatus = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtClaveSegrudiad = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PCerrar = new System.Windows.Forms.PictureBox();
@@ -92,20 +92,6 @@
             this.txtConcepto.Size = new System.Drawing.Size(221, 27);
             this.txtConcepto.TabIndex = 10;
             // 
-            // btnProcesar
-            // 
-            this.btnProcesar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProcesar.Enabled = false;
-            this.btnProcesar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProcesar.Location = new System.Drawing.Point(400, 239);
-            this.btnProcesar.Name = "btnProcesar";
-            this.btnProcesar.Size = new System.Drawing.Size(399, 36);
-            this.btnProcesar.TabIndex = 5;
-            this.btnProcesar.Text = "Procesar";
-            this.toolTip1.SetToolTip(this.btnProcesar, "Procesar");
-            this.btnProcesar.UseVisualStyleBackColor = true;
-            this.btnProcesar.Click += new System.EventHandler(this.btnProcesar_Click);
-            // 
             // txtMonto
             // 
             this.txtMonto.BackColor = System.Drawing.Color.White;
@@ -149,6 +135,20 @@
             this.rbIngresar.Text = "Ingresar Efectivo";
             this.rbIngresar.UseVisualStyleBackColor = true;
             // 
+            // btnProcesar
+            // 
+            this.btnProcesar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProcesar.Enabled = false;
+            this.btnProcesar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProcesar.Location = new System.Drawing.Point(400, 239);
+            this.btnProcesar.Name = "btnProcesar";
+            this.btnProcesar.Size = new System.Drawing.Size(399, 36);
+            this.btnProcesar.TabIndex = 5;
+            this.btnProcesar.Text = "Procesar";
+            this.toolTip1.SetToolTip(this.btnProcesar, "Procesar");
+            this.btnProcesar.UseVisualStyleBackColor = true;
+            this.btnProcesar.Click += new System.EventHandler(this.btnProcesar_Click);
+            // 
             // btnAbrirCerrar
             // 
             this.btnAbrirCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -179,16 +179,6 @@
             this.gbDatosCaja.TabIndex = 6;
             this.gbDatosCaja.TabStop = false;
             this.gbDatosCaja.Text = "Abrir / Cerrar";
-            // 
-            // txtClaveSegrudiad
-            // 
-            this.txtClaveSegrudiad.BackColor = System.Drawing.Color.White;
-            this.txtClaveSegrudiad.Location = new System.Drawing.Point(181, 298);
-            this.txtClaveSegrudiad.MaxLength = 20;
-            this.txtClaveSegrudiad.Name = "txtClaveSegrudiad";
-            this.txtClaveSegrudiad.PasswordChar = '•';
-            this.txtClaveSegrudiad.Size = new System.Drawing.Size(213, 27);
-            this.txtClaveSegrudiad.TabIndex = 7;
             // 
             // lbNombreCaja
             // 
@@ -243,6 +233,17 @@
             this.label2.Size = new System.Drawing.Size(73, 21);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre";
+            // 
+            // txtClaveSegrudiad
+            // 
+            this.txtClaveSegrudiad.BackColor = System.Drawing.Color.White;
+            this.txtClaveSegrudiad.Location = new System.Drawing.Point(181, 298);
+            this.txtClaveSegrudiad.MaxLength = 20;
+            this.txtClaveSegrudiad.Name = "txtClaveSegrudiad";
+            this.txtClaveSegrudiad.PasswordChar = '•';
+            this.txtClaveSegrudiad.Size = new System.Drawing.Size(213, 27);
+            this.txtClaveSegrudiad.TabIndex = 7;
+            this.txtClaveSegrudiad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClaveSegrudiad_KeyPress);
             // 
             // label1
             // 

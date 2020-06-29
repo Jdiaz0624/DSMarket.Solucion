@@ -39,7 +39,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
 
                 AbrirCerrar.IdCaja = 1;
                 AbrirCerrar.Caja = "Caja General";
-                AbrirCerrar.MontoActual = Convert.ToDecimal(txtMonto.Text);
+                AbrirCerrar.MontoActual = Convert.ToDecimal(lbMonto.Text);
                 AbrirCerrar.Estatus0 = true;
 
                 var MAN = ObjDataLogica.Value.AfectarCaja(AbrirCerrar, Accion);
@@ -47,6 +47,54 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
             }
             catch (Exception ex) {
                 MessageBox.Show("Error al abrir o cerrar caja, codigo de error --> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void IngresarSacarDinero(string Accion)
+        {
+            try
+            {
+                DSMarket.Logica.Entidades.EntidadesCaja.ECajaGeneral AbrirCerrar = new Logica.Entidades.EntidadesCaja.ECajaGeneral();
+
+                AbrirCerrar.IdCaja = 1;
+                AbrirCerrar.Caja = "Caja General";
+                AbrirCerrar.MontoActual = Convert.ToDecimal(txtMonto.Text);
+                AbrirCerrar.Estatus0 = true;
+
+                var MAN = ObjDataLogica.Value.AfectarCaja(AbrirCerrar, Accion);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al abrir o cerrar caja, codigo de error --> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
+        #region VALIDAR CLAVE SEGURIDAD
+        private void ValidarClave() {
+            if (string.IsNullOrEmpty(txtClaveSegrudiad.Text.Trim()))
+            {
+                MessageBox.Show("La clave de seguridad no puede estar vacia, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                string _ClaveSeguridad = string.IsNullOrEmpty(txtClaveSegrudiad.Text.Trim()) ? null : txtClaveSegrudiad.Text.Trim();
+
+                var Validar = ObjDataSeguridad.Value.BuscaClaveSeguridad(
+                    new Nullable<decimal>(),
+                    null,
+                    DSMarket.Logica.Comunes.SeguridadEncriptacion.Encriptar(_ClaveSeguridad),
+                    1, 1);
+                if (Validar.Count() < 1)
+                {
+                    MessageBox.Show("La clave de seguridad ingresada no es valida, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtClaveSegrudiad.Text = string.Empty;
+                    txtClaveSegrudiad.Focus();
+                }
+                else
+                {
+                    btnAbrirCerrar.Enabled = true;
+                    btnProcesar.Enabled = true;
+                }
             }
         }
         #endregion
@@ -73,30 +121,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtClaveSegrudiad.Text.Trim()))
-            {
-                MessageBox.Show("La clave de seguridad no puede estar vacia, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else {
-                string _ClaveSeguridad = string.IsNullOrEmpty(txtClaveSegrudiad.Text.Trim()) ? null : txtClaveSegrudiad.Text.Trim();
-
-                var Validar = ObjDataSeguridad.Value.BuscaClaveSeguridad(
-                    new Nullable<decimal>(),
-                    null,
-                    DSMarket.Logica.Comunes.SeguridadEncriptacion.Encriptar(_ClaveSeguridad),
-                    1, 1);
-                if (Validar.Count() < 1)
-                {
-                    MessageBox.Show("La clave de seguridad ingresada no es valida, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtClaveSegrudiad.Text = string.Empty;
-                    txtClaveSegrudiad.Focus();
-                }
-                else
-                {
-                    btnAbrirCerrar.Enabled = true;
-                    btnProcesar.Enabled = true;
-                }
-            }
+            ValidarClave();
         }
 
         private void btnAbrirCerrar_Click(object sender, EventArgs e)
@@ -126,7 +151,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
                     {
                         txtConcepto.Text = "INGRESO DE EFECTIVO";
                     }
-                    AbrirCerrarCaja("ADDMONEY");
+                    IngresarSacarDinero("ADDMONEY");
+                  //  AbrirCerrarCaja("");
                     MostrarEstatusCaja();
                     txtConcepto.Text = string.Empty;
                 }
@@ -145,11 +171,20 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
                     }
                     else
                     {
-                        AbrirCerrarCaja("LESSMONEY");
+                        IngresarSacarDinero("LESSMONEY");
+                      //  AbrirCerrarCaja("");
                         MostrarEstatusCaja();
                         txtConcepto.Text = string.Empty;
                     }
                 }
+            }
+        }
+
+        private void txtClaveSegrudiad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                ValidarClave();
             }
         }
     }
