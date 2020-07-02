@@ -93,17 +93,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Seguridad
             }
         }
         #endregion
-        #region SACAR LA INFORMACION DE LA EMPRESA
-        private void SacarInformacionEmpresa()
-        {
-            var SacarInformacionEmpresa = ObjDataCOnfiguracion.Value.BuscaInformacionEmpresa();
-            foreach (var n in SacarInformacionEmpresa)
-            {
-                VariablesGlobales.NombreSistema = n.NombreEmpresa;
-                lbNombreEmpresa.Text = VariablesGlobales.NombreSistema;
-            }
-        }
-        #endregion
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -119,6 +109,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Seguridad
         {
             /// SacarInformacionEmpresa();
             lbNombreEmpresa.Text = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+            VariablesGlobales.NombreSistema = lbNombreEmpresa.Text;
             txtclave.PasswordChar = '•';
             gbLogin.Visible = false;
             Efecto.Show(gbLogin);
