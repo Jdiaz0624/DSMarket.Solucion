@@ -173,7 +173,7 @@
             // 
             this.txtTotalServicios.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtTotalServicios.Enabled = false;
-            this.txtTotalServicios.Location = new System.Drawing.Point(452, 277);
+            this.txtTotalServicios.Location = new System.Drawing.Point(453, 277);
             this.txtTotalServicios.Name = "txtTotalServicios";
             this.txtTotalServicios.Size = new System.Drawing.Size(113, 27);
             this.txtTotalServicios.TabIndex = 58;
@@ -1013,7 +1013,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1233, 38);
+            this.panel1.Size = new System.Drawing.Size(1028, 38);
             this.panel1.TabIndex = 2;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -1022,7 +1022,7 @@
             this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(1189, 5);
+            this.PCerrar.Location = new System.Drawing.Point(984, 5);
             this.PCerrar.Name = "PCerrar";
             this.PCerrar.Size = new System.Drawing.Size(30, 30);
             this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1059,7 +1059,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
-            this.ClientSize = new System.Drawing.Size(1233, 668);
+            this.ClientSize = new System.Drawing.Size(1028, 668);
             this.Controls.Add(this.gbGeneral);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
