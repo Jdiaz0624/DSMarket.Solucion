@@ -51,6 +51,7 @@
     <Compile Include="Comunes\ValidarControles.cs" />
     <Compile Include="Comunes\VariablesGlobales.cs" />
     <Compile Include="Entidades\EntidadesCaja\ECajaGeneral.cs" />
+    <Compile Include="Entidades\EntidadesConfiguracion\EConfiguracionGeneral.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EInformacionEmpresa.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EListas.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECategorias.cs" />
@@ -63,7 +64,9 @@
     <Compile Include="Entidades\EntidadesInventario\ETipoProducto.cs" />
     <Compile Include="Entidades\EntidadesInventario\ETipoSuplidores.cs" />
     <Compile Include="Entidades\EntidadesInventario\EUnidadMedida.cs" />
+    <Compile Include="Entidades\EntidadesListas\EComprobantesNulos.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaCategorias.cs" />
+    <Compile Include="Entidades\EntidadesListas\EListaComprobantesFiscales.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaMarcas.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaModeos.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaSuplidor.cs" />

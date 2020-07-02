@@ -108,5 +108,41 @@ namespace DSMarket.Logica.Logica.LogicaListas
             return Buscar;
         }
         #endregion
+        #region LISTADO DE INFORMACION DE EMPRESA
+        /// <summary>
+        /// Este metodo es para buscar los comprobantes fiscales en caso de que esten activo esta opción en la configuracion
+        /// </summary>
+        /// <returns></returns>
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EListaComprobantesFiscales> BuscaCOmprobantesFiscales()
+        {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjDataListas.SP_BUSCA_COMPROBANTE_FISCALES()
+                           select new DSMarket.Logica.Entidades.EntidadesListas.EListaComprobantesFiscales
+                           {
+                               IdComprobante=n.IdComprobante,
+                               Comprbante=n.Comprbante
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
+        #region LISTADO DE LOS COMPROBANTES NULOS
+        /// <summary>
+        /// Este metodo es para mostrar la lista de que los comprobantes cuando no se esta usando los comprobante fiscales para facturar
+        /// </summary>
+        /// <returns></returns>
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EComprobantesNulos> BuscaComprobantesnulos()
+        {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Buscar = (from n in ObjDataListas.SP_BUSCA_LISTA_COMPROBANTE_NULOS()
+                          select new DSMarket.Logica.Entidades.EntidadesListas.EComprobantesNulos
+                          {
+                              IdComprobanteNulo=n.IdComprobanteNulo,
+                              Descripcion=n.Descripcion
+                          }).ToList();
+            return Buscar;
+        }
+        #endregion
     }
 }

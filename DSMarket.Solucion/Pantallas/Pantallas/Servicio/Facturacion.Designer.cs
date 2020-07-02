@@ -31,6 +31,11 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Facturacion));
             this.gbGeneral = new System.Windows.Forms.GroupBox();
+            this.txtTotalServicios = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dtFacturasMinimizadas = new System.Windows.Forms.DataGridView();
@@ -38,6 +43,7 @@
             this.txtCantidadServicios = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.rbCotizar = new System.Windows.Forms.RadioButton();
+            this.cbAgregarCliente = new System.Windows.Forms.CheckBox();
             this.ddlCantidadDias = new System.Windows.Forms.ComboBox();
             this.rbFacturar = new System.Windows.Forms.RadioButton();
             this.lbCantidadDias = new System.Windows.Forms.Label();
@@ -67,12 +73,14 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btnARS = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnBuscarCodigoCliente = new System.Windows.Forms.Button();
+            this.txtCodigoConsulta = new System.Windows.Forms.TextBox();
+            this.cbBuscarPorCodigo = new System.Windows.Forms.CheckBox();
             this.cbFacturaPuntoVenta = new System.Windows.Forms.CheckBox();
             this.rbfacturaenglish = new System.Windows.Forms.RadioButton();
             this.rbfacturaspanish = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
             this.btnRefresarCotizacion = new System.Windows.Forms.Button();
-            this.cbAgregarCliente = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
@@ -103,14 +111,6 @@
             this.lbTitulo = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.label8 = new System.Windows.Forms.Label();
-            this.cbBuscarPorCodigo = new System.Windows.Forms.CheckBox();
-            this.txtCodigoConsulta = new System.Windows.Forms.TextBox();
-            this.btnBuscarCodigoCliente = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.txtTotalServicios = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
             this.gbGeneral.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtFacturasMinimizadas)).BeginInit();
@@ -168,6 +168,53 @@
             this.gbGeneral.TabIndex = 3;
             this.gbGeneral.TabStop = false;
             this.gbGeneral.Text = "Datos de Facturación";
+            // 
+            // txtTotalServicios
+            // 
+            this.txtTotalServicios.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTotalServicios.Enabled = false;
+            this.txtTotalServicios.Location = new System.Drawing.Point(452, 277);
+            this.txtTotalServicios.Name = "txtTotalServicios";
+            this.txtTotalServicios.Size = new System.Drawing.Size(113, 27);
+            this.txtTotalServicios.TabIndex = 58;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(400, 281);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(48, 20);
+            this.label23.TabIndex = 57;
+            this.label23.Text = "Total";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(1157, 426);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(15, 16);
+            this.label21.TabIndex = 56;
+            this.label21.Text = "0";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(710, 492);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(66, 20);
+            this.label8.TabIndex = 54;
+            this.label8.Text = "Cambio";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(1004, 426);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(147, 16);
+            this.label13.TabIndex = 55;
+            this.label13.Text = "Facturas Minimizadas:";
             // 
             // button3
             // 
@@ -259,6 +306,20 @@
             this.toolTip1.SetToolTip(this.rbCotizar, "Cotizar");
             this.rbCotizar.UseVisualStyleBackColor = true;
             this.rbCotizar.CheckedChanged += new System.EventHandler(this.rbCotizar_CheckedChanged);
+            // 
+            // cbAgregarCliente
+            // 
+            this.cbAgregarCliente.AutoSize = true;
+            this.cbAgregarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbAgregarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbAgregarCliente.Location = new System.Drawing.Point(268, 28);
+            this.cbAgregarCliente.Name = "cbAgregarCliente";
+            this.cbAgregarCliente.Size = new System.Drawing.Size(145, 24);
+            this.cbAgregarCliente.TabIndex = 38;
+            this.cbAgregarCliente.Text = "Agregar Cliente";
+            this.toolTip1.SetToolTip(this.cbAgregarCliente, "Agregar Cliente de Manera Manual");
+            this.cbAgregarCliente.UseVisualStyleBackColor = true;
+            this.cbAgregarCliente.CheckedChanged += new System.EventHandler(this.cbAgregarCliente_CheckedChanged);
             // 
             // ddlCantidadDias
             // 
@@ -602,6 +663,43 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de Cliente";
             // 
+            // btnBuscarCodigoCliente
+            // 
+            this.btnBuscarCodigoCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarCodigoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBuscarCodigoCliente.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
+            this.btnBuscarCodigoCliente.Location = new System.Drawing.Point(412, 20);
+            this.btnBuscarCodigoCliente.Name = "btnBuscarCodigoCliente";
+            this.btnBuscarCodigoCliente.Size = new System.Drawing.Size(41, 29);
+            this.btnBuscarCodigoCliente.TabIndex = 57;
+            this.toolTip1.SetToolTip(this.btnBuscarCodigoCliente, "Buscar Cliente mediante el codigo");
+            this.btnBuscarCodigoCliente.UseVisualStyleBackColor = true;
+            this.btnBuscarCodigoCliente.Visible = false;
+            // 
+            // txtCodigoConsulta
+            // 
+            this.txtCodigoConsulta.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCodigoConsulta.Location = new System.Drawing.Point(184, 22);
+            this.txtCodigoConsulta.Name = "txtCodigoConsulta";
+            this.txtCodigoConsulta.Size = new System.Drawing.Size(222, 27);
+            this.txtCodigoConsulta.TabIndex = 56;
+            this.txtCodigoConsulta.Visible = false;
+            // 
+            // cbBuscarPorCodigo
+            // 
+            this.cbBuscarPorCodigo.AutoSize = true;
+            this.cbBuscarPorCodigo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbBuscarPorCodigo.Enabled = false;
+            this.cbBuscarPorCodigo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbBuscarPorCodigo.Location = new System.Drawing.Point(4, 26);
+            this.cbBuscarPorCodigo.Name = "cbBuscarPorCodigo";
+            this.cbBuscarPorCodigo.Size = new System.Drawing.Size(156, 24);
+            this.cbBuscarPorCodigo.TabIndex = 55;
+            this.cbBuscarPorCodigo.Text = "Buscar por codigo";
+            this.toolTip1.SetToolTip(this.cbBuscarPorCodigo, "Agregar Cliente de Manera Manual");
+            this.cbBuscarPorCodigo.UseVisualStyleBackColor = true;
+            this.cbBuscarPorCodigo.CheckedChanged += new System.EventHandler(this.cbBuscarPorCodigo_CheckedChanged);
+            // 
             // cbFacturaPuntoVenta
             // 
             this.cbFacturaPuntoVenta.AutoSize = true;
@@ -669,20 +767,6 @@
             this.btnRefresarCotizacion.Visible = false;
             this.btnRefresarCotizacion.Click += new System.EventHandler(this.btnRefresarCotizacion_Click);
             // 
-            // cbAgregarCliente
-            // 
-            this.cbAgregarCliente.AutoSize = true;
-            this.cbAgregarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbAgregarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbAgregarCliente.Location = new System.Drawing.Point(268, 28);
-            this.cbAgregarCliente.Name = "cbAgregarCliente";
-            this.cbAgregarCliente.Size = new System.Drawing.Size(145, 24);
-            this.cbAgregarCliente.TabIndex = 38;
-            this.cbAgregarCliente.Text = "Agregar Cliente";
-            this.toolTip1.SetToolTip(this.cbAgregarCliente, "Agregar Cliente de Manera Manual");
-            this.cbAgregarCliente.UseVisualStyleBackColor = true;
-            this.cbAgregarCliente.CheckedChanged += new System.EventHandler(this.cbAgregarCliente_CheckedChanged);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -726,15 +810,15 @@
             // txtEmail
             // 
             this.txtEmail.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtEmail.Location = new System.Drawing.Point(184, 174);
+            this.txtEmail.Location = new System.Drawing.Point(128, 174);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(282, 27);
+            this.txtEmail.Size = new System.Drawing.Size(338, 27);
             this.txtEmail.TabIndex = 24;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(126, 178);
+            this.label11.Location = new System.Drawing.Point(71, 178);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(54, 20);
             this.label11.TabIndex = 23;
@@ -820,17 +904,17 @@
             // txtTelefono
             // 
             this.txtTelefono.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtTelefono.Location = new System.Drawing.Point(184, 145);
+            this.txtTelefono.Location = new System.Drawing.Point(128, 145);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(282, 27);
+            this.txtTelefono.Size = new System.Drawing.Size(338, 27);
             this.txtTelefono.TabIndex = 12;
             // 
             // txtNombrePaciente
             // 
             this.txtNombrePaciente.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtNombrePaciente.Location = new System.Drawing.Point(185, 115);
+            this.txtNombrePaciente.Location = new System.Drawing.Point(129, 115);
             this.txtNombrePaciente.Name = "txtNombrePaciente";
-            this.txtNombrePaciente.Size = new System.Drawing.Size(279, 27);
+            this.txtNombrePaciente.Size = new System.Drawing.Size(335, 27);
             this.txtNombrePaciente.TabIndex = 11;
             // 
             // ddlTipoFacturacion
@@ -840,9 +924,9 @@
             this.ddlTipoFacturacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlTipoFacturacion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ddlTipoFacturacion.FormattingEnabled = true;
-            this.ddlTipoFacturacion.Location = new System.Drawing.Point(184, 85);
+            this.ddlTipoFacturacion.Location = new System.Drawing.Point(128, 85);
             this.ddlTipoFacturacion.Name = "ddlTipoFacturacion";
-            this.ddlTipoFacturacion.Size = new System.Drawing.Size(280, 28);
+            this.ddlTipoFacturacion.Size = new System.Drawing.Size(336, 28);
             this.ddlTipoFacturacion.TabIndex = 10;
             // 
             // txtNoCotizacion
@@ -856,15 +940,15 @@
             // txtCodigoCliente
             // 
             this.txtCodigoCliente.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtCodigoCliente.Location = new System.Drawing.Point(184, 55);
+            this.txtCodigoCliente.Location = new System.Drawing.Point(128, 55);
             this.txtCodigoCliente.Name = "txtCodigoCliente";
-            this.txtCodigoCliente.Size = new System.Drawing.Size(280, 27);
+            this.txtCodigoCliente.Size = new System.Drawing.Size(336, 27);
             this.txtCodigoCliente.TabIndex = 8;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(107, 149);
+            this.label5.Location = new System.Drawing.Point(53, 148);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 20);
             this.label5.TabIndex = 4;
@@ -873,7 +957,7 @@
             // lbNombrePaciente
             // 
             this.lbNombrePaciente.AutoSize = true;
-            this.lbNombrePaciente.Location = new System.Drawing.Point(101, 118);
+            this.lbNombrePaciente.Location = new System.Drawing.Point(46, 119);
             this.lbNombrePaciente.Name = "lbNombrePaciente";
             this.lbNombrePaciente.Size = new System.Drawing.Size(80, 20);
             this.lbNombrePaciente.TabIndex = 3;
@@ -882,11 +966,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 88);
+            this.label3.Location = new System.Drawing.Point(4, 89);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(168, 20);
+            this.label3.Size = new System.Drawing.Size(121, 20);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Tipo de Facturación *";
+            this.label3.Text = "Comprobante *";
             // 
             // label2
             // 
@@ -900,7 +984,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(63, 58);
+            this.label1.Location = new System.Drawing.Point(8, 58);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(117, 20);
             this.label1.TabIndex = 0;
@@ -967,90 +1051,6 @@
             // 
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(710, 492);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(66, 20);
-            this.label8.TabIndex = 54;
-            this.label8.Text = "Cambio";
-            // 
-            // cbBuscarPorCodigo
-            // 
-            this.cbBuscarPorCodigo.AutoSize = true;
-            this.cbBuscarPorCodigo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbBuscarPorCodigo.Enabled = false;
-            this.cbBuscarPorCodigo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbBuscarPorCodigo.Location = new System.Drawing.Point(4, 26);
-            this.cbBuscarPorCodigo.Name = "cbBuscarPorCodigo";
-            this.cbBuscarPorCodigo.Size = new System.Drawing.Size(156, 24);
-            this.cbBuscarPorCodigo.TabIndex = 55;
-            this.cbBuscarPorCodigo.Text = "Buscar por codigo";
-            this.toolTip1.SetToolTip(this.cbBuscarPorCodigo, "Agregar Cliente de Manera Manual");
-            this.cbBuscarPorCodigo.UseVisualStyleBackColor = true;
-            this.cbBuscarPorCodigo.CheckedChanged += new System.EventHandler(this.cbBuscarPorCodigo_CheckedChanged);
-            // 
-            // txtCodigoConsulta
-            // 
-            this.txtCodigoConsulta.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtCodigoConsulta.Location = new System.Drawing.Point(184, 22);
-            this.txtCodigoConsulta.Name = "txtCodigoConsulta";
-            this.txtCodigoConsulta.Size = new System.Drawing.Size(222, 27);
-            this.txtCodigoConsulta.TabIndex = 56;
-            this.txtCodigoConsulta.Visible = false;
-            // 
-            // btnBuscarCodigoCliente
-            // 
-            this.btnBuscarCodigoCliente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscarCodigoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBuscarCodigoCliente.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
-            this.btnBuscarCodigoCliente.Location = new System.Drawing.Point(412, 20);
-            this.btnBuscarCodigoCliente.Name = "btnBuscarCodigoCliente";
-            this.btnBuscarCodigoCliente.Size = new System.Drawing.Size(41, 29);
-            this.btnBuscarCodigoCliente.TabIndex = 57;
-            this.toolTip1.SetToolTip(this.btnBuscarCodigoCliente, "Buscar Cliente mediante el codigo");
-            this.btnBuscarCodigoCliente.UseVisualStyleBackColor = true;
-            this.btnBuscarCodigoCliente.Visible = false;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(1004, 426);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(147, 16);
-            this.label13.TabIndex = 55;
-            this.label13.Text = "Facturas Minimizadas:";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(1157, 426);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(15, 16);
-            this.label21.TabIndex = 56;
-            this.label21.Text = "0";
-            // 
-            // txtTotalServicios
-            // 
-            this.txtTotalServicios.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtTotalServicios.Enabled = false;
-            this.txtTotalServicios.Location = new System.Drawing.Point(452, 277);
-            this.txtTotalServicios.Name = "txtTotalServicios";
-            this.txtTotalServicios.Size = new System.Drawing.Size(113, 27);
-            this.txtTotalServicios.TabIndex = 58;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(400, 281);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(48, 20);
-            this.label23.TabIndex = 57;
-            this.label23.Text = "Total";
             // 
             // Facturacion
             // 

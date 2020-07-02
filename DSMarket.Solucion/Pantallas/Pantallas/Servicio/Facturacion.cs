@@ -17,6 +17,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         {
             InitializeComponent();
         }
+        Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
+        Lazy<DSMarket.Logica.Logica.LogicaListas.LogicaListas> ObjDataListas = new Lazy<Logica.Logica.LogicaListas.LogicaListas>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region BLOQUEAR Y DESBLOQUEAR CONTROLES DEL LADO DEL CLIENTE
@@ -134,8 +136,37 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
         #endregion
+        #region MOSTRAMOS LOS COMPROBANTES FISCALES
+       
+        private void MostrarComprobantesFiscales() {
+            //VERIFICAMOS SI EL SISTEMA ESTA CONFIGURADO PARA USAR COMPROBANTES FISCALES
+            bool UsoComprobante = false;
+            var VerificarUsoComprobantes = ObjDataConfiguracion.Value.BuscaCOnfiguracionGeneral(1);
+            foreach (var n in VerificarUsoComprobantes)
+            {
+                UsoComprobante = Convert.ToBoolean(n.Estatus0);
+            }
+            if (UsoComprobante == true)
+            {
+                //Mostrar los comprobantes fiscales
+                var Comprobantes = ObjDataListas.Value.BuscaCOmprobantesFiscales();
+                ddlTipoFacturacion.DataSource = Comprobantes;
+                ddlTipoFacturacion.DisplayMember = "Comprbante";
+                ddlTipoFacturacion.ValueMember = "IdComprobante";
+            }
+            else {
+                //No Mostrar los comprobantes fiscales
+                var NoMostrarComprobantes = ObjDataListas.Value.BuscaComprobantesnulos();
+                ddlTipoFacturacion.DataSource = NoMostrarComprobantes;
+                ddlTipoFacturacion.DisplayMember = "Descripcion";
+                ddlTipoFacturacion.ValueMember = "IdComprobanteNulo";
+            }
+        }
+        #endregion
         private void Facturacion_Load(object sender, EventArgs e)
         {
+            VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+            MostrarComprobantesFiscales();
             TemaGenerico();
             lbTitulo.Text = "FACTURACION";
             lbTitulo.ForeColor = Color.White;

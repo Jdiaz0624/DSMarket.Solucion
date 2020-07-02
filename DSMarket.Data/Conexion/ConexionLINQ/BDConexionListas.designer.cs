@@ -33,7 +33,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
     #endregion
 		
 		public BDConexionListasDataContext() : 
-				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString2, mappingSource)
+				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -109,6 +109,20 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idTipoSuplidor);
 			return ((ISingleResult<SP_LISTAS_SUPLIDORESResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_BUSCA_COMPROBANTE_FISCALES")]
+		public ISingleResult<SP_BUSCA_COMPROBANTE_FISCALESResult> SP_BUSCA_COMPROBANTE_FISCALES()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_BUSCA_COMPROBANTE_FISCALESResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_BUSCA_LISTA_COMPROBANTE_NULOS")]
+		public ISingleResult<SP_BUSCA_LISTA_COMPROBANTE_NULOSResult> SP_BUSCA_LISTA_COMPROBANTE_NULOS()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_BUSCA_LISTA_COMPROBANTE_NULOSResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -415,6 +429,94 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._Nombre != value))
 				{
 					this._Nombre = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCA_COMPROBANTE_FISCALESResult
+	{
+		
+		private decimal _IdComprobante;
+		
+		private string _Comprbante;
+		
+		public SP_BUSCA_COMPROBANTE_FISCALESResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdComprobante", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdComprobante
+		{
+			get
+			{
+				return this._IdComprobante;
+			}
+			set
+			{
+				if ((this._IdComprobante != value))
+				{
+					this._IdComprobante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comprbante", DbType="VarChar(100)")]
+		public string Comprbante
+		{
+			get
+			{
+				return this._Comprbante;
+			}
+			set
+			{
+				if ((this._Comprbante != value))
+				{
+					this._Comprbante = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCA_LISTA_COMPROBANTE_NULOSResult
+	{
+		
+		private int _IdComprobanteNulo;
+		
+		private string _Descripcion;
+		
+		public SP_BUSCA_LISTA_COMPROBANTE_NULOSResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdComprobanteNulo", DbType="Int NOT NULL")]
+		public int IdComprobanteNulo
+		{
+			get
+			{
+				return this._IdComprobanteNulo;
+			}
+			set
+			{
+				if ((this._IdComprobanteNulo != value))
+				{
+					this._IdComprobanteNulo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(5)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
 				}
 			}
 		}

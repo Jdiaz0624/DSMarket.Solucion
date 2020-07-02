@@ -90,5 +90,21 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             return Modificar;
         }
         #endregion
+        #region MOSTRAR EL LISTADO DE LOS CONFIGURACIONES GENERALES
+        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral> BuscaCOnfiguracionGeneral(int? IdConfiguracionGeneral = null)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_BUSCA_CONFIGURACION_GENERAL(IdConfiguracionGeneral)
+                           select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral
+                           {
+                               IdConfiguracionGeneral=n.IdConfiguracionGeneral,
+                               Descripcion=n.Descripcion,
+                               Estatus0=n.Estatus0,
+                               Estatus=n.Estatus
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
     }
 }
