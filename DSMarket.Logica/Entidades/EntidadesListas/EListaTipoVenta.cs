@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace DSMarket.Logica.Entidades.EntidadesListas
 {
-    public class EComprobantesNulos
+    public class EListaTipoVenta
     {
+        public Nullable<int> IdTipoVenta { get; set; }
 
-        public int? IdComprobanteNulo { get; set; }
-
-        public string Descripcion { get; set; }
+        public string TipoVenta { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DSMarket" Class="BDConexionListasDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=172.26.24.199;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString1" Provider="System.Data.SqlClient" />
   <Function Name="Listas.SP_CARGAR_LISTA_TIPO_PRODUCTO" Method="SP_CARGAR_LISTA_TIPO_PRODUCTO">
     <Parameter Name="IdTipoproducto" Parameter="idTipoproducto" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(100)" />
@@ -57,6 +57,24 @@
     <ElementType Name="SP_BUSCA_LISTA_COMPROBANTE_NULOSResult">
       <Column Name="IdComprobanteNulo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Descripcion" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_LISTADO_TIPO_IDENTIFICACION" Method="SP_LISTADO_TIPO_IDENTIFICACION">
+    <ElementType Name="SP_LISTADO_TIPO_IDENTIFICACIONResult">
+      <Column Name="IdTipoIdentificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TipoIdentificacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_BUSCA_TIPO_VENTA" Method="SP_BUSCA_TIPO_VENTA">
+    <ElementType Name="SP_BUSCA_TIPO_VENTAResult">
+      <Column Name="IdTipoVenta" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TipoVenta" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_CANTIDAD_DIAS" Method="SP_CANTIDAD_DIAS">
+    <ElementType Name="SP_CANTIDAD_DIASResult">
+      <Column Name="IdCantidadDias" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CantidadDias" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

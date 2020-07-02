@@ -371,6 +371,7 @@
             this.ddlTipoVenta.Name = "ddlTipoVenta";
             this.ddlTipoVenta.Size = new System.Drawing.Size(127, 28);
             this.ddlTipoVenta.TabIndex = 29;
+            this.ddlTipoVenta.SelectedIndexChanged += new System.EventHandler(this.ddlTipoVenta_SelectedIndexChanged);
             // 
             // label22
             // 
@@ -675,6 +676,7 @@
             this.toolTip1.SetToolTip(this.btnBuscarCodigoCliente, "Buscar Cliente mediante el codigo");
             this.btnBuscarCodigoCliente.UseVisualStyleBackColor = true;
             this.btnBuscarCodigoCliente.Visible = false;
+            this.btnBuscarCodigoCliente.Click += new System.EventHandler(this.btnBuscarCodigoCliente_Click);
             // 
             // txtCodigoConsulta
             // 
@@ -691,7 +693,7 @@
             this.cbBuscarPorCodigo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbBuscarPorCodigo.Enabled = false;
             this.cbBuscarPorCodigo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbBuscarPorCodigo.Location = new System.Drawing.Point(4, 26);
+            this.cbBuscarPorCodigo.Location = new System.Drawing.Point(24, 23);
             this.cbBuscarPorCodigo.Name = "cbBuscarPorCodigo";
             this.cbBuscarPorCodigo.Size = new System.Drawing.Size(156, 24);
             this.cbBuscarPorCodigo.TabIndex = 55;

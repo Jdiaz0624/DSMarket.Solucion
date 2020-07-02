@@ -144,5 +144,48 @@ namespace DSMarket.Logica.Logica.LogicaListas
             return Buscar;
         }
         #endregion
+        #region LISTADO DE TIPO DE IDENTIFICACION
+        /// <summary>
+        /// Este metodo es para mostrar el listado de los tipos de identificacion
+        /// </summary>
+        /// <returns></returns>
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EListaTipoIdentificacion> BuscaTipoIdentificacion() {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjDataListas.SP_LISTADO_TIPO_IDENTIFICACION()
+                           select new DSMarket.Logica.Entidades.EntidadesListas.EListaTipoIdentificacion
+                           {
+                               IdTipoIdentificacion=n.IdTipoIdentificacion,
+                               TipoIdentificacion=n.TipoIdentificacion
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
+        #region LISTADO DE TIPO DE VENTA
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EListaTipoVenta> BuscaTipoVenta() {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Buscar = (from n in ObjDataListas.SP_BUSCA_TIPO_VENTA()
+                          select new DSMarket.Logica.Entidades.EntidadesListas.EListaTipoVenta
+                          {
+                              IdTipoVenta=n.IdTipoVenta,
+                              TipoVenta=n.TipoVenta
+                          }).ToList();
+            return Buscar;
+        }
+        #endregion
+        #region LISTADO DE LA CANTIDAD DE DIAS
+        public List<DSMarket.Logica.Entidades.EntidadesListas.ECantidadDias> ListadoCantidadDias() {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var BuscaCantidadDias = (from n in ObjDataListas.SP_CANTIDAD_DIAS()
+                                     select new DSMarket.Logica.Entidades.EntidadesListas.ECantidadDias
+                                     {
+                                         IdCantidadDias=n.IdCantidadDias,
+                                         CantidadDias=n.CantidadDias
+                                     }).ToList();
+            return BuscaCantidadDias;
+        }
+        #endregion
     }
 }

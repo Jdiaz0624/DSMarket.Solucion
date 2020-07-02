@@ -19,6 +19,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         }
         Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
         Lazy<DSMarket.Logica.Logica.LogicaListas.LogicaListas> ObjDataListas = new Lazy<Logica.Logica.LogicaListas.LogicaListas>();
+        Lazy<DSMarket.Logica.Logica.LogicaEmpresa.LogicaEmpresa> ObjDataEmpresa = new Lazy<Logica.Logica.LogicaEmpresa.LogicaEmpresa>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region BLOQUEAR Y DESBLOQUEAR CONTROLES DEL LADO DEL CLIENTE
@@ -137,7 +138,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
         #endregion
         #region MOSTRAMOS LOS COMPROBANTES FISCALES
-       
+
         private void MostrarComprobantesFiscales() {
             //VERIFICAMOS SI EL SISTEMA ESTA CONFIGURADO PARA USAR COMPROBANTES FISCALES
             bool UsoComprobante = false;
@@ -163,10 +164,102 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             }
         }
         #endregion
+        #region MOSTRAR LISTADO DE LOS TIPOS DE VENTAS
+        private void MostrarListadoTipoVenta() {
+            var TipoVenta = ObjDataListas.Value.BuscaTipoVenta();
+            ddlTipoVenta.DataSource = TipoVenta;
+            ddlTipoVenta.DisplayMember = "TipoVenta";
+            ddlTipoVenta.ValueMember = "IdTipoVenta";
+        }
+        #endregion
+        #region MOSTRAR EL LISTADO DE LOS TIPOS DE IDENTIFICACION
+        private void MostrarTipoIdentificacion() {
+            var TipoIdentificacion = ObjDataListas.Value.BuscaTipoIdentificacion();
+            ddlTipoIdentificacion.DataSource = TipoIdentificacion;
+            ddlTipoIdentificacion.DisplayMember = "TipoIdentificacion";
+            ddlTipoIdentificacion.ValueMember = "IdTipoIdentificacion";
+        }
+        #endregion
+        #region BLOQUEAR CONTROLES
+        private void BloquearControles() {
+            cbAgregarCliente.Enabled = false;
+            cbBuscarPorCodigo.Enabled = false;
+            txtCodigoConsulta.Enabled = false;
+            btnBuscarCodigoCliente.Enabled = false;
+            btnAgregarAlmacen.Enabled = false;
+            txtCodigoCliente.Enabled = false;
+            ddlTipoFacturacion.Enabled = false;
+            txtNombrePaciente.Enabled = false;
+            txtTelefono.Enabled = false;
+            txtEmail.Enabled = false;
+            txtNoCotizacion.Enabled = false;
+            ddlTipoIdentificacion.Enabled = false;
+            txtIdentificacion.Enabled = false;
+            txtDireccion.Enabled = false;
+            txtComentario.Enabled = false;
+            btnBuscarCotizacion.Enabled = false;
+
+            btnRegresar.Enabled = true;
+            btnRefresarCotizacion.Enabled = true;
+        }
+
+        private void DesbloquearControles() {
+            cbAgregarCliente.Enabled = true;
+            cbBuscarPorCodigo.Enabled = true;
+            txtCodigoConsulta.Enabled = true;
+            btnBuscarCodigoCliente.Enabled = true;
+            btnAgregarAlmacen.Enabled = true;
+            txtCodigoCliente.Enabled = true;
+            ddlTipoFacturacion.Enabled = true;
+            txtNombrePaciente.Enabled = true;
+            txtTelefono.Enabled = true;
+            txtEmail.Enabled = true;
+            txtNoCotizacion.Enabled = true;
+            ddlTipoIdentificacion.Enabled = true;
+            txtIdentificacion.Enabled = true;
+            txtDireccion.Enabled = true;
+            txtComentario.Enabled = true;
+            btnBuscarCotizacion.Enabled = true;
+
+            btnRegresar.Enabled = false;
+            btnRefresarCotizacion.Enabled = false;
+
+            LimpiarControles();
+
+        }
+
+        private void LimpiarControles() {
+           
+            txtCodigoConsulta.Text = string.Empty;
+            txtCodigoCliente.Text = string.Empty;
+            MostrarComprobantesFiscales();
+            txtNombrePaciente.Text = string.Empty;
+            txtTelefono.Text = string.Empty;
+            txtEmail.Text = string.Empty;
+            txtNoCotizacion.Text = string.Empty;
+            MostrarTipoIdentificacion();
+            txtIdentificacion.Text = string.Empty;
+            txtDireccion.Text = string.Empty;
+            txtComentario.Text = string.Empty;
+            cbAgregarCliente.Checked = false;
+            cbBuscarPorCodigo.Checked = false;
+            MostrarListadoTipoVenta();
+        }
+        #endregion
+        #region MOSTRAR LA CANTIDAD DE DIAS
+        private void ListadoCantidadDias() {
+            var Listado = ObjDataListas.Value.ListadoCantidadDias();
+            ddlCantidadDias.DataSource = Listado;
+            ddlCantidadDias.DisplayMember = "CantidadDias";
+            ddlCantidadDias.ValueMember = "IdCantidadDias";
+        }
+        #endregion
         private void Facturacion_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             MostrarComprobantesFiscales();
+            MostrarTipoIdentificacion();
+            MostrarListadoTipoVenta();
             TemaGenerico();
             lbTitulo.Text = "FACTURACION";
             lbTitulo.ForeColor = Color.White;
@@ -334,12 +427,63 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         {
             btnAgregarAlmacen.Visible = true;
             btnRegresar.Visible = false;
+            DesbloquearControles();
         }
 
         private void btnAgregarAlmacen_Click(object sender, EventArgs e)
         {
-            btnAgregarAlmacen.Visible = false;
-            btnRegresar.Visible = true;
+            if (string.IsNullOrEmpty(txtCodigoCliente.Text.Trim()))
+            {
+                MessageBox.Show("No puedes dejar el campo rnc vacio para buscar un registro", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCodigoCliente.Focus();
+            }
+            else
+            {
+                //BUSCAMOS EL REGISTRO
+                var Buscarregistro = ObjDataEmpresa.Value.BuscaClientes(
+                    new Nullable<decimal>(),
+                    null, null, txtCodigoCliente.Text, null, 1, 1);
+                if (Buscarregistro.Count() < 1)
+                {
+                    MessageBox.Show("El rnc de cliente ingresado no es valido, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtCodigoCliente.Text = string.Empty;
+                    txtCodigoCliente.Focus();
+                }
+                else
+                {
+                    foreach (var n in Buscarregistro)
+                    {
+                        bool usoComprobante = false;
+
+                        var ValidarUsoCOmprobante = ObjDataConfiguracion.Value.BuscaCOnfiguracionGeneral(1);
+                        foreach (var n2 in ValidarUsoCOmprobante)
+                        {
+                            usoComprobante = Convert.ToBoolean(n2.Estatus0);
+                        }
+
+                        if (usoComprobante == true)
+                        {
+                            ddlTipoFacturacion.Text = n.Comprobante;
+                        }
+                        decimal Credito = Convert.ToDecimal(n.MontoCredito);
+                        lbMontoCredito.Text = Credito.ToString("N2");
+                        txtNombrePaciente.Text = n.Nombre;
+                        txtTelefono.Text = n.Telefono;
+                        txtEmail.Text = n.Email;
+                        ddlTipoIdentificacion.Text = n.TipoIdentificacion;
+                        txtIdentificacion.Text = n.RNC;
+                        txtDireccion.Text = n.Direccion;
+                        txtComentario.Text = n.Comentario;
+                    }
+                    btnAgregarAlmacen.Visible = false;
+                    btnRegresar.Visible = true;
+                    BloquearControles();
+                }
+            }
+
+
+
+           
         }
 
         private void btnBuscarCotizacion_Click(object sender, EventArgs e)
@@ -370,6 +514,74 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 txtCodigoConsulta.Visible = false;
                 cbBuscarPorCodigo.ForeColor = Color.DarkRed;
             }
+        }
+
+        private void btnBuscarCodigoCliente_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtCodigoConsulta.Text.Trim()))
+            {
+                MessageBox.Show("No puedes dejar el campo codigo vacio para buscar un registro", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCodigoConsulta.Focus();
+            }
+            else {
+                //BUSCAMOS EL REGISTRO
+                var Buscarregistro = ObjDataEmpresa.Value.BuscaClientes(
+                    Convert.ToDecimal(txtCodigoConsulta.Text),
+                    null, null, null, null, 1, 1);
+                if (Buscarregistro.Count() < 1)
+                {
+                    MessageBox.Show("El Codigo de cliente ingresado no es valido, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtCodigoConsulta.Text = string.Empty;
+                    txtCodigoConsulta.Focus();
+                }
+                else {
+                    foreach (var n in Buscarregistro) {
+                        bool usoComprobante = false;
+
+                        var ValidarUsoCOmprobante = ObjDataConfiguracion.Value.BuscaCOnfiguracionGeneral(1);
+                        foreach (var n2 in ValidarUsoCOmprobante) {
+                            usoComprobante = Convert.ToBoolean(n2.Estatus0);
+                        }
+
+                        if (usoComprobante == true) {
+                            ddlTipoFacturacion.Text = n.Comprobante;
+                        }
+
+                        decimal Credito = Convert.ToDecimal(n.MontoCredito);
+                        lbMontoCredito.Text = Credito.ToString("N2");
+                        txtNombrePaciente.Text = n.Nombre;
+                        txtTelefono.Text = n.Telefono;
+                        txtEmail.Text = n.Email;
+                        ddlTipoIdentificacion.Text = n.TipoIdentificacion;
+                        txtIdentificacion.Text = n.RNC;
+                        txtDireccion.Text = n.Direccion;
+                        txtComentario.Text = n.Comentario;
+                        BloquearControles();
+                    }
+                }
+            }
+        }
+
+        private void ddlTipoVenta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try {
+                int IdTipoVenta = Convert.ToInt32(ddlTipoVenta.SelectedValue);
+                if (IdTipoVenta != 1)
+                {
+                    lbCantidadDias.Visible = true;
+                    ddlCantidadDias.Visible = true;
+                    lbCredito.Visible = true;
+                    lbMontoCredito.Visible = true;
+                    ListadoCantidadDias();
+                }
+                else {
+                    lbCantidadDias.Visible = false;
+                    ddlCantidadDias.Visible = false;
+                    lbCredito.Visible = false;
+                    lbMontoCredito.Visible = false;
+                }
+            }
+            catch (Exception) { }
         }
     }
 }
