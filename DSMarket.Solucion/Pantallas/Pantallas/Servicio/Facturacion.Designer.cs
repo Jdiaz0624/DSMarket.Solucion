@@ -33,7 +33,7 @@
             this.gbGeneral = new System.Windows.Forms.GroupBox();
             this.txtTotalServicios = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
+            this.lbcantidadFActuras = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -126,7 +126,7 @@
             // 
             this.gbGeneral.Controls.Add(this.txtTotalServicios);
             this.gbGeneral.Controls.Add(this.label23);
-            this.gbGeneral.Controls.Add(this.label21);
+            this.gbGeneral.Controls.Add(this.lbcantidadFActuras);
             this.gbGeneral.Controls.Add(this.label8);
             this.gbGeneral.Controls.Add(this.label13);
             this.gbGeneral.Controls.Add(this.button3);
@@ -187,15 +187,15 @@
             this.label23.TabIndex = 57;
             this.label23.Text = "Total";
             // 
-            // label21
+            // lbcantidadFActuras
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(1157, 426);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(15, 16);
-            this.label21.TabIndex = 56;
-            this.label21.Text = "0";
+            this.lbcantidadFActuras.AutoSize = true;
+            this.lbcantidadFActuras.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbcantidadFActuras.Location = new System.Drawing.Point(1157, 426);
+            this.lbcantidadFActuras.Name = "lbcantidadFActuras";
+            this.lbcantidadFActuras.Size = new System.Drawing.Size(15, 16);
+            this.lbcantidadFActuras.TabIndex = 56;
+            this.lbcantidadFActuras.Text = "0";
             // 
             // label8
             // 
@@ -231,6 +231,7 @@
             this.button3.Text = "Minimizar ";
             this.toolTip1.SetToolTip(this.button3, "Minimizar Factura para proceder a crear otra");
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // groupBox3
             // 
@@ -1013,7 +1014,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1028, 38);
+            this.panel1.Size = new System.Drawing.Size(1248, 38);
             this.panel1.TabIndex = 2;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -1022,7 +1023,7 @@
             this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(984, 5);
+            this.PCerrar.Location = new System.Drawing.Point(1204, 5);
             this.PCerrar.Name = "PCerrar";
             this.PCerrar.Size = new System.Drawing.Size(30, 30);
             this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1059,7 +1060,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
-            this.ClientSize = new System.Drawing.Size(1028, 668);
+            this.ClientSize = new System.Drawing.Size(1248, 668);
             this.Controls.Add(this.gbGeneral);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1168,7 +1169,7 @@
         private System.Windows.Forms.Button btnBuscarCodigoCliente;
         private System.Windows.Forms.TextBox txtCodigoConsulta;
         private System.Windows.Forms.CheckBox cbBuscarPorCodigo;
-        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label lbcantidadFActuras;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtTotalServicios;
         private System.Windows.Forms.Label label23;

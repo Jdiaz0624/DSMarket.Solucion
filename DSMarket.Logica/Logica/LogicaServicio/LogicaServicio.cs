@@ -37,5 +37,116 @@ namespace DSMarket.Logica.Logica.LogicaServicio
             return Buscar;
         }
         #endregion
+        #region MANTENIMIENTO DE FACTURAS MINIMIZADAS
+        /// <summary>
+        /// Este metodo es para mostrar el listado de las facturas minimizadas mediante el usuario
+        /// </summary>
+        /// <param name="IdUsuario"></param>
+        /// <param name="NumeroConector"></param>
+        /// <param name="Nombre"></param>
+        /// <param name="Rnc"></param>
+        /// <returns></returns>
+        public List<DSMarket.Logica.Entidades.EntidadesServicio.EFacturaMinimizada> BuscaFacturasMinimizadas(decimal? IdUsuario = null, decimal? NumeroConector = null, string Nombre = null, string Rnc = null)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_BUSCA_FACTURA_MINIMIZADAS(IdUsuario, NumeroConector, Nombre, Rnc)
+                           select new DSMarket.Logica.Entidades.EntidadesServicio.EFacturaMinimizada
+                           {
+                               IdUsuario = n.IdUsuario,
+                               Usuario = n.Usuario,
+                               NumeroConector = n.NumeroConector,
+                               AgregarCliente = n.AgregarCliente,
+                               BuscarCliente = n.BuscarCliente,
+                               IdTipoVenta = n.IdTipoVenta,
+                               TipoVenta = n.TipoVenta,
+                               IdCantidadDias = n.IdCantidadDias,
+                               CantidadDias = n.CantidadDias,
+                               RncConsulta = n.RncConsulta,
+                               IdComprobante = n.IdComprobante,
+                               Comprobante = n.Comprobante,
+                               Nombre = n.Nombre,
+                               Telefono = n.Telefono,
+                               Email = n.Email,
+                               NoCotizacion = n.NoCotizacion,
+                               IdTipoIdentificacion = n.IdTipoIdentificacion,
+                               TipoIdentificacion = n.TipoIdentificacion,
+                               NumeroIdentificacion = n.NumeroIdentificacion,
+                               Comentario = n.Comentario,
+                               MontoCredito = n.MontoCredito,
+                               FacturarCotizar = n.FacturarCotizar,
+                               FacturaPuntoVenta = n.FacturaPuntoVenta,
+                               FormatoFactura = n.FormatoFactura,
+                               BloqueaControles = n.BloqueaControles,
+                               Cantidadregistros = n.Cantidadregistros
+                           }).ToList();
+            return Listado;
+        }
+        /// <summary>
+        /// Este metodo es para realziar el mantenimiento de las facturas minimizadas
+        /// </summary>
+        /// <param name="Item"></param>
+        /// <param name="Accion"></param>
+        /// <returns></returns>
+        public DSMarket.Logica.Entidades.EntidadesServicio.EFacturaMinimizada MantenimientoFacturaMinimizado(DSMarket.Logica.Entidades.EntidadesServicio.EFacturaMinimizada Item, string Accion)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesServicio.EFacturaMinimizada Mantenimiento = null;
+
+            var FacturasMinimizadas = ObjData.SP_MANTENIMIENTO_FACTURAS_MINIMUZADAS(
+                Item.IdUsuario,
+                Item.NumeroConector,
+                Item.AgregarCliente,
+                Item.BuscarCliente,
+                Item.IdTipoVenta,
+                Item.IdCantidadDias,
+                Item.RncConsulta,
+                Item.IdComprobante,
+                Item.Nombre,
+                Item.Telefono,
+                Item.Email,
+                Item.NoCotizacion,
+                Item.IdTipoIdentificacion,
+                Item.NumeroIdentificacion,
+                Item.Comentario,
+                Item.MontoCredito,
+                Item.FacturarCotizar,
+                Item.FacturaPuntoVenta,
+                Item.FormatoFactura,
+                Item.BloqueaControles,
+                Accion);
+            if (FacturasMinimizadas != null)
+            {
+                Mantenimiento = (from n in FacturasMinimizadas
+                                 select new DSMarket.Logica.Entidades.EntidadesServicio.EFacturaMinimizada
+                                 {
+                                     IdUsuario = n.IdUsuario,
+                                     NumeroConector = n.NumeroConector,
+                                     AgregarCliente = n.AgregarCliente,
+                                     BuscarCliente = n.BuscarCliente,
+                                     IdTipoVenta = n.IdTipoVenta,
+                                     IdCantidadDias = n.IdCantidadDias,
+                                     RncConsulta = n.RncConsulta,
+                                     IdComprobante = n.IdComprobante,
+                                     Nombre = n.Nombre,
+                                     Telefono = n.Telefono,
+                                     Email = n.Email,
+                                     NoCotizacion = n.NoCotizacion,
+                                     IdTipoIdentificacion = n.IdTipoIdentificacion,
+                                     NumeroIdentificacion = n.NumeroIdentificacion,
+                                     Comentario = n.Comentario,
+                                     MontoCredito = n.MontoCredito,
+                                     FacturarCotizar = n.FacturarCotizar,
+                                     FacturaPuntoVenta = n.FacturaPuntoVenta,
+                                     FormatoFactura = n.FormatoFactura,
+                                     BloqueaControles = n.BloqueaControles
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+
+
+        }
+        #endregion
     }
 }

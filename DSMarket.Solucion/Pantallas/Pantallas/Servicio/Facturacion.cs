@@ -20,6 +20,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
         Lazy<DSMarket.Logica.Logica.LogicaListas.LogicaListas> ObjDataListas = new Lazy<Logica.Logica.LogicaListas.LogicaListas>();
         Lazy<DSMarket.Logica.Logica.LogicaEmpresa.LogicaEmpresa> ObjDataEmpresa = new Lazy<Logica.Logica.LogicaEmpresa.LogicaEmpresa>();
+        Lazy<DSMarket.Logica.Logica.LogicaServicio.LogicaServicio> ObjDataServicio = new Lazy<Logica.Logica.LogicaServicio.LogicaServicio>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region BLOQUEAR Y DESBLOQUEAR CONTROLES DEL LADO DEL CLIENTE
@@ -254,12 +255,136 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             ddlCantidadDias.ValueMember = "IdCantidadDias";
         }
         #endregion
+        #region MOSTRAR EL LISTADO DE LAS FACTURAS MINIMIZADAS
+        private void ListadoFacturaMinimizadas()
+        {
+            try
+            {
+                var BuscarFacturasMinimizadas = ObjDataServicio.Value.BuscaFacturasMinimizadas(
+                    VariablesGlobales.IdUsuario);
+                dtFacturasMinimizadas.DataSource = BuscarFacturasMinimizadas;
+                OcultarColumnasMinimizadas();
+                if (BuscarFacturasMinimizadas.Count() < 1)
+                {
+                    lbcantidadFActuras.Text = "0";
+
+                }
+                else
+                {
+                    foreach (var n in BuscarFacturasMinimizadas)
+                    {
+                        int CantidadRegistros = Convert.ToInt32(n.Cantidadregistros);
+                        lbcantidadFActuras.Text = CantidadRegistros.ToString("N0");
+                    }
+                }
+            }
+            catch (Exception) { }
+
+        }
+        private void OcultarColumnasMinimizadas()
+        {
+            this.dtFacturasMinimizadas.Columns["IdUsuario"].Visible = false;
+            this.dtFacturasMinimizadas.Columns["Usuario"].Visible = false;
+            this.dtFacturasMinimizadas.Columns["NumeroConector"].Visible = false;
+            this.dtFacturasMinimizadas.Columns["AgregarCliente"].Visible = false;
+            this.dtFacturasMinimizadas.Columns["BuscarCliente"].Visible = false;
+            this.dtFacturasMinimizadas.Columns["IdTipoVenta"].Visible = false;
+            this.dtFacturasMinimizadas.Columns["TipoVenta"].Visible = false;
+            this.dtFacturasMinimizadas.Columns["IdCantidadDias"].Visible = false;
+            this.dtFacturasMinimizadas.Columns["CantidadDias"].Visible = false;
+            this.dtFacturasMinimizadas.Columns["RncConsulta"].Visible = false;
+            this.dtFacturasMinimizadas.Columns["IdComprobante"].Visible = false;
+            this.dtFacturasMinimizadas.Columns["Comprobante"].Visible = false;
+            this.dtFacturasMinimizadas.Columns["Telefono"].Visible = false;
+            this.dtFacturasMinimizadas.Columns["Email"].Visible = false;
+            this.dtFacturasMinimizadas.Columns["NoCotizacion"].Visible = false;
+            this.dtFacturasMinimizadas.Columns["IdTipoIdentificacion"].Visible = false;
+            this.dtFacturasMinimizadas.Columns["TipoIdentificacion"].Visible = false;
+            this.dtFacturasMinimizadas.Columns["NumeroIdentificacion"].Visible = false;
+            this.dtFacturasMinimizadas.Columns["Comentario"].Visible = false;
+            this.dtFacturasMinimizadas.Columns["MontoCredito"].Visible = false;
+            this.dtFacturasMinimizadas.Columns["FacturarCotizar"].Visible = false;
+            this.dtFacturasMinimizadas.Columns["FacturaPuntoVenta"].Visible = false;
+            this.dtFacturasMinimizadas.Columns["FormatoFactura"].Visible = false;
+            this.dtFacturasMinimizadas.Columns["BloqueaControles"].Visible = false;
+            this.dtFacturasMinimizadas.Columns["Cantidadregistros" +
+                ""].Visible = false;
+        }
+        #endregion
+        #region MANTENIMIENTO DE FACTURAS MINIMIZADAS
+        private void MANFacturasMinimizadas(string Accion)
+        {
+            try
+            {
+                bool FacturrCotizar = false;
+
+                if (rbFacturar.Checked == true)
+                {
+                    FacturrCotizar = true;
+                }
+                else if (rbCotizar.Checked == true)
+                {
+                    FacturrCotizar = false;
+                }
+
+
+                bool FormatoFActura = false;
+                if (rbfacturaspanish.Checked == true)
+                {
+                    FormatoFActura = true;
+                }
+                else if (rbfacturaenglish.Checked == true)
+                {
+                    FormatoFActura = false;
+                }
+
+                if (string.IsNullOrEmpty(txtNoCotizacion.Text.Trim()))
+                {
+                    txtNoCotizacion.Text = "0";
+                }
+
+                DSMarket.Logica.Entidades.EntidadesServicio.EFacturaMinimizada Mantenimiento = new Logica.Entidades.EntidadesServicio.EFacturaMinimizada();
+
+                Mantenimiento.IdUsuario = VariablesGlobales.IdUsuario;
+                Mantenimiento.NumeroConector = VariablesGlobales.NumeroConector;
+                Mantenimiento.AgregarCliente = cbAgregarCliente.Checked;
+                Mantenimiento.BuscarCliente = cbBuscarPorCodigo.Checked;
+                Mantenimiento.IdTipoVenta = Convert.ToInt32(ddlTipoVenta.SelectedValue);
+                Mantenimiento.IdCantidadDias = Convert.ToInt32(ddlCantidadDias.SelectedValue);
+                Mantenimiento.RncConsulta = txtCodigoCliente.Text;
+                Mantenimiento.IdComprobante = Convert.ToDecimal(ddlTipoFacturacion.SelectedValue);
+                Mantenimiento.Nombre = txtNombrePaciente.Text;
+                Mantenimiento.Telefono = txtTelefono.Text;
+                Mantenimiento.Email = txtEmail.Text;
+                Mantenimiento.NoCotizacion = Convert.ToDecimal(txtNoCotizacion.Text);
+                Mantenimiento.IdTipoIdentificacion = Convert.ToDecimal(ddlTipoIdentificacion.SelectedValue);
+                Mantenimiento.NumeroIdentificacion = txtIdentificacion.Text;
+                Mantenimiento.Comentario = txtComentario.Text;
+                Mantenimiento.MontoCredito = Convert.ToDecimal(lbMontoCredito.Text);
+                Mantenimiento.FacturarCotizar = FacturrCotizar;
+                Mantenimiento.FacturaPuntoVenta = cbFacturaPuntoVenta.Checked;
+                Mantenimiento.FormatoFactura = FormatoFActura;
+                Mantenimiento.BloqueaControles = VariablesGlobales.BloqueaControles;
+
+                var MANFacturaMinimizada = ObjDataServicio.Value.MantenimientoFacturaMinimizado(Mantenimiento, Accion);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al minimizar, codigo de error--> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+            }
+        }
+        #endregion
         private void Facturacion_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             MostrarComprobantesFiscales();
             MostrarTipoIdentificacion();
             MostrarListadoTipoVenta();
+            ListadoCantidadDias();
+            ListadoFacturaMinimizadas();
             TemaGenerico();
             lbTitulo.Text = "FACTURACION";
             lbTitulo.ForeColor = Color.White;
@@ -582,6 +707,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 }
             }
             catch (Exception) { }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Quieres Minimizar este proceso?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                MANFacturasMinimizadas("INSERT");
+                LimpiarControles();
+                ListadoFacturaMinimizadas();
+            }
         }
     }
 }

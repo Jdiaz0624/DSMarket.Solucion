@@ -19,6 +19,7 @@ namespace DSMarket.Logica.Comunes
         public decimal NumeroConector { get; set; }
         public int EstadisticaProducto { get; set; }
 
+        public bool BloqueaControles = false;
 
         public decimal IdProductoSeleccionadoAgregarPorpductos { get; set; }
         public decimal NumeroConectorSeleccionadoAgregarPorpductos { get; set; }
