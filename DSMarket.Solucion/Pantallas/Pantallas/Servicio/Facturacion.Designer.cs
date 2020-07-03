@@ -126,11 +126,10 @@
             // 
             this.gbGeneral.Controls.Add(this.txtTotalServicios);
             this.gbGeneral.Controls.Add(this.label23);
+            this.gbGeneral.Controls.Add(this.groupBox3);
             this.gbGeneral.Controls.Add(this.lbcantidadFActuras);
             this.gbGeneral.Controls.Add(this.label8);
             this.gbGeneral.Controls.Add(this.label13);
-            this.gbGeneral.Controls.Add(this.button3);
-            this.gbGeneral.Controls.Add(this.groupBox3);
             this.gbGeneral.Controls.Add(this.txtCantidadServicios);
             this.gbGeneral.Controls.Add(this.label6);
             this.gbGeneral.Controls.Add(this.rbCotizar);
@@ -191,7 +190,7 @@
             // 
             this.lbcantidadFActuras.AutoSize = true;
             this.lbcantidadFActuras.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbcantidadFActuras.Location = new System.Drawing.Point(1157, 426);
+            this.lbcantidadFActuras.Location = new System.Drawing.Point(967, 309);
             this.lbcantidadFActuras.Name = "lbcantidadFActuras";
             this.lbcantidadFActuras.Size = new System.Drawing.Size(15, 16);
             this.lbcantidadFActuras.TabIndex = 56;
@@ -200,7 +199,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(710, 492);
+            this.label8.Location = new System.Drawing.Point(964, 280);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(66, 20);
             this.label8.TabIndex = 54;
@@ -210,7 +209,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(1004, 426);
+            this.label13.Location = new System.Drawing.Point(814, 309);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(147, 16);
             this.label13.TabIndex = 55;
@@ -224,9 +223,9 @@
             this.button3.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = global::DSMarket.Solucion.Properties.Resources.cambiar_tamano_de_imagen_png_71;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(1007, 458);
+            this.button3.Location = new System.Drawing.Point(490, 23);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(203, 57);
+            this.button3.Size = new System.Drawing.Size(203, 46);
             this.button3.TabIndex = 5;
             this.button3.Text = "Minimizar ";
             this.toolTip1.SetToolTip(this.button3, "Minimizar Factura para proceder a crear otra");
@@ -236,9 +235,9 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dtFacturasMinimizadas);
-            this.groupBox3.Location = new System.Drawing.Point(1004, 21);
+            this.groupBox3.Location = new System.Drawing.Point(627, 323);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(209, 397);
+            this.groupBox3.Size = new System.Drawing.Size(586, 192);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Facturas Minimizadas";
@@ -260,7 +259,7 @@
             this.dtFacturasMinimizadas.Name = "dtFacturasMinimizadas";
             this.dtFacturasMinimizadas.ReadOnly = true;
             this.dtFacturasMinimizadas.RowTemplate.Height = 24;
-            this.dtFacturasMinimizadas.Size = new System.Drawing.Size(203, 371);
+            this.dtFacturasMinimizadas.Size = new System.Drawing.Size(580, 166);
             this.dtFacturasMinimizadas.TabIndex = 0;
             // 
             // dataGridViewButtonColumn1
@@ -387,7 +386,7 @@
             // 
             this.txtCambio.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtCambio.Enabled = false;
-            this.txtCambio.Location = new System.Drawing.Point(780, 488);
+            this.txtCambio.Location = new System.Drawing.Point(1032, 276);
             this.txtCambio.Name = "txtCambio";
             this.txtCambio.Size = new System.Drawing.Size(165, 27);
             this.txtCambio.TabIndex = 43;
@@ -397,7 +396,7 @@
             // 
             this.txtPorcientoImpuesto.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtPorcientoImpuesto.Enabled = false;
-            this.txtPorcientoImpuesto.Location = new System.Drawing.Point(951, 351);
+            this.txtPorcientoImpuesto.Location = new System.Drawing.Point(1176, 134);
             this.txtPorcientoImpuesto.Name = "txtPorcientoImpuesto";
             this.txtPorcientoImpuesto.Size = new System.Drawing.Size(40, 27);
             this.txtPorcientoImpuesto.TabIndex = 42;
@@ -415,7 +414,7 @@
             // txtMontoPagar
             // 
             this.txtMontoPagar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtMontoPagar.Location = new System.Drawing.Point(780, 455);
+            this.txtMontoPagar.Location = new System.Drawing.Point(797, 276);
             this.txtMontoPagar.Name = "txtMontoPagar";
             this.txtMontoPagar.Size = new System.Drawing.Size(164, 27);
             this.txtMontoPagar.TabIndex = 40;
@@ -427,25 +426,25 @@
             this.ddltIPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddltIPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ddltIPago.FormattingEnabled = true;
-            this.ddltIPago.Location = new System.Drawing.Point(780, 420);
+            this.ddltIPago.Location = new System.Drawing.Point(1006, 237);
             this.ddltIPago.Name = "ddltIPago";
-            this.ddltIPago.Size = new System.Drawing.Size(165, 28);
+            this.ddltIPago.Size = new System.Drawing.Size(207, 28);
             this.ddltIPago.TabIndex = 29;
             // 
             // txtTotal
             // 
             this.txtTotal.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtTotal.Enabled = false;
-            this.txtTotal.Location = new System.Drawing.Point(780, 386);
+            this.txtTotal.Location = new System.Drawing.Point(1007, 184);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(165, 27);
+            this.txtTotal.Size = new System.Drawing.Size(209, 27);
             this.txtTotal.TabIndex = 39;
             // 
             // txtImpuesto
             // 
             this.txtImpuesto.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtImpuesto.Enabled = false;
-            this.txtImpuesto.Location = new System.Drawing.Point(780, 351);
+            this.txtImpuesto.Location = new System.Drawing.Point(1007, 134);
             this.txtImpuesto.Name = "txtImpuesto";
             this.txtImpuesto.Size = new System.Drawing.Size(165, 27);
             this.txtImpuesto.TabIndex = 38;
@@ -454,18 +453,18 @@
             // 
             this.txtSubtotal.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtSubtotal.Enabled = false;
-            this.txtSubtotal.Location = new System.Drawing.Point(780, 317);
+            this.txtSubtotal.Location = new System.Drawing.Point(1007, 84);
             this.txtSubtotal.Name = "txtSubtotal";
-            this.txtSubtotal.Size = new System.Drawing.Size(165, 27);
+            this.txtSubtotal.Size = new System.Drawing.Size(209, 27);
             this.txtSubtotal.TabIndex = 37;
             // 
             // txtTotalDescuento
             // 
             this.txtTotalDescuento.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtTotalDescuento.Enabled = false;
-            this.txtTotalDescuento.Location = new System.Drawing.Point(780, 282);
+            this.txtTotalDescuento.Location = new System.Drawing.Point(1007, 35);
             this.txtTotalDescuento.Name = "txtTotalDescuento";
-            this.txtTotalDescuento.Size = new System.Drawing.Size(165, 27);
+            this.txtTotalDescuento.Size = new System.Drawing.Size(209, 27);
             this.txtTotalDescuento.TabIndex = 36;
             // 
             // txtCantidadArtiuclos
@@ -480,7 +479,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(646, 458);
+            this.label20.Location = new System.Drawing.Point(664, 280);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(130, 20);
             this.label20.TabIndex = 35;
@@ -489,7 +488,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(674, 424);
+            this.label19.Location = new System.Drawing.Point(1068, 215);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(104, 20);
             this.label19.TabIndex = 34;
@@ -498,7 +497,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(728, 389);
+            this.label18.Location = new System.Drawing.Point(1096, 164);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(48, 20);
             this.label18.TabIndex = 33;
@@ -507,7 +506,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(698, 355);
+            this.label17.Location = new System.Drawing.Point(1085, 114);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(78, 20);
             this.label17.TabIndex = 32;
@@ -516,7 +515,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(695, 320);
+            this.label16.Location = new System.Drawing.Point(1081, 64);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(81, 20);
             this.label16.TabIndex = 31;
@@ -525,7 +524,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(627, 286);
+            this.label15.Location = new System.Drawing.Point(1048, 14);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(149, 20);
             this.label15.TabIndex = 30;
@@ -543,9 +542,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dtProductosAgregados);
-            this.groupBox1.Location = new System.Drawing.Point(6, 305);
+            this.groupBox1.Location = new System.Drawing.Point(6, 323);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(615, 210);
+            this.groupBox1.Size = new System.Drawing.Size(615, 192);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Productos agregados";
@@ -567,7 +566,7 @@
             this.dtProductosAgregados.Name = "dtProductosAgregados";
             this.dtProductosAgregados.ReadOnly = true;
             this.dtProductosAgregados.RowTemplate.Height = 24;
-            this.dtProductosAgregados.Size = new System.Drawing.Size(609, 184);
+            this.dtProductosAgregados.Size = new System.Drawing.Size(609, 166);
             this.dtProductosAgregados.TabIndex = 0;
             // 
             // Quitar
@@ -585,6 +584,7 @@
             // 
             this.groupBox4.Controls.Add(this.button2);
             this.groupBox4.Controls.Add(this.btnARS);
+            this.groupBox4.Controls.Add(this.button3);
             this.groupBox4.Location = new System.Drawing.Point(9, 521);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(1197, 77);
@@ -600,9 +600,9 @@
             this.button2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(17, 23);
+            this.button2.Location = new System.Drawing.Point(10, 23);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(309, 35);
+            this.button2.Size = new System.Drawing.Size(309, 46);
             this.button2.TabIndex = 4;
             this.button2.Text = "Agregar Productos";
             this.toolTip1.SetToolTip(this.button2, "Agregar Productos a factura");
@@ -617,9 +617,9 @@
             this.btnARS.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnARS.Image = global::DSMarket.Solucion.Properties.Resources.Completar;
             this.btnARS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnARS.Location = new System.Drawing.Point(882, 23);
+            this.btnARS.Location = new System.Drawing.Point(879, 23);
             this.btnARS.Name = "btnARS";
-            this.btnARS.Size = new System.Drawing.Size(309, 35);
+            this.btnARS.Size = new System.Drawing.Size(309, 46);
             this.btnARS.TabIndex = 3;
             this.btnARS.Text = "Completar Operación";
             this.toolTip1.SetToolTip(this.btnARS, "Completar Operación");
