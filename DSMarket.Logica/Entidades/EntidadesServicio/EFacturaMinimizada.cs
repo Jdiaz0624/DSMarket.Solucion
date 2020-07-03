@@ -13,6 +13,7 @@ namespace DSMarket.Logica.Entidades.EntidadesServicio
         public string Usuario { get; set; }
 
         public System.Nullable<decimal> NumeroConector { get; set; }
+        public System.Nullable<decimal> Secuencia { get; set; }
 
         public System.Nullable<bool> AgregarCliente { get; set; }
 

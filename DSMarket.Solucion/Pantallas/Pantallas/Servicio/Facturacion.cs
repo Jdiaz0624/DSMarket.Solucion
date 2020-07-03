@@ -245,6 +245,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             cbAgregarCliente.Checked = false;
             cbBuscarPorCodigo.Checked = false;
             MostrarListadoTipoVenta();
+            cbAgregarCliente.Enabled = true;
         }
         #endregion
         #region MOSTRAR LA CANTIDAD DE DIAS
@@ -347,6 +348,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
                 Mantenimiento.IdUsuario = VariablesGlobales.IdUsuario;
                 Mantenimiento.NumeroConector = VariablesGlobales.NumeroConector;
+                Mantenimiento.Secuencia = VariablesGlobales.SecuencialFActuraMinimizada;
                 Mantenimiento.AgregarCliente = cbAgregarCliente.Checked;
                 Mantenimiento.BuscarCliente = cbBuscarPorCodigo.Checked;
                 Mantenimiento.IdTipoVenta = Convert.ToInt32(ddlTipoVenta.SelectedValue);
@@ -377,6 +379,18 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             }
         }
         #endregion
+        #region GENERAR NUMERO DE CONECTOR
+        /// <summary>
+        /// Este metodo es para generar un numero aleatorio desde el numero 0 hasta el 999,999,999
+        /// </summary>
+        private void GenerarNumeroConector() {
+            Random Generar = new Random();
+            int Numero = Generar.Next(0, 999999999);
+            VariablesGlobales.NumeroConector = Numero;
+            VariablesGlobales.GenerarConector = false;
+            lbNumeroConector.Text = VariablesGlobales.NumeroConector.ToString();
+        }
+        #endregion
         private void Facturacion_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
@@ -386,6 +400,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             ListadoCantidadDias();
             ListadoFacturaMinimizadas();
             TemaGenerico();
+            if (VariablesGlobales.GenerarConector == true) {
+                GenerarNumeroConector();
+            }
+           // lbNumeroConector.Text = VariablesGlobales.NumeroConector.ToString();
             lbTitulo.Text = "FACTURACION";
             lbTitulo.ForeColor = Color.White;
             lbCredito.Text = "Credito:";
@@ -479,6 +497,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         {
             this.Hide();
             DSMarket.Solucion.Pantallas.Pantallas.Servicio.AgregarProductos AddProducts = new AgregarProductos();
+            AddProducts.VariablesGlbales.IdUsuario = VariablesGlobales.IdUsuario;
+            AddProducts.VariablesGlbales.GenerarConector = VariablesGlobales.GenerarConector;
             AddProducts.ShowDialog();
         }
 
@@ -713,9 +733,33 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         {
             if (MessageBox.Show("¿Quieres Minimizar este proceso?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                VariablesGlobales.SecuencialFActuraMinimizada = 0;
                 MANFacturasMinimizadas("INSERT");
                 LimpiarControles();
                 ListadoFacturaMinimizadas();
+                //GENERAMOS NUEVAMENTE UN NUEMERO DE CONECTOR
+                GenerarNumeroConector();
+            }
+
+        }
+
+        private void dtFacturasMinimizadas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (cbEliminarfacturaMinimizada.Checked == true)
+            {
+                if (MessageBox.Show("¿Quieres elimianr esta factura?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    //SACAMOS LOS DATOS A VALIDAR
+                    VariablesGlobales.NumeroConector = Convert.ToDecimal(dtFacturasMinimizadas.CurrentRow.Cells["NumeroConector"].Value.ToString());
+                    VariablesGlobales.SecuencialFActuraMinimizada = Convert.ToDecimal(dtFacturasMinimizadas.CurrentRow.Cells["Secuencia"].Value.ToString());
+                    MANFacturasMinimizadas("DELETE");
+                    ListadoFacturaMinimizadas();
+                    VariablesGlobales.NumeroConector = Convert.ToDecimal(lbNumeroConector.Text);
+                }
+            }
+            else {
+
             }
         }
     }

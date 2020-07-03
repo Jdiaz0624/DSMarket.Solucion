@@ -33,13 +33,12 @@
             this.gbGeneral = new System.Windows.Forms.GroupBox();
             this.txtTotalServicios = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.lbcantidadFActuras = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dtFacturasMinimizadas = new System.Windows.Forms.DataGridView();
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.lbcantidadFActuras = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.txtCantidadServicios = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.rbCotizar = new System.Windows.Forms.RadioButton();
@@ -72,6 +71,7 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.btnARS = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnBuscarCodigoCliente = new System.Windows.Forms.Button();
             this.txtCodigoConsulta = new System.Windows.Forms.TextBox();
@@ -111,6 +111,8 @@
             this.lbTitulo = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.cbEliminarfacturaMinimizada = new System.Windows.Forms.CheckBox();
+            this.lbNumeroConector = new System.Windows.Forms.Label();
             this.gbGeneral.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtFacturasMinimizadas)).BeginInit();
@@ -124,6 +126,7 @@
             // 
             // gbGeneral
             // 
+            this.gbGeneral.Controls.Add(this.cbEliminarfacturaMinimizada);
             this.gbGeneral.Controls.Add(this.txtTotalServicios);
             this.gbGeneral.Controls.Add(this.label23);
             this.gbGeneral.Controls.Add(this.groupBox3);
@@ -186,52 +189,6 @@
             this.label23.TabIndex = 57;
             this.label23.Text = "Total";
             // 
-            // lbcantidadFActuras
-            // 
-            this.lbcantidadFActuras.AutoSize = true;
-            this.lbcantidadFActuras.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbcantidadFActuras.Location = new System.Drawing.Point(967, 309);
-            this.lbcantidadFActuras.Name = "lbcantidadFActuras";
-            this.lbcantidadFActuras.Size = new System.Drawing.Size(15, 16);
-            this.lbcantidadFActuras.TabIndex = 56;
-            this.lbcantidadFActuras.Text = "0";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(964, 280);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(66, 20);
-            this.label8.TabIndex = 54;
-            this.label8.Text = "Cambio";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(814, 309);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(147, 16);
-            this.label13.TabIndex = 55;
-            this.label13.Text = "Facturas Minimizadas:";
-            // 
-            // button3
-            // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 10;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Image = global::DSMarket.Solucion.Properties.Resources.cambiar_tamano_de_imagen_png_71;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(490, 23);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(203, 46);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Minimizar ";
-            this.toolTip1.SetToolTip(this.button3, "Minimizar Factura para proceder a crear otra");
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dtFacturasMinimizadas);
@@ -261,6 +218,7 @@
             this.dtFacturasMinimizadas.RowTemplate.Height = 24;
             this.dtFacturasMinimizadas.Size = new System.Drawing.Size(580, 166);
             this.dtFacturasMinimizadas.TabIndex = 0;
+            this.dtFacturasMinimizadas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtFacturasMinimizadas_CellContentClick);
             // 
             // dataGridViewButtonColumn1
             // 
@@ -272,6 +230,35 @@
             this.dataGridViewButtonColumn1.ToolTipText = "Select";
             this.dataGridViewButtonColumn1.UseColumnTextForButtonValue = true;
             this.dataGridViewButtonColumn1.Width = 59;
+            // 
+            // lbcantidadFActuras
+            // 
+            this.lbcantidadFActuras.AutoSize = true;
+            this.lbcantidadFActuras.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbcantidadFActuras.Location = new System.Drawing.Point(925, 309);
+            this.lbcantidadFActuras.Name = "lbcantidadFActuras";
+            this.lbcantidadFActuras.Size = new System.Drawing.Size(15, 16);
+            this.lbcantidadFActuras.TabIndex = 56;
+            this.lbcantidadFActuras.Text = "0";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(964, 280);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(66, 20);
+            this.label8.TabIndex = 54;
+            this.label8.Text = "Cambio";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(772, 309);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(147, 16);
+            this.label13.TabIndex = 55;
+            this.label13.Text = "Facturas Minimizadas:";
             // 
             // txtCantidadServicios
             // 
@@ -624,6 +611,23 @@
             this.btnARS.Text = "Completar Operación";
             this.toolTip1.SetToolTip(this.btnARS, "Completar Operación");
             this.btnARS.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderSize = 10;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button3.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Image = global::DSMarket.Solucion.Properties.Resources.cambiar_tamano_de_imagen_png_71;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(490, 23);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(203, 46);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Minimizar ";
+            this.toolTip1.SetToolTip(this.button3, "Minimizar Factura para proceder a crear otra");
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // groupBox2
             // 
@@ -1006,6 +1010,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.lbNumeroConector);
             this.panel1.Controls.Add(this.PCerrar);
             this.panel1.Controls.Add(this.lbMontoCredito);
             this.panel1.Controls.Add(this.lbTitulo);
@@ -1054,6 +1059,28 @@
             // 
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
+            // 
+            // cbEliminarfacturaMinimizada
+            // 
+            this.cbEliminarfacturaMinimizada.AutoSize = true;
+            this.cbEliminarfacturaMinimizada.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbEliminarfacturaMinimizada.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbEliminarfacturaMinimizada.Location = new System.Drawing.Point(957, 304);
+            this.cbEliminarfacturaMinimizada.Name = "cbEliminarfacturaMinimizada";
+            this.cbEliminarfacturaMinimizada.Size = new System.Drawing.Size(249, 24);
+            this.cbEliminarfacturaMinimizada.TabIndex = 59;
+            this.cbEliminarfacturaMinimizada.Text = "Eliminar Factura Minimizada";
+            this.toolTip1.SetToolTip(this.cbEliminarfacturaMinimizada, "Eliminar Factura Minimizada");
+            this.cbEliminarfacturaMinimizada.UseVisualStyleBackColor = true;
+            // 
+            // lbNumeroConector
+            // 
+            this.lbNumeroConector.AutoSize = true;
+            this.lbNumeroConector.Location = new System.Drawing.Point(868, 9);
+            this.lbNumeroConector.Name = "lbNumeroConector";
+            this.lbNumeroConector.Size = new System.Drawing.Size(64, 20);
+            this.lbNumeroConector.TabIndex = 32;
+            this.lbNumeroConector.Text = "Credito";
             // 
             // Facturacion
             // 
@@ -1173,5 +1200,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtTotalServicios;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.CheckBox cbEliminarfacturaMinimizada;
+        private System.Windows.Forms.Label lbNumeroConector;
     }
 }

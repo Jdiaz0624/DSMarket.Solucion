@@ -20,6 +20,8 @@ namespace DSMarket.Logica.Comunes
         public int EstadisticaProducto { get; set; }
 
         public bool BloqueaControles = false;
+        public bool GenerarConector  { get; set; }
+        public decimal SecuencialFActuraMinimizada { get; set; }
 
         public decimal IdProductoSeleccionadoAgregarPorpductos { get; set; }
         public decimal NumeroConectorSeleccionadoAgregarPorpductos { get; set; }

@@ -56,6 +56,7 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                IdUsuario = n.IdUsuario,
                                Usuario = n.Usuario,
                                NumeroConector = n.NumeroConector,
+                               Secuencia=n.Secuencia,
                                AgregarCliente = n.AgregarCliente,
                                BuscarCliente = n.BuscarCliente,
                                IdTipoVenta = n.IdTipoVenta,
@@ -97,6 +98,7 @@ namespace DSMarket.Logica.Logica.LogicaServicio
             var FacturasMinimizadas = ObjData.SP_MANTENIMIENTO_FACTURAS_MINIMUZADAS(
                 Item.IdUsuario,
                 Item.NumeroConector,
+                Item.Secuencia,
                 Item.AgregarCliente,
                 Item.BuscarCliente,
                 Item.IdTipoVenta,
@@ -123,6 +125,7 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                  {
                                      IdUsuario = n.IdUsuario,
                                      NumeroConector = n.NumeroConector,
+                                     Secuencia=n.Secuencial,
                                      AgregarCliente = n.AgregarCliente,
                                      BuscarCliente = n.BuscarCliente,
                                      IdTipoVenta = n.IdTipoVenta,

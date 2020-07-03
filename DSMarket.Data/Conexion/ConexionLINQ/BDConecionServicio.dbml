@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DSMarket" Class="BDConecionServicioDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=172.26.24.199;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString1" Provider="System.Data.SqlClient" />
   <Function Name="Servicio.SP_BUSCA_TIPO_PAGO" Method="SP_BUSCA_TIPO_PAGO">
     <Parameter Name="IdTipoPago" Parameter="idTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(100)" />
@@ -31,6 +31,7 @@
       <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="Usuario" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="NumeroConector" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Secuencia" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="AgregarCliente" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="BuscarCliente" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="IdTipoVenta" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -59,6 +60,7 @@
   <Function Name="Servicio.SP_MANTENIMIENTO_FACTURAS_MINIMUZADAS" Method="SP_MANTENIMIENTO_FACTURAS_MINIMUZADAS">
     <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Secuencial" Parameter="secuencial" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="AgregarCliente" Parameter="agregarCliente" Type="System.Boolean" DbType="Bit" />
     <Parameter Name="BuscarCliente" Parameter="buscarCliente" Type="System.Boolean" DbType="Bit" />
     <Parameter Name="IdTipoVenta" Parameter="idTipoVenta" Type="System.Int32" DbType="Int" />
@@ -81,6 +83,7 @@
     <ElementType Name="SP_MANTENIMIENTO_FACTURAS_MINIMUZADASResult">
       <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="NumeroConector" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Secuencial" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="AgregarCliente" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="BuscarCliente" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="IdTipoVenta" Type="System.Int32" DbType="Int" CanBeNull="true" />

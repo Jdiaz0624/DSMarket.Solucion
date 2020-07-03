@@ -33,7 +33,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
     #endregion
 		
 		public BDConecionServicioDataContext() : 
-				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString, mappingSource)
+				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -80,6 +80,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		public ISingleResult<SP_MANTENIMIENTO_FACTURAS_MINIMUZADASResult> SP_MANTENIMIENTO_FACTURAS_MINIMUZADAS(
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Decimal(20,0)")] System.Nullable<decimal> idUsuario, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroConector", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroConector, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Secuencial", DbType="Decimal(20,0)")] System.Nullable<decimal> secuencial, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="AgregarCliente", DbType="Bit")] System.Nullable<bool> agregarCliente, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="BuscarCliente", DbType="Bit")] System.Nullable<bool> buscarCliente, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoVenta", DbType="Int")] System.Nullable<int> idTipoVenta, 
@@ -100,7 +101,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="BloqueaControles", DbType="Bit")] System.Nullable<bool> bloqueaControles, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, numeroConector, agregarCliente, buscarCliente, idTipoVenta, idCantidadDias, rncConsulta, idComprobante, nombre, telefono, email, noCotizacion, idTipoIdentificacion, numeroIdentificacion, comentario, montoCredito, facturarCotizar, facturaPuntoVenta, formatoFactura, bloqueaControles, accion);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, numeroConector, secuencial, agregarCliente, buscarCliente, idTipoVenta, idCantidadDias, rncConsulta, idComprobante, nombre, telefono, email, noCotizacion, idTipoIdentificacion, numeroIdentificacion, comentario, montoCredito, facturarCotizar, facturaPuntoVenta, formatoFactura, bloqueaControles, accion);
 			return ((ISingleResult<SP_MANTENIMIENTO_FACTURAS_MINIMUZADASResult>)(result.ReturnValue));
 		}
 	}
@@ -374,6 +375,8 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		
 		private System.Nullable<decimal> _NumeroConector;
 		
+		private System.Nullable<decimal> _Secuencia;
+		
 		private System.Nullable<bool> _AgregarCliente;
 		
 		private System.Nullable<bool> _BuscarCliente;
@@ -468,6 +471,22 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._NumeroConector != value))
 				{
 					this._NumeroConector = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Secuencia", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> Secuencia
+		{
+			get
+			{
+				return this._Secuencia;
+			}
+			set
+			{
+				if ((this._Secuencia != value))
+				{
+					this._Secuencia = value;
 				}
 			}
 		}
@@ -848,6 +867,8 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		
 		private System.Nullable<decimal> _NumeroConector;
 		
+		private System.Nullable<decimal> _Secuencial;
+		
 		private System.Nullable<bool> _AgregarCliente;
 		
 		private System.Nullable<bool> _BuscarCliente;
@@ -916,6 +937,22 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._NumeroConector != value))
 				{
 					this._NumeroConector = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Secuencial", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> Secuencial
+		{
+			get
+			{
+				return this._Secuencial;
+			}
+			set
+			{
+				if ((this._Secuencial != value))
+				{
+					this._Secuencial = value;
 				}
 			}
 		}

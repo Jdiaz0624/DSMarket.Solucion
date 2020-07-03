@@ -203,6 +203,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         {
             this.Dispose();
             DSMarket.Solucion.Pantallas.Pantallas.Servicio.Facturacion Facturacion = new Facturacion();
+            Facturacion.VariablesGlobales.IdUsuario = VariablesGlbales.IdUsuario;
+            Facturacion.VariablesGlobales.GenerarConector = VariablesGlbales.GenerarConector;
             Facturacion.ShowDialog();
         }
 
