@@ -225,7 +225,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             btnRegresar.Enabled = false;
             btnRefresarCotizacion.Enabled = false;
 
-            LimpiarControles();
+            
 
         }
 
@@ -389,6 +389,90 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             VariablesGlobales.NumeroConector = Numero;
             VariablesGlobales.GenerarConector = false;
             lbNumeroConector.Text = VariablesGlobales.NumeroConector.ToString();
+        }
+        #endregion
+        #region MANTENIMIENTOS
+        //GUARDAR LOS DATOS DEL CLIENTE
+        private void GuardarDatosClientes(string Accion) {
+            int IdEstatusFacturacion = 0;
+
+            if (rbFacturar.Checked == true) {
+                IdEstatusFacturacion = 1;
+            }
+            else if (rbCotizar.Checked == true) { IdEstatusFacturacion = 2; }
+
+            DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionClientes ManClientes = new Logica.Entidades.EntidadesServicio.EFacturacionClientes();
+
+            ManClientes.IdFactura = 0;
+            ManClientes.NumeroConector = VariablesGlobales.NumeroConector;
+            ManClientes.IdEstatusFacturacion = IdEstatusFacturacion;
+            ManClientes.IdComprobante = Convert.ToDecimal(ddlTipoFacturacion.SelectedValue);
+            ManClientes.Nombre = txtNombrePaciente.Text;
+            ManClientes.Telefono = txtTelefono.Text;
+            ManClientes.Email = txtEmail.Text;
+            ManClientes.IdTipoIdentificacion = Convert.ToDecimal(ddlTipoIdentificacion.SelectedValue);
+            ManClientes.NumeroIdentificacion = txtIdentificacion.Text;
+            ManClientes.Direccion = txtDireccion.Text;
+            ManClientes.Comentario = txtComentario.Text;
+            ManClientes.IdTipoVenta = Convert.ToDecimal(ddlTipoVenta.SelectedValue);
+            ManClientes.IdCantidadDias = Convert.ToDecimal(ddlCantidadDias.SelectedValue);
+            ManClientes.IdUsuario = VariablesGlobales.IdUsuario;
+
+            var MAN = ObjDataServicio.Value.GuardarFacturacionClientes(ManClientes, Accion);
+        }
+        #endregion
+        #region SACAR LA DATA DE LAS FACTURAS MINIMIZADAS
+        private void SacarDataFacturaMinimizadas() {
+            var Buscar = ObjDataServicio.Value.BuscaFacturasMinimizadas(
+                        VariablesGlobales.IdUsuario,
+                        VariablesGlobales.NumeroConector,
+                        VariablesGlobales.SecuencialFActuraMinimizada);
+            foreach (var n in Buscar)
+            {
+                VariablesGlobales.NumeroConector = Convert.ToDecimal(n.NumeroConector);
+                lbNumeroConector.Text = VariablesGlobales.NumeroConector.ToString();
+                cbAgregarCliente.Checked = (n.AgregarCliente.HasValue ? n.AgregarCliente.Value : false);
+                cbBuscarPorCodigo.Checked = (n.BuscarCliente.HasValue ? n.BuscarCliente.Value : false);
+                ddlTipoVenta.Text = n.TipoVenta;
+                ddlCantidadDias.Text = n.CantidadDias;
+                txtCodigoCliente.Text = n.RncConsulta;
+                ddlTipoFacturacion.Text = n.Comprobante;
+                txtNombrePaciente.Text = n.Nombre;
+                txtTelefono.Text = n.Telefono;
+                txtEmail.Text = n.Email;
+                txtNoCotizacion.Text = n.NoCotizacion.ToString();
+                if (string.IsNullOrEmpty(txtNoCotizacion.Text.Trim()))
+                {
+                    txtNoCotizacion.Text = string.Empty;
+                }
+                ddlTipoIdentificacion.Text = n.TipoIdentificacion;
+                txtIdentificacion.Text = n.TipoIdentificacion;
+                txtComentario.Text = n.Comentario;
+                decimal MontoCredito = Convert.ToDecimal(n.MontoCredito);
+                lbMontoCredito.Text = MontoCredito.ToString("N2");
+                bool TipoProceso = Convert.ToBoolean(n.FacturarCotizar.HasValue ? n.FacturarCotizar.Value : false);
+                if (TipoProceso == true)
+                {
+                    rbCotizar.Checked = false;
+                    rbFacturar.Checked = true;
+                }
+                else
+                {
+                    rbFacturar.Checked = false;
+                    rbCotizar.Checked = true;
+
+                }
+                cbFacturaPuntoVenta.Checked = (n.FacturaPuntoVenta.HasValue ? n.FacturaPuntoVenta.Value : false);
+                bool BloqueaControles = Convert.ToBoolean(n.BloqueaControles.HasValue ? n.BloqueaControles.Value : false);
+                if (BloqueaControles == true)
+                {
+                    BloquearControles();
+                }
+                else
+                {
+                    DesbloquearControles();
+                }
+            }
         }
         #endregion
         private void Facturacion_Load(object sender, EventArgs e)
@@ -573,6 +657,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             btnAgregarAlmacen.Visible = true;
             btnRegresar.Visible = false;
             DesbloquearControles();
+            LimpiarControles();
         }
 
         private void btnAgregarAlmacen_Click(object sender, EventArgs e)
@@ -745,21 +830,28 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void dtFacturasMinimizadas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            decimal NumeroConector = Convert.ToDecimal(dtFacturasMinimizadas.CurrentRow.Cells["NumeroConector"].Value.ToString());
+            VariablesGlobales.NumeroConector = Convert.ToDecimal(dtFacturasMinimizadas.CurrentRow.Cells["NumeroConector"].Value.ToString());
+            VariablesGlobales.SecuencialFActuraMinimizada = Convert.ToDecimal(dtFacturasMinimizadas.CurrentRow.Cells["Secuencia"].Value.ToString());
 
             if (cbEliminarfacturaMinimizada.Checked == true)
             {
                 if (MessageBox.Show("¿Quieres elimianr esta factura?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     //SACAMOS LOS DATOS A VALIDAR
-                    VariablesGlobales.NumeroConector = Convert.ToDecimal(dtFacturasMinimizadas.CurrentRow.Cells["NumeroConector"].Value.ToString());
-                    VariablesGlobales.SecuencialFActuraMinimizada = Convert.ToDecimal(dtFacturasMinimizadas.CurrentRow.Cells["Secuencia"].Value.ToString());
+                    
                     MANFacturasMinimizadas("DELETE");
                     ListadoFacturaMinimizadas();
                     VariablesGlobales.NumeroConector = Convert.ToDecimal(lbNumeroConector.Text);
                 }
             }
             else {
-
+                if (MessageBox.Show("¿Quieres restaurar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    SacarDataFacturaMinimizadas();
+                    MANFacturasMinimizadas("DELETE");
+                    ListadoFacturaMinimizadas();
+                }
             }
         }
     }

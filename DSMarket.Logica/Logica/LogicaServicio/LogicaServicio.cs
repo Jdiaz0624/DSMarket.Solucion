@@ -37,7 +37,7 @@ namespace DSMarket.Logica.Logica.LogicaServicio
             return Buscar;
         }
         #endregion
-        #region MANTENIMIENTO DE FACTURAS MINIMIZADAS
+        #region FACTURACION
         /// <summary>
         /// Este metodo es para mostrar el listado de las facturas minimizadas mediante el usuario
         /// </summary>
@@ -46,11 +46,11 @@ namespace DSMarket.Logica.Logica.LogicaServicio
         /// <param name="Nombre"></param>
         /// <param name="Rnc"></param>
         /// <returns></returns>
-        public List<DSMarket.Logica.Entidades.EntidadesServicio.EFacturaMinimizada> BuscaFacturasMinimizadas(decimal? IdUsuario = null, decimal? NumeroConector = null, string Nombre = null, string Rnc = null)
+        public List<DSMarket.Logica.Entidades.EntidadesServicio.EFacturaMinimizada> BuscaFacturasMinimizadas(decimal? IdUsuario = null, decimal? NumeroConector = null, decimal? Secuencial = null, string Nombre = null, string Rnc = null)
         {
             ObjData.CommandTimeout = 999999999;
 
-            var Listado = (from n in ObjData.SP_BUSCA_FACTURA_MINIMIZADAS(IdUsuario, NumeroConector, Nombre, Rnc)
+            var Listado = (from n in ObjData.SP_BUSCA_FACTURA_MINIMIZADAS(IdUsuario, NumeroConector, Secuencial, Nombre, Rnc)
                            select new DSMarket.Logica.Entidades.EntidadesServicio.EFacturaMinimizada
                            {
                                IdUsuario = n.IdUsuario,
@@ -150,6 +150,55 @@ namespace DSMarket.Logica.Logica.LogicaServicio
 
 
         }
+
+        public DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionClientes GuardarFacturacionClientes(DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionClientes Items, string Accion)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionClientes Guardar = null;
+
+            var FacturacionCliente = ObjData.SP_GUARDAR_CLIENTE_FACTURACION(
+                Items.IdFactura,
+                Items.NumeroConector,
+                Items.IdEstatusFacturacion,
+                Items.IdComprobante,
+                Items.Nombre,
+                Items.Telefono,
+                Items.Email,
+                Items.IdTipoIdentificacion,
+                Items.NumeroIdentificacion,
+                Items.Direccion,
+                Items.Comentario,
+                Items.IdTipoVenta,
+                Items.IdCantidadDias,
+                Items.IdUsuario,
+                Accion);
+            if (FacturacionCliente != null) {
+                Guardar = (from n in FacturacionCliente
+                           select new DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionClientes
+                           {
+                               IdFactura=n.IdFactura,
+                               NumeroConector=n.NumeroConector,
+                               IdEstatusFacturacion=n.IdEstatusFacturacion,
+                               IdComprobante=n.IdComprobante,
+                               Nombre=n.Nombre,
+                               Telefono=n.Telefono,
+                               Email=n.Email,
+                               IdTipoIdentificacion=n.IdTipoIdentificacion,
+                               NumeroIdentificacion=n.NumeroIdentificacion,
+                               Direccion=n.Direccion,
+                               Comentario=n.Comentario,
+                               IdTipoVenta=n.IdTipoVenta,
+                               IdCantidadDias=n.IdCantidadDias,
+                               IdUsuario=n.IdUsuario
+                           }).FirstOrDefault();
+            }
+            return Guardar;
+        }
+
+
+
         #endregion
+
     }
 }
