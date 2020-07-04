@@ -475,6 +475,56 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             }
         }
         #endregion
+        #region MANTENIMIENTO DE PRODUCTO ESPEJO
+        private void MANProductoEspejo(string Accion) {
+
+            if (string.IsNullOrEmpty(txtNoCotizacion.Text.Trim())) {
+                txtNoCotizacion.Text = "0";
+            }
+            bool FActurarCotizar = false;
+            if (rbFacturar.Checked == true) {
+                FActurarCotizar = true;
+            }
+            else if (rbCotizar.Checked == true) {
+                FActurarCotizar = false;
+            }
+
+            bool FormatoFActura = false;
+
+            if (rbfacturaspanish.Checked == true) {
+                FormatoFActura = true;
+            }
+            else if (rbfacturaenglish.Checked == true) {
+                FormatoFActura = true;
+            }
+
+            DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionEspejo Mantenimiento = new Logica.Entidades.EntidadesServicio.EFacturacionEspejo();
+
+            Mantenimiento.IdUsuario = VariablesGlobales.IdUsuario;
+            Mantenimiento.NumeroConector = VariablesGlobales.NumeroConector;
+            Mantenimiento.AgregarCliente = cbAgregarCliente.Checked;
+            Mantenimiento.BuscarCliente = cbBuscarPorCodigo.Checked;
+            Mantenimiento.IdTipoVenta = Convert.ToInt32(ddlTipoVenta.SelectedValue);
+            Mantenimiento.IdCantidadDias = Convert.ToInt32(ddlCantidadDias.SelectedValue);
+            Mantenimiento.RncConsulta = txtCodigoCliente.Text;
+            Mantenimiento.IdComprobante = Convert.ToDecimal(ddlTipoFacturacion.SelectedValue);
+            Mantenimiento.Nombre = txtNombrePaciente.Text;
+            Mantenimiento.Telefono = txtTelefono.Text;
+            Mantenimiento.Email = txtEmail.Text;
+            Mantenimiento.NoCotizacion = Convert.ToDecimal(txtNoCotizacion.Text);
+            Mantenimiento.IdTipoIdentificacion = Convert.ToDecimal(ddlTipoIdentificacion.SelectedValue);
+            Mantenimiento.NumeroIdentificacion = txtIdentificacion.Text;
+            Mantenimiento.Comentario = txtComentario.Text;
+            Mantenimiento.MontoCredito = Convert.ToDecimal(lbMontoCredito.Text);
+            Mantenimiento.FacturarCotizar = FActurarCotizar;
+            Mantenimiento.FacturaPuntoVenta = cbFacturaPuntoVenta.Checked;
+            Mantenimiento.FormatoFactura = FormatoFActura;
+            Mantenimiento.BloqueaControles = false;
+
+            var MAn = ObjDataServicio.Value.ManteniientoFacturacionEspejo(Mantenimiento, Accion);
+
+        }
+        #endregion
         private void Facturacion_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
@@ -579,6 +629,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void button2_Click(object sender, EventArgs e)
         {
+            MANProductoEspejo("DELETE");
+            MANProductoEspejo("INSERT");
             this.Hide();
             DSMarket.Solucion.Pantallas.Pantallas.Servicio.AgregarProductos AddProducts = new AgregarProductos();
             AddProducts.VariablesGlbales.IdUsuario = VariablesGlobales.IdUsuario;

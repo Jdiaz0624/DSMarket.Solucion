@@ -197,7 +197,98 @@ namespace DSMarket.Logica.Logica.LogicaServicio
         }
 
 
+        public List<DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionEspejo> BuscaFacturacionEspeo(Nullable<decimal> IdUsuario = null)
+        {
+            ObjData.CommandTimeout = 999999999;
 
+            var Listado = (from n in ObjData.SP_BUSCA_FACTURA_ESPEJO(IdUsuario)
+                           select new DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionEspejo
+                           {
+                               IdUsuario=n.IdUsuario,
+                               NumeroConector=n.NumeroConector,
+                               AgregarCliente=n.AgregarCliente,
+                               BuscarCliente=n.BuscarCliente,
+                               IdTipoVenta=n.IdTipoVenta,
+                               TipoVenta=n.TipoVenta,
+                               IdCantidadDias=n.IdCantidadDias,
+                               CantidadDias=n.CantidadDias,
+                               RncConsulta=n.RncConsulta,
+                               IdComprobante=n.IdComprobante,
+                               Comprobante=n.Comprobante,
+                               Nombre=n.Nombre,
+                               Telefono=n.Telefono,
+                               Email=n.Email,
+                               NoCotizacion=n.NoCotizacion,
+                               IdTipoIdentificacion=n.IdTipoIdentificacion,
+                               TipoIdentificacion=n.TipoIdentificacion,
+                               NumeroIdentificacion=n.NumeroIdentificacion,
+                               Comentario=n.Comentario,
+                               MontoCredito=n.MontoCredito,
+                               FacturarCotizar=n.FacturarCotizar,
+                               FacturaPuntoVenta=n.FacturaPuntoVenta,
+                               FormatoFactura=n.FormatoFactura,
+                               BloqueaControles=n.BloqueaControles
+                           }).ToList();
+            return Listado;
+        }
+
+        public DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionEspejo ManteniientoFacturacionEspejo(DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionEspejo Item, string Accion)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionEspejo Mantenimiento = null;
+
+            var FacturacionEspejo = ObjData.SP_MANTENIMIENTO_FACTURACION_ESPEJO(
+                Item.IdUsuario,
+                Item.NumeroConector,
+                Item.AgregarCliente,
+                Item.BuscarCliente,
+                Item.IdTipoVenta,
+                Item.IdCantidadDias,
+                Item.RncConsulta,
+                Item.IdComprobante,
+                Item.Nombre,
+                Item.Telefono,
+                Item.Email,
+                Item.NoCotizacion,
+                Item.IdTipoIdentificacion,
+                Item.NumeroIdentificacion,
+                Item.Comentario,
+                Item.MontoCredito,
+                Item.FacturarCotizar,
+                Item.FacturaPuntoVenta,
+                Item.FormatoFactura,
+                Item.BloqueaControles,
+                Accion);
+            if (FacturacionEspejo != null)
+            {
+                Mantenimiento = (from n in FacturacionEspejo
+                                 select new DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionEspejo
+                                 {
+                                     IdUsuario=n.IdUsuario,
+                                     NumeroConector=n.NumeroConector,
+                                     AgregarCliente=n.AgregarCliente,
+                                     BuscarCliente=n.BuscarCliente,
+                                     IdTipoVenta=n.IdTipoVenta,
+                                     IdCantidadDias=n.IdCantidadDias,
+                                     RncConsulta=n.RncConsulta,
+                                     IdComprobante=n.IdComprobante,
+                                     Nombre=n.Nombre,
+                                     Telefono=n.Telefono,
+                                     Email=n.Email,
+                                     NoCotizacion=n.NoCotizacion,
+                                     IdTipoIdentificacion=n.IdTipoIdentificacion,
+                                     NumeroIdentificacion=n.NumeroIdentificacion,
+                                     Comentario=n.Comentario,
+                                     MontoCredito=n.MontoCredito,
+                                     FacturarCotizar=n.FacturarCotizar,
+                                     FacturaPuntoVenta=n.FacturaPuntoVenta,
+                                     FormatoFactura=n.FormatoFactura,
+                                     BloqueaControles=n.BloqueaControles
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
         #endregion
 
     }

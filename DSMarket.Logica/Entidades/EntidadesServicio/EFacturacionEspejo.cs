@@ -10,8 +10,6 @@ namespace DSMarket.Logica.Entidades.EntidadesServicio
     {
         public System.Nullable<decimal> IdUsuario {get;set;}
 
-        public string Usuario {get;set;}
-
         public System.Nullable<decimal> NumeroConector {get;set;}
 
         public System.Nullable<bool> AgregarCliente {get;set;}
