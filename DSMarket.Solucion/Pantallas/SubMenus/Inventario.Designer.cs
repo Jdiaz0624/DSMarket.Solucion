@@ -112,6 +112,7 @@
             this.gbOpciones.TabIndex = 16;
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Inventario - Seleccionar Opción";
+            this.gbOpciones.Enter += new System.EventHandler(this.gbOpciones_Enter);
             // 
             // btnSuplidores
             // 

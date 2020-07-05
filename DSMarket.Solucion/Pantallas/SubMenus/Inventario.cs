@@ -84,5 +84,10 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
             MantenimeintoSuplidores.variablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
             MantenimeintoSuplidores.ShowDialog();
         }
+
+        private void gbOpciones_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

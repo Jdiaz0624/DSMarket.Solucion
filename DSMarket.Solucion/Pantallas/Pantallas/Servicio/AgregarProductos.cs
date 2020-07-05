@@ -199,6 +199,14 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         }
         #endregion
+        #region CALCULAR DESCUENTO MAXIMO
+        private decimal CalcularDescuentoMaximo(decimal PrecioVenta, decimal PorcientoDescento)
+        {
+            decimal PorcientoDescuentoDecimal = PorcientoDescento / 100;
+            decimal Resultado = PorcientoDescuentoDecimal * PrecioVenta;
+            return Resultado;
+        }
+        #endregion
         private void PCerrar_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -265,6 +273,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         {
             if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlbales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                int TipoProducto = 0;
                 decimal IdProductoSeleccionado = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["IdProducto"].Value.ToString());
                 this.VariablesGlbales.IdProductoSeleccionadoAgregarPorpductos = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["IdProducto"].Value.ToString());
                 this.VariablesGlbales.NumeroConectorSeleccionadoAgregarPorpductos = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["NumeroConector"].Value.ToString());
@@ -282,13 +291,30 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
                     foreach (var n in Buscar)
                     {
+                        TipoProducto = Convert.ToInt32(n.IdTipoProducto);
                         txtTipoProducto.Text = n.TipoProducto;
                         txtCategoria.Text = n.Categoria;
                         txtProducto.Text = n.Producto;
                         int CantidadDisponible = Convert.ToInt32(n.Stock);
                         txtCantidadDisponible.Text = CantidadDisponible.ToString("N0");
-                        decimal Precio = Convert.ToDecimal(n.PrecioVenta);
-                        txtPrecio.Text = Precio.ToString("N0");
+                        if (TipoProducto == 1) {
+
+                            decimal Precio = Convert.ToDecimal(n.PrecioVenta);
+                            txtPrecio.Text = Precio.ToString("N2");
+
+                            cbEditarPrecio.Checked = false;
+                            cbEditarPrecio.Enabled = true;
+                            txtPrecio.Enabled = false;
+                        }
+                        else if (TipoProducto == 2) {
+
+                            decimal Precio = Convert.ToDecimal(n.PrecioVenta);
+                            txtPrecio.Text = Precio.ToString("N0");
+                            cbEditarPrecio.Checked = true;
+                            cbEditarPrecio.Enabled = false;
+                            txtPrecio.Enabled = true;
+                            
+                        }
                         txtPorcientoDescyento.Text = n.PorcientoDescuento.ToString();
                         txtAcumulativo.Text = n.ProductoAcumulativo;
 
@@ -318,7 +344,20 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         }
                     }
                 }
+                decimal DescuentoMaximo = CalcularDescuentoMaximo(Convert.ToDecimal(txtPrecio.Text), Convert.ToDecimal(txtPorcientoDescyento.Text));
+                if (DescuentoMaximo < 1)
+                {
+                    lbDescuentoMaximo.Text = DescuentoMaximo.ToString("N2");
+                    txtDescuento.Enabled = false;
+                }
+                else {
+                    lbDescuentoMaximo.Text = DescuentoMaximo.ToString("N2");
+                    txtDescuento.Enabled = true;
+                }
+
             }
+
+          
         }
 
         private void txtDescuento_KeyPress(object sender, KeyPressEventArgs e)
@@ -332,6 +371,22 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             Foto.VariablesGlovbales.IdProductoSeleccionadoAgregarPorpductos = VariablesGlbales.IdProductoSeleccionadoAgregarPorpductos;
             Foto.VariablesGlovbales.NumeroConectorSeleccionadoAgregarPorpductos = VariablesGlbales.NumeroConectorSeleccionadoAgregarPorpductos;
             Foto.ShowDialog();
+        }
+
+        private void cbEditarPrecio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbEditarPrecio.Checked == true)
+            {
+                txtPrecio.Enabled = true;
+            }
+            else {
+                txtPrecio.Enabled = false;
+            }
+        }
+
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            DSMarket.Logica.Comunes.ValidarControles.SoloNumerosDecimales(e);
         }
     }
 }

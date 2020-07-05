@@ -46,7 +46,7 @@
             this.gbProductosAgregados = new System.Windows.Forms.GroupBox();
             this.dtProductosAgregados = new System.Windows.Forms.DataGridView();
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cbEditarPrecio = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtCategoria = new System.Windows.Forms.TextBox();
             this.Separador = new Bunifu.Framework.UI.BunifuSeparator();
@@ -88,6 +88,8 @@
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.lbDescuentoMaximo = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.cbAgregarCategoria.SuspendLayout();
@@ -158,6 +160,8 @@
             // 
             // cbAgregarCategoria
             // 
+            this.cbAgregarCategoria.Controls.Add(this.lbDescuentoMaximo);
+            this.cbAgregarCategoria.Controls.Add(this.label10);
             this.cbAgregarCategoria.Controls.Add(this.label4);
             this.cbAgregarCategoria.Controls.Add(this.txtAcumulativo);
             this.cbAgregarCategoria.Controls.Add(this.lbCantidadMostradaVariable);
@@ -167,7 +171,7 @@
             this.cbAgregarCategoria.Controls.Add(this.label6);
             this.cbAgregarCategoria.Controls.Add(this.label7);
             this.cbAgregarCategoria.Controls.Add(this.gbProductosAgregados);
-            this.cbAgregarCategoria.Controls.Add(this.checkBox1);
+            this.cbAgregarCategoria.Controls.Add(this.cbEditarPrecio);
             this.cbAgregarCategoria.Controls.Add(this.label5);
             this.cbAgregarCategoria.Controls.Add(this.txtCategoria);
             this.cbAgregarCategoria.Controls.Add(this.Separador);
@@ -342,17 +346,18 @@
             this.dataGridViewButtonColumn1.UseColumnTextForButtonValue = true;
             this.dataGridViewButtonColumn1.Width = 59;
             // 
-            // checkBox1
+            // cbEditarPrecio
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.checkBox1.Location = new System.Drawing.Point(832, 381);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(124, 24);
-            this.checkBox1.TabIndex = 72;
-            this.checkBox1.Text = "Editar Precio";
-            this.toolTip1.SetToolTip(this.checkBox1, "Editar Precio");
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cbEditarPrecio.AutoSize = true;
+            this.cbEditarPrecio.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbEditarPrecio.Location = new System.Drawing.Point(832, 381);
+            this.cbEditarPrecio.Name = "cbEditarPrecio";
+            this.cbEditarPrecio.Size = new System.Drawing.Size(124, 24);
+            this.cbEditarPrecio.TabIndex = 72;
+            this.cbEditarPrecio.Text = "Editar Precio";
+            this.toolTip1.SetToolTip(this.cbEditarPrecio, "Editar Precio");
+            this.cbEditarPrecio.UseVisualStyleBackColor = true;
+            this.cbEditarPrecio.CheckedChanged += new System.EventHandler(this.cbEditarPrecio_CheckedChanged);
             // 
             // label5
             // 
@@ -376,7 +381,7 @@
             // 
             this.Separador.BackColor = System.Drawing.Color.Transparent;
             this.Separador.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.Separador.LineThickness = 18;
+            this.Separador.LineThickness = 28;
             this.Separador.Location = new System.Drawing.Point(7, 362);
             this.Separador.Margin = new System.Windows.Forms.Padding(5);
             this.Separador.Name = "Separador";
@@ -462,6 +467,7 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(193, 27);
             this.txtPrecio.TabIndex = 58;
+            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
             // lbTercerPrecio
             // 
@@ -789,6 +795,27 @@
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
             // 
+            // lbDescuentoMaximo
+            // 
+            this.lbDescuentoMaximo.AutoSize = true;
+            this.lbDescuentoMaximo.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDescuentoMaximo.Location = new System.Drawing.Point(716, 339);
+            this.lbDescuentoMaximo.Name = "lbDescuentoMaximo";
+            this.lbDescuentoMaximo.Size = new System.Drawing.Size(39, 20);
+            this.lbDescuentoMaximo.TabIndex = 82;
+            this.lbDescuentoMaximo.Text = "000";
+            this.toolTip1.SetToolTip(this.lbDescuentoMaximo, "Cantidad de Productos agregados");
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(336, 339);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(374, 20);
+            this.label10.TabIndex = 81;
+            this.label10.Text = "Descuento Maximo de producto seleccionado";
+            // 
             // AgregarProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -867,7 +894,7 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.GroupBox gbProductosAgregados;
         private System.Windows.Forms.DataGridView dtProductosAgregados;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cbEditarPrecio;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtCategoria;
         private Bunifu.Framework.UI.BunifuSeparator Separador;
@@ -883,5 +910,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtAcumulativo;
+        private System.Windows.Forms.Label lbDescuentoMaximo;
+        private System.Windows.Forms.Label label10;
     }
 }
