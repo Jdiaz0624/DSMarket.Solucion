@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Facturacion));
             this.gbGeneral = new System.Windows.Forms.GroupBox();
+            this.cbEliminarfacturaMinimizada = new System.Windows.Forms.CheckBox();
             this.txtTotalServicios = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -106,13 +107,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lbCredito = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbNumeroConector = new System.Windows.Forms.Label();
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbMontoCredito = new System.Windows.Forms.Label();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.cbEliminarfacturaMinimizada = new System.Windows.Forms.CheckBox();
-            this.lbNumeroConector = new System.Windows.Forms.Label();
             this.gbGeneral.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtFacturasMinimizadas)).BeginInit();
@@ -170,6 +170,19 @@
             this.gbGeneral.TabIndex = 3;
             this.gbGeneral.TabStop = false;
             this.gbGeneral.Text = "Datos de Facturación";
+            // 
+            // cbEliminarfacturaMinimizada
+            // 
+            this.cbEliminarfacturaMinimizada.AutoSize = true;
+            this.cbEliminarfacturaMinimizada.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbEliminarfacturaMinimizada.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbEliminarfacturaMinimizada.Location = new System.Drawing.Point(957, 304);
+            this.cbEliminarfacturaMinimizada.Name = "cbEliminarfacturaMinimizada";
+            this.cbEliminarfacturaMinimizada.Size = new System.Drawing.Size(249, 24);
+            this.cbEliminarfacturaMinimizada.TabIndex = 59;
+            this.cbEliminarfacturaMinimizada.Text = "Eliminar Factura Minimizada";
+            this.toolTip1.SetToolTip(this.cbEliminarfacturaMinimizada, "Eliminar Factura Minimizada");
+            this.cbEliminarfacturaMinimizada.UseVisualStyleBackColor = true;
             // 
             // txtTotalServicios
             // 
@@ -951,6 +964,7 @@
             this.txtCodigoCliente.Name = "txtCodigoCliente";
             this.txtCodigoCliente.Size = new System.Drawing.Size(336, 27);
             this.txtCodigoCliente.TabIndex = 8;
+            this.txtCodigoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoCliente_KeyPress);
             // 
             // label5
             // 
@@ -1023,6 +1037,15 @@
             this.panel1.TabIndex = 2;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
+            // lbNumeroConector
+            // 
+            this.lbNumeroConector.AutoSize = true;
+            this.lbNumeroConector.Location = new System.Drawing.Point(868, 9);
+            this.lbNumeroConector.Name = "lbNumeroConector";
+            this.lbNumeroConector.Size = new System.Drawing.Size(64, 20);
+            this.lbNumeroConector.TabIndex = 32;
+            this.lbNumeroConector.Text = "Credito";
+            // 
             // PCerrar
             // 
             this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1059,28 +1082,6 @@
             // 
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
-            // 
-            // cbEliminarfacturaMinimizada
-            // 
-            this.cbEliminarfacturaMinimizada.AutoSize = true;
-            this.cbEliminarfacturaMinimizada.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbEliminarfacturaMinimizada.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbEliminarfacturaMinimizada.Location = new System.Drawing.Point(957, 304);
-            this.cbEliminarfacturaMinimizada.Name = "cbEliminarfacturaMinimizada";
-            this.cbEliminarfacturaMinimizada.Size = new System.Drawing.Size(249, 24);
-            this.cbEliminarfacturaMinimizada.TabIndex = 59;
-            this.cbEliminarfacturaMinimizada.Text = "Eliminar Factura Minimizada";
-            this.toolTip1.SetToolTip(this.cbEliminarfacturaMinimizada, "Eliminar Factura Minimizada");
-            this.cbEliminarfacturaMinimizada.UseVisualStyleBackColor = true;
-            // 
-            // lbNumeroConector
-            // 
-            this.lbNumeroConector.AutoSize = true;
-            this.lbNumeroConector.Location = new System.Drawing.Point(868, 9);
-            this.lbNumeroConector.Name = "lbNumeroConector";
-            this.lbNumeroConector.Size = new System.Drawing.Size(64, 20);
-            this.lbNumeroConector.TabIndex = 32;
-            this.lbNumeroConector.Text = "Credito";
             // 
             // Facturacion
             // 

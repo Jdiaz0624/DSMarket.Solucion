@@ -205,6 +205,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             DSMarket.Solucion.Pantallas.Pantallas.Servicio.Facturacion Facturacion = new Facturacion();
             Facturacion.VariablesGlobales.IdUsuario = VariablesGlbales.IdUsuario;
             Facturacion.VariablesGlobales.GenerarConector = VariablesGlbales.GenerarConector;
+            Facturacion.VariablesGlobales.SacarDataEspejo = true;
             Facturacion.ShowDialog();
         }
 

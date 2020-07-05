@@ -44,6 +44,7 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
                 DSMarket.Solucion.Pantallas.Pantallas.Servicio.Facturacion FActuracion = new Pantallas.Servicio.Facturacion();
                 FActuracion.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbUsuario.Text);
                 FActuracion.VariablesGlobales.GenerarConector = true;
+                FActuracion.VariablesGlobales.SacarDataEspejo = false;
                 FActuracion.ShowDialog();
             }
             else {

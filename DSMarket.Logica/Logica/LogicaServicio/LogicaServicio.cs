@@ -201,7 +201,7 @@ namespace DSMarket.Logica.Logica.LogicaServicio
         {
             ObjData.CommandTimeout = 999999999;
 
-            var Listado = (from n in ObjData.SP_BUSCA_FACTURA_ESPEJO(IdUsuario)
+            var Listado = (from n in ObjData.SP_BUSCA_FACTURACION_ESPEJO(IdUsuario)
                            select new DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionEspejo
                            {
                                IdUsuario=n.IdUsuario,

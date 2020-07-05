@@ -169,36 +169,6 @@
       <Column Name="IdCantidadDias" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="Servicio.SP_BUSCA_FACTURA_ESPEJO" Method="SP_BUSCA_FACTURA_ESPEJO">
-    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <ElementType Name="SP_BUSCA_FACTURA_ESPEJOResult">
-      <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="Usuario" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="NumeroConector" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="AgregarCliente" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="BuscarCliente" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="IdTipoVenta" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TipoVenta" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="IdCantidadDias" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CantidadDias" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="RncConsulta" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="IdComprobante" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="Comprobante" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Nombre" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="Telefono" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="NoCotizacion" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="IdTipoIdentificacion" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="TipoIdentificacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="NumeroIdentificacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Comentario" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
-      <Column Name="MontoCredito" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="FacturarCotizar" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="FacturaPuntoVenta" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="FormatoFactura" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="BloqueaControles" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="Servicio.SP_MANTENIMIENTO_FACTURACION_ESPEJO" Method="SP_MANTENIMIENTO_FACTURACION_ESPEJO">
     <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />

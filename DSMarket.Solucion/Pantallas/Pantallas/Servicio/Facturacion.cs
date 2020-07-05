@@ -202,6 +202,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
             btnRegresar.Enabled = true;
             btnRefresarCotizacion.Enabled = true;
+            VariablesGlobales.BloqueaControles = true;
         }
 
         private void DesbloquearControles() {
@@ -225,7 +226,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             btnRegresar.Enabled = false;
             btnRefresarCotizacion.Enabled = false;
 
-            
+            VariablesGlobales.BloqueaControles = false;
 
         }
 
@@ -519,10 +520,127 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             Mantenimiento.FacturarCotizar = FActurarCotizar;
             Mantenimiento.FacturaPuntoVenta = cbFacturaPuntoVenta.Checked;
             Mantenimiento.FormatoFactura = FormatoFActura;
-            Mantenimiento.BloqueaControles = false;
+            Mantenimiento.BloqueaControles = VariablesGlobales.BloqueaControles;
 
             var MAn = ObjDataServicio.Value.ManteniientoFacturacionEspejo(Mantenimiento, Accion);
 
+        }
+        #endregion
+        #region SACAR LOS DATOS DE LA FACTURACION ESPEJO
+        /// <summary>
+        /// Este metodo es para sacar los datos de la facturacion espejo, utilizada al momento de cambiar de pantalla
+        /// </summary>
+        /// <param name="IdUsuario"></param>
+        private void SacarInformacionFacturacionEspejo() {
+            var SacarListadoFacturacionEspejo = ObjDataServicio.Value.BuscaFacturacionEspeo(VariablesGlobales.IdUsuario);
+            foreach (var n in SacarListadoFacturacionEspejo) {
+                cbAgregarCliente.Checked = (n.AgregarCliente.HasValue ? n.AgregarCliente.Value : false);
+                cbBuscarPorCodigo.Checked = (n.BuscarCliente.HasValue ? n.BuscarCliente.Value : false);
+                VariablesGlobales.NumeroConector = Convert.ToDecimal(n.NumeroConector);
+                lbNumeroConector.Text = VariablesGlobales.NumeroConector.ToString();
+                txtNombrePaciente.Text = n.Nombre;
+               
+                ddlTipoVenta.Text = n.TipoVenta;
+                ddlCantidadDias.Text = n.CantidadDias;
+                txtCodigoCliente.Text = n.RncConsulta;
+                ddlTipoFacturacion.Text = n.Comprobante;
+                txtTelefono.Text = n.Telefono;
+                txtEmail.Text = n.Email;
+                if (n.NoCotizacion == 0)
+                {
+                    txtNoCotizacion.Text = string.Empty;
+                }
+                else {
+                    txtNoCotizacion.Text = n.NoCotizacion.ToString();
+                }
+                ddlTipoIdentificacion.Text = n.TipoIdentificacion;
+                txtIdentificacion.Text = n.NumeroIdentificacion;
+                txtComentario.Text = n.Comentario;
+                decimal MontoCredito = Convert.ToDecimal(n.MontoCredito);
+                lbMontoCredito.Text = MontoCredito.ToString("N2");
+                bool FacturarCotizar = Convert.ToBoolean(n.FacturarCotizar);
+                if (FacturarCotizar == true) {
+                    rbCotizar.Checked = false;
+                    rbFacturar.Checked = true;
+                }
+                else if (FacturarCotizar == false) {
+                    rbFacturar.Checked = false;
+                    rbCotizar.Checked = true;
+                }
+                cbFacturaPuntoVenta.Checked = (n.FacturaPuntoVenta.HasValue ? n.FacturaPuntoVenta.Value : false);
+                bool FormatoFactura = Convert.ToBoolean(n.FormatoFactura);
+                if (FormatoFactura == true) {
+                    rbfacturaenglish.Checked = false;
+                    rbfacturaspanish.Checked = true;
+                }
+                else if (FormatoFactura == false) {
+                    rbfacturaspanish.Checked = false;
+                    rbfacturaenglish.Checked = true;    
+                }
+                bool BloqueaControles = Convert.ToBoolean(n.BloqueaControles);
+                if (BloqueaControles == true)
+                {
+                    BloquearControles();
+                    btnAgregarAlmacen.Visible = false;
+                    btnRegresar.Visible = true;
+                }
+                else if (BloqueaControles == false)
+                {
+                    DesbloquearControles();
+                }
+            }
+        }
+        #endregion
+        #region BUSCAR CONTROLES
+        private void BuscarPorRNC() {
+            if (string.IsNullOrEmpty(txtCodigoCliente.Text.Trim()))
+            {
+                MessageBox.Show("No puedes dejar el campo rnc vacio para buscar un registro", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCodigoCliente.Focus();
+            }
+            else
+            {
+                //BUSCAMOS EL REGISTRO
+                var Buscarregistro = ObjDataEmpresa.Value.BuscaClientes(
+                    new Nullable<decimal>(),
+                    null, null, txtCodigoCliente.Text, null, 1, 1);
+                if (Buscarregistro.Count() < 1)
+                {
+                    MessageBox.Show("El rnc de cliente ingresado no es valido, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtCodigoCliente.Text = string.Empty;
+                    txtCodigoCliente.Focus();
+                }
+                else
+                {
+                    foreach (var n in Buscarregistro)
+                    {
+                        bool usoComprobante = false;
+
+                        var ValidarUsoCOmprobante = ObjDataConfiguracion.Value.BuscaCOnfiguracionGeneral(1);
+                        foreach (var n2 in ValidarUsoCOmprobante)
+                        {
+                            usoComprobante = Convert.ToBoolean(n2.Estatus0);
+                        }
+
+                        if (usoComprobante == true)
+                        {
+                            ddlTipoFacturacion.Text = n.Comprobante;
+                        }
+                        decimal Credito = Convert.ToDecimal(n.MontoCredito);
+                        lbMontoCredito.Text = Credito.ToString("N2");
+                        txtNombrePaciente.Text = n.Nombre;
+                        txtTelefono.Text = n.Telefono;
+                        txtEmail.Text = n.Email;
+                        ddlTipoIdentificacion.Text = n.TipoIdentificacion;
+                        txtIdentificacion.Text = n.RNC;
+                        txtDireccion.Text = n.Direccion;
+                        txtComentario.Text = n.Comentario;
+                    }
+                    btnAgregarAlmacen.Visible = false;
+                    btnRegresar.Visible = true;
+                    BloquearControles();
+                }
+            }
         }
         #endregion
         private void Facturacion_Load(object sender, EventArgs e)
@@ -554,6 +672,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             rbfacturaenglish.ForeColor = Color.DarkRed;
             cbFacturaPuntoVenta.ForeColor = Color.DarkRed;
             cbFacturaPuntoVenta.Checked = false;
+
+            if (VariablesGlobales.SacarDataEspejo == true) {
+                SacarInformacionFacturacionEspejo();
+            }
         }
 
         private void PCerrar_Click(object sender, EventArgs e)
@@ -714,54 +836,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void btnAgregarAlmacen_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtCodigoCliente.Text.Trim()))
-            {
-                MessageBox.Show("No puedes dejar el campo rnc vacio para buscar un registro", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtCodigoCliente.Focus();
-            }
-            else
-            {
-                //BUSCAMOS EL REGISTRO
-                var Buscarregistro = ObjDataEmpresa.Value.BuscaClientes(
-                    new Nullable<decimal>(),
-                    null, null, txtCodigoCliente.Text, null, 1, 1);
-                if (Buscarregistro.Count() < 1)
-                {
-                    MessageBox.Show("El rnc de cliente ingresado no es valido, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtCodigoCliente.Text = string.Empty;
-                    txtCodigoCliente.Focus();
-                }
-                else
-                {
-                    foreach (var n in Buscarregistro)
-                    {
-                        bool usoComprobante = false;
-
-                        var ValidarUsoCOmprobante = ObjDataConfiguracion.Value.BuscaCOnfiguracionGeneral(1);
-                        foreach (var n2 in ValidarUsoCOmprobante)
-                        {
-                            usoComprobante = Convert.ToBoolean(n2.Estatus0);
-                        }
-
-                        if (usoComprobante == true)
-                        {
-                            ddlTipoFacturacion.Text = n.Comprobante;
-                        }
-                        decimal Credito = Convert.ToDecimal(n.MontoCredito);
-                        lbMontoCredito.Text = Credito.ToString("N2");
-                        txtNombrePaciente.Text = n.Nombre;
-                        txtTelefono.Text = n.Telefono;
-                        txtEmail.Text = n.Email;
-                        ddlTipoIdentificacion.Text = n.TipoIdentificacion;
-                        txtIdentificacion.Text = n.RNC;
-                        txtDireccion.Text = n.Direccion;
-                        txtComentario.Text = n.Comentario;
-                    }
-                    btnAgregarAlmacen.Visible = false;
-                    btnRegresar.Visible = true;
-                    BloquearControles();
-                }
-            }
+            BuscarPorRNC();
 
 
 
@@ -904,6 +979,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     MANFacturasMinimizadas("DELETE");
                     ListadoFacturaMinimizadas();
                 }
+            }
+        }
+
+        private void txtCodigoCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
+                BuscarPorRNC();
             }
         }
     }
