@@ -207,6 +207,33 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             return Resultado;
         }
         #endregion
+        #region AGREGAR O EDITAR PRODUCTOS
+        private void AgregarEditarProductos(string Accion) {
+            try {
+                DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionProducto AgregarEditar = new Logica.Entidades.EntidadesServicio.EFacturacionProducto();
+
+                AgregarEditar.NumeroConector = VariablesGlbales.NumeroConector;
+                AgregarEditar.IdTipoProducto = VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar;
+                AgregarEditar.IdCategoria = VariablesGlbales.IdCategoriaSeleccionadoAgregarEditar;
+                AgregarEditar.DescripcionProducto = txtDescripcion.Text;
+                AgregarEditar.CantidadVendida = Convert.ToDecimal(txtCantidadUsar.Text);
+                AgregarEditar.Precio = Convert.ToDecimal(txtPrecio.Text);
+                AgregarEditar.DescuentoAplicado = Convert.ToDecimal(txtDescuento.Text);
+                AgregarEditar.PorcientoDescuento = Convert.ToInt32(txtPorcientoDescyento.Text);
+                AgregarEditar.IdProducto = Convert.ToDecimal(VariablesGlbales.IdProductoSeleccionadoAgregarEditar);
+                AgregarEditar.Acumulativo = txtAcumulativo.Text;
+                AgregarEditar.ConectorProducto = VariablesGlbales.IdNumeroConectorProductoAgregarEditar;
+
+
+                var MAn = ObjDataServicio.Value.GuardarFacturacionProductos(AgregarEditar, Accion);
+
+
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al Agregar o editar productos, Codigo de error--> " + ex.Message, VariablesGlbales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
         private void PCerrar_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -291,6 +318,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
                     foreach (var n in Buscar)
                     {
+                        VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar = Convert.ToDecimal(n.IdTipoProducto);
+                        VariablesGlbales.IdCategoriaSeleccionadoAgregarEditar = Convert.ToDecimal(n.IdCategoria);
+                        VariablesGlbales.IdProductoSeleccionadoAgregarEditar = Convert.ToDecimal(n.IdProducto);
+                        VariablesGlbales.NumeroConectorSeleccionadoAgregarPorpductos = Convert.ToDecimal(n.NumeroConector);
                         TipoProducto = Convert.ToInt32(n.IdTipoProducto);
                         txtTipoProducto.Text = n.TipoProducto;
                         txtCategoria.Text = n.Categoria;
@@ -326,13 +357,21 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             {
                                 lbAlerta.Visible = true;
                             }
-                            txtCantidadUsar.Text = string.Empty;
+                            txtCantidadUsar.Text  = "1";
                             txtCantidadUsar.Enabled = true;
                             txtCantidadUsar.Focus();
+                            lbDescuentoColectivoVariable.Text = "0";
+                            lbDescuentoColectivoTitulo.Visible = true;
+                            lbDescuentoColectivoVariable.Visible = true;
+                            lbDescuentoColectivoVariable.Text = lbDescuentoMaximo.Text;
+
                         }
                         else {
                             txtCantidadUsar.Text = "1";
                             txtCantidadUsar.Enabled = false;
+                            lbDescuentoColectivoTitulo.Visible = false;
+                            lbDescuentoColectivoVariable.Visible = false;
+                            lbDescuentoColectivoVariable.Text = "0";
                         }
 
                         if (LlevaImagen == true)
@@ -387,6 +426,63 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
             DSMarket.Logica.Comunes.ValidarControles.SoloNumerosDecimales(e);
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            //VALIDAMOS EL TIPO DE PRODUCTO SELECCIONADO
+            if (VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar == 1) {
+                //VALIDAMOS SI EL PRODUCTO ES ACUMULATIVO
+                string ProductoAcumulativo = txtAcumulativo.Text;
+
+                if (ProductoAcumulativo == "SI")
+                {
+                    //VERIFICAMOS SI LA CANTIDAD A USAR NO ESTA VACIA
+                    if (string.IsNullOrEmpty(txtCantidadUsar.Text.Trim()))
+                    {
+                        txtCantidadUsar.Text = "1";
+                    }
+                    //VALIDAMOS LA CANTIDAD EN ALMACEN Y VERIFICAMOS QUE LA CANTIDAD A VENDER ES VALIDA.
+                    int CantidadVender = Convert.ToInt32(txtCantidadUsar.Text);
+                    int CantidadDisponible = 0;
+
+                    var ValidarCantidadDisponible = ObjDataLogicaInventario.Value.BuscaProductos(
+                        VariablesGlbales.IdProductoSeleccionadoAgregarEditar,
+                        VariablesGlbales.NumeroConectorSeleccionadoAgregarPorpductos,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        1, 1);
+                    foreach (var n in ValidarCantidadDisponible)
+                    {
+                        CantidadDisponible = Convert.ToInt32(n.Stock);
+                    }
+
+                    if (CantidadVender > CantidadDisponible)
+                    {
+                        MessageBox.Show("La cantidad que intentas agregar a factura, supera la cantidad que tienes en inventario, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        //AGREGAR
+                    }
+                }
+                else if (ProductoAcumulativo == "NO") {
+                    //AGREGAMOS EL PRODUCTO Y ELIMINAMOS
+                }
+            }
+            else if (VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar == 2) {
+
+                //AGREGAMOS EL PRODUCTO
+            }
         }
     }
 }

@@ -35,6 +35,8 @@
             this.lbTitulo = new System.Windows.Forms.Label();
             this.lbCredito = new System.Windows.Forms.Label();
             this.cbAgregarCategoria = new System.Windows.Forms.GroupBox();
+            this.lbDescuentoMaximo = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtAcumulativo = new System.Windows.Forms.TextBox();
             this.lbCantidadMostradaVariable = new System.Windows.Forms.Label();
@@ -88,8 +90,8 @@
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.lbDescuentoMaximo = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lbDescuentoColectivoTitulo = new System.Windows.Forms.Label();
+            this.lbDescuentoColectivoVariable = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.cbAgregarCategoria.SuspendLayout();
@@ -160,6 +162,8 @@
             // 
             // cbAgregarCategoria
             // 
+            this.cbAgregarCategoria.Controls.Add(this.lbDescuentoColectivoVariable);
+            this.cbAgregarCategoria.Controls.Add(this.lbDescuentoColectivoTitulo);
             this.cbAgregarCategoria.Controls.Add(this.lbDescuentoMaximo);
             this.cbAgregarCategoria.Controls.Add(this.label10);
             this.cbAgregarCategoria.Controls.Add(this.label4);
@@ -215,6 +219,27 @@
             this.cbAgregarCategoria.TabIndex = 9;
             this.cbAgregarCategoria.TabStop = false;
             this.cbAgregarCategoria.Text = "Buscar Productos";
+            // 
+            // lbDescuentoMaximo
+            // 
+            this.lbDescuentoMaximo.AutoSize = true;
+            this.lbDescuentoMaximo.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDescuentoMaximo.Location = new System.Drawing.Point(716, 339);
+            this.lbDescuentoMaximo.Name = "lbDescuentoMaximo";
+            this.lbDescuentoMaximo.Size = new System.Drawing.Size(39, 20);
+            this.lbDescuentoMaximo.TabIndex = 82;
+            this.lbDescuentoMaximo.Text = "000";
+            this.toolTip1.SetToolTip(this.lbDescuentoMaximo, "Cantidad de Productos agregados");
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(336, 339);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(374, 20);
+            this.label10.TabIndex = 81;
+            this.label10.Text = "Descuento Maximo de producto seleccionado";
             // 
             // label4
             // 
@@ -381,7 +406,7 @@
             // 
             this.Separador.BackColor = System.Drawing.Color.Transparent;
             this.Separador.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.Separador.LineThickness = 28;
+            this.Separador.LineThickness = 43;
             this.Separador.Location = new System.Drawing.Point(7, 362);
             this.Separador.Margin = new System.Windows.Forms.Padding(5);
             this.Separador.Name = "Separador";
@@ -439,6 +464,7 @@
             this.btnAgregar.Text = "      Agregar";
             this.toolTip1.SetToolTip(this.btnAgregar, "Agregar Registro");
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // txtDescuento
             // 
@@ -795,26 +821,28 @@
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
             // 
-            // lbDescuentoMaximo
+            // lbDescuentoColectivoTitulo
             // 
-            this.lbDescuentoMaximo.AutoSize = true;
-            this.lbDescuentoMaximo.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDescuentoMaximo.Location = new System.Drawing.Point(716, 339);
-            this.lbDescuentoMaximo.Name = "lbDescuentoMaximo";
-            this.lbDescuentoMaximo.Size = new System.Drawing.Size(39, 20);
-            this.lbDescuentoMaximo.TabIndex = 82;
-            this.lbDescuentoMaximo.Text = "000";
-            this.toolTip1.SetToolTip(this.lbDescuentoMaximo, "Cantidad de Productos agregados");
+            this.lbDescuentoColectivoTitulo.AutoSize = true;
+            this.lbDescuentoColectivoTitulo.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDescuentoColectivoTitulo.Location = new System.Drawing.Point(857, 339);
+            this.lbDescuentoColectivoTitulo.Name = "lbDescuentoColectivoTitulo";
+            this.lbDescuentoColectivoTitulo.Size = new System.Drawing.Size(176, 20);
+            this.lbDescuentoColectivoTitulo.TabIndex = 83;
+            this.lbDescuentoColectivoTitulo.Text = "Descuento Colectivo";
+            this.lbDescuentoColectivoTitulo.Visible = false;
             // 
-            // label10
+            // lbDescuentoColectivoVariable
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(336, 339);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(374, 20);
-            this.label10.TabIndex = 81;
-            this.label10.Text = "Descuento Maximo de producto seleccionado";
+            this.lbDescuentoColectivoVariable.AutoSize = true;
+            this.lbDescuentoColectivoVariable.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDescuentoColectivoVariable.Location = new System.Drawing.Point(1039, 339);
+            this.lbDescuentoColectivoVariable.Name = "lbDescuentoColectivoVariable";
+            this.lbDescuentoColectivoVariable.Size = new System.Drawing.Size(39, 20);
+            this.lbDescuentoColectivoVariable.TabIndex = 84;
+            this.lbDescuentoColectivoVariable.Text = "000";
+            this.toolTip1.SetToolTip(this.lbDescuentoColectivoVariable, "Cantidad de Productos agregados");
+            this.lbDescuentoColectivoVariable.Visible = false;
             // 
             // AgregarProductos
             // 
@@ -912,5 +940,7 @@
         private System.Windows.Forms.TextBox txtAcumulativo;
         private System.Windows.Forms.Label lbDescuentoMaximo;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lbDescuentoColectivoVariable;
+        private System.Windows.Forms.Label lbDescuentoColectivoTitulo;
     }
 }

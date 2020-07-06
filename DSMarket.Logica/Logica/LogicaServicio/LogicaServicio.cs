@@ -289,7 +289,49 @@ namespace DSMarket.Logica.Logica.LogicaServicio
             }
             return Mantenimiento;
         }
+
+        public DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionProducto GuardarFacturacionProductos(DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionProducto Item, string Accion) {
+
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionProducto Guardar = null;
+
+            var FacturacionProducto = ObjData.SP_GUARDAR_FACTURACION_PRODUCTO(
+                Item.NumeroConector,
+                Item.IdTipoProducto,
+                Item.IdCategoria,
+                Item.DescripcionProducto,
+                Item.CantidadVendida,
+                Item.Precio,
+                Item.DescuentoAplicado,
+                Item.DescripcionTipoProducto,
+                Item.PorcientoDescuento,
+                Item.IdProducto,
+                Item.Acumulativo,
+                Item.ConectorProducto,
+                Accion);
+            if (FacturacionProducto != null) {
+                Guardar = (from n in FacturacionProducto
+                           select new DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionProducto
+                           {
+                               NumeroConector = n.NumeroConector,
+                               IdTipoProducto = n.IdTipoProducto,
+                               IdCategoria = n.IdCategoria,
+                               DescripcionProducto = n.DescripcionProducto,
+                               CantidadVendida = n.CantidadVendida,
+                               Precio = n.Precio,
+                               DescuentoAplicado = n.DescuentoAplicado,
+                               DescripcionTipoProducto = n.DescripcionTipoProducto,
+                               PorcientoDescuento = n.PorcientoDescuento,
+                               IdProducto = n.IdProducto,
+                               Acumulativo = n.Acumulativo,
+                               ConectorProducto = n.ConectorProducto,
+                           }).FirstOrDefault();
+            }
+            return Guardar;
+        }
         #endregion
+
 
     }
 }
