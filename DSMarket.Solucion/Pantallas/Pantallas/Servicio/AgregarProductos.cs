@@ -234,6 +234,28 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             }
         }
         #endregion
+        #region CALCULAR EL DESCUENTO COLECTIVO
+        private void CalcularColectivo() {
+            try
+            {
+                decimal DescuentoMAximo = Convert.ToDecimal(lbDescuentoMaximo.Text);
+                decimal CantidadUsar = Convert.ToDecimal(txtCantidadUsar.Text);
+                decimal Operacion = DescuentoMAximo * CantidadUsar;
+                lbDescuentoColectivoVariable.Text = Operacion.ToString("N2");
+            }
+            catch (Exception)
+            {
+                lbDescuentoColectivoVariable.Text = "0";
+            }
+        }
+        #endregion
+        #region VALIDAR EL DESCENTO DE ARTICULO
+        private decimal ValidarDescuento(decimal Valor1, decimal Valor2) {
+
+            decimal Valor3 = Valor1 * Valor2;
+            return Valor3;
+        }
+        #endregion
         private void PCerrar_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -396,7 +418,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
             }
 
-          
+            CalcularColectivo();
         }
 
         private void txtDescuento_KeyPress(object sender, KeyPressEventArgs e)
@@ -438,7 +460,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 if (ProductoAcumulativo == "SI")
                 {
                     //VERIFICAMOS SI LA CANTIDAD A USAR NO ESTA VACIA
-                    if (string.IsNullOrEmpty(txtCantidadUsar.Text.Trim()))
+                    int Valor = Convert.ToInt32(txtCantidadUsar.Text);
+                    if (string.IsNullOrEmpty(txtCantidadUsar.Text.Trim()) || Valor <1)
                     {
                         txtCantidadUsar.Text = "1";
                     }
@@ -472,32 +495,47 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     }
                     else
                     {
-                        //AGREGAR
+                        decimal DescuentoColectivo = Convert.ToDecimal(lbDescuentoColectivoVariable.Text);
+                        if (DescuentoColectivo < ValidarDescuento(Convert.ToDecimal(txtCantidadUsar.Text), Convert.ToDecimal(lbDescuentoMaximo.Text)))
+                        {
+                            MessageBox.Show("El descuento ingresado supera la cantidad permitida para descontar en este articulo, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else {
+                            //AGREGAR
+                        }
                     }
                 }
                 else if (ProductoAcumulativo == "NO") {
-                    //AGREGAMOS EL PRODUCTO Y ELIMINAMOS
+                    
+                    decimal DescuentoColectivo = Convert.ToDecimal(lbDescuentoColectivoVariable.Text);
+                    if (DescuentoColectivo < ValidarDescuento(Convert.ToDecimal(txtCantidadUsar.Text), Convert.ToDecimal(lbDescuentoMaximo.Text)))
+                    {
+                        MessageBox.Show("El descuento ingresado supera la cantidad permitida para descontar en este articulo, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        //AGREGAMOS EL PRODUCTO Y ELIMINAMOS
+                    }
                 }
             }
             else if (VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar == 2) {
 
-                //AGREGAMOS EL PRODUCTO
+               
+                decimal DescuentoColectivo = Convert.ToDecimal(lbDescuentoColectivoVariable.Text);
+                if (DescuentoColectivo < ValidarDescuento(Convert.ToDecimal(txtCantidadUsar.Text), Convert.ToDecimal(lbDescuentoMaximo.Text)))
+                {
+                    MessageBox.Show("El descuento ingresado supera la cantidad permitida para descontar en este articulo, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    //AGREGAMOS EL PRODUCTO
+                }
             }
         }
 
         private void txtCantidadUsar_TextChanged(object sender, EventArgs e)
         {
-            try {
-              
-
-                decimal DescuentoMAximo = Convert.ToDecimal(lbDescuentoMaximo.Text);
-                decimal CantidadUsar = Convert.ToDecimal(txtCantidadUsar.Text);
-                decimal Operacion = DescuentoMAximo * CantidadUsar;
-                lbDescuentoColectivoVariable.Text = Operacion.ToString("N2");
-            }
-            catch (Exception) {
-                lbDescuentoColectivoVariable.Text = "0";
-            }
+            CalcularColectivo();
         }
     }
 }
