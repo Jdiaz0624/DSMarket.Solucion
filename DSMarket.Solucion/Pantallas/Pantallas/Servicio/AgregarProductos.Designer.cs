@@ -35,6 +35,8 @@
             this.lbTitulo = new System.Windows.Forms.Label();
             this.lbCredito = new System.Windows.Forms.Label();
             this.cbAgregarCategoria = new System.Windows.Forms.GroupBox();
+            this.lbDescuentoColectivoVariable = new System.Windows.Forms.Label();
+            this.lbDescuentoColectivoTitulo = new System.Windows.Forms.Label();
             this.lbDescuentoMaximo = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -90,8 +92,7 @@
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.lbDescuentoColectivoTitulo = new System.Windows.Forms.Label();
-            this.lbDescuentoColectivoVariable = new System.Windows.Forms.Label();
+            this.btnRestablcer = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.cbAgregarCategoria.SuspendLayout();
@@ -162,6 +163,7 @@
             // 
             // cbAgregarCategoria
             // 
+            this.cbAgregarCategoria.Controls.Add(this.btnRestablcer);
             this.cbAgregarCategoria.Controls.Add(this.lbDescuentoColectivoVariable);
             this.cbAgregarCategoria.Controls.Add(this.lbDescuentoColectivoTitulo);
             this.cbAgregarCategoria.Controls.Add(this.lbDescuentoMaximo);
@@ -219,6 +221,29 @@
             this.cbAgregarCategoria.TabIndex = 9;
             this.cbAgregarCategoria.TabStop = false;
             this.cbAgregarCategoria.Text = "Buscar Productos";
+            // 
+            // lbDescuentoColectivoVariable
+            // 
+            this.lbDescuentoColectivoVariable.AutoSize = true;
+            this.lbDescuentoColectivoVariable.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDescuentoColectivoVariable.Location = new System.Drawing.Point(1039, 339);
+            this.lbDescuentoColectivoVariable.Name = "lbDescuentoColectivoVariable";
+            this.lbDescuentoColectivoVariable.Size = new System.Drawing.Size(39, 20);
+            this.lbDescuentoColectivoVariable.TabIndex = 84;
+            this.lbDescuentoColectivoVariable.Text = "000";
+            this.toolTip1.SetToolTip(this.lbDescuentoColectivoVariable, "Cantidad de Productos agregados");
+            this.lbDescuentoColectivoVariable.Visible = false;
+            // 
+            // lbDescuentoColectivoTitulo
+            // 
+            this.lbDescuentoColectivoTitulo.AutoSize = true;
+            this.lbDescuentoColectivoTitulo.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDescuentoColectivoTitulo.Location = new System.Drawing.Point(857, 339);
+            this.lbDescuentoColectivoTitulo.Name = "lbDescuentoColectivoTitulo";
+            this.lbDescuentoColectivoTitulo.Size = new System.Drawing.Size(176, 20);
+            this.lbDescuentoColectivoTitulo.TabIndex = 83;
+            this.lbDescuentoColectivoTitulo.Text = "Descuento Colectivo";
+            this.lbDescuentoColectivoTitulo.Visible = false;
             // 
             // lbDescuentoMaximo
             // 
@@ -288,7 +313,7 @@
             this.btnfoto.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnfoto.Image = global::DSMarket.Solucion.Properties.Resources.foto;
             this.btnfoto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnfoto.Location = new System.Drawing.Point(879, 416);
+            this.btnfoto.Location = new System.Drawing.Point(877, 416);
             this.btnfoto.Name = "btnfoto";
             this.btnfoto.Size = new System.Drawing.Size(73, 74);
             this.btnfoto.TabIndex = 76;
@@ -406,7 +431,7 @@
             // 
             this.Separador.BackColor = System.Drawing.Color.Transparent;
             this.Separador.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.Separador.LineThickness = 43;
+            this.Separador.LineThickness = 66;
             this.Separador.Location = new System.Drawing.Point(7, 362);
             this.Separador.Margin = new System.Windows.Forms.Padding(5);
             this.Separador.Name = "Separador";
@@ -538,6 +563,7 @@
             this.txtCantidadUsar.Name = "txtCantidadUsar";
             this.txtCantidadUsar.Size = new System.Drawing.Size(327, 27);
             this.txtCantidadUsar.TabIndex = 53;
+            this.txtCantidadUsar.TextChanged += new System.EventHandler(this.txtCantidadUsar_TextChanged);
             this.txtCantidadUsar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescuento_KeyPress);
             // 
             // txtCantidadDisponible
@@ -821,28 +847,21 @@
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
             // 
-            // lbDescuentoColectivoTitulo
+            // btnRestablcer
             // 
-            this.lbDescuentoColectivoTitulo.AutoSize = true;
-            this.lbDescuentoColectivoTitulo.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDescuentoColectivoTitulo.Location = new System.Drawing.Point(857, 339);
-            this.lbDescuentoColectivoTitulo.Name = "lbDescuentoColectivoTitulo";
-            this.lbDescuentoColectivoTitulo.Size = new System.Drawing.Size(176, 20);
-            this.lbDescuentoColectivoTitulo.TabIndex = 83;
-            this.lbDescuentoColectivoTitulo.Text = "Descuento Colectivo";
-            this.lbDescuentoColectivoTitulo.Visible = false;
-            // 
-            // lbDescuentoColectivoVariable
-            // 
-            this.lbDescuentoColectivoVariable.AutoSize = true;
-            this.lbDescuentoColectivoVariable.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDescuentoColectivoVariable.Location = new System.Drawing.Point(1039, 339);
-            this.lbDescuentoColectivoVariable.Name = "lbDescuentoColectivoVariable";
-            this.lbDescuentoColectivoVariable.Size = new System.Drawing.Size(39, 20);
-            this.lbDescuentoColectivoVariable.TabIndex = 84;
-            this.lbDescuentoColectivoVariable.Text = "000";
-            this.toolTip1.SetToolTip(this.lbDescuentoColectivoVariable, "Cantidad de Productos agregados");
-            this.lbDescuentoColectivoVariable.Visible = false;
+            this.btnRestablcer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestablcer.Enabled = false;
+            this.btnRestablcer.FlatAppearance.BorderSize = 0;
+            this.btnRestablcer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRestablcer.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestablcer.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
+            this.btnRestablcer.Location = new System.Drawing.Point(956, 384);
+            this.btnRestablcer.Name = "btnRestablcer";
+            this.btnRestablcer.Size = new System.Drawing.Size(47, 41);
+            this.btnRestablcer.TabIndex = 85;
+            this.btnRestablcer.Text = "     ";
+            this.toolTip1.SetToolTip(this.btnRestablcer, "Restablecer Pantalla");
+            this.btnRestablcer.UseVisualStyleBackColor = true;
             // 
             // AgregarProductos
             // 
@@ -942,5 +961,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lbDescuentoColectivoVariable;
         private System.Windows.Forms.Label lbDescuentoColectivoTitulo;
+        private System.Windows.Forms.Button btnRestablcer;
     }
 }

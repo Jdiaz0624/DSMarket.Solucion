@@ -109,6 +109,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Seguridad
         {
             /// SacarInformacionEmpresa();
             lbNombreEmpresa.Text = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+            DSMarket.Logica.Comunes.AutoCompletarControles.AutoCompletarUsuarios(txtUsuario);
             VariablesGlobales.NombreSistema = lbNombreEmpresa.Text;
             txtclave.PasswordChar = '•';
             gbLogin.Visible = false;

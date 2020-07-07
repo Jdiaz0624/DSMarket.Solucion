@@ -484,5 +484,20 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 //AGREGAMOS EL PRODUCTO
             }
         }
+
+        private void txtCantidadUsar_TextChanged(object sender, EventArgs e)
+        {
+            try {
+              
+
+                decimal DescuentoMAximo = Convert.ToDecimal(lbDescuentoMaximo.Text);
+                decimal CantidadUsar = Convert.ToDecimal(txtCantidadUsar.Text);
+                decimal Operacion = DescuentoMAximo * CantidadUsar;
+                lbDescuentoColectivoVariable.Text = Operacion.ToString("N2");
+            }
+            catch (Exception) {
+                lbDescuentoColectivoVariable.Text = "0";
+            }
+        }
     }
 }
