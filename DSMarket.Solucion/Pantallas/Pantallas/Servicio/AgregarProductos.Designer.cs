@@ -35,6 +35,7 @@
             this.lbTitulo = new System.Windows.Forms.Label();
             this.lbCredito = new System.Windows.Forms.Label();
             this.cbAgregarCategoria = new System.Windows.Forms.GroupBox();
+            this.btnRestablcer = new System.Windows.Forms.Button();
             this.lbDescuentoColectivoVariable = new System.Windows.Forms.Label();
             this.lbDescuentoColectivoTitulo = new System.Windows.Forms.Label();
             this.lbDescuentoMaximo = new System.Windows.Forms.Label();
@@ -92,7 +93,6 @@
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.btnRestablcer = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.cbAgregarCategoria.SuspendLayout();
@@ -221,6 +221,22 @@
             this.cbAgregarCategoria.TabIndex = 9;
             this.cbAgregarCategoria.TabStop = false;
             this.cbAgregarCategoria.Text = "Buscar Productos";
+            // 
+            // btnRestablcer
+            // 
+            this.btnRestablcer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestablcer.Enabled = false;
+            this.btnRestablcer.FlatAppearance.BorderSize = 0;
+            this.btnRestablcer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRestablcer.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestablcer.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
+            this.btnRestablcer.Location = new System.Drawing.Point(956, 384);
+            this.btnRestablcer.Name = "btnRestablcer";
+            this.btnRestablcer.Size = new System.Drawing.Size(47, 41);
+            this.btnRestablcer.TabIndex = 85;
+            this.btnRestablcer.Text = "     ";
+            this.toolTip1.SetToolTip(this.btnRestablcer, "Restablecer Pantalla");
+            this.btnRestablcer.UseVisualStyleBackColor = true;
             // 
             // lbDescuentoColectivoVariable
             // 
@@ -431,7 +447,7 @@
             // 
             this.Separador.BackColor = System.Drawing.Color.Transparent;
             this.Separador.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.Separador.LineThickness = 66;
+            this.Separador.LineThickness = 102;
             this.Separador.Location = new System.Drawing.Point(7, 362);
             this.Separador.Margin = new System.Windows.Forms.Padding(5);
             this.Separador.Name = "Separador";
@@ -477,6 +493,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.Enabled = false;
             this.btnAgregar.FlatAppearance.BorderSize = 0;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAgregar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -846,22 +863,6 @@
             // 
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
-            // 
-            // btnRestablcer
-            // 
-            this.btnRestablcer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestablcer.Enabled = false;
-            this.btnRestablcer.FlatAppearance.BorderSize = 0;
-            this.btnRestablcer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRestablcer.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRestablcer.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
-            this.btnRestablcer.Location = new System.Drawing.Point(956, 384);
-            this.btnRestablcer.Name = "btnRestablcer";
-            this.btnRestablcer.Size = new System.Drawing.Size(47, 41);
-            this.btnRestablcer.TabIndex = 85;
-            this.btnRestablcer.Text = "     ";
-            this.toolTip1.SetToolTip(this.btnRestablcer, "Restablecer Pantalla");
-            this.btnRestablcer.UseVisualStyleBackColor = true;
             // 
             // AgregarProductos
             // 

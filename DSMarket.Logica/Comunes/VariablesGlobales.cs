@@ -27,6 +27,7 @@ namespace DSMarket.Logica.Comunes
 
         public decimal IdProductoSeleccionadoAgregarPorpductos { get; set; }
         public decimal NumeroConectorSeleccionadoAgregarPorpductos { get; set; }
+        public string DescripcionTipoProductoAgregarProductos { get; set; }
 
 
         public decimal IdTipoProductoSeleccionadoAgregarEditar { get; set; }

@@ -215,10 +215,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 AgregarEditar.NumeroConector = VariablesGlbales.NumeroConector;
                 AgregarEditar.IdTipoProducto = VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar;
                 AgregarEditar.IdCategoria = VariablesGlbales.IdCategoriaSeleccionadoAgregarEditar;
-                AgregarEditar.DescripcionProducto = txtDescripcion.Text;
+                AgregarEditar.DescripcionProducto = txtProducto.Text;
                 AgregarEditar.CantidadVendida = Convert.ToDecimal(txtCantidadUsar.Text);
                 AgregarEditar.Precio = Convert.ToDecimal(txtPrecio.Text);
                 AgregarEditar.DescuentoAplicado = Convert.ToDecimal(txtDescuento.Text);
+                AgregarEditar.DescripcionTipoProducto = VariablesGlbales.DescripcionTipoProductoAgregarProductos;
                 AgregarEditar.PorcientoDescuento = Convert.ToInt32(txtPorcientoDescyento.Text);
                 AgregarEditar.IdProducto = Convert.ToDecimal(VariablesGlbales.IdProductoSeleccionadoAgregarEditar);
                 AgregarEditar.Acumulativo = txtAcumulativo.Text;
@@ -323,9 +324,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlbales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 int TipoProducto = 0;
+                txtDescuento.Text = "0";
                 decimal IdProductoSeleccionado = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["IdProducto"].Value.ToString());
                 this.VariablesGlbales.IdProductoSeleccionadoAgregarPorpductos = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["IdProducto"].Value.ToString());
                 this.VariablesGlbales.NumeroConectorSeleccionadoAgregarPorpductos = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["NumeroConector"].Value.ToString());
+                this.VariablesGlbales.DescripcionTipoProductoAgregarProductos = this.dtSeleccionarproducto.CurrentRow.Cells["TipoProducto"].Value.ToString();
                 int CantidadAlmcen = Convert.ToInt32(this.dtSeleccionarproducto.CurrentRow.Cells["Stock"].Value.ToString());
                 bool LlevaImagen = Convert.ToBoolean(this.dtSeleccionarproducto.CurrentRow.Cells["LlevaImagen0"].Value.ToString());
 
@@ -333,87 +336,95 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 {
                     MessageBox.Show("Este producto esta agotado, favor de suplir mas", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                {
-                    var Buscar = ObjDataLogicaInventario.Value.BuscaProductos(
-                 IdProductoSeleccionado,
-                 null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
-
-                    foreach (var n in Buscar)
+                else {
                     {
-                        VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar = Convert.ToDecimal(n.IdTipoProducto);
-                        VariablesGlbales.IdCategoriaSeleccionadoAgregarEditar = Convert.ToDecimal(n.IdCategoria);
-                        VariablesGlbales.IdProductoSeleccionadoAgregarEditar = Convert.ToDecimal(n.IdProducto);
-                        VariablesGlbales.NumeroConectorSeleccionadoAgregarPorpductos = Convert.ToDecimal(n.NumeroConector);
-                        TipoProducto = Convert.ToInt32(n.IdTipoProducto);
-                        txtTipoProducto.Text = n.TipoProducto;
-                        txtCategoria.Text = n.Categoria;
-                        txtProducto.Text = n.Producto;
-                        int CantidadDisponible = Convert.ToInt32(n.Stock);
-                        txtCantidadDisponible.Text = CantidadDisponible.ToString("N0");
-                        if (TipoProducto == 1) {
+                        var Buscar = ObjDataLogicaInventario.Value.BuscaProductos(
+                     IdProductoSeleccionado,
+                     null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
 
-                            decimal Precio = Convert.ToDecimal(n.PrecioVenta);
-                            txtPrecio.Text = Precio.ToString("N2");
-
-                            cbEditarPrecio.Checked = false;
-                            cbEditarPrecio.Enabled = true;
-                            txtPrecio.Enabled = false;
-                        }
-                        else if (TipoProducto == 2) {
-
-                            decimal Precio = Convert.ToDecimal(n.PrecioVenta);
-                            txtPrecio.Text = Precio.ToString("N0");
-                            cbEditarPrecio.Checked = true;
-                            cbEditarPrecio.Enabled = false;
-                            txtPrecio.Enabled = true;
-                            
-                        }
-                        txtPorcientoDescyento.Text = n.PorcientoDescuento.ToString();
-                        txtAcumulativo.Text = n.ProductoAcumulativo;
-
-                        if (txtAcumulativo.Text == "SI")
+                        foreach (var n in Buscar)
                         {
-                            int CantidadMinima = Convert.ToInt32(n.StockMinimo);
-                            int Stock = Convert.ToInt32(n.Stock);
-                            if (Stock <= CantidadMinima)
+                            VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar = Convert.ToDecimal(n.IdTipoProducto);
+                            VariablesGlbales.IdCategoriaSeleccionadoAgregarEditar = Convert.ToDecimal(n.IdCategoria);
+                            VariablesGlbales.IdProductoSeleccionadoAgregarEditar = Convert.ToDecimal(n.IdProducto);
+                            VariablesGlbales.NumeroConectorSeleccionadoAgregarPorpductos = Convert.ToDecimal(n.NumeroConector);
+                            TipoProducto = Convert.ToInt32(n.IdTipoProducto);
+                            txtTipoProducto.Text = n.TipoProducto;
+                            txtCategoria.Text = n.Categoria;
+                            txtProducto.Text = n.Producto;
+                            int CantidadDisponible = Convert.ToInt32(n.Stock);
+                            txtCantidadDisponible.Text = CantidadDisponible.ToString("N0");
+                            if (TipoProducto == 1)
                             {
-                                lbAlerta.Visible = true;
+
+                                decimal Precio = Convert.ToDecimal(n.PrecioVenta);
+                                txtPrecio.Text = Precio.ToString("N2");
+
+                                cbEditarPrecio.Checked = false;
+                                cbEditarPrecio.Enabled = true;
+                                txtPrecio.Enabled = false;
                             }
-                            txtCantidadUsar.Text  = "1";
-                            txtCantidadUsar.Enabled = true;
-                            txtCantidadUsar.Focus();
-                            lbDescuentoColectivoVariable.Text = "0";
-                            lbDescuentoColectivoTitulo.Visible = true;
-                            lbDescuentoColectivoVariable.Visible = true;
-                            lbDescuentoColectivoVariable.Text = lbDescuentoMaximo.Text;
+                            else if (TipoProducto == 2)
+                            {
 
-                        }
-                        else {
-                            txtCantidadUsar.Text = "1";
-                            txtCantidadUsar.Enabled = false;
-                            lbDescuentoColectivoTitulo.Visible = false;
-                            lbDescuentoColectivoVariable.Visible = false;
-                            lbDescuentoColectivoVariable.Text = "0";
-                        }
+                                decimal Precio = Convert.ToDecimal(n.PrecioVenta);
+                                txtPrecio.Text = Precio.ToString("N0");
+                                cbEditarPrecio.Checked = true;
+                                cbEditarPrecio.Enabled = false;
+                                txtPrecio.Enabled = true;
 
-                        if (LlevaImagen == true)
-                        {
-                            btnfoto.Enabled = true;
-                        }
-                        else {
-                            btnfoto.Enabled = false;
+                            }
+                            txtPorcientoDescyento.Text = n.PorcientoDescuento.ToString();
+                            txtAcumulativo.Text = n.ProductoAcumulativo;
+
+                            if (txtAcumulativo.Text == "SI")
+                            {
+                                int CantidadMinima = Convert.ToInt32(n.StockMinimo);
+                                int Stock = Convert.ToInt32(n.Stock);
+                                if (Stock <= CantidadMinima)
+                                {
+                                    lbAlerta.Visible = true;
+                                }
+                                txtCantidadUsar.Text = "1";
+                                txtCantidadUsar.Enabled = true;
+                                txtCantidadUsar.Focus();
+                                lbDescuentoColectivoVariable.Text = "0";
+                                lbDescuentoColectivoTitulo.Visible = true;
+                                lbDescuentoColectivoVariable.Visible = true;
+                                lbDescuentoColectivoVariable.Text = lbDescuentoMaximo.Text;
+
+                            }
+                            else
+                            {
+                                txtCantidadUsar.Text = "1";
+                                txtCantidadUsar.Enabled = false;
+                                lbDescuentoColectivoTitulo.Visible = false;
+                                lbDescuentoColectivoVariable.Visible = false;
+                                lbDescuentoColectivoVariable.Text = "0";
+                            }
+
+                            if (LlevaImagen == true)
+                            {
+                                btnfoto.Enabled = true;
+                            }
+                            else
+                            {
+                                btnfoto.Enabled = false;
+                            }
+                            btnAgregar.Enabled = true;
                         }
                     }
-                }
-                decimal DescuentoMaximo = CalcularDescuentoMaximo(Convert.ToDecimal(txtPrecio.Text), Convert.ToDecimal(txtPorcientoDescyento.Text));
-                if (DescuentoMaximo < 1)
-                {
-                    lbDescuentoMaximo.Text = DescuentoMaximo.ToString("N2");
-                    txtDescuento.Enabled = false;
-                }
-                else {
-                    lbDescuentoMaximo.Text = DescuentoMaximo.ToString("N2");
-                    txtDescuento.Enabled = true;
+                    decimal DescuentoMaximo = CalcularDescuentoMaximo(Convert.ToDecimal(txtPrecio.Text), Convert.ToDecimal(txtPorcientoDescyento.Text));
+                    if (DescuentoMaximo < 1)
+                    {
+                        lbDescuentoMaximo.Text = DescuentoMaximo.ToString("N2");
+                        txtDescuento.Enabled = false;
+                    }
+                    else
+                    {
+                        lbDescuentoMaximo.Text = DescuentoMaximo.ToString("N2");
+                        txtDescuento.Enabled = true;
+                    }
                 }
 
             }
@@ -495,40 +506,47 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     }
                     else
                     {
-                        decimal DescuentoColectivo = Convert.ToDecimal(lbDescuentoColectivoVariable.Text);
-                        if (DescuentoColectivo < ValidarDescuento(Convert.ToDecimal(txtCantidadUsar.Text), Convert.ToDecimal(lbDescuentoMaximo.Text)))
+
+                        decimal DescuentoMaximo = Convert.ToDecimal(lbDescuentoColectivoVariable.Text);
+                        decimal DescuentoAplicar = Convert.ToDecimal(txtDescuento.Text);
+                        if (DescuentoAplicar > DescuentoMaximo)
                         {
                             MessageBox.Show("El descuento ingresado supera la cantidad permitida para descontar en este articulo, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         else {
-                            //AGREGAR
+                            AgregarEditarProductos("INSERT");
                         }
+                  
                     }
                 }
                 else if (ProductoAcumulativo == "NO") {
-                    
-                    decimal DescuentoColectivo = Convert.ToDecimal(lbDescuentoColectivoVariable.Text);
-                    if (DescuentoColectivo < ValidarDescuento(Convert.ToDecimal(txtCantidadUsar.Text), Convert.ToDecimal(lbDescuentoMaximo.Text)))
+
+                    decimal DescuentoMaximo = Convert.ToDecimal(lbDescuentoColectivoVariable.Text);
+                    decimal DescuentoAplicar = Convert.ToDecimal(txtDescuento.Text);
+                    if (DescuentoAplicar > DescuentoMaximo)
                     {
                         MessageBox.Show("El descuento ingresado supera la cantidad permitida para descontar en este articulo, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
-                        //AGREGAMOS EL PRODUCTO Y ELIMINAMOS
+                        //AGREGAR PRODUCTO Y ELIMINAR
+                        AgregarEditarProductos("INSERT");
                     }
                 }
             }
             else if (VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar == 2) {
 
-               
-                decimal DescuentoColectivo = Convert.ToDecimal(lbDescuentoColectivoVariable.Text);
-                if (DescuentoColectivo < ValidarDescuento(Convert.ToDecimal(txtCantidadUsar.Text), Convert.ToDecimal(lbDescuentoMaximo.Text)))
+
+                decimal DescuentoMaximo = Convert.ToDecimal(lbDescuentoColectivoVariable.Text);
+                decimal DescuentoAplicar = Convert.ToDecimal(txtDescuento.Text);
+                if (DescuentoAplicar > DescuentoMaximo)
                 {
                     MessageBox.Show("El descuento ingresado supera la cantidad permitida para descontar en este articulo, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    //AGREGAMOS EL PRODUCTO
+                    //AGREGAR PRODUCTO
+                    AgregarEditarProductos("INSERT");
                 }
             }
         }

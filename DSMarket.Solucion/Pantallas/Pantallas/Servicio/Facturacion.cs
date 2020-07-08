@@ -757,6 +757,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             DSMarket.Solucion.Pantallas.Pantallas.Servicio.AgregarProductos AddProducts = new AgregarProductos();
             AddProducts.VariablesGlbales.IdUsuario = VariablesGlobales.IdUsuario;
             AddProducts.VariablesGlbales.GenerarConector = VariablesGlobales.GenerarConector;
+            AddProducts.VariablesGlbales.NumeroConector = VariablesGlobales.NumeroConector;
             AddProducts.ShowDialog();
         }
 
