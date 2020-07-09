@@ -700,8 +700,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.dtListado.Columns["ProductosConOferta"].Visible = false;
             this.dtListado.Columns["ProductoProximoAgotarse"].Visible = false;
             this.dtListado.Columns["ProductosAgostados"].Visible = false;
+            this.dtListado.Columns["AplicaParaImpuesto0"].Visible = false;
 
-          
+
 
 
         }

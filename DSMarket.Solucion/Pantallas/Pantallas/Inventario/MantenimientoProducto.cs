@@ -190,6 +190,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 Mantenimiento.UsuarioModifica = VariablesGlobales.IdUsuario;
                 Mantenimiento.FechaModifica = DateTime.Now;
                 Mantenimiento.Fecha = DateTime.Now;
+                Mantenimiento.Comentario = txtComentario.Text;
+                Mantenimiento.AplicaParaImpuesto0 = cbAplicaDescuento.Checked;
 
                 var MAn = ObjDataInventario.Value.MantenimientoProducto(Mantenimiento, VariablesGlobales.Accion);
 
@@ -265,6 +267,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 cbAceptaOferta.Checked = (n.AfectaOferta0.HasValue ? n.AfectaOferta0.Value : false);
                 cbacumulativo.Checked = (n.ProductoAcumulativo0.HasValue ? n.ProductoAcumulativo0.Value : false);
                 cbLlevaImagen.Checked = (n.LlevaImagen0.HasValue ? n.LlevaImagen0.Value : false);
+                cbAplicaDescuento.Checked = (n.AplicaParaImpuesto0.HasValue ? n.AplicaParaImpuesto0.Value : false);
                 txtStock.Text = n.Stock.ToString();
 
                 if (cbLlevaImagen.Checked == true)

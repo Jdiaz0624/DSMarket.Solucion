@@ -33,6 +33,7 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtPorcientoDescuento = new System.Windows.Forms.NumericUpDown();
             this.cbLlevaImagen = new System.Windows.Forms.CheckBox();
             this.cbacumulativo = new System.Windows.Forms.CheckBox();
             this.btnBuscarFoto = new System.Windows.Forms.Button();
@@ -89,13 +90,13 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.txtPorcientoDescuento = new System.Windows.Forms.NumericUpDown();
+            this.cbAplicaDescuento = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPorcientoDescuento)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPorcientoDescuento)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -138,6 +139,7 @@
             // groupBox1
             // 
             this.groupBox1.AutoSize = true;
+            this.groupBox1.Controls.Add(this.cbAplicaDescuento);
             this.groupBox1.Controls.Add(this.txtPorcientoDescuento);
             this.groupBox1.Controls.Add(this.cbLlevaImagen);
             this.groupBox1.Controls.Add(this.cbacumulativo);
@@ -194,11 +196,21 @@
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 45);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1237, 399);
+            this.groupBox1.Size = new System.Drawing.Size(1237, 425);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Producto";
             this.toolTip1.SetToolTip(this.groupBox1, "Buscar Foto del Articulo");
+            // 
+            // txtPorcientoDescuento
+            // 
+            this.txtPorcientoDescuento.BackColor = System.Drawing.Color.LightGray;
+            this.txtPorcientoDescuento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtPorcientoDescuento.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPorcientoDescuento.Location = new System.Drawing.Point(696, 215);
+            this.txtPorcientoDescuento.Name = "txtPorcientoDescuento";
+            this.txtPorcientoDescuento.Size = new System.Drawing.Size(250, 27);
+            this.txtPorcientoDescuento.TabIndex = 56;
             // 
             // cbLlevaImagen
             // 
@@ -219,7 +231,7 @@
             this.cbacumulativo.AutoSize = true;
             this.cbacumulativo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbacumulativo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbacumulativo.Location = new System.Drawing.Point(323, 316);
+            this.cbacumulativo.Location = new System.Drawing.Point(154, 340);
             this.cbacumulativo.Name = "cbacumulativo";
             this.cbacumulativo.Size = new System.Drawing.Size(129, 25);
             this.cbacumulativo.TabIndex = 53;
@@ -290,7 +302,7 @@
             this.cbAceptaOferta.AutoSize = true;
             this.cbAceptaOferta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbAceptaOferta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbAceptaOferta.Location = new System.Drawing.Point(154, 316);
+            this.cbAceptaOferta.Location = new System.Drawing.Point(138, 374);
             this.cbAceptaOferta.Name = "cbAceptaOferta";
             this.cbAceptaOferta.Size = new System.Drawing.Size(163, 25);
             this.cbAceptaOferta.TabIndex = 48;
@@ -813,15 +825,18 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // txtPorcientoDescuento
+            // cbAplicaDescuento
             // 
-            this.txtPorcientoDescuento.BackColor = System.Drawing.Color.LightGray;
-            this.txtPorcientoDescuento.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtPorcientoDescuento.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPorcientoDescuento.Location = new System.Drawing.Point(696, 215);
-            this.txtPorcientoDescuento.Name = "txtPorcientoDescuento";
-            this.txtPorcientoDescuento.Size = new System.Drawing.Size(250, 27);
-            this.txtPorcientoDescuento.TabIndex = 56;
+            this.cbAplicaDescuento.AutoSize = true;
+            this.cbAplicaDescuento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbAplicaDescuento.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbAplicaDescuento.Location = new System.Drawing.Point(154, 316);
+            this.cbAplicaDescuento.Name = "cbAplicaDescuento";
+            this.cbAplicaDescuento.Size = new System.Drawing.Size(196, 25);
+            this.cbAplicaDescuento.TabIndex = 57;
+            this.cbAplicaDescuento.Text = "Aplica para impuesto";
+            this.toolTip1.SetToolTip(this.cbAplicaDescuento, "Aplicar impuesto al momento de la venta");
+            this.cbAplicaDescuento.UseVisualStyleBackColor = true;
             // 
             // MantenimientoProducto
             // 
@@ -844,9 +859,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPorcientoDescuento)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPorcientoDescuento)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -915,5 +930,6 @@
         private System.Windows.Forms.CheckBox cbacumulativo;
         private System.Windows.Forms.CheckBox cbLlevaImagen;
         private System.Windows.Forms.NumericUpDown txtPorcientoDescuento;
+        private System.Windows.Forms.CheckBox cbAplicaDescuento;
     }
 }

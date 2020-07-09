@@ -327,6 +327,12 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 txtDescuento.Text = "0";
                 decimal IdProductoSeleccionado = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["IdProducto"].Value.ToString());
                 this.VariablesGlbales.IdProductoSeleccionadoAgregarPorpductos = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["IdProducto"].Value.ToString());
+                var SacarNumeroConectorProducto = ObjDataLogicaInventario.Value.BuscaProductos(
+                    VariablesGlbales.IdProductoSeleccionadoAgregarEditar,
+                    null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                foreach (var n in SacarNumeroConectorProducto) {
+                    VariablesGlbales.IdNumeroConectorProductoAgregarEditar = Convert.ToDecimal(n.NumeroConector);
+                }
                 this.VariablesGlbales.NumeroConectorSeleccionadoAgregarPorpductos = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["NumeroConector"].Value.ToString());
                 this.VariablesGlbales.DescripcionTipoProductoAgregarProductos = this.dtSeleccionarproducto.CurrentRow.Cells["TipoProducto"].Value.ToString();
                 int CantidadAlmcen = Convert.ToInt32(this.dtSeleccionarproducto.CurrentRow.Cells["Stock"].Value.ToString());

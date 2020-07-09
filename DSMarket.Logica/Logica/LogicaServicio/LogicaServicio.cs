@@ -330,6 +330,32 @@ namespace DSMarket.Logica.Logica.LogicaServicio
             }
             return Guardar;
         }
+        public List<DSMarket.Logica.Entidades.EntidadesServicio.EProductosAgregados> BuscapRoductosAgregados(decimal? NumeroConector = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_BUSCA_PRODUCTOS_AGREGADOS(NumeroConector)
+                           select new DSMarket.Logica.Entidades.EntidadesServicio.EProductosAgregados
+                           {
+                               NumeroConector=n.NumeroConector,
+                               IdTipoProducto=n.IdTipoProducto,
+                               DescripcionTipoProducto=n.DescripcionTipoProducto,
+                               IdCategoria=n.IdCategoria,
+                               Categoria=n.Categoria,
+                               DescripcionProducto=n.DescripcionProducto,
+                               Precio=n.Precio,
+                               Cantidad=n.Cantidad,
+                               DescuentoAplicado=n.DescuentoAplicado,
+                               Total=n.Total,
+                               DescripcionTipoProducto1=n.DescripcionTipoProducto1,
+                               PorcientoDescuento=n.PorcientoDescuento,
+                               Acumulativo=n.Acumulativo,
+                               IdProducto=n.IdProducto,
+                               ConectorProducto=n.ConectorProducto,
+                               CantidadRegistros=n.CantidadRegistros
+                           }).ToList();
+            return Listado;
+        }
+        
         #endregion
 
 

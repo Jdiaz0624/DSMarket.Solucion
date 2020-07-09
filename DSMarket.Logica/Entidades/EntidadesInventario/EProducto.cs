@@ -86,6 +86,10 @@ namespace DSMarket.Logica.Entidades.EntidadesInventario
 
         public System.Nullable<System.DateTime> Fecha {get;set;}
 
+        public System.Nullable<bool> AplicaParaImpuesto0 { get; set; }
+
+        public string AplicaParaImpuesto { get; set; }
+
         public System.Nullable<int> CantidadRegistros {get;set;}
 
         public System.Nullable<int> ProductosConOferta {get;set;}

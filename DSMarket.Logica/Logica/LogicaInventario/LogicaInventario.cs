@@ -484,6 +484,8 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                               FechaModifica=n.FechaModifica,
                               FechaModificado=n.FechaModificado,
                               Fecha=n.Fecha,
+                              AplicaParaImpuesto0=n.AplicaParaImpuesto0,
+                              AplicaParaImpuesto=n.AplicaParaImpuesto,
                               CantidadRegistros=n.CantidadRegistros,
                               ProductosConOferta=n.ProductosConOferta,
                               ProductoProximoAgotarse=n.ProductoProximoAgotarse,
@@ -524,6 +526,7 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                 , Item.LlevaImagen0
                 , Item.UsuarioAdicion
                 , Item.Comentario
+                , Item.AplicaParaImpuesto0
                 , Accion);
             if (Producto != null)
             {
@@ -555,7 +558,8 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                                       UsuarioModifica=n.UsuarioModifica,
                                       FechaModifica=n.FechaModifica,
                                       Fecha=n.Fecha,
-                                      Comentario=n.Comentario
+                                      Comentario=n.Comentario,
+                                      AplicaParaImpuesto0=n.AplicaParaImpuesto
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
