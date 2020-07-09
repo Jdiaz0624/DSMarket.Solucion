@@ -145,6 +145,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<SP_CANTIDAD_DIASResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTADO_TIPO_PAGO")]
+		public ISingleResult<SP_LISTADO_TIPO_PAGOResult> SP_LISTADO_TIPO_PAGO([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoPago", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoPago)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idTipoPago);
+			return ((ISingleResult<SP_LISTADO_TIPO_PAGOResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_CARGAR_LISTA_TIPO_PRODUCTOResult
@@ -670,6 +677,68 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._CantidadDias != value))
 				{
 					this._CantidadDias = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_LISTADO_TIPO_PAGOResult
+	{
+		
+		private decimal _IdTipoPago;
+		
+		private string _TipoPago;
+		
+		private System.Nullable<bool> _BloqueaMonto;
+		
+		public SP_LISTADO_TIPO_PAGOResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoPago", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdTipoPago
+		{
+			get
+			{
+				return this._IdTipoPago;
+			}
+			set
+			{
+				if ((this._IdTipoPago != value))
+				{
+					this._IdTipoPago = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoPago", DbType="VarChar(100)")]
+		public string TipoPago
+		{
+			get
+			{
+				return this._TipoPago;
+			}
+			set
+			{
+				if ((this._TipoPago != value))
+				{
+					this._TipoPago = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BloqueaMonto", DbType="Bit")]
+		public System.Nullable<bool> BloqueaMonto
+		{
+			get
+			{
+				return this._BloqueaMonto;
+			}
+			set
+			{
+				if ((this._BloqueaMonto != value))
+				{
+					this._BloqueaMonto = value;
 				}
 			}
 		}

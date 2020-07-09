@@ -187,5 +187,20 @@ namespace DSMarket.Logica.Logica.LogicaListas
             return BuscaCantidadDias;
         }
         #endregion
+        #region LISTADO DE LOS TIPOS DE PAGOS
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EListadoTipoPago> BuscaTipoPago(decimal? IdTipoPago = null)
+        {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjDataListas.SP_LISTADO_TIPO_PAGO(IdTipoPago)
+                           select new DSMarket.Logica.Entidades.EntidadesListas.EListadoTipoPago
+                           {
+                               IdTipoPago=n.IdTipoPago,
+                               TipoPago=n.TipoPago,
+                               BloqueaMonto=n.BloqueaMonto
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
     }
 }

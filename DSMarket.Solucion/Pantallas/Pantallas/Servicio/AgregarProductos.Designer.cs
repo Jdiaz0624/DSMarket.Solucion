@@ -46,7 +46,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.btnfoto = new System.Windows.Forms.Button();
             this.cbAgregarCategorias = new System.Windows.Forms.CheckBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbCantidadRegistrosAgregados = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.gbProductosAgregados = new System.Windows.Forms.GroupBox();
             this.dtProductosAgregados = new System.Windows.Forms.DataGridView();
@@ -174,7 +174,7 @@
             this.cbAgregarCategoria.Controls.Add(this.label9);
             this.cbAgregarCategoria.Controls.Add(this.btnfoto);
             this.cbAgregarCategoria.Controls.Add(this.cbAgregarCategorias);
-            this.cbAgregarCategoria.Controls.Add(this.label6);
+            this.cbAgregarCategoria.Controls.Add(this.lbCantidadRegistrosAgregados);
             this.cbAgregarCategoria.Controls.Add(this.label7);
             this.cbAgregarCategoria.Controls.Add(this.gbProductosAgregados);
             this.cbAgregarCategoria.Controls.Add(this.cbEditarPrecio);
@@ -350,16 +350,16 @@
             this.toolTip1.SetToolTip(this.cbAgregarCategorias, "Agregar el filtro por categoria");
             this.cbAgregarCategorias.UseVisualStyleBackColor = true;
             // 
-            // label6
+            // lbCantidadRegistrosAgregados
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(875, 508);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 20);
-            this.label6.TabIndex = 74;
-            this.label6.Text = "000";
-            this.toolTip1.SetToolTip(this.label6, "Cantidad de Productos agregados");
+            this.lbCantidadRegistrosAgregados.AutoSize = true;
+            this.lbCantidadRegistrosAgregados.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCantidadRegistrosAgregados.Location = new System.Drawing.Point(875, 508);
+            this.lbCantidadRegistrosAgregados.Name = "lbCantidadRegistrosAgregados";
+            this.lbCantidadRegistrosAgregados.Size = new System.Drawing.Size(39, 20);
+            this.lbCantidadRegistrosAgregados.TabIndex = 74;
+            this.lbCantidadRegistrosAgregados.Text = "000";
+            this.toolTip1.SetToolTip(this.lbCantidadRegistrosAgregados, "Cantidad de Productos agregados");
             // 
             // label7
             // 
@@ -447,7 +447,7 @@
             // 
             this.Separador.BackColor = System.Drawing.Color.Transparent;
             this.Separador.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.Separador.LineThickness = 102;
+            this.Separador.LineThickness = 157;
             this.Separador.Location = new System.Drawing.Point(7, 362);
             this.Separador.Margin = new System.Windows.Forms.Padding(5);
             this.Separador.Name = "Separador";
@@ -947,7 +947,7 @@
         private System.Windows.Forms.TextBox txtCategoria;
         private Bunifu.Framework.UI.BunifuSeparator Separador;
         private System.Windows.Forms.Button btnVolver;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbCantidadRegistrosAgregados;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
         private System.Windows.Forms.DataGridViewButtonColumn Select;

@@ -77,4 +77,12 @@
       <Column Name="CantidadDias" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Listas.SP_LISTADO_TIPO_PAGO" Method="SP_LISTADO_TIPO_PAGO">
+    <Parameter Name="IdTipoPago" Parameter="idTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <ElementType Name="SP_LISTADO_TIPO_PAGOResult">
+      <Column Name="IdTipoPago" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="TipoPago" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="BloqueaMonto" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

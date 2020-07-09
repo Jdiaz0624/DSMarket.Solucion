@@ -643,6 +643,64 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             }
         }
         #endregion
+        #region BUSCAR LOS PRODUCTOS AGRGADOS
+        private void BuscarProductosAgregados(decimal NumeroConector)
+        {
+            var BuscarRegistros = ObjDataServicio.Value.BuscapRoductosAgregados(NumeroConector);
+            dtProductosAgregados.DataSource = BuscarRegistros;
+
+            foreach (var n in BuscarRegistros)
+            {
+                decimal TotalDescuento = Convert.ToDecimal(n.TotalDescuento);
+                decimal SubTotal = Convert.ToDecimal(n.SubTotal);
+                decimal Impuesto = Convert.ToDecimal(n.TotalImpuesto);
+                decimal PorcientoImpuesto = Convert.ToDecimal(n.PorcientoImpuesto);
+                decimal Total = Convert.ToDecimal(n.TotalGeneral);
+                decimal CantidadArticulos = Convert.ToDecimal(n.CantidadProductos);
+                decimal CantidadServicios = Convert.ToDecimal(n.CantidadServicios);
+                decimal TotalRegistros = Convert.ToDecimal(n.CantidadRegistros);
+
+                txtTotalDescuento.Text = TotalDescuento.ToString("N2");
+                txtSubtotal.Text = SubTotal.ToString("N2");
+                txtImpuesto.Text = Impuesto.ToString("N2");
+                txtPorcientoImpuesto.Text = PorcientoImpuesto.ToString("N0");
+                txtTotal.Text = Total.ToString("N2");
+                txtCantidadArtiuclos.Text = CantidadArticulos.ToString("N0");
+                txtCantidadServicios.Text = CantidadServicios.ToString("N0");
+                txtTotalServicios.Text = TotalRegistros.ToString("N0");
+            }
+
+            this.dtProductosAgregados.Columns["NumeroConector"].Visible = false;
+            this.dtProductosAgregados.Columns["IdTipoProducto"].Visible = false;
+            this.dtProductosAgregados.Columns["IdCategoria"].Visible = false;
+            this.dtProductosAgregados.Columns["DescripcionTipoProducto1"].Visible = false;
+            this.dtProductosAgregados.Columns["Acumulativo"].Visible = false;
+            this.dtProductosAgregados.Columns["IdProducto"].Visible = false;
+            this.dtProductosAgregados.Columns["ConectorProducto"].Visible = false;
+            this.dtProductosAgregados.Columns["CantidadProductos"].Visible = false;
+            this.dtProductosAgregados.Columns["CantidadServicios"].Visible = false;
+            this.dtProductosAgregados.Columns["CantidadRegistros"].Visible = false;
+            this.dtProductosAgregados.Columns["TotalDescuento"].Visible = false;
+            this.dtProductosAgregados.Columns["PorcientoImpuesto"].Visible = false;
+            this.dtProductosAgregados.Columns["SubTotal"].Visible = false;
+            this.dtProductosAgregados.Columns["TotalImpuesto"].Visible = false;
+            this.dtProductosAgregados.Columns["TotalGeneral"].Visible = false;
+            //this.dtProductosAgregados.Columns[""].Visible = false;
+            //this.dtProductosAgregados.Columns[""].Visible = false;
+            //this.dtProductosAgregados.Columns[""].Visible = false;
+            //this.dtProductosAgregados.Columns[""].Visible = false;
+            //this.dtProductosAgregados.Columns[""].Visible = false;
+        }
+        #endregion
+        #region MOSTRAR LOS TIPOS DE PAGOS
+        private void MostrarListadoTipoPagos() {
+            var TipoPago = ObjDataListas.Value.BuscaTipoPago(
+                new Nullable<decimal>());
+            ddltIPago.DataSource = TipoPago;
+            ddltIPago.DisplayMember = "TipoPago";
+            ddltIPago.ValueMember = "IdTipoPago";
+        }
+        #endregion
         private void Facturacion_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
@@ -676,6 +734,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             if (VariablesGlobales.SacarDataEspejo == true) {
                 SacarInformacionFacturacionEspejo();
             }
+           
+            txtCantidadArtiuclos.Text = "0";
+            txtCantidadServicios.Text = "0";
+            txtTotalServicios.Text = "0";
+            txtTotalDescuento.Text = "0";
+            txtSubtotal.Text = "0";
+            txtImpuesto.Text = "0";
+            txtPorcientoImpuesto.Text = "0";
+            txtTotal.Text = "0";
+            BuscarProductosAgregados(VariablesGlobales.NumeroConector);
+            MostrarListadoTipoPagos();
         }
 
         private void PCerrar_Click(object sender, EventArgs e)
@@ -952,6 +1021,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 ListadoFacturaMinimizadas();
                 //GENERAMOS NUEVAMENTE UN NUEMERO DE CONECTOR
                 GenerarNumeroConector();
+                dtProductosAgregados.DataSource = null;
+                txtCantidadArtiuclos.Text = "0";
+                txtCantidadServicios.Text = "0";
+                txtTotalServicios.Text = "0";
+                txtTotalDescuento.Text = "0";
+                txtSubtotal.Text = "0";
+                txtImpuesto.Text = "0";
+                txtPorcientoImpuesto.Text = "0";
+                txtTotal.Text = "0";
             }
 
         }
@@ -979,6 +1057,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     SacarDataFacturaMinimizadas();
                     MANFacturasMinimizadas("DELETE");
                     ListadoFacturaMinimizadas();
+                    BuscarProductosAgregados(VariablesGlobales.NumeroConector);
                 }
             }
         }
@@ -988,6 +1067,28 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
                 BuscarPorRNC();
             }
+        }
+
+        private void ddltIPago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try {
+                bool BloqueaMonto = false;
+                var TipoPago = ObjDataListas.Value.BuscaTipoPago(
+                Convert.ToDecimal(ddltIPago.SelectedValue));
+                foreach (var n in TipoPago) {
+                    BloqueaMonto = Convert.ToBoolean(n.BloqueaMonto);
+                }
+                if (BloqueaMonto == true)
+                {
+                    txtMontoPagar.Enabled = false;
+                    txtMontoPagar.Text = txtTotal.Text;
+                }
+                else {
+                    txtMontoPagar.Enabled = true;
+                    txtMontoPagar.Text = string.Empty;
+                }
+            }
+            catch (Exception) { }
         }
     }
 }

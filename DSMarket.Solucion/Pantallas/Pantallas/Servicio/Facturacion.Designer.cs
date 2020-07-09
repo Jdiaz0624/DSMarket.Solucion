@@ -192,6 +192,7 @@
             this.txtTotalServicios.Name = "txtTotalServicios";
             this.txtTotalServicios.Size = new System.Drawing.Size(113, 27);
             this.txtTotalServicios.TabIndex = 58;
+            this.txtTotalServicios.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label23
             // 
@@ -281,6 +282,7 @@
             this.txtCantidadServicios.Name = "txtCantidadServicios";
             this.txtCantidadServicios.Size = new System.Drawing.Size(113, 27);
             this.txtCantidadServicios.TabIndex = 53;
+            this.txtCantidadServicios.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
             // 
@@ -390,7 +392,6 @@
             this.txtCambio.Name = "txtCambio";
             this.txtCambio.Size = new System.Drawing.Size(165, 27);
             this.txtCambio.TabIndex = 43;
-            this.txtCambio.Visible = false;
             // 
             // txtPorcientoImpuesto
             // 
@@ -400,6 +401,7 @@
             this.txtPorcientoImpuesto.Name = "txtPorcientoImpuesto";
             this.txtPorcientoImpuesto.Size = new System.Drawing.Size(40, 27);
             this.txtPorcientoImpuesto.TabIndex = 42;
+            this.txtPorcientoImpuesto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lbConector
             // 
@@ -430,6 +432,7 @@
             this.ddltIPago.Name = "ddltIPago";
             this.ddltIPago.Size = new System.Drawing.Size(207, 28);
             this.ddltIPago.TabIndex = 29;
+            this.ddltIPago.SelectedIndexChanged += new System.EventHandler(this.ddltIPago_SelectedIndexChanged);
             // 
             // txtTotal
             // 
@@ -439,6 +442,7 @@
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(209, 27);
             this.txtTotal.TabIndex = 39;
+            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtImpuesto
             // 
@@ -448,6 +452,7 @@
             this.txtImpuesto.Name = "txtImpuesto";
             this.txtImpuesto.Size = new System.Drawing.Size(165, 27);
             this.txtImpuesto.TabIndex = 38;
+            this.txtImpuesto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtSubtotal
             // 
@@ -457,6 +462,7 @@
             this.txtSubtotal.Name = "txtSubtotal";
             this.txtSubtotal.Size = new System.Drawing.Size(209, 27);
             this.txtSubtotal.TabIndex = 37;
+            this.txtSubtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtTotalDescuento
             // 
@@ -466,6 +472,7 @@
             this.txtTotalDescuento.Name = "txtTotalDescuento";
             this.txtTotalDescuento.Size = new System.Drawing.Size(209, 27);
             this.txtTotalDescuento.TabIndex = 36;
+            this.txtTotalDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtCantidadArtiuclos
             // 
@@ -475,6 +482,7 @@
             this.txtCantidadArtiuclos.Name = "txtCantidadArtiuclos";
             this.txtCantidadArtiuclos.Size = new System.Drawing.Size(113, 27);
             this.txtCantidadArtiuclos.TabIndex = 29;
+            this.txtCantidadArtiuclos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label20
             // 

@@ -336,7 +336,7 @@ namespace DSMarket.Logica.Logica.LogicaServicio
             var Listado = (from n in ObjData.SP_BUSCA_PRODUCTOS_AGREGADOS(NumeroConector)
                            select new DSMarket.Logica.Entidades.EntidadesServicio.EProductosAgregados
                            {
-                               NumeroConector=n.NumeroConector,
+                              NumeroConector=n.NumeroConector,
                                IdTipoProducto=n.IdTipoProducto,
                                DescripcionTipoProducto=n.DescripcionTipoProducto,
                                IdCategoria=n.IdCategoria,
@@ -351,7 +351,16 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                Acumulativo=n.Acumulativo,
                                IdProducto=n.IdProducto,
                                ConectorProducto=n.ConectorProducto,
-                               CantidadRegistros=n.CantidadRegistros
+                               AplicaImpuesto=n.AplicaImpuesto,
+                               Impuesto=n.Impuesto,
+                               CantidadProductos=n.CantidadProductos,
+                               CantidadServicios=n.CantidadServicios,
+                               CantidadRegistros=n.CantidadRegistros,
+                               TotalDescuento=n.TotalDescuento,
+                               PorcientoImpuesto=n.PorcientoImpuesto,
+                               SubTotal=n.SubTotal,
+                               TotalImpuesto=n.TotalImpuesto,
+                               TotalGeneral=n.TotalGeneral
                            }).ToList();
             return Listado;
         }

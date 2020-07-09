@@ -257,6 +257,38 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             return Valor3;
         }
         #endregion
+        #region BUSCAR LOS PRODUCTOS AGRGADOS
+        private void BuscarProductosAgregados(decimal NumeroConector) {
+            var BuscarRegistros = ObjDataServicio.Value.BuscapRoductosAgregados(NumeroConector);
+            dtProductosAgregados.DataSource = BuscarRegistros;
+
+            foreach (var n in BuscarRegistros) {
+                int CantidadRegistros = Convert.ToInt32(n.CantidadRegistros);
+                lbCantidadRegistrosAgregados.Text = CantidadRegistros.ToString("N0");
+            }
+
+            this.dtProductosAgregados.Columns["NumeroConector"].Visible = false;
+            this.dtProductosAgregados.Columns["IdTipoProducto"].Visible = false;
+            this.dtProductosAgregados.Columns["IdCategoria"].Visible = false;
+            this.dtProductosAgregados.Columns["DescripcionTipoProducto1"].Visible = false;
+            this.dtProductosAgregados.Columns["Acumulativo"].Visible = false;
+            this.dtProductosAgregados.Columns["IdProducto"].Visible = false;
+            this.dtProductosAgregados.Columns["ConectorProducto"].Visible = false;
+            this.dtProductosAgregados.Columns["CantidadProductos"].Visible = false;
+            this.dtProductosAgregados.Columns["CantidadServicios"].Visible = false;
+            this.dtProductosAgregados.Columns["CantidadRegistros"].Visible = false;
+            this.dtProductosAgregados.Columns["TotalDescuento"].Visible = false;
+            this.dtProductosAgregados.Columns["PorcientoImpuesto"].Visible = false;
+            this.dtProductosAgregados.Columns["SubTotal"].Visible = false;
+            this.dtProductosAgregados.Columns["TotalImpuesto"].Visible = false;
+            this.dtProductosAgregados.Columns["TotalGeneral"].Visible = false;
+            //this.dtProductosAgregados.Columns[""].Visible = false;
+            //this.dtProductosAgregados.Columns[""].Visible = false;
+            //this.dtProductosAgregados.Columns[""].Visible = false;
+            //this.dtProductosAgregados.Columns[""].Visible = false;
+            //this.dtProductosAgregados.Columns[""].Visible = false;
+        }
+        #endregion
         private void PCerrar_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -283,6 +315,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             VariablesGlbales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             CargarTipoPrductos();
             CargarCategorias();
+            BuscarProductosAgregados(VariablesGlbales.NumeroConector);
         }
 
         private void ddlTipoProducto_SelectedIndexChanged(object sender, EventArgs e)
@@ -521,6 +554,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         }
                         else {
                             AgregarEditarProductos("INSERT");
+                            BuscarProductosAgregados(VariablesGlbales.NumeroConector);
                         }
                   
                     }
@@ -537,6 +571,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     {
                         //AGREGAR PRODUCTO Y ELIMINAR
                         AgregarEditarProductos("INSERT");
+                        BuscarProductosAgregados(VariablesGlbales.NumeroConector);
                     }
                 }
             }
@@ -553,6 +588,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 {
                     //AGREGAR PRODUCTO
                     AgregarEditarProductos("INSERT");
+                    BuscarProductosAgregados(VariablesGlbales.NumeroConector);
                 }
             }
         }
