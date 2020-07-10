@@ -302,4 +302,31 @@
       <Column Name="TotalGeneral" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Servicio.SP_GUARDAR_FACTURACION_CALCULOS" Method="SP_GUARDAR_FACTURACION_CALCULOS">
+    <Parameter Name="NumeroColector" Parameter="numeroColector" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="CantidadProductos" Parameter="cantidadProductos" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CantidadServicios" Parameter="cantidadServicios" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CantidadArticulos" Parameter="cantidadArticulos" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TotalDescuento" Parameter="totalDescuento" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="SubTotal" Parameter="subTotal" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="Impuesto" Parameter="impuesto" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="PorcientoImpuesto" Parameter="porcientoImpuesto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MontoPagado" Parameter="montoPagado" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="Cambio" Parameter="cambio" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="IdTipoPago" Parameter="idTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_GUARDAR_FACTURACION_CALCULOSResult">
+      <Column Name="NumeroColector" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="CantidadProductos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CantidadServicios" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CantidadArticulos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalDescuento" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="SubTotal" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Impuesto" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="PorcientoImpuesto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MontoPagado" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Cambio" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="IdTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

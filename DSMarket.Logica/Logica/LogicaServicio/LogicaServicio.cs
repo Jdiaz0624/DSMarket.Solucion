@@ -364,6 +364,50 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                            }).ToList();
             return Listado;
         }
+        /// <summary>
+        /// Este metodo es para guardar los datos de los calculos.
+        /// </summary>
+        /// <param name="Item"></param>
+        /// <param name="Accion"></param>
+        /// <returns></returns>
+        public DSMarket.Logica.Entidades.EntidadesServicio.EGuardarFacturacionCalculos GuardarFacturacionCalculos(DSMarket.Logica.Entidades.EntidadesServicio.EGuardarFacturacionCalculos Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesServicio.EGuardarFacturacionCalculos Guardar = null;
+
+            var FacturacionCalculos = ObjData.SP_GUARDAR_FACTURACION_CALCULOS(
+                Item.NumeroColector,
+                Item.CantidadProductos,
+                Item.CantidadServicios,
+                Item.CantidadArticulos,
+                Item.TotalDescuento,
+                Item.SubTotal,
+                Item.Impuesto,
+                Item.PorcientoImpuesto,
+                Item.MontoPagado,
+                Item.Cambio,
+                Item.IdTipoPago,
+                Accion);
+            if (FacturacionCalculos != null)
+            {
+                Guardar = (from n in FacturacionCalculos
+                           select new DSMarket.Logica.Entidades.EntidadesServicio.EGuardarFacturacionCalculos
+                           {
+                               NumeroColector=n.NumeroColector,
+                               CantidadProductos=n.CantidadProductos,
+                               CantidadServicios=n.CantidadServicios,
+                               CantidadArticulos=n.CantidadArticulos,
+                               TotalDescuento=n.TotalDescuento,
+                               SubTotal=n.SubTotal,
+                               Impuesto=n.Impuesto,
+                               PorcientoImpuesto=n.PorcientoImpuesto,
+                               MontoPagado=n.MontoPagado,
+                               Cambio=n.Cambio,
+                               IdTipoPago=n.IdTipoPago
+                           }).FirstOrDefault();
+            }
+            return Guardar;
+        }
         
         #endregion
 

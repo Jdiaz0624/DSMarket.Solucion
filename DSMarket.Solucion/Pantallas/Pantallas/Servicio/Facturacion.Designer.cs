@@ -50,7 +50,6 @@
             this.ddlTipoVenta = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
             this.txtCambio = new System.Windows.Forms.TextBox();
-            this.txtPorcientoImpuesto = new System.Windows.Forms.TextBox();
             this.lbConector = new System.Windows.Forms.Label();
             this.txtMontoPagar = new System.Windows.Forms.TextBox();
             this.ddltIPago = new System.Windows.Forms.ComboBox();
@@ -143,7 +142,6 @@
             this.gbGeneral.Controls.Add(this.ddlTipoVenta);
             this.gbGeneral.Controls.Add(this.label22);
             this.gbGeneral.Controls.Add(this.txtCambio);
-            this.gbGeneral.Controls.Add(this.txtPorcientoImpuesto);
             this.gbGeneral.Controls.Add(this.lbConector);
             this.gbGeneral.Controls.Add(this.txtMontoPagar);
             this.gbGeneral.Controls.Add(this.ddltIPago);
@@ -393,16 +391,6 @@
             this.txtCambio.Size = new System.Drawing.Size(165, 27);
             this.txtCambio.TabIndex = 43;
             // 
-            // txtPorcientoImpuesto
-            // 
-            this.txtPorcientoImpuesto.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtPorcientoImpuesto.Enabled = false;
-            this.txtPorcientoImpuesto.Location = new System.Drawing.Point(1176, 134);
-            this.txtPorcientoImpuesto.Name = "txtPorcientoImpuesto";
-            this.txtPorcientoImpuesto.Size = new System.Drawing.Size(40, 27);
-            this.txtPorcientoImpuesto.TabIndex = 42;
-            this.txtPorcientoImpuesto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // lbConector
             // 
             this.lbConector.AutoSize = true;
@@ -450,7 +438,7 @@
             this.txtImpuesto.Enabled = false;
             this.txtImpuesto.Location = new System.Drawing.Point(1007, 134);
             this.txtImpuesto.Name = "txtImpuesto";
-            this.txtImpuesto.Size = new System.Drawing.Size(165, 27);
+            this.txtImpuesto.Size = new System.Drawing.Size(209, 27);
             this.txtImpuesto.TabIndex = 38;
             this.txtImpuesto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -478,7 +466,7 @@
             // 
             this.txtCantidadArtiuclos.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtCantidadArtiuclos.Enabled = false;
-            this.txtCantidadArtiuclos.Location = new System.Drawing.Point(87, 278);
+            this.txtCantidadArtiuclos.Location = new System.Drawing.Point(90, 279);
             this.txtCantidadArtiuclos.Name = "txtCantidadArtiuclos";
             this.txtCantidadArtiuclos.Size = new System.Drawing.Size(113, 27);
             this.txtCantidadArtiuclos.TabIndex = 29;
@@ -543,9 +531,9 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(7, 282);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(76, 20);
+            this.label14.Size = new System.Drawing.Size(82, 20);
             this.label14.TabIndex = 29;
-            this.label14.Text = "Articulos";
+            this.label14.Text = "Productos";
             // 
             // groupBox1
             // 
@@ -1134,7 +1122,6 @@
         public System.Windows.Forms.ComboBox ddlTipoVenta;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox txtCambio;
-        private System.Windows.Forms.TextBox txtPorcientoImpuesto;
         private System.Windows.Forms.Label lbConector;
         private System.Windows.Forms.TextBox txtMontoPagar;
         private System.Windows.Forms.ComboBox ddltIPago;

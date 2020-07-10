@@ -56,7 +56,7 @@
             this.txtCategoria = new System.Windows.Forms.TextBox();
             this.Separador = new Bunifu.Framework.UI.BunifuSeparator();
             this.btnQuitar = new System.Windows.Forms.Button();
-            this.btnVolver = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.txtDescuento = new System.Windows.Forms.TextBox();
             this.txtPorcientoDescyento = new System.Windows.Forms.TextBox();
@@ -182,7 +182,7 @@
             this.cbAgregarCategoria.Controls.Add(this.txtCategoria);
             this.cbAgregarCategoria.Controls.Add(this.Separador);
             this.cbAgregarCategoria.Controls.Add(this.btnQuitar);
-            this.cbAgregarCategoria.Controls.Add(this.btnVolver);
+            this.cbAgregarCategoria.Controls.Add(this.btnEditar);
             this.cbAgregarCategoria.Controls.Add(this.btnAgregar);
             this.cbAgregarCategoria.Controls.Add(this.txtDescuento);
             this.cbAgregarCategoria.Controls.Add(this.txtPorcientoDescyento);
@@ -237,6 +237,7 @@
             this.btnRestablcer.Text = "     ";
             this.toolTip1.SetToolTip(this.btnRestablcer, "Restablecer Pantalla");
             this.btnRestablcer.UseVisualStyleBackColor = true;
+            this.btnRestablcer.Click += new System.EventHandler(this.btnRestablcer_Click);
             // 
             // lbDescuentoColectivoVariable
             // 
@@ -400,6 +401,7 @@
             this.dtProductosAgregados.RowTemplate.Height = 24;
             this.dtProductosAgregados.Size = new System.Drawing.Size(1140, 119);
             this.dtProductosAgregados.TabIndex = 0;
+            this.dtProductosAgregados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtProductosAgregados_CellContentClick);
             // 
             // dataGridViewButtonColumn1
             // 
@@ -447,7 +449,7 @@
             // 
             this.Separador.BackColor = System.Drawing.Color.Transparent;
             this.Separador.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.Separador.LineThickness = 157;
+            this.Separador.LineThickness = 242;
             this.Separador.Location = new System.Drawing.Point(7, 362);
             this.Separador.Margin = new System.Windows.Forms.Padding(5);
             this.Separador.Name = "Separador";
@@ -473,22 +475,22 @@
             this.toolTip1.SetToolTip(this.btnQuitar, "Quitar Producto Seleccionado");
             this.btnQuitar.UseVisualStyleBackColor = true;
             // 
-            // btnVolver
+            // btnEditar
             // 
-            this.btnVolver.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnVolver.Enabled = false;
-            this.btnVolver.FlatAppearance.BorderSize = 0;
-            this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnVolver.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolver.Image = global::DSMarket.Solucion.Properties.Resources.Editar;
-            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVolver.Location = new System.Drawing.Point(1009, 431);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(142, 41);
-            this.btnVolver.TabIndex = 64;
-            this.btnVolver.Text = "      Editar";
-            this.toolTip1.SetToolTip(this.btnVolver, "Editar Registro seleccionado");
-            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditar.Enabled = false;
+            this.btnEditar.FlatAppearance.BorderSize = 0;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEditar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.Image = global::DSMarket.Solucion.Properties.Resources.Editar;
+            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditar.Location = new System.Drawing.Point(1009, 431);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(142, 41);
+            this.btnEditar.TabIndex = 64;
+            this.btnEditar.Text = "      Editar";
+            this.toolTip1.SetToolTip(this.btnEditar, "Editar Registro seleccionado");
+            this.btnEditar.UseVisualStyleBackColor = true;
             // 
             // btnAgregar
             // 
@@ -946,7 +948,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtCategoria;
         private Bunifu.Framework.UI.BunifuSeparator Separador;
-        private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Label lbCantidadRegistrosAgregados;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;

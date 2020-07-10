@@ -227,7 +227,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
 
                 var MAn = ObjDataServicio.Value.GuardarFacturacionProductos(AgregarEditar, Accion);
-
+                RestablecerPantalla();
 
             }
             catch (Exception ex) {
@@ -287,6 +287,24 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             //this.dtProductosAgregados.Columns[""].Visible = false;
             //this.dtProductosAgregados.Columns[""].Visible = false;
             //this.dtProductosAgregados.Columns[""].Visible = false;
+        }
+        #endregion
+        #region RESTABLECER PANTALLA
+        private void RestablecerPantalla() {
+            txtTipoProducto.Text = string.Empty;
+            txtCategoria.Text = string.Empty;
+            txtProducto.Text = string.Empty;
+            txtCantidadDisponible.Text = string.Empty;
+            txtCantidadUsar.Text = string.Empty;
+            txtPrecio.Text = string.Empty;
+            txtPorcientoDescyento.Text = string.Empty;
+            txtDescuento.Text = "0";
+            txtAcumulativo.Text = string.Empty;
+
+            btnRestablcer.Enabled = false;
+            btnAgregar.Enabled = false;
+            btnEditar.Enabled = false;
+            btnQuitar.Enabled = false;
         }
         #endregion
         private void PCerrar_Click(object sender, EventArgs e)
@@ -502,49 +520,96 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            //VALIDAMOS EL TIPO DE PRODUCTO SELECCIONADO
-            if (VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar == 1) {
-                //VALIDAMOS SI EL PRODUCTO ES ACUMULATIVO
-                string ProductoAcumulativo = txtAcumulativo.Text;
-
-                if (ProductoAcumulativo == "SI")
+            if (string.IsNullOrEmpty(txtPrecio.Text.Trim()))
+            {
+                MessageBox.Show("El campo precio no puede estar vacio para realizar esta operación", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else {
+                decimal Precio = Convert.ToDecimal(txtPrecio.Text);
+                if (Precio < 1)
                 {
-                    //VERIFICAMOS SI LA CANTIDAD A USAR NO ESTA VACIA
-                    int Valor = Convert.ToInt32(txtCantidadUsar.Text);
-                    if (string.IsNullOrEmpty(txtCantidadUsar.Text.Trim()) || Valor <1)
+                    MessageBox.Show("El precio ingresado no es valido, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else {
+                    //VALIDAMOS EL TIPO DE PRODUCTO SELECCIONADO
+                    if (VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar == 1)
                     {
-                        txtCantidadUsar.Text = "1";
-                    }
-                    //VALIDAMOS LA CANTIDAD EN ALMACEN Y VERIFICAMOS QUE LA CANTIDAD A VENDER ES VALIDA.
-                    int CantidadVender = Convert.ToInt32(txtCantidadUsar.Text);
-                    int CantidadDisponible = 0;
+                        //VALIDAMOS SI EL PRODUCTO ES ACUMULATIVO
+                        string ProductoAcumulativo = txtAcumulativo.Text;
 
-                    var ValidarCantidadDisponible = ObjDataLogicaInventario.Value.BuscaProductos(
-                        VariablesGlbales.IdProductoSeleccionadoAgregarEditar,
-                        VariablesGlbales.NumeroConectorSeleccionadoAgregarPorpductos,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        1, 1);
-                    foreach (var n in ValidarCantidadDisponible)
-                    {
-                        CantidadDisponible = Convert.ToInt32(n.Stock);
-                    }
+                        if (ProductoAcumulativo == "SI")
+                        {
+                            //VERIFICAMOS SI LA CANTIDAD A USAR NO ESTA VACIA
+                            int Valor = Convert.ToInt32(txtCantidadUsar.Text);
+                            if (string.IsNullOrEmpty(txtCantidadUsar.Text.Trim()) || Valor < 1)
+                            {
+                                txtCantidadUsar.Text = "1";
+                            }
+                            //VALIDAMOS LA CANTIDAD EN ALMACEN Y VERIFICAMOS QUE LA CANTIDAD A VENDER ES VALIDA.
+                            int CantidadVender = Convert.ToInt32(txtCantidadUsar.Text);
+                            int CantidadDisponible = 0;
 
-                    if (CantidadVender > CantidadDisponible)
-                    {
-                        MessageBox.Show("La cantidad que intentas agregar a factura, supera la cantidad que tienes en inventario, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            var ValidarCantidadDisponible = ObjDataLogicaInventario.Value.BuscaProductos(
+                                VariablesGlbales.IdProductoSeleccionadoAgregarEditar,
+                                VariablesGlbales.NumeroConectorSeleccionadoAgregarPorpductos,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                1, 1);
+                            foreach (var n in ValidarCantidadDisponible)
+                            {
+                                CantidadDisponible = Convert.ToInt32(n.Stock);
+                            }
+
+                            if (CantidadVender > CantidadDisponible)
+                            {
+                                MessageBox.Show("La cantidad que intentas agregar a factura, supera la cantidad que tienes en inventario, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                            else
+                            {
+
+                                decimal DescuentoMaximo = Convert.ToDecimal(lbDescuentoColectivoVariable.Text);
+                                decimal DescuentoAplicar = Convert.ToDecimal(txtDescuento.Text);
+                                if (DescuentoAplicar > DescuentoMaximo)
+                                {
+                                    MessageBox.Show("El descuento ingresado supera la cantidad permitida para descontar en este articulo, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                                else
+                                {
+                                    AgregarEditarProductos("INSERT");
+                                    BuscarProductosAgregados(VariablesGlbales.NumeroConector);
+                                }
+
+                            }
+                        }
+                        else if (ProductoAcumulativo == "NO")
+                        {
+
+                            decimal DescuentoMaximo = Convert.ToDecimal(lbDescuentoColectivoVariable.Text);
+                            decimal DescuentoAplicar = Convert.ToDecimal(txtDescuento.Text);
+                            if (DescuentoAplicar > DescuentoMaximo)
+                            {
+                                MessageBox.Show("El descuento ingresado supera la cantidad permitida para descontar en este articulo, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                            else
+                            {
+                                //AGREGAR PRODUCTO Y ELIMINAR
+                                AgregarEditarProductos("INSERT");
+                                BuscarProductosAgregados(VariablesGlbales.NumeroConector);
+                            }
+                        }
                     }
-                    else
+                    else if (VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar == 2)
                     {
+
 
                         decimal DescuentoMaximo = Convert.ToDecimal(lbDescuentoColectivoVariable.Text);
                         decimal DescuentoAplicar = Convert.ToDecimal(txtDescuento.Text);
@@ -552,43 +617,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         {
                             MessageBox.Show("El descuento ingresado supera la cantidad permitida para descontar en este articulo, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
-                        else {
+                        else
+                        {
+                            //AGREGAR PRODUCTO
                             AgregarEditarProductos("INSERT");
                             BuscarProductosAgregados(VariablesGlbales.NumeroConector);
                         }
-                  
                     }
-                }
-                else if (ProductoAcumulativo == "NO") {
-
-                    decimal DescuentoMaximo = Convert.ToDecimal(lbDescuentoColectivoVariable.Text);
-                    decimal DescuentoAplicar = Convert.ToDecimal(txtDescuento.Text);
-                    if (DescuentoAplicar > DescuentoMaximo)
-                    {
-                        MessageBox.Show("El descuento ingresado supera la cantidad permitida para descontar en este articulo, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    else
-                    {
-                        //AGREGAR PRODUCTO Y ELIMINAR
-                        AgregarEditarProductos("INSERT");
-                        BuscarProductosAgregados(VariablesGlbales.NumeroConector);
-                    }
-                }
-            }
-            else if (VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar == 2) {
-
-
-                decimal DescuentoMaximo = Convert.ToDecimal(lbDescuentoColectivoVariable.Text);
-                decimal DescuentoAplicar = Convert.ToDecimal(txtDescuento.Text);
-                if (DescuentoAplicar > DescuentoMaximo)
-                {
-                    MessageBox.Show("El descuento ingresado supera la cantidad permitida para descontar en este articulo, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    //AGREGAR PRODUCTO
-                    AgregarEditarProductos("INSERT");
-                    BuscarProductosAgregados(VariablesGlbales.NumeroConector);
                 }
             }
         }
@@ -596,6 +631,21 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void txtCantidadUsar_TextChanged(object sender, EventArgs e)
         {
             CalcularColectivo();
+        }
+
+        private void btnRestablcer_Click(object sender, EventArgs e)
+        {
+            RestablecerPantalla();
+        }
+
+        private void dtProductosAgregados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (MessageBox.Show("¿Quieres Seleccionar este registro?", VariablesGlbales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+                btnRestablcer.Enabled = true;
+                btnAgregar.Enabled = false;
+                btnQuitar.Enabled = true;
+                btnEditar.Enabled = true;
+            }
         }
     }
 }

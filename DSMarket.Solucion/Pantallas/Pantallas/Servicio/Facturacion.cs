@@ -96,7 +96,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             txtTotalDescuento.BackColor = Color.WhiteSmoke;
             txtSubtotal.BackColor = Color.WhiteSmoke;
             txtImpuesto.BackColor = Color.WhiteSmoke;
-            txtPorcientoImpuesto.BackColor = Color.WhiteSmoke;
+            //txtPorcientoImpuesto.BackColor = Color.WhiteSmoke;
             txtTotal.BackColor = Color.WhiteSmoke;
             ddltIPago.BackColor = Color.WhiteSmoke;
             txtMontoPagar.BackColor = Color.WhiteSmoke;
@@ -120,7 +120,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             txtTotalDescuento.ForeColor = Color.Black;
             txtSubtotal.ForeColor = Color.Black;
             txtImpuesto.ForeColor = Color.Black;
-            txtPorcientoImpuesto.ForeColor = Color.Black;
+            //txtPorcientoImpuesto.ForeColor = Color.Black;
             txtTotal.ForeColor = Color.Black;
             ddltIPago.ForeColor = Color.Black;
             txtMontoPagar.ForeColor = Color.Black;
@@ -421,6 +421,25 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
             var MAN = ObjDataServicio.Value.GuardarFacturacionClientes(ManClientes, Accion);
         }
+        //GUARDAR LOS DATOS DE LOS CALCULOS
+        private void GuardarDatosCalculos(string Accion) {
+            DSMarket.Logica.Entidades.EntidadesServicio.EGuardarFacturacionCalculos Calculos = new Logica.Entidades.EntidadesServicio.EGuardarFacturacionCalculos();
+
+            Calculos.NumeroColector = VariablesGlobales.NumeroConector;
+            Calculos.CantidadProductos = Convert.ToInt32(txtCantidadArtiuclos.Text);
+            Calculos.CantidadServicios = Convert.ToInt32(txtCantidadServicios.Text);
+            Calculos.CantidadArticulos = Convert.ToInt32(txtTotalServicios.Text);
+            Calculos.TotalDescuento = Convert.ToDecimal(txtTotalDescuento.Text);
+            Calculos.SubTotal = Convert.ToDecimal(txtSubtotal.Text);
+            Calculos.Impuesto = Convert.ToDecimal(txtImpuesto.Text);
+            Calculos.PorcientoImpuesto = 0;
+            Calculos.MontoPagado = Convert.ToDecimal(txtMontoPagar.Text);
+            Calculos.Cambio = Convert.ToDecimal(txtCambio.Text);
+            Calculos.IdTipoPago = Convert.ToDecimal(ddltIPago.SelectedValue);
+
+
+            var MAn = ObjDataServicio.Value.GuardarFacturacionCalculos(Calculos, Accion);
+        }
         #endregion
         #region SACAR LA DATA DE LAS FACTURAS MINIMIZADAS
         private void SacarDataFacturaMinimizadas() {
@@ -654,7 +673,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 decimal TotalDescuento = Convert.ToDecimal(n.TotalDescuento);
                 decimal SubTotal = Convert.ToDecimal(n.SubTotal);
                 decimal Impuesto = Convert.ToDecimal(n.TotalImpuesto);
-                decimal PorcientoImpuesto = Convert.ToDecimal(n.PorcientoImpuesto);
+              //  decimal PorcientoImpuesto = Convert.ToDecimal(n.PorcientoImpuesto);
                 decimal Total = Convert.ToDecimal(n.TotalGeneral);
                 decimal CantidadArticulos = Convert.ToDecimal(n.CantidadProductos);
                 decimal CantidadServicios = Convert.ToDecimal(n.CantidadServicios);
@@ -663,7 +682,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 txtTotalDescuento.Text = TotalDescuento.ToString("N2");
                 txtSubtotal.Text = SubTotal.ToString("N2");
                 txtImpuesto.Text = Impuesto.ToString("N2");
-                txtPorcientoImpuesto.Text = PorcientoImpuesto.ToString("N0");
+               // txtPorcientoImpuesto.Text = PorcientoImpuesto.ToString("N0");
                 txtTotal.Text = Total.ToString("N2");
                 txtCantidadArtiuclos.Text = CantidadArticulos.ToString("N0");
                 txtCantidadServicios.Text = CantidadServicios.ToString("N0");
@@ -701,6 +720,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             ddltIPago.ValueMember = "IdTipoPago";
         }
         #endregion
+
+
         private void Facturacion_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
@@ -741,7 +762,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             txtTotalDescuento.Text = "0";
             txtSubtotal.Text = "0";
             txtImpuesto.Text = "0";
-            txtPorcientoImpuesto.Text = "0";
+           // txtPorcientoImpuesto.Text = "0";
             txtTotal.Text = "0";
             BuscarProductosAgregados(VariablesGlobales.NumeroConector);
             MostrarListadoTipoPagos();
@@ -1028,7 +1049,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 txtTotalDescuento.Text = "0";
                 txtSubtotal.Text = "0";
                 txtImpuesto.Text = "0";
-                txtPorcientoImpuesto.Text = "0";
+             //   txtPorcientoImpuesto.Text = "0";
                 txtTotal.Text = "0";
             }
 
