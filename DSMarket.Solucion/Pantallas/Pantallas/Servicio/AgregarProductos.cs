@@ -228,7 +228,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
                 var MAn = ObjDataServicio.Value.GuardarFacturacionProductos(AgregarEditar, Accion);
                 RestablecerPantalla();
-
+                MostrarListadoProductos();
             }
             catch (Exception ex) {
                 MessageBox.Show("Error al Agregar o editar productos, Codigo de error--> " + ex.Message, VariablesGlbales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Error);
@@ -305,6 +305,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             btnAgregar.Enabled = false;
             btnEditar.Enabled = false;
             btnQuitar.Enabled = false;
+            btnfoto.Enabled = false;
         }
         #endregion
         private void PCerrar_Click(object sender, EventArgs e)
@@ -469,6 +470,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                                 btnfoto.Enabled = false;
                             }
                             btnAgregar.Enabled = true;
+                            btnRestablcer.Enabled = true;
                         }
                     }
                     decimal DescuentoMaximo = CalcularDescuentoMaximo(Convert.ToDecimal(txtPrecio.Text), Convert.ToDecimal(txtPorcientoDescyento.Text));
@@ -646,6 +648,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 btnQuitar.Enabled = true;
                 btnEditar.Enabled = true;
             }
+        }
+
+        private void btnQuitar_Click(object sender, EventArgs e)
+        {
+            //AGREGAR PRODUCTO Y ELIMINAR
+            AgregarEditarProductos("DELETE");
+            BuscarProductosAgregados(VariablesGlbales.NumeroConector);
         }
     }
 }

@@ -226,7 +226,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             txtCodigoBarra.Text = string.Empty;
             txtComentario.Text = string.Empty;
             txtdescripcion.Text = string.Empty;
-            txtPorcientoDescuento.Text = string.Empty;
+            txtPorcientoDescuento.Value = 0;
             txtPrecioCompra.Text = string.Empty;
             txtPrecioVenta.Text = string.Empty;
             txtReferencia.Text = string.Empty;
@@ -469,7 +469,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                     txtPrecioCompra.Enabled = false;
                     txtStockMinimo.Text = "0";
                     txtPrecioCompra.Text = "0";
-
+                    txtPrecioVenta.Text = "0";
+                    txtPrecioVenta.Enabled = false;
                   
                 }
                 else
@@ -483,6 +484,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                     txtPrecioCompra.Enabled = true;
                     txtStockMinimo.Text = string.Empty;
                     txtPrecioCompra.Text = string.Empty;
+                    txtPrecioVenta.Text = string.Empty;
+                    txtPrecioVenta.Enabled = true;
                 }
             }
             catch (Exception) { }
@@ -571,6 +574,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+           
             //VALIDAMOS LOS CAMPOS VACIOS
             if (string.IsNullOrEmpty(ddlSeleccionarTipoProducto.Text.Trim()) || string.IsNullOrEmpty(ddlSeleccionarCategoria.Text.Trim()) || string.IsNullOrEmpty(ddlSeleccionarUnidadMedida.Text.Trim()) || string.IsNullOrEmpty(ddlSeleccionarMarca.Text.Trim()) || string.IsNullOrEmpty(ddlSeleccionarModelo.Text.Trim()) || string.IsNullOrEmpty(ddlSeleccionarTipoSuplidor.Text.Trim()) || string.IsNullOrEmpty(ddlSeleccionarSuplidor.Text.Trim()) || string.IsNullOrEmpty(txtdescripcion.Text.Trim()) || string.IsNullOrEmpty(txtPrecioCompra.Text.Trim()) || string.IsNullOrEmpty(txtPrecioVenta.Text.Trim()) || string.IsNullOrEmpty(txtStock.Text.Trim()) || string.IsNullOrEmpty(txtStockMinimo.Text.Trim()) || string.IsNullOrEmpty(txtPorcientoDescuento.Text.Trim()))
             {

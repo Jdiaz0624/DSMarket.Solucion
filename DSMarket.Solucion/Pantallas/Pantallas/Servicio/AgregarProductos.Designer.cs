@@ -449,7 +449,7 @@
             // 
             this.Separador.BackColor = System.Drawing.Color.Transparent;
             this.Separador.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.Separador.LineThickness = 242;
+            this.Separador.LineThickness = 372;
             this.Separador.Location = new System.Drawing.Point(7, 362);
             this.Separador.Margin = new System.Windows.Forms.Padding(5);
             this.Separador.Name = "Separador";
@@ -474,6 +474,7 @@
             this.btnQuitar.Text = "      Quitar";
             this.toolTip1.SetToolTip(this.btnQuitar, "Quitar Producto Seleccionado");
             this.btnQuitar.UseVisualStyleBackColor = true;
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
             // btnEditar
             // 

@@ -991,6 +991,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 this.variablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdProducto"].Value.ToString());
                 this.variablesGlobales.NumeroConector = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["NumeroConector"].Value.ToString());
                 this.variablesGlobales.LlevaDescuentoPregunta = Convert.ToBoolean(this.dtListado.CurrentRow.Cells["LlevaImagen0"].Value.ToString());
+                decimal IdTipoProducto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdTipoProducto"].Value.ToString());
+                bool Acumulativo = Convert.ToBoolean(this.dtListado.CurrentRow.Cells["ProductoAcumulativo0"].Value.ToString());
 
                 var SeleccionarRegistro = ObjDataInventario.Value.BuscaProductos(variablesGlobales.IdMantenimeinto, variablesGlobales.NumeroConector, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
                 dtListado.DataSource = SeleccionarRegistro;
@@ -1000,7 +1002,12 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 btnNuevo.Enabled = false;
                 btnEditar.Enabled = true;
                 btnEliminar.Enabled = true;
-                btnSuplir.Enabled = true;
+                if (IdTipoProducto == 1 && Acumulativo==true) {
+                    btnSuplir.Enabled = true;
+                }
+                else {
+                    btnSuplir.Enabled = false;
+                }
                 btnOferta.Enabled = true;
 
                 if (variablesGlobales.LlevaDescuentoPregunta == true)
