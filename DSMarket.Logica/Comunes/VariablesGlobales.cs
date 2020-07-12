@@ -43,5 +43,33 @@ namespace DSMarket.Logica.Comunes
         public decimal IdUsuario { get; set; }
         public decimal IdNivelAcceso { get; set; }
         #endregion
+
+
+        #region MODIFICAR LOS REGISTROS AGREGADOS A FACTURA
+        public decimal IdHistorialProductoModificarRegistro { get; set; }
+        public decimal IdProductoModificarRegistro { get; set; }
+        public string TipoProductoModificarRegistro { get; set; }
+        public string CategoriaModificarRegistro { get; set; }
+        public string ProductoModificarRegistro { get; set; }
+        public string CantidadAgregadaModificarregistro { get; set; }
+        public string CantidadUsarModificarRegistro { get; set; }
+        public string PrecioModificarRegistro { get; set; }
+        public string PorcientoDescuentoModificarRegistro { get; set; }
+        public string DescuentoAplicadoModificarRegistro { get; set; }
+        public string AcumulativoModificarRegistro { get; set; }
+       public int CantidadUsadaModificarRegistro { get; set; }
+        public int DiferenciaCantidadUsada { get; set; }
+        public decimal IdTipoProductoModificarRegistro { get; set; }
+        public decimal IdCategoriaModificarRegistro { get; set; }
+
+        #endregion
+
+        #region VARIABLES PARA MODIFICAR LOS ARTICULOS AGREGADOS A FACTURA
+
+        public int CantidadDispobible { get; set; }
+        public int CantidadUsar { get; set; }
+        public int Diferencia { get; set; }
+        public int NuevaCantidad { get; set; }
+        #endregion
     }
 }

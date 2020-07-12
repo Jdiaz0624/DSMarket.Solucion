@@ -492,6 +492,7 @@
             this.btnEditar.Text = "      Editar";
             this.toolTip1.SetToolTip(this.btnEditar, "Editar Registro seleccionado");
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnAgregar
             // 

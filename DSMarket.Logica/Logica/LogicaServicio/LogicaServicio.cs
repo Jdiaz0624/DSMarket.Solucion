@@ -330,10 +330,10 @@ namespace DSMarket.Logica.Logica.LogicaServicio
             }
             return Guardar;
         }
-        public List<DSMarket.Logica.Entidades.EntidadesServicio.EProductosAgregados> BuscapRoductosAgregados(decimal? NumeroConector = null) {
+        public List<DSMarket.Logica.Entidades.EntidadesServicio.EProductosAgregados> BuscapRoductosAgregados(decimal? IdProducto = null, decimal? NumeroConector = null) {
             ObjData.CommandTimeout = 999999999;
 
-            var Listado = (from n in ObjData.SP_BUSCA_PRODUCTOS_AGREGADOS(NumeroConector)
+            var Listado = (from n in ObjData.SP_BUSCA_PRODUCTOS_AGREGADOS(IdProducto,NumeroConector)
                            select new DSMarket.Logica.Entidades.EntidadesServicio.EProductosAgregados
                            {
                               NumeroConector=n.NumeroConector,
@@ -408,7 +408,54 @@ namespace DSMarket.Logica.Logica.LogicaServicio
             }
             return Guardar;
         }
-        
+
+        #endregion
+        #region BUSCAR LOS REGISTROS DEL HISTORIAL DE PRODUCTOS
+        public List<DSMarket.Logica.Entidades.EntidadesServicio.EBuscaHistorialProducto> BuscaHistorialProducto(decimal? IdHistorialProducto = null, decimal? IdProducto = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_BUSCA_HISTORIAL_PRODUCTO(IdHistorialProducto, IdProducto)
+                           select new DSMarket.Logica.Entidades.EntidadesServicio.EBuscaHistorialProducto
+                           {
+                              IdHistorialProducto=n.IdHistorialProducto,
+                               IdProducto=n.IdProducto,
+                               NumeroConector=n.NumeroConector,
+                               IdTipoProducto=n.IdTipoProducto,
+                               TipoProducto=n.TipoProducto,
+                               IdCategoria=n.IdCategoria,
+                               Categoria=n.Categoria,
+                               IdUnidadMedida=n.IdUnidadMedida,
+                               UnidadMedida=n.UnidadMedida,
+                               IdMarca=n.IdMarca,
+                               Marca=n.Marca,
+                               IdModelo=n.IdModelo,
+                               Modelo=n.Modelo,
+                               IdTipoSuplidor=n.IdTipoSuplidor,
+                               TipoSuplidor=n.TipoSuplidor,
+                               IdSuplidor=n.IdSuplidor,
+                               Suplidor=n.Suplidor,
+                               Producto=n.Producto,
+                               CodigoBarra=n.CodigoBarra,
+                               Referencia=n.Referencia,
+                               PrecioCompra=n.PrecioCompra,
+                               PrecioVenta=n.PrecioVenta,
+                               Stock=n.Stock,
+                               StockMinimo=n.StockMinimo,
+                               PorcientoDescuento=n.PorcientoDescuento,
+                               AfectaOferta=n.AfectaOferta,
+                               ProductoAcumulativo0=n.ProductoAcumulativo0,
+                               ProductoAcumulativo=n.ProductoAcumulativo,
+                               LlevaImagen=n.LlevaImagen,
+                               UsuarioAdiciona=n.UsuarioAdiciona,
+                               FechaAdiciona=n.FechaAdiciona,
+                               UsuarioModifica=n.UsuarioModifica,
+                               FechaModifica=n.FechaModifica,
+                               Fecha=n.Fecha,
+                               Comentario=n.Comentario,
+                               AplicaParaimpuesto=n.AplicaParaimpuesto
+                           }).ToList();
+            return Listado;
+        }
         #endregion
 
 

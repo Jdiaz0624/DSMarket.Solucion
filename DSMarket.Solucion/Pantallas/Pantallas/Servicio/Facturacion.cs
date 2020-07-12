@@ -665,7 +665,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         #region BUSCAR LOS PRODUCTOS AGRGADOS
         private void BuscarProductosAgregados(decimal NumeroConector)
         {
-            var BuscarRegistros = ObjDataServicio.Value.BuscapRoductosAgregados(NumeroConector);
+            var BuscarRegistros = ObjDataServicio.Value.BuscapRoductosAgregados(
+                new Nullable<Decimal>(),
+                NumeroConector);
             dtProductosAgregados.DataSource = BuscarRegistros;
 
             foreach (var n in BuscarRegistros)

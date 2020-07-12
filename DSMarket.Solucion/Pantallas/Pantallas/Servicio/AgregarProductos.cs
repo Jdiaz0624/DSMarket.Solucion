@@ -259,7 +259,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         #endregion
         #region BUSCAR LOS PRODUCTOS AGRGADOS
         private void BuscarProductosAgregados(decimal NumeroConector) {
-            var BuscarRegistros = ObjDataServicio.Value.BuscapRoductosAgregados(NumeroConector);
+            var BuscarRegistros = ObjDataServicio.Value.BuscapRoductosAgregados(
+                new Nullable<decimal>(),
+                NumeroConector);
             dtProductosAgregados.DataSource = BuscarRegistros;
 
             foreach (var n in BuscarRegistros) {
@@ -306,6 +308,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             btnEditar.Enabled = false;
             btnQuitar.Enabled = false;
             btnfoto.Enabled = false;
+        }
+        #endregion
+        #region MODIFICAR STOCK PRODUCTO
+        private void ModificarStockproducto(decimal NumeroConector,int Stock, string Accion) {
+            DSMarket.Logica.Entidades.EntidadesInventario.EProducto Alterar = new Logica.Entidades.EntidadesInventario.EProducto();
+
+            Alterar.IdProducto = VariablesGlbales.IdProductoModificarRegistro;
+            Alterar.NumeroConector = NumeroConector;
+            Alterar.Stock = Stock;
+
+            var MAn = ObjDataLogicaInventario.Value.MantenimientoProducto(Alterar, Accion);
         }
         #endregion
         private void PCerrar_Click(object sender, EventArgs e)
@@ -643,6 +656,66 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void dtProductosAgregados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (MessageBox.Show("¿Quieres Seleccionar este registro?", VariablesGlbales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+
+                this.VariablesGlbales.IdProductoModificarRegistro = Convert.ToDecimal(this.dtProductosAgregados.CurrentRow.Cells["IdProducto"].Value.ToString());
+                this.VariablesGlbales.IdProductoSeleccionadoAgregarEditar = Convert.ToDecimal(this.dtProductosAgregados.CurrentRow.Cells["IdProducto"].Value.ToString());
+                var Buscar = ObjDataServicio.Value.BuscapRoductosAgregados(VariablesGlbales.IdProductoModificarRegistro, VariablesGlbales.NumeroConector);
+                foreach (var n in Buscar) {
+                    txtTipoProducto.Text = n.DescripcionTipoProducto;
+                    txtCategoria.Text = n.Categoria;
+                    txtProducto.Text = n.DescripcionProducto;
+                    //txtCantidadDisponible.Text =
+                    txtCantidadUsar.Text = n.Cantidad.ToString();
+                    txtPrecio.Text = n.Precio.ToString();
+                    txtPorcientoDescyento.Text = n.PorcientoDescuento.ToString();
+                    txtDescuento.Text = n.DescuentoAplicado.ToString();
+                    txtAcumulativo.Text = n.Acumulativo;
+                    VariablesGlbales.CantidadUsadaModificarRegistro = Convert.ToInt32(n.Cantidad);
+                    VariablesGlbales.IdTipoProductoModificarRegistro = Convert.ToDecimal(n.IdTipoProducto);
+                    VariablesGlbales.IdCategoriaModificarRegistro = Convert.ToDecimal(n.IdCategoria);
+                    VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar = Convert.ToDecimal(n.IdTipoProducto);
+                    VariablesGlbales.IdCategoriaSeleccionadoAgregarEditar = Convert.ToDecimal(n.IdCategoria);
+                    
+                    string Acumulativo = txtAcumulativo.Text;
+
+                    if (Acumulativo == "SI")
+                    {
+                        var BuscarCantidadDispobible = ObjDataLogicaInventario.Value.BuscaProductos(
+                            VariablesGlbales.IdProductoModificarRegistro,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            1, 1);
+                        foreach (var n2 in BuscarCantidadDispobible)
+                        {
+                            int CantidadSacada = Convert.ToInt32(n2.Stock);
+                            txtCantidadDisponible.Text = CantidadSacada.ToString("N0");
+                            txtCantidadUsar.Enabled = true;
+                        }
+                       
+                    }
+                    else {
+                        txtCantidadDisponible.Text = "1";
+                        txtCantidadUsar.Enabled = false;
+                    }
+
+                    VariablesGlbales.CantidadDispobible = Convert.ToInt32(txtCantidadDisponible.Text);
+                    VariablesGlbales.CantidadUsar = Convert.ToInt32(txtCantidadUsar.Text);
+                    // VariablesGlbales.Diferencia = Convert.ToInt32(txtCantidadUsar.Text);
+                 
+
+                }
+
+
                 btnRestablcer.Enabled = true;
                 btnAgregar.Enabled = false;
                 btnQuitar.Enabled = true;
@@ -652,9 +725,61 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void btnQuitar_Click(object sender, EventArgs e)
         {
-            //AGREGAR PRODUCTO Y ELIMINAR
-            AgregarEditarProductos("DELETE");
-            BuscarProductosAgregados(VariablesGlbales.NumeroConector);
+            //decimal IdProductoSeleccionado = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["IdProducto"].Value.ToString());
+            //this.VariablesGlbales.IdProductoSeleccionadoAgregarPorpductos = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["IdProducto"].Value.ToString());
+      
+            ////AGREGAR PRODUCTO Y ELIMINAR
+            //AgregarEditarProductos("DELETE");
+            //BuscarProductosAgregados(VariablesGlbales.NumeroConector);
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            //EDITAR REGISTRO
+            if (string.IsNullOrEmpty(txtCantidadUsar.Text.Trim()))
+            {
+                MessageBox.Show("No puedes dejar la cantidad a usar para modificar este registro", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else {
+                VariablesGlbales.Diferencia = Convert.ToInt32(txtCantidadUsar.Text);
+                int Resultado, CantidadAlmacen = 0;
+                decimal NumeroConectorProducto = 0;
+                
+                var SacarNumeroConector = ObjDataLogicaInventario.Value.BuscaProductos(
+                    VariablesGlbales.IdProductoModificarRegistro,
+                    null,
+                    null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                foreach (var n in SacarNumeroConector) {
+                    NumeroConectorProducto = Convert.ToDecimal(n.NumeroConector);
+                    CantidadAlmacen = Convert.ToInt32(n.Stock);
+                }
+
+                if (VariablesGlbales.Diferencia > VariablesGlbales.CantidadUsar) {
+                    Resultado = VariablesGlbales.Diferencia - VariablesGlbales.CantidadUsar;
+                    if (Resultado > CantidadAlmacen) {
+                        MessageBox.Show("La cantidad que intentas procesar supera la cantidad en almacen, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else {
+                        ModificarStockproducto(NumeroConectorProducto, Resultado, "LESSPRODUCT");
+                        AgregarEditarProductos("UPDATE");
+                        BuscarProductosAgregados(VariablesGlbales.NumeroConector);
+                    }
+                }
+                else {
+                    Resultado = VariablesGlbales.CantidadUsar - VariablesGlbales.Diferencia;
+                    if (Resultado > CantidadAlmacen) {
+                        MessageBox.Show("La cantidad que intentas procesar supera la cantidad en almacen, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else {
+                        ModificarStockproducto(NumeroConectorProducto, Resultado, "ADDPRODUCT");
+                        AgregarEditarProductos("UPDATE");
+                        BuscarProductosAgregados(VariablesGlbales.NumeroConector);
+                    }
+                }
+
+               
+
+            }
         }
     }
 }
