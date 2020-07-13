@@ -79,5 +79,6 @@ namespace DSMarket.Logica.Entidades.EntidadesServicio
         public string Comentario {get;set;}
 
         public System.Nullable<bool> AplicaParaimpuesto {get;set;}
+        public System.Nullable<decimal> PrecioOriginal { get; set; }
     }
 }

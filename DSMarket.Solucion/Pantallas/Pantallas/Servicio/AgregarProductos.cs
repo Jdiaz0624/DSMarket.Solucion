@@ -675,7 +675,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     VariablesGlbales.IdCategoriaModificarRegistro = Convert.ToDecimal(n.IdCategoria);
                     VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar = Convert.ToDecimal(n.IdTipoProducto);
                     VariablesGlbales.IdCategoriaSeleccionadoAgregarEditar = Convert.ToDecimal(n.IdCategoria);
-                    
+                    VariablesGlbales.CantidadRegistrosIngresadaEliminarRegistro = Convert.ToInt32(n.Cantidad);
                     string Acumulativo = txtAcumulativo.Text;
 
                     if (Acumulativo == "SI")
@@ -725,12 +725,91 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void btnQuitar_Click(object sender, EventArgs e)
         {
-            //decimal IdProductoSeleccionado = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["IdProducto"].Value.ToString());
-            //this.VariablesGlbales.IdProductoSeleccionadoAgregarPorpductos = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["IdProducto"].Value.ToString());
-      
-            ////AGREGAR PRODUCTO Y ELIMINAR
-            //AgregarEditarProductos("DELETE");
-            //BuscarProductosAgregados(VariablesGlbales.NumeroConector);
+
+            if (VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar == 1) {
+                string ProductoAcumulativo = txtAcumulativo.Text;
+
+                decimal NumeroConectorProducto = 0;
+
+                var SacarNumeroConector = ObjDataLogicaInventario.Value.BuscaProductos(
+                    VariablesGlbales.IdProductoModificarRegistro,
+                    null,
+                    null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                foreach (var n in SacarNumeroConector)
+                {
+                    NumeroConectorProducto = Convert.ToDecimal(n.NumeroConector);
+                }
+
+                if (ProductoAcumulativo == "SI")
+                {
+                    //ACTUALIZAMOS EN MONTO EN STOCK
+                    ModificarStockproducto(NumeroConectorProducto, VariablesGlbales.CantidadRegistrosIngresadaEliminarRegistro, "ADDPRODUCT");
+                    AgregarEditarProductos("DELETE");
+                    BuscarProductosAgregados(VariablesGlbales.NumeroConector);
+                }
+                else
+                {
+                    //  MessageBox.Show("Elimina producto no acumulativo");
+
+                    var BuscarDatosProducto = ObjDataServicio.Value.BuscaHistorialProducto(
+                        VariablesGlbales.IdHistorialProductoEliminarRegistro,
+                        VariablesGlbales.IdProductoModificarRegistro);
+                    foreach (var n in BuscarDatosProducto) {
+                        //INSERTAMOS EL REGISTRO EN LA TABLA DE INVENTARIO.
+                        DSMarket.Logica.Entidades.EntidadesInventario.EProducto Guardar = new Logica.Entidades.EntidadesInventario.EProducto();
+
+                        Guardar.IdProducto = 0;
+                        Guardar.NumeroConector = Convert.ToDecimal(n.NumeroConector);
+                        Guardar.IdTipoProducto = Convert.ToDecimal(n.IdTipoProducto);
+                        Guardar.IdCategoria = Convert.ToDecimal(n.IdCategoria);
+                        Guardar.IdUnidadMedida = Convert.ToDecimal(n.IdUnidadMedida);
+                        Guardar.IdMarca = Convert.ToDecimal(n.IdMarca);
+                        Guardar.IdModelo = Convert.ToDecimal(n.IdModelo);
+                        Guardar.IdTipoSuplidor = Convert.ToDecimal(n.IdTipoSuplidor);
+                        Guardar.IdSuplidor = Convert.ToDecimal(n.IdSuplidor);
+                        Guardar.Producto = n.Producto;
+                        Guardar.CodigoBarra = n.CodigoBarra;
+                        Guardar.Referencia = n.Referencia;
+                        Guardar.PrecioCompra = Convert.ToDecimal(n.PrecioCompra);
+                        Guardar.PrecioVenta = Convert.ToDecimal(n.PrecioOriginal);
+                        Guardar.Stock = 1;
+                        Guardar.StockMinimo = 1;
+                        Guardar.PorcientoDescuento = Convert.ToDecimal(n.PorcientoDescuento);
+                        Guardar.AfectaOferta0 = Convert.ToBoolean(n.AfectaOferta);
+                        Guardar.ProductoAcumulativo0 = Convert.ToBoolean(n.ProductoAcumulativo0);
+                        Guardar.LlevaImagen0 = Convert.ToBoolean(n.LlevaImagen);
+                        Guardar.UsuarioAdicion = Convert.ToDecimal(n.UsuarioAdiciona);
+                        Guardar.FechaAdiciona = Convert.ToDateTime(n.FechaAdiciona);
+                        Guardar.UsuarioModifica = Convert.ToDecimal(n.UsuarioModifica);
+                        Guardar.FechaModifica = Convert.ToDateTime(n.FechaModifica);
+                        Guardar.Fecha = Convert.ToDateTime(n.Fecha);
+                        Guardar.Comentario = n.Comentario;
+                        Guardar.AplicaParaImpuesto0 = Convert.ToBoolean(n.AplicaParaimpuesto);
+
+                        var MAMProducto = ObjDataLogicaInventario.Value.MantenimientoProducto(Guardar, "INSERT");
+                    }
+
+                    
+
+                    //ELIMINAMOS EL REGISTRO DEL HISTORIAL
+
+                    DSMarket.Logica.Entidades.EntidadesServicio.EMantenimientoHistorialProductoInventario Eliminar = new Logica.Entidades.EntidadesServicio.EMantenimientoHistorialProductoInventario();
+
+                    Eliminar.IdHistorialProducto = VariablesGlbales.IdHistorialProductoEliminarRegistro;
+                    Eliminar.IdProducto = VariablesGlbales.IdProductoModificarRegistro;
+
+                    var MANEliminar = ObjDataServicio.Value.MantenimientoHistorialProducto(Eliminar, "DELETE");
+
+                    AgregarEditarProductos("DELETE");
+                    BuscarProductosAgregados(VariablesGlbales.NumeroConector);
+                }
+
+            }
+            else {
+                AgregarEditarProductos("DELETE");
+                BuscarProductosAgregados(VariablesGlbales.NumeroConector);
+            }
+            
         }
 
         private void btnEditar_Click(object sender, EventArgs e)

@@ -452,9 +452,34 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                FechaModifica=n.FechaModifica,
                                Fecha=n.Fecha,
                                Comentario=n.Comentario,
-                               AplicaParaimpuesto=n.AplicaParaimpuesto
+                               AplicaParaimpuesto=n.AplicaParaimpuesto,
+                               PrecioOriginal=n.PrecioOriginal
+                               
                            }).ToList();
             return Listado;
+        }
+        #endregion
+
+        #region MANTENIMIENTO DE HISTORIAL DE PRODUCTO
+        public DSMarket.Logica.Entidades.EntidadesServicio.EMantenimientoHistorialProductoInventario MantenimientoHistorialProducto(DSMarket.Logica.Entidades.EntidadesServicio.EMantenimientoHistorialProductoInventario Item, string Accion)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesServicio.EMantenimientoHistorialProductoInventario Mantenimiento = null;
+
+            var HistorialProducto = ObjData.SP_MANTENIMIENTO_HISTORIAL_PRODUCTO_INVENTARIO(
+                Item.IdHistorialProducto,
+                Item.IdProducto,
+                Accion);
+            if (HistorialProducto != null) {
+                Mantenimiento = (from n in HistorialProducto
+                                 select new DSMarket.Logica.Entidades.EntidadesServicio.EMantenimientoHistorialProductoInventario
+                                 {
+                                     IdHistorialProducto=n.IdHistorialProducto,
+                                     IdProducto=n.IdProducto
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
         }
         #endregion
 

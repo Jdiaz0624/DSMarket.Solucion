@@ -70,6 +70,8 @@ namespace DSMarket.Logica.Comunes
         public int CantidadUsar { get; set; }
         public int Diferencia { get; set; }
         public int NuevaCantidad { get; set; }
+        public int CantidadRegistrosIngresadaEliminarRegistro { get; set; }
+        public decimal IdHistorialProductoEliminarRegistro { get; set; }
         #endregion
     }
 }
