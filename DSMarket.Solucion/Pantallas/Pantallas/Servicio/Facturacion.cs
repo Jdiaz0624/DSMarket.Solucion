@@ -21,6 +21,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         Lazy<DSMarket.Logica.Logica.LogicaListas.LogicaListas> ObjDataListas = new Lazy<Logica.Logica.LogicaListas.LogicaListas>();
         Lazy<DSMarket.Logica.Logica.LogicaEmpresa.LogicaEmpresa> ObjDataEmpresa = new Lazy<Logica.Logica.LogicaEmpresa.LogicaEmpresa>();
         Lazy<DSMarket.Logica.Logica.LogicaServicio.LogicaServicio> ObjDataServicio = new Lazy<Logica.Logica.LogicaServicio.LogicaServicio>();
+        Lazy<DSMarket.Logica.Logica.LogicaInventario.LogicaInventario> ObjDataInventario = new Lazy<Logica.Logica.LogicaInventario.LogicaInventario>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region BLOQUEAR Y DESBLOQUEAR CONTROLES DEL LADO DEL CLIENTE
@@ -722,6 +723,134 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             ddltIPago.ValueMember = "IdTipoPago";
         }
         #endregion
+        #region DEVOLVER PRODUCTO A INVENTARIO
+        private void DevolverProductosInventario(decimal NumeroConectorProcesar) {
+            var BuscaProductosAgregados = ObjDataServicio.Value.BuscapRoductosAgregados(
+                new Nullable<decimal>(),
+                NumeroConectorProcesar);
+            decimal IdProducto = 0;
+            decimal IdTipoProducto = 0;
+            bool Acumulativo = false;
+            bool EstatusProducto = false;
+            decimal NumeroConector = 0;
+            int CantidadAgregada = 0;
+            foreach (var n in BuscaProductosAgregados) {
+                IdProducto = Convert.ToDecimal(n.IdProducto);
+
+                //BUSCAMOS EL PRODUCTO PARA DETERMINAR QUE TIPO DE PRODUCTO ES
+                var SacarDatosProducto = ObjDataInventario.Value.BuscaProductos(
+                    IdProducto,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    1, 1);
+                foreach (var n2 in SacarDatosProducto) {
+                    IdTipoProducto = Convert.ToDecimal(n2.IdTipoProducto);
+                    Acumulativo = Convert.ToBoolean(n2.ProductoAcumulativo0);
+                    EstatusProducto = Convert.ToBoolean(n2.EstatusProducto0);
+                    NumeroConector = Convert.ToDecimal(n2.NumeroConector);
+                    CantidadAgregada = Convert.ToInt32(n.Cantidad);
+                }
+
+                //VALIDAMOS LOS DATOS
+                if (IdTipoProducto == 1)
+                {
+                    //ESTE BLOQUE ESTA RESERVADO PARA LOS PRODUCTOS
+                    if (Acumulativo == true) {
+                        //ESTE BLOQUE ESTA RESERVADO PARA LOS PRODUCTOS QUE SON ACUMULATIVO
+                        //DEVOLVEMOS EL ESTATUS DEL PRODUCTO
+
+
+                        ModificarStockproducto(IdProducto,NumeroConector, CantidadAgregada, "ADDPRODUCT");
+
+                      //  EliminarListadoProductosAgregados();
+                    }
+                    else {
+                        //ESTE BLOQUE ESTA RESERVADO PARA LOS PRODUCTOS QUE NO SON ACUMULATIVO
+                        //ACTUAMIZAMOS EL ESTATUS DEL PRODUCTO
+
+                        DSMarket.Logica.Entidades.EntidadesInventario.EProducto Devolver = new Logica.Entidades.EntidadesInventario.EProducto();
+
+                        Devolver.IdProducto = IdProducto;
+                        Devolver.IdTipoProducto = IdTipoProducto;
+                        Devolver.ProductoAcumulativo0 = Acumulativo;
+                        Devolver.EstatusProducto0 = EstatusProducto;
+
+                        var Add = ObjDataInventario.Value.MantenimientoProducto(Devolver, "CHANGESTATUS");
+                      //  EliminarListadoProductosAgregados();
+                    }
+                }
+                else {
+                    //ESTE BLOQUE ESTA RESERVADO PARA LOS SERVICIOS
+                 //   EliminarListadoProductosAgregados();
+                }
+            }
+        }
+        #endregion
+        #region ELIMINAR LISTADO DE PRODUCTOS AGREGADOS
+        private void EliminarListadoProductosAgregados() {
+            DSMarket.Logica.Entidades.EntidadesServicio.EProductosAgregados Eliminar = new Logica.Entidades.EntidadesServicio.EProductosAgregados();
+
+            Eliminar.NumeroConector = VariablesGlobales.NumeroConector;
+
+            var Borrar = ObjDataServicio.Value.GuardarFacturacionProductos(Eliminar, "DELETE");
+        }
+        #endregion
+        #region MODIFICAR EL STOCK DE LA FACTURA
+        private void ModificarStockproducto(decimal IdProducto, decimal NumeroConector, int Stock, string Accion)
+        {
+            DSMarket.Logica.Entidades.EntidadesInventario.EProducto Alterar = new Logica.Entidades.EntidadesInventario.EProducto();
+
+            Alterar.IdProducto = IdProducto;
+            Alterar.NumeroConector = NumeroConector;
+            Alterar.Stock = Stock;
+
+            var MAn = ObjDataInventario.Value.MantenimientoProducto(Alterar, Accion);
+        }
+        #endregion
+
+        #region CALCULAR CAMBIO
+        /// <summary>
+        /// Este metodo es para calcular el cambio de la factura.
+        /// </summary>
+        private void CalcularCambio() {
+            try
+            {
+                decimal MontoPagar, Total, Cambio;
+                MontoPagar = Convert.ToDecimal(txtMontoPagar.Text);
+                Total = Convert.ToDecimal(txtTotal.Text);
+                Cambio = MontoPagar - Total;
+                txtCambio.Text = Cambio.ToString("N2");
+            }
+            catch (Exception) { }
+        }
+        #endregion
+        #region AGREGAR REGISTROS A FACTURA
+        /// <summary>
+        /// Este metodo es para cambiar de pantalla para agregar registros a factura.
+        /// </summary>
+        private void AgregarRegistros() {
+            MANProductoEspejo("DELETE");
+            MANProductoEspejo("INSERT");
+            this.Hide();
+            DSMarket.Solucion.Pantallas.Pantallas.Servicio.AgregarProductos AddProducts = new AgregarProductos();
+            AddProducts.VariablesGlbales.IdUsuario = VariablesGlobales.IdUsuario;
+            AddProducts.VariablesGlbales.GenerarConector = VariablesGlobales.GenerarConector;
+            AddProducts.VariablesGlbales.NumeroConector = VariablesGlobales.NumeroConector;
+            AddProducts.ShowDialog();
+        }
+        #endregion
+
 
 
         private void Facturacion_Load(object sender, EventArgs e)
@@ -768,6 +897,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             txtTotal.Text = "0";
             BuscarProductosAgregados(VariablesGlobales.NumeroConector);
             MostrarListadoTipoPagos();
+            txtMontoPagar.Text = "0";
+            CalcularCambio();
         }
 
         private void PCerrar_Click(object sender, EventArgs e)
@@ -843,14 +974,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MANProductoEspejo("DELETE");
-            MANProductoEspejo("INSERT");
-            this.Hide();
-            DSMarket.Solucion.Pantallas.Pantallas.Servicio.AgregarProductos AddProducts = new AgregarProductos();
-            AddProducts.VariablesGlbales.IdUsuario = VariablesGlobales.IdUsuario;
-            AddProducts.VariablesGlbales.GenerarConector = VariablesGlobales.GenerarConector;
-            AddProducts.VariablesGlbales.NumeroConector = VariablesGlobales.NumeroConector;
-            AddProducts.ShowDialog();
+            AgregarRegistros();
         }
 
         private void Facturacion_FormClosing(object sender, FormClosingEventArgs e)
@@ -910,6 +1034,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void PCerrar_Click_1(object sender, EventArgs e)
         {
+            DevolverProductosInventario(VariablesGlobales.NumeroConector);
             this.Dispose();
         }
 
@@ -1068,7 +1193,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 if (MessageBox.Show("¿Quieres elimianr esta factura?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     //SACAMOS LOS DATOS A VALIDAR
-                    
+                    DevolverProductosInventario(NumeroConector);
                     MANFacturasMinimizadas("DELETE");
                     ListadoFacturaMinimizadas();
                     VariablesGlobales.NumeroConector = Convert.ToDecimal(lbNumeroConector.Text);
@@ -1112,6 +1237,99 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 }
             }
             catch (Exception) { }
+        }
+
+        private void cbEliminarfacturaMinimizada_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnARS_Click(object sender, EventArgs e)
+        {
+            //VERIFICAMOS SI HAY PRODUCTOS AGREGADOS A FACTURA
+            var ValidarProductos = ObjDataServicio.Value.BuscapRoductosAgregados(
+                new Nullable<decimal>(),
+                VariablesGlobales.NumeroConector);
+            if (ValidarProductos.Count() < 1) {
+                MessageBox.Show("No es posible completar esta operación por que no nay nada agregado para facturar, decea agregar registros?", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (MessageBox.Show("¿Quieres agregar registros?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+                    AgregarRegistros();
+                }
+            }
+            else {
+                if (rbFacturar.Checked == true)
+                {
+                    //FACTURAMOS
+                    //VALIDAMOS EL TIPO DE VENTA
+                    int TipoVenta = Convert.ToInt32(ddlTipoVenta.SelectedValue);
+                    if (TipoVenta == 1)
+                    {
+                        //venta a contado
+                        //validamos el tipo de pago
+                        bool BloqueaControles = false;
+                        var ValidarTipoPago = ObjDataListas.Value.BuscaTipoPago(
+                            Convert.ToDecimal(ddltIPago.SelectedValue));
+                        foreach (var n in ValidarTipoPago)
+                        {
+                            BloqueaControles = Convert.ToBoolean(n.BloqueaMonto);
+                        }
+
+                        if (BloqueaControles == true)
+                        {
+
+                        }
+                        else if (BloqueaControles == false)
+                        {
+                            //VALIDAMOS SI EL CAMPO ESTA VACIO
+                            if (string.IsNullOrEmpty(txtMontoPagar.Text.Trim()))
+                            {
+                                MessageBox.Show("El campo monto no puede estar vacio para realizar esta operación", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                            else
+                            {
+                                decimal MontoPagar = Convert.ToDecimal(txtMontoPagar.Text);
+                                decimal MontoTotal = Convert.ToDecimal(txtTotal.Text);
+                                if (MontoTotal > MontoPagar)
+                                {
+                                    MessageBox.Show("El monto ingresado es menor al monto a pagar, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                                else
+                                {
+                                    GuardarDatosClientes("INSERT");
+                                    GuardarDatosCalculos("INSERT");
+                                    MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    this.Dispose();
+
+                                }
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al Facturar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                    }
+                    else if (TipoVenta == 2)
+                    {
+                        //venta a credito
+                    }
+                    else { MessageBox.Show("Error al Facturar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                }
+                else if (rbCotizar.Checked == true)
+                {
+                    //COTIZAMOS
+                }
+                else
+                {
+                    MessageBox.Show("Error al Facturar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+           
+        }
+
+        private void txtMontoPagar_TextChanged(object sender, EventArgs e)
+        {
+            CalcularCambio();
         }
     }
 }

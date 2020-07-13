@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DSMarket.Logica.Entidades.EntidadesServicio;
 
 namespace DSMarket.Logica.Logica.LogicaServicio
 {
@@ -480,6 +481,11 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
+        }
+
+        public object GuardarFacturacionProductos(EProductosAgregados eliminar, string v)
+        {
+            throw new NotImplementedException();
         }
         #endregion
 

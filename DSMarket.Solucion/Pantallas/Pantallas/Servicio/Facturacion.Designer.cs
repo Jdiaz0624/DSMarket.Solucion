@@ -67,7 +67,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtProductosAgregados = new System.Windows.Forms.DataGridView();
-            this.Quitar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.btnARS = new System.Windows.Forms.Button();
@@ -181,6 +180,7 @@
             this.cbEliminarfacturaMinimizada.Text = "Eliminar Factura Minimizada";
             this.toolTip1.SetToolTip(this.cbEliminarfacturaMinimizada, "Eliminar Factura Minimizada");
             this.cbEliminarfacturaMinimizada.UseVisualStyleBackColor = true;
+            this.cbEliminarfacturaMinimizada.CheckedChanged += new System.EventHandler(this.cbEliminarfacturaMinimizada_CheckedChanged);
             // 
             // txtTotalServicios
             // 
@@ -409,6 +409,7 @@
             this.txtMontoPagar.Name = "txtMontoPagar";
             this.txtMontoPagar.Size = new System.Drawing.Size(164, 27);
             this.txtMontoPagar.TabIndex = 40;
+            this.txtMontoPagar.TextChanged += new System.EventHandler(this.txtMontoPagar_TextChanged);
             // 
             // ddltIPago
             // 
@@ -555,8 +556,6 @@
             this.dtProductosAgregados.BackgroundColor = System.Drawing.Color.Linen;
             this.dtProductosAgregados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dtProductosAgregados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtProductosAgregados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Quitar});
             this.dtProductosAgregados.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtProductosAgregados.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtProductosAgregados.Location = new System.Drawing.Point(3, 23);
@@ -565,17 +564,6 @@
             this.dtProductosAgregados.RowTemplate.Height = 24;
             this.dtProductosAgregados.Size = new System.Drawing.Size(609, 166);
             this.dtProductosAgregados.TabIndex = 0;
-            // 
-            // Quitar
-            // 
-            this.Quitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Quitar.HeaderText = "Quitar";
-            this.Quitar.Name = "Quitar";
-            this.Quitar.ReadOnly = true;
-            this.Quitar.Text = "Quitar";
-            this.Quitar.ToolTipText = "Quitar";
-            this.Quitar.UseColumnTextForButtonValue = true;
-            this.Quitar.Width = 64;
             // 
             // groupBox4
             // 
@@ -621,6 +609,7 @@
             this.btnARS.Text = "Completar Operación";
             this.toolTip1.SetToolTip(this.btnARS, "Completar Operación");
             this.btnARS.UseVisualStyleBackColor = true;
+            this.btnARS.Click += new System.EventHandler(this.btnARS_Click);
             // 
             // button3
             // 
@@ -1140,7 +1129,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dtProductosAgregados;
-        private System.Windows.Forms.DataGridViewButtonColumn Quitar;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnARS;
