@@ -192,6 +192,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 Mantenimiento.Fecha = DateTime.Now;
                 Mantenimiento.Comentario = txtComentario.Text;
                 Mantenimiento.AplicaParaImpuesto0 = cbAplicaDescuento.Checked;
+                Mantenimiento.EstatusProducto0 = false;
 
                 var MAn = ObjDataInventario.Value.MantenimientoProducto(Mantenimiento, VariablesGlobales.Accion);
 
@@ -245,7 +246,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             var SacarDatos = ObjDataInventario.Value.BuscaProductos(
                 IdProducto,
                 NumeroConector,
-                null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                null, null, null, null, null, null, null, null, null, null, null, false, 1, 1);
             foreach (var n in SacarDatos)
             {
                 ddlSeleccionarTipoProducto.Text = n.TipoProducto;
@@ -329,7 +330,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 null,
                 null,
                 null,
-                null, 1, 1);
+                null, false, 1, 1);
             foreach (var n in SacarId)
             {
                 VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(n.IdProducto);

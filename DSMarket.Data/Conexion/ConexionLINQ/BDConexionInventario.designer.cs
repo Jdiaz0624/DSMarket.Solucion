@@ -33,7 +33,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
     #endregion
 		
 		public BDConexionInventarioDataContext() : 
-				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString, mappingSource)
+				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -175,9 +175,25 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Inventario.SP_BUSCA_PRODUCTO")]
-		public ISingleResult<SP_BUSCA_PRODUCTOResult> SP_BUSCA_PRODUCTO([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdProducto", DbType="Decimal(20,0)")] System.Nullable<decimal> idProducto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroConector", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroConector, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Descripcion", DbType="VarChar(200)")] string descripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodigoBarra", DbType="VarChar(100)")] string codigoBarra, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Referencia", DbType="VarChar(100)")] string referencia, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaDesde", DbType="Date")] System.Nullable<System.DateTime> fechaDesde, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaHasta", DbType="Date")] System.Nullable<System.DateTime> fechaHasta, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoProducto", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoProducto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdCategoria", DbType="Decimal(20,0)")] System.Nullable<decimal> idCategoria, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUnidadMedida", DbType="Decimal(20,0)")] System.Nullable<decimal> idUnidadMedida, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdMarca", DbType="Decimal(20,0)")] System.Nullable<decimal> idMarca, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdModelo", DbType="Decimal(20,0)")] System.Nullable<decimal> idModelo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TieneOferta", DbType="Bit")] System.Nullable<bool> tieneOferta, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroPagina", DbType="Int")] System.Nullable<int> numeroPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroRegistros", DbType="Int")] System.Nullable<int> numeroRegistros)
+		public ISingleResult<SP_BUSCA_PRODUCTOResult> SP_BUSCA_PRODUCTO(
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdProducto", DbType="Decimal(20,0)")] System.Nullable<decimal> idProducto, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroConector", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroConector, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Descripcion", DbType="VarChar(200)")] string descripcion, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodigoBarra", DbType="VarChar(100)")] string codigoBarra, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Referencia", DbType="VarChar(100)")] string referencia, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaDesde", DbType="Date")] System.Nullable<System.DateTime> fechaDesde, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaHasta", DbType="Date")] System.Nullable<System.DateTime> fechaHasta, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoProducto", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoProducto, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdCategoria", DbType="Decimal(20,0)")] System.Nullable<decimal> idCategoria, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUnidadMedida", DbType="Decimal(20,0)")] System.Nullable<decimal> idUnidadMedida, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdMarca", DbType="Decimal(20,0)")] System.Nullable<decimal> idMarca, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdModelo", DbType="Decimal(20,0)")] System.Nullable<decimal> idModelo, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TieneOferta", DbType="Bit")] System.Nullable<bool> tieneOferta, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="EstatusProducto", DbType="Bit")] System.Nullable<bool> estatusProducto, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroPagina", DbType="Int")] System.Nullable<int> numeroPagina, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroRegistros", DbType="Int")] System.Nullable<int> numeroRegistros)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idProducto, numeroConector, descripcion, codigoBarra, referencia, fechaDesde, fechaHasta, idTipoProducto, idCategoria, idUnidadMedida, idMarca, idModelo, tieneOferta, numeroPagina, numeroRegistros);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idProducto, numeroConector, descripcion, codigoBarra, referencia, fechaDesde, fechaHasta, idTipoProducto, idCategoria, idUnidadMedida, idMarca, idModelo, tieneOferta, estatusProducto, numeroPagina, numeroRegistros);
 			return ((ISingleResult<SP_BUSCA_PRODUCTOResult>)(result.ReturnValue));
 		}
 		
@@ -206,9 +222,10 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Decimal(20,0)")] System.Nullable<decimal> idUsuario, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Comentario", DbType="VarChar(8000)")] string comentario, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="AplicaParaImpuesto", DbType="Bit")] System.Nullable<bool> aplicaParaImpuesto, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="EstatusProducto", DbType="Bit")] System.Nullable<bool> estatusProducto, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idProducto, numeroConector, idTipoProducto, idCategoria, idUnidadMedida, idMarca, idModelo, idTipoSuplidor, idSuplidor, descripcion, codigoBarra, referencia, precioCompra, precioVenta, stock, stockMinimo, porcientoDescuento, afectaOferta, productoAcumulativo, llevaImagen, idUsuario, comentario, aplicaParaImpuesto, accion);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idProducto, numeroConector, idTipoProducto, idCategoria, idUnidadMedida, idMarca, idModelo, idTipoSuplidor, idSuplidor, descripcion, codigoBarra, referencia, precioCompra, precioVenta, stock, stockMinimo, porcientoDescuento, afectaOferta, productoAcumulativo, llevaImagen, idUsuario, comentario, aplicaParaImpuesto, estatusProducto, accion);
 			return ((ISingleResult<SP_MANTENIMIENTO_PRODUCTOResult>)(result.ReturnValue));
 		}
 	}
@@ -4700,7 +4717,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 	public partial class SP_BUSCA_PRODUCTOResult
 	{
 		
-		private System.Nullable<decimal> _IdProducto;
+		private decimal _IdProducto;
 		
 		private System.Nullable<decimal> _NumeroConector;
 		
@@ -4780,6 +4797,10 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		
 		private System.Nullable<bool> _AplicaParaImpuesto0;
 		
+		private System.Nullable<bool> _EstatusProducto0;
+		
+		private string _EstatusProducto;
+		
 		private string _AplicaParaImpuesto;
 		
 		private System.Nullable<int> _CantidadRegistros;
@@ -4796,8 +4817,8 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdProducto", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdProducto
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdProducto", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdProducto
 		{
 			get
 			{
@@ -5436,6 +5457,38 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EstatusProducto0", DbType="Bit")]
+		public System.Nullable<bool> EstatusProducto0
+		{
+			get
+			{
+				return this._EstatusProducto0;
+			}
+			set
+			{
+				if ((this._EstatusProducto0 != value))
+				{
+					this._EstatusProducto0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EstatusProducto", DbType="VarChar(13) NOT NULL", CanBeNull=false)]
+		public string EstatusProducto
+		{
+			get
+			{
+				return this._EstatusProducto;
+			}
+			set
+			{
+				if ((this._EstatusProducto != value))
+				{
+					this._EstatusProducto = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AplicaParaImpuesto", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
 		public string AplicaParaImpuesto
 		{
@@ -5589,6 +5642,8 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		private string _Comentario;
 		
 		private System.Nullable<bool> _AplicaParaImpuesto;
+		
+		private System.Nullable<bool> _EstatusProducto;
 		
 		public SP_MANTENIMIENTO_PRODUCTOResult()
 		{
@@ -6022,6 +6077,22 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._AplicaParaImpuesto != value))
 				{
 					this._AplicaParaImpuesto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EstatusProducto", DbType="Bit")]
+		public System.Nullable<bool> EstatusProducto
+		{
+			get
+			{
+				return this._EstatusProducto;
+			}
+			set
+			{
+				if ((this._EstatusProducto != value))
+				{
+					this._EstatusProducto = value;
 				}
 			}
 		}

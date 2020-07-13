@@ -365,6 +365,7 @@
             this.ddlTipoVenta.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ddlTipoVenta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ddlTipoVenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlTipoVenta.Enabled = false;
             this.ddlTipoVenta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ddlTipoVenta.FormattingEnabled = true;
             this.ddlTipoVenta.Location = new System.Drawing.Point(610, 18);

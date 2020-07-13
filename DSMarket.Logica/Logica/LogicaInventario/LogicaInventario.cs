@@ -438,11 +438,11 @@ namespace DSMarket.Logica.Logica.LogicaInventario
 
         #region MANTENIMIENTO DE PRODUCTO
         //LISTADO DE PRODUCTOS
-        public List<DSMarket.Logica.Entidades.EntidadesInventario.EProducto> BuscaProductos(decimal? IdProducto = null, decimal? NumeroConector = null, string Descripcion = null, string CodigoBarra = null, string Referencia = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null, decimal? IdTipoProducto = null, decimal? IdCategoria = null, decimal? IdUnidadMedida = null, decimal? IdMarca = null, decimal? IdModelo = null,bool? TieneOferta = null, int? NumeroPagina = null, int? NumeroRegistros = null)
+        public List<DSMarket.Logica.Entidades.EntidadesInventario.EProducto> BuscaProductos(decimal? IdProducto = null, decimal? NumeroConector = null, string Descripcion = null, string CodigoBarra = null, string Referencia = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null, decimal? IdTipoProducto = null, decimal? IdCategoria = null, decimal? IdUnidadMedida = null, decimal? IdMarca = null, decimal? IdModelo = null,bool? TieneOferta = null, bool? EstatusProducto = null, int? NumeroPagina = null, int? NumeroRegistros = null)
         {
             Objdata.CommandTimeout = 999999999;
 
-            var Buscar = (from n in Objdata.SP_BUSCA_PRODUCTO(IdProducto, NumeroConector, Descripcion, CodigoBarra, Referencia, FechaDesde, FechaHasta, IdTipoProducto, IdCategoria, IdUnidadMedida, IdMarca, IdModelo, TieneOferta, NumeroPagina, NumeroRegistros)
+            var Buscar = (from n in Objdata.SP_BUSCA_PRODUCTO(IdProducto, NumeroConector, Descripcion, CodigoBarra, Referencia, FechaDesde, FechaHasta, IdTipoProducto, IdCategoria, IdUnidadMedida, IdMarca, IdModelo, TieneOferta, EstatusProducto, NumeroPagina, NumeroRegistros)
                           select new DSMarket.Logica.Entidades.EntidadesInventario.EProducto
                           {
                               IdProducto=n.IdProducto,
@@ -484,6 +484,8 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                               FechaModifica=n.FechaModifica,
                               FechaModificado=n.FechaModificado,
                               Fecha=n.Fecha,
+                              EstatusProducto0=n.EstatusProducto0,
+                              EstatusProducto=n.EstatusProducto,
                               AplicaParaImpuesto0=n.AplicaParaImpuesto0,
                               AplicaParaImpuesto=n.AplicaParaImpuesto,
                               CantidadRegistros=n.CantidadRegistros,
@@ -527,6 +529,7 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                 , Item.UsuarioAdicion
                 , Item.Comentario
                 , Item.AplicaParaImpuesto0
+                , Item.EstatusProducto0
                 , Accion);
             if (Producto != null)
             {
@@ -559,7 +562,8 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                                       FechaModifica=n.FechaModifica,
                                       Fecha=n.Fecha,
                                       Comentario=n.Comentario,
-                                      AplicaParaImpuesto0=n.AplicaParaImpuesto
+                                      AplicaParaImpuesto0=n.AplicaParaImpuesto,
+                                      EstatusProducto0 = n.EstatusProducto
                                  }).FirstOrDefault();
             }
             return Mantenimiento;

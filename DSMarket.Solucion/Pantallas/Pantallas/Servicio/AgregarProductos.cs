@@ -111,7 +111,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         null,
                         null,
                         null,
-                        null,
+                        null, false,
                         Convert.ToInt32(txtNumeroPagina.Value),
                         Convert.ToInt32(txtNumeroRegistros.Value));
                     dtSeleccionarproducto.DataSource = BuscaRegistros;
@@ -142,7 +142,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                           null,
                           null,
                           null,
-                          null,
+                          null, false,
                           Convert.ToInt32(txtNumeroPagina.Value),
                           Convert.ToInt32(txtNumeroRegistros.Value));
                     dtSeleccionarproducto.DataSource = BuscaRegistros;
@@ -195,7 +195,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.dtSeleccionarproducto.Columns["ProductosAgostados"].Visible = false;
             this.dtSeleccionarproducto.Columns["CreadoPor"].Visible = false;
             this.dtSeleccionarproducto.Columns["FechaCreado"].Visible = false;
-
+            this.dtSeleccionarproducto.Columns["EstatusProducto0"].Visible = false;
+            this.dtSeleccionarproducto.Columns["EstatusProducto"].Visible = false;
 
         }
         #endregion
@@ -321,6 +322,19 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             var MAn = ObjDataLogicaInventario.Value.MantenimientoProducto(Alterar, Accion);
         }
         #endregion
+        #region CAMBIAR EL ESTATUS DE UN PRODUCTO
+        private void MAnCambiarEstatus(decimal IdProducto, decimal IdTipoProducto, bool ProductoAcumulativo, bool EstatusProducto, string Accion) {
+            DSMarket.Logica.Entidades.EntidadesInventario.EProducto CambiarEstatus = new Logica.Entidades.EntidadesInventario.EProducto();
+
+            CambiarEstatus.IdProducto = IdProducto;
+            CambiarEstatus.IdTipoProducto = IdTipoProducto;
+            CambiarEstatus.ProductoAcumulativo0 = ProductoAcumulativo;
+            CambiarEstatus.EstatusProducto0 = EstatusProducto;
+
+            var ManChange = ObjDataLogicaInventario.Value.MantenimientoProducto(CambiarEstatus, Accion);
+
+        }
+        #endregion
         private void PCerrar_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -394,7 +408,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 this.VariablesGlbales.IdProductoSeleccionadoAgregarPorpductos = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["IdProducto"].Value.ToString());
                 var SacarNumeroConectorProducto = ObjDataLogicaInventario.Value.BuscaProductos(
                     VariablesGlbales.IdProductoSeleccionadoAgregarEditar,
-                    null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                    null, null, null, null, null, null, null, null, null, null, null, null, false, 1, 1);
                 foreach (var n in SacarNumeroConectorProducto) {
                     VariablesGlbales.IdNumeroConectorProductoAgregarEditar = Convert.ToDecimal(n.NumeroConector);
                 }
@@ -411,7 +425,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     {
                         var Buscar = ObjDataLogicaInventario.Value.BuscaProductos(
                      IdProductoSeleccionado,
-                     null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                     null, null, null, null, null, null, null, null, null, null, null, null, false, 1, 1);
 
                         foreach (var n in Buscar)
                         {
@@ -577,7 +591,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                                 null,
                                 null,
                                 null,
-                                null,
+                                null, false,
                                 1, 1);
                             foreach (var n in ValidarCantidadDisponible)
                             {
@@ -693,7 +707,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             null,
                             null,
                             null,
-                            null,
+                            null, false,
                             1, 1);
                         foreach (var n2 in BuscarCantidadDispobible)
                         {
@@ -734,7 +748,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 var SacarNumeroConector = ObjDataLogicaInventario.Value.BuscaProductos(
                     VariablesGlbales.IdProductoModificarRegistro,
                     null,
-                    null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                    null, null, null, null, null, null, null, null, null, null, null, false, 1, 1);
                 foreach (var n in SacarNumeroConector)
                 {
                     NumeroConectorProducto = Convert.ToDecimal(n.NumeroConector);
@@ -749,56 +763,23 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 }
                 else
                 {
-                    //  MessageBox.Show("Elimina producto no acumulativo");
+                    //ACTUALIZAMOS EL CAMBIO DE ESTATUS
+                    decimal IdProductoChange = 0;
+                    decimal IdTipoProductoChange = 0;
+                    bool ProductoAcumulativoChange = false;
+                    bool EstatusProductoChange = false;
 
-                    var BuscarDatosProducto = ObjDataServicio.Value.BuscaHistorialProducto(
-                        VariablesGlbales.IdHistorialProductoEliminarRegistro,
-                        VariablesGlbales.IdProductoModificarRegistro);
-                    foreach (var n in BuscarDatosProducto) {
-                        //INSERTAMOS EL REGISTRO EN LA TABLA DE INVENTARIO.
-                        DSMarket.Logica.Entidades.EntidadesInventario.EProducto Guardar = new Logica.Entidades.EntidadesInventario.EProducto();
-
-                        Guardar.IdProducto = 0;
-                        Guardar.NumeroConector = Convert.ToDecimal(n.NumeroConector);
-                        Guardar.IdTipoProducto = Convert.ToDecimal(n.IdTipoProducto);
-                        Guardar.IdCategoria = Convert.ToDecimal(n.IdCategoria);
-                        Guardar.IdUnidadMedida = Convert.ToDecimal(n.IdUnidadMedida);
-                        Guardar.IdMarca = Convert.ToDecimal(n.IdMarca);
-                        Guardar.IdModelo = Convert.ToDecimal(n.IdModelo);
-                        Guardar.IdTipoSuplidor = Convert.ToDecimal(n.IdTipoSuplidor);
-                        Guardar.IdSuplidor = Convert.ToDecimal(n.IdSuplidor);
-                        Guardar.Producto = n.Producto;
-                        Guardar.CodigoBarra = n.CodigoBarra;
-                        Guardar.Referencia = n.Referencia;
-                        Guardar.PrecioCompra = Convert.ToDecimal(n.PrecioCompra);
-                        Guardar.PrecioVenta = Convert.ToDecimal(n.PrecioOriginal);
-                        Guardar.Stock = 1;
-                        Guardar.StockMinimo = 1;
-                        Guardar.PorcientoDescuento = Convert.ToDecimal(n.PorcientoDescuento);
-                        Guardar.AfectaOferta0 = Convert.ToBoolean(n.AfectaOferta);
-                        Guardar.ProductoAcumulativo0 = Convert.ToBoolean(n.ProductoAcumulativo0);
-                        Guardar.LlevaImagen0 = Convert.ToBoolean(n.LlevaImagen);
-                        Guardar.UsuarioAdicion = Convert.ToDecimal(n.UsuarioAdiciona);
-                        Guardar.FechaAdiciona = Convert.ToDateTime(n.FechaAdiciona);
-                        Guardar.UsuarioModifica = Convert.ToDecimal(n.UsuarioModifica);
-                        Guardar.FechaModifica = Convert.ToDateTime(n.FechaModifica);
-                        Guardar.Fecha = Convert.ToDateTime(n.Fecha);
-                        Guardar.Comentario = n.Comentario;
-                        Guardar.AplicaParaImpuesto0 = Convert.ToBoolean(n.AplicaParaimpuesto);
-
-                        var MAMProducto = ObjDataLogicaInventario.Value.MantenimientoProducto(Guardar, "INSERT");
+                    //SACAMOS LOS DATOS DEL PRODUCTO
+                    var SacarDatosProducto = ObjDataLogicaInventario.Value.BuscaProductos(
+                        VariablesGlbales.IdProductoSeleccionadoAgregarEditar,
+                        null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                    foreach (var n in SacarDatosProducto) {
+                        IdProductoChange = Convert.ToDecimal(n.IdProducto);
+                        IdTipoProductoChange = Convert.ToDecimal(n.IdTipoProducto);
+                        ProductoAcumulativoChange = Convert.ToBoolean(n.ProductoAcumulativo0);
+                        EstatusProductoChange = Convert.ToBoolean(n.EstatusProducto0);
                     }
-
-                    
-
-                    //ELIMINAMOS EL REGISTRO DEL HISTORIAL
-
-                    DSMarket.Logica.Entidades.EntidadesServicio.EMantenimientoHistorialProductoInventario Eliminar = new Logica.Entidades.EntidadesServicio.EMantenimientoHistorialProductoInventario();
-
-                    Eliminar.IdHistorialProducto = VariablesGlbales.IdHistorialProductoEliminarRegistro;
-                    Eliminar.IdProducto = VariablesGlbales.IdProductoModificarRegistro;
-
-                    var MANEliminar = ObjDataServicio.Value.MantenimientoHistorialProducto(Eliminar, "DELETE");
+                    MAnCambiarEstatus(IdProductoChange, IdTipoProductoChange, ProductoAcumulativoChange, EstatusProductoChange, "CHANGESTATUS");
 
                     AgregarEditarProductos("DELETE");
                     BuscarProductosAgregados(VariablesGlbales.NumeroConector);
@@ -827,7 +808,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 var SacarNumeroConector = ObjDataLogicaInventario.Value.BuscaProductos(
                     VariablesGlbales.IdProductoModificarRegistro,
                     null,
-                    null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                    null, null, null, null, null, null, null, null, null, null, null, false, 1, 1);
                 foreach (var n in SacarNumeroConector) {
                     NumeroConectorProducto = Convert.ToDecimal(n.NumeroConector);
                     CantidadAlmacen = Convert.ToInt32(n.Stock);
