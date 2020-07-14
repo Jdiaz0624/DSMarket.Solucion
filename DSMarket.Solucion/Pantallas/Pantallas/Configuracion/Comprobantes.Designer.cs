@@ -35,6 +35,7 @@
             this.cbPorDefecto = new System.Windows.Forms.CheckBox();
             this.cbEstatus = new System.Windows.Forms.CheckBox();
             this.btnNuevo = new System.Windows.Forms.Button();
+            this.cbUsarComprobantes = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
@@ -63,7 +64,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtListado = new System.Windows.Forms.DataGridView();
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.cbUsarComprobantes = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel2.SuspendLayout();
@@ -92,6 +92,7 @@
             this.btnBuscar.Text = "      Guardar";
             this.toolTip1.SetToolTip(this.btnBuscar, "Consultar registros");
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // cbPorDefecto
             // 
@@ -136,6 +137,21 @@
             this.btnNuevo.Text = "      Restablecer";
             this.toolTip1.SetToolTip(this.btnNuevo, "Crear registro nuevo");
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // cbUsarComprobantes
+            // 
+            this.cbUsarComprobantes.AutoSize = true;
+            this.cbUsarComprobantes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbUsarComprobantes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbUsarComprobantes.Location = new System.Drawing.Point(355, 15);
+            this.cbUsarComprobantes.Name = "cbUsarComprobantes";
+            this.cbUsarComprobantes.Size = new System.Drawing.Size(183, 25);
+            this.cbUsarComprobantes.TabIndex = 24;
+            this.cbUsarComprobantes.Text = "Usar Comprobantes";
+            this.toolTip1.SetToolTip(this.cbUsarComprobantes, "Estatus de Comprobante");
+            this.cbUsarComprobantes.UseVisualStyleBackColor = true;
+            this.cbUsarComprobantes.CheckedChanged += new System.EventHandler(this.cbUsarComprobantes_CheckedChanged);
             // 
             // panel1
             // 
@@ -232,6 +248,7 @@
             this.txtClaveSeguridad.BackColor = System.Drawing.Color.LightGray;
             this.txtClaveSeguridad.Location = new System.Drawing.Point(687, 158);
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
+            this.txtClaveSeguridad.PasswordChar = '•';
             this.txtClaveSeguridad.Size = new System.Drawing.Size(318, 27);
             this.txtClaveSeguridad.TabIndex = 22;
             // 
@@ -420,6 +437,7 @@
             this.dtListado.RowTemplate.Height = 24;
             this.dtListado.Size = new System.Drawing.Size(1010, 303);
             this.dtListado.TabIndex = 0;
+            this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
             // Select
             // 
@@ -431,20 +449,6 @@
             this.Select.ToolTipText = "Select";
             this.Select.UseColumnTextForButtonValue = true;
             this.Select.Width = 64;
-            // 
-            // cbUsarComprobantes
-            // 
-            this.cbUsarComprobantes.AutoSize = true;
-            this.cbUsarComprobantes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbUsarComprobantes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbUsarComprobantes.Location = new System.Drawing.Point(355, 15);
-            this.cbUsarComprobantes.Name = "cbUsarComprobantes";
-            this.cbUsarComprobantes.Size = new System.Drawing.Size(183, 25);
-            this.cbUsarComprobantes.TabIndex = 24;
-            this.cbUsarComprobantes.Text = "Usar Comprobantes";
-            this.toolTip1.SetToolTip(this.cbUsarComprobantes, "Estatus de Comprobante");
-            this.cbUsarComprobantes.UseVisualStyleBackColor = true;
-            this.cbUsarComprobantes.CheckedChanged += new System.EventHandler(this.cbUsarComprobantes_CheckedChanged);
             // 
             // Comprobantes
             // 

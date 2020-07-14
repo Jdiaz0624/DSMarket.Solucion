@@ -89,8 +89,10 @@
     <Compile Include="Entidades\EntidadesServicio\EFacturacionProducto.cs" />
     <Compile Include="Entidades\EntidadesServicio\EFacturaMinimizada.cs" />
     <Compile Include="Entidades\EntidadesServicio\EGuardarFacturacionCalculos.cs" />
+    <Compile Include="Entidades\EntidadesServicio\EGuardarFacturacionComprobantes.cs" />
     <Compile Include="Entidades\EntidadesServicio\EMantenimientoHistorialProductoInventario.cs" />
     <Compile Include="Entidades\EntidadesServicio\EProductosAgregados.cs" />
+    <Compile Include="Entidades\EntidadesServicio\ESacarNumeroFactura.cs" />
     <Compile Include="Entidades\EntidadesServicio\ETipoPago.cs" />
     <Compile Include="Logica\LogicaCaja\LogicaCaja.cs" />
     <Compile Include="Logica\LogicaConfiguracion\LogicaCOnfiguracion.cs" />

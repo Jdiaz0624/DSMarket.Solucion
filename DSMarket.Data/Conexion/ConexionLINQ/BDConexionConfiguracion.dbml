@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DSMarket" Class="BDConexionConfiguracionDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=172.26.24.199;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString1" Provider="System.Data.SqlClient" />
   <Function Name="Configuracion.SP_BUSCA_LISTAS" Method="SP_BUSCA_LISTAS">
     <Parameter Name="NombreLista" Parameter="nombreLista" Type="System.String" DbType="VarChar(150)" />
     <Parameter Name="PrimerFiltro" Parameter="primerFiltro" Type="System.String" DbType="VarChar(150)" />
@@ -52,15 +52,6 @@
       <Column Name="Instagran" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Telefonos" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
       <Column Name="IdLogoEmpresa" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="Configuracion.SP_BUSCA_CONFIGURACION_GENERAL" Method="SP_BUSCA_CONFIGURACION_GENERAL">
-    <Parameter Name="IdConfiguracionGeneral" Parameter="idConfiguracionGeneral" Type="System.Int32" DbType="Int" />
-    <ElementType Name="SP_BUSCA_CONFIGURACION_GENERALResult">
-      <Column Name="IdConfiguracionGeneral" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Descripcion" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="Estatus0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Estatus" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
   <Function Name="Configuracion.SP_GENERAR_COMPROBANTE_FISCAL" Method="SP_GENERAR_COMPROBANTE_FISCAL">
@@ -116,6 +107,28 @@
       <Column Name="ValidoHasta" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="PorDefecto" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="Posiciones" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Configuracion.SP_BUSCA_CONFIGURACION_GENERAL" Method="SP_BUSCA_CONFIGURACION_GENERAL">
+    <Parameter Name="IdConfiguracionGeneral" Parameter="idConfiguracionGeneral" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_BUSCA_CONFIGURACION_GENERALResult">
+      <Column Name="IdConfiguracionGeneral" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Estatus0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Estatus" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="CantidadActivos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CantidadInactivos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Configuracion.SP_MANTENIMIENTO_CONFIGURACION_GENERAL" Method="SP_MANTENIMIENTO_CONFIGURACION_GENERAL">
+    <Parameter Name="IdConfiguracionGeneral" Parameter="idConfiguracionGeneral" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="Estatus" Parameter="estatus" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_MANTENIMIENTO_CONFIGURACION_GENERALResult">
+      <Column Name="IdConfiguracionGeneral" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Estatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

@@ -101,9 +101,44 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                                IdConfiguracionGeneral=n.IdConfiguracionGeneral,
                                Descripcion=n.Descripcion,
                                Estatus0=n.Estatus0,
-                               Estatus=n.Estatus
+                               Estatus=n.Estatus,
+                               CantidadActivos=n.CantidadActivos,
+                               CantidadInactivos=n.CantidadInactivos
                            }).ToList();
             return Listado;
+        }
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral MantenimientoConfiguracionGeneral(DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral Mantenimiento = null;
+
+            var ConfiguracionGeneral = ObjData.SP_MANTENIMIENTO_CONFIGURACION_GENERAL(
+                Item.IdConfiguracionGeneral,
+                Item.Descripcion,
+                Item.Estatus0,
+                Accion);
+            if (ConfiguracionGeneral != null) {
+                Mantenimiento = (from n in ConfiguracionGeneral
+                                 select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral
+                                 {
+                                     IdConfiguracionGeneral=n.IdConfiguracionGeneral,
+                                     Descripcion=n.Descripcion,
+                                     Estatus0=n.Estatus
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
+
+        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarComprobante> GenerarComprobanteFiscal(decimal? IdComprobante = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Generar = (from n in ObjData.SP_GENERAR_COMPROBANTE_FISCAL(IdComprobante)
+                           select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarComprobante
+                           {
+                               TipoComprobante=n.TipoComprobante,
+                               Comprobante=n.Comprobante
+                           }).ToList();
+            return Generar;
         }
         #endregion
         #region GENERAR COMPROBANTE FISCAL

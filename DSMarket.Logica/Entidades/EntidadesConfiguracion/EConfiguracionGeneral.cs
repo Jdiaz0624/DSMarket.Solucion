@@ -15,5 +15,9 @@ namespace DSMarket.Logica.Entidades.EntidadesConfiguracion
         public System.Nullable<bool> Estatus0 { get; set; }
 
         public string Estatus { get; set; }
+
+        public System.Nullable<int> CantidadActivos { get; set; }
+
+        public System.Nullable<int> CantidadInactivos { get; set; }
     }
 }

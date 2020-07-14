@@ -850,7 +850,50 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             AddProducts.ShowDialog();
         }
         #endregion
+        #region AFECTAR COMPROBANTE FISCAL
+        private void AfectarComprobanteFiscal() {
+            //VALIDAMOS SI LOS COMPROBANTES ESTAN ACTIVOS
+            bool EstatusComprobante = false;
 
+            var ValidarComprobante = ObjDataConfiguracion.Value.BuscaCOnfiguracionGeneral(1);
+            foreach (var n in ValidarComprobante) {
+                EstatusComprobante = Convert.ToBoolean(n.Estatus0);
+            }
+            if (EstatusComprobante == true)
+            {
+                //AFECTAMOS LOS COMPROBANTES
+                decimal IdFacturaSacada = 0;
+                string DescripcionComprobanteSacada = "";
+                string NumeroComprobante = "";
+                //1- SACAMOS EL NUMERO DE LA FACTURA
+                var SacarnumeroFactura = ObjDataServicio.Value.SacarNumeroFactura(VariablesGlobales.NumeroConector);
+                foreach (var ns in SacarnumeroFactura)
+                {
+                    IdFacturaSacada = Convert.ToDecimal(ns.IdFactura);
+                }
+
+                //2- SACAMOS LA DESCRIPCION DEL COMPROBANTE Y EL NUMERO DE COMPROBANTE
+                var GenerarComprobanteFiscal = ObjDataConfiguracion.Value.GenerarComprobante(Convert.ToDecimal(ddlTipoFacturacion.SelectedValue));
+                foreach (var n3 in GenerarComprobanteFiscal)
+                {
+                    DescripcionComprobanteSacada = n3.TipoComprobante;
+                    NumeroComprobante = n3.Comprobante;
+                }
+
+                DSMarket.Logica.Entidades.EntidadesServicio.EGuardarFacturacionComprobantes Afectar = new Logica.Entidades.EntidadesServicio.EGuardarFacturacionComprobantes();
+
+                Afectar.IdFacturacion = IdFacturaSacada;
+                Afectar.NumeroConector = VariablesGlobales.NumeroConector;
+                Afectar.DescripcionComprobante = DescripcionComprobanteSacada;
+                Afectar.Comprobante = NumeroComprobante;
+
+                var MAN = ObjDataServicio.Value.GuardarFacturacionComprobante(Afectar, "INSERT");
+
+            }
+            else if (EstatusComprobante == false) { }
+
+        }
+        #endregion
 
 
         private void Facturacion_Load(object sender, EventArgs e)
@@ -1278,6 +1321,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         {
                             GuardarDatosClientes("INSERT");
                             GuardarDatosCalculos("INSERT");
+                            AfectarComprobanteFiscal();
                             MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Dispose();
 
@@ -1301,6 +1345,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                                 {
                                     GuardarDatosClientes("INSERT");
                                     GuardarDatosCalculos("INSERT");
+                                    AfectarComprobanteFiscal();
                                     MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     this.Dispose();
 
