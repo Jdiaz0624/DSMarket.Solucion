@@ -89,6 +89,27 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idConfiguracionGeneral);
 			return ((ISingleResult<SP_BUSCA_CONFIGURACION_GENERALResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Configuracion.SP_GENERAR_COMPROBANTE_FISCAL")]
+		public ISingleResult<SP_GENERAR_COMPROBANTE_FISCALResult> SP_GENERAR_COMPROBANTE_FISCAL([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdComprobante", DbType="Decimal(20,0)")] System.Nullable<decimal> idComprobante)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idComprobante);
+			return ((ISingleResult<SP_GENERAR_COMPROBANTE_FISCALResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Configuracion.SP_BUSCA_COMPROBANTES_FISCALES")]
+		public ISingleResult<SP_BUSCA_COMPROBANTES_FISCALESResult> SP_BUSCA_COMPROBANTES_FISCALES([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdComprobanteFiscales", DbType="Decimal(20,0)")] System.Nullable<decimal> idComprobanteFiscales)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idComprobanteFiscales);
+			return ((ISingleResult<SP_BUSCA_COMPROBANTES_FISCALESResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Configuracion.SP_MANTENIMIENTO_COMPROBANTE_FISCALES")]
+		public ISingleResult<SP_MANTENIMIENTO_COMPROBANTE_FISCALESResult> SP_MANTENIMIENTO_COMPROBANTE_FISCALES([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdComprobante", DbType="Decimal(20,0)")] System.Nullable<decimal> idComprobante, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Descripcion", DbType="VarChar(100)")] string descripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Serie", DbType="VarChar(1)")] string serie, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TipoComprobante", DbType="VarChar(2)")] string tipoComprobante, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Secuencia", DbType="BigInt")] System.Nullable<long> secuencia, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SecuenciaInicial", DbType="BigInt")] System.Nullable<long> secuenciaInicial, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SecuenciaFinal", DbType="BigInt")] System.Nullable<long> secuenciaFinal, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Limite", DbType="BigInt")] System.Nullable<long> limite, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Estatus", DbType="Bit")] System.Nullable<bool> estatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ValidoHasta", DbType="VarChar(50)")] string validoHasta, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PorDefecto", DbType="Bit")] System.Nullable<bool> porDefecto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Posiciones", DbType="BigInt")] System.Nullable<long> posiciones, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idComprobante, descripcion, serie, tipoComprobante, secuencia, secuenciaInicial, secuenciaFinal, limite, estatus, validoHasta, porDefecto, posiciones, accion);
+			return ((ISingleResult<SP_MANTENIMIENTO_COMPROBANTE_FISCALESResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_BUSCA_LISTASResult
@@ -640,6 +661,534 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._Estatus != value))
 				{
 					this._Estatus = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_GENERAR_COMPROBANTE_FISCALResult
+	{
+		
+		private string _TipoComprobante;
+		
+		private string _Comprobante;
+		
+		public SP_GENERAR_COMPROBANTE_FISCALResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoComprobante", DbType="VarChar(100)")]
+		public string TipoComprobante
+		{
+			get
+			{
+				return this._TipoComprobante;
+			}
+			set
+			{
+				if ((this._TipoComprobante != value))
+				{
+					this._TipoComprobante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comprobante", DbType="VarChar(8000) NOT NULL", CanBeNull=false)]
+		public string Comprobante
+		{
+			get
+			{
+				return this._Comprobante;
+			}
+			set
+			{
+				if ((this._Comprobante != value))
+				{
+					this._Comprobante = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCA_COMPROBANTES_FISCALESResult
+	{
+		
+		private decimal _IdComprobante;
+		
+		private string _Comprobante;
+		
+		private string _Serie;
+		
+		private string _TipoComprobante;
+		
+		private System.Nullable<decimal> _Secuencia;
+		
+		private System.Nullable<decimal> _SecuenciaInicial;
+		
+		private System.Nullable<decimal> _SecuenciaFinal;
+		
+		private System.Nullable<decimal> _Limite;
+		
+		private System.Nullable<bool> _Estatus0;
+		
+		private string _Estatus;
+		
+		private string _ValidoHasta;
+		
+		private System.Nullable<bool> _PorDefecto0;
+		
+		private string _PorDefecto;
+		
+		private System.Nullable<decimal> _Posiciones;
+		
+		public SP_BUSCA_COMPROBANTES_FISCALESResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdComprobante", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdComprobante
+		{
+			get
+			{
+				return this._IdComprobante;
+			}
+			set
+			{
+				if ((this._IdComprobante != value))
+				{
+					this._IdComprobante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comprobante", DbType="VarChar(100)")]
+		public string Comprobante
+		{
+			get
+			{
+				return this._Comprobante;
+			}
+			set
+			{
+				if ((this._Comprobante != value))
+				{
+					this._Comprobante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Serie", DbType="VarChar(1)")]
+		public string Serie
+		{
+			get
+			{
+				return this._Serie;
+			}
+			set
+			{
+				if ((this._Serie != value))
+				{
+					this._Serie = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoComprobante", DbType="VarChar(2)")]
+		public string TipoComprobante
+		{
+			get
+			{
+				return this._TipoComprobante;
+			}
+			set
+			{
+				if ((this._TipoComprobante != value))
+				{
+					this._TipoComprobante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Secuencia", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> Secuencia
+		{
+			get
+			{
+				return this._Secuencia;
+			}
+			set
+			{
+				if ((this._Secuencia != value))
+				{
+					this._Secuencia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SecuenciaInicial", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> SecuenciaInicial
+		{
+			get
+			{
+				return this._SecuenciaInicial;
+			}
+			set
+			{
+				if ((this._SecuenciaInicial != value))
+				{
+					this._SecuenciaInicial = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SecuenciaFinal", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> SecuenciaFinal
+		{
+			get
+			{
+				return this._SecuenciaFinal;
+			}
+			set
+			{
+				if ((this._SecuenciaFinal != value))
+				{
+					this._SecuenciaFinal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Limite", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> Limite
+		{
+			get
+			{
+				return this._Limite;
+			}
+			set
+			{
+				if ((this._Limite != value))
+				{
+					this._Limite = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus0", DbType="Bit")]
+		public System.Nullable<bool> Estatus0
+		{
+			get
+			{
+				return this._Estatus0;
+			}
+			set
+			{
+				if ((this._Estatus0 != value))
+				{
+					this._Estatus0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="VarChar(8)")]
+		public string Estatus
+		{
+			get
+			{
+				return this._Estatus;
+			}
+			set
+			{
+				if ((this._Estatus != value))
+				{
+					this._Estatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ValidoHasta", DbType="VarChar(50)")]
+		public string ValidoHasta
+		{
+			get
+			{
+				return this._ValidoHasta;
+			}
+			set
+			{
+				if ((this._ValidoHasta != value))
+				{
+					this._ValidoHasta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorDefecto0", DbType="Bit")]
+		public System.Nullable<bool> PorDefecto0
+		{
+			get
+			{
+				return this._PorDefecto0;
+			}
+			set
+			{
+				if ((this._PorDefecto0 != value))
+				{
+					this._PorDefecto0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorDefecto", DbType="VarChar(2)")]
+		public string PorDefecto
+		{
+			get
+			{
+				return this._PorDefecto;
+			}
+			set
+			{
+				if ((this._PorDefecto != value))
+				{
+					this._PorDefecto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Posiciones", DbType="Decimal(2,0)")]
+		public System.Nullable<decimal> Posiciones
+		{
+			get
+			{
+				return this._Posiciones;
+			}
+			set
+			{
+				if ((this._Posiciones != value))
+				{
+					this._Posiciones = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_MANTENIMIENTO_COMPROBANTE_FISCALESResult
+	{
+		
+		private System.Nullable<decimal> _IdComprobante;
+		
+		private string _Descripcion;
+		
+		private string _Serie;
+		
+		private string _TipoComprobante;
+		
+		private System.Nullable<long> _Secuencia;
+		
+		private System.Nullable<long> _SecuenciaInicial;
+		
+		private System.Nullable<long> _SecuenciaFinal;
+		
+		private System.Nullable<long> _Limite;
+		
+		private System.Nullable<bool> _Estatus;
+		
+		private string _ValidoHasta;
+		
+		private System.Nullable<bool> _PorDefecto;
+		
+		private System.Nullable<long> _Posiciones;
+		
+		public SP_MANTENIMIENTO_COMPROBANTE_FISCALESResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdComprobante", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdComprobante
+		{
+			get
+			{
+				return this._IdComprobante;
+			}
+			set
+			{
+				if ((this._IdComprobante != value))
+				{
+					this._IdComprobante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(100)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Serie", DbType="VarChar(1)")]
+		public string Serie
+		{
+			get
+			{
+				return this._Serie;
+			}
+			set
+			{
+				if ((this._Serie != value))
+				{
+					this._Serie = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoComprobante", DbType="VarChar(2)")]
+		public string TipoComprobante
+		{
+			get
+			{
+				return this._TipoComprobante;
+			}
+			set
+			{
+				if ((this._TipoComprobante != value))
+				{
+					this._TipoComprobante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Secuencia", DbType="BigInt")]
+		public System.Nullable<long> Secuencia
+		{
+			get
+			{
+				return this._Secuencia;
+			}
+			set
+			{
+				if ((this._Secuencia != value))
+				{
+					this._Secuencia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SecuenciaInicial", DbType="BigInt")]
+		public System.Nullable<long> SecuenciaInicial
+		{
+			get
+			{
+				return this._SecuenciaInicial;
+			}
+			set
+			{
+				if ((this._SecuenciaInicial != value))
+				{
+					this._SecuenciaInicial = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SecuenciaFinal", DbType="BigInt")]
+		public System.Nullable<long> SecuenciaFinal
+		{
+			get
+			{
+				return this._SecuenciaFinal;
+			}
+			set
+			{
+				if ((this._SecuenciaFinal != value))
+				{
+					this._SecuenciaFinal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Limite", DbType="BigInt")]
+		public System.Nullable<long> Limite
+		{
+			get
+			{
+				return this._Limite;
+			}
+			set
+			{
+				if ((this._Limite != value))
+				{
+					this._Limite = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="Bit")]
+		public System.Nullable<bool> Estatus
+		{
+			get
+			{
+				return this._Estatus;
+			}
+			set
+			{
+				if ((this._Estatus != value))
+				{
+					this._Estatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ValidoHasta", DbType="VarChar(50)")]
+		public string ValidoHasta
+		{
+			get
+			{
+				return this._ValidoHasta;
+			}
+			set
+			{
+				if ((this._ValidoHasta != value))
+				{
+					this._ValidoHasta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorDefecto", DbType="Bit")]
+		public System.Nullable<bool> PorDefecto
+		{
+			get
+			{
+				return this._PorDefecto;
+			}
+			set
+			{
+				if ((this._PorDefecto != value))
+				{
+					this._PorDefecto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Posiciones", DbType="BigInt")]
+		public System.Nullable<long> Posiciones
+		{
+			get
+			{
+				return this._Posiciones;
+			}
+			set
+			{
+				if ((this._Posiciones != value))
+				{
+					this._Posiciones = value;
 				}
 			}
 		}

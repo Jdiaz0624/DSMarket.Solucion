@@ -106,5 +106,85 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             return Listado;
         }
         #endregion
+        #region GENERAR COMPROBANTE FISCAL
+        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarComprobante> GenerarComprobante(decimal? IdComprobante = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_GENERAR_COMPROBANTE_FISCAL(IdComprobante)
+                           select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarComprobante
+                           {
+                               TipoComprobante=n.TipoComprobante,
+                               Comprobante=n.Comprobante
+                           }).ToList();
+            return Listado;
+        }
+
+        //LISTADO DE COMPROBANTES FISCALES
+        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EComprobantes> BuscaComprobantesFiscales(decimal? IdComprobanteFiscales = null)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_BUSCA_COMPROBANTES_FISCALES(IdComprobanteFiscales)
+                           select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EComprobantes
+                           {
+                               IdComprobante=n.IdComprobante,
+                               Comprobante=n.Comprobante,
+                               Serie=n.Serie,
+                               TipoComprobante=n.TipoComprobante,
+                               Secuencia=n.Secuencia,
+                               SecuenciaInicial=n.SecuenciaInicial,
+                               SecuenciaFinal=n.SecuenciaFinal,
+                               Limite=n.Limite,
+                               Estatus0=n.Estatus0,
+                               Estatus=n.Estatus,
+                               ValidoHasta=n.ValidoHasta,
+                               PorDefecto0=n.PorDefecto0,
+                               PorDefecto=n.PorDefecto,
+                               Posiciones=n.Posiciones
+                           }).ToList();
+            return Listado;
+        }
+
+        //MANTENIMIENTO DE COMPROBANTES FISCALES
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EMantenimientoComprobantes MantenimientoComprobantes(DSMarket.Logica.Entidades.EntidadesConfiguracion.EMantenimientoComprobantes Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesConfiguracion.EMantenimientoComprobantes Mantenimiento = null;
+
+            var Comprobante = ObjData.SP_MANTENIMIENTO_COMPROBANTE_FISCALES(
+                Item.IdComprobante,
+                Item.Descripcion,
+                Item.Serie,
+                Item.TipoComprobante,
+                Item.Secuencia,
+                Item.SecuenciaInicial,
+                Item.SecuenciaFinal,
+                Item.Limite,
+                Item.Estatus,
+                Item.ValidoHasta,
+                Item.PorDefecto,
+                Item.Posiciones,
+                Accion);
+            if (Comprobante != null) {
+                Mantenimiento = (from n in Comprobante
+                                 select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EMantenimientoComprobantes
+                                 {
+                                     IdComprobante=n.IdComprobante,
+                                     Descripcion=n.Descripcion,
+                                     Serie=n.Serie,
+                                     TipoComprobante=n.TipoComprobante,
+                                     Secuencia=n.Secuencia,
+                                     SecuenciaInicial=n.SecuenciaInicial,
+                                     SecuenciaFinal=n.SecuenciaFinal,
+                                     Limite=n.Limite,
+                                     Estatus=n.Estatus,
+                                     ValidoHasta=n.ValidoHasta,
+                                     PorDefecto=n.PorDefecto,
+                                     Posiciones=n.Posiciones
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
+        #endregion
     }
 }

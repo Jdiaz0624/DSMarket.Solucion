@@ -52,9 +52,12 @@
     <Compile Include="Comunes\VariablesGlobales.cs" />
     <Compile Include="Entidades\EntidadesCaja\ECajaGeneral.cs" />
     <Compile Include="Entidades\EntidadesCaja\EHistorialCaja.cs" />
+    <Compile Include="Entidades\EntidadesConfiguracion\EComprobantes.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EConfiguracionGeneral.cs" />
+    <Compile Include="Entidades\EntidadesConfiguracion\EGenerarComprobante.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EInformacionEmpresa.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EListas.cs" />
+    <Compile Include="Entidades\EntidadesConfiguracion\EMantenimientoComprobantes.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\EClientes.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECategorias.cs" />
     <Compile Include="Entidades\EntidadesInventario\Emarcas.cs" />
