@@ -1276,6 +1276,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
                         if (BloqueaControles == true)
                         {
+                            GuardarDatosClientes("INSERT");
+                            GuardarDatosCalculos("INSERT");
+                            MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Dispose();
 
                         }
                         else if (BloqueaControles == false)
