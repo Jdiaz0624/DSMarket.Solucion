@@ -19,6 +19,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         Lazy<DSMarket.Logica.Logica.LogicaListas.LogicaListas> ObjDataListas = new Lazy<Logica.Logica.LogicaListas.LogicaListas>();
         Lazy<DSMarket.Logica.Logica.LogicaServicio.LogicaServicio> ObjDataServicio = new Lazy<Logica.Logica.LogicaServicio.LogicaServicio>();
         Lazy<DSMarket.Logica.Logica.LogicaInventario.LogicaInventario> ObjDataLogicaInventario = new Lazy<Logica.Logica.LogicaInventario.LogicaInventario>();
+        Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjdataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlbales = new Logica.Comunes.VariablesGlobales();
 
         #region APLICAR TEMA
@@ -225,6 +226,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 AgregarEditar.IdProducto = Convert.ToDecimal(VariablesGlbales.IdProductoSeleccionadoAgregarEditar);
                 AgregarEditar.Acumulativo = txtAcumulativo.Text;
                 AgregarEditar.ConectorProducto = VariablesGlbales.IdNumeroConectorProductoAgregarEditar;
+                AgregarEditar.Impuesto = Convert.ToDecimal(txtImpuesto.Text);
 
 
                 var MAn = ObjDataServicio.Value.GuardarFacturacionProductos(AgregarEditar, Accion);
@@ -335,6 +337,32 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         }
         #endregion
+        #region CALCULAR IMPUESTO
+        private void CalcularImpuesto() {
+            if (VariablesGlbales.AplicaImpuesto == true)
+            {
+                decimal PorcientoImpuesto = 0;
+                decimal PrecioProducto = 0, Operacion;
+                decimal Cantidad = Convert.ToDecimal(txtCantidadUsar.Text);
+                if (Cantidad < 1 || string.IsNullOrEmpty(txtCantidadUsar.Text.Trim())) {
+                    Cantidad = 1;
+                }
+                var SacarPorcientoImpuesto = ObjdataConfiguracion.Value.BuscaImpuestos(1);
+                foreach (var Sacar in SacarPorcientoImpuesto)
+                {
+                    PorcientoImpuesto = Convert.ToDecimal(Sacar.PorcientoImpuesto);
+
+                }
+                PrecioProducto = Convert.ToDecimal(txtPrecio.Text);
+                Operacion = (PrecioProducto * Cantidad) * (PorcientoImpuesto / 100);
+                txtImpuesto.Text = Operacion.ToString("N2");
+            }
+            else
+            {
+                txtImpuesto.Text = "0";
+            }
+        }
+        #endregion
         private void PCerrar_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -403,9 +431,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlbales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 int TipoProducto = 0;
+                bool AplicaImpuesto = false;
                 txtDescuento.Text = "0";
                 decimal IdProductoSeleccionado = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["IdProducto"].Value.ToString());
                 this.VariablesGlbales.IdProductoSeleccionadoAgregarPorpductos = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["IdProducto"].Value.ToString());
+                this.VariablesGlbales.IdTipoProductoNuevo = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["IdTipoProducto"].Value.ToString());
                 var SacarNumeroConectorProducto = ObjDataLogicaInventario.Value.BuscaProductos(
                     VariablesGlbales.IdProductoSeleccionadoAgregarEditar,
                     null, null, null, null, null, null, null, null, null, null, null, null, false, 1, 1);
@@ -417,7 +447,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 int CantidadAlmcen = Convert.ToInt32(this.dtSeleccionarproducto.CurrentRow.Cells["Stock"].Value.ToString());
                 bool LlevaImagen = Convert.ToBoolean(this.dtSeleccionarproducto.CurrentRow.Cells["LlevaImagen0"].Value.ToString());
 
-                if (CantidadAlmcen <= 0)
+                if (CantidadAlmcen <= 0 && VariablesGlbales.IdTipoProductoNuevo==1)
                 {
                     MessageBox.Show("Este producto esta agotado, favor de suplir mas", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -433,8 +463,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             VariablesGlbales.IdCategoriaSeleccionadoAgregarEditar = Convert.ToDecimal(n.IdCategoria);
                             VariablesGlbales.IdProductoSeleccionadoAgregarEditar = Convert.ToDecimal(n.IdProducto);
                             VariablesGlbales.NumeroConectorSeleccionadoAgregarPorpductos = Convert.ToDecimal(n.NumeroConector);
+                            VariablesGlbales.AplicaImpuesto = Convert.ToBoolean(n.AplicaParaImpuesto0);
                             TipoProducto = Convert.ToInt32(n.IdTipoProducto);
                             txtTipoProducto.Text = n.TipoProducto;
+                            AplicaImpuesto = Convert.ToBoolean(n.AplicaParaImpuesto0);
                             txtCategoria.Text = n.Categoria;
                             txtProducto.Text = n.Producto;
                             int CantidadDisponible = Convert.ToInt32(n.Stock);
@@ -496,6 +528,23 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             {
                                 btnfoto.Enabled = false;
                             }
+
+                            if (AplicaImpuesto == true)
+                            {
+                                decimal PorcientoImpuesto = 0;
+                                decimal PrecioProducto = 0, Operacion;
+                                var SacarPorcientoImpuesto = ObjdataConfiguracion.Value.BuscaImpuestos(1);
+                                foreach (var Sacar in SacarPorcientoImpuesto) {
+                                    PorcientoImpuesto = Convert.ToDecimal(Sacar.PorcientoImpuesto);
+
+                                }
+                                PrecioProducto = Convert.ToDecimal(txtPrecio.Text);
+                                Operacion = PrecioProducto * (PorcientoImpuesto / 100);
+                                txtImpuesto.Text = Operacion.ToString("N2");
+                            }
+                            else {
+                                txtImpuesto.Text = "0";
+                            }
                             btnAgregar.Enabled = true;
                             btnRestablcer.Enabled = true;
                         }
@@ -549,60 +598,81 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+
             if (string.IsNullOrEmpty(txtPrecio.Text.Trim()))
             {
                 MessageBox.Show("El campo precio no puede estar vacio para realizar esta operación", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else {
-                decimal Precio = Convert.ToDecimal(txtPrecio.Text);
-                if (Precio < 1)
-                {
-                    MessageBox.Show("El precio ingresado no es valido, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else {
-                    //VALIDAMOS EL TIPO DE PRODUCTO SELECCIONADO
-                    if (VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar == 1)
+          
+
+                    decimal Precio = Convert.ToDecimal(txtPrecio.Text);
+                    if (Precio < 1)
                     {
-                        //VALIDAMOS SI EL PRODUCTO ES ACUMULATIVO
-                        string ProductoAcumulativo = txtAcumulativo.Text;
-
-                        if (ProductoAcumulativo == "SI")
+                        MessageBox.Show("El precio ingresado no es valido, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        //VALIDAMOS EL TIPO DE PRODUCTO SELECCIONADO
+                        if (VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar == 1)
                         {
-                            //VERIFICAMOS SI LA CANTIDAD A USAR NO ESTA VACIA
-                            int Valor = Convert.ToInt32(txtCantidadUsar.Text);
-                            if (string.IsNullOrEmpty(txtCantidadUsar.Text.Trim()) || Valor < 1)
-                            {
-                                txtCantidadUsar.Text = "1";
-                            }
-                            //VALIDAMOS LA CANTIDAD EN ALMACEN Y VERIFICAMOS QUE LA CANTIDAD A VENDER ES VALIDA.
-                            int CantidadVender = Convert.ToInt32(txtCantidadUsar.Text);
-                            int CantidadDisponible = 0;
+                            //VALIDAMOS SI EL PRODUCTO ES ACUMULATIVO
+                            string ProductoAcumulativo = txtAcumulativo.Text;
 
-                            var ValidarCantidadDisponible = ObjDataLogicaInventario.Value.BuscaProductos(
-                                VariablesGlbales.IdProductoSeleccionadoAgregarEditar,
-                                VariablesGlbales.NumeroConectorSeleccionadoAgregarPorpductos,
-                                null,
-                                null,
-                                null,
-                                null,
-                                null,
-                                null,
-                                null,
-                                null,
-                                null,
-                                null,
-                                null, false,
-                                1, 1);
-                            foreach (var n in ValidarCantidadDisponible)
+                            if (ProductoAcumulativo == "SI")
                             {
-                                CantidadDisponible = Convert.ToInt32(n.Stock);
-                            }
+                                //VERIFICAMOS SI LA CANTIDAD A USAR NO ESTA VACIA
+                                int Valor = Convert.ToInt32(txtCantidadUsar.Text);
+                                if (string.IsNullOrEmpty(txtCantidadUsar.Text.Trim()) || Valor < 1)
+                                {
+                                    txtCantidadUsar.Text = "1";
+                                }
+                                //VALIDAMOS LA CANTIDAD EN ALMACEN Y VERIFICAMOS QUE LA CANTIDAD A VENDER ES VALIDA.
+                                int CantidadVender = Convert.ToInt32(txtCantidadUsar.Text);
+                                int CantidadDisponible = 0;
 
-                            if (CantidadVender > CantidadDisponible)
-                            {
-                                MessageBox.Show("La cantidad que intentas agregar a factura, supera la cantidad que tienes en inventario, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                var ValidarCantidadDisponible = ObjDataLogicaInventario.Value.BuscaProductos(
+                                    VariablesGlbales.IdProductoSeleccionadoAgregarEditar,
+                                    VariablesGlbales.NumeroConectorSeleccionadoAgregarPorpductos,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    null, false,
+                                    1, 1);
+                                foreach (var n in ValidarCantidadDisponible)
+                                {
+                                    CantidadDisponible = Convert.ToInt32(n.Stock);
+                                }
+
+                                if (CantidadVender > CantidadDisponible)
+                                {
+                                    MessageBox.Show("La cantidad que intentas agregar a factura, supera la cantidad que tienes en inventario, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                                else
+                                {
+
+                                    decimal DescuentoMaximo = Convert.ToDecimal(lbDescuentoColectivoVariable.Text);
+                                    decimal DescuentoAplicar = Convert.ToDecimal(txtDescuento.Text);
+                                    if (DescuentoAplicar > DescuentoMaximo)
+                                    {
+                                        MessageBox.Show("El descuento ingresado supera la cantidad permitida para descontar en este articulo, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    }
+                                    else
+                                    {
+                                        AgregarEditarProductos("INSERT");
+                                        BuscarProductosAgregados(VariablesGlbales.NumeroConector);
+                                    }
+
+                                }
                             }
-                            else
+                            else if (ProductoAcumulativo == "NO")
                             {
 
                                 decimal DescuentoMaximo = Convert.ToDecimal(lbDescuentoColectivoVariable.Text);
@@ -613,14 +683,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                                 }
                                 else
                                 {
+                                    //AGREGAR PRODUCTO Y ELIMINAR
                                     AgregarEditarProductos("INSERT");
                                     BuscarProductosAgregados(VariablesGlbales.NumeroConector);
                                 }
-
                             }
                         }
-                        else if (ProductoAcumulativo == "NO")
+                        else if (VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar == 2)
                         {
+
 
                             decimal DescuentoMaximo = Convert.ToDecimal(lbDescuentoColectivoVariable.Text);
                             decimal DescuentoAplicar = Convert.ToDecimal(txtDescuento.Text);
@@ -630,36 +701,26 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             }
                             else
                             {
-                                //AGREGAR PRODUCTO Y ELIMINAR
+                                //AGREGAR PRODUCTO
                                 AgregarEditarProductos("INSERT");
                                 BuscarProductosAgregados(VariablesGlbales.NumeroConector);
                             }
                         }
                     }
-                    else if (VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar == 2)
-                    {
+                
+                
 
-
-                        decimal DescuentoMaximo = Convert.ToDecimal(lbDescuentoColectivoVariable.Text);
-                        decimal DescuentoAplicar = Convert.ToDecimal(txtDescuento.Text);
-                        if (DescuentoAplicar > DescuentoMaximo)
-                        {
-                            MessageBox.Show("El descuento ingresado supera la cantidad permitida para descontar en este articulo, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                        else
-                        {
-                            //AGREGAR PRODUCTO
-                            AgregarEditarProductos("INSERT");
-                            BuscarProductosAgregados(VariablesGlbales.NumeroConector);
-                        }
-                    }
-                }
+               
             }
         }
 
         private void txtCantidadUsar_TextChanged(object sender, EventArgs e)
         {
-            CalcularColectivo();
+            try {
+                CalcularColectivo();
+                CalcularImpuesto();
+            }
+            catch (Exception) { }
         }
 
         private void btnRestablcer_Click(object sender, EventArgs e)
@@ -840,6 +901,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                
 
             }
+        }
+
+        private void txtPrecio_TextChanged(object sender, EventArgs e)
+        {
+            try {
+                CalcularImpuesto();
+
+            }
+            catch (Exception) { }
         }
     }
 }

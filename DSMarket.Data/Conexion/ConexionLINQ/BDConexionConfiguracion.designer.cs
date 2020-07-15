@@ -117,6 +117,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idConfiguracionGeneral, descripcion, estatus, accion);
 			return ((ISingleResult<SP_MANTENIMIENTO_CONFIGURACION_GENERALResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Configuracion.SP_BUSCA_IMPUESTO_VENTA")]
+		public ISingleResult<SP_BUSCA_IMPUESTO_VENTAResult> SP_BUSCA_IMPUESTO_VENTA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdImpuesto", DbType="Int")] System.Nullable<int> idImpuesto)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idImpuesto);
+			return ((ISingleResult<SP_BUSCA_IMPUESTO_VENTAResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_BUSCA_LISTASResult
@@ -1294,6 +1301,104 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._Estatus != value))
 				{
 					this._Estatus = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCA_IMPUESTO_VENTAResult
+	{
+		
+		private int _IdImpuesto;
+		
+		private string _Descripcion;
+		
+		private System.Nullable<int> _PorcientoImpuesto;
+		
+		private System.Nullable<bool> _Operacion0;
+		
+		private string _Operacion;
+		
+		public SP_BUSCA_IMPUESTO_VENTAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdImpuesto", DbType="Int NOT NULL")]
+		public int IdImpuesto
+		{
+			get
+			{
+				return this._IdImpuesto;
+			}
+			set
+			{
+				if ((this._IdImpuesto != value))
+				{
+					this._IdImpuesto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(100)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorcientoImpuesto", DbType="Int")]
+		public System.Nullable<int> PorcientoImpuesto
+		{
+			get
+			{
+				return this._PorcientoImpuesto;
+			}
+			set
+			{
+				if ((this._PorcientoImpuesto != value))
+				{
+					this._PorcientoImpuesto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Operacion0", DbType="Bit")]
+		public System.Nullable<bool> Operacion0
+		{
+			get
+			{
+				return this._Operacion0;
+			}
+			set
+			{
+				if ((this._Operacion0 != value))
+				{
+					this._Operacion0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Operacion", DbType="VarChar(5) NOT NULL", CanBeNull=false)]
+		public string Operacion
+		{
+			get
+			{
+				return this._Operacion;
+			}
+			set
+			{
+				if ((this._Operacion != value))
+				{
+					this._Operacion = value;
 				}
 			}
 		}

@@ -131,4 +131,14 @@
       <Column Name="Estatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Configuracion.SP_BUSCA_IMPUESTO_VENTA" Method="SP_BUSCA_IMPUESTO_VENTA">
+    <Parameter Name="IdImpuesto" Parameter="idImpuesto" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_BUSCA_IMPUESTO_VENTAResult">
+      <Column Name="IdImpuesto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="PorcientoImpuesto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Operacion0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Operacion" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>

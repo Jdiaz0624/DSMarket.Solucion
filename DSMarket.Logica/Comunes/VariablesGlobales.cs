@@ -73,5 +73,7 @@ namespace DSMarket.Logica.Comunes
         public int CantidadRegistrosIngresadaEliminarRegistro { get; set; }
         public decimal IdHistorialProductoEliminarRegistro { get; set; }
         #endregion
+        public bool AplicaImpuesto { get; set; }
+        public decimal IdTipoProductoNuevo { get; set; }
     }
 }

@@ -311,6 +311,7 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                 Item.IdProducto,
                 Item.Acumulativo,
                 Item.ConectorProducto,
+                Item.Impuesto,
                 Accion);
             if (FacturacionProducto != null) {
                 Guardar = (from n in FacturacionProducto
@@ -328,6 +329,7 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                IdProducto = n.IdProducto,
                                Acumulativo = n.Acumulativo,
                                ConectorProducto = n.ConectorProducto,
+                               Impuesto=n.Impuesto,
                            }).FirstOrDefault();
             }
             return Guardar;
@@ -362,7 +364,8 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                PorcientoImpuesto = n.PorcientoImpuesto,
                                SubTotal = n.SubTotal,
                                TotalImpuesto = n.TotalImpuesto,
-                               TotalGeneral = n.TotalGeneral
+                               TotalGeneral = n.TotalGeneral,
+                               
                            }).ToList();
             return Listado;
         }
@@ -389,6 +392,7 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                 Item.MontoPagado,
                 Item.Cambio,
                 Item.IdTipoPago,
+                Item.TotalGeneral,
                 Accion);
             if (FacturacionCalculos != null)
             {
@@ -405,7 +409,8 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                PorcientoImpuesto = n.PorcientoImpuesto,
                                MontoPagado = n.MontoPagado,
                                Cambio = n.Cambio,
-                               IdTipoPago = n.IdTipoPago
+                               IdTipoPago = n.IdTipoPago,
+                               TotalGeneral=n.TotalGeneral
                            }).FirstOrDefault();
             }
             return Guardar;

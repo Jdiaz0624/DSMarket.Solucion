@@ -29,5 +29,6 @@ namespace DSMarket.Logica.Entidades.EntidadesServicio
         public System.Nullable<decimal> Cambio {get;set;}
 
         public System.Nullable<decimal> IdTipoPago {get;set;}
+        public System.Nullable<decimal> TotalGeneral { get; set; }
     }
 }

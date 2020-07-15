@@ -31,5 +31,6 @@ namespace DSMarket.Logica.Entidades.EntidadesServicio
         public string Acumulativo {get;set;}
 
         public System.Nullable<decimal> ConectorProducto {get;set;}
+        public System.Nullable<decimal> Impuesto { get; set; }
     }
 }

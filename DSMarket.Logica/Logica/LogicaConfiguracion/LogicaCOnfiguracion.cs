@@ -221,5 +221,21 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             return Mantenimiento;
         }
         #endregion
+        #region MANTENIMEINTO IMPUESTOS
+        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EImpuesto> BuscaImpuestos(int? IdImpuesto = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_BUSCA_IMPUESTO_VENTA(IdImpuesto)
+                           select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EImpuesto
+                           {
+                               IdImpuesto=n.IdImpuesto,
+                               Descripcion=n.Descripcion,
+                               PorcientoImpuesto=n.PorcientoImpuesto,
+                               Operacion0=n.Operacion0,
+                               Operacion=n.Operacion
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
     }
 }

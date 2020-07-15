@@ -437,6 +437,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             Calculos.MontoPagado = Convert.ToDecimal(txtMontoPagar.Text);
             Calculos.Cambio = Convert.ToDecimal(txtCambio.Text);
             Calculos.IdTipoPago = Convert.ToDecimal(ddltIPago.SelectedValue);
+            Calculos.TotalGeneral = Convert.ToDecimal(txtTotal.Text);
 
 
             var MAn = ObjDataServicio.Value.GuardarFacturacionCalculos(Calculos, Accion);
