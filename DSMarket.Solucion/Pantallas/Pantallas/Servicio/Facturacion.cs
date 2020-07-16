@@ -22,6 +22,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         Lazy<DSMarket.Logica.Logica.LogicaEmpresa.LogicaEmpresa> ObjDataEmpresa = new Lazy<Logica.Logica.LogicaEmpresa.LogicaEmpresa>();
         Lazy<DSMarket.Logica.Logica.LogicaServicio.LogicaServicio> ObjDataServicio = new Lazy<Logica.Logica.LogicaServicio.LogicaServicio>();
         Lazy<DSMarket.Logica.Logica.LogicaInventario.LogicaInventario> ObjDataInventario = new Lazy<Logica.Logica.LogicaInventario.LogicaInventario>();
+        Lazy<DSMarket.Logica.Logica.LogicaCaja.LogicaCaja> ObjDataCaja = new Lazy<Logica.Logica.LogicaCaja.LogicaCaja>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region BLOQUEAR Y DESBLOQUEAR CONTROLES DEL LADO DEL CLIENTE
@@ -895,6 +896,22 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         }
         #endregion
+        #region AFECTAR LA CAJA
+        private void AfectarCaja() {
+            DSMarket.Logica.Entidades.EntidadesCaja.EHistorialCaja MantenimientoCaja = new Logica.Entidades.EntidadesCaja.EHistorialCaja();
+
+            MantenimientoCaja.IdHistorialCaja = 0;
+            MantenimientoCaja.IdCaja = 1;
+            MantenimientoCaja.Monto = Convert.ToDecimal(txtTotal.Text);
+            MantenimientoCaja.Concepto = "FACTURACION";
+            MantenimientoCaja.Fecha0 = DateTime.Now;
+            MantenimientoCaja.IdUsuario = VariablesGlobales.IdUsuario;
+            MantenimientoCaja.NumeroReferencia = VariablesGlobales.NumeroConector;
+            MantenimientoCaja.IdTipoPago = Convert.ToDecimal(ddltIPago.SelectedValue);
+
+            var MAN = ObjDataCaja.Value.MantenimientoHistorialCaja(MantenimientoCaja, "INSERT");
+        }
+        #endregion
 
 
         private void Facturacion_Load(object sender, EventArgs e)
@@ -1323,6 +1340,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             GuardarDatosClientes("INSERT");
                             GuardarDatosCalculos("INSERT");
                             AfectarComprobanteFiscal();
+                            AfectarCaja();
                             MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Dispose();
 
@@ -1347,6 +1365,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                                     GuardarDatosClientes("INSERT");
                                     GuardarDatosCalculos("INSERT");
                                     AfectarComprobanteFiscal();
+                                    AfectarCaja();
                                     MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     this.Dispose();
 

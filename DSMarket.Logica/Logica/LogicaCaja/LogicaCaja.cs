@@ -80,12 +80,11 @@ namespace DSMarket.Logica.Logica.LogicaCaja
         {
             DSMarket.Logica.Entidades.EntidadesCaja.EHistorialCaja Guardar = null;
 
-           var HistorialCaja= ObjData.SP_GUARDAR_HISTORIAL_CAJA(
+           var HistorialCaja= ObjData.SP_MANTENIMIENTO_HISTORIAL_CAJA(
                 Item.IdHistorialCaja,
                 Item.IdCaja,
                 Item.Monto,
                 Item.Concepto,
-                Item.Fecha0,
                 Item.IdUsuario,
                 Item.NumeroReferencia,
                 Item.IdTipoPago,
@@ -106,5 +105,8 @@ namespace DSMarket.Logica.Logica.LogicaCaja
             }
             return Guardar;
         }
+
+
+
     }
 }

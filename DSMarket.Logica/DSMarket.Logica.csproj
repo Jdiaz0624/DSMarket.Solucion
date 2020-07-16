@@ -51,6 +51,7 @@
     <Compile Include="Comunes\ValidarControles.cs" />
     <Compile Include="Comunes\VariablesGlobales.cs" />
     <Compile Include="Entidades\EntidadesCaja\ECajaGeneral.cs" />
+    <Compile Include="Entidades\EntidadesCaja\EHistiroalCaja.cs" />
     <Compile Include="Entidades\EntidadesCaja\EHistorialCaja.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EComprobantes.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EConfiguracionGeneral.cs" />
