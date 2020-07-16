@@ -71,6 +71,7 @@
             this.btnBuscar.Text = "      Modificar";
             this.toolTip1.SetToolTip(this.btnBuscar, "Consultar registros");
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // panel1
             // 

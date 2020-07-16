@@ -75,6 +75,20 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idClaveSeguridad, idUsuario, clave, numeroPagina, numeroregistros);
 			return ((ISingleResult<SP_BUSCA_CLAVE_SEGURIDADResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Seguridad.SP_SACAR_CREDENCIALES_BD")]
+		public ISingleResult<SP_SACAR_CREDENCIALES_BDResult> SP_SACAR_CREDENCIALES_BD([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdCredencial", DbType="Int")] System.Nullable<int> idCredencial)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idCredencial);
+			return ((ISingleResult<SP_SACAR_CREDENCIALES_BDResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Seguridad.SP_MODIFICAR_CREDENCIAL_BD")]
+		public ISingleResult<SP_MODIFICAR_CREDENCIAL_BDResult> SP_MODIFICAR_CREDENCIAL_BD([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdCredencial", DbType="Int")] System.Nullable<int> idCredencial, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Usuario", DbType="VarChar(100)")] string usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Clave", DbType="VarChar(8000)")] string clave, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idCredencial, usuario, clave, accion);
+			return ((ISingleResult<SP_MODIFICAR_CREDENCIAL_BDResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_BUSCA_USUARIOSResult
@@ -502,6 +516,130 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._Estatus != value))
 				{
 					this._Estatus = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_SACAR_CREDENCIALES_BDResult
+	{
+		
+		private int _IdCredencial;
+		
+		private string _Usuario;
+		
+		private string _Clave;
+		
+		public SP_SACAR_CREDENCIALES_BDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCredencial", DbType="Int NOT NULL")]
+		public int IdCredencial
+		{
+			get
+			{
+				return this._IdCredencial;
+			}
+			set
+			{
+				if ((this._IdCredencial != value))
+				{
+					this._IdCredencial = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Usuario", DbType="VarChar(100)")]
+		public string Usuario
+		{
+			get
+			{
+				return this._Usuario;
+			}
+			set
+			{
+				if ((this._Usuario != value))
+				{
+					this._Usuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Clave", DbType="VarChar(8000)")]
+		public string Clave
+		{
+			get
+			{
+				return this._Clave;
+			}
+			set
+			{
+				if ((this._Clave != value))
+				{
+					this._Clave = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_MODIFICAR_CREDENCIAL_BDResult
+	{
+		
+		private System.Nullable<int> _IdCredencial;
+		
+		private string _Usuario;
+		
+		private string _Clave;
+		
+		public SP_MODIFICAR_CREDENCIAL_BDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCredencial", DbType="Int")]
+		public System.Nullable<int> IdCredencial
+		{
+			get
+			{
+				return this._IdCredencial;
+			}
+			set
+			{
+				if ((this._IdCredencial != value))
+				{
+					this._IdCredencial = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Usuario", DbType="VarChar(100)")]
+		public string Usuario
+		{
+			get
+			{
+				return this._Usuario;
+			}
+			set
+			{
+				if ((this._Usuario != value))
+				{
+					this._Usuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Clave", DbType="VarChar(8000)")]
+		public string Clave
+		{
+			get
+			{
+				return this._Clave;
+			}
+			set
+			{
+				if ((this._Clave != value))
+				{
+					this._Clave = value;
 				}
 			}
 		}

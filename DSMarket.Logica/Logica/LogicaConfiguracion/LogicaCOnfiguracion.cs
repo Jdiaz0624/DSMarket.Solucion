@@ -237,5 +237,43 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             return Listado;
         }
         #endregion
+
+        #region MANTENIMIENTO DE RUTA DE REPORTES
+        //LISTADO DE RUTA DE REPORTES
+        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaReporte> BuscaRutaReporte(int? IdRutaReporte = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_SACAR_RUTA_REPORTE(IdRutaReporte)
+                           select new DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaReporte
+                           {
+                               IdReporte=n.IdReporte,
+                               Nombre=n.Nombre,
+                               RutaReporte=n.RutaReporte
+                           }).ToList();
+            return Listado;
+        }
+        //MANTENIMIENTO DE RUTA DE REPORTE
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaReporte MantenimientoRutaReporte(DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaReporte Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaReporte Mantenimiento = null;
+
+            var RutaReporte = ObjData.SP_MANTENIMIENTO_RUTA_REPORTE(
+                Item.IdReporte,
+                Item.Nombre,
+                Item.RutaReporte,
+                Accion);
+            if (RutaReporte != null) {
+                Mantenimiento = (from n in RutaReporte
+                                 select new DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaReporte
+                                 {
+                                     IdReporte=n.IdReporte,
+                                     Nombre=n.Descripcion,
+                                     RutaReporte=n.RutaReporte
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
+        #endregion
     }
 }

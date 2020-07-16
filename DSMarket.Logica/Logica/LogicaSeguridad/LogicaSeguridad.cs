@@ -58,5 +58,43 @@ namespace DSMarket.Logica.Logica.LogicaSeguridad
             return Buscar;
         }
         #endregion
+        #region MANTENIMIENTO DE CREDENCIALES DE BASE DE DATOS
+        //LISTADO DE CREDENCIALES DE BASES DE DATOS
+        public List<DSMarket.Logica.Entidades.EntidadesSeguridad.ECredenciales> SacarCredencialBD(int? IdCredencial = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_SACAR_CREDENCIALES_BD(IdCredencial)
+                           select new DSMarket.Logica.Entidades.EntidadesSeguridad.ECredenciales
+                           {
+                               IdCredencial=n.IdCredencial,
+                               Usuario=n.Usuario,
+                               Clave=n.Clave
+                           }).ToList();
+            return Listado;
+        }
+
+        //MANTENIMIENTO DE CREDENCIALES DE BASE DE DATOS
+        public DSMarket.Logica.Entidades.EntidadesSeguridad.ECredenciales ModificarCredencial(DSMarket.Logica.Entidades.EntidadesSeguridad.ECredenciales Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesSeguridad.ECredenciales Modificar = null;
+
+            var Credenciales = ObjData.SP_MODIFICAR_CREDENCIAL_BD(
+                Item.IdCredencial,
+                Item.Usuario,
+                Item.Clave,
+                Accion);
+            if (Credenciales != null) {
+                Modificar = (from n in Credenciales
+                             select new DSMarket.Logica.Entidades.EntidadesSeguridad.ECredenciales
+                             {
+                                 IdCredencial=n.IdCredencial,
+                                 Usuario=n.Usuario,
+                                 Clave=n.Clave
+                             }).FirstOrDefault();
+            }
+            return Modificar;
+        }
+        #endregion
     }
 }

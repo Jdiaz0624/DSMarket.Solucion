@@ -75,5 +75,7 @@ namespace DSMarket.Logica.Comunes
         #endregion
         public bool AplicaImpuesto { get; set; }
         public decimal IdTipoProductoNuevo { get; set; }
+
+   
     }
 }

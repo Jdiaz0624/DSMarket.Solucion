@@ -43,4 +43,23 @@
       <Column Name="Estatus" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="Seguridad.SP_SACAR_CREDENCIALES_BD" Method="SP_SACAR_CREDENCIALES_BD">
+    <Parameter Name="IdCredencial" Parameter="idCredencial" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_SACAR_CREDENCIALES_BDResult">
+      <Column Name="IdCredencial" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Usuario" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Clave" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Seguridad.SP_MODIFICAR_CREDENCIAL_BD" Method="SP_MODIFICAR_CREDENCIAL_BD">
+    <Parameter Name="IdCredencial" Parameter="idCredencial" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Usuario" Parameter="usuario" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Clave" Parameter="clave" Type="System.String" DbType="VarChar(8000)" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_MODIFICAR_CREDENCIAL_BDResult">
+      <Column Name="IdCredencial" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Usuario" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Clave" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

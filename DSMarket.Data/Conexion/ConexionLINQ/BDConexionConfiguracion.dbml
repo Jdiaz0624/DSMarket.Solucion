@@ -141,4 +141,23 @@
       <Column Name="Operacion" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="Reporte.SP_SACAR_RUTA_REPORTE" Method="SP_SACAR_RUTA_REPORTE">
+    <Parameter Name="IdReporte" Parameter="idReporte" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_SACAR_RUTA_REPORTEResult">
+      <Column Name="IdReporte" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="RutaReporte" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Reporte.SP_MANTENIMIENTO_RUTA_REPORTE" Method="SP_MANTENIMIENTO_RUTA_REPORTE">
+    <Parameter Name="IdReporte" Parameter="idReporte" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="RutaReporte" Parameter="rutaReporte" Type="System.String" DbType="VarChar(8000)" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_MANTENIMIENTO_RUTA_REPORTEResult">
+      <Column Name="IdReporte" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="RutaReporte" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

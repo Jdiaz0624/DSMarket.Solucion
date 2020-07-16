@@ -23,6 +23,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         Lazy<DSMarket.Logica.Logica.LogicaServicio.LogicaServicio> ObjDataServicio = new Lazy<Logica.Logica.LogicaServicio.LogicaServicio>();
         Lazy<DSMarket.Logica.Logica.LogicaInventario.LogicaInventario> ObjDataInventario = new Lazy<Logica.Logica.LogicaInventario.LogicaInventario>();
         Lazy<DSMarket.Logica.Logica.LogicaCaja.LogicaCaja> ObjDataCaja = new Lazy<Logica.Logica.LogicaCaja.LogicaCaja>();
+        Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region BLOQUEAR Y DESBLOQUEAR CONTROLES DEL LADO DEL CLIENTE
@@ -912,7 +913,52 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             var MAN = ObjDataCaja.Value.MantenimientoHistorialCaja(MantenimientoCaja, "INSERT");
         }
         #endregion
+        #region GENERAR LA FACTURA
+        private void GenerarFacturaVenta() {
+            try {
+                decimal IdFactura = 0;
+                string RutaReporte = "";
+                string UsuarioBD = "";
+                string ClaveBD = "";
 
+                //SACAMOS EL NUMERO DE LA FACTURA
+                var SacarNumeroFactura = ObjDataServicio.Value.SacarNumeroFactura(VariablesGlobales.NumeroConector);
+                foreach (var n in SacarNumeroFactura) {
+                    IdFactura = Convert.ToDecimal(n.IdFactura);
+                }
+
+                //SACAMOS LA RUTA DEL REPORTE DEPENDIENDO LA SELECCIONADO
+                if (rbfacturaspanish.Checked == true) {
+                    var SacarRutaReporte = ObjDataConfiguracion.Value.BuscaRutaReporte(1);
+                    foreach (var n in SacarRutaReporte) {
+                        RutaReporte = n.RutaReporte;
+                    }
+                }
+                else if (rbfacturaenglish.Checked == true) {
+                    var SacarRutaReporte = ObjDataConfiguracion.Value.BuscaRutaReporte(2);
+                    foreach (var n in SacarRutaReporte)
+                    {
+                        RutaReporte = n.RutaReporte;
+                    }
+                }
+
+                //SACAMOS LAS CREDENCIALES DE LAS BASES DE DATOS
+                var SacarCredencialesBD = ObjDataSeguridad.Value.SacarCredencialBD(1);
+                foreach (var n in SacarCredencialesBD) {
+                    UsuarioBD = n.Usuario;
+                    ClaveBD = DSMarket.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
+                }
+
+                //INVOCAMOS LA FACTURA
+                DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes FacturaVenta = new Reportes.Reportes();
+                FacturaVenta.GenerarFacturaVenta(IdFactura, RutaReporte, UsuarioBD, ClaveBD);
+                FacturaVenta.ShowDialog();
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al generar la factura, codigo de error--> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
 
         private void Facturacion_Load(object sender, EventArgs e)
         {
@@ -1341,7 +1387,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             GuardarDatosCalculos("INSERT");
                             AfectarComprobanteFiscal();
                             AfectarCaja();
+                  
                             MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            GenerarFacturaVenta();
                             this.Dispose();
 
                         }
@@ -1366,7 +1414,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                                     GuardarDatosCalculos("INSERT");
                                     AfectarComprobanteFiscal();
                                     AfectarCaja();
+                                   
                                     MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    GenerarFacturaVenta();
                                     this.Dispose();
 
                                 }

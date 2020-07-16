@@ -81,12 +81,13 @@
             this.btnBuscarRuta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBuscarRuta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarRuta.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
-            this.btnBuscarRuta.Location = new System.Drawing.Point(951, 80);
+            this.btnBuscarRuta.Location = new System.Drawing.Point(948, 80);
             this.btnBuscarRuta.Name = "btnBuscarRuta";
             this.btnBuscarRuta.Size = new System.Drawing.Size(46, 33);
             this.btnBuscarRuta.TabIndex = 8;
             this.toolTip1.SetToolTip(this.btnBuscarRuta, "Seleccionar Reporte");
             this.btnBuscarRuta.UseVisualStyleBackColor = true;
+            this.btnBuscarRuta.Click += new System.EventHandler(this.btnBuscarRuta_Click);
             // 
             // txtRutaReporte
             // 
@@ -152,6 +153,7 @@
             this.btnNuevo.Text = "      Restablecer";
             this.toolTip1.SetToolTip(this.btnNuevo, "Crear registro nuevo");
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnBuscar
             // 
@@ -168,6 +170,7 @@
             this.btnBuscar.Text = "      Guardar";
             this.toolTip1.SetToolTip(this.btnBuscar, "Consultar registros");
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // panel1
             // 
@@ -231,6 +234,7 @@
             this.dtListado.RowTemplate.Height = 24;
             this.dtListado.Size = new System.Drawing.Size(997, 185);
             this.dtListado.TabIndex = 0;
+            this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
             // Select
             // 

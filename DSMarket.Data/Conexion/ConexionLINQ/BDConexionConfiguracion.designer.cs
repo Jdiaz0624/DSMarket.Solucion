@@ -124,6 +124,20 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idImpuesto);
 			return ((ISingleResult<SP_BUSCA_IMPUESTO_VENTAResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Reporte.SP_SACAR_RUTA_REPORTE")]
+		public ISingleResult<SP_SACAR_RUTA_REPORTEResult> SP_SACAR_RUTA_REPORTE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdReporte", DbType="Int")] System.Nullable<int> idReporte)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idReporte);
+			return ((ISingleResult<SP_SACAR_RUTA_REPORTEResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Reporte.SP_MANTENIMIENTO_RUTA_REPORTE")]
+		public ISingleResult<SP_MANTENIMIENTO_RUTA_REPORTEResult> SP_MANTENIMIENTO_RUTA_REPORTE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdReporte", DbType="Int")] System.Nullable<int> idReporte, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Descripcion", DbType="VarChar(100)")] string descripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RutaReporte", DbType="VarChar(8000)")] string rutaReporte, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idReporte, descripcion, rutaReporte, accion);
+			return ((ISingleResult<SP_MANTENIMIENTO_RUTA_REPORTEResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_BUSCA_LISTASResult
@@ -1399,6 +1413,130 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._Operacion != value))
 				{
 					this._Operacion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_SACAR_RUTA_REPORTEResult
+	{
+		
+		private int _IdReporte;
+		
+		private string _Nombre;
+		
+		private string _RutaReporte;
+		
+		public SP_SACAR_RUTA_REPORTEResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdReporte", DbType="Int NOT NULL")]
+		public int IdReporte
+		{
+			get
+			{
+				return this._IdReporte;
+			}
+			set
+			{
+				if ((this._IdReporte != value))
+				{
+					this._IdReporte = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(100)")]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this._Nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RutaReporte", DbType="VarChar(8000)")]
+		public string RutaReporte
+		{
+			get
+			{
+				return this._RutaReporte;
+			}
+			set
+			{
+				if ((this._RutaReporte != value))
+				{
+					this._RutaReporte = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_MANTENIMIENTO_RUTA_REPORTEResult
+	{
+		
+		private System.Nullable<int> _IdReporte;
+		
+		private string _Descripcion;
+		
+		private string _RutaReporte;
+		
+		public SP_MANTENIMIENTO_RUTA_REPORTEResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdReporte", DbType="Int")]
+		public System.Nullable<int> IdReporte
+		{
+			get
+			{
+				return this._IdReporte;
+			}
+			set
+			{
+				if ((this._IdReporte != value))
+				{
+					this._IdReporte = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(100)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RutaReporte", DbType="VarChar(8000)")]
+		public string RutaReporte
+		{
+			get
+			{
+				return this._RutaReporte;
+			}
+			set
+			{
+				if ((this._RutaReporte != value))
+				{
+					this._RutaReporte = value;
 				}
 			}
 		}
