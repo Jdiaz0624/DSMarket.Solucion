@@ -525,10 +525,7 @@ namespace DSMarket.Logica.Logica.LogicaServicio
             return Mantenimiento;
         }
 
-        public object GuardarFacturacionProductos(EProductosAgregados eliminar, string v)
-        {
-            throw new NotImplementedException();
-        }
+     
         #endregion
 
 

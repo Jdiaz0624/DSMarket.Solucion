@@ -790,7 +790,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         Devolver.EstatusProducto0 = EstatusProducto;
 
                         var Add = ObjDataInventario.Value.MantenimientoProducto(Devolver, "CHANGESTATUS");
-                      //  EliminarListadoProductosAgregados();
+                        EliminarListadoProductosAgregados();
                     }
                 }
                 else {
@@ -802,11 +802,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         #endregion
         #region ELIMINAR LISTADO DE PRODUCTOS AGREGADOS
         private void EliminarListadoProductosAgregados() {
-            DSMarket.Logica.Entidades.EntidadesServicio.EProductosAgregados Eliminar = new Logica.Entidades.EntidadesServicio.EProductosAgregados();
+            DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionProducto Eliminar = new Logica.Entidades.EntidadesServicio.EFacturacionProducto();
 
             Eliminar.NumeroConector = VariablesGlobales.NumeroConector;
 
-            var Borrar = ObjDataServicio.Value.GuardarFacturacionProductos(Eliminar, "DELETE");
+            var MAN = ObjDataServicio.Value.GuardarFacturacionProductos(Eliminar, "DELETEALL");
+            //DSMarket.Logica.Entidades.EntidadesServicio.EProductosAgregados Eliminar = new Logica.Entidades.EntidadesServicio.EProductosAgregados();
+
+            //Eliminar.NumeroConector = VariablesGlobales.NumeroConector;
+
+            //var Borrar = ObjDataServicio.Value.GuardarFacturacionProductos(Eliminar, "DELETE");
         }
         #endregion
         #region MODIFICAR EL STOCK DE LA FACTURA
