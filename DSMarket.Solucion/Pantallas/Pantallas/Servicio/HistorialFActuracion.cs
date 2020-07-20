@@ -16,11 +16,95 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         {
             InitializeComponent();
         }
+        Lazy<DSMarket.Logica.Logica.LogicaServicio.LogicaServicio> ObhDataServicio = new Lazy<Logica.Logica.LogicaServicio.LogicaServicio>();
+        public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
         #region APLCIAR TEMA
         private void AplicarTema() {
             this.BackColor = SystemColors.Control;
 
 
+        }
+        #endregion
+
+        #region MOSTRAR EL LISTADO DE LAS VENTAS
+        private void MostrarListadoVentas() {
+            try {
+                if (cbNoagregarRangofecha.Checked == true) {
+                    //HACEMOS LA CONSULTA AGREGANDO RANGO DE FECHA
+                    if (rbGenerar.Checked == true) {
+                        string _NombrreCliente = string.IsNullOrEmpty(txtParametro.Text.Trim()) ? null : txtParametro.Text.Trim();
+
+                        var BuscarRegistro = ObhDataServicio.Value.HistorialFacturacion(
+                            new Nullable<decimal>(),
+                            null,
+                            null,
+                            null,
+                            _NombrreCliente,
+                            Convert.ToDateTime(txtFechaDesde.Text),
+                            Convert.ToDateTime(txtFechaHasta.Text),
+                            Convert.ToInt32(txtNumeroPagina.Value),
+                            Convert.ToInt32(txtNumeroRegistros.Value));
+                        dtListado.DataSource = BuscarRegistro;
+                    }
+                    else if (rbNumero.Checked == true) {
+
+                    }
+                    else if (rbEstatus.Checked == true) {
+
+                    }
+                    else if (rbTipoFacturacion.Checked == true) {
+
+                    }
+                    else if (rbTipoPago.Checked == true) {
+
+                    }
+                    else {
+                        MessageBox.Show("Favor de seleccionar una opción para consultar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else {
+                    //HACEMOS LA CONSULTA SIN AGREGAR RANGO DE FECHA
+                    if (rbGenerar.Checked == true)
+                    {
+                        string _NombrreCliente = string.IsNullOrEmpty(txtParametro.Text.Trim()) ? null : txtParametro.Text.Trim();
+
+                        var BuscarRegistro = ObhDataServicio.Value.HistorialFacturacion(
+                            new Nullable<decimal>(),
+                            null,
+                            null,
+                            null,
+                            _NombrreCliente,
+                            null,
+                            null,
+                            Convert.ToInt32(txtNumeroPagina.Value),
+                            Convert.ToInt32(txtNumeroRegistros.Value));
+                        dtListado.DataSource = BuscarRegistro;
+                    }
+                    else if (rbNumero.Checked == true)
+                    {
+
+                    }
+                    else if (rbEstatus.Checked == true)
+                    {
+
+                    }
+                    else if (rbTipoFacturacion.Checked == true)
+                    {
+
+                    }
+                    else if (rbTipoPago.Checked == true)
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Favor de seleccionar una opción para consultar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al mostrar el listado, codigo de error--> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         #endregion
         private void HistorialFActuracion_Load(object sender, EventArgs e)
@@ -32,7 +116,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             rbTipoPago.ForeColor = Color.DarkRed;
             cbNoagregarRangofecha.ForeColor = Color.DarkRed;
             rbGenerar.Checked = true;
-
+            lbCantidadRegistrosTitulo.ForeColor = Color.White;
+            lbCantidadRegistros.ForeColor = Color.White;
+            lbCantidadRegistrosVariable.ForeColor = Color.White;
             lbFechaDesde.Visible = false;
             txtFechaDesde.Visible = false;
             lbFechaHAsta.Visible = false;
@@ -271,6 +357,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             if (rbNumero.Checked == true) {
                 DSMarket.Logica.Comunes.ValidarControles.SoloNumeros(e);
             }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            MostrarListadoVentas();
         }
     }
 }

@@ -684,6 +684,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 decimal CantidadArticulos = Convert.ToDecimal(n.CantidadProductos);
                 decimal CantidadServicios = Convert.ToDecimal(n.CantidadServicios);
                 decimal TotalRegistros = Convert.ToDecimal(n.CantidadRegistros);
+              
 
                 txtTotalDescuento.Text = TotalDescuento.ToString("N2");
                 txtSubtotal.Text = SubTotal.ToString("N2");
@@ -715,6 +716,29 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             //this.dtProductosAgregados.Columns[""].Visible = false;
             //this.dtProductosAgregados.Columns[""].Visible = false;
             //this.dtProductosAgregados.Columns[""].Visible = false;
+
+            bool Operacion = false;
+
+            var ValidarOperacionImpuesto = ObjDataConfiguracion.Value.BuscaImpuestos(1);
+            foreach (var ni in ValidarOperacionImpuesto)
+            {
+                Operacion = Convert.ToBoolean(ni.Operacion0);
+            }
+
+            if (Operacion == true) {
+                decimal SubtotalMaco = Convert.ToDecimal(txtSubtotal.Text);
+                decimal ImpuestoMaco = Convert.ToDecimal(txtImpuesto.Text);
+                decimal TotalPagarMaco = Convert.ToDecimal(txtTotal.Text);
+                decimal TotalDescuentoMaco = Convert.ToDecimal(txtTotalDescuento.Text);
+                decimal OperacionMaco = 0;
+
+                txtSubtotal.Text = string.Empty;
+                txtTotal.Text = string.Empty;
+
+                OperacionMaco = (TotalPagarMaco + ImpuestoMaco) - TotalDescuentoMaco;
+                txtSubtotal.Text = TotalPagarMaco.ToString("N2");
+                txtTotal.Text = OperacionMaco.ToString("N2");
+            }
         }
         #endregion
         #region MOSTRAR LOS TIPOS DE PAGOS
@@ -994,6 +1018,26 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             MantenimientoCaja.IdTipoPago = Convert.ToDecimal(ddltIPago.SelectedValue);
 
             var MAN = ObjDataCaja.Value.MantenimientoHistorialCaja(MantenimientoCaja, "INSERT");
+        }
+
+        private void IngresarSacarDinero(string Accion)
+        {
+            try
+            {
+                DSMarket.Logica.Entidades.EntidadesCaja.ECajaGeneral AbrirCerrar = new Logica.Entidades.EntidadesCaja.ECajaGeneral();
+
+                AbrirCerrar.IdCaja = 1;
+                AbrirCerrar.Caja = "Caja General";
+                AbrirCerrar.MontoActual = Convert.ToDecimal(txtTotal.Text);
+                AbrirCerrar.Estatus0 = true;
+
+                var MAN = ObjDataCaja.Value.AfectarCaja(AbrirCerrar, Accion);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al abrir o cerrar caja, codigo de error --> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         #endregion
         #region GENERAR LA FACTURA
@@ -1470,7 +1514,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             GuardarDatosCalculos("INSERT");
                             AfectarComprobanteFiscal();
                             AfectarCaja();
-                  
+                            IngresarSacarDinero("ADDMONEY");
+
+
                             MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                             GenerarFacturaVenta();
                             this.Dispose();
@@ -1497,7 +1543,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                                     GuardarDatosCalculos("INSERT");
                                     AfectarComprobanteFiscal();
                                     AfectarCaja();
-                                   
+                                    IngresarSacarDinero("ADDMONEY");
                                     MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     GenerarFacturaVenta();
                                     this.Dispose();

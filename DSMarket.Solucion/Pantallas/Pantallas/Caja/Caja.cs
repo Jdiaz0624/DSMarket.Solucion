@@ -98,7 +98,22 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
             }
         }
         #endregion
+        #region FECTAR CAJA
+        private void AfectarCaja(decimal Monto, string Concepto) {
+            DSMarket.Logica.Entidades.EntidadesCaja.EHistorialCaja MantenimientoCaja = new Logica.Entidades.EntidadesCaja.EHistorialCaja();
 
+            MantenimientoCaja.IdHistorialCaja = 0;
+            MantenimientoCaja.IdCaja = 1;
+            MantenimientoCaja.Monto = Monto;
+            MantenimientoCaja.Concepto = Concepto;
+            MantenimientoCaja.Fecha0 = DateTime.Now;
+            MantenimientoCaja.IdUsuario = VariablesGlobales.IdUsuario;
+            MantenimientoCaja.NumeroReferencia = VariablesGlobales.NumeroConector;
+            MantenimientoCaja.IdTipoPago = 1;
+
+            var MAN = ObjDataLogica.Value.MantenimientoHistorialCaja(MantenimientoCaja, "INSERT");
+        }
+        #endregion
         private void PCerrar_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -153,8 +168,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
                     }
                     IngresarSacarDinero("ADDMONEY");
                   //  AbrirCerrarCaja("");
+                   
+
+                    decimal Monto = 0;
+                    string Concepto = txtConcepto.Text;
+                    Monto = Convert.ToDecimal(txtMonto.Text);
+                    AfectarCaja(Monto, Concepto);
+
                     MostrarEstatusCaja();
                     txtConcepto.Text = string.Empty;
+                    txtMonto.Text = string.Empty;
                 }
                 else if (rbSacar.Checked == true)
                 {
@@ -172,9 +195,18 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
                     else
                     {
                         IngresarSacarDinero("LESSMONEY");
-                      //  AbrirCerrarCaja("");
+                        //  AbrirCerrarCaja("");
+
+
+                        decimal Monto = 0;
+                        string Concepto = txtConcepto.Text;
+                        Monto = Convert.ToDecimal(txtMonto.Text);
+                        Monto = Monto * -1;
+                        AfectarCaja(Monto, Concepto);
+
                         MostrarEstatusCaja();
                         txtConcepto.Text = string.Empty;
+                        txtMonto.Text = string.Empty;
                     }
                 }
             }

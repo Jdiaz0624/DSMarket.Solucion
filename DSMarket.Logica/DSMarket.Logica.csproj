@@ -95,6 +95,7 @@
     <Compile Include="Entidades\EntidadesServicio\EFacturaMinimizada.cs" />
     <Compile Include="Entidades\EntidadesServicio\EGuardarFacturacionCalculos.cs" />
     <Compile Include="Entidades\EntidadesServicio\EGuardarFacturacionComprobantes.cs" />
+    <Compile Include="Entidades\EntidadesServicio\EHistorialFacturacion.cs" />
     <Compile Include="Entidades\EntidadesServicio\EMantenimientoHistorialProductoInventario.cs" />
     <Compile Include="Entidades\EntidadesServicio\EProductosAgregados.cs" />
     <Compile Include="Entidades\EntidadesServicio\ESacarNumeroFactura.cs" />

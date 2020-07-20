@@ -65,6 +65,8 @@
             this.lbFechaDesde = new System.Windows.Forms.Label();
             this.lbSeleccionar = new System.Windows.Forms.Label();
             this.lbParametro = new System.Windows.Forms.Label();
+            this.lbCantidadRegistros = new System.Windows.Forms.Label();
+            this.lbCantidadRegistrosVariable = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel2.SuspendLayout();
@@ -84,6 +86,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.lbCantidadRegistrosVariable);
+            this.panel1.Controls.Add(this.lbCantidadRegistros);
             this.panel1.Controls.Add(this.lbCantidadRegistrosTitulo);
             this.panel1.Controls.Add(this.PCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -246,6 +250,7 @@
             this.btnBuscar.Text = "      Buscar";
             this.toolTip1.SetToolTip(this.btnBuscar, "Consultar Registros");
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // cbNoagregarRangofecha
             // 
@@ -542,6 +547,24 @@
             this.lbParametro.TabIndex = 0;
             this.lbParametro.Text = "Parametro";
             // 
+            // lbCantidadRegistros
+            // 
+            this.lbCantidadRegistros.AutoSize = true;
+            this.lbCantidadRegistros.Location = new System.Drawing.Point(320, 9);
+            this.lbCantidadRegistros.Name = "lbCantidadRegistros";
+            this.lbCantidadRegistros.Size = new System.Drawing.Size(256, 20);
+            this.lbCantidadRegistros.TabIndex = 33;
+            this.lbCantidadRegistros.Text = "Cantidad de Registros Mostrados:";
+            // 
+            // lbCantidadRegistrosVariable
+            // 
+            this.lbCantidadRegistrosVariable.AutoSize = true;
+            this.lbCantidadRegistrosVariable.Location = new System.Drawing.Point(575, 9);
+            this.lbCantidadRegistrosVariable.Name = "lbCantidadRegistrosVariable";
+            this.lbCantidadRegistrosVariable.Size = new System.Drawing.Size(18, 20);
+            this.lbCantidadRegistrosVariable.TabIndex = 34;
+            this.lbCantidadRegistrosVariable.Text = "0";
+            // 
             // HistorialFActuracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -623,5 +646,7 @@
         private System.Windows.Forms.DataGridViewButtonColumn Select;
         private System.Windows.Forms.Button btnEstadistica;
         private System.Windows.Forms.Label lbCantidadRegistrosTitulo;
+        private System.Windows.Forms.Label lbCantidadRegistrosVariable;
+        private System.Windows.Forms.Label lbCantidadRegistros;
     }
 }

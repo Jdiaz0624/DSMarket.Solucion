@@ -525,7 +525,55 @@ namespace DSMarket.Logica.Logica.LogicaServicio
             return Mantenimiento;
         }
 
-     
+
+        #endregion
+
+        #region HISTORIAL DE FACTURACION
+        public List<DSMarket.Logica.Entidades.EntidadesServicio.EHistorialFacturacion> HistorialFacturacion(decimal? IdFactura = null, decimal? IdEstatusFacturacion = null, decimal? IdTipoFacturacion = null, decimal? IdTipoPago = null, string Cliente = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_BUSCA_HISTORIAL_FACTURACION(IdFactura, IdEstatusFacturacion, IdTipoFacturacion, IdTipoPago, Cliente, FechaDesde, FechaHasta, NumeroPagina, NumeroRegistros)
+                           select new DSMarket.Logica.Entidades.EntidadesServicio.EHistorialFacturacion
+                           {
+                               Cliente=n.Cliente,
+                               IdFactura=n.IdFactura,
+                               NumeroConector=n.NumeroConector,
+                               IdEstatusFacturacion=n.IdEstatusFacturacion,
+                               TipoIdentificacion=n.TipoIdentificacion,
+                               DescripcionComprobante=n.DescripcionComprobante,
+                               Comprobante=n.Comprobante,
+                               IdComprobante=n.IdComprobante,
+                               Descripcion=n.Descripcion,
+                               Telefono=n.Telefono,
+                               Email=n.Email,
+                               IdTipoIdentificacion = n.IdTipoIdentificacion,
+                               NumeroIdentificacion=n.NumeroIdentificacion,
+                               Direccion=n.Direccion,
+                               Comentario=n.Comentario,
+                               IdTipoVenta=n.IdTipoVenta,
+                               TipoVenta=n.TipoVenta,
+                               CantidadDias=n.CantidadDias,
+                               IdCantidadDias=n.IdCantidadDias,
+                               IdUsuario=n.IdUsuario,
+                               CreadoPor=n.CreadoPor,
+                               FechaFacturacion=n.FechaFacturacion,
+                               FechaFacturacion0=n.FechaFacturacion0,
+                               CantidadProductos=n.CantidadProductos,
+                               CantidadServicios=n.CantidadServicios,
+                               CantidadArticulos=n.CantidadArticulos,
+                               TotalDescuento=n.TotalDescuento,
+                               SubTotal=n.SubTotal,
+                               Impuesto=n.Impuesto,
+                               PorcientoImpuesto=n.PorcientoImpuesto,
+                               MontoPagado=n.MontoPagado,
+                               Cambio=n.Cambio,
+                               IdTipoPago=n.IdTipoPago,
+                               TipoPago=n.TipoPago,
+                               TotalGeneral=n.TotalGeneral,
+                               CantidadRegistros = n.CantidadRegistros
+                           }).ToList();
+            return Listado;
+        }
         #endregion
 
 
