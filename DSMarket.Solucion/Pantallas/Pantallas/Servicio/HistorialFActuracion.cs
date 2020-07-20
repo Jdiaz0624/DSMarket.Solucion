@@ -37,8 +37,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             txtFechaDesde.Visible = false;
             lbFechaHAsta.Visible = false;
             txtFechaHasta.Visible = false;
-            lbParametro.Visible = false;
-            txtParametro.Visible = false;
+           // lbParametro.Visible = false;
+          //  txtParametro.Visible = false;
             lbSeleccionar.Visible = false;
             ddlSeleccionar.Visible = false;
         }
@@ -52,10 +52,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 rbEstatus.ForeColor = Color.DarkRed;
                 rbTipoFacturacion.ForeColor = Color.DarkRed;
                 rbTipoPago.ForeColor = Color.DarkRed;
-               // cbNoagregarRangofecha.ForeColor = Color.DarkRed;
+                // cbNoagregarRangofecha.ForeColor = Color.DarkRed;
 
-                lbParametro.Visible = false;
-                txtParametro.Visible = false;
+                txtParametro.Text = string.Empty;
+                lbParametro.Visible = true;
+                txtParametro.Visible = true;
                 lbSeleccionar.Visible = false;
                 ddlSeleccionar.Visible = false;
             }
@@ -84,8 +85,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 rbEstatus.ForeColor = Color.DarkRed;
                 rbTipoFacturacion.ForeColor = Color.DarkRed;
                 rbTipoPago.ForeColor = Color.DarkRed;
-              //  cbNoagregarRangofecha.ForeColor = Color.DarkRed;
+                //  cbNoagregarRangofecha.ForeColor = Color.DarkRed;
 
+                txtParametro.Text = string.Empty;
                 lbParametro.Visible = true;
                 txtParametro.Visible = true;
                 lbSeleccionar.Visible = false;
@@ -262,6 +264,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void PCerrar_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void txtParametro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (rbNumero.Checked == true) {
+                DSMarket.Logica.Comunes.ValidarControles.SoloNumeros(e);
+            }
         }
     }
 }

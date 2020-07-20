@@ -826,7 +826,85 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             var MAn = ObjDataInventario.Value.MantenimientoProducto(Alterar, Accion);
         }
         #endregion
+        #region PROCESO PARA COTIZAR
+        private void ProcesoCotizar(decimal NumeroConectorProcesar) {
+            var BuscaProductosAgregados = ObjDataServicio.Value.BuscapRoductosAgregados(
+               new Nullable<decimal>(),
+               NumeroConectorProcesar);
+            decimal IdProducto = 0;
+            decimal IdTipoProducto = 0;
+            bool Acumulativo = false;
+            bool EstatusProducto = false;
+            decimal NumeroConector = 0;
+            int CantidadAgregada = 0;
+            foreach (var n in BuscaProductosAgregados)
+            {
+                IdProducto = Convert.ToDecimal(n.IdProducto);
 
+                //BUSCAMOS EL PRODUCTO PARA DETERMINAR QUE TIPO DE PRODUCTO ES
+                var SacarDatosProducto = ObjDataInventario.Value.BuscaProductos(
+                    IdProducto,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    1, 1);
+                foreach (var n2 in SacarDatosProducto)
+                {
+                    IdTipoProducto = Convert.ToDecimal(n2.IdTipoProducto);
+                    Acumulativo = Convert.ToBoolean(n2.ProductoAcumulativo0);
+                    EstatusProducto = Convert.ToBoolean(n2.EstatusProducto0);
+                    NumeroConector = Convert.ToDecimal(n2.NumeroConector);
+                    CantidadAgregada = Convert.ToInt32(n.Cantidad);
+                }
+
+                //VALIDAMOS LOS DATOS
+                if (IdTipoProducto == 1)
+                {
+                    //ESTE BLOQUE ESTA RESERVADO PARA LOS PRODUCTOS
+                    if (Acumulativo == true)
+                    {
+                        //ESTE BLOQUE ESTA RESERVADO PARA LOS PRODUCTOS QUE SON ACUMULATIVO
+                        //DEVOLVEMOS EL ESTATUS DEL PRODUCTO
+
+
+                        ModificarStockproducto(IdProducto, NumeroConector, CantidadAgregada, "ADDPRODUCT");
+
+                        //  EliminarListadoProductosAgregados();
+                    }
+                    else
+                    {
+                        //ESTE BLOQUE ESTA RESERVADO PARA LOS PRODUCTOS QUE NO SON ACUMULATIVO
+                        //ACTUAMIZAMOS EL ESTATUS DEL PRODUCTO
+
+                        DSMarket.Logica.Entidades.EntidadesInventario.EProducto Devolver = new Logica.Entidades.EntidadesInventario.EProducto();
+
+                        Devolver.IdProducto = IdProducto;
+                        Devolver.IdTipoProducto = IdTipoProducto;
+                        Devolver.ProductoAcumulativo0 = Acumulativo;
+                        Devolver.EstatusProducto0 = EstatusProducto;
+
+                        var Add = ObjDataInventario.Value.MantenimientoProducto(Devolver, "CHANGESTATUS");
+                        
+                    }
+                }
+                else
+                {
+                    //ESTE BLOQUE ESTA RESERVADO PARA LOS SERVICIOS
+                    //   EliminarListadoProductosAgregados();
+                }
+            }
+        }
+        #endregion
         #region CALCULAR CAMBIO
         /// <summary>
         /// Este metodo es para calcular el cambio de la factura.
@@ -1442,6 +1520,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 else if (rbCotizar.Checked == true)
                 {
                     //COTIZAMOS
+                    ProcesoCotizar(VariablesGlobales.NumeroConector);
+                    GuardarDatosClientes("INSERT");
+                    GuardarDatosCalculos("INSERT");
+
+                    MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    GenerarFacturaVenta();
+                    this.Dispose();
                 }
                 else
                 {
