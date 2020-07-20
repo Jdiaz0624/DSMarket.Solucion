@@ -138,6 +138,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idReporte, descripcion, rutaReporte, accion);
 			return ((ISingleResult<SP_MANTENIMIENTO_RUTA_REPORTEResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Reporte.SP_PROCESAR_CUADRE_CAJA")]
+		public ISingleResult<SP_PROCESAR_CUADRE_CAJAResult> SP_PROCESAR_CUADRE_CAJA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Decimal(20,0)")] System.Nullable<decimal> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdCaja", DbType="Int")] System.Nullable<int> idCaja, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Monto", DbType="Decimal(20,2)")] System.Nullable<decimal> monto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Concepto", DbType="VarChar(1000)")] string concepto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaProcesado", DbType="Date")] System.Nullable<System.DateTime> fechaProcesado, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaDesde", DbType="Date")] System.Nullable<System.DateTime> fechaDesde, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaHasta", DbType="Date")] System.Nullable<System.DateTime> fechaHasta, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroReferencia", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroReferencia, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoPago", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoPago, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, idCaja, monto, concepto, fechaProcesado, fechaDesde, fechaHasta, numeroReferencia, idTipoPago, accion);
+			return ((ISingleResult<SP_PROCESAR_CUADRE_CAJAResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_BUSCA_LISTASResult
@@ -1537,6 +1544,176 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._RutaReporte != value))
 				{
 					this._RutaReporte = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_PROCESAR_CUADRE_CAJAResult
+	{
+		
+		private System.Nullable<decimal> _IdUsuario;
+		
+		private System.Nullable<int> _IdCaja;
+		
+		private System.Nullable<decimal> _Monto;
+		
+		private string _Concepto;
+		
+		private System.Nullable<System.DateTime> _FechaProcesado;
+		
+		private System.Nullable<System.DateTime> _FechaDesde;
+		
+		private System.Nullable<System.DateTime> _FechaHasta;
+		
+		private System.Nullable<decimal> _NumeroReferencia;
+		
+		private System.Nullable<decimal> _IdTipoPago;
+		
+		public SP_PROCESAR_CUADRE_CAJAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdUsuario
+		{
+			get
+			{
+				return this._IdUsuario;
+			}
+			set
+			{
+				if ((this._IdUsuario != value))
+				{
+					this._IdUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCaja", DbType="Int")]
+		public System.Nullable<int> IdCaja
+		{
+			get
+			{
+				return this._IdCaja;
+			}
+			set
+			{
+				if ((this._IdCaja != value))
+				{
+					this._IdCaja = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Monto", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> Monto
+		{
+			get
+			{
+				return this._Monto;
+			}
+			set
+			{
+				if ((this._Monto != value))
+				{
+					this._Monto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Concepto", DbType="VarChar(1000)")]
+		public string Concepto
+		{
+			get
+			{
+				return this._Concepto;
+			}
+			set
+			{
+				if ((this._Concepto != value))
+				{
+					this._Concepto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaProcesado", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaProcesado
+		{
+			get
+			{
+				return this._FechaProcesado;
+			}
+			set
+			{
+				if ((this._FechaProcesado != value))
+				{
+					this._FechaProcesado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaDesde", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaDesde
+		{
+			get
+			{
+				return this._FechaDesde;
+			}
+			set
+			{
+				if ((this._FechaDesde != value))
+				{
+					this._FechaDesde = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaHasta", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaHasta
+		{
+			get
+			{
+				return this._FechaHasta;
+			}
+			set
+			{
+				if ((this._FechaHasta != value))
+				{
+					this._FechaHasta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroReferencia", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> NumeroReferencia
+		{
+			get
+			{
+				return this._NumeroReferencia;
+			}
+			set
+			{
+				if ((this._NumeroReferencia != value))
+				{
+					this._NumeroReferencia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoPago", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdTipoPago
+		{
+			get
+			{
+				return this._IdTipoPago;
+			}
+			set
+			{
+				if ((this._IdTipoPago != value))
+				{
+					this._IdTipoPago = value;
 				}
 			}
 		}

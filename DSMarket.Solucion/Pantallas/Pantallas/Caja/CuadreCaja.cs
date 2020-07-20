@@ -16,6 +16,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
         {
             InitializeComponent();
         }
+        Lazy<DSMarket.Logica.Logica.LogicaCaja.LogicaCaja> ObjDataCaja = new Lazy<Logica.Logica.LogicaCaja.LogicaCaja>();
+        Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjdataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
+        Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
+        public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         private void CuadreCaja_Load(object sender, EventArgs e)
         {
@@ -52,6 +56,77 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
             else
             {
                 cbCradreMail.ForeColor = Color.DarkRed;
+            }
+        }
+
+        private void btnProcesar_Click(object sender, EventArgs e)
+        {
+            try {
+                //BUSCAMOS EL HISTORIAL DE CAJA SEGUN LA FECHA
+
+                var BuscarHistorialCaja = ObjDataCaja.Value.BuscaHistorialCaja(
+                    new Nullable<decimal>(),
+                    null,
+                    Convert.ToDateTime(txtFechaDesde.Text),
+                    Convert.ToDateTime(txtFechaHasta.Text));
+                if (BuscarHistorialCaja.Count() < 1)
+                {
+                    MessageBox.Show("No se encontraron registros en el rango de fecha ingresado, favor de verificar los parametros", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    //ELIMINAMOS LOS REGISTROS
+
+                    DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarReporteCuadreCaja Eliminar = new Logica.Entidades.EntidadesConfiguracion.EProcesarReporteCuadreCaja();
+                    Eliminar.IdUsuario = VariablesGlobales.IdUsuario;
+                    var MANEliminar = ObjdataConfiguracion.Value.ProcesarCuadreCaja(Eliminar, "DELETE");
+
+                    //SACAMOS LOS DATOS INGRESADOS
+                    foreach (var n in BuscarHistorialCaja)
+                    {
+                        DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarReporteCuadreCaja Procesar = new Logica.Entidades.EntidadesConfiguracion.EProcesarReporteCuadreCaja();
+
+                        Procesar.IdUsuario = VariablesGlobales.IdUsuario;
+                        Procesar.IdCaja = 1;
+                        Procesar.Monto = Convert.ToDecimal(n.Monto);
+                        Procesar.Concepto = n.Concepto;
+                        Procesar.FechaProcesado = Convert.ToDateTime(n.Fecha0);
+                        Procesar.FechaDesde = Convert.ToDateTime(txtFechaDesde.Text);
+                        Procesar.FechaHasta = Convert.ToDateTime(txtFechaHasta.Text);
+                        Procesar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
+                        Procesar.IdTipoPago = Convert.ToDecimal(n.IdTipoPago);
+
+                        var MANProcesar = ObjdataConfiguracion.Value.ProcesarCuadreCaja(Procesar, "INSERT");
+                    }
+
+                    //INVOCAMOS EL REPORTE
+                    DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes Generar = new Reportes.Reportes();
+
+
+                    string RutaReporte = "", UsuarioBD="", ClaveBD="";
+
+                    var SacarRutaReporte = ObjdataConfiguracion.Value.BuscaRutaReporte(3);
+                    foreach (var n in SacarRutaReporte) {
+                        RutaReporte = n.RutaReporte;
+                    }
+
+                    var SacarCredenciales = ObjDataSeguridad.Value.SacarCredencialBD(1);
+                    foreach (var n2 in SacarCredenciales) {
+                        UsuarioBD = n2.Usuario;
+                        ClaveBD = DSMarket.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n2.Clave);
+                    }
+
+
+                    Generar.GenerarCuadreCaja(
+                        VariablesGlobales.IdUsuario,
+                        RutaReporte,
+                        UsuarioBD,
+                        ClaveBD);
+                    Generar.ShowDialog();
+                }
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al procesar el cuadre de caja, codigo de error--> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -47,9 +47,25 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
                 MessageBox.Show("Error al generar la factura de venta, favor de contactar al administrador del sistema, codigo de error--> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        #endregion
 
-        public void GenerarFacturaIngles(decimal IdFactura) {
+        #region GENERAR EL CUADRE DE CAJA
+        public void GenerarCuadreCaja(decimal IdUsuario, string RutaReporte, string UsuarioBD, string ClaveBD) {
+            ReportDocument Cuadre = new ReportDocument();
 
+            SqlCommand comando = new SqlCommand();
+            comando.CommandText = "[Reporte].[SP_GENERAR_REPORTE_CUADRE_CAJA] @IdUsuario";
+            comando.Connection = DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion();
+
+            comando.Parameters.Add("@IdUsuario", SqlDbType.Decimal);
+            comando.Parameters["@IdUsuario"].Value = IdUsuario;
+
+            
+            Cuadre.Load(@"" + RutaReporte);
+            Cuadre.Refresh();
+            Cuadre.SetParameterValue("@IdUsuario", IdUsuario);
+            Cuadre.SetDatabaseLogon(UsuarioBD, ClaveBD);
+            crystalReportViewer1.ReportSource = Cuadre;
         }
         #endregion
 

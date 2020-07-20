@@ -275,5 +275,41 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             return Mantenimiento;
         }
         #endregion
+
+        #region PROCESAR CUADRE CAJA
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarReporteCuadreCaja ProcesarCuadreCaja(DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarReporteCuadreCaja Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarReporteCuadreCaja Procesar = null;
+
+            var CuadreCaja = ObjData.SP_PROCESAR_CUADRE_CAJA(
+                Item.IdUsuario,
+                Item.IdCaja,
+                Item.Monto,
+                Item.Concepto,
+                Item.FechaProcesado,
+                Item.FechaDesde,
+                Item.FechaHasta,
+                Item.NumeroReferencia,
+                Item.IdTipoPago,
+                Accion);
+            if (CuadreCaja != null) {
+                Procesar = (from n in CuadreCaja
+                            select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarReporteCuadreCaja
+                            {
+                                IdUsuario=n.IdUsuario,
+                                IdCaja=n.IdCaja,
+                                Monto=n.Monto,
+                                Concepto=n.Concepto,
+                                FechaProcesado=n.FechaProcesado,
+                                FechaDesde=n.FechaDesde,
+                                FechaHasta=n.FechaHasta,
+                                NumeroReferencia=n.NumeroReferencia,
+                                IdTipoPago=n.IdTipoPago
+                            }).FirstOrDefault();
+            }
+            return Procesar;
+        }
+        #endregion
     }
 }

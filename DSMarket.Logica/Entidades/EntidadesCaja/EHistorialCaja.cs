@@ -29,5 +29,6 @@ namespace DSMarket.Logica.Entidades.EntidadesCaja
         public System.Nullable<decimal> IdTipoPago { get; set; }
 
         public string TipoPago { get; set; }
+        public System.Nullable<decimal> Total { get; set; }
     }
 }

@@ -70,7 +70,8 @@ namespace DSMarket.Logica.Logica.LogicaCaja
                                CreadoPor=n.CreadoPor,
                                NumeroReferencia=n.NumeroReferencia,
                                IdTipoPago=n.IdTipoPago,
-                               TipoPago=n.TipoPago
+                               TipoPago=n.TipoPago,
+                               Total=n.Total
                            }).ToList();
             return Listado;
         }

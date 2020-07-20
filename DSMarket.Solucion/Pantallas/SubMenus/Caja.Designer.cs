@@ -34,7 +34,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
-            this.lbusuario = new System.Windows.Forms.Label();
+            this.lbIdUsuario = new System.Windows.Forms.Label();
             this.gbOpciones = new System.Windows.Forms.GroupBox();
             this.btnMonedas = new System.Windows.Forms.Button();
             this.btnAbirCerrarCaja = new System.Windows.Forms.Button();
@@ -51,7 +51,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
             this.panel1.Controls.Add(this.PCerrar);
             this.panel1.Controls.Add(this.lbTitulo);
-            this.panel1.Controls.Add(this.lbusuario);
+            this.panel1.Controls.Add(this.lbIdUsuario);
             this.Efecto.SetDecoration(this.panel1, BunifuAnimatorNS.DecorationType.None);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -85,17 +85,17 @@
             this.lbTitulo.TabIndex = 13;
             this.lbTitulo.Text = "label6";
             // 
-            // lbusuario
+            // lbIdUsuario
             // 
-            this.lbusuario.AutoSize = true;
-            this.Efecto.SetDecoration(this.lbusuario, BunifuAnimatorNS.DecorationType.None);
-            this.lbusuario.ForeColor = System.Drawing.Color.White;
-            this.lbusuario.Location = new System.Drawing.Point(485, 10);
-            this.lbusuario.Name = "lbusuario";
-            this.lbusuario.Size = new System.Drawing.Size(51, 20);
-            this.lbusuario.TabIndex = 10;
-            this.lbusuario.Text = "label1";
-            this.lbusuario.Visible = false;
+            this.lbIdUsuario.AutoSize = true;
+            this.Efecto.SetDecoration(this.lbIdUsuario, BunifuAnimatorNS.DecorationType.None);
+            this.lbIdUsuario.ForeColor = System.Drawing.Color.White;
+            this.lbIdUsuario.Location = new System.Drawing.Point(485, 10);
+            this.lbIdUsuario.Name = "lbIdUsuario";
+            this.lbIdUsuario.Size = new System.Drawing.Size(51, 20);
+            this.lbIdUsuario.TabIndex = 10;
+            this.lbIdUsuario.Text = "label1";
+            this.lbIdUsuario.Visible = false;
             // 
             // gbOpciones
             // 
@@ -200,7 +200,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbTitulo;
-        private System.Windows.Forms.Label lbusuario;
+        private System.Windows.Forms.Label lbIdUsuario;
         public System.Windows.Forms.GroupBox gbOpciones;
         private System.Windows.Forms.Button btnMonedas;
         private System.Windows.Forms.Button btnAbirCerrarCaja;
