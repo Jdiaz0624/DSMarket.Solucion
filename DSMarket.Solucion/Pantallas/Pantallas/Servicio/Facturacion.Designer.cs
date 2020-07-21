@@ -68,9 +68,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtProductosAgregados = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnAgregarProductos = new System.Windows.Forms.Button();
             this.btnARS = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnMinimizarFactura = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnBuscarCodigoCliente = new System.Windows.Forms.Button();
             this.txtCodigoConsulta = new System.Windows.Forms.TextBox();
@@ -567,9 +567,9 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.button2);
+            this.groupBox4.Controls.Add(this.btnAgregarProductos);
             this.groupBox4.Controls.Add(this.btnARS);
-            this.groupBox4.Controls.Add(this.button3);
+            this.groupBox4.Controls.Add(this.btnMinimizarFactura);
             this.groupBox4.Location = new System.Drawing.Point(9, 521);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(1197, 77);
@@ -577,22 +577,22 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Opciones";
             // 
-            // button2
+            // btnAgregarProductos
             // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 10;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(10, 23);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(309, 46);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Agregar Productos";
-            this.toolTip1.SetToolTip(this.button2, "Agregar Productos a factura");
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnAgregarProductos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarProductos.FlatAppearance.BorderSize = 10;
+            this.btnAgregarProductos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAgregarProductos.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarProductos.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
+            this.btnAgregarProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarProductos.Location = new System.Drawing.Point(10, 23);
+            this.btnAgregarProductos.Name = "btnAgregarProductos";
+            this.btnAgregarProductos.Size = new System.Drawing.Size(309, 46);
+            this.btnAgregarProductos.TabIndex = 4;
+            this.btnAgregarProductos.Text = "Agregar Productos";
+            this.toolTip1.SetToolTip(this.btnAgregarProductos, "Agregar Productos a factura");
+            this.btnAgregarProductos.UseVisualStyleBackColor = true;
+            this.btnAgregarProductos.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnARS
             // 
@@ -611,22 +611,22 @@
             this.btnARS.UseVisualStyleBackColor = true;
             this.btnARS.Click += new System.EventHandler(this.btnARS_Click);
             // 
-            // button3
+            // btnMinimizarFactura
             // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 10;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Image = global::DSMarket.Solucion.Properties.Resources.cambiar_tamano_de_imagen_png_71;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(490, 23);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(203, 46);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Minimizar ";
-            this.toolTip1.SetToolTip(this.button3, "Minimizar Factura para proceder a crear otra");
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnMinimizarFactura.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMinimizarFactura.FlatAppearance.BorderSize = 10;
+            this.btnMinimizarFactura.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMinimizarFactura.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMinimizarFactura.Image = global::DSMarket.Solucion.Properties.Resources.cambiar_tamano_de_imagen_png_71;
+            this.btnMinimizarFactura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMinimizarFactura.Location = new System.Drawing.Point(490, 23);
+            this.btnMinimizarFactura.Name = "btnMinimizarFactura";
+            this.btnMinimizarFactura.Size = new System.Drawing.Size(203, 46);
+            this.btnMinimizarFactura.TabIndex = 5;
+            this.btnMinimizarFactura.Text = "Minimizar ";
+            this.toolTip1.SetToolTip(this.btnMinimizarFactura, "Minimizar Factura para proceder a crear otra");
+            this.btnMinimizarFactura.UseVisualStyleBackColor = true;
+            this.btnMinimizarFactura.Click += new System.EventHandler(this.button3_Click);
             // 
             // groupBox2
             // 
@@ -718,6 +718,7 @@
             this.cbFacturaPuntoVenta.Text = "Punto de Venta";
             this.toolTip1.SetToolTip(this.cbFacturaPuntoVenta, "Generar la factura en formato de punto de venta.");
             this.cbFacturaPuntoVenta.UseVisualStyleBackColor = true;
+            this.cbFacturaPuntoVenta.Visible = false;
             this.cbFacturaPuntoVenta.CheckedChanged += new System.EventHandler(this.cbFacturaPuntoVenta_CheckedChanged);
             // 
             // rbfacturaenglish
@@ -764,7 +765,7 @@
             this.btnRefresarCotizacion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRefresarCotizacion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRefresarCotizacion.Image = global::DSMarket.Solucion.Properties.Resources.back_158491_640;
-            this.btnRefresarCotizacion.Location = new System.Drawing.Point(943, 53);
+            this.btnRefresarCotizacion.Location = new System.Drawing.Point(944, 96);
             this.btnRefresarCotizacion.Name = "btnRefresarCotizacion";
             this.btnRefresarCotizacion.Size = new System.Drawing.Size(41, 29);
             this.btnRefresarCotizacion.TabIndex = 39;
@@ -1130,7 +1131,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dtProductosAgregados;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnAgregarProductos;
         private System.Windows.Forms.Button btnARS;
         private System.Windows.Forms.RadioButton rbCotizar;
         private System.Windows.Forms.RadioButton rbFacturar;
@@ -1173,7 +1174,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox cbFacturaPuntoVenta;
         private System.Windows.Forms.PictureBox PCerrar;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnMinimizarFactura;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dtFacturasMinimizadas;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;

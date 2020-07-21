@@ -152,6 +152,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idTipoPago);
 			return ((ISingleResult<SP_LISTADO_TIPO_PAGOResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_BUSCA_LISTADO_ESTATUS_FACTURACION")]
+		public ISingleResult<SP_BUSCA_LISTADO_ESTATUS_FACTURACIONResult> SP_BUSCA_LISTADO_ESTATUS_FACTURACION()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_BUSCA_LISTADO_ESTATUS_FACTURACIONResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_CARGAR_LISTA_TIPO_PRODUCTOResult
@@ -739,6 +746,50 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._BloqueaMonto != value))
 				{
 					this._BloqueaMonto = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCA_LISTADO_ESTATUS_FACTURACIONResult
+	{
+		
+		private decimal _IdEstatusFacturacion;
+		
+		private string _Estatus;
+		
+		public SP_BUSCA_LISTADO_ESTATUS_FACTURACIONResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdEstatusFacturacion", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdEstatusFacturacion
+		{
+			get
+			{
+				return this._IdEstatusFacturacion;
+			}
+			set
+			{
+				if ((this._IdEstatusFacturacion != value))
+				{
+					this._IdEstatusFacturacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="VarChar(100)")]
+		public string Estatus
+		{
+			get
+			{
+				return this._Estatus;
+			}
+			set
+			{
+				if ((this._Estatus != value))
+				{
+					this._Estatus = value;
 				}
 			}
 		}

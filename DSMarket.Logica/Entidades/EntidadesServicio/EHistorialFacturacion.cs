@@ -9,6 +9,7 @@ namespace DSMarket.Logica.Entidades.EntidadesServicio
     public class EHistorialFacturacion
     {
         public string Cliente {get;set;}
+        public string EstatusFacturacion { get; set; }
 
         public decimal? IdFactura {get;set;}
 

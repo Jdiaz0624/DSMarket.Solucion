@@ -536,6 +536,7 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                            select new DSMarket.Logica.Entidades.EntidadesServicio.EHistorialFacturacion
                            {
                                Cliente=n.Cliente,
+                               EstatusFacturacion=n.EstatusFacturacion,
                                IdFactura=n.IdFactura,
                                NumeroConector=n.NumeroConector,
                                IdEstatusFacturacion=n.IdEstatusFacturacion,

@@ -739,6 +739,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 txtSubtotal.Text = TotalPagarMaco.ToString("N2");
                 txtTotal.Text = OperacionMaco.ToString("N2");
             }
+            if (lbTitulo.Text != "FACTURACION")
+            {
+                cbAgregarCliente.Enabled = false;
+                btnAgregarProductos.Enabled = false;
+                dtFacturasMinimizadas.Enabled = false;
+            }
+            else { cbAgregarCliente.Enabled = true;
+                btnAgregarProductos.Enabled = true;
+                dtFacturasMinimizadas.Enabled = true;
+            }
         }
         #endregion
         #region MOSTRAR LOS TIPOS DE PAGOS
@@ -957,6 +967,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             AddProducts.VariablesGlbales.IdUsuario = VariablesGlobales.IdUsuario;
             AddProducts.VariablesGlbales.GenerarConector = VariablesGlobales.GenerarConector;
             AddProducts.VariablesGlbales.NumeroConector = VariablesGlobales.NumeroConector;
+            AddProducts.VariablesGlbales.EstatusFacturacion = VariablesGlobales.EstatusFacturacion;
+            AddProducts.VariablesGlbales.ConvertirCotizacionFactura = VariablesGlobales.ConvertirCotizacionFactura;
             AddProducts.ShowDialog();
         }
         #endregion
@@ -1099,7 +1111,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             if (VariablesGlobales.GenerarConector == true) {
                 GenerarNumeroConector();
             }
-           // lbNumeroConector.Text = VariablesGlobales.NumeroConector.ToString();
+            // lbNumeroConector.Text = VariablesGlobales.NumeroConector.ToString();
+
             lbTitulo.Text = "FACTURACION";
             lbTitulo.ForeColor = Color.White;
             lbCredito.Text = "Credito:";
@@ -1115,7 +1128,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             rbfacturaspanish.ForeColor = Color.LimeGreen;
             rbfacturaenglish.ForeColor = Color.DarkRed;
             cbFacturaPuntoVenta.ForeColor = Color.DarkRed;
-            cbFacturaPuntoVenta.Checked = false;
+           // cbFacturaPuntoVenta.Checked = false;
 
             if (VariablesGlobales.SacarDataEspejo == true) {
                 SacarInformacionFacturacionEspejo();
@@ -1166,6 +1179,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             if (VariablesGlobales.ConvertirCotizacionFactura == true)
             {
                 lbTitulo.Text = "CONVERTIR COTIZACION A FACTURA";
+                rbCotizar.Checked = true;
+                rbFacturar.Enabled = false;
+                cbAgregarCliente.Enabled = false;
+                btnMinimizarFactura.Enabled = false;
+                rbCotizar.Checked = true;
             }
             else
             {
@@ -1297,8 +1315,48 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void btnBuscarCotizacion_Click(object sender, EventArgs e)
         {
-            btnBuscarCotizacion.Visible = false;
-            btnRefresarCotizacion.Visible = true;
+            if (string.IsNullOrEmpty(txtNoCotizacion.Text.Trim()))
+            {
+                MessageBox.Show("Favor de ingresar el numero de una cotización", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else {
+                //BUSCAMOS LA COTIZACION
+                var BuscarCotizacion = ObjDataServicio.Value.HistorialFacturacion(
+                    Convert.ToDecimal(txtNoCotizacion.Text),
+                    2,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    1, 1);
+                if (BuscarCotizacion.Count() < 1)
+                {
+                    MessageBox.Show("El numero ingresado no corresponde a ninguna cotización creada en el sistema, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else {
+                    //BUSCAMOS EL REGISTRO
+                    foreach (var n in BuscarCotizacion) {
+                        //txtCodigoCliente.Text = n.NumeroIdentificacion;
+                        ddlTipoFacturacion.Text = n.DescripcionComprobante;
+                        txtNombrePaciente.Text = n.Cliente;
+                        txtTelefono.Text = n.Telefono;
+                        txtEmail.Text = n.Email;
+                        ddlTipoIdentificacion.Text = n.TipoIdentificacion;
+                        txtIdentificacion.Text = n.NumeroIdentificacion;
+                        txtDireccion.Text = n.Direccion;
+                        txtComentario.Text = n.Comentario;
+                        VariablesGlobales.NumeroConector = Convert.ToDecimal(n.NumeroConector);
+
+                    }
+                    BuscarProductosAgregados(VariablesGlobales.NumeroConector);
+                    VariablesGlobales.ConvertirCotizacionFactura = true;
+                    rbCotizar.Checked = true;
+                    cbAgregarCliente.Enabled = false;
+                }
+            }
+            //btnBuscarCotizacion.Visible = false;
+            // btnRefresarCotizacion.Visible = true;
         }
 
         private void btnRefresarCotizacion_Click(object sender, EventArgs e)
@@ -1480,105 +1538,116 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void btnARS_Click(object sender, EventArgs e)
         {
-            //VERIFICAMOS SI HAY PRODUCTOS AGREGADOS A FACTURA
-            var ValidarProductos = ObjDataServicio.Value.BuscapRoductosAgregados(
-                new Nullable<decimal>(),
-                VariablesGlobales.NumeroConector);
-            if (ValidarProductos.Count() < 1) {
-                MessageBox.Show("No es posible completar esta operación por que no nay nada agregado para facturar, decea agregar registros?", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                if (MessageBox.Show("¿Quieres agregar registros?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
-                    AgregarRegistros();
-                }
-            }
-            else {
-                if (rbFacturar.Checked == true)
+            if (lbTitulo.Text == "FACTURACION" || lbTitulo.Text == "COTIZACION") {
+                //VERIFICAMOS SI HAY PRODUCTOS AGREGADOS A FACTURA
+                var ValidarProductos = ObjDataServicio.Value.BuscapRoductosAgregados(
+                    new Nullable<decimal>(),
+                    VariablesGlobales.NumeroConector);
+                if (ValidarProductos.Count() < 1)
                 {
-                    //FACTURAMOS
-                    //VALIDAMOS EL TIPO DE VENTA
-                    int TipoVenta = Convert.ToInt32(ddlTipoVenta.SelectedValue);
-                    if (TipoVenta == 1)
+                    MessageBox.Show("No es posible completar esta operación por que no nay nada agregado para facturar, decea agregar registros?", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (MessageBox.Show("¿Quieres agregar registros?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        //venta a contado
-                        //validamos el tipo de pago
-                        bool BloqueaControles = false;
-                        var ValidarTipoPago = ObjDataListas.Value.BuscaTipoPago(
-                            Convert.ToDecimal(ddltIPago.SelectedValue));
-                        foreach (var n in ValidarTipoPago)
-                        {
-                            BloqueaControles = Convert.ToBoolean(n.BloqueaMonto);
-                        }
-
-                        if (BloqueaControles == true)
-                        {
-                            GuardarDatosClientes("INSERT");
-                            GuardarDatosCalculos("INSERT");
-                            AfectarComprobanteFiscal();
-                            AfectarCaja();
-                            IngresarSacarDinero("ADDMONEY");
-
-
-                            MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            GenerarFacturaVenta();
-                            this.Dispose();
-
-                        }
-                        else if (BloqueaControles == false)
-                        {
-                            //VALIDAMOS SI EL CAMPO ESTA VACIO
-                            if (string.IsNullOrEmpty(txtMontoPagar.Text.Trim()))
-                            {
-                                MessageBox.Show("El campo monto no puede estar vacio para realizar esta operación", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
-                            else
-                            {
-                                decimal MontoPagar = Convert.ToDecimal(txtMontoPagar.Text);
-                                decimal MontoTotal = Convert.ToDecimal(txtTotal.Text);
-                                if (MontoTotal > MontoPagar)
-                                {
-                                    MessageBox.Show("El monto ingresado es menor al monto a pagar, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                }
-                                else
-                                {
-                                    GuardarDatosClientes("INSERT");
-                                    GuardarDatosCalculos("INSERT");
-                                    AfectarComprobanteFiscal();
-                                    AfectarCaja();
-                                    IngresarSacarDinero("ADDMONEY");
-                                    MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    GenerarFacturaVenta();
-                                    this.Dispose();
-
-                                }
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Error al Facturar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-
+                        AgregarRegistros();
                     }
-                    else if (TipoVenta == 2)
-                    {
-                        //venta a credito
-                    }
-                    else { MessageBox.Show("Error al Facturar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error); }
-                }
-                else if (rbCotizar.Checked == true)
-                {
-                    //COTIZAMOS
-                    ProcesoCotizar(VariablesGlobales.NumeroConector);
-                    GuardarDatosClientes("INSERT");
-                    GuardarDatosCalculos("INSERT");
-
-                    MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    GenerarFacturaVenta();
-                    this.Dispose();
                 }
                 else
                 {
-                    MessageBox.Show("Error al Facturar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (rbFacturar.Checked == true)
+                    {
+                        //FACTURAMOS
+                        //VALIDAMOS EL TIPO DE VENTA
+                        int TipoVenta = Convert.ToInt32(ddlTipoVenta.SelectedValue);
+                        if (TipoVenta == 1)
+                        {
+                            //venta a contado
+                            //validamos el tipo de pago
+                            bool BloqueaControles = false;
+                            var ValidarTipoPago = ObjDataListas.Value.BuscaTipoPago(
+                                Convert.ToDecimal(ddltIPago.SelectedValue));
+                            foreach (var n in ValidarTipoPago)
+                            {
+                                BloqueaControles = Convert.ToBoolean(n.BloqueaMonto);
+                            }
+
+                            if (BloqueaControles == true)
+                            {
+                                GuardarDatosClientes("INSERT");
+                                GuardarDatosCalculos("INSERT");
+                                AfectarComprobanteFiscal();
+                                AfectarCaja();
+                                IngresarSacarDinero("ADDMONEY");
+
+
+                                MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                GenerarFacturaVenta();
+                                this.Dispose();
+
+                            }
+                            else if (BloqueaControles == false)
+                            {
+                                //VALIDAMOS SI EL CAMPO ESTA VACIO
+                                if (string.IsNullOrEmpty(txtMontoPagar.Text.Trim()))
+                                {
+                                    MessageBox.Show("El campo monto no puede estar vacio para realizar esta operación", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                                else
+                                {
+                                    decimal MontoPagar = Convert.ToDecimal(txtMontoPagar.Text);
+                                    decimal MontoTotal = Convert.ToDecimal(txtTotal.Text);
+                                    if (MontoTotal > MontoPagar)
+                                    {
+                                        MessageBox.Show("El monto ingresado es menor al monto a pagar, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    }
+                                    else
+                                    {
+                                        GuardarDatosClientes("INSERT");
+                                        GuardarDatosCalculos("INSERT");
+                                        AfectarComprobanteFiscal();
+                                        AfectarCaja();
+                                        IngresarSacarDinero("ADDMONEY");
+                                        MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        GenerarFacturaVenta();
+                                        this.Dispose();
+
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error al Facturar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+
+                        }
+                        else if (TipoVenta == 2)
+                        {
+                            //venta a credito
+                        }
+                        else { MessageBox.Show("Error al Facturar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                    }
+                    else if (rbCotizar.Checked == true)
+                    {
+                        //COTIZAMOS
+                        ProcesoCotizar(VariablesGlobales.NumeroConector);
+                        GuardarDatosClientes("INSERT");
+                        GuardarDatosCalculos("INSERT");
+
+                        MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        GenerarFacturaVenta();
+                        this.Dispose();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al Facturar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
+
             }
+            else {
+                //CONVERTIMOS LA COTIZACION A FACTURA
+                MessageBox.Show("Cotización convertida exitosamente", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+          
            
         }
 

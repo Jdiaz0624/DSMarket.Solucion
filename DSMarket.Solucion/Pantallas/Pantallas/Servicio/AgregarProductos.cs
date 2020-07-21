@@ -370,6 +370,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             Facturacion.VariablesGlobales.IdUsuario = VariablesGlbales.IdUsuario;
             Facturacion.VariablesGlobales.GenerarConector = VariablesGlbales.GenerarConector;
             Facturacion.VariablesGlobales.SacarDataEspejo = true;
+            Facturacion.lbTitulo.Text = VariablesGlbales.EstatusFacturacion;
+            Facturacion.VariablesGlobales.ConvertirCotizacionFactura = VariablesGlbales.ConvertirCotizacionFactura;
             Facturacion.ShowDialog();
         }
 

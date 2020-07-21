@@ -202,5 +202,18 @@ namespace DSMarket.Logica.Logica.LogicaListas
             return Listado;
         }
         #endregion
+        #region BUSCAR LISTADO ESTATUS FACTURACION
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EListaEstatusFacturacion> BuscaListaEstatusFacturacion() {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjDataListas.SP_BUSCA_LISTADO_ESTATUS_FACTURACION()
+                           select new DSMarket.Logica.Entidades.EntidadesListas.EListaEstatusFacturacion
+                           {
+                               IdEstatusFacturacion=n.IdEstatusFacturacion,
+                               Estatus=n.Estatus
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
     }
 }

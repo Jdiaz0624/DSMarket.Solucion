@@ -78,6 +78,7 @@
     <Compile Include="Entidades\EntidadesListas\EListaCategorias.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaComprobantesFiscales.cs" />
     <Compile Include="Entidades\EntidadesListas\EListadoTipoPago.cs" />
+    <Compile Include="Entidades\EntidadesListas\EListaEstatusFacturacion.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaMarcas.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaModeos.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaSuplidor.cs" />

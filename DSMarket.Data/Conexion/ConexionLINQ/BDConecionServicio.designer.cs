@@ -4432,6 +4432,8 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		
 		private string _Cliente;
 		
+		private string _EstatusFacturacion;
+		
 		private decimal _IdFactura;
 		
 		private System.Nullable<decimal> _NumeroConector;
@@ -4518,6 +4520,22 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._Cliente != value))
 				{
 					this._Cliente = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EstatusFacturacion", DbType="VarChar(100)")]
+		public string EstatusFacturacion
+		{
+			get
+			{
+				return this._EstatusFacturacion;
+			}
+			set
+			{
+				if ((this._EstatusFacturacion != value))
+				{
+					this._EstatusFacturacion = value;
 				}
 			}
 		}

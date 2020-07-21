@@ -35,6 +35,8 @@
             this.lbTitulo = new System.Windows.Forms.Label();
             this.lbCredito = new System.Windows.Forms.Label();
             this.cbAgregarCategoria = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtImpuesto = new System.Windows.Forms.TextBox();
             this.btnRestablcer = new System.Windows.Forms.Button();
             this.lbDescuentoColectivoVariable = new System.Windows.Forms.Label();
             this.lbDescuentoColectivoTitulo = new System.Windows.Forms.Label();
@@ -92,8 +94,6 @@
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtImpuesto = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.cbAgregarCategoria.SuspendLayout();
@@ -224,6 +224,24 @@
             this.cbAgregarCategoria.TabStop = false;
             this.cbAgregarCategoria.Text = "Buscar Productos";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(552, 472);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 20);
+            this.label6.TabIndex = 87;
+            this.label6.Text = "Impuesto";
+            // 
+            // txtImpuesto
+            // 
+            this.txtImpuesto.BackColor = System.Drawing.Color.Silver;
+            this.txtImpuesto.Enabled = false;
+            this.txtImpuesto.Location = new System.Drawing.Point(633, 469);
+            this.txtImpuesto.Name = "txtImpuesto";
+            this.txtImpuesto.Size = new System.Drawing.Size(193, 27);
+            this.txtImpuesto.TabIndex = 86;
+            // 
             // btnRestablcer
             // 
             this.btnRestablcer.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -298,7 +316,7 @@
             // 
             this.txtAcumulativo.BackColor = System.Drawing.Color.Silver;
             this.txtAcumulativo.Enabled = false;
-            this.txtAcumulativo.Location = new System.Drawing.Point(634, 440);
+            this.txtAcumulativo.Location = new System.Drawing.Point(633, 439);
             this.txtAcumulativo.Name = "txtAcumulativo";
             this.txtAcumulativo.Size = new System.Drawing.Size(193, 27);
             this.txtAcumulativo.TabIndex = 79;
@@ -345,7 +363,7 @@
             // 
             this.cbAgregarCategorias.AutoSize = true;
             this.cbAgregarCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbAgregarCategorias.Location = new System.Drawing.Point(869, 24);
+            this.cbAgregarCategorias.Location = new System.Drawing.Point(867, 24);
             this.cbAgregarCategorias.Name = "cbAgregarCategorias";
             this.cbAgregarCategorias.Size = new System.Drawing.Size(164, 24);
             this.cbAgregarCategorias.TabIndex = 75;
@@ -504,7 +522,7 @@
             // txtDescuento
             // 
             this.txtDescuento.BackColor = System.Drawing.Color.Silver;
-            this.txtDescuento.Location = new System.Drawing.Point(634, 409);
+            this.txtDescuento.Location = new System.Drawing.Point(633, 409);
             this.txtDescuento.Name = "txtDescuento";
             this.txtDescuento.Size = new System.Drawing.Size(193, 27);
             this.txtDescuento.TabIndex = 60;
@@ -515,7 +533,7 @@
             // 
             this.txtPorcientoDescyento.BackColor = System.Drawing.Color.Silver;
             this.txtPorcientoDescyento.Enabled = false;
-            this.txtPorcientoDescyento.Location = new System.Drawing.Point(634, 379);
+            this.txtPorcientoDescyento.Location = new System.Drawing.Point(633, 379);
             this.txtPorcientoDescyento.Name = "txtPorcientoDescyento";
             this.txtPorcientoDescyento.Size = new System.Drawing.Size(193, 27);
             this.txtPorcientoDescyento.TabIndex = 59;
@@ -859,24 +877,6 @@
             // 
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(552, 472);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 20);
-            this.label6.TabIndex = 87;
-            this.label6.Text = "Impuesto";
-            // 
-            // txtImpuesto
-            // 
-            this.txtImpuesto.BackColor = System.Drawing.Color.Silver;
-            this.txtImpuesto.Enabled = false;
-            this.txtImpuesto.Location = new System.Drawing.Point(633, 469);
-            this.txtImpuesto.Name = "txtImpuesto";
-            this.txtImpuesto.Size = new System.Drawing.Size(193, 27);
-            this.txtImpuesto.TabIndex = 86;
             // 
             // AgregarProductos
             // 

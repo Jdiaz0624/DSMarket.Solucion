@@ -35,11 +35,11 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnEstadistica = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.btnDeshabilitar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnAnular = new System.Windows.Forms.Button();
+            this.btnReporte = new System.Windows.Forms.Button();
+            this.btnRestablecer = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnFacturar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.cbNoagregarRangofecha = new System.Windows.Forms.CheckBox();
@@ -67,6 +67,16 @@
             this.lbParametro = new System.Windows.Forms.Label();
             this.lbCantidadRegistros = new System.Windows.Forms.Label();
             this.lbCantidadRegistrosVariable = new System.Windows.Forms.Label();
+            this.btnProductos = new System.Windows.Forms.Button();
+            this.rbfacturaenglish = new System.Windows.Forms.RadioButton();
+            this.rbfacturaspanish = new System.Windows.Forms.RadioButton();
+            this.lbFormatoFactura = new System.Windows.Forms.Label();
+            this.txtCantidadProductos = new System.Windows.Forms.TextBox();
+            this.txtCantidadServicios = new System.Windows.Forms.TextBox();
+            this.txtCantidadTotal = new System.Windows.Forms.TextBox();
+            this.lbCantidadProductos = new System.Windows.Forms.Label();
+            this.lbCantidadServicios = new System.Windows.Forms.Label();
+            this.lbCantidadTotal = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel2.SuspendLayout();
@@ -124,11 +134,11 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Linen;
             this.panel2.Controls.Add(this.btnEstadistica);
-            this.panel2.Controls.Add(this.button4);
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.btnDeshabilitar);
-            this.panel2.Controls.Add(this.btnEditar);
-            this.panel2.Controls.Add(this.btnNuevo);
+            this.panel2.Controls.Add(this.btnAnular);
+            this.panel2.Controls.Add(this.btnReporte);
+            this.panel2.Controls.Add(this.btnRestablecer);
+            this.panel2.Controls.Add(this.btnImprimir);
+            this.panel2.Controls.Add(this.btnFacturar);
             this.panel2.Controls.Add(this.btnBuscar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 38);
@@ -153,87 +163,93 @@
             this.toolTip1.SetToolTip(this.btnEstadistica, "Generar Reporte estadistico de facturación");
             this.btnEstadistica.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnAnular
             // 
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Image = global::DSMarket.Solucion.Properties.Resources.Anular2;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(1056, 7);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(170, 41);
-            this.button4.TabIndex = 69;
-            this.button4.Text = "      Anular";
-            this.toolTip1.SetToolTip(this.button4, "Anular factura");
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnAnular.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAnular.Enabled = false;
+            this.btnAnular.FlatAppearance.BorderSize = 0;
+            this.btnAnular.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAnular.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnular.Image = global::DSMarket.Solucion.Properties.Resources.Anular2;
+            this.btnAnular.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAnular.Location = new System.Drawing.Point(1056, 7);
+            this.btnAnular.Name = "btnAnular";
+            this.btnAnular.Size = new System.Drawing.Size(170, 41);
+            this.btnAnular.TabIndex = 69;
+            this.btnAnular.Text = "      Anular";
+            this.toolTip1.SetToolTip(this.btnAnular, "Anular factura");
+            this.btnAnular.UseVisualStyleBackColor = true;
+            this.btnAnular.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button3
+            // btnReporte
             // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Image = global::DSMarket.Solucion.Properties.Resources.Reporte;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(707, 7);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(170, 41);
-            this.button3.TabIndex = 68;
-            this.button3.Text = "      Reporte";
-            this.toolTip1.SetToolTip(this.button3, "Generar Reporte de Facturación");
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnReporte.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReporte.FlatAppearance.BorderSize = 0;
+            this.btnReporte.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnReporte.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporte.Image = global::DSMarket.Solucion.Properties.Resources.Reporte;
+            this.btnReporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReporte.Location = new System.Drawing.Point(707, 7);
+            this.btnReporte.Name = "btnReporte";
+            this.btnReporte.Size = new System.Drawing.Size(170, 41);
+            this.btnReporte.TabIndex = 68;
+            this.btnReporte.Text = "      Reporte";
+            this.toolTip1.SetToolTip(this.btnReporte, "Generar Reporte de Facturación");
+            this.btnReporte.UseVisualStyleBackColor = true;
+            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
             // 
-            // btnDeshabilitar
+            // btnRestablecer
             // 
-            this.btnDeshabilitar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDeshabilitar.FlatAppearance.BorderSize = 0;
-            this.btnDeshabilitar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDeshabilitar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeshabilitar.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
-            this.btnDeshabilitar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeshabilitar.Location = new System.Drawing.Point(531, 7);
-            this.btnDeshabilitar.Name = "btnDeshabilitar";
-            this.btnDeshabilitar.Size = new System.Drawing.Size(170, 41);
-            this.btnDeshabilitar.TabIndex = 67;
-            this.btnDeshabilitar.Text = "      Restablecer";
-            this.toolTip1.SetToolTip(this.btnDeshabilitar, "Restablecer pantalla");
-            this.btnDeshabilitar.UseVisualStyleBackColor = true;
+            this.btnRestablecer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestablecer.FlatAppearance.BorderSize = 0;
+            this.btnRestablecer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRestablecer.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestablecer.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
+            this.btnRestablecer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRestablecer.Location = new System.Drawing.Point(531, 7);
+            this.btnRestablecer.Name = "btnRestablecer";
+            this.btnRestablecer.Size = new System.Drawing.Size(170, 41);
+            this.btnRestablecer.TabIndex = 67;
+            this.btnRestablecer.Text = "      Restablecer";
+            this.toolTip1.SetToolTip(this.btnRestablecer, "Restablecer pantalla");
+            this.btnRestablecer.UseVisualStyleBackColor = true;
+            this.btnRestablecer.Click += new System.EventHandler(this.btnRestablecer_Click);
             // 
-            // btnEditar
+            // btnImprimir
             // 
-            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditar.FlatAppearance.BorderSize = 0;
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEditar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.Image = global::DSMarket.Solucion.Properties.Resources.Imprimir;
-            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(355, 7);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(170, 41);
-            this.btnEditar.TabIndex = 66;
-            this.btnEditar.Text = "      Imprimir";
-            this.toolTip1.SetToolTip(this.btnEditar, "Imprimir registro seleccionado");
-            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImprimir.Enabled = false;
+            this.btnImprimir.FlatAppearance.BorderSize = 0;
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnImprimir.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.Image = global::DSMarket.Solucion.Properties.Resources.Imprimir;
+            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImprimir.Location = new System.Drawing.Point(355, 7);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(170, 41);
+            this.btnImprimir.TabIndex = 66;
+            this.btnImprimir.Text = "      Imprimir";
+            this.toolTip1.SetToolTip(this.btnImprimir, "Imprimir registro seleccionado");
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
-            // btnNuevo
+            // btnFacturar
             // 
-            this.btnNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNuevo.FlatAppearance.BorderSize = 0;
-            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.Image = global::DSMarket.Solucion.Properties.Resources.Facturar;
-            this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(179, 7);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(170, 41);
-            this.btnNuevo.TabIndex = 65;
-            this.btnNuevo.Text = "      Facturar";
-            this.toolTip1.SetToolTip(this.btnNuevo, "Facturar cotización seleccionada");
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            this.btnFacturar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFacturar.Enabled = false;
+            this.btnFacturar.FlatAppearance.BorderSize = 0;
+            this.btnFacturar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFacturar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFacturar.Image = global::DSMarket.Solucion.Properties.Resources.Facturar;
+            this.btnFacturar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFacturar.Location = new System.Drawing.Point(179, 7);
+            this.btnFacturar.Name = "btnFacturar";
+            this.btnFacturar.Size = new System.Drawing.Size(170, 41);
+            this.btnFacturar.TabIndex = 65;
+            this.btnFacturar.Text = "      Facturar";
+            this.toolTip1.SetToolTip(this.btnFacturar, "Facturar cotización seleccionada");
+            this.btnFacturar.UseVisualStyleBackColor = true;
+            this.btnFacturar.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnBuscar
             // 
@@ -361,6 +377,7 @@
             0,
             0,
             0});
+            this.txtNumeroRegistros.ValueChanged += new System.EventHandler(this.txtNumeroRegistros_ValueChanged);
             // 
             // txtNumeroPagina
             // 
@@ -382,6 +399,7 @@
             0,
             0,
             0});
+            this.txtNumeroPagina.ValueChanged += new System.EventHandler(this.txtNumeroPagina_ValueChanged);
             // 
             // groupBox1
             // 
@@ -448,6 +466,7 @@
             this.dtListado.RowTemplate.Height = 24;
             this.dtListado.Size = new System.Drawing.Size(1204, 255);
             this.dtListado.TabIndex = 0;
+            this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
             // Select
             // 
@@ -565,6 +584,124 @@
             this.lbCantidadRegistrosVariable.TabIndex = 34;
             this.lbCantidadRegistrosVariable.Text = "0";
             // 
+            // btnProductos
+            // 
+            this.btnProductos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProductos.Enabled = false;
+            this.btnProductos.FlatAppearance.BorderSize = 0;
+            this.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnProductos.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProductos.Image = global::DSMarket.Solucion.Properties.Resources.ojo;
+            this.btnProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProductos.Location = new System.Drawing.Point(1056, 118);
+            this.btnProductos.Name = "btnProductos";
+            this.btnProductos.Size = new System.Drawing.Size(163, 41);
+            this.btnProductos.TabIndex = 71;
+            this.btnProductos.Text = "      Productos";
+            this.toolTip1.SetToolTip(this.btnProductos, "Ver Listado de los productos facturados.");
+            this.btnProductos.UseVisualStyleBackColor = true;
+            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
+            // 
+            // rbfacturaenglish
+            // 
+            this.rbfacturaenglish.AutoSize = true;
+            this.rbfacturaenglish.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbfacturaenglish.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbfacturaenglish.Location = new System.Drawing.Point(932, 179);
+            this.rbfacturaenglish.Name = "rbfacturaenglish";
+            this.rbfacturaenglish.Size = new System.Drawing.Size(72, 24);
+            this.rbfacturaenglish.TabIndex = 74;
+            this.rbfacturaenglish.TabStop = true;
+            this.rbfacturaenglish.Text = "Ingles";
+            this.toolTip1.SetToolTip(this.rbfacturaenglish, "Generar la factura en ingles");
+            this.rbfacturaenglish.UseVisualStyleBackColor = true;
+            this.rbfacturaenglish.Visible = false;
+            // 
+            // rbfacturaspanish
+            // 
+            this.rbfacturaspanish.AutoSize = true;
+            this.rbfacturaspanish.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbfacturaspanish.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbfacturaspanish.Location = new System.Drawing.Point(839, 179);
+            this.rbfacturaspanish.Name = "rbfacturaspanish";
+            this.rbfacturaspanish.Size = new System.Drawing.Size(86, 24);
+            this.rbfacturaspanish.TabIndex = 73;
+            this.rbfacturaspanish.TabStop = true;
+            this.rbfacturaspanish.Text = "Español";
+            this.toolTip1.SetToolTip(this.rbfacturaspanish, "Generar la factura en español");
+            this.rbfacturaspanish.UseVisualStyleBackColor = true;
+            this.rbfacturaspanish.Visible = false;
+            // 
+            // lbFormatoFactura
+            // 
+            this.lbFormatoFactura.AutoSize = true;
+            this.lbFormatoFactura.Location = new System.Drawing.Point(673, 181);
+            this.lbFormatoFactura.Name = "lbFormatoFactura";
+            this.lbFormatoFactura.Size = new System.Drawing.Size(160, 20);
+            this.lbFormatoFactura.TabIndex = 72;
+            this.lbFormatoFactura.Text = "Formato de Factura:";
+            this.lbFormatoFactura.Visible = false;
+            // 
+            // txtCantidadProductos
+            // 
+            this.txtCantidadProductos.Enabled = false;
+            this.txtCantidadProductos.Location = new System.Drawing.Point(839, 206);
+            this.txtCantidadProductos.Name = "txtCantidadProductos";
+            this.txtCantidadProductos.Size = new System.Drawing.Size(139, 27);
+            this.txtCantidadProductos.TabIndex = 8;
+            this.txtCantidadProductos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCantidadProductos.Visible = false;
+            // 
+            // txtCantidadServicios
+            // 
+            this.txtCantidadServicios.Enabled = false;
+            this.txtCantidadServicios.Location = new System.Drawing.Point(839, 235);
+            this.txtCantidadServicios.Name = "txtCantidadServicios";
+            this.txtCantidadServicios.Size = new System.Drawing.Size(139, 27);
+            this.txtCantidadServicios.TabIndex = 75;
+            this.txtCantidadServicios.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCantidadServicios.Visible = false;
+            // 
+            // txtCantidadTotal
+            // 
+            this.txtCantidadTotal.Enabled = false;
+            this.txtCantidadTotal.Location = new System.Drawing.Point(839, 264);
+            this.txtCantidadTotal.Name = "txtCantidadTotal";
+            this.txtCantidadTotal.Size = new System.Drawing.Size(139, 27);
+            this.txtCantidadTotal.TabIndex = 76;
+            this.txtCantidadTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCantidadTotal.Visible = false;
+            // 
+            // lbCantidadProductos
+            // 
+            this.lbCantidadProductos.AutoSize = true;
+            this.lbCantidadProductos.Location = new System.Drawing.Point(668, 210);
+            this.lbCantidadProductos.Name = "lbCantidadProductos";
+            this.lbCantidadProductos.Size = new System.Drawing.Size(168, 20);
+            this.lbCantidadProductos.TabIndex = 8;
+            this.lbCantidadProductos.Text = "Cantidad de Prductos";
+            this.lbCantidadProductos.Visible = false;
+            // 
+            // lbCantidadServicios
+            // 
+            this.lbCantidadServicios.AutoSize = true;
+            this.lbCantidadServicios.Location = new System.Drawing.Point(667, 239);
+            this.lbCantidadServicios.Name = "lbCantidadServicios";
+            this.lbCantidadServicios.Size = new System.Drawing.Size(169, 20);
+            this.lbCantidadServicios.TabIndex = 77;
+            this.lbCantidadServicios.Text = "Cantidad de Servicios";
+            this.lbCantidadServicios.Visible = false;
+            // 
+            // lbCantidadTotal
+            // 
+            this.lbCantidadTotal.AutoSize = true;
+            this.lbCantidadTotal.Location = new System.Drawing.Point(714, 268);
+            this.lbCantidadTotal.Name = "lbCantidadTotal";
+            this.lbCantidadTotal.Size = new System.Drawing.Size(121, 20);
+            this.lbCantidadTotal.TabIndex = 78;
+            this.lbCantidadTotal.Text = "Cantidad Total";
+            this.lbCantidadTotal.Visible = false;
+            // 
             // HistorialFActuracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -572,6 +709,16 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1233, 636);
+            this.Controls.Add(this.lbCantidadTotal);
+            this.Controls.Add(this.lbCantidadServicios);
+            this.Controls.Add(this.lbCantidadProductos);
+            this.Controls.Add(this.txtCantidadTotal);
+            this.Controls.Add(this.txtCantidadServicios);
+            this.Controls.Add(this.txtCantidadProductos);
+            this.Controls.Add(this.rbfacturaenglish);
+            this.Controls.Add(this.rbfacturaspanish);
+            this.Controls.Add(this.lbFormatoFactura);
+            this.Controls.Add(this.btnProductos);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.txtNumeroRegistros);
             this.Controls.Add(this.lbNumeroRegistros);
@@ -614,12 +761,12 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox PCerrar;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnDeshabilitar;
-        private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnRestablecer;
+        private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Button btnFacturar;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAnular;
+        private System.Windows.Forms.Button btnReporte;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox cbNoagregarRangofecha;
@@ -648,5 +795,15 @@
         private System.Windows.Forms.Label lbCantidadRegistrosTitulo;
         private System.Windows.Forms.Label lbCantidadRegistrosVariable;
         private System.Windows.Forms.Label lbCantidadRegistros;
+        private System.Windows.Forms.Button btnProductos;
+        private System.Windows.Forms.RadioButton rbfacturaenglish;
+        private System.Windows.Forms.RadioButton rbfacturaspanish;
+        private System.Windows.Forms.Label lbFormatoFactura;
+        private System.Windows.Forms.Label lbCantidadTotal;
+        private System.Windows.Forms.Label lbCantidadServicios;
+        private System.Windows.Forms.Label lbCantidadProductos;
+        private System.Windows.Forms.TextBox txtCantidadTotal;
+        private System.Windows.Forms.TextBox txtCantidadServicios;
+        private System.Windows.Forms.TextBox txtCantidadProductos;
     }
 }

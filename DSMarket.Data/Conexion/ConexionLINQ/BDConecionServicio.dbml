@@ -418,6 +418,7 @@
     <Parameter Name="NumeroRegistros" Parameter="numeroRegistros" Type="System.Int32" DbType="Int" />
     <ElementType Name="SP_BUSCA_HISTORIAL_FACTURACIONResult">
       <Column Name="Cliente" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="EstatusFacturacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="IdFactura" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
       <Column Name="NumeroConector" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="IdEstatusFacturacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
