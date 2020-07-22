@@ -976,6 +976,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         }
         #endregion
         #region AFECTAR COMPROBANTE FISCAL
+        
         private void AfectarComprobanteFiscal() {
             //VALIDAMOS SI LOS COMPROBANTES ESTAN ACTIVOS
             bool EstatusComprobante = false;
@@ -1099,6 +1100,148 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             catch (Exception ex) {
                 MessageBox.Show("Error al generar la factura, codigo de error--> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        #endregion
+        #region BUSCAR LA COTIZACION
+        public void BuscarCotizacion() {
+            if (string.IsNullOrEmpty(txtNoCotizacion.Text.Trim()))
+            {
+                MessageBox.Show("Favor de ingresar el numero de una cotización", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                //BUSCAMOS LA COTIZACION
+                var BuscarCotizacion = ObjDataServicio.Value.HistorialFacturacion(
+                    Convert.ToDecimal(txtNoCotizacion.Text),
+                    2,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    1, 1);
+                if (BuscarCotizacion.Count() < 1)
+                {
+                    MessageBox.Show("El numero ingresado no corresponde a ninguna cotización creada en el sistema, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    //BUSCAMOS EL REGISTRO
+                    foreach (var n in BuscarCotizacion)
+                    {
+                        //txtCodigoCliente.Text = n.NumeroIdentificacion;
+                        ddlTipoFacturacion.Text = n.DescripcionComprobante;
+                        txtNombrePaciente.Text = n.Cliente;
+                        txtTelefono.Text = n.Telefono;
+                        txtEmail.Text = n.Email;
+                        ddlTipoIdentificacion.Text = n.TipoIdentificacion;
+                        txtIdentificacion.Text = n.NumeroIdentificacion;
+                        txtDireccion.Text = n.Direccion;
+                        txtComentario.Text = n.Comentario;
+                        VariablesGlobales.NumeroConector = Convert.ToDecimal(n.NumeroConector);
+
+                    }
+                    BuscarProductosAgregados(VariablesGlobales.NumeroConector);
+                    VariablesGlobales.ConvertirCotizacionFactura = true;
+                    rbCotizar.Checked = true;
+                    cbAgregarCliente.Enabled = false;
+                    txtNoCotizacion.Enabled = false;
+                }
+            }
+            MostrarComprobantesFiscales();
+            ddlTipoFacturacion.Enabled = true;
+            //btnBuscarCotizacion.Visible = false;
+            // btnRefresarCotizacion.Visible = true;
+        }
+        #endregion
+        #region CONVERTIR COTIZACION A FACTURA
+        private void ConvertirCotizacionFactura() {
+            DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionClientes CambiarEstatus = new Logica.Entidades.EntidadesServicio.EFacturacionClientes();
+
+            CambiarEstatus.IdFactura = Convert.ToDecimal(txtNoCotizacion.Text);
+            CambiarEstatus.NumeroConector = VariablesGlobales.NumeroConector;
+            CambiarEstatus.IdEstatusFacturacion = 1;
+
+            var MANCambiarEstatus = ObjDataServicio.Value.GuardarFacturacionClientes(CambiarEstatus, "CHANGESTATUS");
+
+            //MODIFICAMOS DATOS EN LA TABLA DE CALCULOS
+            DSMarket.Logica.Entidades.EntidadesServicio.EGuardarFacturacionCalculos ModificarCalculos = new Logica.Entidades.EntidadesServicio.EGuardarFacturacionCalculos();
+
+            ModificarCalculos.NumeroColector = VariablesGlobales.NumeroConector;
+            ModificarCalculos.MontoPagado = Convert.ToDecimal(txtMontoPagar.Text);
+            ModificarCalculos.Cambio = Convert.ToDecimal(txtCambio.Text);
+            ModificarCalculos.IdTipoPago = Convert.ToDecimal(ddltIPago.SelectedValue);
+
+            var MANModificarCalculos = ObjDataServicio.Value.GuardarFacturacionCalculos(ModificarCalculos, "CHANGESTATUS");
+
+            //AFECTAMOS EL INVENTARIO
+            var BuscarProductosAgregados = ObjDataServicio.Value.BuscapRoductosAgregados(
+                new Nullable<decimal>(),
+                VariablesGlobales.NumeroConector);
+            foreach (var n in BuscarProductosAgregados)
+            {
+                decimal IdTipoProducto = 0;
+                decimal CantidadArticulos = 0;
+                decimal IdProducto = 0;
+                decimal Conectorproducto = 0;
+
+
+                IdTipoProducto = Convert.ToDecimal(n.IdTipoProducto);
+                IdProducto = Convert.ToDecimal(n.IdProducto);
+                CantidadArticulos = Convert.ToInt32(n.Cantidad);
+
+
+
+
+                if (IdTipoProducto == 1)
+                {
+                    bool ProductoAcumulativo = false;
+                    bool EstatusProducto = false;
+                    //SACAMOS LA INFORMACION DE QUE SI EL PRODUCTO ES ACUMULATIVO O NO
+
+                    var ProductoAcumulativoInformacion = ObjDataInventario.Value.BuscaProductos(
+                        IdProducto, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                    foreach (var n2 in ProductoAcumulativoInformacion)
+                    {
+                        ProductoAcumulativo = Convert.ToBoolean(n2.ProductoAcumulativo0);
+                        Conectorproducto = Convert.ToDecimal(n2.NumeroConector);
+                    }
+
+                    if (ProductoAcumulativo == true)
+                    {
+                        //Descontar
+                        DSMarket.Logica.Entidades.EntidadesInventario.EProducto Descontar = new Logica.Entidades.EntidadesInventario.EProducto();
+
+                        Descontar.IdProducto = IdProducto;
+                        Descontar.NumeroConector = Conectorproducto;
+                        Descontar.Stock = CantidadArticulos;
+
+                        var MAN = ObjDataInventario.Value.MantenimientoProducto(Descontar, "LESSPRODUCT");
+                    }
+                    else if (ProductoAcumulativo == false)
+                    {
+                        //Cambiar Estatus
+                        DSMarket.Logica.Entidades.EntidadesInventario.EProducto ModificarEstatus = new Logica.Entidades.EntidadesInventario.EProducto();
+
+                        ModificarEstatus.IdProducto = IdProducto;
+                        ModificarEstatus.IdTipoProducto = IdTipoProducto;
+                        ModificarEstatus.ProductoAcumulativo0 = ProductoAcumulativo;
+                        ModificarEstatus.EstatusProducto0 = EstatusProducto;
+
+                        var MAN = ObjDataInventario.Value.MantenimientoProducto(ModificarEstatus, "CHANGESTATUS");
+                    }
+
+                }
+
+                AfectarComprobanteFiscal();
+                AfectarCaja();
+                IngresarSacarDinero("ADDMONEY");
+
+            }
+            MessageBox.Show("Operación realizada exitosamente", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            GenerarFacturaVenta();
+            this.Dispose();
+            //INVOCAMOS LA FACTURA
         }
         #endregion
 
@@ -1318,49 +1461,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void btnBuscarCotizacion_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtNoCotizacion.Text.Trim()))
-            {
-                MessageBox.Show("Favor de ingresar el numero de una cotización", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else {
-                //BUSCAMOS LA COTIZACION
-                var BuscarCotizacion = ObjDataServicio.Value.HistorialFacturacion(
-                    Convert.ToDecimal(txtNoCotizacion.Text),
-                    2,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    1, 1);
-                if (BuscarCotizacion.Count() < 1)
-                {
-                    MessageBox.Show("El numero ingresado no corresponde a ninguna cotización creada en el sistema, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else {
-                    //BUSCAMOS EL REGISTRO
-                    foreach (var n in BuscarCotizacion) {
-                        //txtCodigoCliente.Text = n.NumeroIdentificacion;
-                        ddlTipoFacturacion.Text = n.DescripcionComprobante;
-                        txtNombrePaciente.Text = n.Cliente;
-                        txtTelefono.Text = n.Telefono;
-                        txtEmail.Text = n.Email;
-                        ddlTipoIdentificacion.Text = n.TipoIdentificacion;
-                        txtIdentificacion.Text = n.NumeroIdentificacion;
-                        txtDireccion.Text = n.Direccion;
-                        txtComentario.Text = n.Comentario;
-                        VariablesGlobales.NumeroConector = Convert.ToDecimal(n.NumeroConector);
-
-                    }
-                    BuscarProductosAgregados(VariablesGlobales.NumeroConector);
-                    VariablesGlobales.ConvertirCotizacionFactura = true;
-                    rbCotizar.Checked = true;
-                    cbAgregarCliente.Enabled = false;
-                    txtNoCotizacion.Enabled = false;
-                }
-            }
-            //btnBuscarCotizacion.Visible = false;
-            // btnRefresarCotizacion.Visible = true;
+            BuscarCotizacion();
+         
         }
 
         private void btnRefresarCotizacion_Click(object sender, EventArgs e)
@@ -1650,80 +1752,43 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             else {
                 //CONVERTIMOS LA COTIZACION A FACTURA
                 //CAMBIAMOS EL ESTATUS DE LA COTIZACION
-                DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionClientes CambiarEstatus = new Logica.Entidades.EntidadesServicio.EFacturacionClientes();
+               
+                decimal TipoPago = Convert.ToDecimal(ddltIPago.SelectedValue);
+                bool BloqueaMonto = false;
 
-                CambiarEstatus.IdFactura = Convert.ToDecimal(txtNoCotizacion.Text);
-                CambiarEstatus.NumeroConector = VariablesGlobales.NumeroConector;
-                CambiarEstatus.IdEstatusFacturacion = 1;
-
-                var MANCambiarEstatus = ObjDataServicio.Value.GuardarFacturacionClientes(CambiarEstatus, "CHANGESTATUS");
-
-                //MODIFICAMOS DATOS EN LA TABLA DE CALCULOS
-                DSMarket.Logica.Entidades.EntidadesServicio.EGuardarFacturacionCalculos ModificarCalculos = new Logica.Entidades.EntidadesServicio.EGuardarFacturacionCalculos();
-
-                ModificarCalculos.NumeroColector = VariablesGlobales.NumeroConector;
-                ModificarCalculos.MontoPagado = Convert.ToDecimal(txtMontoPagar.Text);
-                ModificarCalculos.Cambio = Convert.ToDecimal(txtCambio.Text);
-                ModificarCalculos.IdTipoPago = Convert.ToDecimal(ddltIPago.SelectedValue);
-
-                var MANModificarCalculos = ObjDataServicio.Value.GuardarFacturacionCalculos(ModificarCalculos, "CHANGESTATUS");
-
-                //AFECTAMOS EL INVENTARIO
-                var BuscarProductosAgregados = ObjDataServicio.Value.BuscapRoductosAgregados(
-                    new Nullable<decimal>(),
-                    VariablesGlobales.NumeroConector);
-                foreach (var n in BuscarProductosAgregados) {
-                    decimal IdTipoProducto = 0;
-                    decimal CantidadArticulos = 0;
-                    decimal IdProducto = 0;
-
-                    
-                    IdTipoProducto = Convert.ToDecimal(n.IdTipoProducto);
-                    IdProducto = Convert.ToDecimal(n.IdProducto);
-
-                    
-                 
-
-                    if (IdTipoProducto == 1) {
-                        bool ProductoAcumulativo = false;
-                        bool EstatusProducto = false;
-                        //SACAMOS LA INFORMACION DE QUE SI EL PRODUCTO ES ACUMULATIVO O NO
-
-                        var ProductoAcumulativoInformacion = ObjDataInventario.Value.BuscaProductos(
-                            IdProducto, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
-                        foreach (var n2 in ProductoAcumulativoInformacion) {
-                            ProductoAcumulativo = Convert.ToBoolean(n2.ProductoAcumulativo0);
-                        }
-
-                        if (ProductoAcumulativo == true) {
-                            //Descontar
-                            DSMarket.Logica.Entidades.EntidadesInventario.EProducto Descontar = new Logica.Entidades.EntidadesInventario.EProducto();
-
-                            Descontar.IdProducto = IdProducto;
-                            Descontar.NumeroConector = VariablesGlobales.NumeroConector;
-                            Descontar.Stock = CantidadArticulos;
-
-                            var MAN = ObjDataInventario.Value.MantenimientoProducto(Descontar, "LESSPRODUCT");
-                        }
-                        else if (ProductoAcumulativo == false) {
-                            //Cambiar Estatus
-                            DSMarket.Logica.Entidades.EntidadesInventario.EProducto ModificarEstatus = new Logica.Entidades.EntidadesInventario.EProducto();
-
-                            ModificarEstatus.IdProducto = IdProducto;
-                            ModificarEstatus.IdTipoProducto = IdTipoProducto;
-                            ModificarEstatus.ProductoAcumulativo0 = ProductoAcumulativo;
-                            ModificarEstatus.EstatusProducto0 = EstatusProducto;
-
-                            var MAN = ObjDataInventario.Value.MantenimientoProducto(ModificarEstatus, "CHANGESTATUS");
-                        }
-
-                    }
-
-
+                var ValidarTipoPago = ObjDataListas.Value.BuscaTipoPago(TipoPago);
+                foreach (var n in ValidarTipoPago) {
+                    BloqueaMonto = Convert.ToBoolean(n.BloqueaMonto);
                 }
-                MessageBox.Show("Operación realizada exitosamente", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //INVOCAMOS LA FACTURA
-                this.Dispose();
+
+
+                if (BloqueaMonto == true) {
+
+                    ConvertirCotizacionFactura();
+                }
+                else {
+                    if (string.IsNullOrEmpty(txtMontoPagar.Text.Trim()))
+                    {
+                        MessageBox.Show("El campo monto a pagar no puede estar vacio, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else {
+                        decimal MontoPagar, TotalPagar;
+                        MontoPagar = Convert.ToDecimal(txtMontoPagar.Text);
+                        TotalPagar = Convert.ToDecimal(txtTotal.Text);
+
+                        if (MontoPagar < TotalPagar)
+                        {
+                            MessageBox.Show("El total a pagar es mayor al monto ingresado, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else {
+                            ConvertirCotizacionFactura();
+                        }
+                    }
+                }
+           
+
+             
+              
            
             }
           

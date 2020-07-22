@@ -1151,7 +1151,6 @@
         private System.Windows.Forms.Button btnAgregarAlmacen;
         private System.Windows.Forms.MaskedTextBox txtTelefono;
         private System.Windows.Forms.TextBox txtNombrePaciente;
-        private System.Windows.Forms.ComboBox ddlTipoFacturacion;
         public System.Windows.Forms.TextBox txtNoCotizacion;
         private System.Windows.Forms.TextBox txtCodigoCliente;
         private System.Windows.Forms.Label label5;
@@ -1188,5 +1187,6 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.CheckBox cbEliminarfacturaMinimizada;
         private System.Windows.Forms.Label lbNumeroConector;
+        public System.Windows.Forms.ComboBox ddlTipoFacturacion;
     }
 }

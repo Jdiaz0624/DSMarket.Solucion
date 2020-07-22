@@ -20,6 +20,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         Lazy<DSMarket.Logica.Logica.LogicaListas.LogicaListas> ObjdataLista = new Lazy<Logica.Logica.LogicaListas.LogicaListas>();
         Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjdataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
         Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
+        Lazy<DSMarket.Logica.Logica.LogicaInventario.LogicaInventario> ObjDataInventario = new Lazy<Logica.Logica.LogicaInventario.LogicaInventario>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
         #region APLCIAR TEMA
         private void AplicarTema() {
@@ -657,7 +658,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             DSMarket.Solucion.Pantallas.Pantallas.Servicio.Facturacion Convertir = new Facturacion();
             Convertir.VariablesGlobales.ConvertirCotizacionFactura = true;
             Convertir.txtNoCotizacion.Text = VariablesGlobales.IdMantenimeinto.ToString();
+            Convertir.BuscarCotizacion();
+            Convertir.ddlTipoFacturacion.Enabled = true;
             Convertir.ShowDialog();
+            btnFacturar.Enabled = false;
         }
 
         private void button4_Click(object sender, EventArgs e)
