@@ -433,6 +433,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         #endregion
         private void HistorialFActuracion_Load(object sender, EventArgs e)
         {
+
             rbGenerar.ForeColor = Color.LimeGreen;
             rbNumero.ForeColor = Color.DarkRed;
             rbEstatus.ForeColor = Color.DarkRed;
@@ -668,6 +669,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         {
             this.Hide();
             DSMarket.Solucion.Pantallas.Pantallas.Servicio.AnularFactura Anular = new AnularFactura();
+            Anular.VariablesGlobales.IdMantenimeinto = VariablesGlobales.IdMantenimeinto;
             Anular.ShowDialog();
         }
 

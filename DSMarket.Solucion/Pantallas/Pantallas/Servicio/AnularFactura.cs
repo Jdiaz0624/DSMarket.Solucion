@@ -16,6 +16,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         {
             InitializeComponent();
         }
+        Lazy<DSMarket.Logica.Logica.LogicaServicio.LogicaServicio> ObjDataServicio = new Lazy<Logica.Logica.LogicaServicio.LogicaServicio>();
+        Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
+        public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region APLICAR TEMA
         private void TemaGenerico()
@@ -88,11 +91,133 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             dtListado.BackgroundColor = SystemColors.Control;
         }
         #endregion
+        #region SACAR LA INFORMACION DE LA FACTURA
+        private void SacarInformacionFactura(decimal IdFactura) {
+            try {
+                
+                var SacarDatosFactura = ObjDataServicio.Value.HistorialFacturacion(IdFactura,
+                    null, null, null, null, null, null, 1, 1);
+                foreach (var n in SacarDatosFactura) {
+                    txtTipoFacturacion.Text = n.EstatusFacturacion;
+                    txtNombreCliente.Text = n.Cliente;
+                    txtTelefono.Text = n.Telefono;
+                    txtTipoIdentificacion.Text = n.TipoIdentificacion;
+                    txtIdentificacion.Text = n.NumeroIdentificacion;
+                    txtDireccion.Text = n.Direccion;
+                    txtEmail.Text = n.Email;
+                    txtFecha.Text = n.FechaFacturacion;
+                    txtFaturadoPor.Text = n.CreadoPor;
+                    int CantidadArticulos = Convert.ToInt32(n.CantidadProductos);
+                    txtCantidadArtiuclos.Text = CantidadArticulos.ToString("N0");
+                    int CantidadServicios = Convert.ToInt32(n.CantidadServicios);
+                    txtCantidadServicios.Text = CantidadServicios.ToString("N0");
+                    decimal TotalDescuento = Convert.ToDecimal(n.TotalDescuento);
+                    decimal SubTotal = Convert.ToDecimal(n.SubTotal);
+                    decimal Impuesto = Convert.ToDecimal(n.Impuesto);
+                    decimal Total = Convert.ToDecimal(n.TotalGeneral);
+                    decimal MontoPagado = Convert.ToDecimal(n.MontoPagado);
+                    decimal Cambio = Convert.ToDecimal(n.Cambio);
+                    txtTotalDescuento.Text = TotalDescuento.ToString("N2");
+                    txtSubtotal.Text = SubTotal.ToString("N2");
+                    txtImpuesto.Text = Impuesto.ToString("N2");
+                    txtTotal.Text = Total.ToString("N2");
+                    txtTipoPago.Text = n.TipoPago;
+                    txtMontoPagar.Text = MontoPagado.ToString("N2");
+                    txtcambio.Text = Cambio.ToString("N2");
+                    txtComentario.Text = n.Comentario;
+                    VariablesGlobales.NumeroConector = Convert.ToDecimal(n.NumeroConector);
+                    VariablesGlobales.IdTipoIdentificacionAnularFactura = Convert.ToDecimal(n.IdTipoIdentificacion);
+                    VariablesGlobales.NumeroIdentificacionAnularFactura = n.NumeroIdentificacion;
+                    VariablesGlobales.IdTipoVentaAnularFactura = Convert.ToDecimal(n.IdTipoVenta);
+                    VariablesGlobales.IdCantidadDiasAnularFactura = Convert.ToDecimal(n.IdCantidadDias);
+                    VariablesGlobales.PorcientoDescuentoAnularFactura = Convert.ToInt32(n.PorcientoImpuesto);
+                    VariablesGlobales.IdTipOpagoAnularFactura = Convert.ToDecimal(n.IdTipoPago);
+                }
+
+                var MostrarProductosAgregados = ObjDataServicio.Value.BuscapRoductosAgregados(
+                    new Nullable<decimal>(),
+                    VariablesGlobales.NumeroConector);
+                dtListado.DataSource = MostrarProductosAgregados;
+                this.dtListado.Columns["NumeroConector"].Visible = false;
+                this.dtListado.Columns["IdTipoProducto"].Visible = false;
+                this.dtListado.Columns["IdCategoria"].Visible = false;
+                this.dtListado.Columns["DescripcionTipoProducto1"].Visible = false;
+                this.dtListado.Columns["IdProducto"].Visible = false;
+                this.dtListado.Columns["ConectorProducto"].Visible = false;
+
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al mostrar la informacion, codigo de error--> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                  
+            }
+        }
+        #endregion
+        #region ELIMINAR FACTURACION CLIENTE
+        private void FacturacionCliente(decimal NumeroConector,string Accion) {
+            DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionClientes Mantenimiento = new Logica.Entidades.EntidadesServicio.EFacturacionClientes();
+
+            Mantenimiento.IdFactura = 0;
+            Mantenimiento.NumeroConector = NumeroConector;
+            Mantenimiento.IdEstatusFacturacion = 3;
+            Mantenimiento.IdComprobante = 4;
+            Mantenimiento.Nombre = txtNombreCliente.Text;
+            Mantenimiento.Telefono = txtTelefono.Text;
+            Mantenimiento.Email = txtEmail.Text;
+            Mantenimiento.IdTipoIdentificacion = VariablesGlobales.IdTipoIdentificacionAnularFactura;
+            Mantenimiento.NumeroIdentificacion = VariablesGlobales.NumeroIdentificacionAnularFactura;
+            Mantenimiento.Direccion = txtDireccion.Text;
+            Mantenimiento.Comentario = txtComentario.Text;
+            Mantenimiento.IdTipoVenta = VariablesGlobales.IdTipoVentaAnularFactura;
+            Mantenimiento.IdCantidadDias = VariablesGlobales.IdCantidadDiasAnularFactura;
+            Mantenimiento.IdUsuario = VariablesGlobales.IdUsuario;
+            Mantenimiento.FechaFacturacion = DateTime.Now;
+
+
+
+            var MAN = ObjDataServicio.Value.GuardarFacturacionClientes(Mantenimiento, Accion);
+        }
+        #endregion
+        #region ELIMINAR FACTURACION CALCULOS
+        private void FacturacionCalculos(decimal NumeroConector,string Accion) {
+
+            int CantidadProductos = Convert.ToInt32(txtCantidadArtiuclos.Text);
+            int CantidadServicios = Convert.ToInt32(txtCantidadServicios.Text);
+            int CantidadTotal = CantidadProductos + CantidadServicios;
+
+
+            DSMarket.Logica.Entidades.EntidadesServicio.EGuardarFacturacionCalculos Mantenimiento = new Logica.Entidades.EntidadesServicio.EGuardarFacturacionCalculos();
+
+            Mantenimiento.NumeroColector = NumeroConector;
+            Mantenimiento.CantidadProductos = Convert.ToInt32(txtCantidadArtiuclos.Text);
+            Mantenimiento.CantidadServicios = Convert.ToInt32(txtCantidadServicios.Text);
+            Mantenimiento.CantidadArticulos = CantidadTotal;
+            Mantenimiento.TotalDescuento = Convert.ToDecimal(txtTotalDescuento.Text);
+            Mantenimiento.SubTotal = Convert.ToDecimal(txtSubtotal.Text);
+            Mantenimiento.Impuesto = Convert.ToDecimal(txtImpuesto.Text);
+            Mantenimiento.PorcientoImpuesto = VariablesGlobales.PorcientoDescuentoAnularFactura;
+            Mantenimiento.MontoPagado = Convert.ToDecimal(txtMontoPagar.Text);
+            Mantenimiento.Cambio = Convert.ToDecimal(txtcambio.Text);
+            Mantenimiento.IdTipoPago = VariablesGlobales.IdTipOpagoAnularFactura;
+            Mantenimiento.TotalGeneral = Convert.ToDecimal(txtTotal.Text);
+
+            var MAn = ObjDataServicio.Value.GuardarFacturacionCalculos(Mantenimiento, Accion);
+        }
+
+        private void Productos(decimal NumeroConector,string Accion) {
+            DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionProducto Eliminar = new Logica.Entidades.EntidadesServicio.EFacturacionProducto();
+
+            Eliminar.NumeroConector = NumeroConector;
+
+
+            var MAN = ObjDataServicio.Value.GuardarFacturacionProductos(Eliminar, Accion);
+        }
+        #endregion
 
         private void PCerrar_Click(object sender, EventArgs e)
         {
             this.Dispose();
             DSMarket.Solucion.Pantallas.Pantallas.Servicio.HistorialFActuracion Historial = new HistorialFActuracion();
+            Historial.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
             Historial.ShowDialog();
         }
 
@@ -105,6 +230,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         {
             TemaGenerico();
             txtClaveSeguridad.PasswordChar = '•';
+            VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+            SacarInformacionFactura(VariablesGlobales.IdMantenimeinto);
         }
 
         private void AnularFactura_FormClosing(object sender, FormClosingEventArgs e)
@@ -114,6 +241,49 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 case CloseReason.UserClosing:
                     e.Cancel = true;
                     break;
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()))
+            {
+                MessageBox.Show("El campo clave de seguridad no puede estar vacio, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else {
+                string _ClaveSeguridad = string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()) ? null : txtClaveSeguridad.Text.Trim();
+
+                var ValidarClaveSeguridad = ObjDataSeguridad.Value.BuscaClaveSeguridad(
+                    new Nullable<decimal>(),
+                    null,
+                    DSMarket.Logica.Comunes.SeguridadEncriptacion.Encriptar(_ClaveSeguridad),
+                    1, 1);
+                if (ValidarClaveSeguridad.Count() < 1)
+                {
+                    MessageBox.Show("La clave de seguridad ingresada no es valida", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else {
+                    string TipoFacturacion = txtTipoFacturacion.Text;
+
+                    if (TipoFacturacion == "FACTURACION") {
+                        if (MessageBox.Show("¿Quieres anular esta factura?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+                            MessageBox.Show("Creamos");
+
+                        }
+                    }
+                    else {
+                        if (MessageBox.Show("¿Quieres eliminar esta cotización?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+                            FacturacionCliente(VariablesGlobales.NumeroConector,"DELETE");
+                            Productos(VariablesGlobales.NumeroConector,"DELETE");
+                            FacturacionCalculos(VariablesGlobales.NumeroConector,"DELETEALL");
+                            MessageBox.Show("Cotización eliminada exitosamente", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Dispose();
+                            DSMarket.Solucion.Pantallas.Pantallas.Servicio.HistorialFActuracion Historial = new HistorialFActuracion();
+                            Historial.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+                            Historial.ShowDialog();
+                        }
+                    }
+                }
             }
         }
     }

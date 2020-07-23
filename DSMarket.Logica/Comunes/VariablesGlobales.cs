@@ -79,6 +79,16 @@ namespace DSMarket.Logica.Comunes
         public string EstatusFacturacion { get; set; }
 
         public bool FacturacionProducto { get; set; }
-   
+
+
+        #region VARIABLES PARA LA ANULACION DE LAS FACTURAS
+        public decimal IdTipoIdentificacionAnularFactura { get; set; }
+        public string NumeroIdentificacionAnularFactura { get; set; }
+        public decimal IdTipoVentaAnularFactura { get; set; }
+        public decimal IdCantidadDiasAnularFactura { get; set; }
+        public int PorcientoDescuentoAnularFactura { get; set; }
+        public decimal IdTipOpagoAnularFactura { get; set; }
+        #endregion
+
     }
 }

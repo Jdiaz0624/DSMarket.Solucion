@@ -35,11 +35,24 @@
             this.lbTitulo = new System.Windows.Forms.Label();
             this.lbCantidadRegistrosTitulo = new System.Windows.Forms.Label();
             this.gbGeneral = new System.Windows.Forms.GroupBox();
+            this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
+            this.lbNumeroRegistros = new System.Windows.Forms.Label();
+            this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
+            this.lbNumeroPagina = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtListado = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtComentario = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtFaturadoPor = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lbcambio = new System.Windows.Forms.Label();
+            this.txtcambio = new System.Windows.Forms.TextBox();
+            this.txtCantidadServicios = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.txtFecha = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -70,29 +83,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.txtCantidadServicios = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lbcambio = new System.Windows.Forms.Label();
-            this.txtcambio = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtFaturadoPor = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
-            this.lbNumeroRegistros = new System.Windows.Forms.Label();
-            this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
-            this.lbNumeroPagina = new System.Windows.Forms.Label();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.gbGeneral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -170,6 +170,83 @@
             this.gbGeneral.TabIndex = 6;
             this.gbGeneral.TabStop = false;
             // 
+            // txtNumeroRegistros
+            // 
+            this.txtNumeroRegistros.BackColor = System.Drawing.Color.LightGray;
+            this.txtNumeroRegistros.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtNumeroRegistros.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumeroRegistros.Location = new System.Drawing.Point(324, 589);
+            this.txtNumeroRegistros.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.txtNumeroRegistros.Name = "txtNumeroRegistros";
+            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 27);
+            this.txtNumeroRegistros.TabIndex = 74;
+            this.txtNumeroRegistros.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // lbNumeroRegistros
+            // 
+            this.lbNumeroRegistros.AutoSize = true;
+            this.lbNumeroRegistros.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNumeroRegistros.Location = new System.Drawing.Point(188, 592);
+            this.lbNumeroRegistros.Name = "lbNumeroRegistros";
+            this.lbNumeroRegistros.Size = new System.Drawing.Size(100, 19);
+            this.lbNumeroRegistros.TabIndex = 73;
+            this.lbNumeroRegistros.Text = "No.Registros";
+            // 
+            // txtNumeroPagina
+            // 
+            this.txtNumeroPagina.BackColor = System.Drawing.Color.LightGray;
+            this.txtNumeroPagina.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtNumeroPagina.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumeroPagina.Location = new System.Drawing.Point(131, 589);
+            this.txtNumeroPagina.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.txtNumeroPagina.Name = "txtNumeroPagina";
+            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 27);
+            this.txtNumeroPagina.TabIndex = 72;
+            this.txtNumeroPagina.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lbNumeroPagina
+            // 
+            this.lbNumeroPagina.AutoSize = true;
+            this.lbNumeroPagina.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNumeroPagina.Location = new System.Drawing.Point(15, 592);
+            this.lbNumeroPagina.Name = "lbNumeroPagina";
+            this.lbNumeroPagina.Size = new System.Drawing.Size(91, 19);
+            this.lbNumeroPagina.TabIndex = 71;
+            this.lbNumeroPagina.Text = "No.Pagina";
+            // 
+            // button4
+            // 
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button4.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Image = global::DSMarket.Solucion.Properties.Resources.Anular2;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(769, 619);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(222, 41);
+            this.button4.TabIndex = 70;
+            this.button4.Text = "      Anular Factura";
+            this.toolTip1.SetToolTip(this.button4, "Anular Factura");
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -217,7 +294,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.txtComentario);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.txtFaturadoPor);
             this.groupBox2.Controls.Add(this.label8);
@@ -261,6 +338,79 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de Cliente";
+            // 
+            // txtComentario
+            // 
+            this.txtComentario.BackColor = System.Drawing.Color.Silver;
+            this.txtComentario.Enabled = false;
+            this.txtComentario.Location = new System.Drawing.Point(112, 309);
+            this.txtComentario.Name = "txtComentario";
+            this.txtComentario.Size = new System.Drawing.Size(854, 27);
+            this.txtComentario.TabIndex = 56;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(10, 312);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(96, 20);
+            this.label12.TabIndex = 55;
+            this.label12.Text = "Comentario";
+            // 
+            // txtFaturadoPor
+            // 
+            this.txtFaturadoPor.BackColor = System.Drawing.Color.Silver;
+            this.txtFaturadoPor.Enabled = false;
+            this.txtFaturadoPor.Location = new System.Drawing.Point(204, 262);
+            this.txtFaturadoPor.Name = "txtFaturadoPor";
+            this.txtFaturadoPor.Size = new System.Drawing.Size(279, 27);
+            this.txtFaturadoPor.TabIndex = 54;
+            this.txtFaturadoPor.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(85, 265);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(115, 20);
+            this.label8.TabIndex = 53;
+            this.label8.Text = "Facturado Por";
+            // 
+            // lbcambio
+            // 
+            this.lbcambio.AutoSize = true;
+            this.lbcambio.Location = new System.Drawing.Point(627, 269);
+            this.lbcambio.Name = "lbcambio";
+            this.lbcambio.Size = new System.Drawing.Size(56, 20);
+            this.lbcambio.TabIndex = 51;
+            this.lbcambio.Text = "Monto";
+            // 
+            // txtcambio
+            // 
+            this.txtcambio.BackColor = System.Drawing.Color.Silver;
+            this.txtcambio.Enabled = false;
+            this.txtcambio.Location = new System.Drawing.Point(687, 265);
+            this.txtcambio.Name = "txtcambio";
+            this.txtcambio.Size = new System.Drawing.Size(279, 27);
+            this.txtcambio.TabIndex = 52;
+            // 
+            // txtCantidadServicios
+            // 
+            this.txtCantidadServicios.BackColor = System.Drawing.Color.Silver;
+            this.txtCantidadServicios.Enabled = false;
+            this.txtCantidadServicios.Location = new System.Drawing.Point(687, 55);
+            this.txtCantidadServicios.Name = "txtCantidadServicios";
+            this.txtCantidadServicios.Size = new System.Drawing.Size(279, 27);
+            this.txtCantidadServicios.TabIndex = 49;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(514, 58);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(169, 20);
+            this.label6.TabIndex = 50;
+            this.label6.Text = "Cantidad de Servicios";
             // 
             // label21
             // 
@@ -532,155 +682,6 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Tipo de Facturación";
             // 
-            // button4
-            // 
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Image = global::DSMarket.Solucion.Properties.Resources.Anular2;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(769, 619);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(222, 41);
-            this.button4.TabIndex = 70;
-            this.button4.Text = "      Anular Factura";
-            this.toolTip1.SetToolTip(this.button4, "Anular Factura");
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // txtCantidadServicios
-            // 
-            this.txtCantidadServicios.BackColor = System.Drawing.Color.Silver;
-            this.txtCantidadServicios.Enabled = false;
-            this.txtCantidadServicios.Location = new System.Drawing.Point(687, 55);
-            this.txtCantidadServicios.Name = "txtCantidadServicios";
-            this.txtCantidadServicios.Size = new System.Drawing.Size(279, 27);
-            this.txtCantidadServicios.TabIndex = 49;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(514, 58);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(169, 20);
-            this.label6.TabIndex = 50;
-            this.label6.Text = "Cantidad de Servicios";
-            // 
-            // lbcambio
-            // 
-            this.lbcambio.AutoSize = true;
-            this.lbcambio.Location = new System.Drawing.Point(627, 269);
-            this.lbcambio.Name = "lbcambio";
-            this.lbcambio.Size = new System.Drawing.Size(56, 20);
-            this.lbcambio.TabIndex = 51;
-            this.lbcambio.Text = "Monto";
-            // 
-            // txtcambio
-            // 
-            this.txtcambio.BackColor = System.Drawing.Color.Silver;
-            this.txtcambio.Enabled = false;
-            this.txtcambio.Location = new System.Drawing.Point(687, 265);
-            this.txtcambio.Name = "txtcambio";
-            this.txtcambio.Size = new System.Drawing.Size(279, 27);
-            this.txtcambio.TabIndex = 52;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(85, 265);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(115, 20);
-            this.label8.TabIndex = 53;
-            this.label8.Text = "Facturado Por";
-            // 
-            // txtFaturadoPor
-            // 
-            this.txtFaturadoPor.BackColor = System.Drawing.Color.Silver;
-            this.txtFaturadoPor.Enabled = false;
-            this.txtFaturadoPor.Location = new System.Drawing.Point(204, 262);
-            this.txtFaturadoPor.Name = "txtFaturadoPor";
-            this.txtFaturadoPor.Size = new System.Drawing.Size(279, 27);
-            this.txtFaturadoPor.TabIndex = 54;
-            this.txtFaturadoPor.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
-            // 
-            // textBox4
-            // 
-            this.textBox4.BackColor = System.Drawing.Color.Silver;
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(112, 309);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(854, 27);
-            this.textBox4.TabIndex = 56;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(10, 312);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(96, 20);
-            this.label12.TabIndex = 55;
-            this.label12.Text = "Comentario";
-            // 
-            // txtNumeroRegistros
-            // 
-            this.txtNumeroRegistros.BackColor = System.Drawing.Color.LightGray;
-            this.txtNumeroRegistros.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtNumeroRegistros.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroRegistros.Location = new System.Drawing.Point(324, 589);
-            this.txtNumeroRegistros.Maximum = new decimal(new int[] {
-            999999999,
-            0,
-            0,
-            0});
-            this.txtNumeroRegistros.Name = "txtNumeroRegistros";
-            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 27);
-            this.txtNumeroRegistros.TabIndex = 74;
-            this.txtNumeroRegistros.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            // 
-            // lbNumeroRegistros
-            // 
-            this.lbNumeroRegistros.AutoSize = true;
-            this.lbNumeroRegistros.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNumeroRegistros.Location = new System.Drawing.Point(188, 592);
-            this.lbNumeroRegistros.Name = "lbNumeroRegistros";
-            this.lbNumeroRegistros.Size = new System.Drawing.Size(100, 19);
-            this.lbNumeroRegistros.TabIndex = 73;
-            this.lbNumeroRegistros.Text = "No.Registros";
-            // 
-            // txtNumeroPagina
-            // 
-            this.txtNumeroPagina.BackColor = System.Drawing.Color.LightGray;
-            this.txtNumeroPagina.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtNumeroPagina.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroPagina.Location = new System.Drawing.Point(131, 589);
-            this.txtNumeroPagina.Maximum = new decimal(new int[] {
-            999999999,
-            0,
-            0,
-            0});
-            this.txtNumeroPagina.Name = "txtNumeroPagina";
-            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 27);
-            this.txtNumeroPagina.TabIndex = 72;
-            this.txtNumeroPagina.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lbNumeroPagina
-            // 
-            this.lbNumeroPagina.AutoSize = true;
-            this.lbNumeroPagina.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNumeroPagina.Location = new System.Drawing.Point(15, 592);
-            this.lbNumeroPagina.Name = "lbNumeroPagina";
-            this.lbNumeroPagina.Size = new System.Drawing.Size(91, 19);
-            this.lbNumeroPagina.TabIndex = 71;
-            this.lbNumeroPagina.Text = "No.Pagina";
-            // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 30;
@@ -707,12 +708,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.gbGeneral.ResumeLayout(false);
             this.gbGeneral.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -767,7 +768,7 @@
         private System.Windows.Forms.TextBox txtcambio;
         private System.Windows.Forms.TextBox txtCantidadServicios;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtComentario;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.NumericUpDown txtNumeroRegistros;
         private System.Windows.Forms.Label lbNumeroRegistros;
