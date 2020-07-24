@@ -18,6 +18,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         }
         Lazy<DSMarket.Logica.Logica.LogicaServicio.LogicaServicio> ObjDataServicio = new Lazy<Logica.Logica.LogicaServicio.LogicaServicio>();
         Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
+        Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
+        Lazy<DSMarket.Logica.Logica.LogicaInventario.LogicaInventario> ObjDataInventario = new Lazy<Logica.Logica.LogicaInventario.LogicaInventario>();
+        Lazy<DSMarket.Logica.Logica.LogicaCaja.LogicaCaja> ObjDataCaja = new Lazy<Logica.Logica.LogicaCaja.LogicaCaja>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region APLICAR TEMA
@@ -138,6 +141,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     new Nullable<decimal>(),
                     VariablesGlobales.NumeroConector);
                 dtListado.DataSource = MostrarProductosAgregados;
+            
                 this.dtListado.Columns["NumeroConector"].Visible = false;
                 this.dtListado.Columns["IdTipoProducto"].Visible = false;
                 this.dtListado.Columns["IdCategoria"].Visible = false;
@@ -166,7 +170,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             Mantenimiento.IdTipoIdentificacion = VariablesGlobales.IdTipoIdentificacionAnularFactura;
             Mantenimiento.NumeroIdentificacion = VariablesGlobales.NumeroIdentificacionAnularFactura;
             Mantenimiento.Direccion = txtDireccion.Text;
-            Mantenimiento.Comentario = txtComentario.Text;
+            Mantenimiento.Comentario = txtComentario.Text + "Anulación de la factura " + VariablesGlobales.IdMantenimeinto.ToString();
             Mantenimiento.IdTipoVenta = VariablesGlobales.IdTipoVentaAnularFactura;
             Mantenimiento.IdCantidadDias = VariablesGlobales.IdCantidadDiasAnularFactura;
             Mantenimiento.IdUsuario = VariablesGlobales.IdUsuario;
@@ -249,6 +253,161 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
      
         }
         #endregion
+        #region AFECTAR COMPROBANTE FISCAL
+
+        private void AfectarComprobanteFiscal()
+        {
+            //VALIDAMOS SI LOS COMPROBANTES ESTAN ACTIVOS
+            bool EstatusComprobante = false;
+
+            var ValidarComprobante = ObjDataConfiguracion.Value.BuscaCOnfiguracionGeneral(1);
+            foreach (var n in ValidarComprobante)
+            {
+                EstatusComprobante = Convert.ToBoolean(n.Estatus0);
+            }
+            if (EstatusComprobante == true)
+            {
+                //AFECTAMOS LOS COMPROBANTES
+                decimal IdFacturaSacada = 0;
+                string DescripcionComprobanteSacada = "";
+                string NumeroComprobante = "";
+                //1- SACAMOS EL NUMERO DE LA FACTURA
+                var SacarnumeroFactura = ObjDataServicio.Value.SacarNumeroFactura(VariablesGlobales.NumeroConector);
+                foreach (var ns in SacarnumeroFactura)
+                {
+                    IdFacturaSacada = Convert.ToDecimal(ns.IdFactura);
+                }
+
+                //2- SACAMOS LA DESCRIPCION DEL COMPROBANTE Y EL NUMERO DE COMPROBANTE
+                var GenerarComprobanteFiscal = ObjDataConfiguracion.Value.GenerarComprobante(4);
+                foreach (var n3 in GenerarComprobanteFiscal)
+                {
+                    DescripcionComprobanteSacada = n3.TipoComprobante;
+                    NumeroComprobante = n3.Comprobante;
+                }
+
+                DSMarket.Logica.Entidades.EntidadesServicio.EGuardarFacturacionComprobantes Afectar = new Logica.Entidades.EntidadesServicio.EGuardarFacturacionComprobantes();
+
+                Afectar.IdFacturacion = IdFacturaSacada;
+                Afectar.NumeroConector = VariablesGlobales.NumeroConector;
+                Afectar.DescripcionComprobante = DescripcionComprobanteSacada;
+                Afectar.Comprobante = NumeroComprobante;
+
+                var MAN = ObjDataServicio.Value.GuardarFacturacionComprobante(Afectar, "INSERT");
+
+            }
+            else if (EstatusComprobante == false) { }
+
+        }
+        #endregion
+        #region MODIFICAR EL STOCK DE LA FACTURA
+        private void ModificarStockproducto(decimal IdProducto, decimal NumeroConector, int Stock, string Accion)
+        {
+            DSMarket.Logica.Entidades.EntidadesInventario.EProducto Alterar = new Logica.Entidades.EntidadesInventario.EProducto();
+
+            Alterar.IdProducto = IdProducto;
+            Alterar.NumeroConector = NumeroConector;
+            Alterar.Stock = Stock;
+
+            var MAn = ObjDataInventario.Value.MantenimientoProducto(Alterar, Accion);
+        }
+        #endregion
+        #region GENERAR LA FACTURA
+        private void GenerarFacturaVenta()
+        {
+            try
+            {
+                decimal IdFactura = 0;
+                string RutaReporte = "";
+                string UsuarioBD = "";
+                string ClaveBD = "";
+
+                //SACAMOS EL NUMERO DE LA FACTURA
+                var SacarNumeroFactura = ObjDataServicio.Value.SacarNumeroFactura(VariablesGlobales.NumeroConector);
+                foreach (var n in SacarNumeroFactura)
+                {
+                    IdFactura = Convert.ToDecimal(n.IdFactura);
+                }
+
+                //SACAMOS LA RUTA DEL REPORTE DEPENDIENDO LA SELECCIONADO
+                //if (rbfacturaspanish.Checked == true)
+                //{
+                    var SacarRutaReporte = ObjDataConfiguracion.Value.BuscaRutaReporte(1);
+                    foreach (var n in SacarRutaReporte)
+                    {
+                        RutaReporte = n.RutaReporte;
+                    }
+               // }
+                //else if (rbfacturaenglish.Checked == true)
+                //{
+                //    var SacarRutaReporte = ObjDataConfiguracion.Value.BuscaRutaReporte(2);
+                //    foreach (var n in SacarRutaReporte)
+                //    {
+                //        RutaReporte = n.RutaReporte;
+                //    }
+                //}
+
+                //SACAMOS LAS CREDENCIALES DE LAS BASES DE DATOS
+                var SacarCredencialesBD = ObjDataSeguridad.Value.SacarCredencialBD(1);
+                foreach (var n in SacarCredencialesBD)
+                {
+                    UsuarioBD = n.Usuario;
+                    ClaveBD = DSMarket.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
+                }
+
+                //INVOCAMOS LA FACTURA
+                DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes FacturaVenta = new Reportes.Reportes();
+                FacturaVenta.GenerarFacturaVenta(IdFactura, RutaReporte, UsuarioBD, ClaveBD);
+                FacturaVenta.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al generar la factura, codigo de error--> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
+        #region AFECTAR LA CAJA
+        private void AfectarCaja()
+        {
+            decimal Monto = Convert.ToDecimal(txtTotal.Text);
+            Monto = Monto * -1;
+
+            DSMarket.Logica.Entidades.EntidadesCaja.EHistorialCaja MantenimientoCaja = new Logica.Entidades.EntidadesCaja.EHistorialCaja();
+
+            MantenimientoCaja.IdHistorialCaja = 0;
+            MantenimientoCaja.IdCaja = 1;
+            MantenimientoCaja.Monto = Monto;
+            MantenimientoCaja.Concepto = "ANULACION DE LA FACTURA " + VariablesGlobales.IdMantenimeinto.ToString();
+            MantenimientoCaja.Fecha0 = DateTime.Now;
+            MantenimientoCaja.IdUsuario = VariablesGlobales.IdUsuario;
+            MantenimientoCaja.NumeroReferencia = VariablesGlobales.NumeroConector;
+            MantenimientoCaja.IdTipoPago = VariablesGlobales.IdTipoProductoAnularFactura;
+
+            var MAN = ObjDataCaja.Value.MantenimientoHistorialCaja(MantenimientoCaja, "INSERT");
+        }
+
+        private void IngresarSacarDinero(string Accion)
+        {
+            try
+            {
+                decimal Monto = Convert.ToDecimal(txtTotal.Text);
+
+                DSMarket.Logica.Entidades.EntidadesCaja.ECajaGeneral AbrirCerrar = new Logica.Entidades.EntidadesCaja.ECajaGeneral();
+
+                AbrirCerrar.IdCaja = 1;
+                AbrirCerrar.Caja = "Caja General";
+                AbrirCerrar.MontoActual = Monto;
+                AbrirCerrar.Estatus0 = true;
+
+                var MAN = ObjDataCaja.Value.AfectarCaja(AbrirCerrar, Accion);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al abrir o cerrar caja, codigo de error --> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
         private void PCerrar_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -307,16 +466,83 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             {
                                 //DEVOLVEMOS
                                 FacturacionCliente(VariablesGlobales.NumeroConector, "INSERT");
-                                Productos(VariablesGlobales.NumeroConector, "INSERT");
-                                FacturacionCalculos(VariablesGlobales.NumeroConector, "INSERT");
+                               // Productos(VariablesGlobales.NumeroConector, "INSERT");
+                              //  FacturacionCalculos(VariablesGlobales.NumeroConector, "INSERT");
                                 //AFECTAMOS COMPROBANTE
+                                AfectarComprobanteFiscal();
+                               
+
+                                //DEVOLVEMOS TODOS LOS PRODUCTOS A SU ESTADO ORIGITAN ANTES DE REALIZAR ESTA FACTURACION
+                                decimal IdProducto = 0;
+                                int Cantidadvendida = 0;
+                                bool EstatusProducto = false;
+                                decimal ConectorProducto = 0;
+                                var BuscarProductos = ObjDataServicio.Value.BuscapRoductosAgregados(
+                                    new Nullable<decimal>(),
+                                    VariablesGlobales.NumeroConector);
+                                foreach (var n in BuscarProductos) {
+                                    IdProducto = Convert.ToDecimal(n.IdProducto);
+                                    Cantidadvendida = Convert.ToInt32(n.Cantidad);
+
+                                    //BUSCAMOS EL PRODUCTO Y ANALIZAMOS EL TIPO DE PRODUCTO Y SI ES ACUMULATIVO
+                                    var BuscarPrducto = ObjDataInventario.Value.BuscaProductos(IdProducto,
+                                        null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                                    foreach (var n2 in BuscarPrducto) {
+                                        VariablesGlobales.IdTipoProductoAnularFactura = Convert.ToDecimal(n2.IdTipoProducto);
+                                        VariablesGlobales.AcumulativoAnularFactura = Convert.ToBoolean(n2.ProductoAcumulativo0);
+                                        EstatusProducto = Convert.ToBoolean(n2.EstatusProducto0);
+                                        ConectorProducto = Convert.ToDecimal(n2.NumeroConector);
+
+                                        if (VariablesGlobales.IdTipoProductoAnularFactura == 1) {
+
+                                            if (VariablesGlobales.AcumulativoAnularFactura == true) {
+                                                ModificarStockproducto(IdProducto, ConectorProducto, Cantidadvendida, "ADDPRODUCT");
+
+                                            }
+                                            else if (VariablesGlobales.AcumulativoAnularFactura == false) {
+
+                                                DSMarket.Logica.Entidades.EntidadesInventario.EProducto Devolver = new Logica.Entidades.EntidadesInventario.EProducto();
+
+                                                Devolver.IdProducto = IdProducto;
+                                                Devolver.IdTipoProducto = VariablesGlobales.IdTipoProductoAnularFactura;
+                                                Devolver.ProductoAcumulativo0 = VariablesGlobales.AcumulativoAnularFactura;
+                                                Devolver.EstatusProducto0 = EstatusProducto;
+
+                                                var Add = ObjDataInventario.Value.MantenimientoProducto(Devolver, "CHANGESTATUS");
+                                            }
+                                        }
+                                        MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                        //IMPRIMIMOS LA FACTURA
+                                        GenerarFacturaVenta();
+                                        AfectarCaja();
+                                        IngresarSacarDinero("LESSMONEY");
+                                        this.Dispose();
+                                        DSMarket.Solucion.Pantallas.Pantallas.Servicio.HistorialFActuracion Historial = new HistorialFActuracion();
+                                        Historial.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+                                        Historial.ShowDialog();
+
+                                    }
+                                }
                             }
                             else
                             {
                                 FacturacionCliente(VariablesGlobales.NumeroConector, "INSERT");
-                                Productos(VariablesGlobales.NumeroConector, "INSERT");
-                                FacturacionCalculos(VariablesGlobales.NumeroConector, "INSERT");
+                               // Productos(VariablesGlobales.NumeroConector, "INSERT");
+                              //  FacturacionCalculos(VariablesGlobales.NumeroConector, "INSERT");
                                 //AFECTAMOS COMPROBANTE
+                                AfectarComprobanteFiscal();
+
+                                MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                //IMPRIMIMOS LA FACTURA
+                                GenerarFacturaVenta();
+                                AfectarCaja();
+                                IngresarSacarDinero("LESSMONEY");
+                                this.Dispose();
+                                DSMarket.Solucion.Pantallas.Pantallas.Servicio.HistorialFActuracion Historial = new HistorialFActuracion();
+                                Historial.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+                                Historial.ShowDialog();
                             }
 
                         }

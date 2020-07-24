@@ -670,6 +670,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.Hide();
             DSMarket.Solucion.Pantallas.Pantallas.Servicio.AnularFactura Anular = new AnularFactura();
             Anular.VariablesGlobales.IdMantenimeinto = VariablesGlobales.IdMantenimeinto;
+            Anular.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
             Anular.ShowDialog();
         }
 

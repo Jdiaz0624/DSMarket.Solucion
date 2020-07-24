@@ -56,12 +56,14 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         private void button1_Click(object sender, EventArgs e)
         {
             DSMarket.Solucion.Pantallas.Pantallas.Servicio.TipoPago MantenimientoTipoPago = new Pantallas.Servicio.TipoPago();
+           // MantenimientoTipoPago
             MantenimientoTipoPago.ShowDialog();
         }
 
         private void btnCotizacion_Click(object sender, EventArgs e)
         {
             DSMarket.Solucion.Pantallas.Pantallas.Servicio.HistorialFActuracion Historial = new Pantallas.Servicio.HistorialFActuracion();
+            Historial.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbUsuario.Text);
             Historial.ShowDialog();
         }
     }

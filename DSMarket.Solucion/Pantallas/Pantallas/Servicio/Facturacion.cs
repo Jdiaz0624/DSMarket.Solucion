@@ -1244,6 +1244,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             //INVOCAMOS LA FACTURA
         }
         #endregion
+       
 
         private void Facturacion_Load(object sender, EventArgs e)
         {

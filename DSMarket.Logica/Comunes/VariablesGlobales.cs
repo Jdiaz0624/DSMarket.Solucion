@@ -88,6 +88,9 @@ namespace DSMarket.Logica.Comunes
         public decimal IdCantidadDiasAnularFactura { get; set; }
         public int PorcientoDescuentoAnularFactura { get; set; }
         public decimal IdTipOpagoAnularFactura { get; set; }
+
+        public decimal IdTipoProductoAnularFactura { get; set; }
+        public bool AcumulativoAnularFactura { get; set; }
         #endregion
 
     }
