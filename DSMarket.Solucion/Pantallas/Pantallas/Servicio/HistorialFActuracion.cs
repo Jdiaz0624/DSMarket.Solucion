@@ -355,6 +355,626 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             }
         }
         #endregion
+        #region GENERAR REPORTE VENTA
+        private void GenerarReporteVenta() {
+            try {
+                DSMarket.Logica.Entidades.EntidadesConfiguracion.EGuardarReporteVenta Borrar = new Logica.Entidades.EntidadesConfiguracion.EGuardarReporteVenta();
+                Borrar.IdUsuario = VariablesGlobales.IdUsuario;
+                var MANDelete = ObjdataConfiguracion.Value.GuardarReporteVenta(Borrar, "DELETE");
+
+                if (cbNoagregarRangofecha.Checked == true)
+                {
+                    //HACEMOS LA CONSULTA AGREGANDO RANGO DE FECHA
+                    if (rbGenerar.Checked == true)
+                    {
+                        
+
+                        string _NombrreCliente = string.IsNullOrEmpty(txtParametro.Text.Trim()) ? null : txtParametro.Text.Trim();
+
+                        var BuscarRegistro = ObhDataServicio.Value.HistorialFacturacion(
+                            new Nullable<decimal>(),
+                            null,
+                            null,
+                            null,
+                            _NombrreCliente,
+                            Convert.ToDateTime(txtFechaDesde.Text),
+                            Convert.ToDateTime(txtFechaHasta.Text),
+                            Convert.ToInt32(txtNumeroPagina.Value),
+                            Convert.ToInt32(txtNumeroRegistros.Value));
+                        foreach (var n in BuscarRegistro) {
+                            DSMarket.Logica.Comunes.ProcesarReporteVenta Procesar = new Logica.Comunes.ProcesarReporteVenta(
+                                  VariablesGlobales.IdUsuario,
+                                  n.Cliente,
+                                  n.EstatusFacturacion,
+                                  Convert.ToDecimal(n.IdFactura),
+                                  Convert.ToDecimal(n.NumeroConector),
+                                  Convert.ToDecimal(n.IdEstatusFacturacion),
+                                  n.TipoIdentificacion,
+                                  n.DescripcionComprobante,
+                                  n.Comprobante,
+                                  Convert.ToDecimal(n.IdComprobante),
+                                  n.Descripcion,
+                                  n.Telefono,
+                                  n.Email,
+                                  Convert.ToDecimal(n.IdTipoIdentificacion),
+                                  n.NumeroIdentificacion,
+                                  n.Direccion,
+                                  n.Comentario,
+                                  Convert.ToDecimal(n.IdTipoVenta),
+                                  n.TipoVenta,
+                                  Convert.ToInt32(n.CantidadDias),
+                                  Convert.ToInt32(n.IdCantidadDias),
+                                  Convert.ToDecimal(n.IdUsuario),
+                                  n.CreadoPor,
+                                  Convert.ToDateTime(n.FechaFacturacion0),
+                                  Convert.ToInt32(n.CantidadProductos),
+                                  Convert.ToInt32(n.CantidadServicios),
+                                  Convert.ToInt32(n.CantidadArticulos),
+                                  Convert.ToDecimal(n.TotalDescuento),
+                                  Convert.ToDecimal(n.SubTotal),
+                                  Convert.ToDecimal(n.Impuesto),
+                                  Convert.ToInt32(n.PorcientoImpuesto),
+                                  Convert.ToDecimal(n.MontoPagado),
+                                  Convert.ToDecimal(n.Cambio),
+                                  Convert.ToInt32(n.IdTipoPago),
+                                  n.TipoPago,
+                                  Convert.ToDecimal(n.TotalGeneral),
+                                  "INSERT");
+                            Procesar.ProcesarInformacion();
+                        }
+                    }
+                    else if (rbNumero.Checked == true)
+                    {
+                        if (string.IsNullOrEmpty(txtParametro.Text.Trim()))
+                        {
+                            MessageBox.Show("El campo parametro no puede estar vacio para buscar por el numero de factura, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            var BuscarRegistro = ObhDataServicio.Value.HistorialFacturacion(
+                          Convert.ToDecimal(txtParametro.Text),
+                          null,
+                          null,
+                          null,
+                          null,
+                          Convert.ToDateTime(txtFechaDesde.Text),
+                          Convert.ToDateTime(txtFechaHasta.Text),
+                          Convert.ToInt32(txtNumeroPagina.Value),
+                          Convert.ToInt32(txtNumeroRegistros.Value));
+                            foreach (var n in BuscarRegistro)
+                            {
+                                DSMarket.Logica.Comunes.ProcesarReporteVenta Procesar = new Logica.Comunes.ProcesarReporteVenta(
+                                  VariablesGlobales.IdUsuario,
+                                  n.Cliente,
+                                  n.EstatusFacturacion,
+                                  Convert.ToDecimal(n.IdFactura),
+                                  Convert.ToDecimal(n.NumeroConector),
+                                  Convert.ToDecimal(n.IdEstatusFacturacion),
+                                  n.TipoIdentificacion,
+                                  n.DescripcionComprobante,
+                                  n.Comprobante,
+                                  Convert.ToDecimal(n.IdComprobante),
+                                  n.Descripcion,
+                                  n.Telefono,
+                                  n.Email,
+                                  Convert.ToDecimal(n.IdTipoIdentificacion),
+                                  n.NumeroIdentificacion,
+                                  n.Direccion,
+                                  n.Comentario,
+                                  Convert.ToDecimal(n.IdTipoVenta),
+                                  n.TipoVenta,
+                                  Convert.ToInt32(n.CantidadDias),
+                                  Convert.ToInt32(n.IdCantidadDias),
+                                  Convert.ToDecimal(n.IdUsuario),
+                                  n.CreadoPor,
+                                  Convert.ToDateTime(n.FechaFacturacion0),
+                                  Convert.ToInt32(n.CantidadProductos),
+                                  Convert.ToInt32(n.CantidadServicios),
+                                  Convert.ToInt32(n.CantidadArticulos),
+                                  Convert.ToDecimal(n.TotalDescuento),
+                                  Convert.ToDecimal(n.SubTotal),
+                                  Convert.ToDecimal(n.Impuesto),
+                                  Convert.ToInt32(n.PorcientoImpuesto),
+                                  Convert.ToDecimal(n.MontoPagado),
+                                  Convert.ToDecimal(n.Cambio),
+                                  Convert.ToInt32(n.IdTipoPago),
+                                  n.TipoPago,
+                                  Convert.ToDecimal(n.TotalGeneral),
+                                  "INSERT");
+                                Procesar.ProcesarInformacion();
+                            }
+                        }
+
+                    }
+                    else if (rbEstatus.Checked == true)
+                    {
+                        try
+                        {
+                            var BuscarPorEstatus = ObhDataServicio.Value.HistorialFacturacion(
+                          new Nullable<decimal>(),
+                          Convert.ToDecimal(ddlSeleccionar.SelectedValue),
+                          null,
+                          null,
+                          null,
+                          Convert.ToDateTime(txtFechaDesde.Text),
+                          Convert.ToDateTime(txtFechaHasta.Text),
+                          Convert.ToInt32(txtNumeroPagina.Value),
+                          Convert.ToInt32(txtNumeroRegistros.Value));
+                            foreach (var n in BuscarPorEstatus)
+                            {
+                                DSMarket.Logica.Comunes.ProcesarReporteVenta Procesar = new Logica.Comunes.ProcesarReporteVenta(
+                                  VariablesGlobales.IdUsuario,
+                                  n.Cliente,
+                                  n.EstatusFacturacion,
+                                  Convert.ToDecimal(n.IdFactura),
+                                  Convert.ToDecimal(n.NumeroConector),
+                                  Convert.ToDecimal(n.IdEstatusFacturacion),
+                                  n.TipoIdentificacion,
+                                  n.DescripcionComprobante,
+                                  n.Comprobante,
+                                  Convert.ToDecimal(n.IdComprobante),
+                                  n.Descripcion,
+                                  n.Telefono,
+                                  n.Email,
+                                  Convert.ToDecimal(n.IdTipoIdentificacion),
+                                  n.NumeroIdentificacion,
+                                  n.Direccion,
+                                  n.Comentario,
+                                  Convert.ToDecimal(n.IdTipoVenta),
+                                  n.TipoVenta,
+                                  Convert.ToInt32(n.CantidadDias),
+                                  Convert.ToInt32(n.IdCantidadDias),
+                                  Convert.ToDecimal(n.IdUsuario),
+                                  n.CreadoPor,
+                                  Convert.ToDateTime(n.FechaFacturacion0),
+                                  Convert.ToInt32(n.CantidadProductos),
+                                  Convert.ToInt32(n.CantidadServicios),
+                                  Convert.ToInt32(n.CantidadArticulos),
+                                  Convert.ToDecimal(n.TotalDescuento),
+                                  Convert.ToDecimal(n.SubTotal),
+                                  Convert.ToDecimal(n.Impuesto),
+                                  Convert.ToInt32(n.PorcientoImpuesto),
+                                  Convert.ToDecimal(n.MontoPagado),
+                                  Convert.ToDecimal(n.Cambio),
+                                  Convert.ToInt32(n.IdTipoPago),
+                                  n.TipoPago,
+                                  Convert.ToDecimal(n.TotalGeneral),
+                                  "INSERT");
+                                Procesar.ProcesarInformacion();
+                            }
+                        }
+                        catch (Exception) { }
+                    }
+                    else if (rbTipoFacturacion.Checked == true)
+                    {
+                        try
+                        {
+                            var Listado = ObhDataServicio.Value.HistorialFacturacion(
+                          new Nullable<decimal>(),
+                          null,
+                          Convert.ToDecimal(ddlSeleccionar.SelectedValue),
+                          null,
+                          null,
+                          Convert.ToDateTime(txtFechaDesde.Text),
+                          Convert.ToDateTime(txtFechaHasta.Text),
+                          Convert.ToInt32(txtNumeroPagina.Value),
+                          Convert.ToInt32(txtNumeroRegistros.Value));
+                            foreach (var n in Listado)
+                            {
+                                DSMarket.Logica.Comunes.ProcesarReporteVenta Procesar = new Logica.Comunes.ProcesarReporteVenta(
+                                  VariablesGlobales.IdUsuario,
+                                  n.Cliente,
+                                  n.EstatusFacturacion,
+                                  Convert.ToDecimal(n.IdFactura),
+                                  Convert.ToDecimal(n.NumeroConector),
+                                  Convert.ToDecimal(n.IdEstatusFacturacion),
+                                  n.TipoIdentificacion,
+                                  n.DescripcionComprobante,
+                                  n.Comprobante,
+                                  Convert.ToDecimal(n.IdComprobante),
+                                  n.Descripcion,
+                                  n.Telefono,
+                                  n.Email,
+                                  Convert.ToDecimal(n.IdTipoIdentificacion),
+                                  n.NumeroIdentificacion,
+                                  n.Direccion,
+                                  n.Comentario,
+                                  Convert.ToDecimal(n.IdTipoVenta),
+                                  n.TipoVenta,
+                                  Convert.ToInt32(n.CantidadDias),
+                                  Convert.ToInt32(n.IdCantidadDias),
+                                  Convert.ToDecimal(n.IdUsuario),
+                                  n.CreadoPor,
+                                  Convert.ToDateTime(n.FechaFacturacion0),
+                                  Convert.ToInt32(n.CantidadProductos),
+                                  Convert.ToInt32(n.CantidadServicios),
+                                  Convert.ToInt32(n.CantidadArticulos),
+                                  Convert.ToDecimal(n.TotalDescuento),
+                                  Convert.ToDecimal(n.SubTotal),
+                                  Convert.ToDecimal(n.Impuesto),
+                                  Convert.ToInt32(n.PorcientoImpuesto),
+                                  Convert.ToDecimal(n.MontoPagado),
+                                  Convert.ToDecimal(n.Cambio),
+                                  Convert.ToInt32(n.IdTipoPago),
+                                  n.TipoPago,
+                                  Convert.ToDecimal(n.TotalGeneral),
+                                  "INSERT");
+                                Procesar.ProcesarInformacion();
+                            }
+                        }
+                        catch (Exception) { }
+                    }
+                    else if (rbTipoPago.Checked == true)
+                    {
+                        try
+                        {
+                            var Listado = ObhDataServicio.Value.HistorialFacturacion(
+                          new Nullable<decimal>(),
+                          null,
+                          null,
+                          Convert.ToDecimal(ddlSeleccionar.SelectedValue),
+                          null,
+                          Convert.ToDateTime(txtFechaDesde.Text),
+                          Convert.ToDateTime(txtFechaHasta.Text),
+                          Convert.ToInt32(txtNumeroPagina.Value),
+                          Convert.ToInt32(txtNumeroRegistros.Value));
+                            foreach (var n in Listado)
+                            {
+                                DSMarket.Logica.Comunes.ProcesarReporteVenta Procesar = new Logica.Comunes.ProcesarReporteVenta(
+                                  VariablesGlobales.IdUsuario,
+                                  n.Cliente,
+                                  n.EstatusFacturacion,
+                                  Convert.ToDecimal(n.IdFactura),
+                                  Convert.ToDecimal(n.NumeroConector),
+                                  Convert.ToDecimal(n.IdEstatusFacturacion),
+                                  n.TipoIdentificacion,
+                                  n.DescripcionComprobante,
+                                  n.Comprobante,
+                                  Convert.ToDecimal(n.IdComprobante),
+                                  n.Descripcion,
+                                  n.Telefono,
+                                  n.Email,
+                                  Convert.ToDecimal(n.IdTipoIdentificacion),
+                                  n.NumeroIdentificacion,
+                                  n.Direccion,
+                                  n.Comentario,
+                                  Convert.ToDecimal(n.IdTipoVenta),
+                                  n.TipoVenta,
+                                  Convert.ToInt32(n.CantidadDias),
+                                  Convert.ToInt32(n.IdCantidadDias),
+                                  Convert.ToDecimal(n.IdUsuario),
+                                  n.CreadoPor,
+                                  Convert.ToDateTime(n.FechaFacturacion0),
+                                  Convert.ToInt32(n.CantidadProductos),
+                                  Convert.ToInt32(n.CantidadServicios),
+                                  Convert.ToInt32(n.CantidadArticulos),
+                                  Convert.ToDecimal(n.TotalDescuento),
+                                  Convert.ToDecimal(n.SubTotal),
+                                  Convert.ToDecimal(n.Impuesto),
+                                  Convert.ToInt32(n.PorcientoImpuesto),
+                                  Convert.ToDecimal(n.MontoPagado),
+                                  Convert.ToDecimal(n.Cambio),
+                                  Convert.ToInt32(n.IdTipoPago),
+                                  n.TipoPago,
+                                  Convert.ToDecimal(n.TotalGeneral),
+                                  "INSERT");
+                                Procesar.ProcesarInformacion();
+                            }
+                        }
+                        catch (Exception) { }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Favor de seleccionar una opción para consultar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    //HACEMOS LA CONSULTA SIN AGREGAR RANGO DE FECHA
+                    if (rbGenerar.Checked == true)
+                    {
+                        string _NombrreCliente = string.IsNullOrEmpty(txtParametro.Text.Trim()) ? null : txtParametro.Text.Trim();
+
+                        var BuscarRegistro = ObhDataServicio.Value.HistorialFacturacion(
+                            new Nullable<decimal>(),
+                            null,
+                            null,
+                            null,
+                            _NombrreCliente,
+                            null,
+                            null,
+                            Convert.ToInt32(txtNumeroPagina.Value),
+                            Convert.ToInt32(txtNumeroRegistros.Value));
+                        foreach (var n in BuscarRegistro)
+                        {
+                            DSMarket.Logica.Comunes.ProcesarReporteVenta Procesar = new Logica.Comunes.ProcesarReporteVenta(
+                                  VariablesGlobales.IdUsuario,
+                                  n.Cliente,
+                                  n.EstatusFacturacion,
+                                  Convert.ToDecimal(n.IdFactura),
+                                  Convert.ToDecimal(n.NumeroConector),
+                                  Convert.ToDecimal(n.IdEstatusFacturacion),
+                                  n.TipoIdentificacion,
+                                  n.DescripcionComprobante,
+                                  n.Comprobante,
+                                  Convert.ToDecimal(n.IdComprobante),
+                                  n.Descripcion,
+                                  n.Telefono,
+                                  n.Email,
+                                  Convert.ToDecimal(n.IdTipoIdentificacion),
+                                  n.NumeroIdentificacion,
+                                  n.Direccion,
+                                  n.Comentario,
+                                  Convert.ToDecimal(n.IdTipoVenta),
+                                  n.TipoVenta,
+                                  Convert.ToInt32(n.CantidadDias),
+                                  Convert.ToInt32(n.IdCantidadDias),
+                                  Convert.ToDecimal(n.IdUsuario),
+                                  n.CreadoPor,
+                                  Convert.ToDateTime(n.FechaFacturacion0),
+                                  Convert.ToInt32(n.CantidadProductos),
+                                  Convert.ToInt32(n.CantidadServicios),
+                                  Convert.ToInt32(n.CantidadArticulos),
+                                  Convert.ToDecimal(n.TotalDescuento),
+                                  Convert.ToDecimal(n.SubTotal),
+                                  Convert.ToDecimal(n.Impuesto),
+                                  Convert.ToInt32(n.PorcientoImpuesto),
+                                  Convert.ToDecimal(n.MontoPagado),
+                                  Convert.ToDecimal(n.Cambio),
+                                  Convert.ToInt32(n.IdTipoPago),
+                                  n.TipoPago,
+                                  Convert.ToDecimal(n.TotalGeneral),
+                                  "INSERT");
+                            Procesar.ProcesarInformacion();
+                        }
+                    }
+                    else if (rbNumero.Checked == true)
+                    {
+                        if (string.IsNullOrEmpty(txtParametro.Text.Trim()))
+                        {
+                            MessageBox.Show("El campo parametro no puede estar vacio para buscar por el numero de factura, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            var BuscarRegistro = ObhDataServicio.Value.HistorialFacturacion(
+                          Convert.ToDecimal(txtParametro.Text),
+                          null,
+                          null,
+                          null,
+                          null,
+                          null,
+                          null,
+                          Convert.ToInt32(txtNumeroPagina.Value),
+                          Convert.ToInt32(txtNumeroRegistros.Value));
+                            foreach (var n in BuscarRegistro)
+                            {
+                                DSMarket.Logica.Comunes.ProcesarReporteVenta Procesar = new Logica.Comunes.ProcesarReporteVenta(
+                                  VariablesGlobales.IdUsuario,
+                                  n.Cliente,
+                                  n.EstatusFacturacion,
+                                  Convert.ToDecimal(n.IdFactura),
+                                  Convert.ToDecimal(n.NumeroConector),
+                                  Convert.ToDecimal(n.IdEstatusFacturacion),
+                                  n.TipoIdentificacion,
+                                  n.DescripcionComprobante,
+                                  n.Comprobante,
+                                  Convert.ToDecimal(n.IdComprobante),
+                                  n.Descripcion,
+                                  n.Telefono,
+                                  n.Email,
+                                  Convert.ToDecimal(n.IdTipoIdentificacion),
+                                  n.NumeroIdentificacion,
+                                  n.Direccion,
+                                  n.Comentario,
+                                  Convert.ToDecimal(n.IdTipoVenta),
+                                  n.TipoVenta,
+                                  Convert.ToInt32(n.CantidadDias),
+                                  Convert.ToInt32(n.IdCantidadDias),
+                                  Convert.ToDecimal(n.IdUsuario),
+                                  n.CreadoPor,
+                                  Convert.ToDateTime(n.FechaFacturacion0),
+                                  Convert.ToInt32(n.CantidadProductos),
+                                  Convert.ToInt32(n.CantidadServicios),
+                                  Convert.ToInt32(n.CantidadArticulos),
+                                  Convert.ToDecimal(n.TotalDescuento),
+                                  Convert.ToDecimal(n.SubTotal),
+                                  Convert.ToDecimal(n.Impuesto),
+                                  Convert.ToInt32(n.PorcientoImpuesto),
+                                  Convert.ToDecimal(n.MontoPagado),
+                                  Convert.ToDecimal(n.Cambio),
+                                  Convert.ToInt32(n.IdTipoPago),
+                                  n.TipoPago,
+                                  Convert.ToDecimal(n.TotalGeneral),
+                                  "INSERT");
+                                Procesar.ProcesarInformacion();
+                            }
+                        }
+                    }
+                    else if (rbEstatus.Checked == true)
+                    {
+                        try
+                        {
+                            var BuscarPorEstatus = ObhDataServicio.Value.HistorialFacturacion(
+                        new Nullable<decimal>(),
+                        Convert.ToDecimal(ddlSeleccionar.SelectedValue),
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        Convert.ToInt32(txtNumeroPagina.Value),
+                        Convert.ToInt32(txtNumeroRegistros.Value));
+                            foreach (var n in BuscarPorEstatus)
+                            {
+                                DSMarket.Logica.Comunes.ProcesarReporteVenta Procesar = new Logica.Comunes.ProcesarReporteVenta(
+                                   VariablesGlobales.IdUsuario,
+                                   n.Cliente,
+                                   n.EstatusFacturacion,
+                                   Convert.ToDecimal(n.IdFactura),
+                                   Convert.ToDecimal(n.NumeroConector),
+                                   Convert.ToDecimal(n.IdEstatusFacturacion),
+                                   n.TipoIdentificacion,
+                                   n.DescripcionComprobante,
+                                   n.Comprobante,
+                                   Convert.ToDecimal(n.IdComprobante),
+                                   n.Descripcion,
+                                   n.Telefono,
+                                   n.Email,
+                                   Convert.ToDecimal(n.IdTipoIdentificacion),
+                                   n.NumeroIdentificacion,
+                                   n.Direccion,
+                                   n.Comentario,
+                                   Convert.ToDecimal(n.IdTipoVenta),
+                                   n.TipoVenta,
+                                   Convert.ToInt32(n.CantidadDias),
+                                   Convert.ToInt32(n.IdCantidadDias),
+                                   Convert.ToDecimal(n.IdUsuario),
+                                   n.CreadoPor,
+                                   Convert.ToDateTime(n.FechaFacturacion0),
+                                   Convert.ToInt32(n.CantidadProductos),
+                                   Convert.ToInt32(n.CantidadServicios),
+                                   Convert.ToInt32(n.CantidadArticulos),
+                                   Convert.ToDecimal(n.TotalDescuento),
+                                   Convert.ToDecimal(n.SubTotal),
+                                   Convert.ToDecimal(n.Impuesto),
+                                   Convert.ToInt32(n.PorcientoImpuesto),
+                                   Convert.ToDecimal(n.MontoPagado),
+                                   Convert.ToDecimal(n.Cambio),
+                                   Convert.ToInt32(n.IdTipoPago),
+                                   n.TipoPago,
+                                   Convert.ToDecimal(n.TotalGeneral),
+                                   "INSERT");
+                                Procesar.ProcesarInformacion();
+                            }
+                        }
+                        catch (Exception) { }
+                    }
+                    else if (rbTipoFacturacion.Checked == true)
+                    {
+                        try
+                        {
+                            var Listado = ObhDataServicio.Value.HistorialFacturacion(
+                          new Nullable<decimal>(),
+                          null,
+                          Convert.ToDecimal(ddlSeleccionar.SelectedValue),
+                          null,
+                          null,
+                          null,
+                          null,
+                          Convert.ToInt32(txtNumeroPagina.Value),
+                          Convert.ToInt32(txtNumeroRegistros.Value));
+                            foreach (var n in Listado)
+                            {
+                                DSMarket.Logica.Comunes.ProcesarReporteVenta Procesar = new Logica.Comunes.ProcesarReporteVenta(
+                                  VariablesGlobales.IdUsuario,
+                                  n.Cliente,
+                                  n.EstatusFacturacion,
+                                  Convert.ToDecimal(n.IdFactura),
+                                  Convert.ToDecimal(n.NumeroConector),
+                                  Convert.ToDecimal(n.IdEstatusFacturacion),
+                                  n.TipoIdentificacion,
+                                  n.DescripcionComprobante,
+                                  n.Comprobante,
+                                  Convert.ToDecimal(n.IdComprobante),
+                                  n.Descripcion,
+                                  n.Telefono,
+                                  n.Email,
+                                  Convert.ToDecimal(n.IdTipoIdentificacion),
+                                  n.NumeroIdentificacion,
+                                  n.Direccion,
+                                  n.Comentario,
+                                  Convert.ToDecimal(n.IdTipoVenta),
+                                  n.TipoVenta,
+                                  Convert.ToInt32(n.CantidadDias),
+                                  Convert.ToInt32(n.IdCantidadDias),
+                                  Convert.ToDecimal(n.IdUsuario),
+                                  n.CreadoPor,
+                                  Convert.ToDateTime(n.FechaFacturacion0),
+                                  Convert.ToInt32(n.CantidadProductos),
+                                  Convert.ToInt32(n.CantidadServicios),
+                                  Convert.ToInt32(n.CantidadArticulos),
+                                  Convert.ToDecimal(n.TotalDescuento),
+                                  Convert.ToDecimal(n.SubTotal),
+                                  Convert.ToDecimal(n.Impuesto),
+                                  Convert.ToInt32(n.PorcientoImpuesto),
+                                  Convert.ToDecimal(n.MontoPagado),
+                                  Convert.ToDecimal(n.Cambio),
+                                  Convert.ToInt32(n.IdTipoPago),
+                                  n.TipoPago,
+                                  Convert.ToDecimal(n.TotalGeneral),
+                                  "INSERT");
+                                Procesar.ProcesarInformacion();
+                            }
+                        }
+                        catch (Exception) { }
+                    }
+                    else if (rbTipoPago.Checked == true)
+                    {
+                        try
+                        {
+                            var Listado = ObhDataServicio.Value.HistorialFacturacion(
+                          new Nullable<decimal>(),
+                          null,
+                          null,
+                          Convert.ToDecimal(ddlSeleccionar.SelectedValue),
+                          null,
+                          null,
+                          null,
+                          Convert.ToInt32(txtNumeroPagina.Value),
+                          Convert.ToInt32(txtNumeroRegistros.Value));
+                            dtListado.DataSource = Listado;
+                            OcultarColumnas();
+                            if (Listado.Count() < 1)
+                            {
+                                lbCantidadRegistrosVariable.Text = "0";
+                            }
+                            else
+                            {
+                                foreach (var n in Listado)
+                                {
+                                    int CantidadRegistros = Convert.ToInt32(n.CantidadRegistros);
+                                    lbCantidadRegistrosVariable.Text = CantidadRegistros.ToString("N0");
+                                }
+                            }
+                        }
+                        catch (Exception) { }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Favor de seleccionar una opción para consultar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+
+                //INVOCAMOS EL REPORTE
+               
+            string RutaReporte = "";
+            string UsuarioBD = "";
+            string ClaveBD = "";
+
+
+            var SacarCredenciales = ObjDataSeguridad.Value.SacarCredencialBD(1);
+            foreach (var n2 in SacarCredenciales) {
+                UsuarioBD = n2.Usuario;
+                ClaveBD = DSMarket.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n2.Clave);
+            }
+
+
+                var SacarRutaReporte = ObjdataConfiguracion.Value.BuscaRutaReporte(6);
+                foreach (var n in SacarRutaReporte)
+                {
+                    RutaReporte = n.RutaReporte;
+                }
+
+                DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes Invocar = new Reportes.Reportes();
+                Invocar.GenerarReporteVenta(VariablesGlobales.IdUsuario, RutaReporte, UsuarioBD, ClaveBD);
+                Invocar.ShowDialog();      
+
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al guardar los datos para cargar el reporte, codigo de error: " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
         #region OCULTAR COLUMNAS
         private void OcultarColumnas() {
             this.dtListado.Columns["IdFactura"].Visible = false;
@@ -836,7 +1456,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void btnReporte_Click(object sender, EventArgs e)
         {
-
+            GenerarReporteVenta();
         }
     }
 }

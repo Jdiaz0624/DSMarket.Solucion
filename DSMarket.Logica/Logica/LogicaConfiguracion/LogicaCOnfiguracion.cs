@@ -311,5 +311,94 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             return Procesar;
         }
         #endregion
+        #region GUARDAR DATOS REPORTE VENTA
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EGuardarReporteVenta GuardarReporteVenta(DSMarket.Logica.Entidades.EntidadesConfiguracion.EGuardarReporteVenta Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesConfiguracion.EGuardarReporteVenta Guardar = null;
+
+            var ReporteVenta = ObjData.SP_GUARDAR_HISTORIAL_VENTA(
+                Item.IdUsuario,
+                Item.Cliente,
+                Item.EstatusFacturacion,
+                Item.IdFactura,
+                Item.NumeroConector,
+                Item.IdEstatusFActuracion,
+                Item.TipoIdentificacion,
+                Item.DescripciomComprobanre,
+                Item.Comprobante,
+                Item.IdComprobante,
+                Item.Descripcion,
+                Item.Telefono,
+                Item.Email,
+                Item.IdTipoIdentificacion,
+                Item.NumeroIdentificacion,
+                Item.Direccion,
+                Item.Comentario,
+                Item.IdTipoVenta,
+                Item.TipoVenta,
+                Item.CantidadDias,
+                Item.IdCantidadDias,
+                Item.UsuarioVendio,
+                Item.CreadoPor,
+                Item.FechaFActuracion,
+                Item.CantidadProductos,
+                Item.CantidadServicios,
+                Item.CantidadArticulos,
+                Item.TotalDescuento,
+                Item.SubTotal,
+                Item.Impuesto,
+                Item.PorcientoImpuesto,
+                Item.MontoPagado,
+                Item.Cambio,
+                Item.IdTipoPago,
+                Item.TipoPago,
+                Item.TotalGeneral,
+                Accion);
+            if (ReporteVenta != null) {
+                Guardar = (from n in ReporteVenta
+                           select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EGuardarReporteVenta
+                           {
+                               IdUsuario = n.IdUsuario,
+                               Cliente=n.Cliente,
+                               EstatusFacturacion=n.EstatusFacturacion,
+                               IdFactura=n.IdFactura,
+                               NumeroConector=n.NumeroConector,
+                               IdEstatusFActuracion = n.IdEstatusFActuracion,
+                               TipoIdentificacion = n.TipoIdentificacion,
+                               DescripciomComprobanre = n.DescripciomComprobanre,
+                               Comprobante = n.Comprobante,
+                               IdComprobante = n.IdComprobante,
+                               Descripcion = n.Descripcion,
+                               Telefono = n.Telefono,
+                               Email = n.Email,
+                               IdTipoIdentificacion = n.IdTipoIdentificacion,
+                               NumeroIdentificacion = n.NumeroIdentificacion,
+                               Direccion = n.Direccion,
+                               Comentario = n.Comentario,
+                               IdTipoVenta = n.IdTipoVenta,
+                               TipoVenta = n.TipoVenta,
+                               CantidadDias = n.CantidadDias,
+                               IdCantidadDias = n.IdCantidadDias,
+                               UsuarioVendio = n.UsuarioVendio,
+                               CreadoPor = n.CreadoPor,
+                               FechaFActuracion = n.FechaFActuracion,
+                               CantidadProductos = n.CantidadProductos,
+                               CantidadServicios = n.CantidadServicios,
+                               CantidadArticulos = n.CantidadArticulos,
+                               TotalDescuento = n.TotalDescuento,
+                               SubTotal = n.SubTotal,
+                               Impuesto = n.Impuesto,
+                               PorcientoImpuesto = n.PorcientoImpuesto,
+                               MontoPagado = n.MontoPagado,
+                               Cambio = n.Cambio,
+                               IdTipoPago = n.IdTipoPago,
+                               TipoPago = n.TipoPago,
+                               TotalGeneral = n.TotalGeneral
+                           }).FirstOrDefault();
+            }
+            return Guardar;
+        }
+        #endregion
     }
 }

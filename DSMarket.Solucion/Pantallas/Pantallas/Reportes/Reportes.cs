@@ -69,6 +69,29 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
         }
         #endregion
 
+        #region GENERAR REPORTE DE VENTA
+        public void GenerarReporteVenta(decimal IdUsuario, string RutaReporte, string UsuarioBD, string ClaveBD) {
+            try {
+                ReportDocument ReporteVenta = new ReportDocument();
+                SqlCommand comando = new SqlCommand();
+                comando.CommandText = "EXEC [Reporte].[SP_BUSCAR_REPORTE_VENTA] @IdUsuario";
+                comando.Connection = DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion();
+
+                comando.Parameters.Add("@IdUsuario", SqlDbType.Decimal);
+                comando.Parameters["@IdUsuario"].Value = IdUsuario;
+
+                ReporteVenta.Load(@"" + RutaReporte);
+                ReporteVenta.Refresh();
+                ReporteVenta.SetParameterValue("@IdUsuario", IdUsuario);
+                ReporteVenta.SetDatabaseLogon(UsuarioBD, ClaveBD);
+                crystalReportViewer1.ReportSource = ReporteVenta;
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al generar reporte de venta, codigo de error: " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
+
         private void Reportes_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();

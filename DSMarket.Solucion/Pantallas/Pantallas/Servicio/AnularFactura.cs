@@ -455,7 +455,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     1, 1);
                 if (ValidarClaveSeguridad.Count() < 1)
                 {
-                    MessageBox.Show("La clave de seguridad ingresada no es valida", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("La clave de seguridad ingresada no es valida", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else {
                     string TipoFacturacion = txtTipoFacturacion.Text;

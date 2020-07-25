@@ -47,6 +47,7 @@
     <Compile Include="Comunes\AutoCompletarControles.cs" />
     <Compile Include="Comunes\InformacionEmpresa.cs" />
     <Compile Include="Comunes\Mails.cs" />
+    <Compile Include="Comunes\ProcesarReporteVenta.cs" />
     <Compile Include="Comunes\SeguridadEncriptacion.cs" />
     <Compile Include="Comunes\ValidarControles.cs" />
     <Compile Include="Comunes\VariablesGlobales.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="Entidades\EntidadesConfiguracion\EComprobantes.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EConfiguracionGeneral.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EGenerarComprobante.cs" />
+    <Compile Include="Entidades\EntidadesConfiguracion\EGuardarReporteVenta.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EImpuesto.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EInformacionEmpresa.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EListas.cs" />
