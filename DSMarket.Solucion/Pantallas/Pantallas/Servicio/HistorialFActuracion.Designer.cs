@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbCantidadRegistrosVariable = new System.Windows.Forms.Label();
+            this.lbCantidadRegistros = new System.Windows.Forms.Label();
             this.lbCantidadRegistrosTitulo = new System.Windows.Forms.Label();
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -50,6 +52,9 @@
             this.rbGenerar = new System.Windows.Forms.RadioButton();
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
+            this.btnProductos = new System.Windows.Forms.Button();
+            this.rbfacturaenglish = new System.Windows.Forms.RadioButton();
+            this.rbfacturaspanish = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
@@ -65,11 +70,6 @@
             this.lbFechaDesde = new System.Windows.Forms.Label();
             this.lbSeleccionar = new System.Windows.Forms.Label();
             this.lbParametro = new System.Windows.Forms.Label();
-            this.lbCantidadRegistros = new System.Windows.Forms.Label();
-            this.lbCantidadRegistrosVariable = new System.Windows.Forms.Label();
-            this.btnProductos = new System.Windows.Forms.Button();
-            this.rbfacturaenglish = new System.Windows.Forms.RadioButton();
-            this.rbfacturaspanish = new System.Windows.Forms.RadioButton();
             this.lbFormatoFactura = new System.Windows.Forms.Label();
             this.txtCantidadProductos = new System.Windows.Forms.TextBox();
             this.txtCantidadServicios = new System.Windows.Forms.TextBox();
@@ -106,6 +106,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1233, 38);
             this.panel1.TabIndex = 3;
+            // 
+            // lbCantidadRegistrosVariable
+            // 
+            this.lbCantidadRegistrosVariable.AutoSize = true;
+            this.lbCantidadRegistrosVariable.Location = new System.Drawing.Point(575, 9);
+            this.lbCantidadRegistrosVariable.Name = "lbCantidadRegistrosVariable";
+            this.lbCantidadRegistrosVariable.Size = new System.Drawing.Size(18, 20);
+            this.lbCantidadRegistrosVariable.TabIndex = 34;
+            this.lbCantidadRegistrosVariable.Text = "0";
+            // 
+            // lbCantidadRegistros
+            // 
+            this.lbCantidadRegistros.AutoSize = true;
+            this.lbCantidadRegistros.Location = new System.Drawing.Point(320, 9);
+            this.lbCantidadRegistros.Name = "lbCantidadRegistros";
+            this.lbCantidadRegistros.Size = new System.Drawing.Size(256, 20);
+            this.lbCantidadRegistros.TabIndex = 33;
+            this.lbCantidadRegistros.Text = "Cantidad de Registros Mostrados:";
             // 
             // lbCantidadRegistrosTitulo
             // 
@@ -162,6 +180,7 @@
             this.btnEstadistica.Text = "      Estadistica";
             this.toolTip1.SetToolTip(this.btnEstadistica, "Generar Reporte estadistico de facturación");
             this.btnEstadistica.UseVisualStyleBackColor = true;
+            this.btnEstadistica.Click += new System.EventHandler(this.btnEstadistica_Click);
             // 
             // btnAnular
             // 
@@ -401,6 +420,54 @@
             0});
             this.txtNumeroPagina.ValueChanged += new System.EventHandler(this.txtNumeroPagina_ValueChanged);
             // 
+            // btnProductos
+            // 
+            this.btnProductos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProductos.Enabled = false;
+            this.btnProductos.FlatAppearance.BorderSize = 0;
+            this.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnProductos.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProductos.Image = global::DSMarket.Solucion.Properties.Resources.ojo;
+            this.btnProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProductos.Location = new System.Drawing.Point(1056, 118);
+            this.btnProductos.Name = "btnProductos";
+            this.btnProductos.Size = new System.Drawing.Size(163, 41);
+            this.btnProductos.TabIndex = 71;
+            this.btnProductos.Text = "      Productos";
+            this.toolTip1.SetToolTip(this.btnProductos, "Ver Listado de los productos facturados.");
+            this.btnProductos.UseVisualStyleBackColor = true;
+            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
+            // 
+            // rbfacturaenglish
+            // 
+            this.rbfacturaenglish.AutoSize = true;
+            this.rbfacturaenglish.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbfacturaenglish.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbfacturaenglish.Location = new System.Drawing.Point(932, 179);
+            this.rbfacturaenglish.Name = "rbfacturaenglish";
+            this.rbfacturaenglish.Size = new System.Drawing.Size(72, 24);
+            this.rbfacturaenglish.TabIndex = 74;
+            this.rbfacturaenglish.TabStop = true;
+            this.rbfacturaenglish.Text = "Ingles";
+            this.toolTip1.SetToolTip(this.rbfacturaenglish, "Generar la factura en ingles");
+            this.rbfacturaenglish.UseVisualStyleBackColor = true;
+            this.rbfacturaenglish.Visible = false;
+            // 
+            // rbfacturaspanish
+            // 
+            this.rbfacturaspanish.AutoSize = true;
+            this.rbfacturaspanish.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbfacturaspanish.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbfacturaspanish.Location = new System.Drawing.Point(839, 179);
+            this.rbfacturaspanish.Name = "rbfacturaspanish";
+            this.rbfacturaspanish.Size = new System.Drawing.Size(86, 24);
+            this.rbfacturaspanish.TabIndex = 73;
+            this.rbfacturaspanish.TabStop = true;
+            this.rbfacturaspanish.Text = "Español";
+            this.toolTip1.SetToolTip(this.rbfacturaspanish, "Generar la factura en español");
+            this.rbfacturaspanish.UseVisualStyleBackColor = true;
+            this.rbfacturaspanish.Visible = false;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cbNoagregarRangofecha);
@@ -565,72 +632,6 @@
             this.lbParametro.Size = new System.Drawing.Size(88, 20);
             this.lbParametro.TabIndex = 0;
             this.lbParametro.Text = "Parametro";
-            // 
-            // lbCantidadRegistros
-            // 
-            this.lbCantidadRegistros.AutoSize = true;
-            this.lbCantidadRegistros.Location = new System.Drawing.Point(320, 9);
-            this.lbCantidadRegistros.Name = "lbCantidadRegistros";
-            this.lbCantidadRegistros.Size = new System.Drawing.Size(256, 20);
-            this.lbCantidadRegistros.TabIndex = 33;
-            this.lbCantidadRegistros.Text = "Cantidad de Registros Mostrados:";
-            // 
-            // lbCantidadRegistrosVariable
-            // 
-            this.lbCantidadRegistrosVariable.AutoSize = true;
-            this.lbCantidadRegistrosVariable.Location = new System.Drawing.Point(575, 9);
-            this.lbCantidadRegistrosVariable.Name = "lbCantidadRegistrosVariable";
-            this.lbCantidadRegistrosVariable.Size = new System.Drawing.Size(18, 20);
-            this.lbCantidadRegistrosVariable.TabIndex = 34;
-            this.lbCantidadRegistrosVariable.Text = "0";
-            // 
-            // btnProductos
-            // 
-            this.btnProductos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProductos.Enabled = false;
-            this.btnProductos.FlatAppearance.BorderSize = 0;
-            this.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnProductos.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProductos.Image = global::DSMarket.Solucion.Properties.Resources.ojo;
-            this.btnProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProductos.Location = new System.Drawing.Point(1056, 118);
-            this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Size = new System.Drawing.Size(163, 41);
-            this.btnProductos.TabIndex = 71;
-            this.btnProductos.Text = "      Productos";
-            this.toolTip1.SetToolTip(this.btnProductos, "Ver Listado de los productos facturados.");
-            this.btnProductos.UseVisualStyleBackColor = true;
-            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
-            // 
-            // rbfacturaenglish
-            // 
-            this.rbfacturaenglish.AutoSize = true;
-            this.rbfacturaenglish.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbfacturaenglish.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbfacturaenglish.Location = new System.Drawing.Point(932, 179);
-            this.rbfacturaenglish.Name = "rbfacturaenglish";
-            this.rbfacturaenglish.Size = new System.Drawing.Size(72, 24);
-            this.rbfacturaenglish.TabIndex = 74;
-            this.rbfacturaenglish.TabStop = true;
-            this.rbfacturaenglish.Text = "Ingles";
-            this.toolTip1.SetToolTip(this.rbfacturaenglish, "Generar la factura en ingles");
-            this.rbfacturaenglish.UseVisualStyleBackColor = true;
-            this.rbfacturaenglish.Visible = false;
-            // 
-            // rbfacturaspanish
-            // 
-            this.rbfacturaspanish.AutoSize = true;
-            this.rbfacturaspanish.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbfacturaspanish.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbfacturaspanish.Location = new System.Drawing.Point(839, 179);
-            this.rbfacturaspanish.Name = "rbfacturaspanish";
-            this.rbfacturaspanish.Size = new System.Drawing.Size(86, 24);
-            this.rbfacturaspanish.TabIndex = 73;
-            this.rbfacturaspanish.TabStop = true;
-            this.rbfacturaspanish.Text = "Español";
-            this.toolTip1.SetToolTip(this.rbfacturaspanish, "Generar la factura en español");
-            this.rbfacturaspanish.UseVisualStyleBackColor = true;
-            this.rbfacturaspanish.Visible = false;
             // 
             // lbFormatoFactura
             // 

@@ -260,4 +260,41 @@
       <Column Name="TotalGeneral" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Reporte.SP_GUARDAR_INFORMACION_GANANCIA" Method="SP_GUARDAR_INFORMACION_GANANCIA">
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdEstatusFacturacion" Parameter="idEstatusFacturacion" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Estatus" Parameter="estatus" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="IdFActura" Parameter="idFActura" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="DescripcionProducto" Parameter="descripcionProducto" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Acumulativo" Parameter="acumulativo" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="IdCategoria" Parameter="idCategoria" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Categoria" Parameter="categoria" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="TipoProducto" Parameter="tipoProducto" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="PrecioCompra" Parameter="precioCompra" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="PrecioVenta" Parameter="precioVenta" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="CantidadVendda" Parameter="cantidadVendda" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DescuentoAplicado" Parameter="descuentoAplicado" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="TotalVenta" Parameter="totalVenta" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="TotalPrecioCompra" Parameter="totalPrecioCompra" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="Ganancia" Parameter="ganancia" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_GUARDAR_INFORMACION_GANANCIAResult">
+      <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdEstatusFacturacion" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Estatus" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdFActura" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="DescripcionProducto" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Acumulativo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="IdCategoria" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Categoria" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="TipoProducto" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="PrecioCompra" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="PrecioVenta" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="CantidadVendda" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DescuentoAplicado" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="TotalVenta" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="TotalPrecioCompra" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Ganancia" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

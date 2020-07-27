@@ -33,7 +33,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
     #endregion
 		
 		public BDConecionServicioDataContext() : 
-				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString3, mappingSource)
+				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -208,6 +208,20 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idFactura, idEstatusFacturacion, idTipoFacturacion, idTipoPago, cliente, fechaDesde, fechaHasta, numeroPagina, numeroRegistros);
 			return ((ISingleResult<SP_BUSCA_HISTORIAL_FACTURACIONResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_VALIDAR_FACTURA_ANULADA")]
+		public ISingleResult<SP_VALIDAR_FACTURA_ANULADAResult> SP_VALIDAR_FACTURA_ANULADA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroConector", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroConector)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), numeroConector);
+			return ((ISingleResult<SP_VALIDAR_FACTURA_ANULADAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_SACAR_GANANCIA_FACTURACION")]
+		public ISingleResult<SP_SACAR_GANANCIA_FACTURACIONResult> SP_SACAR_GANANCIA_FACTURACION([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdFactura", DbType="Decimal(20,0)")] System.Nullable<decimal> idFactura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdEstatusFacturacion", DbType="Decimal(20,0)")] System.Nullable<decimal> idEstatusFacturacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoFacturacion", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoFacturacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoPago", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoPago, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cliente", DbType="VarChar(1000)")] string cliente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaDesde", DbType="Date")] System.Nullable<System.DateTime> fechaDesde, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaHasta", DbType="Date")] System.Nullable<System.DateTime> fechaHasta)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idFactura, idEstatusFacturacion, idTipoFacturacion, idTipoPago, cliente, fechaDesde, fechaHasta);
+			return ((ISingleResult<SP_SACAR_GANANCIA_FACTURACIONResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -5096,6 +5110,310 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._CantidadRegistros != value))
 				{
 					this._CantidadRegistros = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_VALIDAR_FACTURA_ANULADAResult
+	{
+		
+		private decimal _NumeroConector;
+		
+		public SP_VALIDAR_FACTURA_ANULADAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroConector", DbType="Decimal(20,0) NOT NULL")]
+		public decimal NumeroConector
+		{
+			get
+			{
+				return this._NumeroConector;
+			}
+			set
+			{
+				if ((this._NumeroConector != value))
+				{
+					this._NumeroConector = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_SACAR_GANANCIA_FACTURACIONResult
+	{
+		
+		private int _IdEstatusFacturacion;
+		
+		private string _Estatus;
+		
+		private decimal _IdFactura;
+		
+		private string _DescripcionProducto;
+		
+		private string _Acumulativo;
+		
+		private System.Nullable<decimal> _IdCategoria;
+		
+		private string _Categoria;
+		
+		private string _TipoProducto;
+		
+		private System.Nullable<decimal> _PrecioCompra;
+		
+		private System.Nullable<decimal> _PrecioVenta;
+		
+		private System.Nullable<decimal> _CantidadVendida;
+		
+		private System.Nullable<decimal> _DescuentoAplicado;
+		
+		private System.Nullable<decimal> _TotalVenta;
+		
+		private System.Nullable<decimal> _TotalPrecioCompra;
+		
+		private System.Nullable<decimal> _Ganancia;
+		
+		public SP_SACAR_GANANCIA_FACTURACIONResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdEstatusFacturacion", DbType="Int NOT NULL")]
+		public int IdEstatusFacturacion
+		{
+			get
+			{
+				return this._IdEstatusFacturacion;
+			}
+			set
+			{
+				if ((this._IdEstatusFacturacion != value))
+				{
+					this._IdEstatusFacturacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="VarChar(100)")]
+		public string Estatus
+		{
+			get
+			{
+				return this._Estatus;
+			}
+			set
+			{
+				if ((this._Estatus != value))
+				{
+					this._Estatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdFactura", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdFactura
+		{
+			get
+			{
+				return this._IdFactura;
+			}
+			set
+			{
+				if ((this._IdFactura != value))
+				{
+					this._IdFactura = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DescripcionProducto", DbType="VarChar(1000)")]
+		public string DescripcionProducto
+		{
+			get
+			{
+				return this._DescripcionProducto;
+			}
+			set
+			{
+				if ((this._DescripcionProducto != value))
+				{
+					this._DescripcionProducto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Acumulativo", DbType="VarChar(2)")]
+		public string Acumulativo
+		{
+			get
+			{
+				return this._Acumulativo;
+			}
+			set
+			{
+				if ((this._Acumulativo != value))
+				{
+					this._Acumulativo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCategoria", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdCategoria
+		{
+			get
+			{
+				return this._IdCategoria;
+			}
+			set
+			{
+				if ((this._IdCategoria != value))
+				{
+					this._IdCategoria = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Categoria", DbType="VarChar(100)")]
+		public string Categoria
+		{
+			get
+			{
+				return this._Categoria;
+			}
+			set
+			{
+				if ((this._Categoria != value))
+				{
+					this._Categoria = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoProducto", DbType="VarChar(100)")]
+		public string TipoProducto
+		{
+			get
+			{
+				return this._TipoProducto;
+			}
+			set
+			{
+				if ((this._TipoProducto != value))
+				{
+					this._TipoProducto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrecioCompra", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> PrecioCompra
+		{
+			get
+			{
+				return this._PrecioCompra;
+			}
+			set
+			{
+				if ((this._PrecioCompra != value))
+				{
+					this._PrecioCompra = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrecioVenta", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> PrecioVenta
+		{
+			get
+			{
+				return this._PrecioVenta;
+			}
+			set
+			{
+				if ((this._PrecioVenta != value))
+				{
+					this._PrecioVenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadVendida", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> CantidadVendida
+		{
+			get
+			{
+				return this._CantidadVendida;
+			}
+			set
+			{
+				if ((this._CantidadVendida != value))
+				{
+					this._CantidadVendida = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DescuentoAplicado", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> DescuentoAplicado
+		{
+			get
+			{
+				return this._DescuentoAplicado;
+			}
+			set
+			{
+				if ((this._DescuentoAplicado != value))
+				{
+					this._DescuentoAplicado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalVenta", DbType="Decimal(38,2)")]
+		public System.Nullable<decimal> TotalVenta
+		{
+			get
+			{
+				return this._TotalVenta;
+			}
+			set
+			{
+				if ((this._TotalVenta != value))
+				{
+					this._TotalVenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalPrecioCompra", DbType="Decimal(38,2)")]
+		public System.Nullable<decimal> TotalPrecioCompra
+		{
+			get
+			{
+				return this._TotalPrecioCompra;
+			}
+			set
+			{
+				if ((this._TotalPrecioCompra != value))
+				{
+					this._TotalPrecioCompra = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ganancia", DbType="Decimal(38,2)")]
+		public System.Nullable<decimal> Ganancia
+		{
+			get
+			{
+				return this._Ganancia;
+			}
+			set
+			{
+				if ((this._Ganancia != value))
+				{
+					this._Ganancia = value;
 				}
 			}
 		}

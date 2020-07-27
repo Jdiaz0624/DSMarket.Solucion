@@ -36,6 +36,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
                 comando.Parameters["@IdFactura"].Value = IdFactura;
 
                 Factura.Load(@"" + RutaReporte);
+                Factura.Refresh();
                 Factura.SetParameterValue("@IdFactura", IdFactura);
                 Factura.SetDatabaseLogon(UsuaruoBD, ClaveBD);
                 crystalReportViewer1.ReportSource = Factura;
@@ -88,6 +89,26 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
             }
             catch (Exception ex) {
                 MessageBox.Show("Error al generar reporte de venta, codigo de error: " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
+
+        #region MOSTRAR EL REPORTE DE INVENTARIO GENERAL
+        public void GenerarReporteInventarioGeneral(string RutaReporte, string UsuarioBD, string ClaveBD) {
+            try {
+                ReportDocument ReporteInventarioGeneral = new ReportDocument();
+
+                SqlCommand comando = new SqlCommand();
+                comando.CommandText = "EXEC  [Reporte].[SP_REPORTE_INVENTARIO]";
+                comando.Connection = DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion();
+
+                ReporteInventarioGeneral.Load(@"" + RutaReporte);
+                ReporteInventarioGeneral.Refresh();
+                ReporteInventarioGeneral.SetDatabaseLogon(UsuarioBD, ClaveBD);
+                crystalReportViewer1.ReportSource = ReporteInventarioGeneral;
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al mostrar el reporte de ventas general, codigo de error: " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         #endregion

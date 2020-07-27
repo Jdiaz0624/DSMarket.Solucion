@@ -1051,6 +1051,358 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             MostrarListadoVentas();
         }
         #endregion
+        #region GENERAR GAANANCIA DE VENTA
+        private void GenerarGananciaVenta()
+        {
+            try {
+                DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarInformacionGanancia Eliminar = new Logica.Entidades.EntidadesConfiguracion.EProcesarInformacionGanancia();
+                Eliminar.IdUsuario = VariablesGlobales.IdUsuario;
+                var MAnElimianr = ObjdataConfiguracion.Value.ProcesarInformacionGanancia(Eliminar, "DELETE");
+
+                if (cbNoagregarRangofecha.Checked)
+                {
+                    if (rbGenerar.Checked) {
+                        string _NombreCliente = string.IsNullOrEmpty(txtParametro.Text.Trim()) ? null : txtParametro.Text.Trim();
+
+                        var BuscarRegistros = ObhDataServicio.Value.GenerarGananciaVenta(
+                            new Nullable<decimal>(),
+                            null, null, null, _NombreCliente,
+                            Convert.ToDateTime(txtFechaDesde.Text),
+                            Convert.ToDateTime(txtFechaHasta.Text));
+                        foreach (var n in BuscarRegistros) {
+                            DSMarket.Logica.Comunes.ProcesarGananciaVenta ProcesarGanancia = new Logica.Comunes.ProcesarGananciaVenta(
+                                VariablesGlobales.IdUsuario,
+                                Convert.ToDecimal(n.IdEstatusFacturacion),
+                                n.Estatus,
+                                Convert.ToDecimal(n.IdFactura),
+                                n.DescripcionProducto,
+                                n.Acumulativo,
+                                Convert.ToDecimal(n.IdCategoria),
+                                n.Categoria,
+                                n.TipoProducto,
+                                Convert.ToDecimal(n.PrecioCompra),
+                                Convert.ToDecimal(n.PrecioVenta),
+                                Convert.ToInt32(n.CantidadVendida),
+                                Convert.ToDecimal(n.DescuentoAplicado),
+                                Convert.ToDecimal(n.TotalVenta),
+                                Convert.ToDecimal(n.TotalPrecioCompra),
+                                Convert.ToDecimal(n.Ganancia),
+                                "INSERT");
+                            ProcesarGanancia.ProcesarGanancia();
+                        }
+
+                    }
+                    else if (rbNumero.Checked) {
+                        if (string.IsNullOrEmpty(txtParametro.Text.Trim()))
+                        {
+                            MessageBox.Show("Favr de ingresar el numero de Factura / Cotización para buscar registros", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else {
+
+                            var BuscarRegistros = ObhDataServicio.Value.GenerarGananciaVenta(
+                          Convert.ToDecimal(txtParametro.Text),
+                          null, null, null, null,
+                          Convert.ToDateTime(txtFechaDesde.Text),
+                          Convert.ToDateTime(txtFechaHasta.Text));
+                            foreach (var n in BuscarRegistros)
+                            {
+                                DSMarket.Logica.Comunes.ProcesarGananciaVenta ProcesarGanancia = new Logica.Comunes.ProcesarGananciaVenta(
+                                    VariablesGlobales.IdUsuario,
+                                    Convert.ToDecimal(n.IdEstatusFacturacion),
+                                    n.Estatus,
+                                    Convert.ToDecimal(n.IdFactura),
+                                    n.DescripcionProducto,
+                                    n.Acumulativo,
+                                    Convert.ToDecimal(n.IdCategoria),
+                                    n.Categoria,
+                                    n.TipoProducto,
+                                    Convert.ToDecimal(n.PrecioCompra),
+                                    Convert.ToDecimal(n.PrecioVenta),
+                                    Convert.ToInt32(n.CantidadVendida),
+                                    Convert.ToDecimal(n.DescuentoAplicado),
+                                    Convert.ToDecimal(n.TotalVenta),
+                                    Convert.ToDecimal(n.TotalPrecioCompra),
+                                    Convert.ToDecimal(n.Ganancia),
+                                    "INSERT");
+                                ProcesarGanancia.ProcesarGanancia();
+                            }
+
+                        }
+                    }
+                    else if (rbEstatus.Checked) {
+                        var BuscarRegistros = ObhDataServicio.Value.GenerarGananciaVenta(
+                        new Nullable<decimal>(),
+                        Convert.ToDecimal(ddlSeleccionar.SelectedValue),
+                         null, null, null,
+                        Convert.ToDateTime(txtFechaDesde.Text),
+                        Convert.ToDateTime(txtFechaHasta.Text));
+                        foreach (var n in BuscarRegistros)
+                        {
+                            DSMarket.Logica.Comunes.ProcesarGananciaVenta ProcesarGanancia = new Logica.Comunes.ProcesarGananciaVenta(
+                                VariablesGlobales.IdUsuario,
+                                Convert.ToDecimal(n.IdEstatusFacturacion),
+                                n.Estatus,
+                                Convert.ToDecimal(n.IdFactura),
+                                n.DescripcionProducto,
+                                n.Acumulativo,
+                                Convert.ToDecimal(n.IdCategoria),
+                                n.Categoria,
+                                n.TipoProducto,
+                                Convert.ToDecimal(n.PrecioCompra),
+                                Convert.ToDecimal(n.PrecioVenta),
+                                Convert.ToInt32(n.CantidadVendida),
+                                Convert.ToDecimal(n.DescuentoAplicado),
+                                Convert.ToDecimal(n.TotalVenta),
+                                Convert.ToDecimal(n.TotalPrecioCompra),
+                                Convert.ToDecimal(n.Ganancia),
+                                "INSERT");
+                            ProcesarGanancia.ProcesarGanancia();
+                        }
+                    }
+                    else if (rbTipoFacturacion.Checked) {
+                        var BuscarRegistros = ObhDataServicio.Value.GenerarGananciaVenta(
+                       new Nullable<decimal>(),
+                       null,
+                       Convert.ToDecimal(ddlSeleccionar.SelectedValue),
+                       null,
+                       null,
+                       Convert.ToDateTime(txtFechaDesde.Text),
+                       Convert.ToDateTime(txtFechaHasta.Text));
+                        foreach (var n in BuscarRegistros)
+                        {
+                            DSMarket.Logica.Comunes.ProcesarGananciaVenta ProcesarGanancia = new Logica.Comunes.ProcesarGananciaVenta(
+                                VariablesGlobales.IdUsuario,
+                                Convert.ToDecimal(n.IdEstatusFacturacion),
+                                n.Estatus,
+                                Convert.ToDecimal(n.IdFactura),
+                                n.DescripcionProducto,
+                                n.Acumulativo,
+                                Convert.ToDecimal(n.IdCategoria),
+                                n.Categoria,
+                                n.TipoProducto,
+                                Convert.ToDecimal(n.PrecioCompra),
+                                Convert.ToDecimal(n.PrecioVenta),
+                                Convert.ToInt32(n.CantidadVendida),
+                                Convert.ToDecimal(n.DescuentoAplicado),
+                                Convert.ToDecimal(n.TotalVenta),
+                                Convert.ToDecimal(n.TotalPrecioCompra),
+                                Convert.ToDecimal(n.Ganancia),
+                                "INSERT");
+                            ProcesarGanancia.ProcesarGanancia();
+                        }
+                    }
+                    else if (rbTipoPago.Checked) {
+                        var BuscarRegistros = ObhDataServicio.Value.GenerarGananciaVenta(
+                     new Nullable<decimal>(),
+                     null,
+                     null,
+                     Convert.ToDecimal(ddlSeleccionar.SelectedValue),
+                     null,
+                     Convert.ToDateTime(txtFechaDesde.Text),
+                     Convert.ToDateTime(txtFechaHasta.Text));
+                        foreach (var n in BuscarRegistros)
+                        {
+                            DSMarket.Logica.Comunes.ProcesarGananciaVenta ProcesarGanancia = new Logica.Comunes.ProcesarGananciaVenta(
+                                VariablesGlobales.IdUsuario,
+                                Convert.ToDecimal(n.IdEstatusFacturacion),
+                                n.Estatus,
+                                Convert.ToDecimal(n.IdFactura),
+                                n.DescripcionProducto,
+                                n.Acumulativo,
+                                Convert.ToDecimal(n.IdCategoria),
+                                n.Categoria,
+                                n.TipoProducto,
+                                Convert.ToDecimal(n.PrecioCompra),
+                                Convert.ToDecimal(n.PrecioVenta),
+                                Convert.ToInt32(n.CantidadVendida),
+                                Convert.ToDecimal(n.DescuentoAplicado),
+                                Convert.ToDecimal(n.TotalVenta),
+                                Convert.ToDecimal(n.TotalPrecioCompra),
+                                Convert.ToDecimal(n.Ganancia),
+                                "INSERT");
+                            ProcesarGanancia.ProcesarGanancia();
+                        }
+                    }
+                    else { MessageBox.Show("Seleccionar una Opción", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                }
+                //dDDDDDDDDDDD
+                else {
+                    if (rbGenerar.Checked)
+                    {
+                        string _NombreCliente = string.IsNullOrEmpty(txtParametro.Text.Trim()) ? null : txtParametro.Text.Trim();
+
+                        var BuscarRegistros = ObhDataServicio.Value.GenerarGananciaVenta(
+                            new Nullable<decimal>(),
+                            null, null, null, _NombreCliente,
+                            null,
+                            null);
+                        foreach (var n in BuscarRegistros)
+                        {
+                            DSMarket.Logica.Comunes.ProcesarGananciaVenta ProcesarGanancia = new Logica.Comunes.ProcesarGananciaVenta(
+                                VariablesGlobales.IdUsuario,
+                                Convert.ToDecimal(n.IdEstatusFacturacion),
+                                n.Estatus,
+                                Convert.ToDecimal(n.IdFactura),
+                                n.DescripcionProducto,
+                                n.Acumulativo,
+                                Convert.ToDecimal(n.IdCategoria),
+                                n.Categoria,
+                                n.TipoProducto,
+                                Convert.ToDecimal(n.PrecioCompra),
+                                Convert.ToDecimal(n.PrecioVenta),
+                                Convert.ToInt32(n.CantidadVendida),
+                                Convert.ToDecimal(n.DescuentoAplicado),
+                                Convert.ToDecimal(n.TotalVenta),
+                                Convert.ToDecimal(n.TotalPrecioCompra),
+                                Convert.ToDecimal(n.Ganancia),
+                                "INSERT");
+                            ProcesarGanancia.ProcesarGanancia();
+                        }
+
+                    }
+                    else if (rbNumero.Checked)
+                    {
+                        if (string.IsNullOrEmpty(txtParametro.Text.Trim()))
+                        {
+                            MessageBox.Show("Favr de ingresar el numero de Factura / Cotización para buscar registros", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+
+                            var BuscarRegistros = ObhDataServicio.Value.GenerarGananciaVenta(
+                          Convert.ToDecimal(txtParametro.Text),
+                          null, null, null, null,
+                         null,
+                          null);
+                            foreach (var n in BuscarRegistros)
+                            {
+                                DSMarket.Logica.Comunes.ProcesarGananciaVenta ProcesarGanancia = new Logica.Comunes.ProcesarGananciaVenta(
+                                    VariablesGlobales.IdUsuario,
+                                    Convert.ToDecimal(n.IdEstatusFacturacion),
+                                    n.Estatus,
+                                    Convert.ToDecimal(n.IdFactura),
+                                    n.DescripcionProducto,
+                                    n.Acumulativo,
+                                    Convert.ToDecimal(n.IdCategoria),
+                                    n.Categoria,
+                                    n.TipoProducto,
+                                    Convert.ToDecimal(n.PrecioCompra),
+                                    Convert.ToDecimal(n.PrecioVenta),
+                                    Convert.ToInt32(n.CantidadVendida),
+                                    Convert.ToDecimal(n.DescuentoAplicado),
+                                    Convert.ToDecimal(n.TotalVenta),
+                                    Convert.ToDecimal(n.TotalPrecioCompra),
+                                    Convert.ToDecimal(n.Ganancia),
+                                    "INSERT");
+                                ProcesarGanancia.ProcesarGanancia();
+                            }
+                        }
+                    }
+                    else if (rbEstatus.Checked)
+                    {
+                        var BuscarRegistros = ObhDataServicio.Value.GenerarGananciaVenta(
+                        new Nullable<decimal>(),
+                        Convert.ToDecimal(ddlSeleccionar.SelectedValue),
+                         null, null, null,
+                        null,
+                        null);
+                        foreach (var n in BuscarRegistros)
+                        {
+                            DSMarket.Logica.Comunes.ProcesarGananciaVenta ProcesarGanancia = new Logica.Comunes.ProcesarGananciaVenta(
+                                VariablesGlobales.IdUsuario,
+                                Convert.ToDecimal(n.IdEstatusFacturacion),
+                                n.Estatus,
+                                Convert.ToDecimal(n.IdFactura),
+                                n.DescripcionProducto,
+                                n.Acumulativo,
+                                Convert.ToDecimal(n.IdCategoria),
+                                n.Categoria,
+                                n.TipoProducto,
+                                Convert.ToDecimal(n.PrecioCompra),
+                                Convert.ToDecimal(n.PrecioVenta),
+                                Convert.ToInt32(n.CantidadVendida),
+                                Convert.ToDecimal(n.DescuentoAplicado),
+                                Convert.ToDecimal(n.TotalVenta),
+                                Convert.ToDecimal(n.TotalPrecioCompra),
+                                Convert.ToDecimal(n.Ganancia),
+                                "INSERT");
+                            ProcesarGanancia.ProcesarGanancia();
+                        }
+                    }
+                    else if (rbTipoFacturacion.Checked)
+                    {
+                        var BuscarRegistros = ObhDataServicio.Value.GenerarGananciaVenta(
+                       new Nullable<decimal>(),
+                       null,
+                       Convert.ToDecimal(ddlSeleccionar.SelectedValue),
+                       null,
+                       null,
+                       null,
+                       null);
+                        foreach (var n in BuscarRegistros)
+                        {
+                            DSMarket.Logica.Comunes.ProcesarGananciaVenta ProcesarGanancia = new Logica.Comunes.ProcesarGananciaVenta(
+                                VariablesGlobales.IdUsuario,
+                                Convert.ToDecimal(n.IdEstatusFacturacion),
+                                n.Estatus,
+                                Convert.ToDecimal(n.IdFactura),
+                                n.DescripcionProducto,
+                                n.Acumulativo,
+                                Convert.ToDecimal(n.IdCategoria),
+                                n.Categoria,
+                                n.TipoProducto,
+                                Convert.ToDecimal(n.PrecioCompra),
+                                Convert.ToDecimal(n.PrecioVenta),
+                                Convert.ToInt32(n.CantidadVendida),
+                                Convert.ToDecimal(n.DescuentoAplicado),
+                                Convert.ToDecimal(n.TotalVenta),
+                                Convert.ToDecimal(n.TotalPrecioCompra),
+                                Convert.ToDecimal(n.Ganancia),
+                                "INSERT");
+                            ProcesarGanancia.ProcesarGanancia();
+                        }
+                    }
+                    else if (rbTipoPago.Checked)
+                    {
+                        var BuscarRegistros = ObhDataServicio.Value.GenerarGananciaVenta(
+                     new Nullable<decimal>(),
+                     null,
+                     null,
+                     Convert.ToDecimal(ddlSeleccionar.SelectedValue),
+                     null,
+                     null,
+                     null);
+                        foreach (var n in BuscarRegistros)
+                        {
+                            DSMarket.Logica.Comunes.ProcesarGananciaVenta ProcesarGanancia = new Logica.Comunes.ProcesarGananciaVenta(
+                                VariablesGlobales.IdUsuario,
+                                Convert.ToDecimal(n.IdEstatusFacturacion),
+                                n.Estatus,
+                                Convert.ToDecimal(n.IdFactura),
+                                n.DescripcionProducto,
+                                n.Acumulativo,
+                                Convert.ToDecimal(n.IdCategoria),
+                                n.Categoria,
+                                n.TipoProducto,
+                                Convert.ToDecimal(n.PrecioCompra),
+                                Convert.ToDecimal(n.PrecioVenta),
+                                Convert.ToInt32(n.CantidadVendida),
+                                Convert.ToDecimal(n.DescuentoAplicado),
+                                Convert.ToDecimal(n.TotalVenta),
+                                Convert.ToDecimal(n.TotalPrecioCompra),
+                                Convert.ToDecimal(n.Ganancia),
+                                "INSERT");
+                            ProcesarGanancia.ProcesarGanancia();
+                        }
+                    }
+                    else { MessageBox.Show("Seleccionar una Opción", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                }
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al generar las estadisticas de facturación, codigo de error: " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
         private void HistorialFActuracion_Load(object sender, EventArgs e)
         {
 
@@ -1341,8 +1693,14 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     btnFacturar.Enabled = true;
                 }
 
-                if (VariablesGlobales.IdEstatusFacturacionHistorial != 3) {
+                var ValidarFacturaAnulada = ObhDataServicio.Value.ValidarFacturaAnulada(VariablesGlobales.NumeroConector);
+                if (ValidarFacturaAnulada.Count() < 1)
+                {
                     btnAnular.Enabled = true;
+                }
+                else
+                {
+                    btnAnular.Enabled = false;
                 }
             }
         }
@@ -1457,6 +1815,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void btnReporte_Click(object sender, EventArgs e)
         {
             GenerarReporteVenta();
+        }
+
+        private void btnEstadistica_Click(object sender, EventArgs e)
+        {
+            GenerarGananciaVenta();
         }
     }
 }

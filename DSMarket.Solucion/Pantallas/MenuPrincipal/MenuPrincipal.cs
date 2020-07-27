@@ -125,9 +125,9 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
             btnServicio.Enabled = true;
             btnInventario.Enabled = true;
             btnCaja.Enabled = true;
-            btneEmpresa.Enabled = false;
+            btneEmpresa.Enabled = true;
             btnConfiguracion.Enabled = true;
-            btnSeguridad.Enabled = false;
+            btnSeguridad.Enabled = true;
 
         }
 
@@ -206,6 +206,11 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
             {
                 Application.Restart();
             }
+        }
+
+        private void PanelCuerpo_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

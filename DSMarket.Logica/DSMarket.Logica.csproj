@@ -47,6 +47,7 @@
     <Compile Include="Comunes\AutoCompletarControles.cs" />
     <Compile Include="Comunes\InformacionEmpresa.cs" />
     <Compile Include="Comunes\Mails.cs" />
+    <Compile Include="Comunes\ProcesarGananciaVenta.cs" />
     <Compile Include="Comunes\ProcesarReporteVenta.cs" />
     <Compile Include="Comunes\SeguridadEncriptacion.cs" />
     <Compile Include="Comunes\ValidarControles.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Entidades\EntidadesConfiguracion\EInformacionEmpresa.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EListas.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EMantenimientoComprobantes.cs" />
+    <Compile Include="Entidades\EntidadesConfiguracion\EProcesarInformacionGanancia.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EProcesarReporteCuadreCaja.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\ERutaReporte.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\EClientes.cs" />
@@ -101,8 +103,10 @@
     <Compile Include="Entidades\EntidadesServicio\EHistorialFacturacion.cs" />
     <Compile Include="Entidades\EntidadesServicio\EMantenimientoHistorialProductoInventario.cs" />
     <Compile Include="Entidades\EntidadesServicio\EProductosAgregados.cs" />
+    <Compile Include="Entidades\EntidadesServicio\ESacarGananciaFacturacion.cs" />
     <Compile Include="Entidades\EntidadesServicio\ESacarNumeroFactura.cs" />
     <Compile Include="Entidades\EntidadesServicio\ETipoPago.cs" />
+    <Compile Include="Entidades\EntidadesServicio\EValidarFacturaAnulada.cs" />
     <Compile Include="Logica\LogicaCaja\LogicaCaja.cs" />
     <Compile Include="Logica\LogicaConfiguracion\LogicaCOnfiguracion.cs" />
     <Compile Include="Logica\LogicaEmpresa\LogicaEmpresa.cs" />

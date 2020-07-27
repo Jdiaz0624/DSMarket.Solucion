@@ -576,6 +576,46 @@ namespace DSMarket.Logica.Logica.LogicaServicio
             return Listado;
         }
         #endregion
+        #region VALIDAR LAS FACTURAS ANULADAS
+        public List<DSMarket.Logica.Entidades.EntidadesServicio.EValidarFacturaAnulada> ValidarFacturaAnulada(decimal? NumeroConector = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Validar = (from n in ObjData.SP_VALIDAR_FACTURA_ANULADA(NumeroConector)
+                           select new DSMarket.Logica.Entidades.EntidadesServicio.EValidarFacturaAnulada
+                           {
+                               NumeroConector=n.NumeroConector
+                           }).ToList();
+            return Validar;
+        }
+        #endregion
+
+        #region GENERAR LA GANANCIA DE VENTA
+        public List<DSMarket.Logica.Entidades.EntidadesServicio.ESacarGananciaFacturacion> GenerarGananciaVenta(decimal? IdFactura = null, decimal? IdEstatusFacturacion = null, decimal? IdTipoFacturacion = null, decimal? IdTipoPago = null, string Cliente = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_SACAR_GANANCIA_FACTURACION(IdFactura, IdEstatusFacturacion, IdTipoFacturacion, IdTipoPago, Cliente, FechaDesde, FechaHasta)
+                           select new DSMarket.Logica.Entidades.EntidadesServicio.ESacarGananciaFacturacion
+                           {
+                               IdEstatusFacturacion=n.IdEstatusFacturacion,
+                               Estatus=n.Estatus,
+                               IdFactura=n.IdFactura,
+                               DescripcionProducto=n.DescripcionProducto,
+                               Acumulativo=n.Acumulativo,
+                               IdCategoria=n.IdCategoria,
+                               Categoria=n.Categoria,
+                               TipoProducto=n.TipoProducto,
+                               PrecioCompra=n.PrecioCompra,
+                               PrecioVenta=n.PrecioVenta,
+                               CantidadVendida=n.CantidadVendida,
+                               DescuentoAplicado=n.DescuentoAplicado,
+                               TotalVenta=n.TotalVenta,
+                               TotalPrecioCompra=n.TotalPrecioCompra,
+                               Ganancia=n.Ganancia
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
 
 
 

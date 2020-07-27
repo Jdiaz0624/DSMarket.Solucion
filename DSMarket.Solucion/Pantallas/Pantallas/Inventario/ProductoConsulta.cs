@@ -20,6 +20,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         }
         Lazy<DSMarket.Logica.Logica.LogicaListas.LogicaListas> ObjDataListas = new Lazy<Logica.Logica.LogicaListas.LogicaListas>();
         Lazy<DSMarket.Logica.Logica.LogicaInventario.LogicaInventario> ObjDataInventario = new Lazy<Logica.Logica.LogicaInventario.LogicaInventario>();
+        Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
+        Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjdataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
         public DSMarket.Logica.Comunes.VariablesGlobales variablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region CARGAR LAS LISTAS
@@ -1074,6 +1076,37 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             Estadistica.VariablesGlobales.IdUsuario = variablesGlobales.IdUsuario;
             Estadistica.VariablesGlobales.EstadisticaProducto = 3;
             Estadistica.ShowDialog();
+        }
+
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+            if (cbTodoHistorial.Checked == true) {
+                string RutaReporte = "";
+                string UsuarioBD = "";
+                string ClaveBD = "";
+
+
+                var SacarCredenciales = ObjDataSeguridad.Value.SacarCredencialBD(1);
+                foreach (var n2 in SacarCredenciales)
+                {
+                    UsuarioBD = n2.Usuario;
+                    ClaveBD = DSMarket.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n2.Clave);
+                }
+
+
+                var SacarRutaReporte = ObjdataConfiguracion.Value.BuscaRutaReporte(5);
+                foreach (var n in SacarRutaReporte)
+                {
+                    RutaReporte = n.RutaReporte;
+                }
+
+                DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes Invocar = new Reportes.Reportes();
+                Invocar.GenerarReporteInventarioGeneral(RutaReporte, UsuarioBD, ClaveBD);
+                Invocar.ShowDialog();
+            }
+            else {
+                MessageBox.Show("Opcion no disponible"); 
+            }
         }
     }
 }

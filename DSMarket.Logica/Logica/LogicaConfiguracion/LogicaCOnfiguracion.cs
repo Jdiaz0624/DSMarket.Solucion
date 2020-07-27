@@ -400,5 +400,54 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             return Guardar;
         }
         #endregion
+        #region PROCESAR LA INFORMACION DE LA GANANCIA
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarInformacionGanancia ProcesarInformacionGanancia(DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarInformacionGanancia Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarInformacionGanancia Procesar = null;
+
+            var InformacionGanancia = ObjData.SP_GUARDAR_INFORMACION_GANANCIA(
+                Item.IdUsuario,
+                Item.IdEstatusFacturacion,
+                Item.Estatus,
+                Item.IdFActura,
+                Item.DescripcionProducto,
+                Item.Acumulativo,
+                Item.IdCategoria,
+                Item.Categoria,
+                Item.TipoProducto,
+                Item.PrecioCompra,
+                Item.PrecioVenta,
+                Item.CantidadVendda,
+                Item.DescuentoAplicado,
+                Item.TotalVenta,
+                Item.TotalPrecioCompra,
+                Item.Ganancia,
+                Accion);
+            if (InformacionGanancia != null) {
+                Procesar = (from n in InformacionGanancia
+                            select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarInformacionGanancia
+                            {
+                                IdUsuario=n.IdUsuario,
+                                IdEstatusFacturacion=n.IdEstatusFacturacion,
+                                Estatus=n.Estatus,
+                                IdFActura=n.IdFActura,
+                                DescripcionProducto=n.DescripcionProducto,
+                                Acumulativo=n.Acumulativo,
+                                IdCategoria=n.IdCategoria,
+                                Categoria=n.Categoria,
+                                TipoProducto=n.TipoProducto,
+                                PrecioCompra=n.PrecioCompra,
+                                PrecioVenta=n.PrecioVenta,
+                                CantidadVendda=n.CantidadVendda,
+                                DescuentoAplicado=n.DescuentoAplicado,
+                                TotalVenta=n.TotalVenta,
+                                TotalPrecioCompra=n.TotalPrecioCompra,
+                                Ganancia=n.Ganancia
+                            }).FirstOrDefault();
+            }
+            return Procesar;
+        }
+        #endregion
     }
 }

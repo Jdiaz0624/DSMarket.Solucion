@@ -35,13 +35,14 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cbTodoHistorial = new System.Windows.Forms.CheckBox();
             this.btnReporte = new System.Windows.Forms.Button();
-            this.btnOferta = new System.Windows.Forms.Button();
             this.btnSuplir = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnOferta = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnRestablecer = new System.Windows.Forms.Button();
@@ -145,8 +146,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Linen;
+            this.panel2.Controls.Add(this.cbTodoHistorial);
             this.panel2.Controls.Add(this.btnReporte);
-            this.panel2.Controls.Add(this.btnOferta);
             this.panel2.Controls.Add(this.btnSuplir);
             this.panel2.Controls.Add(this.btnEliminar);
             this.panel2.Controls.Add(this.btnEditar);
@@ -159,10 +160,22 @@
             this.panel2.Size = new System.Drawing.Size(1242, 58);
             this.panel2.TabIndex = 5;
             // 
+            // cbTodoHistorial
+            // 
+            this.cbTodoHistorial.AutoSize = true;
+            this.cbTodoHistorial.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbTodoHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbTodoHistorial.Location = new System.Drawing.Point(1060, 22);
+            this.cbTodoHistorial.Name = "cbTodoHistorial";
+            this.cbTodoHistorial.Size = new System.Drawing.Size(108, 19);
+            this.cbTodoHistorial.TabIndex = 71;
+            this.cbTodoHistorial.Text = "Todo el Historial";
+            this.toolTip1.SetToolTip(this.cbTodoHistorial, "Mostrar todo el Historial");
+            this.cbTodoHistorial.UseVisualStyleBackColor = true;
+            // 
             // btnReporte
             // 
             this.btnReporte.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReporte.Enabled = false;
             this.btnReporte.FlatAppearance.BorderSize = 0;
             this.btnReporte.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnReporte.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -175,25 +188,7 @@
             this.btnReporte.Text = "      Reporte";
             this.toolTip1.SetToolTip(this.btnReporte, "Agregar ofertas a productos");
             this.btnReporte.UseVisualStyleBackColor = true;
-            // 
-            // btnOferta
-            // 
-            this.btnOferta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOferta.Enabled = false;
-            this.btnOferta.FlatAppearance.BorderSize = 0;
-            this.btnOferta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnOferta.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOferta.Image = global::DSMarket.Solucion.Properties.Resources.Eliminar;
-            this.btnOferta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOferta.Location = new System.Drawing.Point(1060, 7);
-            this.btnOferta.Name = "btnOferta";
-            this.btnOferta.Size = new System.Drawing.Size(170, 41);
-            this.btnOferta.TabIndex = 69;
-            this.btnOferta.Text = "      Ofertas";
-            this.toolTip1.SetToolTip(this.btnOferta, "Agregar ofertas a productos");
-            this.btnOferta.UseVisualStyleBackColor = true;
-            this.btnOferta.Visible = false;
-            this.btnOferta.Click += new System.EventHandler(this.btnOferta_Click);
+            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
             // 
             // btnSuplir
             // 
@@ -283,9 +278,29 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
+            // btnOferta
+            // 
+            this.btnOferta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOferta.Enabled = false;
+            this.btnOferta.FlatAppearance.BorderSize = 0;
+            this.btnOferta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnOferta.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOferta.Image = global::DSMarket.Solucion.Properties.Resources.Eliminar;
+            this.btnOferta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOferta.Location = new System.Drawing.Point(638, 116);
+            this.btnOferta.Name = "btnOferta";
+            this.btnOferta.Size = new System.Drawing.Size(170, 41);
+            this.btnOferta.TabIndex = 69;
+            this.btnOferta.Text = "      Ofertas";
+            this.toolTip1.SetToolTip(this.btnOferta, "Agregar ofertas a productos");
+            this.btnOferta.UseVisualStyleBackColor = true;
+            this.btnOferta.Visible = false;
+            this.btnOferta.Click += new System.EventHandler(this.btnOferta_Click);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnRestablecer);
+            this.groupBox1.Controls.Add(this.btnOferta);
             this.groupBox1.Controls.Add(this.txtFechaHasta);
             this.groupBox1.Controls.Add(this.lbFechaHasta);
             this.groupBox1.Controls.Add(this.txtFechaDesde);
@@ -925,6 +940,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -1004,5 +1020,6 @@
         private System.Windows.Forms.DataGridView dtListado;
         private System.Windows.Forms.DataGridViewButtonColumn Select;
         private System.Windows.Forms.Button btnRestablecer;
+        private System.Windows.Forms.CheckBox cbTodoHistorial;
     }
 }

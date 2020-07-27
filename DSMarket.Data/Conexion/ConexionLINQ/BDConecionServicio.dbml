@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DSMarket" Class="BDConecionServicioDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=172.26.24.199;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString3" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString" Provider="System.Data.SqlClient" />
   <Function Name="Servicio.SP_BUSCA_TIPO_PAGO" Method="SP_BUSCA_TIPO_PAGO">
     <Parameter Name="IdTipoPago" Parameter="idTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(100)" />
@@ -454,6 +454,38 @@
       <Column Name="TipoPago" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="TotalGeneral" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
       <Column Name="CantidadRegistros" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Servicio.SP_VALIDAR_FACTURA_ANULADA" Method="SP_VALIDAR_FACTURA_ANULADA">
+    <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <ElementType Name="SP_VALIDAR_FACTURA_ANULADAResult">
+      <Column Name="NumeroConector" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="Servicio.SP_SACAR_GANANCIA_FACTURACION" Method="SP_SACAR_GANANCIA_FACTURACION">
+    <Parameter Name="IdFactura" Parameter="idFactura" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdEstatusFacturacion" Parameter="idEstatusFacturacion" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdTipoFacturacion" Parameter="idTipoFacturacion" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdTipoPago" Parameter="idTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Cliente" Parameter="cliente" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="FechaDesde" Parameter="fechaDesde" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FechaHasta" Parameter="fechaHasta" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="SP_SACAR_GANANCIA_FACTURACIONResult">
+      <Column Name="IdEstatusFacturacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Estatus" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdFactura" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="DescripcionProducto" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="Acumulativo" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="IdCategoria" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Categoria" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="TipoProducto" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="PrecioCompra" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="PrecioVenta" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="CantidadVendida" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="DescuentoAplicado" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="TotalVenta" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="TotalPrecioCompra" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="Ganancia" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

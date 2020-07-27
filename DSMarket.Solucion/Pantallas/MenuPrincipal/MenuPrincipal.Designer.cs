@@ -635,6 +635,7 @@
             this.PanelCuerpo.Name = "PanelCuerpo";
             this.PanelCuerpo.Size = new System.Drawing.Size(900, 520);
             this.PanelCuerpo.TabIndex = 1;
+            this.PanelCuerpo.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelCuerpo_Paint);
             // 
             // Curva
             // 
