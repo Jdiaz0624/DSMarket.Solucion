@@ -532,6 +532,9 @@
     <EmbeddedResource Include="Pantallas\Pantallas\Reportes\Reportes.resx">
       <DependentUpon>Reportes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Seguridad\CambiaClaveUsuario.resx">
+      <DependentUpon>CambiaClaveUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Seguridad\ClaveSeguridad.resx">
       <DependentUpon>ClaveSeguridad.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DSMarket" Class="BDConexionConfiguracionDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=172.26.24.199;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString1" Provider="System.Data.SqlClient" />
   <Function Name="Configuracion.SP_BUSCA_LISTAS" Method="SP_BUSCA_LISTAS">
     <Parameter Name="NombreLista" Parameter="nombreLista" Type="System.String" DbType="VarChar(150)" />
     <Parameter Name="PrimerFiltro" Parameter="primerFiltro" Type="System.String" DbType="VarChar(150)" />
@@ -27,31 +27,6 @@
       <Column Name="Telefonos" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
       <Column Name="IdLogoEmpresa" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="LogoEmpresa" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="Configuracion.SP_MODIFICAR_INFORMACION_EMPRESA" Method="SP_MODIFICAR_INFORMACION_EMPRESA">
-    <Parameter Name="IdInformacionEmpresa" Parameter="idInformacionEmpresa" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="NombreEmpresa" Parameter="nombreEmpresa" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="RNC" Parameter="rNC" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="Direccion" Parameter="direccion" Type="System.String" DbType="VarChar(8000)" />
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Email2" Parameter="email2" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Facebook" Parameter="facebook" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Instagran" Parameter="instagran" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Telefonos" Parameter="telefonos" Type="System.String" DbType="VarChar(200)" />
-    <Parameter Name="IdLogoEmpresa" Parameter="idLogoEmpresa" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
-    <ElementType Name="SP_MODIFICAR_INFORMACION_EMPRESAResult">
-      <Column Name="IdInformacionEmpresa" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="NombreEmpresa" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="RNC" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="Direccion" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Email2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Facebook" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Instagran" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Telefonos" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="IdLogoEmpresa" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="Configuracion.SP_GENERAR_COMPROBANTE_FISCAL" Method="SP_GENERAR_COMPROBANTE_FISCAL">
@@ -295,6 +270,31 @@
       <Column Name="TotalVenta" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
       <Column Name="TotalPrecioCompra" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
       <Column Name="Ganancia" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Configuracion.SP_MODIFICAR_INFORMACION_EMPRESA" Method="SP_MODIFICAR_INFORMACION_EMPRESA">
+    <Parameter Name="IdInformacionEMpres" Parameter="idInformacionEMpres" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NombreEmpresa" Parameter="nombreEmpresa" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="RNC" Parameter="rNC" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Direccion" Parameter="direccion" Type="System.String" DbType="VarChar(8000)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Email2" Parameter="email2" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Facebook" Parameter="facebook" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Instagram" Parameter="instagram" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Telefonos" Parameter="telefonos" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="IdLogoEmpresa" Parameter="idLogoEmpresa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_MODIFICAR_INFORMACION_EMPRESAResult">
+      <Column Name="IdInformacionEMpres" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NombreEmpresa" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="RNC" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Direccion" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Email2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Facebook" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Instagram" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Telefonos" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="IdLogoEmpresa" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

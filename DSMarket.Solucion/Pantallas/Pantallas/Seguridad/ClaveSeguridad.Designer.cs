@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbCantidadRegistrosVariable = new System.Windows.Forms.Label();
             this.PCerrar = new System.Windows.Forms.PictureBox();
@@ -46,6 +46,8 @@
             this.dtListado = new System.Windows.Forms.DataGridView();
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.gbMantenimiento = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtConfirmarClave = new System.Windows.Forms.TextBox();
             this.cbEstatus = new System.Windows.Forms.CheckBox();
@@ -55,9 +57,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
@@ -74,7 +73,6 @@
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.btnEditar);
             this.panel2.Controls.Add(this.btnNuevo);
-            this.panel2.Controls.Add(this.btnBuscar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 38);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
@@ -82,15 +80,33 @@
             this.panel2.Size = new System.Drawing.Size(1057, 58);
             this.panel2.TabIndex = 96;
             // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Enabled = false;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = global::DSMarket.Solucion.Properties.Resources.Deshabilitar;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(358, 7);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(170, 41);
+            this.button1.TabIndex = 67;
+            this.button1.Text = "      Deshabilitar";
+            this.toolTip1.SetToolTip(this.button1, "Deshabilitar Registro Seleccionado");
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // btnEditar
             // 
             this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditar.Enabled = false;
             this.btnEditar.FlatAppearance.BorderSize = 0;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.Image = global::DSMarket.Solucion.Properties.Resources.Editar;
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(355, 7);
+            this.btnEditar.Location = new System.Drawing.Point(182, 7);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(170, 41);
             this.btnEditar.TabIndex = 66;
@@ -106,29 +122,13 @@
             this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.Image = global::DSMarket.Solucion.Properties.Resources.Guardar;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(179, 7);
+            this.btnNuevo.Location = new System.Drawing.Point(6, 7);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(170, 41);
             this.btnNuevo.TabIndex = 65;
             this.btnNuevo.Text = "      Guardar";
             this.toolTip1.SetToolTip(this.btnNuevo, "Guardar Registros");
             this.btnNuevo.UseVisualStyleBackColor = true;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
-            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(3, 7);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(170, 41);
-            this.btnBuscar.TabIndex = 64;
-            this.btnBuscar.Text = "      Buscar";
-            this.toolTip1.SetToolTip(this.btnBuscar, "Consultar Registros");
-            this.btnBuscar.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -303,6 +303,23 @@
             this.gbMantenimiento.TabStop = false;
             this.gbMantenimiento.Text = "Controles";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(30, 111);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(85, 20);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Seguridad";
+            // 
+            // txtClaveSeguridad
+            // 
+            this.txtClaveSeguridad.Location = new System.Drawing.Point(119, 108);
+            this.txtClaveSeguridad.MaxLength = 20;
+            this.txtClaveSeguridad.Name = "txtClaveSeguridad";
+            this.txtClaveSeguridad.Size = new System.Drawing.Size(283, 27);
+            this.txtClaveSeguridad.TabIndex = 7;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -349,6 +366,7 @@
             this.ddlSeleccionarUsuario.Name = "ddlSeleccionarUsuario";
             this.ddlSeleccionarUsuario.Size = new System.Drawing.Size(283, 28);
             this.ddlSeleccionarUsuario.TabIndex = 2;
+            this.ddlSeleccionarUsuario.SelectedIndexChanged += new System.EventHandler(this.ddlSeleccionarUsuario_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -372,39 +390,6 @@
             // 
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(30, 111);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 20);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Seguridad";
-            // 
-            // txtClaveSeguridad
-            // 
-            this.txtClaveSeguridad.Location = new System.Drawing.Point(119, 108);
-            this.txtClaveSeguridad.MaxLength = 20;
-            this.txtClaveSeguridad.Name = "txtClaveSeguridad";
-            this.txtClaveSeguridad.Size = new System.Drawing.Size(283, 27);
-            this.txtClaveSeguridad.TabIndex = 7;
-            // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = global::DSMarket.Solucion.Properties.Resources.Deshabilitar;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(531, 7);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(170, 41);
-            this.button1.TabIndex = 67;
-            this.button1.Text = "      Deshabilitar";
-            this.toolTip1.SetToolTip(this.button1, "Deshabilitar Registro Seleccionado");
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // ClaveSeguridad
             // 
@@ -449,7 +434,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbCantidadRegistrosVariable;
         private System.Windows.Forms.PictureBox PCerrar;

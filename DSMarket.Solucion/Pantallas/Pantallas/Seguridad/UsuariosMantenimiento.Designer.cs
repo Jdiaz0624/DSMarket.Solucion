@@ -49,6 +49,7 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.cbCambiaCLave = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
@@ -56,6 +57,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbCambiaCLave);
             this.groupBox1.Controls.Add(this.txtClaveSeguridad);
             this.groupBox1.Controls.Add(this.lbClaveSeguridad);
             this.groupBox1.Controls.Add(this.txtPersona);
@@ -127,16 +129,19 @@
             // 
             // txtPerfil
             // 
+            this.txtPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtPerfil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.txtPerfil.FormattingEnabled = true;
             this.txtPerfil.Location = new System.Drawing.Point(154, 32);
             this.txtPerfil.Name = "txtPerfil";
             this.txtPerfil.Size = new System.Drawing.Size(298, 28);
             this.txtPerfil.TabIndex = 6;
-            this.txtPerfil.Visible = false;
             // 
             // cbEstatus
             // 
             this.cbEstatus.AutoSize = true;
+            this.cbEstatus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbEstatus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbEstatus.Location = new System.Drawing.Point(154, 184);
             this.cbEstatus.Name = "cbEstatus";
@@ -189,7 +194,6 @@
             this.label1.Size = new System.Drawing.Size(50, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Perfil";
-            this.label1.Visible = false;
             // 
             // panel1
             // 
@@ -245,6 +249,19 @@
             this.btnGuardar.Text = "Accion";
             this.toolTip1.SetToolTip(this.btnGuardar, "Completar Operación");
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // cbCambiaCLave
+            // 
+            this.cbCambiaCLave.AutoSize = true;
+            this.cbCambiaCLave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbCambiaCLave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbCambiaCLave.Location = new System.Drawing.Point(243, 184);
+            this.cbCambiaCLave.Name = "cbCambiaCLave";
+            this.cbCambiaCLave.Size = new System.Drawing.Size(131, 24);
+            this.cbCambiaCLave.TabIndex = 13;
+            this.cbCambiaCLave.Text = "Cambia Clave";
+            this.cbCambiaCLave.UseVisualStyleBackColor = true;
             // 
             // UsuariosMantenimiento
             // 
@@ -294,5 +311,6 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.CheckBox cbCambiaCLave;
     }
 }

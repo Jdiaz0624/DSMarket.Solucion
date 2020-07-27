@@ -33,7 +33,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
     #endregion
 		
 		public BDConexionConfiguracionDataContext() : 
-				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString, mappingSource)
+				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -74,13 +74,6 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<SP_SACAR_INFORMACION_EMPRESAResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Configuracion.SP_MODIFICAR_INFORMACION_EMPRESA")]
-		public ISingleResult<SP_MODIFICAR_INFORMACION_EMPRESAResult> SP_MODIFICAR_INFORMACION_EMPRESA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdInformacionEmpresa", DbType="Decimal(20,0)")] System.Nullable<decimal> idInformacionEmpresa, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NombreEmpresa", DbType="VarChar(100)")] string nombreEmpresa, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RNC", DbType="VarChar(20)")] string rNC, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Direccion", DbType="VarChar(8000)")] string direccion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="VarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email2", DbType="VarChar(50)")] string email2, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Facebook", DbType="VarChar(50)")] string facebook, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Instagran", DbType="VarChar(50)")] string instagran, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Telefonos", DbType="VarChar(200)")] string telefonos, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdLogoEmpresa", DbType="Int")] System.Nullable<int> idLogoEmpresa, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idInformacionEmpresa, nombreEmpresa, rNC, direccion, email, email2, facebook, instagran, telefonos, idLogoEmpresa, accion);
-			return ((ISingleResult<SP_MODIFICAR_INFORMACION_EMPRESAResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Configuracion.SP_GENERAR_COMPROBANTE_FISCAL")]
@@ -212,6 +205,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, idEstatusFacturacion, estatus, idFActura, descripcionProducto, acumulativo, idCategoria, categoria, tipoProducto, precioCompra, precioVenta, cantidadVendda, descuentoAplicado, totalVenta, totalPrecioCompra, ganancia, accion);
 			return ((ISingleResult<SP_GUARDAR_INFORMACION_GANANCIAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Configuracion.SP_MODIFICAR_INFORMACION_EMPRESA")]
+		public ISingleResult<SP_MODIFICAR_INFORMACION_EMPRESAResult> SP_MODIFICAR_INFORMACION_EMPRESA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdInformacionEMpres", DbType="Decimal(20,0)")] System.Nullable<decimal> idInformacionEMpres, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NombreEmpresa", DbType="VarChar(100)")] string nombreEmpresa, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RNC", DbType="VarChar(20)")] string rNC, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Direccion", DbType="VarChar(8000)")] string direccion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="VarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email2", DbType="VarChar(50)")] string email2, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Facebook", DbType="VarChar(50)")] string facebook, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Instagram", DbType="VarChar(50)")] string instagram, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Telefonos", DbType="VarChar(200)")] string telefonos, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdLogoEmpresa", DbType="Int")] System.Nullable<int> idLogoEmpresa, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idInformacionEMpres, nombreEmpresa, rNC, direccion, email, email2, facebook, instagram, telefonos, idLogoEmpresa, accion);
+			return ((ISingleResult<SP_MODIFICAR_INFORMACION_EMPRESAResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -496,194 +496,6 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._LogoEmpresa != value))
 				{
 					this._LogoEmpresa = value;
-				}
-			}
-		}
-	}
-	
-	public partial class SP_MODIFICAR_INFORMACION_EMPRESAResult
-	{
-		
-		private System.Nullable<decimal> _IdInformacionEmpresa;
-		
-		private string _NombreEmpresa;
-		
-		private string _RNC;
-		
-		private string _Direccion;
-		
-		private string _Email;
-		
-		private string _Email2;
-		
-		private string _Facebook;
-		
-		private string _Instagran;
-		
-		private string _Telefonos;
-		
-		private System.Nullable<int> _IdLogoEmpresa;
-		
-		public SP_MODIFICAR_INFORMACION_EMPRESAResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdInformacionEmpresa", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdInformacionEmpresa
-		{
-			get
-			{
-				return this._IdInformacionEmpresa;
-			}
-			set
-			{
-				if ((this._IdInformacionEmpresa != value))
-				{
-					this._IdInformacionEmpresa = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NombreEmpresa", DbType="VarChar(100)")]
-		public string NombreEmpresa
-		{
-			get
-			{
-				return this._NombreEmpresa;
-			}
-			set
-			{
-				if ((this._NombreEmpresa != value))
-				{
-					this._NombreEmpresa = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RNC", DbType="VarChar(20)")]
-		public string RNC
-		{
-			get
-			{
-				return this._RNC;
-			}
-			set
-			{
-				if ((this._RNC != value))
-				{
-					this._RNC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Direccion", DbType="VarChar(8000)")]
-		public string Direccion
-		{
-			get
-			{
-				return this._Direccion;
-			}
-			set
-			{
-				if ((this._Direccion != value))
-				{
-					this._Direccion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this._Email = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email2", DbType="VarChar(50)")]
-		public string Email2
-		{
-			get
-			{
-				return this._Email2;
-			}
-			set
-			{
-				if ((this._Email2 != value))
-				{
-					this._Email2 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Facebook", DbType="VarChar(50)")]
-		public string Facebook
-		{
-			get
-			{
-				return this._Facebook;
-			}
-			set
-			{
-				if ((this._Facebook != value))
-				{
-					this._Facebook = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Instagran", DbType="VarChar(50)")]
-		public string Instagran
-		{
-			get
-			{
-				return this._Instagran;
-			}
-			set
-			{
-				if ((this._Instagran != value))
-				{
-					this._Instagran = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telefonos", DbType="VarChar(200)")]
-		public string Telefonos
-		{
-			get
-			{
-				return this._Telefonos;
-			}
-			set
-			{
-				if ((this._Telefonos != value))
-				{
-					this._Telefonos = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdLogoEmpresa", DbType="Int")]
-		public System.Nullable<int> IdLogoEmpresa
-		{
-			get
-			{
-				return this._IdLogoEmpresa;
-			}
-			set
-			{
-				if ((this._IdLogoEmpresa != value))
-				{
-					this._IdLogoEmpresa = value;
 				}
 			}
 		}
@@ -2734,6 +2546,194 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._Ganancia != value))
 				{
 					this._Ganancia = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_MODIFICAR_INFORMACION_EMPRESAResult
+	{
+		
+		private System.Nullable<decimal> _IdInformacionEMpres;
+		
+		private string _NombreEmpresa;
+		
+		private string _RNC;
+		
+		private string _Direccion;
+		
+		private string _Email;
+		
+		private string _Email2;
+		
+		private string _Facebook;
+		
+		private string _Instagram;
+		
+		private string _Telefonos;
+		
+		private System.Nullable<int> _IdLogoEmpresa;
+		
+		public SP_MODIFICAR_INFORMACION_EMPRESAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdInformacionEMpres", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdInformacionEMpres
+		{
+			get
+			{
+				return this._IdInformacionEMpres;
+			}
+			set
+			{
+				if ((this._IdInformacionEMpres != value))
+				{
+					this._IdInformacionEMpres = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NombreEmpresa", DbType="VarChar(100)")]
+		public string NombreEmpresa
+		{
+			get
+			{
+				return this._NombreEmpresa;
+			}
+			set
+			{
+				if ((this._NombreEmpresa != value))
+				{
+					this._NombreEmpresa = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RNC", DbType="VarChar(20)")]
+		public string RNC
+		{
+			get
+			{
+				return this._RNC;
+			}
+			set
+			{
+				if ((this._RNC != value))
+				{
+					this._RNC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Direccion", DbType="VarChar(8000)")]
+		public string Direccion
+		{
+			get
+			{
+				return this._Direccion;
+			}
+			set
+			{
+				if ((this._Direccion != value))
+				{
+					this._Direccion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email2", DbType="VarChar(50)")]
+		public string Email2
+		{
+			get
+			{
+				return this._Email2;
+			}
+			set
+			{
+				if ((this._Email2 != value))
+				{
+					this._Email2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Facebook", DbType="VarChar(50)")]
+		public string Facebook
+		{
+			get
+			{
+				return this._Facebook;
+			}
+			set
+			{
+				if ((this._Facebook != value))
+				{
+					this._Facebook = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Instagram", DbType="VarChar(50)")]
+		public string Instagram
+		{
+			get
+			{
+				return this._Instagram;
+			}
+			set
+			{
+				if ((this._Instagram != value))
+				{
+					this._Instagram = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telefonos", DbType="VarChar(200)")]
+		public string Telefonos
+		{
+			get
+			{
+				return this._Telefonos;
+			}
+			set
+			{
+				if ((this._Telefonos != value))
+				{
+					this._Telefonos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdLogoEmpresa", DbType="Int")]
+		public System.Nullable<int> IdLogoEmpresa
+		{
+			get
+			{
+				return this._IdLogoEmpresa;
+			}
+			set
+			{
+				if ((this._IdLogoEmpresa != value))
+				{
+					this._IdLogoEmpresa = value;
 				}
 			}
 		}

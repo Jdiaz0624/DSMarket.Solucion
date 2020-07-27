@@ -113,6 +113,31 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
         }
         #endregion
 
+        #region GENERAR EL REPORTE DE LA GANANCIA DE VENTA
+        public void GenerarReporteGananciaVenta(decimal IdUsuario, string RutaReporte, string UsuarioBD, string ClaveBD) {
+            try
+            {
+                ReportDocument Ganancia = new ReportDocument();
+
+                SqlCommand comando = new SqlCommand();
+                comando.CommandText = "EXEC [Reporte].[SP_GENERAR_REPORTE_GANANCIA_VENTA] @IdUsuario";
+                comando.Connection = DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion();
+
+                comando.Parameters.Add("@IdUsuario", SqlDbType.Decimal);
+                comando.Parameters["@IdUsuario"].Value = IdUsuario;
+
+                Ganancia.Load(@"" + RutaReporte);
+                Ganancia.Refresh();
+                Ganancia.SetParameterValue("@IdUsuario", IdUsuario);
+                Ganancia.SetDatabaseLogon(UsuarioBD, ClaveBD);
+                crystalReportViewer1.ReportSource = Ganancia;
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al generar el reporte de las ganancias, codigo de error: " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
+
         private void Reportes_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();

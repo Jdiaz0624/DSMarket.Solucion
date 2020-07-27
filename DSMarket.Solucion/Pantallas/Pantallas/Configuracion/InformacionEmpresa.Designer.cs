@@ -41,7 +41,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtFax = new System.Windows.Forms.TextBox();
             this.txtTelefonos = new System.Windows.Forms.TextBox();
             this.txtInstagram = new System.Windows.Forms.TextBox();
             this.txtFacebook = new System.Windows.Forms.TextBox();
@@ -50,7 +49,6 @@
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtRNC = new System.Windows.Forms.TextBox();
             this.txtNombreEmpresa = new System.Windows.Forms.TextBox();
-            this.lbFax = new System.Windows.Forms.Label();
             this.lbTelefonos = new System.Windows.Forms.Label();
             this.lbInstagram = new System.Windows.Forms.Label();
             this.lbFacebook = new System.Windows.Forms.Label();
@@ -85,6 +83,7 @@
             this.btnBucaImagen.TabIndex = 103;
             this.toolTip1.SetToolTip(this.btnBucaImagen, "Buscar Logo");
             this.btnBucaImagen.UseVisualStyleBackColor = true;
+            this.btnBucaImagen.Click += new System.EventHandler(this.btnBucaImagen_Click);
             // 
             // btnModificar
             // 
@@ -100,6 +99,7 @@
             this.btnModificar.Text = "      Modificar";
             this.toolTip1.SetToolTip(this.btnModificar, "Modificar Información");
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // panel1
             // 
@@ -181,7 +181,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtFax);
             this.groupBox1.Controls.Add(this.txtTelefonos);
             this.groupBox1.Controls.Add(this.txtInstagram);
             this.groupBox1.Controls.Add(this.txtFacebook);
@@ -190,7 +189,6 @@
             this.groupBox1.Controls.Add(this.txtDireccion);
             this.groupBox1.Controls.Add(this.txtRNC);
             this.groupBox1.Controls.Add(this.txtNombreEmpresa);
-            this.groupBox1.Controls.Add(this.lbFax);
             this.groupBox1.Controls.Add(this.lbTelefonos);
             this.groupBox1.Controls.Add(this.lbInstagram);
             this.groupBox1.Controls.Add(this.lbFacebook);
@@ -201,19 +199,10 @@
             this.groupBox1.Controls.Add(this.lbNombreEmpresa);
             this.groupBox1.Location = new System.Drawing.Point(12, 55);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(549, 355);
+            this.groupBox1.Size = new System.Drawing.Size(549, 324);
             this.groupBox1.TabIndex = 97;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información de Empresa";
-            // 
-            // txtFax
-            // 
-            this.txtFax.BackColor = System.Drawing.Color.Silver;
-            this.txtFax.Location = new System.Drawing.Point(227, 316);
-            this.txtFax.MaxLength = 50;
-            this.txtFax.Name = "txtFax";
-            this.txtFax.Size = new System.Drawing.Size(316, 27);
-            this.txtFax.TabIndex = 17;
             // 
             // txtTelefonos
             // 
@@ -285,16 +274,6 @@
             this.txtNombreEmpresa.Name = "txtNombreEmpresa";
             this.txtNombreEmpresa.Size = new System.Drawing.Size(316, 27);
             this.txtNombreEmpresa.TabIndex = 9;
-            // 
-            // lbFax
-            // 
-            this.lbFax.AutoSize = true;
-            this.lbFax.Location = new System.Drawing.Point(186, 319);
-            this.lbFax.Name = "lbFax";
-            this.lbFax.Size = new System.Drawing.Size(38, 20);
-            this.lbFax.TabIndex = 8;
-            this.lbFax.Text = "Fax";
-            this.lbFax.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbTelefonos
             // 
@@ -433,7 +412,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.PictureBox pbLogo;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtFax;
         private System.Windows.Forms.TextBox txtTelefonos;
         private System.Windows.Forms.TextBox txtInstagram;
         private System.Windows.Forms.TextBox txtFacebook;
@@ -442,7 +420,6 @@
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.TextBox txtRNC;
         private System.Windows.Forms.TextBox txtNombreEmpresa;
-        private System.Windows.Forms.Label lbFax;
         private System.Windows.Forms.Label lbTelefonos;
         private System.Windows.Forms.Label lbInstagram;
         private System.Windows.Forms.Label lbFacebook;

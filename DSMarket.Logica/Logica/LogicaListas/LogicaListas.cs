@@ -215,5 +215,31 @@ namespace DSMarket.Logica.Logica.LogicaListas
             return Listado;
         }
         #endregion
+        #region LISTADO DE LOS NIVELES DE ACCESO
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EListaNivelAcceso> ListadoNivelesAccesp() {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjDataListas.SP_LISTADO_NIVEL_ACCESO()
+                           select new DSMarket.Logica.Entidades.EntidadesListas.EListaNivelAcceso
+                           {
+                               IdNivelAcceso=n.IdNivelAcceso,
+                               Descripcion=n.Descripcion
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
+        #region LISTADO DE USUARIOS
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EListaUsuarios> ListaUsuarios() {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Buscar = (from n in ObjDataListas.SP_LISTA_USUARIOS()
+                          select new DSMarket.Logica.Entidades.EntidadesListas.EListaUsuarios
+                          {
+                              IdUsuario=n.IdUsuario,
+                              Persona=n.Persona
+                          }).ToList();
+            return Buscar;
+        }
+        #endregion
     }
 }

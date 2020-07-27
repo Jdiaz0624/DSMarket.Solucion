@@ -1113,6 +1113,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 //BUSCAMOS LA COTIZACION
                 var BuscarCotizacion = ObjDataServicio.Value.HistorialFacturacion(
                     Convert.ToDecimal(txtNoCotizacion.Text),
+                    null,
                     2,
                     null,
                     null,

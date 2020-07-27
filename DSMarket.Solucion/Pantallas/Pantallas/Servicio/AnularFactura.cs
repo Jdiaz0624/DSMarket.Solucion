@@ -98,7 +98,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void SacarInformacionFactura(decimal IdFactura) {
             try {
                 
-                var SacarDatosFactura = ObjDataServicio.Value.HistorialFacturacion(IdFactura,
+                var SacarDatosFactura = ObjDataServicio.Value.HistorialFacturacion(IdFactura, null,
                     null, null, null, null, null, null, 1, 1);
                 foreach (var n in SacarDatosFactura) {
                     txtTipoFacturacion.Text = n.EstatusFacturacion;

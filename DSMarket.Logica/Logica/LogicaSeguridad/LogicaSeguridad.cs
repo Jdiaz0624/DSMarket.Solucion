@@ -95,6 +95,43 @@ namespace DSMarket.Logica.Logica.LogicaSeguridad
             }
             return Modificar;
         }
+
+        //MANTENIMIENTO DE USUARIOS
+
+        public DSMarket.Logica.Entidades.EntidadesSeguridad.EMantenimientoUsuario MantenimientoUsuarios(DSMarket.Logica.Entidades.EntidadesSeguridad.EMantenimientoUsuario Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesSeguridad.EMantenimientoUsuario Mantenimiento = null;
+
+            var Usuario = ObjData.SP_MANTENIMIENTO_USUARIO(
+                Item.IdUsuario,
+                Item.IdNivelAcceso,
+                Item.Usuario,
+                Item.Clave,
+                Item.Persona,
+                Item.Estatus,
+                Item.CambiaClave,
+                Item.UsuarioAdicona,
+                Accion);
+            if (Usuario != null) {
+                Mantenimiento = (from n in Usuario
+                                 select new DSMarket.Logica.Entidades.EntidadesSeguridad.EMantenimientoUsuario
+                                 {
+                                     IdUsuario=n.IdUsuario,
+                                     IdNivelAcceso=n.IdNivelAcceso,
+                                     Usuario=n.Usuario,
+                                     Clave=n.Clave,
+                                     Persona=n.Persona,
+                                     Estatus=n.Estatus,
+                                     CambiaClave=n.CambiaClave,
+                                     UsuarioAdicona=n.UsuarioAdicona,
+                                     FechaAdiciona=n.FechaAdiciona,
+                                     UsuarioModifica=n.UsuarioModifica,
+                                     FechaModifica=n.FechaModifica
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
         #endregion
     }
 }

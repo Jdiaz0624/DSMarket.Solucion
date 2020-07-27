@@ -93,5 +93,7 @@ namespace DSMarket.Logica.Comunes
         public bool AcumulativoAnularFactura { get; set; }
         #endregion
 
+        public bool GananciaFacturaUnica { get; set; }
+
     }
 }

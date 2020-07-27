@@ -47,8 +47,10 @@
     <Compile Include="Comunes\AutoCompletarControles.cs" />
     <Compile Include="Comunes\InformacionEmpresa.cs" />
     <Compile Include="Comunes\Mails.cs" />
+    <Compile Include="Comunes\ModificarInformacionEmpresa.cs" />
     <Compile Include="Comunes\ProcesarGananciaVenta.cs" />
     <Compile Include="Comunes\ProcesarReporteVenta.cs" />
+    <Compile Include="Comunes\ProcesarUsuarios.cs" />
     <Compile Include="Comunes\SeguridadEncriptacion.cs" />
     <Compile Include="Comunes\ValidarControles.cs" />
     <Compile Include="Comunes\VariablesGlobales.cs" />
@@ -85,13 +87,16 @@
     <Compile Include="Entidades\EntidadesListas\EListaEstatusFacturacion.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaMarcas.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaModeos.cs" />
+    <Compile Include="Entidades\EntidadesListas\EListaNivelAcceso.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaSuplidor.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoIdentificacion.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoProducto.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoSuplidor.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoVenta.cs" />
+    <Compile Include="Entidades\EntidadesListas\EListaUsuarios.cs" />
     <Compile Include="Entidades\EntidadesListas\EUnidadMedida.cs" />
     <Compile Include="Entidades\EntidadesSeguridad\ECredenciales.cs" />
+    <Compile Include="Entidades\EntidadesSeguridad\EMantenimientoUsuario.cs" />
     <Compile Include="Entidades\EntidadesSeguridad\EUsuarios.cs" />
     <Compile Include="Entidades\EntidadesServicio\EBuscaHistorialProducto.cs" />
     <Compile Include="Entidades\EntidadesServicio\EFacturacionClientes.cs" />

@@ -75,14 +75,14 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                 Modificar = (from n in InformacionEmpresa
                              select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EInformacionEmpresa
                              {
-                                 IdInformacionEmpresa=n.IdInformacionEmpresa,
+                                 IdInformacionEmpresa=n.IdInformacionEMpres,
                                  NombreEmpresa=n.NombreEmpresa,
                                  RNC=n.RNC,
                                  Direccion=n.Direccion,
                                  Email=n.Email,
                                  Email2=n.Email2,
                                  Facebook=n.Facebook,
-                                 Instagran=n.Instagran,
+                                 Instagran=n.Instagram,
                                  Telefonos=n.Telefonos,
                                  IdLogoEmpresa=n.IdLogoEmpresa
                              }).FirstOrDefault();

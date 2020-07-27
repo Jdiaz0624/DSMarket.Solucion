@@ -43,6 +43,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             null,
                             null,
                             null,
+                            null,
                             _NombrreCliente,
                             Convert.ToDateTime(txtFechaDesde.Text),
                             Convert.ToDateTime(txtFechaHasta.Text),
@@ -73,6 +74,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                           null,
                           null,
                           null,
+                          null,
                           Convert.ToDateTime(txtFechaDesde.Text),
                           Convert.ToDateTime(txtFechaHasta.Text),
                           Convert.ToInt32(txtNumeroPagina.Value),
@@ -98,6 +100,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         try {
                             var BuscarPorEstatus = ObhDataServicio.Value.HistorialFacturacion(
                           new Nullable<decimal>(),
+                          null,
                           Convert.ToDecimal(ddlSeleccionar.SelectedValue),
                           null,
                           null,
@@ -129,6 +132,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             var Listado = ObhDataServicio.Value.HistorialFacturacion(
                           new Nullable<decimal>(),
                           null,
+                          null,
                           Convert.ToDecimal(ddlSeleccionar.SelectedValue),
                           null,
                           null,
@@ -158,6 +162,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         {
                             var Listado = ObhDataServicio.Value.HistorialFacturacion(
                           new Nullable<decimal>(),
+                          null,
                           null,
                           null,
                           Convert.ToDecimal(ddlSeleccionar.SelectedValue),
@@ -198,6 +203,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             null,
                             null,
                             null,
+                            null,
                             _NombrreCliente,
                             null,
                             null,
@@ -234,6 +240,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                           null,
                           null,
                           null,
+                          null,
                           Convert.ToInt32(txtNumeroPagina.Value),
                           Convert.ToInt32(txtNumeroRegistros.Value));
                             dtListado.DataSource = BuscarRegistro;
@@ -257,6 +264,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         try {
                             var BuscarPorEstatus = ObhDataServicio.Value.HistorialFacturacion(
                         new Nullable<decimal>(),
+                        null,
                         Convert.ToDecimal(ddlSeleccionar.SelectedValue),
                         null,
                         null,
@@ -289,6 +297,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             var Listado = ObhDataServicio.Value.HistorialFacturacion(
                           new Nullable<decimal>(),
                           null,
+                          null,
                           Convert.ToDecimal(ddlSeleccionar.SelectedValue),
                           null,
                           null,
@@ -319,6 +328,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         {
                             var Listado = ObhDataServicio.Value.HistorialFacturacion(
                           new Nullable<decimal>(),
+                          null,
                           null,
                           null,
                           Convert.ToDecimal(ddlSeleccionar.SelectedValue),
@@ -373,6 +383,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
                         var BuscarRegistro = ObhDataServicio.Value.HistorialFacturacion(
                             new Nullable<decimal>(),
+                            null,
                             null,
                             null,
                             null,
@@ -437,6 +448,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                           null,
                           null,
                           null,
+                          null,
                           Convert.ToDateTime(txtFechaDesde.Text),
                           Convert.ToDateTime(txtFechaHasta.Text),
                           Convert.ToInt32(txtNumeroPagina.Value),
@@ -492,6 +504,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         {
                             var BuscarPorEstatus = ObhDataServicio.Value.HistorialFacturacion(
                           new Nullable<decimal>(),
+                          null,
                           Convert.ToDecimal(ddlSeleccionar.SelectedValue),
                           null,
                           null,
@@ -552,6 +565,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             var Listado = ObhDataServicio.Value.HistorialFacturacion(
                           new Nullable<decimal>(),
                           null,
+                          null,
                           Convert.ToDecimal(ddlSeleccionar.SelectedValue),
                           null,
                           null,
@@ -610,6 +624,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         {
                             var Listado = ObhDataServicio.Value.HistorialFacturacion(
                           new Nullable<decimal>(),
+                          null,
                           null,
                           null,
                           Convert.ToDecimal(ddlSeleccionar.SelectedValue),
@@ -680,6 +695,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             null,
                             null,
                             null,
+                            null,
                             _NombrreCliente,
                             null,
                             null,
@@ -744,6 +760,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                           null,
                           null,
                           null,
+                          null,
                           Convert.ToInt32(txtNumeroPagina.Value),
                           Convert.ToInt32(txtNumeroRegistros.Value));
                             foreach (var n in BuscarRegistro)
@@ -796,6 +813,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         {
                             var BuscarPorEstatus = ObhDataServicio.Value.HistorialFacturacion(
                         new Nullable<decimal>(),
+                        null,
                         Convert.ToDecimal(ddlSeleccionar.SelectedValue),
                         null,
                         null,
@@ -856,6 +874,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             var Listado = ObhDataServicio.Value.HistorialFacturacion(
                           new Nullable<decimal>(),
                           null,
+                          null,
                           Convert.ToDecimal(ddlSeleccionar.SelectedValue),
                           null,
                           null,
@@ -914,6 +933,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         {
                             var Listado = ObhDataServicio.Value.HistorialFacturacion(
                           new Nullable<decimal>(),
+                          null,
                           null,
                           null,
                           Convert.ToDecimal(ddlSeleccionar.SelectedValue),
@@ -1049,6 +1069,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             btnAnular.Enabled = false;
             VariablesGlobales.IdEstatusFacturacionHistorial = 0;
             MostrarListadoVentas();
+            VariablesGlobales.GananciaFacturaUnica = false;
         }
         #endregion
         #region GENERAR GAANANCIA DE VENTA
@@ -1066,6 +1087,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
                         var BuscarRegistros = ObhDataServicio.Value.GenerarGananciaVenta(
                             new Nullable<decimal>(),
+                            null,
                             null, null, null, _NombreCliente,
                             Convert.ToDateTime(txtFechaDesde.Text),
                             Convert.ToDateTime(txtFechaHasta.Text));
@@ -1101,7 +1123,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
                             var BuscarRegistros = ObhDataServicio.Value.GenerarGananciaVenta(
                           Convert.ToDecimal(txtParametro.Text),
-                          null, null, null, null,
+                          null, null, null, null, null,
                           Convert.ToDateTime(txtFechaDesde.Text),
                           Convert.ToDateTime(txtFechaHasta.Text));
                             foreach (var n in BuscarRegistros)
@@ -1131,7 +1153,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     }
                     else if (rbEstatus.Checked) {
                         var BuscarRegistros = ObhDataServicio.Value.GenerarGananciaVenta(
-                        new Nullable<decimal>(),
+                        new Nullable<decimal>(), null,
                         Convert.ToDecimal(ddlSeleccionar.SelectedValue),
                          null, null, null,
                         Convert.ToDateTime(txtFechaDesde.Text),
@@ -1161,7 +1183,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     }
                     else if (rbTipoFacturacion.Checked) {
                         var BuscarRegistros = ObhDataServicio.Value.GenerarGananciaVenta(
-                       new Nullable<decimal>(),
+                       new Nullable<decimal>(), null,
                        null,
                        Convert.ToDecimal(ddlSeleccionar.SelectedValue),
                        null,
@@ -1193,7 +1215,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     }
                     else if (rbTipoPago.Checked) {
                         var BuscarRegistros = ObhDataServicio.Value.GenerarGananciaVenta(
-                     new Nullable<decimal>(),
+                     new Nullable<decimal>(), null,
                      null,
                      null,
                      Convert.ToDecimal(ddlSeleccionar.SelectedValue),
@@ -1232,7 +1254,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         string _NombreCliente = string.IsNullOrEmpty(txtParametro.Text.Trim()) ? null : txtParametro.Text.Trim();
 
                         var BuscarRegistros = ObhDataServicio.Value.GenerarGananciaVenta(
-                            new Nullable<decimal>(),
+                            new Nullable<decimal>(), null,
                             null, null, null, _NombreCliente,
                             null,
                             null);
@@ -1397,6 +1419,29 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     }
                     else { MessageBox.Show("Seleccionar una Opción", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning); }
                 }
+
+                //INVOCAMOS EL REPORTE
+              string RutaReporte = "";
+              string UsuarioBD = "";
+              string ClaveBD = "";
+                //SACAMOS LA RUTA DEL REPORTE
+                var SacarRutaReporte = ObjdataConfiguracion.Value.BuscaRutaReporte(4);
+                foreach (var n in SacarRutaReporte) {
+                    RutaReporte = n.RutaReporte;
+                }
+
+                //SACAR LAS CREDENCIALES DE BD
+                var SacarCredenciales = ObjDataSeguridad.Value.SacarCredencialBD(1);
+                foreach (var n2 in SacarCredenciales) {
+                    UsuarioBD = n2.Usuario;
+                    ClaveBD = DSMarket.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n2.Clave);
+                }
+
+                //INVOCAMOS
+                DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes ReporteGanancia = new Reportes.Reportes();
+
+                ReporteGanancia.GenerarReporteGananciaVenta(VariablesGlobales.IdUsuario, RutaReporte, UsuarioBD, ClaveBD);
+                ReporteGanancia.ShowDialog();
             }
             catch (Exception ex) {
                 MessageBox.Show("Error al generar las estadisticas de facturación, codigo de error: " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1405,7 +1450,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         #endregion
         private void HistorialFActuracion_Load(object sender, EventArgs e)
         {
-
+            VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             rbGenerar.ForeColor = Color.LimeGreen;
             rbNumero.ForeColor = Color.DarkRed;
             rbEstatus.ForeColor = Color.DarkRed;
@@ -1703,6 +1748,14 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     btnAnular.Enabled = false;
                 }
             }
+
+            var BuscarRegistro = ObhDataServicio.Value.HistorialFacturacion(
+                new Nullable<decimal>(),
+                VariablesGlobales.NumeroConector,
+                null, null, null, null, null, null, 1, 1000);
+            dtListado.DataSource = BuscarRegistro;
+            OcultarColumnas();
+            VariablesGlobales.GananciaFacturaUnica = true;
         }
 
         private void txtNumeroPagina_ValueChanged(object sender, EventArgs e)
@@ -1820,6 +1873,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void btnEstadistica_Click(object sender, EventArgs e)
         {
             GenerarGananciaVenta();
+
         }
     }
 }

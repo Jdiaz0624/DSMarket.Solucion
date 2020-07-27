@@ -16,7 +16,28 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Seguridad
         {
             InitializeComponent();
         }
+        Lazy<DSMarket.Logica.Logica.LogicaListas.LogicaListas> ObjdataListas = new Lazy<Logica.Logica.LogicaListas.LogicaListas>();
+        Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjdataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
+        public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
+        private void MostrarListadoUsuarios() {
+            var Listado = ObjdataListas.Value.ListaUsuarios();
+            ddlSeleccionarUsuario.DataSource = Listado;
+            ddlSeleccionarUsuario.DisplayMember = "Persona";
+            ddlSeleccionarUsuario.ValueMember = "IdUsuario";
+         
+        }
+
+        private void ClavesRegistradas() {
+            var ClaveRegistradas = ObjdataSeguridad.Value.BuscaClaveSeguridad(
+                new Nullable<decimal>(),
+                Convert.ToDecimal(ddlSeleccionarUsuario.SelectedValue),
+                null, 1, 100);
+            dtListado.DataSource = ClaveRegistradas;
+            this.dtListado.Columns["IdClaveSeguridad"].Visible = false;
+            this.dtListado.Columns["IdUsuario"].Visible = false;
+            this.dtListado.Columns["Estatus0"].Visible = false;
+        }
         private void PCerrar_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -60,6 +81,18 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Seguridad
             txtClave.PasswordChar = '•';
             txtClaveSeguridad.PasswordChar = '•';
             txtConfirmarClave.PasswordChar = '•';
+
+            MostrarListadoUsuarios();
+            VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+            ClavesRegistradas();
+        }
+
+        private void ddlSeleccionarUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try {
+                ClavesRegistradas();
+            }
+            catch (Exception) { }
         }
     }
 }

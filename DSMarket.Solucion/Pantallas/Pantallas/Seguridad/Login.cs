@@ -77,6 +77,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Seguridad
                         {
                             this.Hide();
                             DSMarket.Solucion.Pantallas.Pantallas.Seguridad.CambiaClaveUsuario CambiaClave = new CambiaClaveUsuario();
+                            CambiaClave.VariablesGlobales.IdMantenimeinto = VariablesGlobales.IdUsuario;
                             CambiaClave.ShowDialog();
                         }
                         else

@@ -89,6 +89,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idCredencial, usuario, clave, accion);
 			return ((ISingleResult<SP_MODIFICAR_CREDENCIAL_BDResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Seguridad.SP_MANTENIMIENTO_USUARIO")]
+		public ISingleResult<SP_MANTENIMIENTO_USUARIOResult> SP_MANTENIMIENTO_USUARIO([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Decimal(20,0)")] System.Nullable<decimal> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdNivelAcceso", DbType="Decimal(20,0)")] System.Nullable<decimal> idNivelAcceso, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Usuario", DbType="VarChar(20)")] string usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Clave", DbType="VarChar(8000)")] string clave, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Persona", DbType="VarChar(100)")] string persona, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Estatus", DbType="Bit")] System.Nullable<bool> estatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CambiaClave", DbType="Bit")] System.Nullable<bool> cambiaClave, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UsuarioProcesa", DbType="Decimal(20,0)")] System.Nullable<decimal> usuarioProcesa, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, idNivelAcceso, usuario, clave, persona, estatus, cambiaClave, usuarioProcesa, accion);
+			return ((ISingleResult<SP_MANTENIMIENTO_USUARIOResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_BUSCA_USUARIOSResult
@@ -640,6 +647,212 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._Clave != value))
 				{
 					this._Clave = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_MANTENIMIENTO_USUARIOResult
+	{
+		
+		private System.Nullable<decimal> _IdUsuario;
+		
+		private System.Nullable<decimal> _IdNivelAcceso;
+		
+		private string _Usuario;
+		
+		private string _Clave;
+		
+		private string _Persona;
+		
+		private System.Nullable<bool> _Estatus;
+		
+		private System.Nullable<bool> _CambiaClave;
+		
+		private System.Nullable<decimal> _UsuarioAdicona;
+		
+		private System.Nullable<System.DateTime> _FechaAdiciona;
+		
+		private System.Nullable<decimal> _UsuarioModifica;
+		
+		private System.Nullable<System.DateTime> _FechaModifica;
+		
+		public SP_MANTENIMIENTO_USUARIOResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdUsuario
+		{
+			get
+			{
+				return this._IdUsuario;
+			}
+			set
+			{
+				if ((this._IdUsuario != value))
+				{
+					this._IdUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdNivelAcceso", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdNivelAcceso
+		{
+			get
+			{
+				return this._IdNivelAcceso;
+			}
+			set
+			{
+				if ((this._IdNivelAcceso != value))
+				{
+					this._IdNivelAcceso = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Usuario", DbType="VarChar(20)")]
+		public string Usuario
+		{
+			get
+			{
+				return this._Usuario;
+			}
+			set
+			{
+				if ((this._Usuario != value))
+				{
+					this._Usuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Clave", DbType="VarChar(8000)")]
+		public string Clave
+		{
+			get
+			{
+				return this._Clave;
+			}
+			set
+			{
+				if ((this._Clave != value))
+				{
+					this._Clave = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Persona", DbType="VarChar(100)")]
+		public string Persona
+		{
+			get
+			{
+				return this._Persona;
+			}
+			set
+			{
+				if ((this._Persona != value))
+				{
+					this._Persona = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="Bit")]
+		public System.Nullable<bool> Estatus
+		{
+			get
+			{
+				return this._Estatus;
+			}
+			set
+			{
+				if ((this._Estatus != value))
+				{
+					this._Estatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CambiaClave", DbType="Bit")]
+		public System.Nullable<bool> CambiaClave
+		{
+			get
+			{
+				return this._CambiaClave;
+			}
+			set
+			{
+				if ((this._CambiaClave != value))
+				{
+					this._CambiaClave = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsuarioAdicona", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> UsuarioAdicona
+		{
+			get
+			{
+				return this._UsuarioAdicona;
+			}
+			set
+			{
+				if ((this._UsuarioAdicona != value))
+				{
+					this._UsuarioAdicona = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaAdiciona", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FechaAdiciona
+		{
+			get
+			{
+				return this._FechaAdiciona;
+			}
+			set
+			{
+				if ((this._FechaAdiciona != value))
+				{
+					this._FechaAdiciona = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsuarioModifica", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> UsuarioModifica
+		{
+			get
+			{
+				return this._UsuarioModifica;
+			}
+			set
+			{
+				if ((this._UsuarioModifica != value))
+				{
+					this._UsuarioModifica = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaModifica", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FechaModifica
+		{
+			get
+			{
+				return this._FechaModifica;
+			}
+			set
+			{
+				if ((this._FechaModifica != value))
+				{
+					this._FechaModifica = value;
 				}
 			}
 		}

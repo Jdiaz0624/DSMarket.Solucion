@@ -25,13 +25,22 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             DSMarket.Solucion.Pantallas.Pantallas.Seguridad.UsuariosConsulta ConsultaUsuarios = new Pantallas.Seguridad.UsuariosConsulta();
+            ConsultaUsuarios.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbusuario.Text);
             ConsultaUsuarios.ShowDialog();
         }
 
         private void btnClaveSeguridad_Click(object sender, EventArgs e)
         {
             DSMarket.Solucion.Pantallas.Pantallas.Seguridad.ClaveSeguridad ClaveSeguridad = new Pantallas.Seguridad.ClaveSeguridad();
+            //
             ClaveSeguridad.ShowDialog();
+        }
+
+        private void Seguridad_Load(object sender, EventArgs e)
+        {
+            lbTitulo.Text = "MANTENIMIENTO DE USUARIOS";
+            lbTitulo.ForeColor = Color.White;
+            lbusuario.Text = DSMarket.Solucion.Pantallas.MenuPrincipal.MenuPrincipal.IdUsuarioMantenimientos.ToString();
         }
     }
 }

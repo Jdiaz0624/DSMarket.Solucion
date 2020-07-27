@@ -116,12 +116,13 @@
             this.Efecto.SetDecoration(this.btnMonedas, BunifuAnimatorNS.DecorationType.None);
             this.btnMonedas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMonedas.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMonedas.Location = new System.Drawing.Point(198, 29);
+            this.btnMonedas.Location = new System.Drawing.Point(390, 29);
             this.btnMonedas.Name = "btnMonedas";
             this.btnMonedas.Size = new System.Drawing.Size(186, 56);
             this.btnMonedas.TabIndex = 7;
             this.btnMonedas.Text = "Monedas";
             this.btnMonedas.UseVisualStyleBackColor = true;
+            this.btnMonedas.Visible = false;
             this.btnMonedas.Click += new System.EventHandler(this.btnMonedas_Click);
             // 
             // btnAbirCerrarCaja
@@ -144,7 +145,7 @@
             this.Efecto.SetDecoration(this.btnCuadreCaja, BunifuAnimatorNS.DecorationType.None);
             this.btnCuadreCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCuadreCaja.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCuadreCaja.Location = new System.Drawing.Point(390, 29);
+            this.btnCuadreCaja.Location = new System.Drawing.Point(198, 29);
             this.btnCuadreCaja.Name = "btnCuadreCaja";
             this.btnCuadreCaja.Size = new System.Drawing.Size(186, 56);
             this.btnCuadreCaja.TabIndex = 5;

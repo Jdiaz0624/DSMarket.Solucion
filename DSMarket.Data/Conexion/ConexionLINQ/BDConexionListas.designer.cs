@@ -159,6 +159,20 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<SP_BUSCA_LISTADO_ESTATUS_FACTURACIONResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTADO_NIVEL_ACCESO")]
+		public ISingleResult<SP_LISTADO_NIVEL_ACCESOResult> SP_LISTADO_NIVEL_ACCESO()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_LISTADO_NIVEL_ACCESOResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTA_USUARIOS")]
+		public ISingleResult<SP_LISTA_USUARIOSResult> SP_LISTA_USUARIOS()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_LISTA_USUARIOSResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_CARGAR_LISTA_TIPO_PRODUCTOResult
@@ -790,6 +804,94 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._Estatus != value))
 				{
 					this._Estatus = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_LISTADO_NIVEL_ACCESOResult
+	{
+		
+		private decimal _IdNivelAcceso;
+		
+		private string _Descripcion;
+		
+		public SP_LISTADO_NIVEL_ACCESOResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdNivelAcceso", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdNivelAcceso
+		{
+			get
+			{
+				return this._IdNivelAcceso;
+			}
+			set
+			{
+				if ((this._IdNivelAcceso != value))
+				{
+					this._IdNivelAcceso = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(100)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_LISTA_USUARIOSResult
+	{
+		
+		private System.Nullable<decimal> _IdUsuario;
+		
+		private string _Persona;
+		
+		public SP_LISTA_USUARIOSResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdUsuario
+		{
+			get
+			{
+				return this._IdUsuario;
+			}
+			set
+			{
+				if ((this._IdUsuario != value))
+				{
+					this._IdUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Persona", DbType="VarChar(100)")]
+		public string Persona
+		{
+			get
+			{
+				return this._Persona;
+			}
+			set
+			{
+				if ((this._Persona != value))
+				{
+					this._Persona = value;
 				}
 			}
 		}

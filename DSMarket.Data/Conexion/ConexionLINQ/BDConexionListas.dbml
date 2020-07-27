@@ -91,4 +91,16 @@
       <Column Name="Estatus" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Listas.SP_LISTADO_NIVEL_ACCESO" Method="SP_LISTADO_NIVEL_ACCESO">
+    <ElementType Name="SP_LISTADO_NIVEL_ACCESOResult">
+      <Column Name="IdNivelAcceso" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_LISTA_USUARIOS" Method="SP_LISTA_USUARIOS">
+    <ElementType Name="SP_LISTA_USUARIOSResult">
+      <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Persona" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

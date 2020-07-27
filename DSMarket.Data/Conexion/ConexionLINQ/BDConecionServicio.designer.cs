@@ -33,7 +33,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
     #endregion
 		
 		public BDConecionServicioDataContext() : 
-				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString, mappingSource)
+				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -203,13 +203,6 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			return ((ISingleResult<SP_BUSCA_PRODUCTOS_AGREGADOSResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Historial.SP_BUSCA_HISTORIAL_FACTURACION")]
-		public ISingleResult<SP_BUSCA_HISTORIAL_FACTURACIONResult> SP_BUSCA_HISTORIAL_FACTURACION([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdFactura", DbType="Decimal(20,0)")] System.Nullable<decimal> idFactura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdEstatusFacturacion", DbType="Decimal(20,0)")] System.Nullable<decimal> idEstatusFacturacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoFacturacion", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoFacturacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoPago", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoPago, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cliente", DbType="VarChar(1000)")] string cliente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaDesde", DbType="Date")] System.Nullable<System.DateTime> fechaDesde, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaHasta", DbType="Date")] System.Nullable<System.DateTime> fechaHasta, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroPagina", DbType="Int")] System.Nullable<int> numeroPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroRegistros", DbType="Int")] System.Nullable<int> numeroRegistros)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idFactura, idEstatusFacturacion, idTipoFacturacion, idTipoPago, cliente, fechaDesde, fechaHasta, numeroPagina, numeroRegistros);
-			return ((ISingleResult<SP_BUSCA_HISTORIAL_FACTURACIONResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_VALIDAR_FACTURA_ANULADA")]
 		public ISingleResult<SP_VALIDAR_FACTURA_ANULADAResult> SP_VALIDAR_FACTURA_ANULADA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroConector", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroConector)
 		{
@@ -217,10 +210,17 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			return ((ISingleResult<SP_VALIDAR_FACTURA_ANULADAResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_SACAR_GANANCIA_FACTURACION")]
-		public ISingleResult<SP_SACAR_GANANCIA_FACTURACIONResult> SP_SACAR_GANANCIA_FACTURACION([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdFactura", DbType="Decimal(20,0)")] System.Nullable<decimal> idFactura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdEstatusFacturacion", DbType="Decimal(20,0)")] System.Nullable<decimal> idEstatusFacturacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoFacturacion", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoFacturacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoPago", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoPago, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cliente", DbType="VarChar(1000)")] string cliente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaDesde", DbType="Date")] System.Nullable<System.DateTime> fechaDesde, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaHasta", DbType="Date")] System.Nullable<System.DateTime> fechaHasta)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Historial.SP_BUSCA_HISTORIAL_FACTURACION")]
+		public ISingleResult<SP_BUSCA_HISTORIAL_FACTURACIONResult> SP_BUSCA_HISTORIAL_FACTURACION([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdFactura", DbType="Decimal(20,0)")] System.Nullable<decimal> idFactura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroConector", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroConector, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdEstatusFacturacion", DbType="Decimal(20,0)")] System.Nullable<decimal> idEstatusFacturacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoFacturacion", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoFacturacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoPago", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoPago, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cliente", DbType="VarChar(1000)")] string cliente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaDesde", DbType="Date")] System.Nullable<System.DateTime> fechaDesde, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaHasta", DbType="Date")] System.Nullable<System.DateTime> fechaHasta, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroPagina", DbType="Int")] System.Nullable<int> numeroPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroRegistros", DbType="Int")] System.Nullable<int> numeroRegistros)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idFactura, idEstatusFacturacion, idTipoFacturacion, idTipoPago, cliente, fechaDesde, fechaHasta);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idFactura, numeroConector, idEstatusFacturacion, idTipoFacturacion, idTipoPago, cliente, fechaDesde, fechaHasta, numeroPagina, numeroRegistros);
+			return ((ISingleResult<SP_BUSCA_HISTORIAL_FACTURACIONResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_SACAR_GANANCIA_FACTURACION")]
+		public ISingleResult<SP_SACAR_GANANCIA_FACTURACIONResult> SP_SACAR_GANANCIA_FACTURACION([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdFactura", DbType="Decimal(20,0)")] System.Nullable<decimal> idFactura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroConector", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroConector, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdEstatusFacturacion", DbType="Decimal(20,0)")] System.Nullable<decimal> idEstatusFacturacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoFacturacion", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoFacturacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoPago", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoPago, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cliente", DbType="VarChar(1000)")] string cliente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaDesde", DbType="Date")] System.Nullable<System.DateTime> fechaDesde, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaHasta", DbType="Date")] System.Nullable<System.DateTime> fechaHasta)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idFactura, numeroConector, idEstatusFacturacion, idTipoFacturacion, idTipoPago, cliente, fechaDesde, fechaHasta);
 			return ((ISingleResult<SP_SACAR_GANANCIA_FACTURACIONResult>)(result.ReturnValue));
 		}
 	}
@@ -4441,6 +4441,32 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		}
 	}
 	
+	public partial class SP_VALIDAR_FACTURA_ANULADAResult
+	{
+		
+		private decimal _NumeroConector;
+		
+		public SP_VALIDAR_FACTURA_ANULADAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroConector", DbType="Decimal(20,0) NOT NULL")]
+		public decimal NumeroConector
+		{
+			get
+			{
+				return this._NumeroConector;
+			}
+			set
+			{
+				if ((this._NumeroConector != value))
+				{
+					this._NumeroConector = value;
+				}
+			}
+		}
+	}
+	
 	public partial class SP_BUSCA_HISTORIAL_FACTURACIONResult
 	{
 		
@@ -4450,9 +4476,9 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		
 		private decimal _IdFactura;
 		
-		private System.Nullable<decimal> _NumeroConector;
+		private decimal _NumeroConector;
 		
-		private System.Nullable<int> _IdEstatusFacturacion;
+		private int _IdEstatusFacturacion;
 		
 		private string _TipoIdentificacion;
 		
@@ -4570,8 +4596,8 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroConector", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> NumeroConector
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroConector", DbType="Decimal(20,0) NOT NULL")]
+		public decimal NumeroConector
 		{
 			get
 			{
@@ -4586,8 +4612,8 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdEstatusFacturacion", DbType="Int")]
-		public System.Nullable<int> IdEstatusFacturacion
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdEstatusFacturacion", DbType="Int NOT NULL")]
+		public int IdEstatusFacturacion
 		{
 			get
 			{
@@ -4954,7 +4980,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalDescuento", DbType="Decimal(20,2)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalDescuento", DbType="Decimal(22,2)")]
 		public System.Nullable<decimal> TotalDescuento
 		{
 			get
@@ -4970,7 +4996,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubTotal", DbType="Decimal(20,2)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubTotal", DbType="Decimal(22,2)")]
 		public System.Nullable<decimal> SubTotal
 		{
 			get
@@ -4986,7 +5012,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Impuesto", DbType="Decimal(20,2)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Impuesto", DbType="Decimal(22,2)")]
 		public System.Nullable<decimal> Impuesto
 		{
 			get
@@ -5018,7 +5044,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MontoPagado", DbType="Decimal(20,2)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MontoPagado", DbType="Decimal(22,2)")]
 		public System.Nullable<decimal> MontoPagado
 		{
 			get
@@ -5034,7 +5060,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cambio", DbType="Decimal(20,2)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cambio", DbType="Decimal(22,2)")]
 		public System.Nullable<decimal> Cambio
 		{
 			get
@@ -5082,7 +5108,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalGeneral", DbType="Decimal(20,2)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalGeneral", DbType="Decimal(22,2)")]
 		public System.Nullable<decimal> TotalGeneral
 		{
 			get
@@ -5110,32 +5136,6 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._CantidadRegistros != value))
 				{
 					this._CantidadRegistros = value;
-				}
-			}
-		}
-	}
-	
-	public partial class SP_VALIDAR_FACTURA_ANULADAResult
-	{
-		
-		private decimal _NumeroConector;
-		
-		public SP_VALIDAR_FACTURA_ANULADAResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroConector", DbType="Decimal(20,0) NOT NULL")]
-		public decimal NumeroConector
-		{
-			get
-			{
-				return this._NumeroConector;
-			}
-			set
-			{
-				if ((this._NumeroConector != value))
-				{
-					this._NumeroConector = value;
 				}
 			}
 		}
