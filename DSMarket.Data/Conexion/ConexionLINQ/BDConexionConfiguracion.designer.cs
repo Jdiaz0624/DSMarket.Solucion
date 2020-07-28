@@ -213,6 +213,27 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idInformacionEMpres, nombreEmpresa, rNC, direccion, email, email2, facebook, instagram, telefonos, idLogoEmpresa, accion);
 			return ((ISingleResult<SP_MODIFICAR_INFORMACION_EMPRESAResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Configuracion.SP_SACAR_RUTA_BACKUP_BD")]
+		public ISingleResult<SP_SACAR_RUTA_BACKUP_BDResult> SP_SACAR_RUTA_BACKUP_BD([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdRutaBackupBD", DbType="Decimal(20,0)")] System.Nullable<decimal> idRutaBackupBD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idRutaBackupBD);
+			return ((ISingleResult<SP_SACAR_RUTA_BACKUP_BDResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Configuracion.SP_MODIFICAR_RUTA_BACKUP")]
+		public ISingleResult<SP_MODIFICAR_RUTA_BACKUPResult> SP_MODIFICAR_RUTA_BACKUP([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdRutaBackup", DbType="Decimal(20,0)")] System.Nullable<decimal> idRutaBackup, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ruta", DbType="VarChar(8000)")] string ruta, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idRutaBackup, ruta, accion);
+			return ((ISingleResult<SP_MODIFICAR_RUTA_BACKUPResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Configuracion.SP_GENERAR_BACKUP_DATABASE")]
+		public ISingleResult<SP_GENERAR_BACKUP_DATABASEResult> SP_GENERAR_BACKUP_DATABASE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="RutaBaseDatos", DbType="VarChar(8000)")] string rutaBaseDatos, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rutaBaseDatos, accion);
+			return ((ISingleResult<SP_GENERAR_BACKUP_DATABASEResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_BUSCA_LISTASResult
@@ -2734,6 +2755,120 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._IdLogoEmpresa != value))
 				{
 					this._IdLogoEmpresa = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_SACAR_RUTA_BACKUP_BDResult
+	{
+		
+		private decimal _IdRutaBAckupBD;
+		
+		private string _Ruta;
+		
+		public SP_SACAR_RUTA_BACKUP_BDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdRutaBAckupBD", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdRutaBAckupBD
+		{
+			get
+			{
+				return this._IdRutaBAckupBD;
+			}
+			set
+			{
+				if ((this._IdRutaBAckupBD != value))
+				{
+					this._IdRutaBAckupBD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ruta", DbType="VarChar(8000)")]
+		public string Ruta
+		{
+			get
+			{
+				return this._Ruta;
+			}
+			set
+			{
+				if ((this._Ruta != value))
+				{
+					this._Ruta = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_MODIFICAR_RUTA_BACKUPResult
+	{
+		
+		private System.Nullable<decimal> _IdRutaBackup;
+		
+		private string _Ruta;
+		
+		public SP_MODIFICAR_RUTA_BACKUPResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdRutaBackup", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdRutaBackup
+		{
+			get
+			{
+				return this._IdRutaBackup;
+			}
+			set
+			{
+				if ((this._IdRutaBackup != value))
+				{
+					this._IdRutaBackup = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ruta", DbType="VarChar(8000)")]
+		public string Ruta
+		{
+			get
+			{
+				return this._Ruta;
+			}
+			set
+			{
+				if ((this._Ruta != value))
+				{
+					this._Ruta = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_GENERAR_BACKUP_DATABASEResult
+	{
+		
+		private string _RutaArchivo;
+		
+		public SP_GENERAR_BACKUP_DATABASEResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RutaArchivo", DbType="VarChar(8000)")]
+		public string RutaArchivo
+		{
+			get
+			{
+				return this._RutaArchivo;
+			}
+			set
+			{
+				if ((this._RutaArchivo != value))
+				{
+					this._RutaArchivo = value;
 				}
 			}
 		}

@@ -53,6 +53,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         OcultarColumnas();
                         if (BuscarRegistro.Count() < 1)
                         {
+
+                        }
+                        else {
+
+                        }
+                        if (BuscarRegistro.Count() < 1)
+                        {
                             lbCantidadRegistrosVariable.Text = "0";
                         }
                         else {

@@ -297,4 +297,27 @@
       <Column Name="IdLogoEmpresa" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Configuracion.SP_SACAR_RUTA_BACKUP_BD" Method="SP_SACAR_RUTA_BACKUP_BD">
+    <Parameter Name="IdRutaBackupBD" Parameter="idRutaBackupBD" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <ElementType Name="SP_SACAR_RUTA_BACKUP_BDResult">
+      <Column Name="IdRutaBAckupBD" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Ruta" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Configuracion.SP_MODIFICAR_RUTA_BACKUP" Method="SP_MODIFICAR_RUTA_BACKUP">
+    <Parameter Name="IdRutaBackup" Parameter="idRutaBackup" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Ruta" Parameter="ruta" Type="System.String" DbType="VarChar(8000)" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_MODIFICAR_RUTA_BACKUPResult">
+      <Column Name="IdRutaBackup" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Ruta" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Configuracion.SP_GENERAR_BACKUP_DATABASE" Method="SP_GENERAR_BACKUP_DATABASE">
+    <Parameter Name="RutaBaseDatos" Parameter="rutaBaseDatos" Type="System.String" DbType="VarChar(8000)" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_GENERAR_BACKUP_DATABASEResult">
+      <Column Name="RutaArchivo" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

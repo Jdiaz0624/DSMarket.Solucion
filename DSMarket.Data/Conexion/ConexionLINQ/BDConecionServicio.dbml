@@ -490,4 +490,22 @@
       <Column Name="Ganancia" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Servicio.SP_MANTENIMIENTO_TIPO_PAGO" Method="SP_MANTENIMIENTO_TIPO_PAGO">
+    <Parameter Name="IdTipoPago" Parameter="idTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Estatus" Parameter="estatus" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="UsuarioAdiciona" Parameter="usuarioAdiciona" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="BloqueaMonto" Parameter="bloqueaMonto" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_MANTENIMIENTO_TIPO_PAGOResult">
+      <Column Name="IdTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Estatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UsuarioAdiciona" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="FechaAdiciona" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="UsuarioModifica" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="FechaModifica" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="BloqueaMonto" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

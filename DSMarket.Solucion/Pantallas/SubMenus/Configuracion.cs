@@ -45,5 +45,12 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
             DSMarket.Solucion.Pantallas.Pantallas.Configuracion.Reportes Reportes = new Pantallas.Configuracion.Reportes();
             Reportes.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Configuracion.GenerarBackupBD Backup = new Pantallas.Configuracion.GenerarBackupBD();
+           // Backup.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbUsuario.Text);
+            Backup.ShowDialog();
+        }
     }
 }

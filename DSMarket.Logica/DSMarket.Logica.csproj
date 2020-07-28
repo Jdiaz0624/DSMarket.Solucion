@@ -48,6 +48,7 @@
     <Compile Include="Comunes\InformacionEmpresa.cs" />
     <Compile Include="Comunes\Mails.cs" />
     <Compile Include="Comunes\MantenimientoClaveSeguridad.cs" />
+    <Compile Include="Comunes\MantenimientoTipoPago.cs" />
     <Compile Include="Comunes\ModificarInformacionEmpresa.cs" />
     <Compile Include="Comunes\ProcesarGananciaVenta.cs" />
     <Compile Include="Comunes\ProcesarReporteVenta.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="Entidades\EntidadesConfiguracion\EComprobantes.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EConfiguracionGeneral.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EGenerarComprobante.cs" />
+    <Compile Include="Entidades\EntidadesConfiguracion\EGenerarRutaReporte.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EGuardarReporteVenta.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EImpuesto.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EInformacionEmpresa.cs" />
@@ -68,6 +70,7 @@
     <Compile Include="Entidades\EntidadesConfiguracion\EMantenimientoComprobantes.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EProcesarInformacionGanancia.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EProcesarReporteCuadreCaja.cs" />
+    <Compile Include="Entidades\EntidadesConfiguracion\ERutaBackup.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\ERutaReporte.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\EClientes.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECategorias.cs" />
@@ -109,6 +112,7 @@
     <Compile Include="Entidades\EntidadesServicio\EGuardarFacturacionComprobantes.cs" />
     <Compile Include="Entidades\EntidadesServicio\EHistorialFacturacion.cs" />
     <Compile Include="Entidades\EntidadesServicio\EMantenimientoHistorialProductoInventario.cs" />
+    <Compile Include="Entidades\EntidadesServicio\EMantenimientoTipoPago.cs" />
     <Compile Include="Entidades\EntidadesServicio\EProductosAgregados.cs" />
     <Compile Include="Entidades\EntidadesServicio\ESacarGananciaFacturacion.cs" />
     <Compile Include="Entidades\EntidadesServicio\ESacarNumeroFactura.cs" />

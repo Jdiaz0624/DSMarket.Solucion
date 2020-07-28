@@ -36,6 +36,37 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                               CantidadRegistros = n.CantidadRegistros
                           }).ToList();
             return Buscar;
+
+            
+        }
+        //MANTENIMIENTO DE TIPO DE PAGO
+        public DSMarket.Logica.Entidades.EntidadesServicio.EMantenimientoTipoPago MantenimientoTipoPago(DSMarket.Logica.Entidades.EntidadesServicio.EMantenimientoTipoPago Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesServicio.EMantenimientoTipoPago Mantenimiento = null;
+
+            var TipoPago = ObjData.SP_MANTENIMIENTO_TIPO_PAGO(
+                Item.IdTipoPago,
+                Item.Descripcion,
+                Item.Estatus,
+                Item.UsuarioAdiciona,
+                Item.BloqueaMonto,
+                Accion);
+            if (TipoPago != null) {
+                Mantenimiento = (from n in TipoPago
+                                 select new DSMarket.Logica.Entidades.EntidadesServicio.EMantenimientoTipoPago
+                                 {
+                                     IdTipoPago=n.IdTipoPago,
+                                     Descripcion=n.Descripcion,
+                                     Estatus=n.Estatus,
+                                     UsuarioAdiciona=n.UsuarioAdiciona,
+                                     FechaAdiciona=n.FechaAdiciona,
+                                     UsuarioModifica=n.UsuarioModifica,
+                                     FechaModifica=n.FechaModifica,
+                                     BloqueaMonto=n.BloqueaMonto
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
         }
         #endregion
         #region FACTURACION
@@ -502,7 +533,6 @@ namespace DSMarket.Logica.Logica.LogicaServicio
             return Listado;
         }
         #endregion
-
         #region MANTENIMIENTO DE HISTORIAL DE PRODUCTO
         public DSMarket.Logica.Entidades.EntidadesServicio.EMantenimientoHistorialProductoInventario MantenimientoHistorialProducto(DSMarket.Logica.Entidades.EntidadesServicio.EMantenimientoHistorialProductoInventario Item, string Accion)
         {
@@ -527,7 +557,6 @@ namespace DSMarket.Logica.Logica.LogicaServicio
 
 
         #endregion
-
         #region HISTORIAL DE FACTURACION
         public List<DSMarket.Logica.Entidades.EntidadesServicio.EHistorialFacturacion> HistorialFacturacion(decimal? IdFactura = null, decimal? NumeroConector=null, decimal? IdEstatusFacturacion = null, decimal? IdTipoFacturacion = null, decimal? IdTipoPago = null, string Cliente = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
             ObjData.CommandTimeout = 999999999;
@@ -588,7 +617,6 @@ namespace DSMarket.Logica.Logica.LogicaServicio
             return Validar;
         }
         #endregion
-
         #region GENERAR LA GANANCIA DE VENTA
         public List<DSMarket.Logica.Entidades.EntidadesServicio.ESacarGananciaFacturacion> GenerarGananciaVenta(decimal? IdFactura = null,decimal? NumeroConector = null, decimal? IdEstatusFacturacion = null, decimal? IdTipoFacturacion = null, decimal? IdTipoPago = null, string Cliente = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null)
         {

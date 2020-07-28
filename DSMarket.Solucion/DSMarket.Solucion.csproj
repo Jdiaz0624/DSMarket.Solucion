@@ -86,11 +86,23 @@
     <Compile Include="Pantallas\Pantallas\Configuracion\Comprobantes.Designer.cs">
       <DependentUpon>Comprobantes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\ConfigurarRutaBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\ConfigurarRutaBackup.Designer.cs">
+      <DependentUpon>ConfigurarRutaBackup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Configuracion\CredencialesBD.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pantallas\Pantallas\Configuracion\CredencialesBD.Designer.cs">
       <DependentUpon>CredencialesBD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\GenerarBackupBD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\GenerarBackupBD.Designer.cs">
+      <DependentUpon>GenerarBackupBD.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Pantallas\Configuracion\InformacionEmpresa.cs">
       <SubType>Form</SubType>
@@ -433,8 +445,14 @@
     <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\Comprobantes.resx">
       <DependentUpon>Comprobantes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\ConfigurarRutaBackup.resx">
+      <DependentUpon>ConfigurarRutaBackup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\CredencialesBD.resx">
       <DependentUpon>CredencialesBD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\GenerarBackupBD.resx">
+      <DependentUpon>GenerarBackupBD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\InformacionEmpresa.resx">
       <DependentUpon>InformacionEmpresa.cs</DependentUpon>

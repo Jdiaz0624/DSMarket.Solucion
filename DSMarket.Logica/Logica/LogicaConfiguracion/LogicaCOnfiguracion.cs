@@ -19,10 +19,10 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             var BuscaListas = (from n in ObjData.SP_BUSCA_LISTAS(NombreLista, PrimerFiltro, SegundoFiltro, TerceFiltro, CuartoFiltro, QuintoFiltro)
                                select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EListas
                                {
-                                   Descripcion=n.Descripcion,
-                                   PrimerValor=n.PrimerValor,
-                                   SegundoValor=n.SegundoValor,
-                                   TerceValor=n.TerceValor
+                                   Descripcion = n.Descripcion,
+                                   PrimerValor = n.PrimerValor,
+                                   SegundoValor = n.SegundoValor,
+                                   TerceValor = n.TerceValor
                                }).ToList();
             return BuscaListas;
         }
@@ -46,7 +46,7 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                                    Instagran = n.Instagran,
                                    Telefonos = n.Telefonos,
                                    IdLogoEmpresa = n.IdLogoEmpresa,
-                                   LogoEmpresa=n.LogoEmpresa
+                                   LogoEmpresa = n.LogoEmpresa
                                }).ToList();
             return Informacion;
         }
@@ -75,16 +75,16 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                 Modificar = (from n in InformacionEmpresa
                              select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EInformacionEmpresa
                              {
-                                 IdInformacionEmpresa=n.IdInformacionEMpres,
-                                 NombreEmpresa=n.NombreEmpresa,
-                                 RNC=n.RNC,
-                                 Direccion=n.Direccion,
-                                 Email=n.Email,
-                                 Email2=n.Email2,
-                                 Facebook=n.Facebook,
-                                 Instagran=n.Instagram,
-                                 Telefonos=n.Telefonos,
-                                 IdLogoEmpresa=n.IdLogoEmpresa
+                                 IdInformacionEmpresa = n.IdInformacionEMpres,
+                                 NombreEmpresa = n.NombreEmpresa,
+                                 RNC = n.RNC,
+                                 Direccion = n.Direccion,
+                                 Email = n.Email,
+                                 Email2 = n.Email2,
+                                 Facebook = n.Facebook,
+                                 Instagran = n.Instagram,
+                                 Telefonos = n.Telefonos,
+                                 IdLogoEmpresa = n.IdLogoEmpresa
                              }).FirstOrDefault();
             }
             return Modificar;
@@ -98,12 +98,12 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             var Listado = (from n in ObjData.SP_BUSCA_CONFIGURACION_GENERAL(IdConfiguracionGeneral)
                            select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral
                            {
-                               IdConfiguracionGeneral=n.IdConfiguracionGeneral,
-                               Descripcion=n.Descripcion,
-                               Estatus0=n.Estatus0,
-                               Estatus=n.Estatus,
-                               CantidadActivos=n.CantidadActivos,
-                               CantidadInactivos=n.CantidadInactivos
+                               IdConfiguracionGeneral = n.IdConfiguracionGeneral,
+                               Descripcion = n.Descripcion,
+                               Estatus0 = n.Estatus0,
+                               Estatus = n.Estatus,
+                               CantidadActivos = n.CantidadActivos,
+                               CantidadInactivos = n.CantidadInactivos
                            }).ToList();
             return Listado;
         }
@@ -121,9 +121,9 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                 Mantenimiento = (from n in ConfiguracionGeneral
                                  select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral
                                  {
-                                     IdConfiguracionGeneral=n.IdConfiguracionGeneral,
-                                     Descripcion=n.Descripcion,
-                                     Estatus0=n.Estatus
+                                     IdConfiguracionGeneral = n.IdConfiguracionGeneral,
+                                     Descripcion = n.Descripcion,
+                                     Estatus0 = n.Estatus
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
@@ -135,8 +135,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             var Generar = (from n in ObjData.SP_GENERAR_COMPROBANTE_FISCAL(IdComprobante)
                            select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarComprobante
                            {
-                               TipoComprobante=n.TipoComprobante,
-                               Comprobante=n.Comprobante
+                               TipoComprobante = n.TipoComprobante,
+                               Comprobante = n.Comprobante
                            }).ToList();
             return Generar;
         }
@@ -148,8 +148,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             var Listado = (from n in ObjData.SP_GENERAR_COMPROBANTE_FISCAL(IdComprobante)
                            select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarComprobante
                            {
-                               TipoComprobante=n.TipoComprobante,
-                               Comprobante=n.Comprobante
+                               TipoComprobante = n.TipoComprobante,
+                               Comprobante = n.Comprobante
                            }).ToList();
             return Listado;
         }
@@ -162,20 +162,20 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             var Listado = (from n in ObjData.SP_BUSCA_COMPROBANTES_FISCALES(IdComprobanteFiscales)
                            select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EComprobantes
                            {
-                               IdComprobante=n.IdComprobante,
-                               Comprobante=n.Comprobante,
-                               Serie=n.Serie,
-                               TipoComprobante=n.TipoComprobante,
-                               Secuencia=n.Secuencia,
-                               SecuenciaInicial=n.SecuenciaInicial,
-                               SecuenciaFinal=n.SecuenciaFinal,
-                               Limite=n.Limite,
-                               Estatus0=n.Estatus0,
-                               Estatus=n.Estatus,
-                               ValidoHasta=n.ValidoHasta,
-                               PorDefecto0=n.PorDefecto0,
-                               PorDefecto=n.PorDefecto,
-                               Posiciones=n.Posiciones
+                               IdComprobante = n.IdComprobante,
+                               Comprobante = n.Comprobante,
+                               Serie = n.Serie,
+                               TipoComprobante = n.TipoComprobante,
+                               Secuencia = n.Secuencia,
+                               SecuenciaInicial = n.SecuenciaInicial,
+                               SecuenciaFinal = n.SecuenciaFinal,
+                               Limite = n.Limite,
+                               Estatus0 = n.Estatus0,
+                               Estatus = n.Estatus,
+                               ValidoHasta = n.ValidoHasta,
+                               PorDefecto0 = n.PorDefecto0,
+                               PorDefecto = n.PorDefecto,
+                               Posiciones = n.Posiciones
                            }).ToList();
             return Listado;
         }
@@ -204,18 +204,18 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                 Mantenimiento = (from n in Comprobante
                                  select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EMantenimientoComprobantes
                                  {
-                                     IdComprobante=n.IdComprobante,
-                                     Descripcion=n.Descripcion,
-                                     Serie=n.Serie,
-                                     TipoComprobante=n.TipoComprobante,
-                                     Secuencia=n.Secuencia,
-                                     SecuenciaInicial=n.SecuenciaInicial,
-                                     SecuenciaFinal=n.SecuenciaFinal,
-                                     Limite=n.Limite,
-                                     Estatus=n.Estatus,
-                                     ValidoHasta=n.ValidoHasta,
-                                     PorDefecto=n.PorDefecto,
-                                     Posiciones=n.Posiciones
+                                     IdComprobante = n.IdComprobante,
+                                     Descripcion = n.Descripcion,
+                                     Serie = n.Serie,
+                                     TipoComprobante = n.TipoComprobante,
+                                     Secuencia = n.Secuencia,
+                                     SecuenciaInicial = n.SecuenciaInicial,
+                                     SecuenciaFinal = n.SecuenciaFinal,
+                                     Limite = n.Limite,
+                                     Estatus = n.Estatus,
+                                     ValidoHasta = n.ValidoHasta,
+                                     PorDefecto = n.PorDefecto,
+                                     Posiciones = n.Posiciones
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
@@ -228,11 +228,11 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             var Listado = (from n in ObjData.SP_BUSCA_IMPUESTO_VENTA(IdImpuesto)
                            select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EImpuesto
                            {
-                               IdImpuesto=n.IdImpuesto,
-                               Descripcion=n.Descripcion,
-                               PorcientoImpuesto=n.PorcientoImpuesto,
-                               Operacion0=n.Operacion0,
-                               Operacion=n.Operacion
+                               IdImpuesto = n.IdImpuesto,
+                               Descripcion = n.Descripcion,
+                               PorcientoImpuesto = n.PorcientoImpuesto,
+                               Operacion0 = n.Operacion0,
+                               Operacion = n.Operacion
                            }).ToList();
             return Listado;
         }
@@ -246,9 +246,9 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             var Listado = (from n in ObjData.SP_SACAR_RUTA_REPORTE(IdRutaReporte)
                            select new DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaReporte
                            {
-                               IdReporte=n.IdReporte,
-                               Nombre=n.Nombre,
-                               RutaReporte=n.RutaReporte
+                               IdReporte = n.IdReporte,
+                               Nombre = n.Nombre,
+                               RutaReporte = n.RutaReporte
                            }).ToList();
             return Listado;
         }
@@ -267,9 +267,9 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                 Mantenimiento = (from n in RutaReporte
                                  select new DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaReporte
                                  {
-                                     IdReporte=n.IdReporte,
-                                     Nombre=n.Descripcion,
-                                     RutaReporte=n.RutaReporte
+                                     IdReporte = n.IdReporte,
+                                     Nombre = n.Descripcion,
+                                     RutaReporte = n.RutaReporte
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
@@ -297,15 +297,15 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                 Procesar = (from n in CuadreCaja
                             select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarReporteCuadreCaja
                             {
-                                IdUsuario=n.IdUsuario,
-                                IdCaja=n.IdCaja,
-                                Monto=n.Monto,
-                                Concepto=n.Concepto,
-                                FechaProcesado=n.FechaProcesado,
-                                FechaDesde=n.FechaDesde,
-                                FechaHasta=n.FechaHasta,
-                                NumeroReferencia=n.NumeroReferencia,
-                                IdTipoPago=n.IdTipoPago
+                                IdUsuario = n.IdUsuario,
+                                IdCaja = n.IdCaja,
+                                Monto = n.Monto,
+                                Concepto = n.Concepto,
+                                FechaProcesado = n.FechaProcesado,
+                                FechaDesde = n.FechaDesde,
+                                FechaHasta = n.FechaHasta,
+                                NumeroReferencia = n.NumeroReferencia,
+                                IdTipoPago = n.IdTipoPago
                             }).FirstOrDefault();
             }
             return Procesar;
@@ -360,10 +360,10 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                            select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EGuardarReporteVenta
                            {
                                IdUsuario = n.IdUsuario,
-                               Cliente=n.Cliente,
-                               EstatusFacturacion=n.EstatusFacturacion,
-                               IdFactura=n.IdFactura,
-                               NumeroConector=n.NumeroConector,
+                               Cliente = n.Cliente,
+                               EstatusFacturacion = n.EstatusFacturacion,
+                               IdFactura = n.IdFactura,
+                               NumeroConector = n.NumeroConector,
                                IdEstatusFActuracion = n.IdEstatusFActuracion,
                                TipoIdentificacion = n.TipoIdentificacion,
                                DescripciomComprobanre = n.DescripciomComprobanre,
@@ -428,26 +428,81 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                 Procesar = (from n in InformacionGanancia
                             select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarInformacionGanancia
                             {
-                                IdUsuario=n.IdUsuario,
-                                IdEstatusFacturacion=n.IdEstatusFacturacion,
-                                Estatus=n.Estatus,
-                                IdFActura=n.IdFActura,
-                                DescripcionProducto=n.DescripcionProducto,
-                                Acumulativo=n.Acumulativo,
-                                IdCategoria=n.IdCategoria,
-                                Categoria=n.Categoria,
-                                TipoProducto=n.TipoProducto,
-                                PrecioCompra=n.PrecioCompra,
-                                PrecioVenta=n.PrecioVenta,
-                                CantidadVendda=n.CantidadVendda,
-                                DescuentoAplicado=n.DescuentoAplicado,
-                                TotalVenta=n.TotalVenta,
-                                TotalPrecioCompra=n.TotalPrecioCompra,
-                                Ganancia=n.Ganancia
+                                IdUsuario = n.IdUsuario,
+                                IdEstatusFacturacion = n.IdEstatusFacturacion,
+                                Estatus = n.Estatus,
+                                IdFActura = n.IdFActura,
+                                DescripcionProducto = n.DescripcionProducto,
+                                Acumulativo = n.Acumulativo,
+                                IdCategoria = n.IdCategoria,
+                                Categoria = n.Categoria,
+                                TipoProducto = n.TipoProducto,
+                                PrecioCompra = n.PrecioCompra,
+                                PrecioVenta = n.PrecioVenta,
+                                CantidadVendda = n.CantidadVendda,
+                                DescuentoAplicado = n.DescuentoAplicado,
+                                TotalVenta = n.TotalVenta,
+                                TotalPrecioCompra = n.TotalPrecioCompra,
+                                Ganancia = n.Ganancia
                             }).FirstOrDefault();
             }
             return Procesar;
         }
         #endregion
-    }
+        #region RUTA BD
+        //BUSCAR RUTRA
+        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaBackup> BuscaRutaBAckup(decimal? IdRutaBackup = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Buscar = (from n in ObjData.SP_SACAR_RUTA_BACKUP_BD(IdRutaBackup)
+                          select new DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaBackup
+                          {
+                              IdRutaBAckupBD = n.IdRutaBAckupBD,
+                              Ruta = n.Ruta
+                          }).ToList();
+            return Buscar;
+        }
+
+        //MANTENIMIENTO DE RUTA DE REPORTE
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaBackup MantenimientoRutaBackup(DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaBackup Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaBackup Mantenimiento = null;
+
+            var RutaBackup = ObjData.SP_MODIFICAR_RUTA_BACKUP(
+                Item.IdRutaBAckupBD,
+                Item.Ruta,
+                Accion);
+            if (RutaBackup != null) {
+                Mantenimiento = (from n in RutaBackup
+                                 select new DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaBackup
+                                 {
+                                     IdRutaBAckupBD = n.IdRutaBackup,
+                                     Ruta = n.Ruta
+                                 }).FirstOrDefault();
+
+            }
+            return Mantenimiento;
+        }
+
+        //GENERAR BACKUP REPORTE
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarRutaBackup GenerarBackup(DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarRutaBackup Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarRutaBackup Generar = null;
+
+            var Backup = ObjData.SP_GENERAR_BACKUP_DATABASE(
+                Item.RutaArchivo,
+                Accion);
+            if (Backup != null) {
+                Generar = (from n in Backup
+                           select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarRutaBackup
+                           {
+                               RutaArchivo=n.RutaArchivo
+                           }).FirstOrDefault();
+            }
+            return Generar;
+        }
+    #endregion
+}
 }
