@@ -133,5 +133,30 @@ namespace DSMarket.Logica.Logica.LogicaSeguridad
             return Mantenimiento;
         }
         #endregion
+        #region MANTENIMIENTO DE CLAVE DE SEGURIDAD
+        public DSMarket.Logica.Entidades.EntidadesSeguridad.EMantenimientoClaveSeguridad MantenimientoClaveSeguridad(DSMarket.Logica.Entidades.EntidadesSeguridad.EMantenimientoClaveSeguridad Item, string Accion) {
+            ObjData.CommandTimeout = 99999999;
+
+            DSMarket.Logica.Entidades.EntidadesSeguridad.EMantenimientoClaveSeguridad Mantenimiento = null;
+
+            var ClaveSeguridad = ObjData.SP_MANTENIMIENTO_CLAVE_SEGURIDAD(
+                Item.IdCLaveSeguridad,
+                Item.IdUsuario,
+                Item.Clave,
+                Item.Estatus,
+                Accion);
+            if (ClaveSeguridad != null) {
+                Mantenimiento = (from n in ClaveSeguridad
+                                 select new DSMarket.Logica.Entidades.EntidadesSeguridad.EMantenimientoClaveSeguridad
+                                 {
+                                     IdCLaveSeguridad=n.IdCLaveSeguridad,
+                                     IdUsuario=n.IdUsuario,
+                                     Clave=n.Clave,
+                                     Estatus=n.Estatus
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
+        #endregion
     }
 }

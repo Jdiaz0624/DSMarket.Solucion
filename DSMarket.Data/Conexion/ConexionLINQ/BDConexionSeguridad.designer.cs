@@ -33,7 +33,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
     #endregion
 		
 		public BDConexionSeguridadDataContext() : 
-				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString1, mappingSource)
+				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -95,6 +95,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, idNivelAcceso, usuario, clave, persona, estatus, cambiaClave, usuarioProcesa, accion);
 			return ((ISingleResult<SP_MANTENIMIENTO_USUARIOResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Seguridad.SP_MANTENIMIENTO_CLAVE_SEGURIDAD")]
+		public ISingleResult<SP_MANTENIMIENTO_CLAVE_SEGURIDADResult> SP_MANTENIMIENTO_CLAVE_SEGURIDAD([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdClaveSeguridad", DbType="Decimal(20,0)")] System.Nullable<decimal> idClaveSeguridad, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Decimal(20,0)")] System.Nullable<decimal> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Clave", DbType="VarChar(8000)")] string clave, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Estatus", DbType="Bit")] System.Nullable<bool> estatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idClaveSeguridad, idUsuario, clave, estatus, accion);
+			return ((ISingleResult<SP_MANTENIMIENTO_CLAVE_SEGURIDADResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -853,6 +860,86 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._FechaModifica != value))
 				{
 					this._FechaModifica = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_MANTENIMIENTO_CLAVE_SEGURIDADResult
+	{
+		
+		private System.Nullable<decimal> _IdCLaveSeguridad;
+		
+		private System.Nullable<decimal> _IdUsuario;
+		
+		private string _Clave;
+		
+		private System.Nullable<bool> _Estatus;
+		
+		public SP_MANTENIMIENTO_CLAVE_SEGURIDADResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCLaveSeguridad", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdCLaveSeguridad
+		{
+			get
+			{
+				return this._IdCLaveSeguridad;
+			}
+			set
+			{
+				if ((this._IdCLaveSeguridad != value))
+				{
+					this._IdCLaveSeguridad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdUsuario
+		{
+			get
+			{
+				return this._IdUsuario;
+			}
+			set
+			{
+				if ((this._IdUsuario != value))
+				{
+					this._IdUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Clave", DbType="VarChar(8000)")]
+		public string Clave
+		{
+			get
+			{
+				return this._Clave;
+			}
+			set
+			{
+				if ((this._Clave != value))
+				{
+					this._Clave = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="Bit")]
+		public System.Nullable<bool> Estatus
+		{
+			get
+			{
+				return this._Estatus;
+			}
+			set
+			{
+				if ((this._Estatus != value))
+				{
+					this._Estatus = value;
 				}
 			}
 		}

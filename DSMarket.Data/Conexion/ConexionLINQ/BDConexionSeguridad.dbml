@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DSMarket" Class="BDConexionSeguridadDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=172.26.24.199;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString" Provider="System.Data.SqlClient" />
   <Function Name="Seguridad.SP_BUSCA_USUARIOS" Method="SP_BUSCA_USUARIOS">
     <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="UsuarioLogin" Parameter="usuarioLogin" Type="System.String" DbType="VarChar(20)" />
@@ -84,6 +84,19 @@
       <Column Name="FechaAdiciona" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="UsuarioModifica" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="FechaModifica" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Seguridad.SP_MANTENIMIENTO_CLAVE_SEGURIDAD" Method="SP_MANTENIMIENTO_CLAVE_SEGURIDAD">
+    <Parameter Name="IdClaveSeguridad" Parameter="idClaveSeguridad" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Clave" Parameter="clave" Type="System.String" DbType="VarChar(8000)" />
+    <Parameter Name="Estatus" Parameter="estatus" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_MANTENIMIENTO_CLAVE_SEGURIDADResult">
+      <Column Name="IdCLaveSeguridad" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Clave" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="Estatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

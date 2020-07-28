@@ -94,5 +94,57 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Seguridad
             }
             catch (Exception) { }
         }
+
+        private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+                this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdClaveSeguridad"].Value.ToString());
+
+                var Buscar = ObjdataSeguridad.Value.BuscaClaveSeguridad(
+                    VariablesGlobales.IdMantenimeinto,
+                    null, null, 1, 1);
+                foreach (var n in Buscar) {
+                    txtClave.Text = DSMarket.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
+                    txtConfirmarClave.Text = DSMarket.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
+                    cbEstatus.Checked = (n.Estatus0.HasValue ? n.Estatus0.Value : false);
+                    btnGuardar.Enabled = false;
+                    btnEditar.Enabled = true;
+                    btnDeshabilitar.Enabled = true;
+                    btnRestablecer.Enabled = true;
+                }
+            }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtClave.Text.Trim()) || string.IsNullOrEmpty(txtConfirmarClave.Text.Trim()) || string.IsNullOrEmpty(ddlSeleccionarUsuario.Text.Trim()))
+            {
+                MessageBox.Show("No puedes dejar campos vacios para crear este registro", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else {
+                if (string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()))
+                {
+                    MessageBox.Show("El campo clave de seguridad no puede estar vacio", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else {
+                    string _ClaveSeguridad = string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()) ? null : txtClaveSeguridad.Text.Trim();
+
+                    var ValidarClave = ObjdataSeguridad.Value.BuscaClaveSeguridad(
+                        new Nullable<decimal>(),
+                        null,
+                        DSMarket.Logica.Comunes.SeguridadEncriptacion.Encriptar(_ClaveSeguridad),
+                        1, 1);
+                    if (ValidarClave.Count() < 1)
+                    {
+                        MessageBox.Show("La clave de seguridad ingresada no es valida", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else {
+
+                    }
+                }
+
+
+            }
+        }
     }
 }

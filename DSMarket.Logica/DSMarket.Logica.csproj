@@ -47,6 +47,7 @@
     <Compile Include="Comunes\AutoCompletarControles.cs" />
     <Compile Include="Comunes\InformacionEmpresa.cs" />
     <Compile Include="Comunes\Mails.cs" />
+    <Compile Include="Comunes\MantenimientoClaveSeguridad.cs" />
     <Compile Include="Comunes\ModificarInformacionEmpresa.cs" />
     <Compile Include="Comunes\ProcesarGananciaVenta.cs" />
     <Compile Include="Comunes\ProcesarReporteVenta.cs" />
@@ -96,6 +97,7 @@
     <Compile Include="Entidades\EntidadesListas\EListaUsuarios.cs" />
     <Compile Include="Entidades\EntidadesListas\EUnidadMedida.cs" />
     <Compile Include="Entidades\EntidadesSeguridad\ECredenciales.cs" />
+    <Compile Include="Entidades\EntidadesSeguridad\EMantenimientoClaveSeguridad.cs" />
     <Compile Include="Entidades\EntidadesSeguridad\EMantenimientoUsuario.cs" />
     <Compile Include="Entidades\EntidadesSeguridad\EUsuarios.cs" />
     <Compile Include="Entidades\EntidadesServicio\EBuscaHistorialProducto.cs" />
