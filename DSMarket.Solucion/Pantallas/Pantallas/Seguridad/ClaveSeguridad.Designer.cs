@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnDeshabilitar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -72,7 +71,6 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Linen;
             this.panel2.Controls.Add(this.btnRestablecer);
-            this.panel2.Controls.Add(this.btnDeshabilitar);
             this.panel2.Controls.Add(this.btnEditar);
             this.panel2.Controls.Add(this.btnGuardar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -81,23 +79,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1057, 58);
             this.panel2.TabIndex = 96;
-            // 
-            // btnDeshabilitar
-            // 
-            this.btnDeshabilitar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDeshabilitar.Enabled = false;
-            this.btnDeshabilitar.FlatAppearance.BorderSize = 0;
-            this.btnDeshabilitar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDeshabilitar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeshabilitar.Image = global::DSMarket.Solucion.Properties.Resources.Deshabilitar;
-            this.btnDeshabilitar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeshabilitar.Location = new System.Drawing.Point(358, 7);
-            this.btnDeshabilitar.Name = "btnDeshabilitar";
-            this.btnDeshabilitar.Size = new System.Drawing.Size(170, 41);
-            this.btnDeshabilitar.TabIndex = 67;
-            this.btnDeshabilitar.Text = "      Deshabilitar";
-            this.toolTip1.SetToolTip(this.btnDeshabilitar, "Deshabilitar Registro Seleccionado");
-            this.btnDeshabilitar.UseVisualStyleBackColor = true;
             // 
             // btnEditar
             // 
@@ -115,6 +96,7 @@
             this.btnEditar.Text = "      Editar";
             this.toolTip1.SetToolTip(this.btnEditar, "Modificar Registro Seleccionado");
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnGuardar
             // 
@@ -216,6 +198,7 @@
             this.lbNumeroRegistros.Size = new System.Drawing.Size(103, 20);
             this.lbNumeroRegistros.TabIndex = 101;
             this.lbNumeroRegistros.Text = "No.Registros";
+            this.lbNumeroRegistros.Visible = false;
             // 
             // txtNumeroPagina
             // 
@@ -235,6 +218,7 @@
             0,
             0,
             0});
+            this.txtNumeroPagina.Visible = false;
             // 
             // lbNumeroPagina
             // 
@@ -244,6 +228,7 @@
             this.lbNumeroPagina.Size = new System.Drawing.Size(87, 20);
             this.lbNumeroPagina.TabIndex = 99;
             this.lbNumeroPagina.Text = "No.Pagina";
+            this.lbNumeroPagina.Visible = false;
             // 
             // gbListado
             // 
@@ -352,7 +337,6 @@
             this.cbEstatus.TabIndex = 4;
             this.cbEstatus.Text = "Estatus";
             this.cbEstatus.UseVisualStyleBackColor = true;
-            this.cbEstatus.Visible = false;
             // 
             // txtClave
             // 
@@ -406,13 +390,14 @@
             this.btnRestablecer.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRestablecer.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
             this.btnRestablecer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRestablecer.Location = new System.Drawing.Point(534, 7);
+            this.btnRestablecer.Location = new System.Drawing.Point(358, 7);
             this.btnRestablecer.Name = "btnRestablecer";
             this.btnRestablecer.Size = new System.Drawing.Size(170, 41);
             this.btnRestablecer.TabIndex = 68;
             this.btnRestablecer.Text = "      Restablecer";
             this.toolTip1.SetToolTip(this.btnRestablecer, "Restablecer Pantalla");
             this.btnRestablecer.UseVisualStyleBackColor = true;
+            this.btnRestablecer.Click += new System.EventHandler(this.btnRestablecer_Click);
             // 
             // ClaveSeguridad
             // 
@@ -479,7 +464,6 @@
         private System.Windows.Forms.Label label1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Button btnDeshabilitar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtClaveSeguridad;
         private System.Windows.Forms.Button btnRestablecer;
