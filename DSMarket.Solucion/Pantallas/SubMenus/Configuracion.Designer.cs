@@ -32,12 +32,12 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.gbOpciones = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.lbUsuario = new System.Windows.Forms.Label();
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnInformacionEmpresa = new System.Windows.Forms.Button();
             this.btnComprobantes = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.gbOpciones.SuspendLayout();
@@ -92,9 +92,24 @@
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Configuración - Seleccionar Opcion";
             // 
+            // button2
+            // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Enabled = false;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(198, 91);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(186, 56);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Backup BD";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // button1
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Enabled = false;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(6, 91);
@@ -152,19 +167,6 @@
             this.btnComprobantes.Text = "Comprobantes";
             this.btnComprobantes.UseVisualStyleBackColor = true;
             this.btnComprobantes.Click += new System.EventHandler(this.btnComprobantes_Click);
-            // 
-            // button2
-            // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(198, 91);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(186, 56);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Backup BD";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Configuracion
             // 

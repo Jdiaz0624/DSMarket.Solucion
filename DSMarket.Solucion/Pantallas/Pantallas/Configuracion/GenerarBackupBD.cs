@@ -16,6 +16,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
         {
             InitializeComponent();
         }
+        Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
+        Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
         private void GenerarBackupBD_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -40,6 +42,32 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
         {
             DSMarket.Solucion.Pantallas.Pantallas.Configuracion.ConfigurarRutaBackup RutaBackup = new ConfigurarRutaBackup();
             RutaBackup.ShowDialog();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()))
+            {
+                MessageBox.Show("El campo clave de seguridad no puede estar vacia, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else {
+                string _ClaveSeguridad = string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()) ? null : txtClaveSeguridad.Text.Trim();
+
+                var ValidarClave = ObjDataSeguridad.Value.BuscaClaveSeguridad(
+                    new Nullable<decimal>(),
+                    null,
+                    DSMarket.Logica.Comunes.SeguridadEncriptacion.Encriptar(_ClaveSeguridad),
+                    1, 1);
+                if (ValidarClave.Count() < 1)
+                {
+                    MessageBox.Show("La clave de seguridad ingresada no es valida, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtClaveSeguridad.Text = string.Empty;
+                }
+                else {
+                    groupBox2.Visible = true;
+                    groupBox1.Enabled = false;
+                }
+            }
         }
     }
 }

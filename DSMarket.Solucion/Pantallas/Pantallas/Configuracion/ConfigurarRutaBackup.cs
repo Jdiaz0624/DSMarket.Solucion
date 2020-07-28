@@ -16,5 +16,19 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
         {
             InitializeComponent();
         }
+
+        private void PCerrar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog carpeta = new FolderBrowserDialog();
+            if (carpeta.ShowDialog() == DialogResult.OK)
+            {
+                txtRutaReportes.Text = carpeta.SelectedPath;
+            }
+        }
     }
 }
