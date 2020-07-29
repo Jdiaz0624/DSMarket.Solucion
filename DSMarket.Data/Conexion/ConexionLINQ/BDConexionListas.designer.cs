@@ -173,6 +173,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<SP_LISTA_USUARIOSResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_BUSCA_LISTA_TIPO_MAIL")]
+		public ISingleResult<SP_BUSCA_LISTA_TIPO_MAILResult> SP_BUSCA_LISTA_TIPO_MAIL()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_BUSCA_LISTA_TIPO_MAILResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_CARGAR_LISTA_TIPO_PRODUCTOResult
@@ -892,6 +899,50 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._Persona != value))
 				{
 					this._Persona = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCA_LISTA_TIPO_MAILResult
+	{
+		
+		private System.Nullable<int> _IdTipoMail;
+		
+		private string _TipoMail;
+		
+		public SP_BUSCA_LISTA_TIPO_MAILResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoMail", DbType="Int")]
+		public System.Nullable<int> IdTipoMail
+		{
+			get
+			{
+				return this._IdTipoMail;
+			}
+			set
+			{
+				if ((this._IdTipoMail != value))
+				{
+					this._IdTipoMail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoMail", DbType="VarChar(100)")]
+		public string TipoMail
+		{
+			get
+			{
+				return this._TipoMail;
+			}
+			set
+			{
+				if ((this._TipoMail != value))
+				{
+					this._TipoMail = value;
 				}
 			}
 		}

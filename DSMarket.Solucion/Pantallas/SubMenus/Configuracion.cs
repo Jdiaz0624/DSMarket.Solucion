@@ -52,5 +52,17 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
            // Backup.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbUsuario.Text);
             Backup.ShowDialog();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Configuracion.ConfiguracionImpuestos Impuestos = new Pantallas.Configuracion.ConfiguracionImpuestos();
+            Impuestos.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Configuracion.ConfigurarMail Mail = new Pantallas.Configuracion.ConfigurarMail();
+            Mail.ShowDialog();
+        }
     }
 }

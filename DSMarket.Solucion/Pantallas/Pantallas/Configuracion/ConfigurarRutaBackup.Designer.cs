@@ -56,12 +56,11 @@
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
-            this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevo.Location = new System.Drawing.Point(721, 29);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(42, 41);
             this.btnNuevo.TabIndex = 66;
-            this.toolTip1.SetToolTip(this.btnNuevo, "Crear registro nuevo");
+            this.toolTip1.SetToolTip(this.btnNuevo, "Validar Clave de Seguridad");
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
@@ -72,12 +71,11 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Image = global::DSMarket.Solucion.Properties.Resources.Guardar;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(769, 29);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(37, 41);
             this.button1.TabIndex = 67;
-            this.toolTip1.SetToolTip(this.button1, "Crear registro nuevo");
+            this.toolTip1.SetToolTip(this.button1, "Guardar");
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

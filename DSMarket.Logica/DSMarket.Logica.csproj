@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comunes\ActualizarMail.cs" />
     <Compile Include="Comunes\AutoCompletarControles.cs" />
     <Compile Include="Comunes\GenerarBAckupBD.cs" />
     <Compile Include="Comunes\InformacionEmpresa.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Comunes\MantenimientoClaveSeguridad.cs" />
     <Compile Include="Comunes\MantenimientoRutaBAckup.cs" />
     <Compile Include="Comunes\MantenimientoTipoPago.cs" />
+    <Compile Include="Comunes\ModificarImpuesto.cs" />
     <Compile Include="Comunes\ModificarInformacionEmpresa.cs" />
     <Compile Include="Comunes\ProcesarGananciaVenta.cs" />
     <Compile Include="Comunes\ProcesarReporteVenta.cs" />
@@ -61,6 +63,7 @@
     <Compile Include="Entidades\EntidadesCaja\ECajaGeneral.cs" />
     <Compile Include="Entidades\EntidadesCaja\EHistiroalCaja.cs" />
     <Compile Include="Entidades\EntidadesCaja\EHistorialCaja.cs" />
+    <Compile Include="Entidades\EntidadesConfiguracion\EBuscaTipoMail.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EComprobantes.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EConfiguracionGeneral.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EGenerarComprobante.cs" />
@@ -69,7 +72,9 @@
     <Compile Include="Entidades\EntidadesConfiguracion\EImpuesto.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EInformacionEmpresa.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EListas.cs" />
+    <Compile Include="Entidades\EntidadesConfiguracion\EMail.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EMantenimientoComprobantes.cs" />
+    <Compile Include="Entidades\EntidadesConfiguracion\EModificarImpuestoVenta.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EProcesarInformacionGanancia.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EProcesarReporteCuadreCaja.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\ERutaBackup.cs" />
@@ -96,6 +101,7 @@
     <Compile Include="Entidades\EntidadesListas\EListaNivelAcceso.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaSuplidor.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoIdentificacion.cs" />
+    <Compile Include="Entidades\EntidadesListas\EListaTipoMail.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoProducto.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoSuplidor.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoVenta.cs" />

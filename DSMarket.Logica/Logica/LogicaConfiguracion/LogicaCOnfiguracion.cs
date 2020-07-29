@@ -498,11 +498,100 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                 Generar = (from n in Backup
                            select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarRutaBackup
                            {
-                               RutaArchivo=n.RutaArchivo
+                               RutaArchivo = n.RutaArchivo
                            }).FirstOrDefault();
             }
             return Generar;
         }
-    #endregion
-}
+        #endregion
+        #region MANTENIMIENTO DE PORCIENTO DE IMPUESTO
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EModificarImpuestoVenta ModificarImpuesto(DSMarket.Logica.Entidades.EntidadesConfiguracion.EModificarImpuestoVenta Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesConfiguracion.EModificarImpuestoVenta Modificar = null;
+
+            var Impuesto = ObjData.SP_MODIFICAR_IMPUESTO_VENTA(
+                Item.IdImpuesto,
+                Item.Descripcion,
+                Item.PorcientoImpuesto,
+                Item.Operacion,
+                Accion);
+            if (Impuesto != null) {
+                Modificar = (from n in Impuesto
+                             select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EModificarImpuestoVenta
+                             {
+                                 IdImpuesto = n.IdImpuesto,
+                                 Descripcion = n.Descripcion,
+                                 PorcientoImpuesto = n.PorcientoImpuesto,
+                                 Operacion = n.Operacion
+
+
+                             }).FirstOrDefault();
+            }
+            return Modificar;
+        }
+        #endregion
+        #region MAIL
+        //BUSCA LOS TIPO DE MAILS
+        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EBuscaTipoMail> BuscaTipoMail(int? IdTipoMail = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Buscar = (from n in ObjData.SP_BUSCA_TIPO_MAIL(IdTipoMail)
+                          select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EBuscaTipoMail
+                          {
+                              IdTipoMail = n.IdTipoMail
+                              , TipoMail = n.TipoMail,
+                              smtp = n.smtp,
+                              Puerto = n.Puerto
+                          }).ToList();
+            return Buscar;
+        }
+
+        //BUSCA LISTADO DE MAILS
+        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EMail> BuscaMail(decimal? IdMail = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_BUSCA_MAIL(IdMail)
+                           select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EMail
+                           {
+                               IdMail = n.IdMail,
+                               Mail = n.Mail,
+                               Clave = n.Clave,
+                               Estatus = n.Estatus,
+                               IdTipoMail = n.IdTipoMail,
+                               TipoMail = n.TipoMail,
+                               Puerto = n.Puerto,
+                               smtp = n.smtp
+                           }).ToList();
+            return Listado;
+        }
+
+        //MANTENIMIENTO DE MAIL
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EMail MantenimientoMail(DSMarket.Logica.Entidades.EntidadesConfiguracion.EMail Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesConfiguracion.EMail Actualizar = null;
+
+            var Mail = ObjData.SP_MANTENIMIENTO_MAIL(
+                Item.IdMail,
+                Item.Mail,
+                Item.Clave,
+                Item.Estatus,
+                Item.IdTipoCorreo,
+                Accion);
+            if (Mail != null) {
+                Actualizar = (from n in Mail
+                              select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EMail
+                              {
+                                  IdMail=n.IdMail,
+                                  Mail=n.Mail,
+                                  Clave=n.Clave,
+                                  Estatus=n.Estatus,
+                                  IdTipoCorreo=n.IdTipoCorreo,
+                              }).FirstOrDefault();
+            }
+            return Actualizar;
+        }
+        #endregion
+    }
 }

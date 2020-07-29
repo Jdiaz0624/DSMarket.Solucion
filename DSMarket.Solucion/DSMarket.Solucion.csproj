@@ -86,6 +86,18 @@
     <Compile Include="Pantallas\Pantallas\Configuracion\Comprobantes.Designer.cs">
       <DependentUpon>Comprobantes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\ConfiguracionImpuestos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\ConfiguracionImpuestos.Designer.cs">
+      <DependentUpon>ConfiguracionImpuestos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\ConfigurarMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\ConfigurarMail.Designer.cs">
+      <DependentUpon>ConfigurarMail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Configuracion\ConfigurarRutaBackup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -444,6 +456,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\Comprobantes.resx">
       <DependentUpon>Comprobantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\ConfiguracionImpuestos.resx">
+      <DependentUpon>ConfiguracionImpuestos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\ConfigurarMail.resx">
+      <DependentUpon>ConfigurarMail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\ConfigurarRutaBackup.resx">
       <DependentUpon>ConfigurarRutaBackup.cs</DependentUpon>

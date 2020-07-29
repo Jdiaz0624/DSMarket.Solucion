@@ -234,6 +234,34 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rutaBaseDatos, accion);
 			return ((ISingleResult<SP_GENERAR_BACKUP_DATABASEResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Configuracion.SP_MODIFICAR_IMPUESTO_VENTA")]
+		public ISingleResult<SP_MODIFICAR_IMPUESTO_VENTAResult> SP_MODIFICAR_IMPUESTO_VENTA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdImpuesto", DbType="Int")] System.Nullable<int> idImpuesto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Descripcion", DbType="VarChar(150)")] string descripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PorcientoImpuesto", DbType="Int")] System.Nullable<int> porcientoImpuesto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Operacion", DbType="Bit")] System.Nullable<bool> operacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idImpuesto, descripcion, porcientoImpuesto, operacion, accion);
+			return ((ISingleResult<SP_MODIFICAR_IMPUESTO_VENTAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Configuracion.SP_BUSCA_TIPO_MAIL")]
+		public ISingleResult<SP_BUSCA_TIPO_MAILResult> SP_BUSCA_TIPO_MAIL([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoMail", DbType="Int")] System.Nullable<int> idTipoMail)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idTipoMail);
+			return ((ISingleResult<SP_BUSCA_TIPO_MAILResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Configuracion.SP_BUSCA_MAIL")]
+		public ISingleResult<SP_BUSCA_MAILResult> SP_BUSCA_MAIL([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdMail", DbType="Decimal(20,0)")] System.Nullable<decimal> idMail)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idMail);
+			return ((ISingleResult<SP_BUSCA_MAILResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Configuracion.SP_MANTENIMIENTO_MAIL")]
+		public ISingleResult<SP_MANTENIMIENTO_MAILResult> SP_MANTENIMIENTO_MAIL([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdMail", DbType="Decimal(20,0)")] System.Nullable<decimal> idMail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mail", DbType="VarChar(100)")] string mail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Clave", DbType="VarChar(8000)")] string clave, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Estatus", DbType="Bit")] System.Nullable<bool> estatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoCorreo", DbType="Int")] System.Nullable<int> idTipoCorreo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idMail, mail, clave, estatus, idTipoCorreo, accion);
+			return ((ISingleResult<SP_MANTENIMIENTO_MAILResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_BUSCA_LISTASResult
@@ -2869,6 +2897,434 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._RutaArchivo != value))
 				{
 					this._RutaArchivo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_MODIFICAR_IMPUESTO_VENTAResult
+	{
+		
+		private System.Nullable<int> _IdImpuesto;
+		
+		private string _Descripcion;
+		
+		private System.Nullable<int> _PorcientoImpuesto;
+		
+		private System.Nullable<bool> _Operacion;
+		
+		public SP_MODIFICAR_IMPUESTO_VENTAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdImpuesto", DbType="Int")]
+		public System.Nullable<int> IdImpuesto
+		{
+			get
+			{
+				return this._IdImpuesto;
+			}
+			set
+			{
+				if ((this._IdImpuesto != value))
+				{
+					this._IdImpuesto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(150)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorcientoImpuesto", DbType="Int")]
+		public System.Nullable<int> PorcientoImpuesto
+		{
+			get
+			{
+				return this._PorcientoImpuesto;
+			}
+			set
+			{
+				if ((this._PorcientoImpuesto != value))
+				{
+					this._PorcientoImpuesto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Operacion", DbType="Bit")]
+		public System.Nullable<bool> Operacion
+		{
+			get
+			{
+				return this._Operacion;
+			}
+			set
+			{
+				if ((this._Operacion != value))
+				{
+					this._Operacion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCA_TIPO_MAILResult
+	{
+		
+		private System.Nullable<int> _IdTipoMail;
+		
+		private string _TipoMail;
+		
+		private string _smtp;
+		
+		private System.Nullable<int> _Puerto;
+		
+		public SP_BUSCA_TIPO_MAILResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoMail", DbType="Int")]
+		public System.Nullable<int> IdTipoMail
+		{
+			get
+			{
+				return this._IdTipoMail;
+			}
+			set
+			{
+				if ((this._IdTipoMail != value))
+				{
+					this._IdTipoMail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoMail", DbType="VarChar(100)")]
+		public string TipoMail
+		{
+			get
+			{
+				return this._TipoMail;
+			}
+			set
+			{
+				if ((this._TipoMail != value))
+				{
+					this._TipoMail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_smtp", DbType="VarChar(100)")]
+		public string smtp
+		{
+			get
+			{
+				return this._smtp;
+			}
+			set
+			{
+				if ((this._smtp != value))
+				{
+					this._smtp = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Puerto", DbType="Int")]
+		public System.Nullable<int> Puerto
+		{
+			get
+			{
+				return this._Puerto;
+			}
+			set
+			{
+				if ((this._Puerto != value))
+				{
+					this._Puerto = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCA_MAILResult
+	{
+		
+		private System.Nullable<decimal> _IdMail;
+		
+		private string _Mail;
+		
+		private string _Clave;
+		
+		private System.Nullable<bool> _Estatus;
+		
+		private System.Nullable<int> _IdTipoCorreo;
+		
+		private System.Nullable<int> _IdTipoMail;
+		
+		private string _TipoMail;
+		
+		private System.Nullable<int> _Puerto;
+		
+		private string _smtp;
+		
+		public SP_BUSCA_MAILResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMail", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdMail
+		{
+			get
+			{
+				return this._IdMail;
+			}
+			set
+			{
+				if ((this._IdMail != value))
+				{
+					this._IdMail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mail", DbType="VarChar(100)")]
+		public string Mail
+		{
+			get
+			{
+				return this._Mail;
+			}
+			set
+			{
+				if ((this._Mail != value))
+				{
+					this._Mail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Clave", DbType="VarChar(8000)")]
+		public string Clave
+		{
+			get
+			{
+				return this._Clave;
+			}
+			set
+			{
+				if ((this._Clave != value))
+				{
+					this._Clave = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="Bit")]
+		public System.Nullable<bool> Estatus
+		{
+			get
+			{
+				return this._Estatus;
+			}
+			set
+			{
+				if ((this._Estatus != value))
+				{
+					this._Estatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoCorreo", DbType="Int")]
+		public System.Nullable<int> IdTipoCorreo
+		{
+			get
+			{
+				return this._IdTipoCorreo;
+			}
+			set
+			{
+				if ((this._IdTipoCorreo != value))
+				{
+					this._IdTipoCorreo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoMail", DbType="Int")]
+		public System.Nullable<int> IdTipoMail
+		{
+			get
+			{
+				return this._IdTipoMail;
+			}
+			set
+			{
+				if ((this._IdTipoMail != value))
+				{
+					this._IdTipoMail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoMail", DbType="VarChar(100)")]
+		public string TipoMail
+		{
+			get
+			{
+				return this._TipoMail;
+			}
+			set
+			{
+				if ((this._TipoMail != value))
+				{
+					this._TipoMail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Puerto", DbType="Int")]
+		public System.Nullable<int> Puerto
+		{
+			get
+			{
+				return this._Puerto;
+			}
+			set
+			{
+				if ((this._Puerto != value))
+				{
+					this._Puerto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_smtp", DbType="VarChar(100)")]
+		public string smtp
+		{
+			get
+			{
+				return this._smtp;
+			}
+			set
+			{
+				if ((this._smtp != value))
+				{
+					this._smtp = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_MANTENIMIENTO_MAILResult
+	{
+		
+		private System.Nullable<decimal> _IdMail;
+		
+		private string _Mail;
+		
+		private string _Clave;
+		
+		private System.Nullable<bool> _Estatus;
+		
+		private System.Nullable<int> _IdTipoCorreo;
+		
+		public SP_MANTENIMIENTO_MAILResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMail", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdMail
+		{
+			get
+			{
+				return this._IdMail;
+			}
+			set
+			{
+				if ((this._IdMail != value))
+				{
+					this._IdMail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mail", DbType="VarChar(100)")]
+		public string Mail
+		{
+			get
+			{
+				return this._Mail;
+			}
+			set
+			{
+				if ((this._Mail != value))
+				{
+					this._Mail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Clave", DbType="VarChar(8000)")]
+		public string Clave
+		{
+			get
+			{
+				return this._Clave;
+			}
+			set
+			{
+				if ((this._Clave != value))
+				{
+					this._Clave = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="Bit")]
+		public System.Nullable<bool> Estatus
+		{
+			get
+			{
+				return this._Estatus;
+			}
+			set
+			{
+				if ((this._Estatus != value))
+				{
+					this._Estatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoCorreo", DbType="Int")]
+		public System.Nullable<int> IdTipoCorreo
+		{
+			get
+			{
+				return this._IdTipoCorreo;
+			}
+			set
+			{
+				if ((this._IdTipoCorreo != value))
+				{
+					this._IdTipoCorreo = value;
 				}
 			}
 		}

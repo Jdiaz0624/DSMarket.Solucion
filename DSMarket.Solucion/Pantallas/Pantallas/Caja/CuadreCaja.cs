@@ -99,6 +99,40 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
                         var MANProcesar = ObjdataConfiguracion.Value.ProcesarCuadreCaja(Procesar, "INSERT");
                     }
 
+                    if (cbCradreMail.Checked) {
+                        //ENVIAMOS EL CORREO DE NOTIFICACION
+                          string CorreoOrigen = "";
+                          string ClaveCorreoOrigen = "";
+                        string CorreoDestino = "";  //"ing.juanmarcelinom.diaz@gmail.com";
+                          string CuerpoCorreo = "";
+                          string AsuntoCorreo = "CUADRE DE CAJA";
+                          string SMTP = "";
+                          int Puerto = 0;
+                          decimal MontoEnviar = 100;
+                        DateTime FechaDesde = Convert.ToDateTime(txtFechaDesde.Text);
+                        DateTime FechaHasta = Convert.ToDateTime(txtFechaHasta.Text);
+                        string FechaDesdeLetera = FechaDesde.ToString("dd/MM/yyyy");
+                        string FechaHastaLetra = FechaHasta.ToString("dd/MM/yyyy");
+
+                        //SACAMOS EL MONTO A ENVIAR
+
+                        //SACAMOS LOS DATOS DEL CORREO CONFIGURADO
+                        var SacarDatosCorreoConfigurado = ObjdataConfiguracion.Value.BuscaMail(1);
+                        foreach (var n in SacarDatosCorreoConfigurado) {
+                            CorreoOrigen = n.Mail;
+                            ClaveCorreoOrigen = DSMarket.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
+                            CorreoDestino = n.Mail;
+                            CuerpoCorreo = "Cuadre de caja, validado desde " + FechaDesdeLetera +" Hasta " + txtFechaHasta + " con el monto total de " + MontoEnviar.ToString("N2");
+                            SMTP = n.smtp;
+                            Puerto = Convert.ToInt32(n.Puerto);
+
+
+                        }
+
+                        DSMarket.Logica.Comunes.Mails Enviar = new Logica.Comunes.Mails(
+                            CorreoOrigen, ClaveCorreoOrigen, CorreoDestino, CuerpoCorreo, AsuntoCorreo, SMTP, Puerto);
+                        Enviar.EnviarCorreo();
+    }
                     //INVOCAMOS EL REPORTE
                     DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes Generar = new Reportes.Reportes();
 

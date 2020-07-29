@@ -103,4 +103,10 @@
       <Column Name="Persona" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Listas.SP_BUSCA_LISTA_TIPO_MAIL" Method="SP_BUSCA_LISTA_TIPO_MAIL">
+    <ElementType Name="SP_BUSCA_LISTA_TIPO_MAILResult">
+      <Column Name="IdTipoMail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TipoMail" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

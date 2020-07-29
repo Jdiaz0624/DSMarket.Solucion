@@ -241,5 +241,18 @@ namespace DSMarket.Logica.Logica.LogicaListas
             return Buscar;
         }
         #endregion
+        #region LISTADO DE TIPO DE MAIL
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EListaTipoMail> BuscaTipoMail() {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjDataListas.SP_BUSCA_LISTA_TIPO_MAIL()
+                           select new DSMarket.Logica.Entidades.EntidadesListas.EListaTipoMail
+                           {
+                               IdTipoMail=n.IdTipoMail,
+                               TipoMail=n.TipoMail
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
     }
 }
