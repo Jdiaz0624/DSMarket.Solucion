@@ -49,6 +49,7 @@
     <Compile Include="Comunes\InformacionEmpresa.cs" />
     <Compile Include="Comunes\Mails.cs" />
     <Compile Include="Comunes\MantenimientoClaveSeguridad.cs" />
+    <Compile Include="Comunes\MantenimientoRutaBAckup.cs" />
     <Compile Include="Comunes\MantenimientoTipoPago.cs" />
     <Compile Include="Comunes\ModificarInformacionEmpresa.cs" />
     <Compile Include="Comunes\ProcesarGananciaVenta.cs" />

@@ -35,7 +35,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
 
         private void GenerarBackupBD_Load(object sender, EventArgs e)
         {
-
+            VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -68,6 +68,20 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
                     groupBox1.Enabled = false;
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string RutaBackup = "";
+            var SacarRuta = ObjDataConfiguracion.Value.BuscaRutaBAckup(1);
+            foreach (var n in SacarRuta) {
+                RutaBackup = n.Ruta;
+            }
+            DSMarket.Logica.Comunes.GenerarBAckupBD generar = new Logica.Comunes.GenerarBAckupBD(
+                RutaBackup, "PROCESAR");
+            generar.GenerarBAckup();
+            MessageBox.Show("Backup Generado exitosamente", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+       
         }
     }
 }
