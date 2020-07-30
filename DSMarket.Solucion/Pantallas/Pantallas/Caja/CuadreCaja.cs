@@ -29,6 +29,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
             cbCradreMail.ForeColor = Color.DarkRed;
             lbTitulo.Text = "CUADRE DE CAJA";
             lbTitulo.ForeColor = Color.WhiteSmoke;
+            VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
         }
 
         private void CuadreCaja_FormClosing(object sender, FormClosingEventArgs e)

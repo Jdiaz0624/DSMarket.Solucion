@@ -141,5 +141,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
             lbTitulo.Text = "MODIFICAR EL IMPUESTO DE VENTA";
             lbTitulo.ForeColor = Color.White;
         }
+
+        private void PCerrar_Click_1(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

@@ -272,6 +272,12 @@
     <Compile Include="Pantallas\Pantallas\Inventario\ProductoConsulta.Designer.cs">
       <DependentUpon>ProductoConsulta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\ProductosDefectuososConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\ProductosDefectuososConsulta.Designer.cs">
+      <DependentUpon>ProductosDefectuososConsulta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\SuplidoresConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -549,6 +555,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\ProductoConsulta.resx">
       <DependentUpon>ProductoConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\ProductosDefectuososConsulta.resx">
+      <DependentUpon>ProductosDefectuososConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\SuplidoresConsulta.resx">
       <DependentUpon>SuplidoresConsulta.cs</DependentUpon>

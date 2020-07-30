@@ -260,7 +260,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
                     var ValidarClave = ObjDataSeguridad.Value.BuscaClaveSeguridad(
                         new Nullable<decimal>(),
                         null,
-                        _ClaveSeguridad,
+                        DSMarket.Logica.Comunes.SeguridadEncriptacion.Encriptar(_ClaveSeguridad),
                         1, 1);
                     if (ValidarClave.Count() < 1)
                     {

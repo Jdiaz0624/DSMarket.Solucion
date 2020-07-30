@@ -1052,10 +1052,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         private void btnProductoConOfertas_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DSMarket.Solucion.Pantallas.Pantallas.Inventario.EstadisticaProductos Estadistica = new EstadisticaProductos();
-            Estadistica.VariablesGlobales.IdUsuario = variablesGlobales.IdUsuario;
-            Estadistica.VariablesGlobales.EstadisticaProducto = 1;
-            Estadistica.ShowDialog();
+            DSMarket.Solucion.Pantallas.Pantallas.Inventario.ProductosDefectuososConsulta Consulta = new ProductosDefectuososConsulta();
+            Consulta.VariablesGlobales.IdUsuario = variablesGlobales.IdUsuario;
+            Consulta.ShowDialog();
         }
 
         private void btnVerProductosPoximoAgotar_Click(object sender, EventArgs e)

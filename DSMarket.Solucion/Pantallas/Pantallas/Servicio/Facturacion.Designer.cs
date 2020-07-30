@@ -1032,6 +1032,7 @@
             this.lbNumeroConector.Size = new System.Drawing.Size(64, 20);
             this.lbNumeroConector.TabIndex = 32;
             this.lbNumeroConector.Text = "Credito";
+            this.lbNumeroConector.Visible = false;
             // 
             // PCerrar
             // 
