@@ -33,16 +33,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.PCerrar = new System.Windows.Forms.PictureBox();
-            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lbTitulo = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.btnReporte = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.cbEliminarTodo = new System.Windows.Forms.CheckBox();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
             this.lbCantidad = new System.Windows.Forms.Label();
             this.lbCantidadProductoTitulo = new System.Windows.Forms.Label();
+            this.lbTitulo = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.txtReferencia = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -56,7 +57,6 @@
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
-            this.cbEliminarTodo = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -82,50 +82,7 @@
             this.PCerrar.TabIndex = 15;
             this.PCerrar.TabStop = false;
             this.toolTip1.SetToolTip(this.PCerrar, "Cerrar");
-            // 
-            // bunifuElipse1
-            // 
-            this.bunifuElipse1.ElipseRadius = 30;
-            this.bunifuElipse1.TargetControl = this;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.panel1.Controls.Add(this.lbCantidad);
-            this.panel1.Controls.Add(this.PCerrar);
-            this.panel1.Controls.Add(this.lbCantidadProductoTitulo);
-            this.panel1.Controls.Add(this.lbTitulo);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1248, 38);
-            this.panel1.TabIndex = 5;
-            // 
-            // lbTitulo
-            // 
-            this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitulo.Location = new System.Drawing.Point(15, 9);
-            this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(54, 20);
-            this.lbTitulo.TabIndex = 13;
-            this.lbTitulo.Text = "label6";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Linen;
-            this.panel2.Controls.Add(this.cbEliminarTodo);
-            this.panel2.Controls.Add(this.btnReporte);
-            this.panel2.Controls.Add(this.btnEliminar);
-            this.panel2.Controls.Add(this.btnNuevo);
-            this.panel2.Controls.Add(this.btnBuscar);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 38);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1248, 58);
-            this.panel2.TabIndex = 6;
+            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
             // 
             // btnReporte
             // 
@@ -192,6 +149,38 @@
             this.toolTip1.SetToolTip(this.btnBuscar, "Consultar Registros");
             this.btnBuscar.UseVisualStyleBackColor = true;
             // 
+            // cbEliminarTodo
+            // 
+            this.cbEliminarTodo.AutoSize = true;
+            this.cbEliminarTodo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbEliminarTodo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbEliminarTodo.Location = new System.Drawing.Point(707, 15);
+            this.cbEliminarTodo.Name = "cbEliminarTodo";
+            this.cbEliminarTodo.Size = new System.Drawing.Size(129, 25);
+            this.cbEliminarTodo.TabIndex = 72;
+            this.cbEliminarTodo.Text = "Eliminar Todo";
+            this.toolTip1.SetToolTip(this.cbEliminarTodo, "Eliminar Todos los registros");
+            this.cbEliminarTodo.UseVisualStyleBackColor = true;
+            // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 30;
+            this.bunifuElipse1.TargetControl = this;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.lbCantidad);
+            this.panel1.Controls.Add(this.PCerrar);
+            this.panel1.Controls.Add(this.lbCantidadProductoTitulo);
+            this.panel1.Controls.Add(this.lbTitulo);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1248, 38);
+            this.panel1.TabIndex = 5;
+            // 
             // lbCantidad
             // 
             this.lbCantidad.AutoSize = true;
@@ -211,6 +200,31 @@
             this.lbCantidadProductoTitulo.Size = new System.Drawing.Size(180, 20);
             this.lbCantidadProductoTitulo.TabIndex = 64;
             this.lbCantidadProductoTitulo.Text = "Cantidad de Productos:";
+            // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitulo.Location = new System.Drawing.Point(15, 9);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(54, 20);
+            this.lbTitulo.TabIndex = 13;
+            this.lbTitulo.Text = "label6";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Linen;
+            this.panel2.Controls.Add(this.cbEliminarTodo);
+            this.panel2.Controls.Add(this.btnReporte);
+            this.panel2.Controls.Add(this.btnEliminar);
+            this.panel2.Controls.Add(this.btnNuevo);
+            this.panel2.Controls.Add(this.btnBuscar);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 38);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1248, 58);
+            this.panel2.TabIndex = 6;
             // 
             // label3
             // 
@@ -376,19 +390,6 @@
             this.lbNumeroPagina.Size = new System.Drawing.Size(87, 20);
             this.lbNumeroPagina.TabIndex = 58;
             this.lbNumeroPagina.Text = "No.Pagina";
-            // 
-            // cbEliminarTodo
-            // 
-            this.cbEliminarTodo.AutoSize = true;
-            this.cbEliminarTodo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbEliminarTodo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbEliminarTodo.Location = new System.Drawing.Point(707, 15);
-            this.cbEliminarTodo.Name = "cbEliminarTodo";
-            this.cbEliminarTodo.Size = new System.Drawing.Size(129, 25);
-            this.cbEliminarTodo.TabIndex = 72;
-            this.cbEliminarTodo.Text = "Eliminar Todo";
-            this.toolTip1.SetToolTip(this.cbEliminarTodo, "Eliminar Todos los registros");
-            this.cbEliminarTodo.UseVisualStyleBackColor = true;
             // 
             // ProductosDefectuososConsulta
             // 

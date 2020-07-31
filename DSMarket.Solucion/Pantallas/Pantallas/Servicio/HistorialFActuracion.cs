@@ -1801,33 +1801,70 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 UsuarioBD = n2.Usuario;
                 ClaveBD = DSMarket.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n2.Clave);
             }
-            if (rbfacturaspanish.Checked == true)
-            {
-
-                var SacarRutaReporte = ObjdataConfiguracion.Value.BuscaRutaReporte(1);
-                foreach (var n in SacarRutaReporte)
+            if (cbFacturaPuntoVenta.Checked) {
+                //IMPRIMIMOS A PUNTO DE VENTA
+                if (rbfacturaspanish.Checked == true)
                 {
-                    RutaReporte = n.RutaReporte;
+
+                    var SacarRutaReporte = ObjdataConfiguracion.Value.BuscaRutaReporte(7);
+                    foreach (var n in SacarRutaReporte)
+                    {
+                        RutaReporte = n.RutaReporte;
+                    }
+
+                    DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes Invocar = new Reportes.Reportes();
+                    Invocar.GenerarFacturaVenta(VariablesGlobales.IdMantenimeinto, RutaReporte, UsuarioBD, ClaveBD);
+                    Invocar.ShowDialog();
                 }
-
-                DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes Invocar = new Reportes.Reportes();
-                Invocar.GenerarFacturaVenta(VariablesGlobales.IdMantenimeinto, RutaReporte, UsuarioBD, ClaveBD);
-                Invocar.ShowDialog();
-            }
-            else if (rbfacturaenglish.Checked == true) {
-
-                var SacarRutaReporte = ObjdataConfiguracion.Value.BuscaRutaReporte(2);
-                foreach (var n in SacarRutaReporte)
+                else if (rbfacturaenglish.Checked == true)
                 {
-                    RutaReporte = n.RutaReporte;
-                }
 
-                DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes Invocar = new Reportes.Reportes();
-                Invocar.GenerarFacturaVenta(VariablesGlobales.IdMantenimeinto, RutaReporte, UsuarioBD, ClaveBD);
-                Invocar.ShowDialog();
+                    var SacarRutaReporte = ObjdataConfiguracion.Value.BuscaRutaReporte(8);
+                    foreach (var n in SacarRutaReporte)
+                    {
+                        RutaReporte = n.RutaReporte;
+                    }
+
+                    DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes Invocar = new Reportes.Reportes();
+                    Invocar.GenerarFacturaVenta(VariablesGlobales.IdMantenimeinto, RutaReporte, UsuarioBD, ClaveBD);
+                    Invocar.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Selecciona una opción para poder imprimir", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else {
-                MessageBox.Show("Selecciona una opción para poder imprimir", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (rbfacturaspanish.Checked == true)
+                {
+
+                    var SacarRutaReporte = ObjdataConfiguracion.Value.BuscaRutaReporte(1);
+                    foreach (var n in SacarRutaReporte)
+                    {
+                        RutaReporte = n.RutaReporte;
+                    }
+
+                    DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes Invocar = new Reportes.Reportes();
+                    Invocar.GenerarFacturaVenta(VariablesGlobales.IdMantenimeinto, RutaReporte, UsuarioBD, ClaveBD);
+                    Invocar.ShowDialog();
+                }
+                else if (rbfacturaenglish.Checked == true)
+                {
+
+                    var SacarRutaReporte = ObjdataConfiguracion.Value.BuscaRutaReporte(2);
+                    foreach (var n in SacarRutaReporte)
+                    {
+                        RutaReporte = n.RutaReporte;
+                    }
+
+                    DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes Invocar = new Reportes.Reportes();
+                    Invocar.GenerarFacturaVenta(VariablesGlobales.IdMantenimeinto, RutaReporte, UsuarioBD, ClaveBD);
+                    Invocar.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Selecciona una opción para poder imprimir", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 

@@ -692,5 +692,143 @@ namespace DSMarket.Logica.Logica.LogicaInventario
             return Listado;
         }
         #endregion
+
+        #region MANTENIMIENTO DE PRODUCTOS DEFECTUOSOS
+        //LISTADO DE PRODUCTOS DEFECTUOSOS
+        public List<DSMarket.Logica.Entidades.EntidadesInventario.EProductosDefectuosos> BuscaProductosDefectuosos(decimal? IdProducto = null, decimal? NumeroConector = null, string Descripcion = null, string CodigoBarra = null, string Referencia = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null, decimal? IdTipoProducto = null, decimal? IdCategoria = null, decimal? IdUnidadMedida = null, decimal? IdMarca = null, decimal? IdModelo = null, bool? TieneOferta = null, bool? EstatusProducto = null, int? NumeroPagina = null, int? NumeroRegistros = null)
+        {
+            Objdata.CommandTimeout = 999999999;
+
+            var Buscar = (from n in Objdata.SP_BUSCA_PRODUCTOS_DEFECTUOSOS(IdProducto, NumeroConector, Descripcion, CodigoBarra, Referencia, FechaDesde, FechaHasta, IdTipoProducto, IdCategoria, IdUnidadMedida, IdMarca, IdModelo, TieneOferta, EstatusProducto, NumeroPagina, NumeroRegistros)
+                          select new DSMarket.Logica.Entidades.EntidadesInventario.EProductosDefectuosos
+                          {
+                              IdProductoDefectuoso = n.IdProductoDefectuoso,
+                              NumeroConector = n.NumeroConector,
+                              IdTipoProducto = n.IdTipoProducto,
+                              Producto = n.Producto,
+                              TipoProducto = n.TipoProducto,
+                              IdCategoria = n.IdCategoria,
+                              Categoria = n.Categoria,
+                              IdUnidadMedida = n.IdUnidadMedida,
+                              UnidadMedida = n.UnidadMedida,
+                              IdMarca = n.IdMarca,
+                              Marca = n.Marca,
+                              IdModelo = n.IdModelo,
+                              Modelo = n.Modelo,
+                              IdTipoSuplidor = n.IdTipoSuplidor,
+                              TipoSuplidor = n.TipoSuplidor,
+                              IdSuplidor = n.IdSuplidor,
+                              Suplidor = n.Suplidor,
+                              CodigoBarra = n.CodigoBarra,
+                              Referencia = n.Referencia,
+                              PrecioCompra = n.PrecioCompra,
+                              PrecioVenta = n.PrecioVenta,
+                              Stock = n.Stock,
+                              StockMinimo = n.StockMinimo,
+                              PorcientoDescuento = n.PorcientoDescuento,
+                              AfectaOferta0 = n.AfectaOferta0,
+                              AceptaOferta = n.AceptaOferta,
+                              ProductoAcumulativo0 = n.ProductoAcumulativo0,
+                              ProductoAcumulativo = n.ProductoAcumulativo,
+                              LlevaImagen0 = n.LlevaImagen0,
+                              LlevaImagen = n.LlevaImagen,
+                              UsuarioAdiciona = n.UsuarioAdiciona,
+                              CreadoPor = n.CreadoPor,
+                              FechaAdiciona = n.FechaAdiciona,
+                              FechaCreado = n.FechaCreado,
+                              UsuarioModifica = n.UsuarioModifica,
+                              ModificadoPor = n.ModificadoPor,
+                              FechaModifica = n.FechaModifica,
+                              FechaModificado = n.FechaModificado,
+                              Fecha = n.Fecha,
+                              EstatusProducto0 = n.EstatusProducto0,
+                              EstatusProducto = n.EstatusProducto,
+                              AplicaParaImpuesto0 = n.AplicaParaImpuesto0,
+                              AplicaParaImpuesto = n.AplicaParaImpuesto,
+                              CantidadAgregada=n.CantidadAgregada,
+                              CantidadRegistros = n.CantidadRegistros,
+                              ProductosConOferta = n.ProductosConOferta,
+                              ProductoProximoAgotarse = n.ProductoProximoAgotarse,
+                              ProductosAgostados = n.ProductosAgostados,
+                              Comentario = n.Comentario,
+                          }).ToList();
+            return Buscar;
+        }
+
+
+        //MANTENIMIENTO DE PRODUCTOS
+        public DSMarket.Logica.Entidades.EntidadesInventario.EProductosDefectuosos MantenimientoProductosDefectuoso(DSMarket.Logica.Entidades.EntidadesInventario.EProductosDefectuosos Item, string Accion)
+        {
+            Objdata.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesInventario.EProductosDefectuosos Mantenimiento = null;
+
+            var Producto = Objdata.SP_MANTENIMIENTO_PRODUCTOS_DEFECTUOSOS(
+                Item.IdProductoDefectuoso
+                , Item.NumeroConector
+                , Item.IdTipoProducto
+                , Item.IdCategoria
+                , Item.IdUnidadMedida
+                , Item.IdMarca
+                , Item.IdModelo
+                , Item.IdTipoSuplidor
+                , Item.IdSuplidor
+                , Item.Producto
+                , Item.CodigoBarra
+                , Item.Referencia
+                , Item.PrecioCompra
+                , Item.PrecioVenta
+                , Item.Stock
+                , Item.StockMinimo
+                , Item.PorcientoDescuento
+                , Item.AfectaOferta0
+                , Item.ProductoAcumulativo0
+                , Item.LlevaImagen0
+                , Item.UsuarioAdiciona
+                , Item.Comentario
+                , Item.AplicaParaImpuesto0
+                , Item.EstatusProducto0
+                , Item.CantidadAgregada
+                , Accion);
+            if (Producto != null)
+            {
+                Mantenimiento = (from n in Producto
+                                 select new DSMarket.Logica.Entidades.EntidadesInventario.EProductosDefectuosos
+                                 {
+                                     IdProductoDefectuoso = n.IdProductoDefectuoso,
+                                     NumeroConector = n.NumeroConector,
+                                     IdTipoProducto = n.IdTipoProducto,
+                                     Producto = n.Descripcion,
+                                     IdCategoria = n.IdCategoria,
+                                     IdUnidadMedida = n.IdUnidadMedida,
+                                     IdMarca = n.IdMarca,
+                                     IdModelo = n.IdModelo,
+                                     IdTipoSuplidor = n.IdTipoSuplidor,
+                                     IdSuplidor = n.IdSuplidor,
+                                     CodigoBarra = n.CodigoBarra,
+                                     Referencia = n.Referencia,
+                                     PrecioCompra = n.PrecioCompra,
+                                     PrecioVenta = n.PrecioVenta,
+                                     Stock = n.Stock,
+                                     StockMinimo = n.StockMinimo,
+                                     PorcientoDescuento = n.PorcientoDescuento,
+                                     AfectaOferta0 = n.AfectaOferta,
+                                     ProductoAcumulativo0 = n.ProductoAcumulativo,
+                                     LlevaImagen0 = n.LlevaImagen,
+                                     UsuarioAdiciona = n.UsuarioAdicion,
+                                     FechaAdiciona = n.FechaAdiciona,
+                                     UsuarioModifica = n.UsuarioModifica,
+                                     FechaModifica = n.FechaModifica,
+                                     Fecha = n.Fecha,
+                                     Comentario = n.Comentario,
+                                     AplicaParaImpuesto0 = n.AplicaParaImpuesto,
+                                     EstatusProducto0 = n.EstatusProducto
+                                     
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
+
+        #endregion
     }
 }

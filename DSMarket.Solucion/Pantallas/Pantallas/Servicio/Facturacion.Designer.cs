@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Facturacion));
             this.gbGeneral = new System.Windows.Forms.GroupBox();
+            this.txtImpuestoAdicional = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.cbEliminarfacturaMinimizada = new System.Windows.Forms.CheckBox();
             this.txtTotalServicios = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
@@ -111,8 +113,6 @@
             this.lbTitulo = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.label21 = new System.Windows.Forms.Label();
-            this.txtImpuestoAdicional = new System.Windows.Forms.TextBox();
             this.gbGeneral.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtFacturasMinimizadas)).BeginInit();
@@ -171,6 +171,26 @@
             this.gbGeneral.TabIndex = 3;
             this.gbGeneral.TabStop = false;
             this.gbGeneral.Text = "Datos de Facturación";
+            // 
+            // txtImpuestoAdicional
+            // 
+            this.txtImpuestoAdicional.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtImpuestoAdicional.Enabled = false;
+            this.txtImpuestoAdicional.Location = new System.Drawing.Point(1007, 188);
+            this.txtImpuestoAdicional.Name = "txtImpuestoAdicional";
+            this.txtImpuestoAdicional.Size = new System.Drawing.Size(206, 27);
+            this.txtImpuestoAdicional.TabIndex = 61;
+            this.txtImpuestoAdicional.Text = "0";
+            this.txtImpuestoAdicional.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(1044, 165);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(152, 20);
+            this.label21.TabIndex = 60;
+            this.label21.Text = "Impuesto Adicional";
             // 
             // cbEliminarfacturaMinimizada
             // 
@@ -722,7 +742,6 @@
             this.cbFacturaPuntoVenta.Text = "Punto de Venta";
             this.toolTip1.SetToolTip(this.cbFacturaPuntoVenta, "Generar la factura en formato de punto de venta.");
             this.cbFacturaPuntoVenta.UseVisualStyleBackColor = true;
-            this.cbFacturaPuntoVenta.Visible = false;
             this.cbFacturaPuntoVenta.CheckedChanged += new System.EventHandler(this.cbFacturaPuntoVenta_CheckedChanged);
             // 
             // rbfacturaenglish
@@ -1074,26 +1093,6 @@
             // 
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(1044, 165);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(152, 20);
-            this.label21.TabIndex = 60;
-            this.label21.Text = "Impuesto Adicional";
-            // 
-            // txtImpuestoAdicional
-            // 
-            this.txtImpuestoAdicional.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtImpuestoAdicional.Enabled = false;
-            this.txtImpuestoAdicional.Location = new System.Drawing.Point(1007, 188);
-            this.txtImpuestoAdicional.Name = "txtImpuestoAdicional";
-            this.txtImpuestoAdicional.Size = new System.Drawing.Size(206, 27);
-            this.txtImpuestoAdicional.TabIndex = 61;
-            this.txtImpuestoAdicional.Text = "0";
-            this.txtImpuestoAdicional.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Facturacion
             // 

@@ -77,6 +77,7 @@
             this.lbCantidadProductos = new System.Windows.Forms.Label();
             this.lbCantidadServicios = new System.Windows.Forms.Label();
             this.lbCantidadTotal = new System.Windows.Forms.Label();
+            this.cbFacturaPuntoVenta = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel2.SuspendLayout();
@@ -703,6 +704,19 @@
             this.lbCantidadTotal.Text = "Cantidad Total";
             this.lbCantidadTotal.Visible = false;
             // 
+            // cbFacturaPuntoVenta
+            // 
+            this.cbFacturaPuntoVenta.AutoSize = true;
+            this.cbFacturaPuntoVenta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbFacturaPuntoVenta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbFacturaPuntoVenta.Location = new System.Drawing.Point(1010, 179);
+            this.cbFacturaPuntoVenta.Name = "cbFacturaPuntoVenta";
+            this.cbFacturaPuntoVenta.Size = new System.Drawing.Size(141, 24);
+            this.cbFacturaPuntoVenta.TabIndex = 79;
+            this.cbFacturaPuntoVenta.Text = "Punto de Venta";
+            this.toolTip1.SetToolTip(this.cbFacturaPuntoVenta, "Generar la factura en formato de punto de venta.");
+            this.cbFacturaPuntoVenta.UseVisualStyleBackColor = true;
+            // 
             // HistorialFActuracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -710,6 +724,7 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1233, 636);
+            this.Controls.Add(this.cbFacturaPuntoVenta);
             this.Controls.Add(this.lbCantidadTotal);
             this.Controls.Add(this.lbCantidadServicios);
             this.Controls.Add(this.lbCantidadProductos);
@@ -806,5 +821,6 @@
         private System.Windows.Forms.TextBox txtCantidadTotal;
         private System.Windows.Forms.TextBox txtCantidadServicios;
         private System.Windows.Forms.TextBox txtCantidadProductos;
+        private System.Windows.Forms.CheckBox cbFacturaPuntoVenta;
     }
 }

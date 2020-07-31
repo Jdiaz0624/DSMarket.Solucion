@@ -55,6 +55,7 @@
     <Compile Include="Comunes\ModificarImpuesto.cs" />
     <Compile Include="Comunes\ModificarInformacionEmpresa.cs" />
     <Compile Include="Comunes\ProcesarGananciaVenta.cs" />
+    <Compile Include="Comunes\ProcesarProductosDefectuosos.cs" />
     <Compile Include="Comunes\ProcesarReporteVenta.cs" />
     <Compile Include="Comunes\ProcesarUsuarios.cs" />
     <Compile Include="Comunes\SeguridadEncriptacion.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Entidades\EntidadesInventario\EProducto.cs" />
     <Compile Include="Entidades\EntidadesInventario\EProductoProximoAgotarse.cs" />
     <Compile Include="Entidades\EntidadesInventario\EProductosAgotados.cs" />
+    <Compile Include="Entidades\EntidadesInventario\EProductosDefectuosos.cs" />
     <Compile Include="Entidades\EntidadesInventario\ESuplidores.cs" />
     <Compile Include="Entidades\EntidadesInventario\ETipoProducto.cs" />
     <Compile Include="Entidades\EntidadesInventario\ETipoSuplidores.cs" />

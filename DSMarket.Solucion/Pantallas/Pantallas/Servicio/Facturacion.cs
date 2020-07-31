@@ -1071,18 +1071,43 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     IdFactura = Convert.ToDecimal(n.IdFactura);
                 }
 
-                //SACAMOS LA RUTA DEL REPORTE DEPENDIENDO LA SELECCIONADO
-                if (rbfacturaspanish.Checked == true) {
-                    var SacarRutaReporte = ObjDataConfiguracion.Value.BuscaRutaReporte(1);
-                    foreach (var n in SacarRutaReporte) {
-                        RutaReporte = n.RutaReporte;
+                if (cbFacturaPuntoVenta.Checked) {
+                    //IMPRIMIMOS A FACTURA PUNTO DE VENTA
+                    //SACAMOS LA RUTA DEL REPORTE DEPENDIENDO LA SELECCIONADO
+                    if (rbfacturaspanish.Checked == true)
+                    {
+                        var SacarRutaReporte = ObjDataConfiguracion.Value.BuscaRutaReporte(7);
+                        foreach (var n in SacarRutaReporte)
+                        {
+                            RutaReporte = n.RutaReporte;
+                        }
+                    }
+                    else if (rbfacturaenglish.Checked == true)
+                    {
+                        var SacarRutaReporte = ObjDataConfiguracion.Value.BuscaRutaReporte(8);
+                        foreach (var n in SacarRutaReporte)
+                        {
+                            RutaReporte = n.RutaReporte;
+                        }
                     }
                 }
-                else if (rbfacturaenglish.Checked == true) {
-                    var SacarRutaReporte = ObjDataConfiguracion.Value.BuscaRutaReporte(2);
-                    foreach (var n in SacarRutaReporte)
+                else {
+                    //SACAMOS LA RUTA DEL REPORTE DEPENDIENDO LA SELECCIONADO
+                    if (rbfacturaspanish.Checked == true)
                     {
-                        RutaReporte = n.RutaReporte;
+                        var SacarRutaReporte = ObjDataConfiguracion.Value.BuscaRutaReporte(1);
+                        foreach (var n in SacarRutaReporte)
+                        {
+                            RutaReporte = n.RutaReporte;
+                        }
+                    }
+                    else if (rbfacturaenglish.Checked == true)
+                    {
+                        var SacarRutaReporte = ObjDataConfiguracion.Value.BuscaRutaReporte(2);
+                        foreach (var n in SacarRutaReporte)
+                        {
+                            RutaReporte = n.RutaReporte;
+                        }
                     }
                 }
 

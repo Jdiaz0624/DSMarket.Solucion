@@ -26,5 +26,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         {
 
         }
+
+        private void PCerrar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            DSMarket.Solucion.Pantallas.Pantallas.Inventario.ProductoConsulta consulta = new ProductoConsulta();
+            consulta.variablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+            consulta.ShowDialog();
+        }
     }
 }

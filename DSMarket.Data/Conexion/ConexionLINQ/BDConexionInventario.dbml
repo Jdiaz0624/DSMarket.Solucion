@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DSMarket" Class="BDConexionInventarioDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=172.26.24.199;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString1" Provider="System.Data.SqlClient" />
   <Function Name="Inventario.SP_BUSCA_TIPO_PRODUCTOS" Method="SP_BUSCA_TIPO_PRODUCTOS">
     <Parameter Name="IdTipoProducto" Parameter="idTipoProducto" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(100)" />
@@ -553,6 +553,134 @@
       <Column Name="FechaModifica" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="IdTipoProducto" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="IdCategoria" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Inventario.SP_BUSCA_PRODUCTOS_DEFECTUOSOS" Method="SP_BUSCA_PRODUCTOS_DEFECTUOSOS">
+    <Parameter Name="IdProductoDefectuoso" Parameter="idProductoDefectuoso" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="CodigoBarra" Parameter="codigoBarra" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Referencia" Parameter="referencia" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="FechaDesde" Parameter="fechaDesde" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FechaHasta" Parameter="fechaHasta" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="IdTipoProducto" Parameter="idTipoProducto" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdCategoria" Parameter="idCategoria" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdUnidadMedida" Parameter="idUnidadMedida" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdMarca" Parameter="idMarca" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdModelo" Parameter="idModelo" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="TieneOferta" Parameter="tieneOferta" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="EstatusProducto" Parameter="estatusProducto" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="NumeroPagina" Parameter="numeroPagina" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NumeroRegistros" Parameter="numeroRegistros" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_BUSCA_PRODUCTOS_DEFECTUOSOSResult">
+      <Column Name="IdProductoDefectuoso" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NumeroConector" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdTipoProducto" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Producto" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="TipoProducto" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdCategoria" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Categoria" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdUnidadMedida" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="UnidadMedida" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdMarca" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Marca" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdModelo" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Modelo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdTipoSuplidor" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="TipoSuplidor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdSuplidor" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Suplidor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CodigoBarra" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Referencia" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="PrecioCompra" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="PrecioVenta" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Stock" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="StockMinimo" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="PorcientoDescuento" Type="System.Decimal" DbType="Decimal(3,0)" CanBeNull="true" />
+      <Column Name="AfectaOferta0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AceptaOferta" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductoAcumulativo0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ProductoAcumulativo" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="LlevaImagen0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LlevaImagen" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="UsuarioAdiciona" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="CreadoPor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FechaAdiciona" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FechaCreado" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="UsuarioModifica" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="ModificadoPor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FechaModifica" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FechaModificado" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="AplicaParaImpuesto0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EstatusProducto0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EstatusProducto" Type="System.String" DbType="VarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="AplicaParaImpuesto" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="CantidadAgregada" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="CantidadRegistros" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProductosConOferta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProductoProximoAgotarse" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProductosAgostados" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Comentario" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Inventario.SP_MANTENIMIENTO_PRODUCTOS_DEFECTUOSOS" Method="SP_MANTENIMIENTO_PRODUCTOS_DEFECTUOSOS">
+    <Parameter Name="IdProductoDefectuoso" Parameter="idProductoDefectuoso" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdTipoProducto" Parameter="idTipoProducto" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdCategoria" Parameter="idCategoria" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdUnidadMedida" Parameter="idUnidadMedida" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdMarca" Parameter="idMarca" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdModelo" Parameter="idModelo" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdTipoSuplidor" Parameter="idTipoSuplidor" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdSuplidor" Parameter="idSuplidor" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="CodigoBarra" Parameter="codigoBarra" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Referencia" Parameter="referencia" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="PrecioCompra" Parameter="precioCompra" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="PrecioVenta" Parameter="precioVenta" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="Stock" Parameter="stock" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="StockMinimo" Parameter="stockMinimo" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="PorcientoDescuento" Parameter="porcientoDescuento" Type="System.Decimal" DbType="Decimal(3,0)" />
+    <Parameter Name="AfectaOferta" Parameter="afectaOferta" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="ProductoAcumulativo" Parameter="productoAcumulativo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="LlevaImagen" Parameter="llevaImagen" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Comentario" Parameter="comentario" Type="System.String" DbType="VarChar(8000)" />
+    <Parameter Name="AplicaParaImpuesto" Parameter="aplicaParaImpuesto" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="EstatusProducto" Parameter="estatusProducto" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="CantidadAgregada" Parameter="cantidadAgregada" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_MANTENIMIENTO_PRODUCTOS_DEFECTUOSOSResult">
+      <Column Name="IdProductoDefectuoso" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NumeroConector" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdTipoProducto" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdCategoria" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdUnidadMedida" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdMarca" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdModelo" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdTipoSuplidor" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdSuplidor" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="CodigoBarra" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Referencia" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="PrecioCompra" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="PrecioVenta" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Stock" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="StockMinimo" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="PorcientoDescuento" Type="System.Decimal" DbType="Decimal(3,0)" CanBeNull="true" />
+      <Column Name="AfectaOferta" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ProductoAcumulativo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LlevaImagen" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UsuarioAdicion" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="FechaAdiciona" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UsuarioModifica" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="FechaModifica" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Comentario" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="AplicaParaImpuesto" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EstatusProducto" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CantidadAgregada" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
