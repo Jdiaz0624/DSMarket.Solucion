@@ -33,7 +33,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
     #endregion
 		
 		public BDConexionListasDataContext() : 
-				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString1, mappingSource)
+				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -146,13 +146,6 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			return ((ISingleResult<SP_CANTIDAD_DIASResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTADO_TIPO_PAGO")]
-		public ISingleResult<SP_LISTADO_TIPO_PAGOResult> SP_LISTADO_TIPO_PAGO([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoPago", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoPago)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idTipoPago);
-			return ((ISingleResult<SP_LISTADO_TIPO_PAGOResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_BUSCA_LISTADO_ESTATUS_FACTURACION")]
 		public ISingleResult<SP_BUSCA_LISTADO_ESTATUS_FACTURACIONResult> SP_BUSCA_LISTADO_ESTATUS_FACTURACION()
 		{
@@ -179,6 +172,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<SP_BUSCA_LISTA_TIPO_MAILResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTADO_TIPO_PAGO")]
+		public ISingleResult<SP_LISTADO_TIPO_PAGOResult> SP_LISTADO_TIPO_PAGO([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoPago", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoPago)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idTipoPago);
+			return ((ISingleResult<SP_LISTADO_TIPO_PAGOResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -710,68 +710,6 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		}
 	}
 	
-	public partial class SP_LISTADO_TIPO_PAGOResult
-	{
-		
-		private decimal _IdTipoPago;
-		
-		private string _TipoPago;
-		
-		private System.Nullable<bool> _BloqueaMonto;
-		
-		public SP_LISTADO_TIPO_PAGOResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoPago", DbType="Decimal(20,0) NOT NULL")]
-		public decimal IdTipoPago
-		{
-			get
-			{
-				return this._IdTipoPago;
-			}
-			set
-			{
-				if ((this._IdTipoPago != value))
-				{
-					this._IdTipoPago = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoPago", DbType="VarChar(100)")]
-		public string TipoPago
-		{
-			get
-			{
-				return this._TipoPago;
-			}
-			set
-			{
-				if ((this._TipoPago != value))
-				{
-					this._TipoPago = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BloqueaMonto", DbType="Bit")]
-		public System.Nullable<bool> BloqueaMonto
-		{
-			get
-			{
-				return this._BloqueaMonto;
-			}
-			set
-			{
-				if ((this._BloqueaMonto != value))
-				{
-					this._BloqueaMonto = value;
-				}
-			}
-		}
-	}
-	
 	public partial class SP_BUSCA_LISTADO_ESTATUS_FACTURACIONResult
 	{
 		
@@ -943,6 +881,122 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._TipoMail != value))
 				{
 					this._TipoMail = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_LISTADO_TIPO_PAGOResult
+	{
+		
+		private decimal _IdTipoPago;
+		
+		private string _TipoPago;
+		
+		private System.Nullable<bool> _BloqueaMonto;
+		
+		private System.Nullable<bool> _ImpuestoAdicional;
+		
+		private System.Nullable<bool> _PorcentajeEntero;
+		
+		private System.Nullable<decimal> _Valor;
+		
+		public SP_LISTADO_TIPO_PAGOResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoPago", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdTipoPago
+		{
+			get
+			{
+				return this._IdTipoPago;
+			}
+			set
+			{
+				if ((this._IdTipoPago != value))
+				{
+					this._IdTipoPago = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoPago", DbType="VarChar(100)")]
+		public string TipoPago
+		{
+			get
+			{
+				return this._TipoPago;
+			}
+			set
+			{
+				if ((this._TipoPago != value))
+				{
+					this._TipoPago = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BloqueaMonto", DbType="Bit")]
+		public System.Nullable<bool> BloqueaMonto
+		{
+			get
+			{
+				return this._BloqueaMonto;
+			}
+			set
+			{
+				if ((this._BloqueaMonto != value))
+				{
+					this._BloqueaMonto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImpuestoAdicional", DbType="Bit")]
+		public System.Nullable<bool> ImpuestoAdicional
+		{
+			get
+			{
+				return this._ImpuestoAdicional;
+			}
+			set
+			{
+				if ((this._ImpuestoAdicional != value))
+				{
+					this._ImpuestoAdicional = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorcentajeEntero", DbType="Bit")]
+		public System.Nullable<bool> PorcentajeEntero
+		{
+			get
+			{
+				return this._PorcentajeEntero;
+			}
+			set
+			{
+				if ((this._PorcentajeEntero != value))
+				{
+					this._PorcentajeEntero = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Valor", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> Valor
+		{
+			get
+			{
+				return this._Valor;
+			}
+			set
+			{
+				if ((this._Valor != value))
+				{
+					this._Valor = value;
 				}
 			}
 		}

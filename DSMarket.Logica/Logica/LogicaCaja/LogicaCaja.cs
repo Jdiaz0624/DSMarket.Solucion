@@ -108,6 +108,43 @@ namespace DSMarket.Logica.Logica.LogicaCaja
         }
 
 
+        //REPORTE DE CUADRE DE CAJA
+        public List<DSMarket.Logica.Entidades.EntidadesCaja.EReporteCuadreCaja> ReporteCuadreCaja(decimal? IdUsuario = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_GENERAR_REPORTE_CUADRE_CAJA(IdUsuario)
+                           select new DSMarket.Logica.Entidades.EntidadesCaja.EReporteCuadreCaja
+                           {
+                               IdUsuario=n.IdUsuario,
+                               GeneradoPor=n.GeneradoPor,
+                               IdCaja=n.IdCaja,
+                               Monto=n.Monto,
+                               Concepto=n.Concepto,
+                               FechaProcesado0=n.FechaProcesado0,
+                               FechaProcesado=n.FechaProcesado,
+                               FechaDesde0=n.FechaDesde0,
+                               FechaDesde=n.FechaDesde,
+                               FechaHasta0=n.FechaHasta0,
+                               FechaHasta=n.FechaHasta,
+                               NumeroReferencia=n.NumeroReferencia,
+                               IdTipoPago=n.IdTipoPago,
+                               TipoPago=n.TipoPago,
+                               NombreEmpresa=n.NombreEmpresa,
+                               RNC=n.RNC,
+                               Direccion=n.Direccion,
+                               Telefonos=n.Telefonos,
+                               Email=n.Email,
+                               Email2=n.Email2,
+                               Facebook=n.Facebook,
+                               Instagran=n.Instagran,
+                               LogoEmpresa=n.LogoEmpresa,
+                               MontoTotal=n.MontoTotal,
+                               Cantidadmovimientos=n.Cantidadmovimientos
+
+                           }).ToList();
+            return Listado;
+        }
+
 
     }
 }

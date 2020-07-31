@@ -13,5 +13,11 @@ namespace DSMarket.Logica.Entidades.EntidadesListas
         public string TipoPago { get; set; }
 
         public System.Nullable<bool> BloqueaMonto { get; set; }
+
+        public System.Nullable<bool> ImpuestoAdicional { get; set; }
+
+        public System.Nullable<bool> PorcentajeEntero { get; set; }
+
+        public System.Nullable<decimal> Valor { get; set; }
     }
 }

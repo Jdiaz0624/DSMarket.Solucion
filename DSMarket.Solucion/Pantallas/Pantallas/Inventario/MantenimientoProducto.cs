@@ -471,7 +471,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                     txtStockMinimo.Text = "0";
                     txtPrecioCompra.Text = "0";
                     txtPrecioVenta.Text = "0";
-                    txtPrecioVenta.Enabled = false;
+                    txtPrecioVenta.Enabled = true;
                   
                 }
                 else

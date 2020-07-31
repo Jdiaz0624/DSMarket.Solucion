@@ -694,6 +694,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 txtImpuesto.Text = Impuesto.ToString("N2");
                // txtPorcientoImpuesto.Text = PorcientoImpuesto.ToString("N0");
                 txtTotal.Text = Total.ToString("N2");
+                VariablesGlobales.TotalPagarFacturacion = Convert.ToDecimal(txtTotal.Text);
                 txtCantidadArtiuclos.Text = CantidadArticulos.ToString("N0");
                 txtCantidadServicios.Text = CantidadServicios.ToString("N0");
                 txtTotalServicios.Text = TotalRegistros.ToString("N0");
@@ -1620,11 +1621,20 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void ddltIPago_SelectedIndexChanged(object sender, EventArgs e)
         {
             try {
+                txtTotal.Text = VariablesGlobales.TotalPagarFacturacion.ToString("N2");
                 bool BloqueaMonto = false;
+                bool ImpuestoAdicional = false;
+                bool PorcentajeEntero = false;
+                decimal Valor = 0;
                 var TipoPago = ObjDataListas.Value.BuscaTipoPago(
                 Convert.ToDecimal(ddltIPago.SelectedValue));
                 foreach (var n in TipoPago) {
                     BloqueaMonto = Convert.ToBoolean(n.BloqueaMonto);
+                    ImpuestoAdicional = Convert.ToBoolean(n.ImpuestoAdicional);
+                    PorcentajeEntero = Convert.ToBoolean(n.PorcentajeEntero);
+                    Valor = Convert.ToDecimal(n.Valor);
+
+                    txtImpuestoAdicional.Text = Valor.ToString("N2");
                 }
                 if (BloqueaMonto == true)
                 {
@@ -1634,6 +1644,38 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 else {
                     txtMontoPagar.Enabled = true;
                     txtMontoPagar.Text = string.Empty;
+                }
+
+                if (ImpuestoAdicional == true) {
+                    if (PorcentajeEntero == true)
+                    {
+                        decimal TotalPagar = Convert.ToDecimal(txtTotal.Text);
+                        decimal Operacion = 0;
+                        Operacion = TotalPagar + Valor;
+                        txtTotal.Text = string.Empty;
+                        txtTotal.Text = Operacion.ToString("N2");
+                        txtMontoPagar.Text = txtTotal.Text;
+                    }
+                    else if (PorcentajeEntero == false)
+                    {
+                        decimal TotalPagar = Convert.ToDecimal(txtTotal.Text);
+                        decimal Operacion = 0, Convertir = 0, Operacion2 = 0;
+                        Convertir = Valor / 100;
+                        Operacion = TotalPagar * Convertir;
+                        Operacion2 = Operacion + TotalPagar;
+                        txtTotal.Text = string.Empty;
+                        txtTotal.Text = Operacion2.ToString("N2");
+                        txtMontoPagar.Text = txtTotal.Text;
+
+                    }
+                    else {
+                        decimal TotalPagar = Convert.ToDecimal(txtTotal.Text);
+                        decimal Operacion = 0;
+                        Operacion = TotalPagar + Valor;
+                        txtTotal.Text = string.Empty;
+                        txtTotal.Text = Operacion.ToString("N2");
+                        txtMontoPagar.Text = txtTotal.Text;
+                    }
                 }
             }
             catch (Exception) { }

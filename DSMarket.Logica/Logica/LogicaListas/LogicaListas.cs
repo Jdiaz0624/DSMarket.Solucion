@@ -197,7 +197,10 @@ namespace DSMarket.Logica.Logica.LogicaListas
                            {
                                IdTipoPago=n.IdTipoPago,
                                TipoPago=n.TipoPago,
-                               BloqueaMonto=n.BloqueaMonto
+                               BloqueaMonto=n.BloqueaMonto,
+                               ImpuestoAdicional=n.ImpuestoAdicional,
+                               PorcentajeEntero=n.PorcentajeEntero,
+                               Valor=n.Valor
                            }).ToList();
             return Listado;
         }

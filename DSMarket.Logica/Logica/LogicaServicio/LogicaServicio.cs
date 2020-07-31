@@ -33,6 +33,11 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                               FechaModificado = n.FechaModificado,
                               BloqueaMonto0 = n.BloqueaMonto0,
                               BloqueaMonto = n.BloqueaMonto,
+                              ImpuestoAdicional0=n.ImpuestoAdicional0,
+                              ImpuestoAdicional=n.ImpuestoAdicional,
+                              PorcentajeEntero0=n.PorcentajeEntero0,
+                              PorcentajeEntero=n.PorcentajeEntero,
+                              Valor=n.Valor,
                               CantidadRegistros = n.CantidadRegistros
                           }).ToList();
             return Buscar;
@@ -51,6 +56,9 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                 Item.Estatus,
                 Item.UsuarioAdiciona,
                 Item.BloqueaMonto,
+                Item.ImpuestoAdicional,
+                Item.PorcentajeEntero,
+                Item.Valor,
                 Accion);
             if (TipoPago != null) {
                 Mantenimiento = (from n in TipoPago
@@ -63,7 +71,10 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                      FechaAdiciona=n.FechaAdiciona,
                                      UsuarioModifica=n.UsuarioModifica,
                                      FechaModifica=n.FechaModifica,
-                                     BloqueaMonto=n.BloqueaMonto
+                                     BloqueaMonto=n.BloqueaMonto,
+                                     ImpuestoAdicional=n.ImpuestoAdicional,
+                                     PorcentajeEntero=n.PorcentajeEntero,
+                                     Valor=n.Valor
                                  }).FirstOrDefault();
             }
             return Mantenimiento;

@@ -63,6 +63,7 @@
     <Compile Include="Entidades\EntidadesCaja\ECajaGeneral.cs" />
     <Compile Include="Entidades\EntidadesCaja\EHistiroalCaja.cs" />
     <Compile Include="Entidades\EntidadesCaja\EHistorialCaja.cs" />
+    <Compile Include="Entidades\EntidadesCaja\EReporteCuadreCaja.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EBuscaTipoMail.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EComprobantes.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EConfiguracionGeneral.cs" />

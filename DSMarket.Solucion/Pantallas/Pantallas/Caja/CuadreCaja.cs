@@ -21,6 +21,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
         Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
+
+
         private void CuadreCaja_Load(object sender, EventArgs e)
         {
             gbSeleccionar.BackColor = SystemColors.Control;
@@ -30,6 +32,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
             lbTitulo.Text = "CUADRE DE CAJA";
             lbTitulo.ForeColor = Color.WhiteSmoke;
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+
         }
 
         private void CuadreCaja_FormClosing(object sender, FormClosingEventArgs e)
@@ -53,10 +56,12 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
             {
                 cbCradreMail.ForeColor = Color.LimeGreen;
 
+
             }
             else
             {
                 cbCradreMail.ForeColor = Color.DarkRed;
+
             }
         }
 
@@ -110,12 +115,20 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
                           string SMTP = "";
                           int Puerto = 0;
                           decimal MontoEnviar = 100;
+                        long CantidadMovimientos = 0;
                         DateTime FechaDesde = Convert.ToDateTime(txtFechaDesde.Text);
                         DateTime FechaHasta = Convert.ToDateTime(txtFechaHasta.Text);
                         string FechaDesdeLetera = FechaDesde.ToString("dd/MM/yyyy");
                         string FechaHastaLetra = FechaHasta.ToString("dd/MM/yyyy");
 
                         //SACAMOS EL MONTO A ENVIAR
+                        var SacarMonto = ObjDataCaja.Value.ReporteCuadreCaja(VariablesGlobales.IdUsuario);
+                        foreach (var n in SacarMonto) {
+                            MontoEnviar = Convert.ToDecimal(n.MontoTotal);
+                            CantidadMovimientos = Convert.ToInt64(n.Cantidadmovimientos);
+                        }
+
+
 
                         //SACAMOS LOS DATOS DEL CORREO CONFIGURADO
                         var SacarDatosCorreoConfigurado = ObjdataConfiguracion.Value.BuscaMail(1);
@@ -123,7 +136,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
                             CorreoOrigen = n.Mail;
                             ClaveCorreoOrigen = DSMarket.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
                             CorreoDestino = n.Mail;
-                            CuerpoCorreo = "Cuadre de caja, validado desde " + FechaDesdeLetera +" Hasta " + txtFechaHasta + " con el monto total de " + MontoEnviar.ToString("N2");
+                            CuerpoCorreo = "Cuadre de caja, validado desde " + FechaDesdeLetera +" Hasta " + FechaHastaLetra + " con una cantidad de " + CantidadMovimientos.ToString("N0") + " registros, para un total de " + MontoEnviar.ToString("N2");
                             SMTP = n.smtp;
                             Puerto = Convert.ToInt32(n.Puerto);
 

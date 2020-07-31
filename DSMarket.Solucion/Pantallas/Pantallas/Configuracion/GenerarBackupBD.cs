@@ -36,6 +36,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
         private void GenerarBackupBD_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+            lbTitulo.Text = "GENERAR BACKUP DE BASE DE DATOS";
+            lbTitulo.ForeColor = Color.White;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -82,6 +84,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
             generar.GenerarBAckup();
             MessageBox.Show("Backup Generado exitosamente", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
        
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

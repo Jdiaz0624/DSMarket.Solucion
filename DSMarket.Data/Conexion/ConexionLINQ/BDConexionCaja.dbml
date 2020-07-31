@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DSMarket" Class="BDConexionCajaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=172.26.24.199;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString" Provider="System.Data.SqlClient" />
   <Function Name="Caja.SP_ESTATUS_CAJA" Method="SP_ESTATUS_CAJA">
     <ElementType Name="SP_ESTATUS_CAJAResult">
       <Column Name="IdCaja" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
@@ -81,6 +81,36 @@
       <Column Name="IdTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="TipoPago" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="Total" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Reporte.SP_GENERAR_REPORTE_CUADRE_CAJA" Method="SP_GENERAR_REPORTE_CUADRE_CAJA">
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <ElementType Name="SP_GENERAR_REPORTE_CUADRE_CAJAResult">
+      <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="GeneradoPor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdCaja" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Monto" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Concepto" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="FechaProcesado0" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaProcesado" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="FechaDesde0" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaDesde" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="FechaHasta0" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaHasta" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="NumeroReferencia" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="TipoPago" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="NombreEmpresa" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="RNC" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Direccion" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="Telefonos" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Email2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Facebook" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Instagran" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LogoEmpresa" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" />
+      <Column Name="MontoTotal" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="Cantidadmovimientos" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

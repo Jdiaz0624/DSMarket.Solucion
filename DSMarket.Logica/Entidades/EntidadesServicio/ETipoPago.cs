@@ -8,31 +8,42 @@ namespace DSMarket.Logica.Entidades.EntidadesServicio
 {
     public class ETipoPago
     {
-        public decimal? IdTipoPago {get;set;}
+        public decimal? IdTipoPago{get;set;}
 
-        public string TipoPago {get;set;}
+        public string TipoPago{get;set;}
 
-        public System.Nullable<bool> Estatus0 {get;set;}
+        public System.Nullable<bool> Estatus0{get;set;}
 
-        public string Estatus {get;set;}
+        public string Estatus{get;set;}
 
-        public System.Nullable<decimal> UsuarioAdiciona {get;set;}
+        public System.Nullable<decimal> UsuarioAdiciona{get;set;}
 
-        public string CreadPor {get;set;}
+        public string CreadPor{get;set;}
 
-        public System.Nullable<System.DateTime> FechaAdiciona {get;set;}
+        public System.Nullable<System.DateTime> FechaAdiciona{get;set;}
 
-        public string FechaCreado {get;set;}
+        public string FechaCreado{get;set;}
 
-        public string ModificadoPor {get;set;}
+        public string ModificadoPor{get;set;}
 
-        public System.Nullable<System.DateTime> FechaModifica {get;set;}
+        public System.Nullable<System.DateTime> FechaModifica{get;set;}
 
-        public string FechaModificado {get;set;}
+        public string FechaModificado{get;set;}
 
-        public System.Nullable<bool> BloqueaMonto0 {get;set;}
+        public System.Nullable<bool> BloqueaMonto0{get;set;}
 
-        public string BloqueaMonto {get;set;}
-        public System.Nullable<int> CantidadRegistros { get; set; }
+        public string BloqueaMonto{get;set;}
+
+        public System.Nullable<bool> ImpuestoAdicional0{get;set;}
+
+        public string ImpuestoAdicional{get;set;}
+
+        public System.Nullable<bool> PorcentajeEntero0{get;set;}
+
+        public string PorcentajeEntero{get;set;}
+
+        public System.Nullable<decimal> Valor{get;set;}
+
+        public System.Nullable<int> CantidadRegistros{get;set;}
     }
 }

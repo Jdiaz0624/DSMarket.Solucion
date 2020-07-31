@@ -42,6 +42,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     VariablesGlobales.IdUsuario,
                     DateTime.Now,
                     cbBloqueaMonto.Checked,
+                    cbImpuestoAdicional.Checked,
+                    cbPorcentajeEntero.Checked,
+                    Convert.ToDecimal(txtValor.Text),
                     Accion);
                 TipoPago.MANtenimeinto();
             }
@@ -93,6 +96,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     txtTipoPago.Text = n.TipoPago;
                     cbEstatus.Checked = (n.Estatus0.HasValue ? n.Estatus0.Value : false);
                     cbBloqueaMonto.Checked = (n.BloqueaMonto0.HasValue ? n.BloqueaMonto0.Value : false);
+                    cbImpuestoAdicional.Checked = (n.ImpuestoAdicional0.HasValue ? n.ImpuestoAdicional0.Value : false);
+                    cbPorcentajeEntero.Checked = (n.PorcentajeEntero0.HasValue ? n.PorcentajeEntero0.Value : false);
+                    txtValor.Text = n.Valor.ToString();
                 }
             }
         }
@@ -158,6 +164,30 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     }
                 }
             }
+        }
+
+        private void cbImpuestoAdicional_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbImpuestoAdicional.Checked)
+            {
+                cbPorcentajeEntero.Enabled = true;
+                txtValor.Enabled = true;
+                txtValor.Text = string.Empty;
+                
+            }
+            else
+            {
+                cbPorcentajeEntero.Enabled = false;
+                cbPorcentajeEntero.Checked = false;
+                txtValor.Enabled = false;
+                txtValor.Text = string.Empty;
+                txtValor.Text = "0";
+            }
+        }
+
+        private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            DSMarket.Logica.Comunes.ValidarControles.SoloNumerosDecimales(e);
         }
     }
 }

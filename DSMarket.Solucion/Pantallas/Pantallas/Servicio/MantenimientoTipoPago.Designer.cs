@@ -42,6 +42,10 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.lbClaveSeguridad = new System.Windows.Forms.Label();
             this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
+            this.cbPorcentajeEntero = new System.Windows.Forms.CheckBox();
+            this.cbImpuestoAdicional = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtValor = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -89,13 +93,17 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtValor);
+            this.groupBox1.Controls.Add(this.cbPorcentajeEntero);
+            this.groupBox1.Controls.Add(this.cbImpuestoAdicional);
             this.groupBox1.Controls.Add(this.cbBloqueaMonto);
             this.groupBox1.Controls.Add(this.cbEstatus);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtTipoPago);
             this.groupBox1.Location = new System.Drawing.Point(19, 45);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(405, 146);
+            this.groupBox1.Size = new System.Drawing.Size(405, 186);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Mantenimiento de tipo de pago";
@@ -105,7 +113,7 @@
             this.cbBloqueaMonto.AutoSize = true;
             this.cbBloqueaMonto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbBloqueaMonto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbBloqueaMonto.Location = new System.Drawing.Point(117, 106);
+            this.cbBloqueaMonto.Location = new System.Drawing.Point(14, 146);
             this.cbBloqueaMonto.Name = "cbBloqueaMonto";
             this.cbBloqueaMonto.Size = new System.Drawing.Size(138, 24);
             this.cbBloqueaMonto.TabIndex = 7;
@@ -118,7 +126,7 @@
             this.cbEstatus.AutoSize = true;
             this.cbEstatus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbEstatus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbEstatus.Location = new System.Drawing.Point(117, 76);
+            this.cbEstatus.Location = new System.Drawing.Point(14, 116);
             this.cbEstatus.Name = "cbEstatus";
             this.cbEstatus.Size = new System.Drawing.Size(83, 24);
             this.cbEstatus.TabIndex = 6;
@@ -152,7 +160,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::DSMarket.Solucion.Properties.Resources.Guardar;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(19, 237);
+            this.btnGuardar.Location = new System.Drawing.Point(20, 277);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(406, 41);
             this.btnGuardar.TabIndex = 6;
@@ -164,7 +172,7 @@
             // lbClaveSeguridad
             // 
             this.lbClaveSeguridad.AutoSize = true;
-            this.lbClaveSeguridad.Location = new System.Drawing.Point(26, 200);
+            this.lbClaveSeguridad.Location = new System.Drawing.Point(27, 240);
             this.lbClaveSeguridad.Name = "lbClaveSeguridad";
             this.lbClaveSeguridad.Size = new System.Drawing.Size(153, 20);
             this.lbClaveSeguridad.TabIndex = 9;
@@ -174,7 +182,7 @@
             // txtClaveSeguridad
             // 
             this.txtClaveSeguridad.BackColor = System.Drawing.Color.Silver;
-            this.txtClaveSeguridad.Location = new System.Drawing.Point(185, 197);
+            this.txtClaveSeguridad.Location = new System.Drawing.Point(186, 237);
             this.txtClaveSeguridad.MaxLength = 20;
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
             this.txtClaveSeguridad.PasswordChar = '•';
@@ -182,11 +190,60 @@
             this.txtClaveSeguridad.TabIndex = 8;
             this.txtClaveSeguridad.Visible = false;
             // 
+            // cbPorcentajeEntero
+            // 
+            this.cbPorcentajeEntero.AutoSize = true;
+            this.cbPorcentajeEntero.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbPorcentajeEntero.Enabled = false;
+            this.cbPorcentajeEntero.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbPorcentajeEntero.Location = new System.Drawing.Point(157, 146);
+            this.cbPorcentajeEntero.Name = "cbPorcentajeEntero";
+            this.cbPorcentajeEntero.Size = new System.Drawing.Size(160, 24);
+            this.cbPorcentajeEntero.TabIndex = 9;
+            this.cbPorcentajeEntero.Text = "Porcentaje Entero";
+            this.toolTip1.SetToolTip(this.cbPorcentajeEntero, "Calcula el porcentaje en numer entero");
+            this.cbPorcentajeEntero.UseVisualStyleBackColor = true;
+            // 
+            // cbImpuestoAdicional
+            // 
+            this.cbImpuestoAdicional.AutoSize = true;
+            this.cbImpuestoAdicional.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbImpuestoAdicional.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbImpuestoAdicional.Location = new System.Drawing.Point(157, 116);
+            this.cbImpuestoAdicional.Name = "cbImpuestoAdicional";
+            this.cbImpuestoAdicional.Size = new System.Drawing.Size(169, 24);
+            this.cbImpuestoAdicional.TabIndex = 8;
+            this.cbImpuestoAdicional.Text = "Impuesto Adicional";
+            this.toolTip1.SetToolTip(this.cbImpuestoAdicional, "Aplicar Impuesto Adicional");
+            this.cbImpuestoAdicional.UseVisualStyleBackColor = true;
+            this.cbImpuestoAdicional.CheckedChanged += new System.EventHandler(this.cbImpuestoAdicional_CheckedChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(64, 83);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 20);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Valor";
+            // 
+            // txtValor
+            // 
+            this.txtValor.BackColor = System.Drawing.Color.Silver;
+            this.txtValor.Enabled = false;
+            this.txtValor.Location = new System.Drawing.Point(117, 80);
+            this.txtValor.MaxLength = 20;
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(277, 27);
+            this.txtValor.TabIndex = 10;
+            this.txtValor.Text = "0";
+            this.txtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValor_KeyPress);
+            // 
             // MantenimientoTipoPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(438, 290);
+            this.ClientSize = new System.Drawing.Size(438, 330);
             this.Controls.Add(this.lbClaveSeguridad);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtClaveSeguridad);
@@ -227,5 +284,9 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label lbClaveSeguridad;
         private System.Windows.Forms.TextBox txtClaveSeguridad;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtValor;
+        private System.Windows.Forms.CheckBox cbPorcentajeEntero;
+        private System.Windows.Forms.CheckBox cbImpuestoAdicional;
     }
 }

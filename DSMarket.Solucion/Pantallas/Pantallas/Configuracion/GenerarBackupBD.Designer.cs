@@ -179,6 +179,7 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Generar Backup";
             this.groupBox2.Visible = false;
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // GenerarBackupBD
             // 

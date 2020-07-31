@@ -52,6 +52,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.dtListado.Columns["FechaModificado"].Visible = false;
             this.dtListado.Columns["BloqueaMonto0"].Visible = false;
             this.dtListado.Columns["CantidadRegistros"].Visible = false;
+            this.dtListado.Columns["ImpuestoAdicional0"].Visible = false;
+            this.dtListado.Columns["PorcentajeEntero0"].Visible = false;
         }
         #endregion
         #region TEMA GENERICO

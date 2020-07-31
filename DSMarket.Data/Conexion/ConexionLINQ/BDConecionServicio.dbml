@@ -1,27 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DSMarket" Class="BDConecionServicioDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=172.26.24.199;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString1" Provider="System.Data.SqlClient" />
-  <Function Name="Servicio.SP_BUSCA_TIPO_PAGO" Method="SP_BUSCA_TIPO_PAGO">
-    <Parameter Name="IdTipoPago" Parameter="idTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="NumeroPagina" Parameter="numeroPagina" Type="System.Int32" DbType="Int" />
-    <Parameter Name="NumeroRegistros" Parameter="numeroRegistros" Type="System.Int32" DbType="Int" />
-    <ElementType Name="SP_BUSCA_TIPO_PAGOResult">
-      <Column Name="IdTipoPago" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
-      <Column Name="TipoPago" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Estatus0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Estatus" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
-      <Column Name="UsuarioAdiciona" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="CreadPor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="FechaAdiciona" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="FechaCreado" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="ModificadoPor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="FechaModifica" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="FechaModificado" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="BloqueaMonto0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="BloqueaMonto" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
-      <Column Name="CantidadRegistros" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString" Provider="System.Data.SqlClient" />
   <Function Name="Servicio.SP_MANTENIMIENTO_FACTURAS_MINIMUZADAS" Method="SP_MANTENIMIENTO_FACTURAS_MINIMUZADAS">
     <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
@@ -490,12 +468,42 @@
       <Column Name="Ganancia" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Servicio.SP_BUSCA_TIPO_PAGO" Method="SP_BUSCA_TIPO_PAGO">
+    <Parameter Name="IdTipoPago" Parameter="idTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="NumeroPagina" Parameter="numeroPagina" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NumeroRegistros" Parameter="numeroRegistros" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_BUSCA_TIPO_PAGOResult">
+      <Column Name="IdTipoPago" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="TipoPago" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Estatus0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Estatus" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="UsuarioAdiciona" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="CreadPor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FechaAdiciona" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaCreado" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ModificadoPor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FechaModifica" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaModificado" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="BloqueaMonto0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BloqueaMonto" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="ImpuestoAdicional0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ImpuestoAdicional" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="PorcentajeEntero0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PorcentajeEntero" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="Valor" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="CantidadRegistros" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="Servicio.SP_MANTENIMIENTO_TIPO_PAGO" Method="SP_MANTENIMIENTO_TIPO_PAGO">
     <Parameter Name="IdTipoPago" Parameter="idTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(100)" />
     <Parameter Name="Estatus" Parameter="estatus" Type="System.Boolean" DbType="Bit" />
     <Parameter Name="UsuarioAdiciona" Parameter="usuarioAdiciona" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="BloqueaMonto" Parameter="bloqueaMonto" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="ImpuestoAdicional" Parameter="impuestoAdicional" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="PorcentajeEntero" Parameter="porcentajeEntero" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Valor" Parameter="valor" Type="System.Decimal" DbType="Decimal(20,2)" />
     <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
     <ElementType Name="SP_MANTENIMIENTO_TIPO_PAGOResult">
       <Column Name="IdTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
@@ -506,6 +514,9 @@
       <Column Name="UsuarioModifica" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="FechaModifica" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="BloqueaMonto" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ImpuestoAdicional" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PorcentajeEntero" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Valor" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
