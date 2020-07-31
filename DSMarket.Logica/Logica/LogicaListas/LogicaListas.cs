@@ -25,11 +25,11 @@ namespace DSMarket.Logica.Logica.LogicaListas
         }
         #endregion
         #region LISTA DE MARCAS
-        public List<DSMarket.Logica.Entidades.EntidadesListas.EListaMarcas> BucaLisaMarcas()
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EListaMarcas> BucaLisaMarcas(decimal? IdCategoria = null)
         {
             ObjDataListas.CommandTimeout = 999999999;
 
-            var Buscar = (from n in ObjDataListas.SP_CARGAR_MARCAS()
+            var Buscar = (from n in ObjDataListas.SP_CARGAR_MARCAS(IdCategoria)
                           select new DSMarket.Logica.Entidades.EntidadesListas.EListaMarcas
                           {
                               IdMarca = n.IdMarca,

@@ -76,7 +76,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             ddlSeleccionarUnidadMedida.ValueMember = "IdUnidadMedida";
         }
         private void CargarMarcas() {
-            var MArcas = ObjDataListas.Value.BucaLisaMarcas();
+            var MArcas = ObjDataListas.Value.BucaLisaMarcas(
+                Convert.ToDecimal(ddlSeleccionarCategoria.SelectedValue));
             ddlSeleccionarMarca.DataSource = MArcas;
             ddlSeleccionarMarca.DisplayMember = "Descripcion";
             ddlSeleccionarMarca.ValueMember = "IdMarca";
@@ -494,7 +495,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         private void ddlSeleccionarMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CargarModelos();
+            try {
+                CargarModelos();
+            }
+            catch (Exception) { }
         }
 
         private void ddlSeleccionarTipoSuplidor_SelectedIndexChanged(object sender, EventArgs e)
@@ -654,6 +658,14 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 txtStockMinimo.Enabled = false;
                 txtStockMinimo.Text = "1";
             }
+        }
+
+        private void ddlSeleccionarCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try {
+                CargarMarcas();
+            }
+            catch (Exception) { }
         }
     }
 }

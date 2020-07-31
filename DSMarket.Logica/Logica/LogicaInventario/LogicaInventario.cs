@@ -134,15 +134,19 @@ namespace DSMarket.Logica.Logica.LogicaInventario
 
         #region MANTENIMIENTO DE MARCAS
         //LISTADO DE MARCAS
-        public List<DSMarket.Logica.Entidades.EntidadesInventario.Emarcas> Buscamarcas(decimal? IdMarca = null, string Descripcion = null, int? NumeroPagina = null, int? Numeroregistros = null)
+        public List<DSMarket.Logica.Entidades.EntidadesInventario.Emarcas> Buscamarcas(decimal? IdMarca = null,decimal? IdTipoProducto = null, decimal? IdCategoria = null, string Descripcion = null, int? NumeroPagina = null, int? Numeroregistros = null)
         {
             Objdata.CommandTimeout = 999999999;
 
-            var Buscar = (from n in Objdata.SP_BUSCA_MARCAS(IdMarca, Descripcion, NumeroPagina, Numeroregistros)
+            var Buscar = (from n in Objdata.SP_BUSCA_MARCAS(IdMarca, IdTipoProducto, IdCategoria, Descripcion, NumeroPagina, Numeroregistros)
                           select new DSMarket.Logica.Entidades.EntidadesInventario.Emarcas
                           {
                               IdMarca=n.IdMarca,
+                              IdTipoProducto=n.IdTipoProducto,
+                              TipoProducto=n.TipoProducto,
                               Marca=n.Marca,
+                              IdCateoria=n.IdCateoria,
+                              Categoria=n.Categoria,
                               Estatus0=n.Estatus0,
                               Estatus=n.Estatus,
                               UsuarioAdiciona=n.UsuarioAdiciona,
@@ -170,6 +174,8 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                 Item.Marca,
                 Item.Estatus0,
                 Item.UsuarioAdiciona,
+                Item.IdCateoria,
+                Item.IdTipoProducto,
                 Accion);
             if (Marcas != null)
             {
@@ -182,7 +188,9 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                                      UsuarioAdiciona=n.UsuarioAdiciona,
                                      FechaAdiciona=n.FechaAdiciona,
                                      UsuarioModifica=n.UsuarioModifica,
-                                     FechaModifica=n.FechaModifica
+                                     FechaModifica=n.FechaModifica,
+                                     IdCateoria=n.IdCategoria,
+                                     IdTipoProducto=n.IdTipoProducto
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
@@ -248,15 +256,19 @@ namespace DSMarket.Logica.Logica.LogicaInventario
 
         #region MANTENIMIENTO DE MODELOS
         //LISTADO DE MODELOS
-        public List<DSMarket.Logica.Entidades.EntidadesInventario.EModelos> BuscaModelos(decimal? IdMarca = null, decimal? IdModelo = null, string Descripcion = null, int? NumeroPagina = null, int? Numeroregistro = null)
+        public List<DSMarket.Logica.Entidades.EntidadesInventario.EModelos> BuscaModelos(decimal? IdTipoProducto = null, decimal? IdCategoria = null, decimal? IdMarca = null, decimal? IdModelo = null, string Descripcion = null, int? NumeroPagina = null, int? Numeroregistro = null)
         {
             Objdata.CommandTimeout = 999999999;
 
-            var Buscar = (from n in Objdata.SP_BUSCA_MODELOS(IdMarca, IdModelo, Descripcion, NumeroPagina, Numeroregistro)
+            var Buscar = (from n in Objdata.SP_BUSCA_MODELOS(IdTipoProducto, IdCategoria, IdMarca, IdModelo, Descripcion, NumeroPagina, Numeroregistro)
                           select new DSMarket.Logica.Entidades.EntidadesInventario.EModelos
                           {
                               IdMarca=n.IdMarca,
                               IdModelo=n.IdModelo,
+                              IdTipoProducto=n.IdTipoProducto,
+                              TipoPrducto=n.TipoPrducto,
+                              IdCategoria=n.IdCategoria,
+                              Categoria=n.Categoria,
                               Marca=n.Marca,
                               Modelo=n.Modelo,
                               Estatus0=n.Estatus0,
@@ -287,6 +299,8 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                 Item.Modelo,
                 Item.Estatus0,
                 Item.UsuarioAdiciona,
+                Item.IdTipoProducto,
+                Item.IdCategoria,
                Accion);
             if (Modelos != null)
             {
@@ -300,7 +314,9 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                                      UsuarioAdiciona=n.UsuarioAdiciona,
                                      FechaAdiciona=n.FechaAdiciona,
                                      UsuarioModifica=n.UsuarioModifica,
-                                     FechaModifica=n.FechaModifica
+                                     FechaModifica=n.FechaModifica,
+                                     IdTipoProducto=n.IdTipoProducto,
+                                     IdCategoria=n.IdCategoria
                                  }).FirstOrDefault();
             }
             return Mantenimiento;

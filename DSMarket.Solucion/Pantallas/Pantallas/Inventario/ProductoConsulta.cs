@@ -57,7 +57,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         }
         private void CargarMarcas() {
             try {
-                var Marca = ObjDataListas.Value.BucaLisaMarcas();
+                var Marca = ObjDataListas.Value.BucaLisaMarcas(
+                    Convert.ToDecimal(ddlSeleccionarCategoria.SelectedValue));
                 ddlSeleccionarMarca.DataSource = Marca;
                 ddlSeleccionarMarca.DisplayMember = "Descripcion";
                 ddlSeleccionarMarca.ValueMember = "IdMarca";
@@ -947,12 +948,18 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         private void ddlSeleccionarTipoProducto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CargarCategorias();
+            try {
+                CargarCategorias();
+            }
+            catch (Exception) { }
         }
 
         private void ddlSeleccionarMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CargarModelos();
+            try {
+                CargarModelos();
+            }
+            catch (Exception) { }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -1106,6 +1113,14 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             else {
                 MessageBox.Show("Opcion no disponible"); 
             }
+        }
+
+        private void ddlSeleccionarCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try {
+                CargarMarcas();
+            }
+            catch (Exception) { }
         }
     }
 }

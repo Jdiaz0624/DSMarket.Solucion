@@ -10,6 +10,14 @@ namespace DSMarket.Logica.Entidades.EntidadesInventario
     {
         public decimal? IdMarca {get;set;}
 
+        public System.Nullable<decimal> IdTipoProducto {get;set;}
+
+        public string TipoProducto {get;set;}
+
+        public System.Nullable<decimal> IdCateoria {get;set;}
+
+        public string Categoria {get;set;}
+
         public string Marca {get;set;}
 
         public System.Nullable<bool> Estatus0 {get;set;}

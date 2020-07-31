@@ -33,6 +33,7 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbAplicaDescuento = new System.Windows.Forms.CheckBox();
             this.txtPorcientoDescuento = new System.Windows.Forms.NumericUpDown();
             this.cbLlevaImagen = new System.Windows.Forms.CheckBox();
             this.cbacumulativo = new System.Windows.Forms.CheckBox();
@@ -90,7 +91,6 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.cbAplicaDescuento = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -201,6 +201,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Producto";
             this.toolTip1.SetToolTip(this.groupBox1, "Buscar Foto del Articulo");
+            // 
+            // cbAplicaDescuento
+            // 
+            this.cbAplicaDescuento.AutoSize = true;
+            this.cbAplicaDescuento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbAplicaDescuento.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbAplicaDescuento.Location = new System.Drawing.Point(154, 316);
+            this.cbAplicaDescuento.Name = "cbAplicaDescuento";
+            this.cbAplicaDescuento.Size = new System.Drawing.Size(196, 25);
+            this.cbAplicaDescuento.TabIndex = 57;
+            this.cbAplicaDescuento.Text = "Aplica para impuesto";
+            this.toolTip1.SetToolTip(this.cbAplicaDescuento, "Aplicar impuesto al momento de la venta");
+            this.cbAplicaDescuento.UseVisualStyleBackColor = true;
             // 
             // txtPorcientoDescuento
             // 
@@ -645,6 +658,7 @@
             this.ddlSeleccionarCategoria.Name = "ddlSeleccionarCategoria";
             this.ddlSeleccionarCategoria.Size = new System.Drawing.Size(235, 29);
             this.ddlSeleccionarCategoria.TabIndex = 19;
+            this.ddlSeleccionarCategoria.SelectedIndexChanged += new System.EventHandler(this.ddlSeleccionarCategoria_SelectedIndexChanged);
             // 
             // ddlSeleccionarTipoProducto
             // 
@@ -824,19 +838,6 @@
             this.toolTip1.SetToolTip(this.btnGuardar, "Completar Operación");
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // cbAplicaDescuento
-            // 
-            this.cbAplicaDescuento.AutoSize = true;
-            this.cbAplicaDescuento.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbAplicaDescuento.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbAplicaDescuento.Location = new System.Drawing.Point(154, 316);
-            this.cbAplicaDescuento.Name = "cbAplicaDescuento";
-            this.cbAplicaDescuento.Size = new System.Drawing.Size(196, 25);
-            this.cbAplicaDescuento.TabIndex = 57;
-            this.cbAplicaDescuento.Text = "Aplica para impuesto";
-            this.toolTip1.SetToolTip(this.cbAplicaDescuento, "Aplicar impuesto al momento de la venta");
-            this.cbAplicaDescuento.UseVisualStyleBackColor = true;
             // 
             // MantenimientoProducto
             // 

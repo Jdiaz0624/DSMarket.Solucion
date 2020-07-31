@@ -18,6 +18,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         }
         Lazy<DSMarket.Logica.Logica.LogicaInventario.LogicaInventario> ObjDataInventario = new Lazy<Logica.Logica.LogicaInventario.LogicaInventario>();
         Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
+        Lazy<DSMarket.Logica.Logica.LogicaListas.LogicaListas> ObjDataListas = new Lazy<Logica.Logica.LogicaListas.LogicaListas>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region MANTENIMIENTO DE MARCAS
@@ -33,6 +34,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 Mantenimiento.FechaAdiciona = DateTime.Now;
                 Mantenimiento.UsuarioModifica = VariablesGlobales.IdUsuario;
                 Mantenimiento.FechaModifica = DateTime.Now;
+                Mantenimiento.IdCateoria = Convert.ToDecimal(ddlSelecionarCategoria.SelectedValue);
+                Mantenimiento.IdTipoProducto = Convert.ToDecimal(ddlSeleccionarTipoProducto.SelectedValue);
 
                 var MAN = ObjDataInventario.Value.MantenimientoMarcas(Mantenimiento, Accion);
             }
@@ -122,10 +125,33 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             }
         }
         #endregion
+        #region CARGAR LAS CATEGORIAS
+        private void CargarCategorias()
+        {
+            var Categorias = ObjDataListas.Value.ListadoCategorias(
+                Convert.ToDecimal(ddlSeleccionarTipoProducto.SelectedValue));
+            ddlSelecionarCategoria.DataSource = Categorias;
+            ddlSelecionarCategoria.DisplayMember = "Descripcion";
+            ddlSelecionarCategoria.ValueMember = "IdCategoria";
+        }
+        #endregion
+        #region CARGAR LOS TIPOS DE PRODUCTOS
+        private void CargarTipoProductos()
+        {
+            var TipoProducto = ObjDataListas.Value.ListaTipoProducto(
+                new Nullable<decimal>(),
+                null);
+            ddlSeleccionarTipoProducto.DataSource = TipoProducto;
+            ddlSeleccionarTipoProducto.DisplayMember = "Descripcion";
+            ddlSeleccionarTipoProducto.ValueMember = "IdTipoproducto";
+        }
+        #endregion
 
         private void MantenimientoMarcas_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+            CargarTipoProductos();
+            CargarCategorias();
             this.BackColor = SystemColors.Control;
             txtClaveSeguridad.BackColor = Color.WhiteSmoke;
             txtMArca.BackColor = Color.WhiteSmoke;
@@ -150,11 +176,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 //SACAMOS LOS DATOS DEL REGISTRO SELECCIONADO
                 var SacaDatos = ObjDataInventario.Value.Buscamarcas(
                     VariablesGlobales.IdMantenimeinto,
-                    null, 1, 1);
+                    null, null,null, 1, 1);
                 foreach (var n in SacaDatos)
                 {
                     txtMArca.Text = n.Marca;
                     cbEstatus.Checked = (n.Estatus0.HasValue ? n.Estatus0.Value : false);
+                    ddlSeleccionarTipoProducto.Text = n.TipoProducto;
+                    ddlSelecionarCategoria.Text = n.Categoria;
                 }
             }
         }
@@ -185,6 +213,19 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             {
                 ProcesarMantenimiento();
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ddlSeleccionarTipoProducto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try {
+                CargarCategorias();
+            }
+            catch (Exception) { }
         }
     }
 }

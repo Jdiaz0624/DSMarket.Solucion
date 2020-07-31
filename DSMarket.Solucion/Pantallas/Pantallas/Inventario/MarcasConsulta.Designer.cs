@@ -51,6 +51,10 @@
             this.lbTitulo = new System.Windows.Forms.Label();
             this.lbCantidadRegistrosTitulo = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.ddlSelecionarCategoria = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ddlSeleccionarTipoProducto = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
@@ -70,7 +74,7 @@
             // 
             this.txtNumeroRegistros.BackColor = System.Drawing.Color.LightGray;
             this.txtNumeroRegistros.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtNumeroRegistros.Location = new System.Drawing.Point(260, 473);
+            this.txtNumeroRegistros.Location = new System.Drawing.Point(262, 520);
             this.txtNumeroRegistros.Maximum = new decimal(new int[] {
             999999999,
             0,
@@ -89,9 +93,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dtListado);
-            this.groupBox2.Location = new System.Drawing.Point(6, 185);
+            this.groupBox2.Location = new System.Drawing.Point(6, 213);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1059, 282);
+            this.groupBox2.Size = new System.Drawing.Size(1059, 298);
             this.groupBox2.TabIndex = 72;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Listado de marcas registradas";
@@ -113,7 +117,7 @@
             this.dtListado.Name = "dtListado";
             this.dtListado.ReadOnly = true;
             this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(1053, 256);
+            this.dtListado.Size = new System.Drawing.Size(1053, 272);
             this.dtListado.TabIndex = 0;
             this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
@@ -131,7 +135,7 @@
             // lbNumeroRegistros
             // 
             this.lbNumeroRegistros.AutoSize = true;
-            this.lbNumeroRegistros.Location = new System.Drawing.Point(151, 474);
+            this.lbNumeroRegistros.Location = new System.Drawing.Point(153, 521);
             this.lbNumeroRegistros.Name = "lbNumeroRegistros";
             this.lbNumeroRegistros.Size = new System.Drawing.Size(103, 20);
             this.lbNumeroRegistros.TabIndex = 75;
@@ -141,7 +145,7 @@
             // 
             this.txtNumeroPagina.BackColor = System.Drawing.Color.LightGray;
             this.txtNumeroPagina.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtNumeroPagina.Location = new System.Drawing.Point(96, 470);
+            this.txtNumeroPagina.Location = new System.Drawing.Point(98, 517);
             this.txtNumeroPagina.Maximum = new decimal(new int[] {
             999999999,
             0,
@@ -160,7 +164,7 @@
             // lbNumeroPagina
             // 
             this.lbNumeroPagina.AutoSize = true;
-            this.lbNumeroPagina.Location = new System.Drawing.Point(5, 473);
+            this.lbNumeroPagina.Location = new System.Drawing.Point(7, 520);
             this.lbNumeroPagina.Name = "lbNumeroPagina";
             this.lbNumeroPagina.Size = new System.Drawing.Size(87, 20);
             this.lbNumeroPagina.TabIndex = 73;
@@ -168,11 +172,15 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.ddlSeleccionarTipoProducto);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.ddlSelecionarCategoria);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtMarca);
             this.groupBox1.Location = new System.Drawing.Point(6, 103);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(377, 76);
+            this.groupBox1.Size = new System.Drawing.Size(795, 104);
             this.groupBox1.TabIndex = 71;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Marcas - Filtros";
@@ -180,7 +188,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 30);
+            this.label1.Location = new System.Drawing.Point(25, 64);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 20);
             this.label1.TabIndex = 3;
@@ -189,9 +197,9 @@
             // txtMarca
             // 
             this.txtMarca.BackColor = System.Drawing.Color.Silver;
-            this.txtMarca.Location = new System.Drawing.Point(71, 26);
+            this.txtMarca.Location = new System.Drawing.Point(92, 60);
             this.txtMarca.Name = "txtMarca";
-            this.txtMarca.Size = new System.Drawing.Size(293, 27);
+            this.txtMarca.Size = new System.Drawing.Size(279, 27);
             this.txtMarca.TabIndex = 0;
             // 
             // panel2
@@ -331,11 +339,54 @@
             this.lbCantidadRegistrosTitulo.TabIndex = 30;
             this.lbCantidadRegistrosTitulo.Text = "Cantidad de Registros";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(376, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 20);
+            this.label2.TabIndex = 88;
+            this.label2.Text = "Categoria";
+            // 
+            // ddlSelecionarCategoria
+            // 
+            this.ddlSelecionarCategoria.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlSelecionarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSelecionarCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSelecionarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSelecionarCategoria.FormattingEnabled = true;
+            this.ddlSelecionarCategoria.Location = new System.Drawing.Point(462, 22);
+            this.ddlSelecionarCategoria.Name = "ddlSelecionarCategoria";
+            this.ddlSelecionarCategoria.Size = new System.Drawing.Size(279, 28);
+            this.ddlSelecionarCategoria.TabIndex = 87;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(46, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 20);
+            this.label3.TabIndex = 90;
+            this.label3.Text = "Tipo";
+            // 
+            // ddlSeleccionarTipoProducto
+            // 
+            this.ddlSeleccionarTipoProducto.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlSeleccionarTipoProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarTipoProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarTipoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarTipoProducto.FormattingEnabled = true;
+            this.ddlSeleccionarTipoProducto.Location = new System.Drawing.Point(92, 22);
+            this.ddlSeleccionarTipoProducto.Name = "ddlSeleccionarTipoProducto";
+            this.ddlSeleccionarTipoProducto.Size = new System.Drawing.Size(279, 28);
+            this.ddlSeleccionarTipoProducto.TabIndex = 89;
+            this.ddlSeleccionarTipoProducto.SelectedIndexChanged += new System.EventHandler(this.ddlSeleccionarTipoProducto_SelectedIndexChanged);
+            // 
             // MarcasConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1074, 509);
+            this.ClientSize = new System.Drawing.Size(1074, 559);
             this.Controls.Add(this.txtNumeroRegistros);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.lbNumeroRegistros);
@@ -391,5 +442,9 @@
         public System.Windows.Forms.Label lbTitulo;
         private System.Windows.Forms.Label lbCantidadRegistrosTitulo;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox ddlSelecionarCategoria;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox ddlSeleccionarTipoProducto;
     }
 }

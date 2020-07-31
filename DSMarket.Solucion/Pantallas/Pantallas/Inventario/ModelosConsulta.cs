@@ -25,7 +25,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         #region CARGAR LISTAS
         private void CargarListas()
         {
-            var Cargar = ObjDataListas.Value.BucaLisaMarcas();
+            var Cargar = ObjDataListas.Value.BucaLisaMarcas(
+                Convert.ToDecimal(ddlSelecionarCategoria.SelectedValue));
             ddlSeleccionarMarcas.DataSource = Cargar;
             ddlSeleccionarMarcas.ValueMember = "IdMarca";
             ddlSeleccionarMarcas.DisplayMember = "Descripcion";
@@ -52,6 +53,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 string _Modelos = string.IsNullOrEmpty(txtModelos.Text.Trim()) ? null : txtModelos.Text.Trim();
 
                 var BuscarRegistros = ObjdataInventario.Value.BuscaModelos(
+                    Convert.ToDecimal(ddlSeleccionarTipoProducto.SelectedValue),
+                    Convert.ToDecimal(ddlSelecionarCategoria.SelectedValue),
                     Convert.ToDecimal(ddlSeleccionarMarcas.SelectedValue),
                     new Nullable<decimal>(),
                     _Modelos,
@@ -87,6 +90,29 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.dtListado.Columns["FechaModifica"].Visible = false;
             this.dtListado.Columns["FechaModificado"].Visible = false;
             this.dtListado.Columns["CantidadRegistros"].Visible = false;
+            this.dtListado.Columns["IdTipoProducto"].Visible = false;
+            this.dtListado.Columns["IdCategoria"].Visible = false;
+        }
+        #endregion
+        #region CARGAR LAS CATEGORIAS
+        private void CargarCategorias()
+        {
+            var Categorias = ObjDataListas.Value.ListadoCategorias(
+                Convert.ToDecimal(ddlSeleccionarTipoProducto.SelectedValue));
+            ddlSelecionarCategoria.DataSource = Categorias;
+            ddlSelecionarCategoria.DisplayMember = "Descripcion";
+            ddlSelecionarCategoria.ValueMember = "IdCategoria";
+        }
+        #endregion
+        #region CARGAR LOS TIPOS DE PRODUCTOS
+        private void CargarTipoProductos()
+        {
+            var TipoProducto = ObjDataListas.Value.ListaTipoProducto(
+                new Nullable<decimal>(),
+                null);
+            ddlSeleccionarTipoProducto.DataSource = TipoProducto;
+            ddlSeleccionarTipoProducto.DisplayMember = "Descripcion";
+            ddlSeleccionarTipoProducto.ValueMember = "IdTipoproducto";
         }
         #endregion
         private void PCerrar_Click(object sender, EventArgs e)
@@ -97,6 +123,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         private void ModelosConsulta_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+            CargarTipoProductos();
+            CargarCategorias();
             CargarListas();
             this.BackColor = SystemColors.Control;
             dtListado.BackgroundColor = SystemColors.Control;
@@ -180,6 +208,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
                 var Seleccionar = ObjdataInventario.Value.BuscaModelos(
                     null,
+                    null,
+                    null,
                     VariablesGlobales.IdMantenimeinto,
                     null, 1, 1);
                 dtListado.DataSource = Seleccionar;
@@ -199,6 +229,22 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         private void btnDeshabilitar_Click(object sender, EventArgs e)
         {
             RestablcerPantalla();
+        }
+
+        private void ddlSeleccionarTipoProducto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try {
+                CargarCategorias();
+            }
+            catch (Exception) { }
+        }
+
+        private void ddlSelecionarCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try {
+                CargarListas();
+            }
+            catch (Exception) { }
         }
     }
 }

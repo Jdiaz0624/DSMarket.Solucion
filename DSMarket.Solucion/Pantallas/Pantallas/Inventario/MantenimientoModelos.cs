@@ -59,6 +59,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 Mantenimiento.FechaAdiciona = DateTime.Now;
                 Mantenimiento.UsuarioModifica = VariablesGlobales.IdUsuario;
                 Mantenimiento.FechaModifica = DateTime.Now;
+                Mantenimiento.IdTipoProducto = Convert.ToDecimal(ddlSeleccionarTipoProducto.SelectedValue);
+                Mantenimiento.IdCategoria = Convert.ToDecimal(ddlSelecionarCategoria.SelectedValue);
 
                 var MAN = ObjdataInventario.Value.MantenimientoModelos(Mantenimiento, Accion);
 
@@ -66,6 +68,27 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             catch (Exception ex) {
                 MessageBox.Show("Error al realizar el mantenimiento, codigo de error: " + ex.Message);
             }
+        }
+        #endregion
+        #region CARGAR LAS CATEGORIAS
+        private void CargarCategorias()
+        {
+            var Categorias = ObjDataListas.Value.ListadoCategorias(
+                Convert.ToDecimal(ddlSeleccionarTipoProducto.SelectedValue));
+            ddlSelecionarCategoria.DataSource = Categorias;
+            ddlSelecionarCategoria.DisplayMember = "Descripcion";
+            ddlSelecionarCategoria.ValueMember = "IdCategoria";
+        }
+        #endregion
+        #region CARGAR LOS TIPOS DE PRODUCTOS
+        private void CargarTipoProductos()
+        {
+            var TipoProducto = ObjDataListas.Value.ListaTipoProducto(
+                new Nullable<decimal>(),
+                null);
+            ddlSeleccionarTipoProducto.DataSource = TipoProducto;
+            ddlSeleccionarTipoProducto.DisplayMember = "Descripcion";
+            ddlSeleccionarTipoProducto.ValueMember = "IdTipoproducto";
         }
         #endregion
         private void PCerrar_Click(object sender, EventArgs e)
@@ -77,6 +100,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             cbEstatus.Checked = true;
+            CargarTipoProductos();
+            CargarCategorias();
             CargarListas();
             this.BackColor = SystemColors.Control;
             txtClaveSeguridad.BackColor = Color.WhiteSmoke;
@@ -102,13 +127,18 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
                 var SacarDatos = ObjdataInventario.Value.BuscaModelos(
                     null,
+                    null,
+                    null,
                     VariablesGlobales.IdMantenimeinto,
                     null, 1, 1);
                 foreach (var n in SacarDatos)
                 {
+                    ddlSeleccionarTipoProducto.Text = n.TipoPrducto;
+                    ddlSelecionarCategoria.Text = n.Categoria;
                     ddlSeleccionarMarcas.Text = n.Marca;
                     txtModelo.Text = n.Modelo;
                     cbEstatus.Checked = (n.Estatus0.HasValue ? n.Estatus0.Value : false);
+                    
                 }
             }
         }
@@ -183,6 +213,22 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                     }
                 }
             }
+        }
+
+        private void ddlSeleccionarTipoProducto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try {
+                CargarCategorias();
+            }
+            catch (Exception) { }
+        }
+
+        private void ddlSelecionarCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try {
+                CargarListas();
+            }
+            catch (Exception) { }
         }
     }
 }

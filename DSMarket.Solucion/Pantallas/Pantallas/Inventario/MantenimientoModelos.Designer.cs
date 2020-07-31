@@ -43,6 +43,10 @@
             this.txtModelo = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbTitulo = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ddlSeleccionarTipoProducto = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.ddlSelecionarCategoria = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -61,7 +65,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::DSMarket.Solucion.Properties.Resources.Guardar;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(11, 215);
+            this.btnGuardar.Location = new System.Drawing.Point(11, 281);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(406, 41);
             this.btnGuardar.TabIndex = 32;
@@ -75,7 +79,7 @@
             this.cbEstatus.AutoSize = true;
             this.cbEstatus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbEstatus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbEstatus.Location = new System.Drawing.Point(76, 91);
+            this.cbEstatus.Location = new System.Drawing.Point(107, 165);
             this.cbEstatus.Name = "cbEstatus";
             this.cbEstatus.Size = new System.Drawing.Size(83, 25);
             this.cbEstatus.TabIndex = 6;
@@ -101,7 +105,7 @@
             // 
             this.lbclaveSeguridad.AutoSize = true;
             this.lbclaveSeguridad.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbclaveSeguridad.Location = new System.Drawing.Point(18, 178);
+            this.lbclaveSeguridad.Location = new System.Drawing.Point(13, 251);
             this.lbclaveSeguridad.Name = "lbclaveSeguridad";
             this.lbclaveSeguridad.Size = new System.Drawing.Size(166, 21);
             this.lbclaveSeguridad.TabIndex = 34;
@@ -111,7 +115,7 @@
             // 
             this.txtClaveSeguridad.BackColor = System.Drawing.Color.Silver;
             this.txtClaveSeguridad.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtClaveSeguridad.Location = new System.Drawing.Point(190, 175);
+            this.txtClaveSeguridad.Location = new System.Drawing.Point(185, 248);
             this.txtClaveSeguridad.MaxLength = 20;
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
             this.txtClaveSeguridad.PasswordChar = '•';
@@ -120,6 +124,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.ddlSeleccionarTipoProducto);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.ddlSelecionarCategoria);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.ddlSeleccionarMarcas);
             this.groupBox1.Controls.Add(this.cbEstatus);
@@ -128,7 +136,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(11, 45);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(406, 122);
+            this.groupBox1.Size = new System.Drawing.Size(406, 197);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Mantenimiento de modelos";
@@ -136,7 +144,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 30);
+            this.label2.Location = new System.Drawing.Point(35, 100);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 21);
             this.label2.TabIndex = 88;
@@ -149,7 +157,7 @@
             this.ddlSeleccionarMarcas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlSeleccionarMarcas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ddlSeleccionarMarcas.FormattingEnabled = true;
-            this.ddlSeleccionarMarcas.Location = new System.Drawing.Point(83, 26);
+            this.ddlSeleccionarMarcas.Location = new System.Drawing.Point(107, 97);
             this.ddlSeleccionarMarcas.Name = "ddlSeleccionarMarcas";
             this.ddlSeleccionarMarcas.Size = new System.Drawing.Size(277, 29);
             this.ddlSeleccionarMarcas.TabIndex = 87;
@@ -157,7 +165,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 62);
+            this.label1.Location = new System.Drawing.Point(34, 135);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 21);
             this.label1.TabIndex = 5;
@@ -166,7 +174,7 @@
             // txtModelo
             // 
             this.txtModelo.BackColor = System.Drawing.Color.Silver;
-            this.txtModelo.Location = new System.Drawing.Point(85, 58);
+            this.txtModelo.Location = new System.Drawing.Point(107, 132);
             this.txtModelo.MaxLength = 100;
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(275, 27);
@@ -194,11 +202,55 @@
             this.lbTitulo.TabIndex = 13;
             this.lbTitulo.Text = "label6";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(61, 30);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 21);
+            this.label3.TabIndex = 98;
+            this.label3.Text = "Tipo";
+            // 
+            // ddlSeleccionarTipoProducto
+            // 
+            this.ddlSeleccionarTipoProducto.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlSeleccionarTipoProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarTipoProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarTipoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarTipoProducto.FormattingEnabled = true;
+            this.ddlSeleccionarTipoProducto.Location = new System.Drawing.Point(107, 26);
+            this.ddlSeleccionarTipoProducto.Name = "ddlSeleccionarTipoProducto";
+            this.ddlSeleccionarTipoProducto.Size = new System.Drawing.Size(279, 29);
+            this.ddlSeleccionarTipoProducto.TabIndex = 97;
+            this.ddlSeleccionarTipoProducto.SelectedIndexChanged += new System.EventHandler(this.ddlSeleccionarTipoProducto_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(10, 64);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 21);
+            this.label4.TabIndex = 96;
+            this.label4.Text = "Categoria";
+            // 
+            // ddlSelecionarCategoria
+            // 
+            this.ddlSelecionarCategoria.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlSelecionarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSelecionarCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSelecionarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSelecionarCategoria.FormattingEnabled = true;
+            this.ddlSelecionarCategoria.Location = new System.Drawing.Point(107, 61);
+            this.ddlSelecionarCategoria.Name = "ddlSelecionarCategoria";
+            this.ddlSelecionarCategoria.Size = new System.Drawing.Size(279, 29);
+            this.ddlSelecionarCategoria.TabIndex = 95;
+            this.ddlSelecionarCategoria.SelectedIndexChanged += new System.EventHandler(this.ddlSelecionarCategoria_SelectedIndexChanged);
+            // 
             // MantenimientoModelos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(433, 271);
+            this.ClientSize = new System.Drawing.Size(433, 339);
             this.Controls.Add(this.lbclaveSeguridad);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtClaveSeguridad);
@@ -240,5 +292,9 @@
         public System.Windows.Forms.Label lbTitulo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox ddlSeleccionarMarcas;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox ddlSeleccionarTipoProducto;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox ddlSelecionarCategoria;
     }
 }

@@ -17,6 +17,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             InitializeComponent();
         }
         Lazy<DSMarket.Logica.Logica.LogicaInventario.LogicaInventario> ObjDataInventario = new Lazy<Logica.Logica.LogicaInventario.LogicaInventario>();
+        Lazy<DSMarket.Logica.Logica.LogicaListas.LogicaListas> ObjDataListas = new Lazy<Logica.Logica.LogicaListas.LogicaListas>();
         public DSMarket.Logica.Comunes.VariablesGlobales variablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region MOSTRAR EL LISTADO DE LAS MARCAS
@@ -26,6 +27,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
             var BuscarRegistros = ObjDataInventario.Value.Buscamarcas(
                 new Nullable<decimal>(),
+                Convert.ToDecimal(ddlSeleccionarTipoProducto.SelectedValue),
+                Convert.ToDecimal(ddlSelecionarCategoria.SelectedValue),
                 _Marca,
                 Convert.ToInt32(txtNumeroPagina.Value),
                 Convert.ToInt32(txtNumeroRegistros.Value));
@@ -47,12 +50,33 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         private void OcultarRegistros() {
             this.dtListado.Columns["IdMarca"].Visible = false;
+            this.dtListado.Columns["IdCateoria"].Visible = false;
             this.dtListado.Columns["Estatus0"].Visible = false;
             this.dtListado.Columns["UsuarioAdiciona"].Visible = false;
             this.dtListado.Columns["FechaAdiciona"].Visible = false;
             this.dtListado.Columns["UsuarioModifica"].Visible = false;
             this.dtListado.Columns["FechaModifica"].Visible = false;
-            this.dtListado.Columns["CantidadRegistros"].Visible = false;
+            this.dtListado.Columns["CantidadRegistros"].Visible = false; 
+                 this.dtListado.Columns["IdTipoproducto"].Visible = false;
+        }
+        #endregion
+        #region CARGAR LAS CATEGORIAS
+        private void CargarCategorias() {
+            var Categorias = ObjDataListas.Value.ListadoCategorias(
+                Convert.ToDecimal(ddlSeleccionarTipoProducto.SelectedValue));
+            ddlSelecionarCategoria.DataSource = Categorias;
+            ddlSelecionarCategoria.DisplayMember = "Descripcion";
+            ddlSelecionarCategoria.ValueMember = "IdCategoria";
+        }
+        #endregion
+        #region CARGAR LOS TIPOS DE PRODUCTOS
+        private void CargarTipoProductos() {
+            var TipoProducto = ObjDataListas.Value.ListaTipoProducto(
+                new Nullable<decimal>(),
+                null);
+            ddlSeleccionarTipoProducto.DataSource = TipoProducto;
+            ddlSeleccionarTipoProducto.DisplayMember = "Descripcion";
+            ddlSeleccionarTipoProducto.ValueMember = "IdTipoproducto";
         }
         #endregion
         private void PCerrar_Click(object sender, EventArgs e)
@@ -103,6 +127,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             txtNumeroPagina.BackColor = Color.WhiteSmoke;
             txtNumeroRegistros.BackColor = Color.WhiteSmoke;
             dtListado.BackgroundColor = SystemColors.Control;
+            CargarTipoProductos();
+            CargarCategorias();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -146,7 +172,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
                 var BuscarRegistro = ObjDataInventario.Value.Buscamarcas(
                     variablesGlobales.IdMantenimeinto,
-                    null, 1, 1);
+                    null, null, null, 1, 1);
                 if (BuscarRegistro.Count() < 1)
                 {
                     lbCantidadRegistrosVariable.Text = "0";
@@ -178,6 +204,14 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             txtNumeroPagina.Value = 1;
             txtNumeroRegistros.Value = 10;
             MostrarListadoMarcas();
+        }
+
+        private void ddlSeleccionarTipoProducto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try {
+                CargarCategorias();
+            }
+            catch (Exception) { }
         }
     }
 }

@@ -8,12 +8,6 @@
       <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="Listas.SP_CARGAR_MARCAS" Method="SP_CARGAR_MARCAS">
-    <ElementType Name="SP_CARGAR_MARCASResult">
-      <Column Name="IdMarca" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
-      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="Listas.SP_BUSCA_LISTA_TIPO_SUPLIDOR" Method="SP_BUSCA_LISTA_TIPO_SUPLIDOR">
     <ElementType Name="SP_BUSCA_LISTA_TIPO_SUPLIDORResult">
       <Column Name="IdTipoSuplidor" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
@@ -110,6 +104,13 @@
       <Column Name="ImpuestoAdicional" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="PorcentajeEntero" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="Valor" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_CARGAR_MARCAS" Method="SP_CARGAR_MARCAS">
+    <Parameter Name="IdCategoria" Parameter="idCategoria" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <ElementType Name="SP_CARGAR_MARCASResult">
+      <Column Name="IdMarca" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

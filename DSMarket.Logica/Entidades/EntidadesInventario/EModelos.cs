@@ -11,7 +11,16 @@ namespace DSMarket.Logica.Entidades.EntidadesInventario
         public System.Nullable<decimal> IdMarca {get;set;}
 
         public decimal? IdModelo {get;set;}
-        public string Marca { get; set; }
+
+        public System.Nullable<decimal> IdTipoProducto {get;set;}
+
+        public string TipoPrducto {get;set;}
+
+        public System.Nullable<decimal> IdCategoria {get;set;}
+
+        public string Categoria {get;set;}
+
+        public string Marca {get;set;}
 
         public string Modelo {get;set;}
 
@@ -33,7 +42,7 @@ namespace DSMarket.Logica.Entidades.EntidadesInventario
 
         public System.Nullable<System.DateTime> FechaModifica {get;set;}
 
-        public string FechaModificado { get;set;}
+        public string FechaModificado {get;set;}
 
         public System.Nullable<int> CantidadRegistros {get;set;}
     }
