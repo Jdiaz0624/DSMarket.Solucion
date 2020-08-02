@@ -25,15 +25,18 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
         #region MOSTRAR LOGO
         private void MostrarImagenPorDefecto(PictureBox Imagen)
         {
-            SqlCommand comando = new SqlCommand("select LogoEmpresa from Configuracion.ImagenesSistema where IdLogoEmpresa = 1", DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion());
-            SqlDataAdapter adaptar = new SqlDataAdapter(comando);
-            DataSet ds = new DataSet("LogoEmpresa");
-            adaptar.Fill(ds, "LogoEmpresa");
-            byte[] DATOS = new byte[0];
-            DataRow dr = ds.Tables["LogoEmpresa"].Rows[0];
-            DATOS = (byte[])dr["LogoEmpresa"];
-            MemoryStream ms = new MemoryStream(DATOS);
-            Imagen.Image = System.Drawing.Bitmap.FromStream(ms);
+            try {
+                SqlCommand comando = new SqlCommand("select LogoEmpresa from Configuracion.ImagenesSistema where IdLogoEmpresa = 1", DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion());
+                SqlDataAdapter adaptar = new SqlDataAdapter(comando);
+                DataSet ds = new DataSet("LogoEmpresa");
+                adaptar.Fill(ds, "LogoEmpresa");
+                byte[] DATOS = new byte[0];
+                DataRow dr = ds.Tables["LogoEmpresa"].Rows[0];
+                DATOS = (byte[])dr["LogoEmpresa"];
+                MemoryStream ms = new MemoryStream(DATOS);
+                Imagen.Image = System.Drawing.Bitmap.FromStream(ms);
+            }
+            catch (Exception) { }
         }
         #endregion
         #region MOSIFICAR LOGO EMPRESA
@@ -46,7 +49,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
 
                 comando.Parameters.Add("@IdLogoEmpresa", SqlDbType.Decimal);
                 comando.Parameters.Add("@Descripcion", SqlDbType.VarChar);
-                comando.Parameters.Add("@FotoProducto", SqlDbType.Image);
+                comando.Parameters.Add("@LogoEmpresa", SqlDbType.Image);
 
                 comando.Parameters["@IdLogoEmpresa"].Value = 1;
                 comando.Parameters["@Descripcion"].Value = "Logo Empresa";
@@ -54,6 +57,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
                 MemoryStream ms = new MemoryStream();
                 pbLogo.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                 comando.Parameters["@LogoEmpresa"].Value = ms.GetBuffer();
+
+            
 
                 DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion();
                 comando.ExecuteNonQuery();

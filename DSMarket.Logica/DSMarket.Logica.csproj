@@ -56,6 +56,7 @@
     <Compile Include="Comunes\ModificarInformacionEmpresa.cs" />
     <Compile Include="Comunes\ProcesarGananciaVenta.cs" />
     <Compile Include="Comunes\ProcesarProductosDefectuosos.cs" />
+    <Compile Include="Comunes\ProcesarRegistrosReporteProductosDefectuosos.cs" />
     <Compile Include="Comunes\ProcesarReporteVenta.cs" />
     <Compile Include="Comunes\ProcesarUsuarios.cs" />
     <Compile Include="Comunes\SeguridadEncriptacion.cs" />
@@ -79,9 +80,11 @@
     <Compile Include="Entidades\EntidadesConfiguracion\EModificarImpuestoVenta.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EProcesarInformacionGanancia.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EProcesarReporteCuadreCaja.cs" />
+    <Compile Include="Entidades\EntidadesConfiguracion\EReporteProductosDefectuosos.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\ERutaBackup.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\ERutaReporte.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\EClientes.cs" />
+    <Compile Include="Entidades\EntidadesInventario\ECantidadProductosDefectuosos.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECategorias.cs" />
     <Compile Include="Entidades\EntidadesInventario\Emarcas.cs" />
     <Compile Include="Entidades\EntidadesInventario\EModelos.cs" />

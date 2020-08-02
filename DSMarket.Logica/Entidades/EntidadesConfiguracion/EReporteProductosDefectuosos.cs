@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSMarket.Logica.Entidades.EntidadesInventario
+namespace DSMarket.Logica.Entidades.EntidadesConfiguracion
 {
-    public class EProductosDefectuosos
+    public class EReporteProductosDefectuosos
     {
-        public System.Nullable<decimal> IdProductoDefectuoso {get;set;}
+        public System.Nullable<decimal> IdUsuario {get;set;}
 
         public System.Nullable<decimal> NumeroConector {get;set;}
 
@@ -26,7 +26,7 @@ namespace DSMarket.Logica.Entidades.EntidadesInventario
 
         public string UnidadMedida {get;set;}
 
-        public System.Nullable<decimal> IdMarca {get;set;}
+        public System.Nullable<decimal> Idmarca {get;set;}
 
         public string Marca {get;set;}
 
@@ -56,9 +56,9 @@ namespace DSMarket.Logica.Entidades.EntidadesInventario
 
         public System.Nullable<decimal> PorcientoDescuento {get;set;}
 
-        public System.Nullable<bool> AfectaOferta0 {get;set;}
+        public System.Nullable<bool> AfctaOferta0 {get;set;}
 
-        public string AceptaOferta {get;set;}
+        public string AfectaOferta {get;set;}
 
         public System.Nullable<bool> ProductoAcumulativo0 {get;set;}
 
@@ -92,18 +92,19 @@ namespace DSMarket.Logica.Entidades.EntidadesInventario
 
         public string EstatusProducto {get;set;}
 
-        public string AplicaParaImpuesto {get;set;}
+        public string AplicaImpuesto {get;set;}
 
         public System.Nullable<decimal> CantidadAgregada {get;set;}
 
-        public System.Nullable<int> CantidadRegistros {get;set;}
+        public System.Nullable<decimal> CantidadRegistros {get;set;}
 
-        public System.Nullable<int> ProductosConOferta {get;set;}
+        public System.Nullable<decimal> ProductoConOferta {get;set;}
 
-        public System.Nullable<int> ProductoProximoAgotarse {get;set;}
+        public System.Nullable<decimal> ProductoProximoAgotarse {get;set;}
 
-        public System.Nullable<int> ProductosAgostados {get;set;}
-        public System.Nullable<decimal> TotalProductos { get; set; }
+        public System.Nullable<decimal> ProductosAgostados {get;set;}
+
+        public System.Nullable<decimal> TotalProductos {get;set;}
 
         public string Comentario {get;set;}
     }

@@ -40,6 +40,8 @@
             this.cbEliminarTodo = new System.Windows.Forms.CheckBox();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbCantidad2 = new System.Windows.Forms.Label();
+            this.lbProducto = new System.Windows.Forms.Label();
             this.lbCantidad = new System.Windows.Forms.Label();
             this.lbCantidadProductoTitulo = new System.Windows.Forms.Label();
             this.lbTitulo = new System.Windows.Forms.Label();
@@ -99,6 +101,7 @@
             this.btnReporte.Text = "      Reporte";
             this.toolTip1.SetToolTip(this.btnReporte, "Agregar ofertas a productos");
             this.btnReporte.UseVisualStyleBackColor = true;
+            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
             // 
             // btnEliminar
             // 
@@ -132,6 +135,7 @@
             this.btnNuevo.Text = "      Nuevo";
             this.toolTip1.SetToolTip(this.btnNuevo, "Crear Nuevo Registro");
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnBuscar
             // 
@@ -148,6 +152,7 @@
             this.btnBuscar.Text = "      Buscar";
             this.toolTip1.SetToolTip(this.btnBuscar, "Consultar Registros");
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // cbEliminarTodo
             // 
@@ -170,6 +175,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.lbCantidad2);
+            this.panel1.Controls.Add(this.lbProducto);
             this.panel1.Controls.Add(this.lbCantidad);
             this.panel1.Controls.Add(this.PCerrar);
             this.panel1.Controls.Add(this.lbCantidadProductoTitulo);
@@ -181,11 +188,31 @@
             this.panel1.Size = new System.Drawing.Size(1248, 38);
             this.panel1.TabIndex = 5;
             // 
+            // lbCantidad2
+            // 
+            this.lbCantidad2.AutoSize = true;
+            this.lbCantidad2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCantidad2.Location = new System.Drawing.Point(872, 9);
+            this.lbCantidad2.Name = "lbCantidad2";
+            this.lbCantidad2.Size = new System.Drawing.Size(18, 20);
+            this.lbCantidad2.TabIndex = 67;
+            this.lbCantidad2.Text = "0";
+            // 
+            // lbProducto
+            // 
+            this.lbProducto.AutoSize = true;
+            this.lbProducto.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbProducto.Location = new System.Drawing.Point(686, 9);
+            this.lbProducto.Name = "lbProducto";
+            this.lbProducto.Size = new System.Drawing.Size(180, 20);
+            this.lbProducto.TabIndex = 66;
+            this.lbProducto.Text = "Cantidad de Productos:";
+            // 
             // lbCantidad
             // 
             this.lbCantidad.AutoSize = true;
             this.lbCantidad.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCantidad.Location = new System.Drawing.Point(576, 9);
+            this.lbCantidad.Location = new System.Drawing.Point(537, 9);
             this.lbCantidad.Name = "lbCantidad";
             this.lbCantidad.Size = new System.Drawing.Size(18, 20);
             this.lbCantidad.TabIndex = 65;
@@ -195,11 +222,11 @@
             // 
             this.lbCantidadProductoTitulo.AutoSize = true;
             this.lbCantidadProductoTitulo.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCantidadProductoTitulo.Location = new System.Drawing.Point(390, 9);
+            this.lbCantidadProductoTitulo.Location = new System.Drawing.Point(351, 9);
             this.lbCantidadProductoTitulo.Name = "lbCantidadProductoTitulo";
-            this.lbCantidadProductoTitulo.Size = new System.Drawing.Size(180, 20);
+            this.lbCantidadProductoTitulo.Size = new System.Drawing.Size(172, 20);
             this.lbCantidadProductoTitulo.TabIndex = 64;
-            this.lbCantidadProductoTitulo.Text = "Cantidad de Productos:";
+            this.lbCantidadProductoTitulo.Text = "Cantidad de Registros";
             // 
             // lbTitulo
             // 
@@ -350,6 +377,7 @@
             0,
             0,
             0});
+            this.txtNumeroRegistros.ValueChanged += new System.EventHandler(this.txtNumeroRegistros_ValueChanged);
             // 
             // lbNumeroRegistros
             // 
@@ -380,6 +408,7 @@
             0,
             0,
             0});
+            this.txtNumeroPagina.ValueChanged += new System.EventHandler(this.txtNumeroPagina_ValueChanged);
             // 
             // lbNumeroPagina
             // 
@@ -395,7 +424,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1248, 505);
+            this.ClientSize = new System.Drawing.Size(1248, 474);
             this.Controls.Add(this.txtNumeroRegistros);
             this.Controls.Add(this.lbNumeroRegistros);
             this.Controls.Add(this.txtNumeroPagina);
@@ -458,5 +487,7 @@
         private System.Windows.Forms.NumericUpDown txtNumeroPagina;
         private System.Windows.Forms.Label lbNumeroPagina;
         private System.Windows.Forms.CheckBox cbEliminarTodo;
+        private System.Windows.Forms.Label lbCantidad2;
+        private System.Windows.Forms.Label lbProducto;
     }
 }

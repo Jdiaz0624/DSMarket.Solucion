@@ -107,7 +107,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                            }).ToList();
             return Listado;
         }
-        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral MantenimientoConfiguracionGeneral(DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral Item, string Accion) {
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral MantenimientoConfiguracionGeneral(DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral Item, string Accion)
+        {
             ObjData.CommandTimeout = 999999999;
 
             DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral Mantenimiento = null;
@@ -117,7 +118,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                 Item.Descripcion,
                 Item.Estatus0,
                 Accion);
-            if (ConfiguracionGeneral != null) {
+            if (ConfiguracionGeneral != null)
+            {
                 Mantenimiento = (from n in ConfiguracionGeneral
                                  select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral
                                  {
@@ -129,7 +131,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             return Mantenimiento;
         }
 
-        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarComprobante> GenerarComprobanteFiscal(decimal? IdComprobante = null) {
+        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarComprobante> GenerarComprobanteFiscal(decimal? IdComprobante = null)
+        {
             ObjData.CommandTimeout = 999999999;
 
             var Generar = (from n in ObjData.SP_GENERAR_COMPROBANTE_FISCAL(IdComprobante)
@@ -142,7 +145,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
         }
         #endregion
         #region GENERAR COMPROBANTE FISCAL
-        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarComprobante> GenerarComprobante(decimal? IdComprobante = null) {
+        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarComprobante> GenerarComprobante(decimal? IdComprobante = null)
+        {
             ObjData.CommandTimeout = 999999999;
 
             var Listado = (from n in ObjData.SP_GENERAR_COMPROBANTE_FISCAL(IdComprobante)
@@ -181,7 +185,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
         }
 
         //MANTENIMIENTO DE COMPROBANTES FISCALES
-        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EMantenimientoComprobantes MantenimientoComprobantes(DSMarket.Logica.Entidades.EntidadesConfiguracion.EMantenimientoComprobantes Item, string Accion) {
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EMantenimientoComprobantes MantenimientoComprobantes(DSMarket.Logica.Entidades.EntidadesConfiguracion.EMantenimientoComprobantes Item, string Accion)
+        {
             ObjData.CommandTimeout = 999999999;
 
             DSMarket.Logica.Entidades.EntidadesConfiguracion.EMantenimientoComprobantes Mantenimiento = null;
@@ -200,7 +205,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                 Item.PorDefecto,
                 Item.Posiciones,
                 Accion);
-            if (Comprobante != null) {
+            if (Comprobante != null)
+            {
                 Mantenimiento = (from n in Comprobante
                                  select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EMantenimientoComprobantes
                                  {
@@ -222,7 +228,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
         }
         #endregion
         #region MANTENIMEINTO IMPUESTOS
-        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EImpuesto> BuscaImpuestos(int? IdImpuesto = null) {
+        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EImpuesto> BuscaImpuestos(int? IdImpuesto = null)
+        {
             ObjData.CommandTimeout = 999999999;
 
             var Listado = (from n in ObjData.SP_BUSCA_IMPUESTO_VENTA(IdImpuesto)
@@ -240,7 +247,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
 
         #region MANTENIMIENTO DE RUTA DE REPORTES
         //LISTADO DE RUTA DE REPORTES
-        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaReporte> BuscaRutaReporte(int? IdRutaReporte = null) {
+        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaReporte> BuscaRutaReporte(int? IdRutaReporte = null)
+        {
             ObjData.CommandTimeout = 999999999;
 
             var Listado = (from n in ObjData.SP_SACAR_RUTA_REPORTE(IdRutaReporte)
@@ -253,7 +261,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             return Listado;
         }
         //MANTENIMIENTO DE RUTA DE REPORTE
-        public DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaReporte MantenimientoRutaReporte(DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaReporte Item, string Accion) {
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaReporte MantenimientoRutaReporte(DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaReporte Item, string Accion)
+        {
             ObjData.CommandTimeout = 999999999;
 
             DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaReporte Mantenimiento = null;
@@ -263,7 +272,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                 Item.Nombre,
                 Item.RutaReporte,
                 Accion);
-            if (RutaReporte != null) {
+            if (RutaReporte != null)
+            {
                 Mantenimiento = (from n in RutaReporte
                                  select new DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaReporte
                                  {
@@ -277,7 +287,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
         #endregion
 
         #region PROCESAR CUADRE CAJA
-        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarReporteCuadreCaja ProcesarCuadreCaja(DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarReporteCuadreCaja Item, string Accion) {
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarReporteCuadreCaja ProcesarCuadreCaja(DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarReporteCuadreCaja Item, string Accion)
+        {
             ObjData.CommandTimeout = 999999999;
 
             DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarReporteCuadreCaja Procesar = null;
@@ -293,7 +304,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                 Item.NumeroReferencia,
                 Item.IdTipoPago,
                 Accion);
-            if (CuadreCaja != null) {
+            if (CuadreCaja != null)
+            {
                 Procesar = (from n in CuadreCaja
                             select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarReporteCuadreCaja
                             {
@@ -312,7 +324,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
         }
         #endregion
         #region GUARDAR DATOS REPORTE VENTA
-        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EGuardarReporteVenta GuardarReporteVenta(DSMarket.Logica.Entidades.EntidadesConfiguracion.EGuardarReporteVenta Item, string Accion) {
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EGuardarReporteVenta GuardarReporteVenta(DSMarket.Logica.Entidades.EntidadesConfiguracion.EGuardarReporteVenta Item, string Accion)
+        {
             ObjData.CommandTimeout = 999999999;
 
             DSMarket.Logica.Entidades.EntidadesConfiguracion.EGuardarReporteVenta Guardar = null;
@@ -355,7 +368,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                 Item.TipoPago,
                 Item.TotalGeneral,
                 Accion);
-            if (ReporteVenta != null) {
+            if (ReporteVenta != null)
+            {
                 Guardar = (from n in ReporteVenta
                            select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EGuardarReporteVenta
                            {
@@ -401,7 +415,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
         }
         #endregion
         #region PROCESAR LA INFORMACION DE LA GANANCIA
-        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarInformacionGanancia ProcesarInformacionGanancia(DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarInformacionGanancia Item, string Accion) {
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarInformacionGanancia ProcesarInformacionGanancia(DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarInformacionGanancia Item, string Accion)
+        {
             ObjData.CommandTimeout = 999999999;
 
             DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarInformacionGanancia Procesar = null;
@@ -424,7 +439,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                 Item.TotalPrecioCompra,
                 Item.Ganancia,
                 Accion);
-            if (InformacionGanancia != null) {
+            if (InformacionGanancia != null)
+            {
                 Procesar = (from n in InformacionGanancia
                             select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarInformacionGanancia
                             {
@@ -451,7 +467,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
         #endregion
         #region RUTA BD
         //BUSCAR RUTRA
-        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaBackup> BuscaRutaBAckup(decimal? IdRutaBackup = null) {
+        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaBackup> BuscaRutaBAckup(decimal? IdRutaBackup = null)
+        {
             ObjData.CommandTimeout = 999999999;
 
             var Buscar = (from n in ObjData.SP_SACAR_RUTA_BACKUP_BD(IdRutaBackup)
@@ -464,7 +481,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
         }
 
         //MANTENIMIENTO DE RUTA DE REPORTE
-        public DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaBackup MantenimientoRutaBackup(DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaBackup Item, string Accion) {
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaBackup MantenimientoRutaBackup(DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaBackup Item, string Accion)
+        {
             ObjData.CommandTimeout = 999999999;
 
             DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaBackup Mantenimiento = null;
@@ -473,7 +491,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                 Item.IdRutaBAckupBD,
                 Item.Ruta,
                 Accion);
-            if (RutaBackup != null) {
+            if (RutaBackup != null)
+            {
                 Mantenimiento = (from n in RutaBackup
                                  select new DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaBackup
                                  {
@@ -486,7 +505,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
         }
 
         //GENERAR BACKUP REPORTE
-        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarRutaBackup GenerarBackup(DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarRutaBackup Item, string Accion) {
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarRutaBackup GenerarBackup(DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarRutaBackup Item, string Accion)
+        {
             ObjData.CommandTimeout = 999999999;
 
             DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarRutaBackup Generar = null;
@@ -494,7 +514,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             var Backup = ObjData.SP_GENERAR_BACKUP_DATABASE(
                 Item.RutaArchivo,
                 Accion);
-            if (Backup != null) {
+            if (Backup != null)
+            {
                 Generar = (from n in Backup
                            select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarRutaBackup
                            {
@@ -505,7 +526,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
         }
         #endregion
         #region MANTENIMIENTO DE PORCIENTO DE IMPUESTO
-        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EModificarImpuestoVenta ModificarImpuesto(DSMarket.Logica.Entidades.EntidadesConfiguracion.EModificarImpuestoVenta Item, string Accion) {
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EModificarImpuestoVenta ModificarImpuesto(DSMarket.Logica.Entidades.EntidadesConfiguracion.EModificarImpuestoVenta Item, string Accion)
+        {
             ObjData.CommandTimeout = 999999999;
 
             DSMarket.Logica.Entidades.EntidadesConfiguracion.EModificarImpuestoVenta Modificar = null;
@@ -516,7 +538,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                 Item.PorcientoImpuesto,
                 Item.Operacion,
                 Accion);
-            if (Impuesto != null) {
+            if (Impuesto != null)
+            {
                 Modificar = (from n in Impuesto
                              select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EModificarImpuestoVenta
                              {
@@ -533,14 +556,16 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
         #endregion
         #region MAIL
         //BUSCA LOS TIPO DE MAILS
-        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EBuscaTipoMail> BuscaTipoMail(int? IdTipoMail = null) {
+        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EBuscaTipoMail> BuscaTipoMail(int? IdTipoMail = null)
+        {
             ObjData.CommandTimeout = 999999999;
 
             var Buscar = (from n in ObjData.SP_BUSCA_TIPO_MAIL(IdTipoMail)
                           select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EBuscaTipoMail
                           {
                               IdTipoMail = n.IdTipoMail
-                              , TipoMail = n.TipoMail,
+                              ,
+                              TipoMail = n.TipoMail,
                               smtp = n.smtp,
                               Puerto = n.Puerto
                           }).ToList();
@@ -548,7 +573,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
         }
 
         //BUSCA LISTADO DE MAILS
-        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EMail> BuscaMail(decimal? IdMail = null) {
+        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EMail> BuscaMail(decimal? IdMail = null)
+        {
             ObjData.CommandTimeout = 999999999;
 
             var Listado = (from n in ObjData.SP_BUSCA_MAIL(IdMail)
@@ -567,7 +593,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
         }
 
         //MANTENIMIENTO DE MAIL
-        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EMail MantenimientoMail(DSMarket.Logica.Entidades.EntidadesConfiguracion.EMail Item, string Accion) {
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EMail MantenimientoMail(DSMarket.Logica.Entidades.EntidadesConfiguracion.EMail Item, string Accion)
+        {
             ObjData.CommandTimeout = 999999999;
 
             DSMarket.Logica.Entidades.EntidadesConfiguracion.EMail Actualizar = null;
@@ -579,19 +606,142 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                 Item.Estatus,
                 Item.IdTipoCorreo,
                 Accion);
-            if (Mail != null) {
+            if (Mail != null)
+            {
                 Actualizar = (from n in Mail
                               select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EMail
                               {
-                                  IdMail=n.IdMail,
-                                  Mail=n.Mail,
-                                  Clave=n.Clave,
-                                  Estatus=n.Estatus,
-                                  IdTipoCorreo=n.IdTipoCorreo,
+                                  IdMail = n.IdMail,
+                                  Mail = n.Mail,
+                                  Clave = n.Clave,
+                                  Estatus = n.Estatus,
+                                  IdTipoCorreo = n.IdTipoCorreo,
                               }).FirstOrDefault();
             }
             return Actualizar;
         }
         #endregion
+        #region GUARDAR REPORTE PRODUCTOS DEECTUOSOS
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EReporteProductosDefectuosos GuardarRegistrosProductosDefectuosos(DSMarket.Logica.Entidades.EntidadesConfiguracion.EReporteProductosDefectuosos Item, string Accion)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesConfiguracion.EReporteProductosDefectuosos Guardar = null;
+
+            var RegistroProductoDefectuoso = ObjData.SP_GUARDAR_DATOS_REPORTE_PRODUCTOS_DEFECTUOSOS(
+                Item.IdUsuario,
+                Item.NumeroConector,
+                Item.IdTipoProducto,
+                Item.Producto,
+                Item.TipoProducto,
+                Item.IdCategoria,
+                Item.Categoria,
+                Item.IdUnidadMedida,
+                Item.UnidadMedida,
+                Item.Idmarca,
+                Item.Marca,
+                Item.IdModelo,
+                Item.Modelo,
+                Item.IdTipoSuplidor,
+                Item.TipoSuplidor,
+                Item.IdSuplidor,
+                Item.Suplidor,
+                Item.CodigoBarra,
+                Item.Referencia,
+                Item.PrecioCompra,
+                Item.PrecioVenta,
+                Item.Stock,
+                Item.StockMinimo,
+                Item.PorcientoDescuento,
+                Item.AfctaOferta0,
+                Item.AfectaOferta,
+                Item.ProductoAcumulativo0,
+                Item.ProductoAcumulativo,
+                Item.LlevaImagen0,
+                Item.LlevaImagen,
+                Item.UsuarioAdiciona,
+                Item.CreadoPor,
+                Item.FechaAdiciona,
+                Item.FechaCreado,
+                Item.UsuarioModifica,
+                Item.ModificadoPor,
+                Item.FechaModifica,
+                Item.FechaModificado,
+                Item.Fecha,
+                Item.AplicaParaImpuesto0,
+                Item.EstatusProducto0,
+                Item.EstatusProducto,
+                Item.AplicaImpuesto,
+                Item.CantidadAgregada,
+                Item.CantidadRegistros,
+                Item.ProductoConOferta,
+                Item.ProductoProximoAgotarse,
+                Item.ProductosAgostados,
+                Item.TotalProductos,
+                Item.Comentario,
+                Accion);
+            if (RegistroProductoDefectuoso != null)
+            {
+                Guardar = (from n in RegistroProductoDefectuoso
+                           select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EReporteProductosDefectuosos
+                           {
+                                      IdUsuario = n.IdUsuario,
+                                      NumeroConector = n.NumeroConector,
+                                      IdTipoProducto = n.IdTipoProducto,
+                                      Producto = n.Producto,
+                                      TipoProducto = n.TipoProducto,
+                                      IdCategoria = n.IdCategoria,
+                                      Categoria = n.Categoria,
+                                      IdUnidadMedida = n.IdUnidadMedida,
+                                      UnidadMedida = n.UnidadMedida,
+                                      Idmarca = n.Idmarca,
+                                      Marca = n.Marca,
+                                      IdModelo = n.IdModelo,
+                                      Modelo = n.Modelo,
+                                      IdTipoSuplidor = n.IdTipoSuplidor,
+                                      TipoSuplidor = n.TipoSuplidor,
+                                      IdSuplidor = n.IdSuplidor,
+                                      Suplidor = n.Suplidor,
+                                      CodigoBarra = n.CodigoBarra,
+                                      Referencia = n.Referencia,
+                                      PrecioCompra = n.PrecioCompra,
+                                      PrecioVenta = n.PrecioVenta,
+                                      Stock = n.Stock,
+                                      StockMinimo = n.StockMinimo,
+                                      PorcientoDescuento = n.PorcientoDescuento,
+                                      AfctaOferta0 = n.AfctaOferta0,
+                                      AfectaOferta = n.AfectaOferta,
+                                      ProductoAcumulativo0 = n.ProductoAcumulativo0,
+                                      ProductoAcumulativo = n.ProductoAcumulativo,
+                                      LlevaImagen0 = n.LlevaImagen0,
+                                      LlevaImagen = n.LlevaImagen,
+                                      UsuarioAdiciona = n.UsuarioAdiciona,
+                                      CreadoPor = n.CreadoPor,
+                                      FechaAdiciona = n.FechaAdiciona,
+                                      FechaCreado = n.FechaCreado,
+                                      UsuarioModifica = n.UsuarioModifica,
+                                      ModificadoPor = n.ModificadoPor,
+                                      FechaModifica = n.FechaModifica,
+                                      FechaModificado = n.FechaModificado,
+                                      Fecha = n.Fecha,
+                                      AplicaParaImpuesto0 = n.AplicaParaImpuesto0,
+                                      EstatusProducto0 = n.EstatusProducto0,
+                                      EstatusProducto = n.EstatusProducto,
+                                      AplicaImpuesto = n.AplicaImpuesto,
+                                      CantidadAgregada = n.CantidadAgregada,
+                                      CantidadRegistros = n.CantidadRegistros,
+                                      ProductoConOferta = n.ProductoConOferta,
+                                      ProductoProximoAgotarse = n.ProductoProximoAgotarse,
+                                      ProductosAgostados = n.ProductosAgostados,
+                                      TotalProductos = n.TotalProductos,
+                                      Comentario = n.Comentario,
+                           }).FirstOrDefault();
+
+
+
+            }
+            return Guardar;
+            #endregion
+        }
     }
 }

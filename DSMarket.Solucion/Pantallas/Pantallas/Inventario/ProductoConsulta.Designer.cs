@@ -35,17 +35,18 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.cbTodoHistorial = new System.Windows.Forms.CheckBox();
+            this.btnDescartar = new System.Windows.Forms.Button();
             this.btnReporte = new System.Windows.Forms.Button();
             this.btnSuplir = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnOferta = new System.Windows.Forms.Button();
+            this.cbTodoHistorial = new System.Windows.Forms.CheckBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnRestablecer = new System.Windows.Forms.Button();
+            this.btnOferta = new System.Windows.Forms.Button();
             this.txtFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.lbFechaHasta = new System.Windows.Forms.Label();
             this.txtFechaDesde = new System.Windows.Forms.DateTimePicker();
@@ -74,9 +75,9 @@
             this.txtCodigoBarra = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtdescripcion = new System.Windows.Forms.TextBox();
-            this.btnVerProductosPoximoAgotar = new System.Windows.Forms.Button();
-            this.btnVerProductosAgotados = new System.Windows.Forms.Button();
             this.btnProductosDefectuosos = new System.Windows.Forms.Button();
+            this.btnVerProductosAgotados = new System.Windows.Forms.Button();
+            this.btnVerProductosPoximoAgotar = new System.Windows.Forms.Button();
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dtListado = new System.Windows.Forms.DataGridView();
@@ -94,6 +95,9 @@
             this.lbCantidadProductosConOferta = new System.Windows.Forms.Label();
             this.lbCantidadPoductosAgotarse = new System.Windows.Forms.Label();
             this.lbProductosAgotados = new System.Windows.Forms.Label();
+            this.cbProductosVendidosDescartados = new System.Windows.Forms.CheckBox();
+            this.lbClaveSeguridad = new System.Windows.Forms.Label();
+            this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel2.SuspendLayout();
@@ -146,7 +150,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Linen;
-            this.panel2.Controls.Add(this.cbTodoHistorial);
+            this.panel2.Controls.Add(this.btnDescartar);
             this.panel2.Controls.Add(this.btnReporte);
             this.panel2.Controls.Add(this.btnSuplir);
             this.panel2.Controls.Add(this.btnEliminar);
@@ -160,18 +164,22 @@
             this.panel2.Size = new System.Drawing.Size(1242, 58);
             this.panel2.TabIndex = 5;
             // 
-            // cbTodoHistorial
+            // btnDescartar
             // 
-            this.cbTodoHistorial.AutoSize = true;
-            this.cbTodoHistorial.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbTodoHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbTodoHistorial.Location = new System.Drawing.Point(1060, 22);
-            this.cbTodoHistorial.Name = "cbTodoHistorial";
-            this.cbTodoHistorial.Size = new System.Drawing.Size(108, 19);
-            this.cbTodoHistorial.TabIndex = 71;
-            this.cbTodoHistorial.Text = "Todo el Historial";
-            this.toolTip1.SetToolTip(this.cbTodoHistorial, "Mostrar todo el Historial");
-            this.cbTodoHistorial.UseVisualStyleBackColor = true;
+            this.btnDescartar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDescartar.FlatAppearance.BorderSize = 0;
+            this.btnDescartar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDescartar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDescartar.Image = global::DSMarket.Solucion.Properties.Resources.Eliminar;
+            this.btnDescartar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDescartar.Location = new System.Drawing.Point(1060, 7);
+            this.btnDescartar.Name = "btnDescartar";
+            this.btnDescartar.Size = new System.Drawing.Size(170, 41);
+            this.btnDescartar.TabIndex = 71;
+            this.btnDescartar.Text = "      Descartar";
+            this.toolTip1.SetToolTip(this.btnDescartar, "Pasar Pasar el producto seleccionado a la pantalla de Productos defectuosos");
+            this.btnDescartar.UseVisualStyleBackColor = true;
+            this.btnDescartar.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnReporte
             // 
@@ -278,27 +286,23 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // btnOferta
+            // cbTodoHistorial
             // 
-            this.btnOferta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOferta.Enabled = false;
-            this.btnOferta.FlatAppearance.BorderSize = 0;
-            this.btnOferta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnOferta.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOferta.Image = global::DSMarket.Solucion.Properties.Resources.Eliminar;
-            this.btnOferta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOferta.Location = new System.Drawing.Point(638, 116);
-            this.btnOferta.Name = "btnOferta";
-            this.btnOferta.Size = new System.Drawing.Size(170, 41);
-            this.btnOferta.TabIndex = 69;
-            this.btnOferta.Text = "      Ofertas";
-            this.toolTip1.SetToolTip(this.btnOferta, "Agregar ofertas a productos");
-            this.btnOferta.UseVisualStyleBackColor = true;
-            this.btnOferta.Visible = false;
-            this.btnOferta.Click += new System.EventHandler(this.btnOferta_Click);
+            this.cbTodoHistorial.AutoSize = true;
+            this.cbTodoHistorial.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbTodoHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbTodoHistorial.Location = new System.Drawing.Point(427, 55);
+            this.cbTodoHistorial.Name = "cbTodoHistorial";
+            this.cbTodoHistorial.Size = new System.Drawing.Size(148, 24);
+            this.cbTodoHistorial.TabIndex = 71;
+            this.cbTodoHistorial.Text = "Todo el Historial";
+            this.toolTip1.SetToolTip(this.cbTodoHistorial, "Mostrar todo el Historial");
+            this.cbTodoHistorial.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbProductosVendidosDescartados);
+            this.groupBox1.Controls.Add(this.cbTodoHistorial);
             this.groupBox1.Controls.Add(this.btnRestablecer);
             this.groupBox1.Controls.Add(this.btnOferta);
             this.groupBox1.Controls.Add(this.txtFechaHasta);
@@ -351,6 +355,25 @@
             this.toolTip1.SetToolTip(this.btnRestablecer, "Agregar ofertas a productos");
             this.btnRestablecer.UseVisualStyleBackColor = true;
             this.btnRestablecer.Click += new System.EventHandler(this.btnRestablecer_Click);
+            // 
+            // btnOferta
+            // 
+            this.btnOferta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOferta.Enabled = false;
+            this.btnOferta.FlatAppearance.BorderSize = 0;
+            this.btnOferta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnOferta.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOferta.Image = global::DSMarket.Solucion.Properties.Resources.Eliminar;
+            this.btnOferta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOferta.Location = new System.Drawing.Point(638, 116);
+            this.btnOferta.Name = "btnOferta";
+            this.btnOferta.Size = new System.Drawing.Size(170, 41);
+            this.btnOferta.TabIndex = 69;
+            this.btnOferta.Text = "      Ofertas";
+            this.toolTip1.SetToolTip(this.btnOferta, "Agregar ofertas a productos");
+            this.btnOferta.UseVisualStyleBackColor = true;
+            this.btnOferta.Visible = false;
+            this.btnOferta.Click += new System.EventHandler(this.btnOferta_Click);
             // 
             // txtFechaHasta
             // 
@@ -520,7 +543,7 @@
             this.groupBox2.Controls.Add(this.rbSinOferta);
             this.groupBox2.Controls.Add(this.rbConOferta);
             this.groupBox2.Controls.Add(this.rbAmbos);
-            this.groupBox2.Location = new System.Drawing.Point(427, 55);
+            this.groupBox2.Location = new System.Drawing.Point(824, 152);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(318, 63);
             this.groupBox2.TabIndex = 11;
@@ -647,18 +670,18 @@
             this.txtdescripcion.Size = new System.Drawing.Size(274, 27);
             this.txtdescripcion.TabIndex = 0;
             // 
-            // btnVerProductosPoximoAgotar
+            // btnProductosDefectuosos
             // 
-            this.btnVerProductosPoximoAgotar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnVerProductosPoximoAgotar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnVerProductosPoximoAgotar.Image = global::DSMarket.Solucion.Properties.Resources.ojo;
-            this.btnVerProductosPoximoAgotar.Location = new System.Drawing.Point(1104, 627);
-            this.btnVerProductosPoximoAgotar.Name = "btnVerProductosPoximoAgotar";
-            this.btnVerProductosPoximoAgotar.Size = new System.Drawing.Size(41, 29);
-            this.btnVerProductosPoximoAgotar.TabIndex = 69;
-            this.toolTip1.SetToolTip(this.btnVerProductosPoximoAgotar, "Ver listado de los productos proximo a agotarse");
-            this.btnVerProductosPoximoAgotar.UseVisualStyleBackColor = true;
-            this.btnVerProductosPoximoAgotar.Click += new System.EventHandler(this.btnVerProductosPoximoAgotar_Click);
+            this.btnProductosDefectuosos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProductosDefectuosos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnProductosDefectuosos.Image = global::DSMarket.Solucion.Properties.Resources.ojo;
+            this.btnProductosDefectuosos.Location = new System.Drawing.Point(707, 662);
+            this.btnProductosDefectuosos.Name = "btnProductosDefectuosos";
+            this.btnProductosDefectuosos.Size = new System.Drawing.Size(41, 29);
+            this.btnProductosDefectuosos.TabIndex = 71;
+            this.toolTip1.SetToolTip(this.btnProductosDefectuosos, "Productos defectuosos");
+            this.btnProductosDefectuosos.UseVisualStyleBackColor = true;
+            this.btnProductosDefectuosos.Click += new System.EventHandler(this.btnProductoConOfertas_Click);
             // 
             // btnVerProductosAgotados
             // 
@@ -673,18 +696,18 @@
             this.btnVerProductosAgotados.UseVisualStyleBackColor = true;
             this.btnVerProductosAgotados.Click += new System.EventHandler(this.btnVerProductosAgotados_Click);
             // 
-            // btnProductosDefectuosos
+            // btnVerProductosPoximoAgotar
             // 
-            this.btnProductosDefectuosos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProductosDefectuosos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnProductosDefectuosos.Image = global::DSMarket.Solucion.Properties.Resources.ojo;
-            this.btnProductosDefectuosos.Location = new System.Drawing.Point(707, 662);
-            this.btnProductosDefectuosos.Name = "btnProductosDefectuosos";
-            this.btnProductosDefectuosos.Size = new System.Drawing.Size(41, 29);
-            this.btnProductosDefectuosos.TabIndex = 71;
-            this.toolTip1.SetToolTip(this.btnProductosDefectuosos, "Productos defectuosos");
-            this.btnProductosDefectuosos.UseVisualStyleBackColor = true;
-            this.btnProductosDefectuosos.Click += new System.EventHandler(this.btnProductoConOfertas_Click);
+            this.btnVerProductosPoximoAgotar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVerProductosPoximoAgotar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnVerProductosPoximoAgotar.Image = global::DSMarket.Solucion.Properties.Resources.ojo;
+            this.btnVerProductosPoximoAgotar.Location = new System.Drawing.Point(1104, 627);
+            this.btnVerProductosPoximoAgotar.Name = "btnVerProductosPoximoAgotar";
+            this.btnVerProductosPoximoAgotar.Size = new System.Drawing.Size(41, 29);
+            this.btnVerProductosPoximoAgotar.TabIndex = 69;
+            this.toolTip1.SetToolTip(this.btnVerProductosPoximoAgotar, "Ver listado de los productos proximo a agotarse");
+            this.btnVerProductosPoximoAgotar.UseVisualStyleBackColor = true;
+            this.btnVerProductosPoximoAgotar.Click += new System.EventHandler(this.btnVerProductosPoximoAgotar_Click);
             // 
             // txtNumeroRegistros
             // 
@@ -898,6 +921,42 @@
             this.lbProductosAgotados.TabIndex = 66;
             this.lbProductosAgotados.Text = "0";
             // 
+            // cbProductosVendidosDescartados
+            // 
+            this.cbProductosVendidosDescartados.AutoSize = true;
+            this.cbProductosVendidosDescartados.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbProductosVendidosDescartados.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbProductosVendidosDescartados.Location = new System.Drawing.Point(581, 55);
+            this.cbProductosVendidosDescartados.Name = "cbProductosVendidosDescartados";
+            this.cbProductosVendidosDescartados.Size = new System.Drawing.Size(272, 24);
+            this.cbProductosVendidosDescartados.TabIndex = 72;
+            this.cbProductosVendidosDescartados.Text = "Productos Vendidos / Descartados";
+            this.toolTip1.SetToolTip(this.cbProductosVendidosDescartados, "Mostrar todos los productos que fueron vendidos o descartados");
+            this.cbProductosVendidosDescartados.UseVisualStyleBackColor = true;
+            this.cbProductosVendidosDescartados.CheckedChanged += new System.EventHandler(this.cbProductosVendidosDescartados_CheckedChanged);
+            // 
+            // lbClaveSeguridad
+            // 
+            this.lbClaveSeguridad.AutoSize = true;
+            this.lbClaveSeguridad.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbClaveSeguridad.Location = new System.Drawing.Point(10, 675);
+            this.lbClaveSeguridad.Name = "lbClaveSeguridad";
+            this.lbClaveSeguridad.Size = new System.Drawing.Size(166, 21);
+            this.lbClaveSeguridad.TabIndex = 74;
+            this.lbClaveSeguridad.Text = "Clave de Seguridad";
+            this.lbClaveSeguridad.Visible = false;
+            // 
+            // txtClaveSeguridad
+            // 
+            this.txtClaveSeguridad.BackColor = System.Drawing.Color.Silver;
+            this.txtClaveSeguridad.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClaveSeguridad.Location = new System.Drawing.Point(182, 672);
+            this.txtClaveSeguridad.Name = "txtClaveSeguridad";
+            this.txtClaveSeguridad.PasswordChar = '•';
+            this.txtClaveSeguridad.Size = new System.Drawing.Size(226, 27);
+            this.txtClaveSeguridad.TabIndex = 73;
+            this.txtClaveSeguridad.Visible = false;
+            // 
             // ProductoConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -905,7 +964,9 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1242, 708);
+            this.Controls.Add(this.lbClaveSeguridad);
             this.Controls.Add(this.btnProductosDefectuosos);
+            this.Controls.Add(this.txtClaveSeguridad);
             this.Controls.Add(this.btnVerProductosAgotados);
             this.Controls.Add(this.btnVerProductosPoximoAgotar);
             this.Controls.Add(this.lbProductosAgotados);
@@ -938,7 +999,6 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -1019,5 +1079,9 @@
         private System.Windows.Forms.DataGridViewButtonColumn Select;
         private System.Windows.Forms.Button btnRestablecer;
         private System.Windows.Forms.CheckBox cbTodoHistorial;
+        private System.Windows.Forms.Button btnDescartar;
+        private System.Windows.Forms.CheckBox cbProductosVendidosDescartados;
+        private System.Windows.Forms.Label lbClaveSeguridad;
+        private System.Windows.Forms.TextBox txtClaveSeguridad;
     }
 }

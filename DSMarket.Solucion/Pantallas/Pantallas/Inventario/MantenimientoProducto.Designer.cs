@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MantenimientoProducto));
             this.panel1 = new System.Windows.Forms.Panel();
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
@@ -91,12 +92,14 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPorcientoDescuento)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -272,9 +275,9 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.pbFoto);
-            this.groupBox3.Location = new System.Drawing.Point(952, 19);
+            this.groupBox3.Location = new System.Drawing.Point(984, 19);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(279, 291);
+            this.groupBox3.Size = new System.Drawing.Size(247, 291);
             this.groupBox3.TabIndex = 51;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Foto de Producto";
@@ -285,7 +288,7 @@
             this.pbFoto.Image = global::DSMarket.Solucion.Properties.Resources.SinImagen;
             this.pbFoto.Location = new System.Drawing.Point(3, 23);
             this.pbFoto.Name = "pbFoto";
-            this.pbFoto.Size = new System.Drawing.Size(273, 265);
+            this.pbFoto.Size = new System.Drawing.Size(241, 265);
             this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbFoto.TabIndex = 0;
             this.pbFoto.TabStop = false;
@@ -839,6 +842,11 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
+            // 
             // MantenimientoProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -863,6 +871,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPorcientoDescuento)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -932,5 +941,6 @@
         private System.Windows.Forms.CheckBox cbLlevaImagen;
         private System.Windows.Forms.NumericUpDown txtPorcientoDescuento;
         private System.Windows.Forms.CheckBox cbAplicaDescuento;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

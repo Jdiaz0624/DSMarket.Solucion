@@ -349,15 +349,18 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         #region MOSTRAR LA IMAGEN DEL PRODUCTO SELECCIONADO
         private void MostrarImagenSeleccionado(PictureBox Imaen)
         {
-            SqlCommand comando = new SqlCommand("select FotoProducto from Inventario.FotoProducto where IdProducto = " + VariablesGlobales.IdMantenimeinto + " and NumeroConector = " + VariablesGlobales.NumeroConector, DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion());
-            SqlDataAdapter adaptar = new SqlDataAdapter(comando);
-            DataSet ds = new DataSet("FotoProducto");
-            adaptar.Fill(ds, "FotoProducto");
-            byte[] DATOS = new byte[0];
-            DataRow dr = ds.Tables["FotoProducto"].Rows[0];
-            DATOS = (byte[])dr["FotoProducto"];
-            MemoryStream ms = new MemoryStream(DATOS);
-            Imaen.Image = System.Drawing.Bitmap.FromStream(ms);
+            try {
+                SqlCommand comando = new SqlCommand("select FotoProducto from Inventario.FotoProducto where IdProducto = " + VariablesGlobales.IdMantenimeinto + " and NumeroConector = " + VariablesGlobales.NumeroConector, DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion());
+                SqlDataAdapter adaptar = new SqlDataAdapter(comando);
+                DataSet ds = new DataSet("FotoProducto");
+                adaptar.Fill(ds, "FotoProducto");
+                byte[] DATOS = new byte[0];
+                DataRow dr = ds.Tables["FotoProducto"].Rows[0];
+                DATOS = (byte[])dr["FotoProducto"];
+                MemoryStream ms = new MemoryStream(DATOS);
+                Imaen.Image = System.Drawing.Bitmap.FromStream(ms);
+            }
+            catch (Exception) { }
         }
         #endregion
         private void PCerrar_Click(object sender, EventArgs e)
@@ -584,6 +587,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             if (string.IsNullOrEmpty(ddlSeleccionarTipoProducto.Text.Trim()) || string.IsNullOrEmpty(ddlSeleccionarCategoria.Text.Trim()) || string.IsNullOrEmpty(ddlSeleccionarUnidadMedida.Text.Trim()) || string.IsNullOrEmpty(ddlSeleccionarMarca.Text.Trim()) || string.IsNullOrEmpty(ddlSeleccionarModelo.Text.Trim()) || string.IsNullOrEmpty(ddlSeleccionarTipoSuplidor.Text.Trim()) || string.IsNullOrEmpty(ddlSeleccionarSuplidor.Text.Trim()) || string.IsNullOrEmpty(txtdescripcion.Text.Trim()) || string.IsNullOrEmpty(txtPrecioCompra.Text.Trim()) || string.IsNullOrEmpty(txtPrecioVenta.Text.Trim()) || string.IsNullOrEmpty(txtStock.Text.Trim()) || string.IsNullOrEmpty(txtStockMinimo.Text.Trim()) || string.IsNullOrEmpty(txtPorcientoDescuento.Text.Trim()))
             {
                 MessageBox.Show("Has dejado campos vacios que son necesarios para realizar esta operación, los campos que tienen * son obligatorios.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (string.IsNullOrEmpty(txtPrecioCompra.Text.Trim())) {
+                    errorProvider1.SetError(txtPrecioCompra, "Campo Vacio");
+                }
+                if (string.IsNullOrEmpty(txtPrecioVenta.Text.Trim()))
+                {
+                    errorProvider1.SetError(txtPrecioVenta, "Campo Vacio");
+                }
             }
             else
             {

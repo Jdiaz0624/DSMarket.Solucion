@@ -138,9 +138,41 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
         }
         #endregion
 
+        #region GENERAR EL REPORTE DE PRODUCTOS DEFECTUOSOS
+        public void GenerarReporteProductosDefectuosos(decimal IdUsuario, string RutaReporte, string UsuarioBD, string ClaveBD)
+        {
+            try
+            {
+                ReportDocument Ganancia = new ReportDocument();
+
+                SqlCommand comando = new SqlCommand();
+                comando.CommandText = "EXEC [Reporte].[REPORTE_LISTADO_PRODUCTOS_DEFECTUOSOS] @IdUsuario";
+                comando.Connection = DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion();
+
+                comando.Parameters.Add("@IdUsuario", SqlDbType.Decimal);
+                comando.Parameters["@IdUsuario"].Value = IdUsuario;
+
+                Ganancia.Load(@"" + RutaReporte);
+                Ganancia.Refresh();
+                Ganancia.SetParameterValue("@IdUsuario", IdUsuario);
+                Ganancia.SetDatabaseLogon(UsuarioBD, ClaveBD);
+                crystalReportViewer1.ReportSource = Ganancia;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al generar el reporte de los productos defectuosos, codigo de error: " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
+
         private void Reportes_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+        }
+
+        private void crystalReportViewer1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

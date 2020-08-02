@@ -750,6 +750,7 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                               ProductosConOferta = n.ProductosConOferta,
                               ProductoProximoAgotarse = n.ProductoProximoAgotarse,
                               ProductosAgostados = n.ProductosAgostados,
+                              TotalProductos=n.TotalProductos,
                               Comentario = n.Comentario,
                           }).ToList();
             return Buscar;
@@ -829,6 +830,19 @@ namespace DSMarket.Logica.Logica.LogicaInventario
             return Mantenimiento;
         }
 
+        #endregion
+
+        #region MOSTRAR LA CANTIDAD DE LOS PRODUCTOS DEFECTUOSOS
+        public List<DSMarket.Logica.Entidades.EntidadesInventario.ECantidadProductosDefectuosos> CantidadProductosDefectuosos() {
+            Objdata.CommandTimeout = 999999999;
+
+            var Cantidad = (from n in Objdata.SP_MOSTRAR_CANTIDAD_PRODUCTOS_DEFECTUOSOS()
+                            select new DSMarket.Logica.Entidades.EntidadesInventario.ECantidadProductosDefectuosos
+                            {
+                                CantidadProductosDefectuosos=n.CantidadProductosDefectuosos
+                            }).ToList();
+            return Cantidad;
+        }
         #endregion
     }
 }
