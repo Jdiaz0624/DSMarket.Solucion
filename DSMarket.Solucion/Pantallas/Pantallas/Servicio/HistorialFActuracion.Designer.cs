@@ -55,6 +55,7 @@
             this.btnProductos = new System.Windows.Forms.Button();
             this.rbfacturaenglish = new System.Windows.Forms.RadioButton();
             this.rbfacturaspanish = new System.Windows.Forms.RadioButton();
+            this.cbFacturaPuntoVenta = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
@@ -77,7 +78,14 @@
             this.lbCantidadProductos = new System.Windows.Forms.Label();
             this.lbCantidadServicios = new System.Windows.Forms.Label();
             this.lbCantidadTotal = new System.Windows.Forms.Label();
-            this.cbFacturaPuntoVenta = new System.Windows.Forms.CheckBox();
+            this.lbCantidadProcesar = new System.Windows.Forms.Label();
+            this.lbCantidadFacturada = new System.Windows.Forms.Label();
+            this.txtCantidadProcesar = new System.Windows.Forms.TextBox();
+            this.txtCantidadFacturada = new System.Windows.Forms.TextBox();
+            this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
+            this.lbClaveSeguridad = new System.Windows.Forms.Label();
+            this.btnDescartarProducto = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel2.SuspendLayout();
@@ -87,6 +95,7 @@
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -105,7 +114,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1233, 38);
+            this.panel1.Size = new System.Drawing.Size(1325, 38);
             this.panel1.TabIndex = 3;
             // 
             // lbCantidadRegistrosVariable
@@ -140,7 +149,7 @@
             this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(1189, 5);
+            this.PCerrar.Location = new System.Drawing.Point(1281, 5);
             this.PCerrar.Margin = new System.Windows.Forms.Padding(5);
             this.PCerrar.Name = "PCerrar";
             this.PCerrar.Size = new System.Drawing.Size(30, 30);
@@ -152,6 +161,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Linen;
+            this.panel2.Controls.Add(this.btnDescartarProducto);
             this.panel2.Controls.Add(this.btnEstadistica);
             this.panel2.Controls.Add(this.btnAnular);
             this.panel2.Controls.Add(this.btnReporte);
@@ -163,7 +173,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 38);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1233, 58);
+            this.panel2.Size = new System.Drawing.Size(1325, 58);
             this.panel2.TabIndex = 5;
             // 
             // btnEstadistica
@@ -469,6 +479,19 @@
             this.rbfacturaspanish.UseVisualStyleBackColor = true;
             this.rbfacturaspanish.Visible = false;
             // 
+            // cbFacturaPuntoVenta
+            // 
+            this.cbFacturaPuntoVenta.AutoSize = true;
+            this.cbFacturaPuntoVenta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbFacturaPuntoVenta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbFacturaPuntoVenta.Location = new System.Drawing.Point(1010, 179);
+            this.cbFacturaPuntoVenta.Name = "cbFacturaPuntoVenta";
+            this.cbFacturaPuntoVenta.Size = new System.Drawing.Size(141, 24);
+            this.cbFacturaPuntoVenta.TabIndex = 79;
+            this.cbFacturaPuntoVenta.Text = "Punto de Venta";
+            this.toolTip1.SetToolTip(this.cbFacturaPuntoVenta, "Generar la factura en formato de punto de venta.");
+            this.cbFacturaPuntoVenta.UseVisualStyleBackColor = true;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cbNoagregarRangofecha);
@@ -489,7 +512,7 @@
             // 
             this.lbNumeroRegistros.AutoSize = true;
             this.lbNumeroRegistros.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNumeroRegistros.Location = new System.Drawing.Point(188, 600);
+            this.lbNumeroRegistros.Location = new System.Drawing.Point(221, 601);
             this.lbNumeroRegistros.Name = "lbNumeroRegistros";
             this.lbNumeroRegistros.Size = new System.Drawing.Size(100, 19);
             this.lbNumeroRegistros.TabIndex = 23;
@@ -499,7 +522,7 @@
             // 
             this.lbNumeroPagina.AutoSize = true;
             this.lbNumeroPagina.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNumeroPagina.Location = new System.Drawing.Point(15, 600);
+            this.lbNumeroPagina.Location = new System.Drawing.Point(36, 600);
             this.lbNumeroPagina.Name = "lbNumeroPagina";
             this.lbNumeroPagina.Size = new System.Drawing.Size(91, 19);
             this.lbNumeroPagina.TabIndex = 21;
@@ -508,9 +531,9 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.dtListado);
-            this.groupBox5.Location = new System.Drawing.Point(16, 316);
+            this.groupBox5.Location = new System.Drawing.Point(16, 322);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1210, 281);
+            this.groupBox5.Size = new System.Drawing.Size(1297, 275);
             this.groupBox5.TabIndex = 20;
             this.groupBox5.TabStop = false;
             // 
@@ -532,7 +555,7 @@
             this.dtListado.Name = "dtListado";
             this.dtListado.ReadOnly = true;
             this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(1204, 255);
+            this.dtListado.Size = new System.Drawing.Size(1291, 249);
             this.dtListado.TabIndex = 0;
             this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
@@ -704,18 +727,88 @@
             this.lbCantidadTotal.Text = "Cantidad Total";
             this.lbCantidadTotal.Visible = false;
             // 
-            // cbFacturaPuntoVenta
+            // lbCantidadProcesar
             // 
-            this.cbFacturaPuntoVenta.AutoSize = true;
-            this.cbFacturaPuntoVenta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbFacturaPuntoVenta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbFacturaPuntoVenta.Location = new System.Drawing.Point(1010, 179);
-            this.cbFacturaPuntoVenta.Name = "cbFacturaPuntoVenta";
-            this.cbFacturaPuntoVenta.Size = new System.Drawing.Size(141, 24);
-            this.cbFacturaPuntoVenta.TabIndex = 79;
-            this.cbFacturaPuntoVenta.Text = "Punto de Venta";
-            this.toolTip1.SetToolTip(this.cbFacturaPuntoVenta, "Generar la factura en formato de punto de venta.");
-            this.cbFacturaPuntoVenta.UseVisualStyleBackColor = true;
+            this.lbCantidadProcesar.AutoSize = true;
+            this.lbCantidadProcesar.Location = new System.Drawing.Point(1021, 239);
+            this.lbCantidadProcesar.Name = "lbCantidadProcesar";
+            this.lbCantidadProcesar.Size = new System.Drawing.Size(146, 20);
+            this.lbCantidadProcesar.TabIndex = 84;
+            this.lbCantidadProcesar.Text = "Cantidad Procesar";
+            this.lbCantidadProcesar.Visible = false;
+            // 
+            // lbCantidadFacturada
+            // 
+            this.lbCantidadFacturada.AutoSize = true;
+            this.lbCantidadFacturada.Location = new System.Drawing.Point(986, 210);
+            this.lbCantidadFacturada.Name = "lbCantidadFacturada";
+            this.lbCantidadFacturada.Size = new System.Drawing.Size(180, 20);
+            this.lbCantidadFacturada.TabIndex = 80;
+            this.lbCantidadFacturada.Text = "Cantidad de Facturada";
+            this.lbCantidadFacturada.Visible = false;
+            // 
+            // txtCantidadProcesar
+            // 
+            this.txtCantidadProcesar.Enabled = false;
+            this.txtCantidadProcesar.Location = new System.Drawing.Point(1170, 235);
+            this.txtCantidadProcesar.Name = "txtCantidadProcesar";
+            this.txtCantidadProcesar.Size = new System.Drawing.Size(124, 27);
+            this.txtCantidadProcesar.TabIndex = 82;
+            this.txtCantidadProcesar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCantidadProcesar.Visible = false;
+            this.txtCantidadProcesar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidadProcesar_KeyPress);
+            // 
+            // txtCantidadFacturada
+            // 
+            this.txtCantidadFacturada.Location = new System.Drawing.Point(1170, 206);
+            this.txtCantidadFacturada.Name = "txtCantidadFacturada";
+            this.txtCantidadFacturada.Size = new System.Drawing.Size(124, 27);
+            this.txtCantidadFacturada.TabIndex = 81;
+            this.txtCantidadFacturada.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCantidadFacturada.Visible = false;
+            this.txtCantidadFacturada.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidadProcesar_KeyPress);
+            // 
+            // txtClaveSeguridad
+            // 
+            this.txtClaveSeguridad.Location = new System.Drawing.Point(1170, 264);
+            this.txtClaveSeguridad.MaxLength = 20;
+            this.txtClaveSeguridad.Name = "txtClaveSeguridad";
+            this.txtClaveSeguridad.PasswordChar = '•';
+            this.txtClaveSeguridad.Size = new System.Drawing.Size(124, 27);
+            this.txtClaveSeguridad.TabIndex = 83;
+            this.txtClaveSeguridad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtClaveSeguridad.Visible = false;
+            // 
+            // lbClaveSeguridad
+            // 
+            this.lbClaveSeguridad.AutoSize = true;
+            this.lbClaveSeguridad.Location = new System.Drawing.Point(1035, 268);
+            this.lbClaveSeguridad.Name = "lbClaveSeguridad";
+            this.lbClaveSeguridad.Size = new System.Drawing.Size(132, 20);
+            this.lbClaveSeguridad.TabIndex = 85;
+            this.lbClaveSeguridad.Text = "Clave Seguridad";
+            this.lbClaveSeguridad.Visible = false;
+            // 
+            // btnDescartarProducto
+            // 
+            this.btnDescartarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDescartarProducto.Enabled = false;
+            this.btnDescartarProducto.FlatAppearance.BorderSize = 0;
+            this.btnDescartarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDescartarProducto.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDescartarProducto.Image = global::DSMarket.Solucion.Properties.Resources.Eliminar;
+            this.btnDescartarProducto.Location = new System.Drawing.Point(1265, 7);
+            this.btnDescartarProducto.Name = "btnDescartarProducto";
+            this.btnDescartarProducto.Size = new System.Drawing.Size(45, 41);
+            this.btnDescartarProducto.TabIndex = 71;
+            this.btnDescartarProducto.Text = "      ";
+            this.toolTip1.SetToolTip(this.btnDescartarProducto, "Descartar Producto Seleccionado");
+            this.btnDescartarProducto.UseVisualStyleBackColor = true;
+            this.btnDescartarProducto.Click += new System.EventHandler(this.btnDescartarProducto_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // HistorialFActuracion
             // 
@@ -723,7 +816,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1233, 636);
+            this.ClientSize = new System.Drawing.Size(1325, 636);
+            this.Controls.Add(this.lbClaveSeguridad);
+            this.Controls.Add(this.lbCantidadProcesar);
+            this.Controls.Add(this.lbCantidadFacturada);
+            this.Controls.Add(this.txtClaveSeguridad);
+            this.Controls.Add(this.txtCantidadProcesar);
+            this.Controls.Add(this.txtCantidadFacturada);
             this.Controls.Add(this.cbFacturaPuntoVenta);
             this.Controls.Add(this.lbCantidadTotal);
             this.Controls.Add(this.lbCantidadServicios);
@@ -766,6 +865,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -822,5 +922,13 @@
         private System.Windows.Forms.TextBox txtCantidadServicios;
         private System.Windows.Forms.TextBox txtCantidadProductos;
         private System.Windows.Forms.CheckBox cbFacturaPuntoVenta;
+        private System.Windows.Forms.Label lbClaveSeguridad;
+        private System.Windows.Forms.Label lbCantidadProcesar;
+        private System.Windows.Forms.Label lbCantidadFacturada;
+        private System.Windows.Forms.TextBox txtClaveSeguridad;
+        private System.Windows.Forms.TextBox txtCantidadProcesar;
+        private System.Windows.Forms.TextBox txtCantidadFacturada;
+        private System.Windows.Forms.Button btnDescartarProducto;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -94,7 +94,9 @@ namespace DSMarket.Logica.Comunes
         #endregion
 
         public bool GananciaFacturaUnica { get; set; }
-        
+
+        public bool ProductoHistorial { get; set; }
+
         public decimal TotalPagarFacturacion { get; set; }
     }
 }

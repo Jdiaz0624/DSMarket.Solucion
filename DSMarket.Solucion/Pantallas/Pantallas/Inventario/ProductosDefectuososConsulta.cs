@@ -83,7 +83,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.dtListado.Columns["EstatusProducto0"].Visible = false;
             this.dtListado.Columns["EstatusProducto"].Visible = false;
             this.dtListado.Columns["AplicaParaImpuesto"].Visible = false;
-            this.dtListado.Columns["CantidadAgregada"].Visible = false;
+          //  this.dtListado.Columns["CantidadAgregada"].Visible = false;
             this.dtListado.Columns["CantidadRegistros"].Visible = false;
             this.dtListado.Columns["ProductosConOferta"].Visible = false;
             this.dtListado.Columns["ProductoProximoAgotarse"].Visible = false;
