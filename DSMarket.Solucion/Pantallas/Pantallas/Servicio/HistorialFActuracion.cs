@@ -2000,8 +2000,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 }
                 else {
                     //VALIDAMOS LA CANTIDAD A PROCESAR
-                    if (string.IsNullOrEmpty(txtCantidadProcesar.Text.Trim())) {
-                        MessageBox.Show("La cantidad a procesar no puede estar vacia, favor de verificar
+                    if (string.IsNullOrEmpty(txtCantidadProcesar.Text.Trim()))
+                    {
+                        MessageBox.Show("La cantidad a procesar no puede estar vacia, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        errorProvider1.SetError(txtCantidadProcesar, "");
+                    }
+                    else {
+                        //PEPITO
                     }
                 }
             }
