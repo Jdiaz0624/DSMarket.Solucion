@@ -148,6 +148,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             MostrarListadoProductosDefectuosos();
+            lbClaveSeguridad.Visible = false;
+            txtClaveSeguridad.Visible = false;
+            txtClaveSeguridad.Text = string.Empty;
         }
 
         private void txtNumeroPagina_ValueChanged(object sender, EventArgs e)
@@ -261,6 +264,133 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
             //INVOCAMOS EL RPEORTE
             InvocarReporte();
+        }
+
+        private void cbEliminarTodo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbEliminarTodo.Checked)
+            {
+                btnEliminar.Enabled = true;
+                dtListado.Enabled = true;
+                lbClaveSeguridad.Visible = true;
+                txtClaveSeguridad.Visible = true;
+            }
+            else {
+                btnEliminar.Enabled = false;
+                dtListado.Enabled = false;
+                lbClaveSeguridad.Visible = false;
+                txtClaveSeguridad.Visible = false;
+                txtClaveSeguridad.Text = string.Empty;
+            }
+        }
+
+        private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+                this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdProductoDefectuoso"].Value.ToString());
+                this.VariablesGlobales.NumeroConector = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["NumeroConector"].Value.ToString());
+
+                var BuscarRegostro = ObjDataInventario.Value.BuscaProductosDefectuosos(
+                    VariablesGlobales.IdMantenimeinto,
+                    VariablesGlobales.NumeroConector,
+                    null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                dtListado.DataSource = BuscarRegostro;
+                OcultarColumnas();
+                btnEliminar.Enabled = true;
+                lbClaveSeguridad.Visible = true;
+                txtClaveSeguridad.Visible = true;
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (cbEliminarTodo.Checked) {
+                //ELIMINAR TODO EL HISTORIAL
+                if (string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()))
+                {
+                    MessageBox.Show("El campo clave de seguridad no puede estar vacio, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()))
+                    {
+                        errorProvider1.SetError(txtClaveSeguridad, "Campo Vacio");
+                    }
+                }
+                else {
+                        //VALIDAMOS LA CLAVE DE SEGURIDAD
+                        string _ClaveSeguridad = string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()) ? null : txtClaveSeguridad.Text.Trim();
+
+                        var Validar = ObjDataSeguridad.Value.BuscaClaveSeguridad(
+                            new Nullable<decimal>(),
+                            null,
+                            DSMarket.Logica.Comunes.SeguridadEncriptacion.Encriptar(_ClaveSeguridad),
+                            1, 1);
+                        if (Validar.Count() < 1)
+                        {
+                            MessageBox.Show("La clave de seguridad ingresada no es valida, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txtClaveSeguridad.Text = string.Empty;
+                            txtClaveSeguridad.Focus();
+                        }
+                        else
+                        {
+
+                            if (MessageBox.Show("Si procedes eliminaras todos los registros del historial, ¿Quieres continuar con este proceso?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            {
+                                DSMarket.Logica.Entidades.EntidadesInventario.EProductosDefectuosos Eliminar = new Logica.Entidades.EntidadesInventario.EProductosDefectuosos();
+                                var MAN = ObjDataInventario.Value.MantenimientoProductosDefectuoso(Eliminar, "DELETEALL");
+                                MessageBox.Show("Todos los registros del historial fueron eliminados exitosamente", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MostrarListadoProductosDefectuosos();
+                                lbClaveSeguridad.Visible = false;
+                                txtClaveSeguridad.Visible = false;
+                                txtClaveSeguridad.Text = string.Empty;
+                                btnEliminar.Enabled = false;
+                                cbEliminarTodo.Checked = false;
+                            }
+                        }
+                    }
+              
+              
+          
+            }
+            else {
+                //ELIMINAR EL REGISTRO SELECCIONADO
+                //VALIDAMOS SI EL CAMPOS ESTA VACIO
+                if (string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()))
+                {
+                    MessageBox.Show("El campo clave de seguridad no puede estar vacio, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()))
+                    {
+                        errorProvider1.SetError(txtClaveSeguridad, "Campo Vacio");
+                    }
+                }
+                else {
+                    //VALIDAMOS QUE LA CLAVE DE SEGURIDAD INGRESADA ES VALIDA
+                    string _ClaveSeguridad = string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()) ? null : txtClaveSeguridad.Text.Trim();
+
+                    var Validar = ObjDataSeguridad.Value.BuscaClaveSeguridad(
+                        new Nullable<decimal>(),
+                        null,
+                        DSMarket.Logica.Comunes.SeguridadEncriptacion.Encriptar(_ClaveSeguridad),
+                        1, 1);
+                    if (Validar.Count() < 1)
+                    {
+                        MessageBox.Show("La clave de seguridad ingresada no es valida, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtClaveSeguridad.Text = string.Empty;
+                        txtClaveSeguridad.Focus();
+                    }
+                    else {
+                        DSMarket.Logica.Entidades.EntidadesInventario.EProductosDefectuosos Eliminar = new Logica.Entidades.EntidadesInventario.EProductosDefectuosos();
+                        Eliminar.IdProductoDefectuoso = VariablesGlobales.IdMantenimeinto;
+                        Eliminar.NumeroConector = VariablesGlobales.NumeroConector;
+                        var MAN = ObjDataInventario.Value.MantenimientoProductosDefectuoso(Eliminar, "DELETE");
+                        MessageBox.Show("Registro eliminado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MostrarListadoProductosDefectuosos();
+                        lbClaveSeguridad.Visible = false;
+                        txtClaveSeguridad.Visible = false;
+                        txtClaveSeguridad.Text = string.Empty;
+                        btnEliminar.Enabled = false;
+                        cbEliminarTodo.Checked = false;
+                    }
+                }
+            }
         }
     }
 }

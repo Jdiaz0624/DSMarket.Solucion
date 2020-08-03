@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.btnReporte = new System.Windows.Forms.Button();
@@ -59,6 +59,9 @@
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
+            this.lbClaveSeguridad = new System.Windows.Forms.Label();
+            this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -66,6 +69,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // toolTip1
@@ -119,6 +123,7 @@
             this.btnEliminar.Text = "      Eliminar";
             this.toolTip1.SetToolTip(this.btnEliminar, "Eliminar registro seleccionado");
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnNuevo
             // 
@@ -166,6 +171,7 @@
             this.cbEliminarTodo.Text = "Eliminar Todo";
             this.toolTip1.SetToolTip(this.cbEliminarTodo, "Eliminar Todos los registros");
             this.cbEliminarTodo.UseVisualStyleBackColor = true;
+            this.cbEliminarTodo.CheckedChanged += new System.EventHandler(this.cbEliminarTodo_CheckedChanged);
             // 
             // bunifuElipse1
             // 
@@ -241,7 +247,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Linen;
+            this.panel2.Controls.Add(this.lbClaveSeguridad);
             this.panel2.Controls.Add(this.cbEliminarTodo);
+            this.panel2.Controls.Add(this.txtClaveSeguridad);
             this.panel2.Controls.Add(this.btnReporte);
             this.panel2.Controls.Add(this.btnEliminar);
             this.panel2.Controls.Add(this.btnNuevo);
@@ -319,21 +327,21 @@
             // 
             this.dtListado.AllowUserToAddRows = false;
             this.dtListado.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtListado.BackgroundColor = System.Drawing.Color.LightGray;
             this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Select});
@@ -346,6 +354,7 @@
             this.dtListado.RowTemplate.Height = 24;
             this.dtListado.Size = new System.Drawing.Size(1220, 243);
             this.dtListado.TabIndex = 2;
+            this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
             // Select
             // 
@@ -420,6 +429,31 @@
             this.lbNumeroPagina.TabIndex = 58;
             this.lbNumeroPagina.Text = "No.Pagina";
             // 
+            // lbClaveSeguridad
+            // 
+            this.lbClaveSeguridad.AutoSize = true;
+            this.lbClaveSeguridad.Location = new System.Drawing.Point(847, 17);
+            this.lbClaveSeguridad.Name = "lbClaveSeguridad";
+            this.lbClaveSeguridad.Size = new System.Drawing.Size(166, 21);
+            this.lbClaveSeguridad.TabIndex = 63;
+            this.lbClaveSeguridad.Text = "Clave de Seguridad";
+            this.lbClaveSeguridad.Visible = false;
+            // 
+            // txtClaveSeguridad
+            // 
+            this.txtClaveSeguridad.BackColor = System.Drawing.Color.Silver;
+            this.txtClaveSeguridad.Location = new System.Drawing.Point(1019, 13);
+            this.txtClaveSeguridad.MaxLength = 20;
+            this.txtClaveSeguridad.Name = "txtClaveSeguridad";
+            this.txtClaveSeguridad.PasswordChar = '•';
+            this.txtClaveSeguridad.Size = new System.Drawing.Size(184, 27);
+            this.txtClaveSeguridad.TabIndex = 62;
+            this.txtClaveSeguridad.Visible = false;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // ProductosDefectuososConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -454,6 +488,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -489,5 +524,8 @@
         private System.Windows.Forms.CheckBox cbEliminarTodo;
         private System.Windows.Forms.Label lbCantidad2;
         private System.Windows.Forms.Label lbProducto;
+        private System.Windows.Forms.Label lbClaveSeguridad;
+        private System.Windows.Forms.TextBox txtClaveSeguridad;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
