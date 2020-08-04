@@ -57,6 +57,51 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
                            }).ToList();
             return Listado;
         }
+
+        public DSMarket.Logica.Entidades.EntidadesEmpresa.EClientes MantenimientoClientes(DSMarket.Logica.Entidades.EntidadesEmpresa.EClientes Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesEmpresa.EClientes Mantenimeinto = null;
+
+            var Clientes = ObjData.SP_MANTENIMIENTO_CLIENTES(
+                Item.IdCliente,
+                Item.IdComprobante,
+                Item.Nombre,
+                Item.Telefono,
+                Item.IdTipoIdentificacion,
+                Item.RNC,
+                Item.Direccion,
+                Item.Email,
+                Item.Comentario,
+                Item.Estatus0,
+                Item.UsuarioAdiciona,
+                Item.MontoCredito,
+                Item.EnvioEmail0,
+                Accion);
+            if (Clientes != null) {
+                Mantenimeinto = (from n in Clientes
+                                 select new DSMarket.Logica.Entidades.EntidadesEmpresa.EClientes
+                                 {
+                                     IdCliente=n.IdCliente,
+                                     IdComprobante=n.IdComprobante,
+                                     Nombre=n.Nombre,
+                                     Telefono=n.Telefono,
+                                     IdTipoIdentificacion=n.IdTipoIdentificacion,
+                                     RNC=n.RNC,
+                                     Direccion=n.Direccion,
+                                     Email=n.Email,
+                                     Comentario=n.Comentario,
+                                     Estatus0=n.Estatus,
+                                     UsuarioAdiciona=n.UsuarioAdiciona,
+                                     FechaAdiciona=n.FechaAdiciona,
+                                     UsuarioModifica=n.UsuarioModifica,
+                                     FechaModifica=n.FechaModifica,
+                                     MontoCredito=n.MontoCredito,
+                                     EnvioEmail0=n.EnvioEmail
+                                 }).FirstOrDefault();
+            }
+            return Mantenimeinto;
+        }
         #endregion
     }
 }
