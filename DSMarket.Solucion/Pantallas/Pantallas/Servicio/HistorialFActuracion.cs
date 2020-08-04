@@ -2003,10 +2003,60 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     if (string.IsNullOrEmpty(txtCantidadProcesar.Text.Trim()))
                     {
                         MessageBox.Show("La cantidad a procesar no puede estar vacia, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        errorProvider1.SetError(txtCantidadProcesar, "");
+                        if (string.IsNullOrEmpty(txtCantidadProcesar.Text.Trim())) {
+                            errorProvider1.SetError(txtCantidadProcesar, "Campo Vacio");
+                        }
                     }
                     else {
                         //PEPITO
+                        int CantidadFActurada = Convert.ToInt32(txtCantidadFacturada.Text);
+                        int CantidadProcesar = Convert.ToInt32(txtCantidadProcesar.Text);
+
+                        if (CantidadProcesar > CantidadFActurada)
+                        {
+                            MessageBox.Show("No es posible proceder con este proceso por que la cantidad que intentas procesar es mayor a la cantidad facturada, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else {
+                            //PROCESAMOS
+                            var BuscarRegistro = ObjDataInventario.Value.BuscaProductos(
+                                VariablesGlobales.IdMantenimeinto,
+                                null,
+                                null, null, null, null, null, null, null, null, null, null, null,null, 1, 1);
+                            foreach (var n in BuscarRegistro) {
+                                DSMarket.Logica.Comunes.ProcesarProductosDefectuosos Procesar = new Logica.Comunes.ProcesarProductosDefectuosos(
+                                    0,
+                                    VariablesGlobales.NumeroConector,
+                                    Convert.ToDecimal(n.IdTipoProducto),
+                                    Convert.ToDecimal(n.IdCategoria),
+                                    Convert.ToDecimal(n.IdUnidadMedida),
+                                    Convert.ToDecimal(n.IdMarca),
+                                    Convert.ToDecimal(n.IdModelo),
+                                    Convert.ToDecimal(n.IdTipoSuplidor),
+                                    Convert.ToDecimal(n.IdSuplidor),
+                                    n.Producto,
+                                    n.CodigoBarra,
+                                    n.Referencia,
+                                    Convert.ToDecimal(n.PrecioCompra),
+                                    Convert.ToDecimal(n.PrecioVenta),
+                                    Convert.ToDecimal(n.Stock),
+                                    Convert.ToDecimal(n.StockMinimo),
+                                    Convert.ToDecimal(n.PorcientoDescuento),
+                                    Convert.ToBoolean(n.AfectaOferta0),
+                                    Convert.ToBoolean(n.ProductoAcumulativo0),
+                                    Convert.ToBoolean(n.LlevaImagen0),
+                                    Convert.ToDecimal(n.UsuarioAdicion),
+                                    Convert.ToDateTime(n.FechaAdiciona),
+                                    Convert.ToDecimal(n.UsuarioModifica),
+                                    Convert.ToDateTime(n.FechaModifica),
+                                    Convert.ToDateTime(n.Fecha),
+                                    n.Comentario,
+                                    Convert.ToBoolean(n.AplicaParaImpuesto0),
+                                    Convert.ToBoolean(n.EstatusProducto0),
+                                    Convert.ToDecimal(txtCantidadProcesar.Text),
+                                    "INSERT");
+                                Procesar.ProcesarInformaicon();
+                            }
+                        }
                     }
                 }
             }
