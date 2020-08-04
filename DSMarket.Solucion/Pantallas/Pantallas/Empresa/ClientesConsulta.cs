@@ -120,10 +120,69 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
 
         private void txtNumeroPagina_ValueChanged(object sender, EventArgs e)
         {
-            if (txtNumeroPagina.Value < 1) {
+            if (txtNumeroPagina.Value < 1)
+            {
                 txtNumeroPagina.Value = 1;
                 MostrarListadoClientes();
             }
+            else {
+                MostrarListadoClientes();
+            }
+        }
+
+        private void txtNumeroRegistros_ValueChanged(object sender, EventArgs e)
+        {
+            if (txtNumeroRegistros.Value < 1)
+            {
+                txtNumeroRegistros.Value = 10;
+                MostrarListadoClientes();
+            }
+            else {
+                MostrarListadoClientes();
+            }
+        }
+
+        private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+
+                this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdCliente"].Value.ToString());
+
+                var BuscarCliente = ObjdataEmpresa.Value.BuscaClientes(
+                    VariablesGlobales.IdMantenimeinto,
+                    null, null, null, null, null, 1, 1);
+                dtListado.DataSource = BuscarCliente;
+                OcultarColumnas();
+                if (BuscarCliente.Count() < 1)
+                {
+                    lbCantidadRegistrosVariable.Text = "0";
+                }
+                else {
+                    foreach (var n in BuscarCliente) {
+                        int Cantidad = Convert.ToInt32(n.CantidadClientes);
+                        lbCantidadRegistrosVariable.Text = Cantidad.ToString("N0");
+                    }
+                }
+                btnNuevo.Enabled = false;
+                btnEditar.Enabled = true;
+                btnDeshabilitar.Enabled = true;
+                txtNumeroPagina.Enabled = false;
+                txtNumeroRegistros.Enabled = false;
+            }
+        }
+
+        private void btnRestabelcer_Click(object sender, EventArgs e)
+        {
+            btnNuevo.Enabled = true;
+            btnEditar.Enabled = false;
+            btnDeshabilitar.Enabled = false;
+            txtNumeroPagina.Enabled = true;
+            txtNumeroRegistros.Enabled = true;
+            txtNumeroPagina.Value = 1;
+            txtNumeroRegistros.Value = 10;
+            txtNombreCliente.Text = string.Empty;
+            txtCedulaCliente.Text = string.Empty;
+            MostrarListadoClientes();
         }
     }
 }

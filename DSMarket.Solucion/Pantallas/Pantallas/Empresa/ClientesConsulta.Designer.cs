@@ -53,6 +53,7 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.lbCantidadRegistrosTitulo = new System.Windows.Forms.Label();
+            this.btnRestabelcer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
@@ -154,6 +155,7 @@
             0,
             0,
             0});
+            this.txtNumeroRegistros.ValueChanged += new System.EventHandler(this.txtNumeroRegistros_ValueChanged);
             // 
             // groupBox2
             // 
@@ -184,6 +186,7 @@
             this.dtListado.RowTemplate.Height = 24;
             this.dtListado.Size = new System.Drawing.Size(1053, 288);
             this.dtListado.TabIndex = 0;
+            this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
             // Select
             // 
@@ -284,6 +287,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Linen;
+            this.panel2.Controls.Add(this.btnRestabelcer);
             this.panel2.Controls.Add(this.btnDeshabilitar);
             this.panel2.Controls.Add(this.btnEditar);
             this.panel2.Controls.Add(this.btnNuevo);
@@ -349,6 +353,23 @@
             this.lbCantidadRegistrosTitulo.TabIndex = 30;
             this.lbCantidadRegistrosTitulo.Text = "Cantidad de Registros";
             // 
+            // btnRestabelcer
+            // 
+            this.btnRestabelcer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestabelcer.FlatAppearance.BorderSize = 0;
+            this.btnRestabelcer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRestabelcer.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestabelcer.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
+            this.btnRestabelcer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRestabelcer.Location = new System.Drawing.Point(707, 7);
+            this.btnRestabelcer.Name = "btnRestabelcer";
+            this.btnRestabelcer.Size = new System.Drawing.Size(170, 41);
+            this.btnRestabelcer.TabIndex = 68;
+            this.btnRestabelcer.Text = "      Restablecer";
+            this.toolTip1.SetToolTip(this.btnRestabelcer, "Deshabilitar registro seleccionado");
+            this.btnRestabelcer.UseVisualStyleBackColor = true;
+            this.btnRestabelcer.Click += new System.EventHandler(this.btnRestabelcer_Click);
+            // 
             // ClientesConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -412,5 +433,6 @@
         private System.Windows.Forms.TextBox txtCedulaCliente;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNombreCliente;
+        private System.Windows.Forms.Button btnRestabelcer;
     }
 }
