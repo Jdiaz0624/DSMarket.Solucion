@@ -22,11 +22,11 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
         /// <param name="NumeroPagina"></param>
         /// <param name="NumeroRegistros"></param>
         /// <returns></returns>
-        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.EClientes> BuscaClientes(decimal? IdCliente = null, decimal? IdComprobante = null, string Nombre = null, string RNC = null, bool? Estatus = null, int? NumeroPagina = null, int? NumeroRegistros = null)
+        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.EClientes> BuscaClientes(decimal? IdCliente = null, decimal? IdComprobante = null, string Nombre = null, string RNC = null, bool? Estatus = null, bool? EnvioEmail = null, int? NumeroPagina = null, int? NumeroRegistros = null)
         {
             ObjData.CommandTimeout = 999999999;
 
-            var Listado = (from n in ObjData.SP_BUSCA_CLIENTES(IdCliente, IdComprobante, Nombre, RNC, Estatus, NumeroPagina, NumeroRegistros)
+            var Listado = (from n in ObjData.SP_BUSCA_CLIENTES(IdCliente, IdComprobante, Nombre, RNC, Estatus, EnvioEmail, NumeroPagina, NumeroRegistros)
                            select new DSMarket.Logica.Entidades.EntidadesEmpresa.EClientes
                            {
                                IdCliente=n.IdCliente,
@@ -42,7 +42,9 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
                                Comentario=n.Comentario,
                                Estatus0=n.Estatus0,
                                Estatus=n.Estatus,
-                               UsuarioAdiciona=n.UsuarioAdiciona,
+                               EnvioEmail0=n.EnvioEmail0,
+                               EnvioEmail=n.EnvioEmail,
+                               UsuarioAdiciona =n.UsuarioAdiciona,
                                CreadoPor=n.CreadoPor,
                                FechaAdiciona=n.FechaAdiciona,
                                FechaCreado=n.FechaCreado,
@@ -50,7 +52,8 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
                                ModificadoPor=n.ModificadoPor,
                                FechaModifica=n.FechaModifica,
                                FechaModificado=n.FechaModificado,
-                               MontoCredito=n.MontoCredito
+                               MontoCredito=n.MontoCredito,
+                               CantidadClientes=n.CantidadClientes
                            }).ToList();
             return Listado;
         }

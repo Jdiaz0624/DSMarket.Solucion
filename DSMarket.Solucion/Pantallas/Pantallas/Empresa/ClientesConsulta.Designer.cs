@@ -47,8 +47,6 @@
             this.txtCedulaCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtCodigoCliente = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbCantidadRegistrosVariable = new System.Windows.Forms.Label();
@@ -136,6 +134,7 @@
             this.btnBuscar.Text = "      Buscar";
             this.toolTip1.SetToolTip(this.btnBuscar, "Consultar registros");
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtNumeroRegistros
             // 
@@ -159,9 +158,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dtListado);
-            this.groupBox2.Location = new System.Drawing.Point(3, 234);
+            this.groupBox2.Location = new System.Drawing.Point(3, 202);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1059, 282);
+            this.groupBox2.Size = new System.Drawing.Size(1059, 314);
             this.groupBox2.TabIndex = 80;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Listado de clientes registrados";
@@ -183,7 +182,7 @@
             this.dtListado.Name = "dtListado";
             this.dtListado.ReadOnly = true;
             this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(1053, 256);
+            this.dtListado.Size = new System.Drawing.Size(1053, 288);
             this.dtListado.TabIndex = 0;
             // 
             // Select
@@ -224,6 +223,7 @@
             0,
             0,
             0});
+            this.txtNumeroPagina.ValueChanged += new System.EventHandler(this.txtNumeroPagina_ValueChanged);
             // 
             // lbNumeroPagina
             // 
@@ -240,11 +240,9 @@
             this.groupBox1.Controls.Add(this.txtCedulaCliente);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtNombreCliente);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtCodigoCliente);
             this.groupBox1.Location = new System.Drawing.Point(3, 101);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(424, 127);
+            this.groupBox1.Size = new System.Drawing.Size(424, 95);
             this.groupBox1.TabIndex = 79;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Clientes - Filtros";
@@ -252,7 +250,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 90);
+            this.label3.Location = new System.Drawing.Point(8, 59);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(103, 20);
             this.label3.TabIndex = 7;
@@ -261,7 +259,7 @@
             // txtCedulaCliente
             // 
             this.txtCedulaCliente.BackColor = System.Drawing.Color.Silver;
-            this.txtCedulaCliente.Location = new System.Drawing.Point(117, 87);
+            this.txtCedulaCliente.Location = new System.Drawing.Point(117, 56);
             this.txtCedulaCliente.Name = "txtCedulaCliente";
             this.txtCedulaCliente.Size = new System.Drawing.Size(291, 27);
             this.txtCedulaCliente.TabIndex = 6;
@@ -269,7 +267,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 60);
+            this.label2.Location = new System.Drawing.Point(43, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 20);
             this.label2.TabIndex = 5;
@@ -278,27 +276,10 @@
             // txtNombreCliente
             // 
             this.txtNombreCliente.BackColor = System.Drawing.Color.Silver;
-            this.txtNombreCliente.Location = new System.Drawing.Point(117, 57);
+            this.txtNombreCliente.Location = new System.Drawing.Point(117, 26);
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.Size = new System.Drawing.Size(291, 27);
             this.txtNombreCliente.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(52, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Codigo";
-            // 
-            // txtCodigoCliente
-            // 
-            this.txtCodigoCliente.BackColor = System.Drawing.Color.Silver;
-            this.txtCodigoCliente.Location = new System.Drawing.Point(117, 27);
-            this.txtCodigoCliente.Name = "txtCodigoCliente";
-            this.txtCodigoCliente.Size = new System.Drawing.Size(291, 27);
-            this.txtCodigoCliente.TabIndex = 0;
             // 
             // panel2
             // 
@@ -417,8 +398,6 @@
         private System.Windows.Forms.NumericUpDown txtNumeroPagina;
         private System.Windows.Forms.Label lbNumeroPagina;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtCodigoCliente;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnDeshabilitar;
         private System.Windows.Forms.Button btnEditar;

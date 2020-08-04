@@ -629,7 +629,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 //BUSCAMOS EL REGISTRO
                 var Buscarregistro = ObjDataEmpresa.Value.BuscaClientes(
                     new Nullable<decimal>(),
-                    null, null, txtCodigoCliente.Text, null, 1, 1);
+                    null, null, txtCodigoCliente.Text, null,null, 1, 1);
                 if (Buscarregistro.Count() < 1)
                 {
                     MessageBox.Show("El rnc de cliente ingresado no es valido, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -1528,7 +1528,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 //BUSCAMOS EL REGISTRO
                 var Buscarregistro = ObjDataEmpresa.Value.BuscaClientes(
                     Convert.ToDecimal(txtCodigoConsulta.Text),
-                    null, null, null, null, 1, 1);
+                    null, null, null, null, null, 1, 1);
                 if (Buscarregistro.Count() < 1)
                 {
                     MessageBox.Show("El Codigo de cliente ingresado no es valido, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);

@@ -16,20 +16,64 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
         {
             InitializeComponent();
         }
+        Lazy<DSMarket.Logica.Logica.LogicaEmpresa.LogicaEmpresa> ObjdataEmpresa = new Lazy<Logica.Logica.LogicaEmpresa.LogicaEmpresa>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
+
+        #region MOSTRAR EL LISTADO DE LOS CLIENTES
+        private void MostrarListadoClientes() {
+            string _NombreCliente = string.IsNullOrEmpty(txtNombreCliente.Text.Trim()) ? null : txtNombreCliente.Text.Trim();
+            string _RNC = string.IsNullOrEmpty(txtCedulaCliente.Text.Trim()) ? null : txtCedulaCliente.Text.Trim();
+
+            var Listado = ObjdataEmpresa.Value.BuscaClientes(
+                new Nullable<decimal>(),
+                null,
+                _NombreCliente,
+                _RNC,
+                null,
+                null,
+                Convert.ToInt32(txtNumeroPagina.Value),
+                Convert.ToInt32(txtNumeroRegistros.Value));
+            dtListado.DataSource = Listado;
+            OcultarColumnas();
+            if (Listado.Count() < 1)
+            {
+                lbCantidadRegistrosVariable.Text = "0";
+            }
+            else {
+                foreach (var n in Listado) {
+                    int CantidadRegistros = Convert.ToInt32(n.CantidadClientes);
+                    lbCantidadRegistrosVariable.Text = CantidadRegistros.ToString("N0");
+                }
+            }
+        }
+        private void OcultarColumnas() {
+            this.dtListado.Columns["IdCliente"].Visible = false;
+            this.dtListado.Columns["IdComprobante"].Visible = false;
+            this.dtListado.Columns["IdTipoIdentificacion"].Visible = false;
+            this.dtListado.Columns["Estatus0"].Visible = false;
+            this.dtListado.Columns["EnvioEmail0"].Visible = false;
+            this.dtListado.Columns["UsuarioAdiciona"].Visible = false;
+            this.dtListado.Columns["FechaAdiciona"].Visible = false;
+            this.dtListado.Columns["UsuarioModifica"].Visible = false;
+            this.dtListado.Columns["ModificadoPor"].Visible = false;
+            this.dtListado.Columns["FechaModifica"].Visible = false;
+            this.dtListado.Columns["FechaModificado"].Visible = false;
+            this.dtListado.Columns["CantidadClientes"].Visible = false;
+        }
+        #endregion
         private void ClientesConsulta_Load(object sender, EventArgs e)
         {
             this.BackColor = SystemColors.Control;
             dtListado.BackgroundColor = SystemColors.Control;
 
             txtCedulaCliente.BackColor = Color.WhiteSmoke;
-            txtCodigoCliente.BackColor = Color.WhiteSmoke;
+           // txtCodigoCliente.BackColor = Color.WhiteSmoke;
             txtNombreCliente.BackColor = Color.WhiteSmoke;
             txtNumeroPagina.BackColor = Color.WhiteSmoke;
             txtNumeroRegistros.BackColor = Color.WhiteSmoke;
 
             txtCedulaCliente.ForeColor = Color.Black;
-            txtCodigoCliente.ForeColor = Color.Black;
+           // txtCodigoCliente.ForeColor = Color.Black;
             txtNombreCliente.ForeColor = Color.Black;
             txtNumeroPagina.ForeColor = Color.Black;
             txtNumeroRegistros.ForeColor = Color.Black;
@@ -67,6 +111,19 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             DSMarket.Solucion.Pantallas.Pantallas.Empresa.ClientesMantenimiento mantenimiento = new ClientesMantenimiento();
             mantenimiento.VariablesGlobales.Accion = "DELETE";
             mantenimiento.ShowDialog();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            MostrarListadoClientes();
+        }
+
+        private void txtNumeroPagina_ValueChanged(object sender, EventArgs e)
+        {
+            if (txtNumeroPagina.Value < 1) {
+                txtNumeroPagina.Value = 1;
+                MostrarListadoClientes();
+            }
         }
     }
 }

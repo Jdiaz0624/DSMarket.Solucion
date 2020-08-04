@@ -31,6 +31,9 @@ namespace DSMarket.Logica.Entidades.EntidadesEmpresa
         public System.Nullable<bool> Estatus0 {get;set;}
 
         public string Estatus {get;set;}
+        public System.Nullable<bool> EnvioEmail0 { get; set; }
+
+        public string EnvioEmail { get; set; }
 
         public System.Nullable<decimal> UsuarioAdiciona {get;set;}
 
@@ -49,5 +52,6 @@ namespace DSMarket.Logica.Entidades.EntidadesEmpresa
         public string FechaModificado {get;set;}
 
         public System.Nullable<decimal> MontoCredito {get;set;}
+        public System.Nullable<int> CantidadClientes { get; set; }
     }
 }

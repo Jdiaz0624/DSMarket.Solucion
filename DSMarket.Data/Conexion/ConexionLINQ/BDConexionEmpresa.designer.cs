@@ -62,11 +62,314 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Empresa.SP_BUSCA_CLIENTES")]
-		public ISingleResult<SP_BUSCA_CLIENTESResult> SP_BUSCA_CLIENTES([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdCliente", DbType="Decimal(20,0)")] System.Nullable<decimal> idCliente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdComprobante", DbType="Decimal(20,0)")] System.Nullable<decimal> idComprobante, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nombre", DbType="VarChar(100)")] string nombre, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RNC", DbType="VarChar(20)")] string rNC, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Estatus", DbType="Bit")] System.Nullable<bool> estatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroPagina", DbType="Int")] System.Nullable<int> numeroPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroRegistros", DbType="Int")] System.Nullable<int> numeroRegistros)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Empresa.SP_MANTENIMIENTO_CLIENTES")]
+		public ISingleResult<SP_MANTENIMIENTO_CLIENTESResult> SP_MANTENIMIENTO_CLIENTES([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdCliente", DbType="Decimal(20,0)")] System.Nullable<decimal> idCliente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdComprobante", DbType="Decimal(20,0)")] System.Nullable<decimal> idComprobante, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nombre", DbType="VarChar(500)")] string nombre, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Telefono", DbType="VarChar(20)")] string telefono, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoIdentificacion", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoIdentificacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RNC", DbType="VarChar(100)")] string rNC, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Direccion", DbType="VarChar(8000)")] string direccion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="VarChar(100)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Comentario", DbType="VarChar(8000)")] string comentario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Estatus", DbType="Bit")] System.Nullable<bool> estatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Decimal(20,0)")] System.Nullable<decimal> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MontoCredito", DbType="Decimal(20,2)")] System.Nullable<decimal> montoCredito, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EnvioEmail", DbType="Bit")] System.Nullable<bool> envioEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idCliente, idComprobante, nombre, rNC, estatus, numeroPagina, numeroRegistros);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idCliente, idComprobante, nombre, telefono, idTipoIdentificacion, rNC, direccion, email, comentario, estatus, idUsuario, montoCredito, envioEmail, accion);
+			return ((ISingleResult<SP_MANTENIMIENTO_CLIENTESResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Empresa.SP_BUSCA_CLIENTES")]
+		public ISingleResult<SP_BUSCA_CLIENTESResult> SP_BUSCA_CLIENTES([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdCliente", DbType="Decimal(20,0)")] System.Nullable<decimal> idCliente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdComprobante", DbType="Decimal(20,0)")] System.Nullable<decimal> idComprobante, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nombre", DbType="VarChar(100)")] string nombre, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RNC", DbType="VarChar(20)")] string rNC, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Estatus", DbType="Bit")] System.Nullable<bool> estatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EnvioEmail", DbType="Bit")] System.Nullable<bool> envioEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroPagina", DbType="Int")] System.Nullable<int> numeroPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroRegistros", DbType="Int")] System.Nullable<int> numeroRegistros)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idCliente, idComprobante, nombre, rNC, estatus, envioEmail, numeroPagina, numeroRegistros);
 			return ((ISingleResult<SP_BUSCA_CLIENTESResult>)(result.ReturnValue));
+		}
+	}
+	
+	public partial class SP_MANTENIMIENTO_CLIENTESResult
+	{
+		
+		private System.Nullable<decimal> _IdCliente;
+		
+		private System.Nullable<decimal> _IdComprobante;
+		
+		private string _Nombre;
+		
+		private string _Telefono;
+		
+		private System.Nullable<decimal> _IdTipoIdentificacion;
+		
+		private string _RNC;
+		
+		private string _Direccion;
+		
+		private string _Email;
+		
+		private string _Comentario;
+		
+		private System.Nullable<bool> _Estatus;
+		
+		private System.Nullable<decimal> _UsuarioAdiciona;
+		
+		private System.Nullable<System.DateTime> _FechaAdiciona;
+		
+		private System.Nullable<decimal> _UsuarioModifica;
+		
+		private System.Nullable<System.DateTime> _FechaModifica;
+		
+		private System.Nullable<decimal> _MontoCredito;
+		
+		private System.Nullable<bool> _EnvioEmail;
+		
+		public SP_MANTENIMIENTO_CLIENTESResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCliente", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdCliente
+		{
+			get
+			{
+				return this._IdCliente;
+			}
+			set
+			{
+				if ((this._IdCliente != value))
+				{
+					this._IdCliente = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdComprobante", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdComprobante
+		{
+			get
+			{
+				return this._IdComprobante;
+			}
+			set
+			{
+				if ((this._IdComprobante != value))
+				{
+					this._IdComprobante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(500)")]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this._Nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telefono", DbType="VarChar(20)")]
+		public string Telefono
+		{
+			get
+			{
+				return this._Telefono;
+			}
+			set
+			{
+				if ((this._Telefono != value))
+				{
+					this._Telefono = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoIdentificacion", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdTipoIdentificacion
+		{
+			get
+			{
+				return this._IdTipoIdentificacion;
+			}
+			set
+			{
+				if ((this._IdTipoIdentificacion != value))
+				{
+					this._IdTipoIdentificacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RNC", DbType="VarChar(100)")]
+		public string RNC
+		{
+			get
+			{
+				return this._RNC;
+			}
+			set
+			{
+				if ((this._RNC != value))
+				{
+					this._RNC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Direccion", DbType="VarChar(8000)")]
+		public string Direccion
+		{
+			get
+			{
+				return this._Direccion;
+			}
+			set
+			{
+				if ((this._Direccion != value))
+				{
+					this._Direccion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(100)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comentario", DbType="VarChar(8000)")]
+		public string Comentario
+		{
+			get
+			{
+				return this._Comentario;
+			}
+			set
+			{
+				if ((this._Comentario != value))
+				{
+					this._Comentario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="Bit")]
+		public System.Nullable<bool> Estatus
+		{
+			get
+			{
+				return this._Estatus;
+			}
+			set
+			{
+				if ((this._Estatus != value))
+				{
+					this._Estatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsuarioAdiciona", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> UsuarioAdiciona
+		{
+			get
+			{
+				return this._UsuarioAdiciona;
+			}
+			set
+			{
+				if ((this._UsuarioAdiciona != value))
+				{
+					this._UsuarioAdiciona = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaAdiciona", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FechaAdiciona
+		{
+			get
+			{
+				return this._FechaAdiciona;
+			}
+			set
+			{
+				if ((this._FechaAdiciona != value))
+				{
+					this._FechaAdiciona = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsuarioModifica", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> UsuarioModifica
+		{
+			get
+			{
+				return this._UsuarioModifica;
+			}
+			set
+			{
+				if ((this._UsuarioModifica != value))
+				{
+					this._UsuarioModifica = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaModifica", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FechaModifica
+		{
+			get
+			{
+				return this._FechaModifica;
+			}
+			set
+			{
+				if ((this._FechaModifica != value))
+				{
+					this._FechaModifica = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MontoCredito", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> MontoCredito
+		{
+			get
+			{
+				return this._MontoCredito;
+			}
+			set
+			{
+				if ((this._MontoCredito != value))
+				{
+					this._MontoCredito = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnvioEmail", DbType="Bit")]
+		public System.Nullable<bool> EnvioEmail
+		{
+			get
+			{
+				return this._EnvioEmail;
+			}
+			set
+			{
+				if ((this._EnvioEmail != value))
+				{
+					this._EnvioEmail = value;
+				}
+			}
 		}
 	}
 	
@@ -99,6 +402,10 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		
 		private string _Estatus;
 		
+		private System.Nullable<bool> _EnvioEmail0;
+		
+		private string _EnvioEmail;
+		
 		private System.Nullable<decimal> _UsuarioAdiciona;
 		
 		private string _CreadoPor;
@@ -116,6 +423,8 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		private string _FechaModificado;
 		
 		private System.Nullable<decimal> _MontoCredito;
+		
+		private System.Nullable<int> _CantidadClientes;
 		
 		public SP_BUSCA_CLIENTESResult()
 		{
@@ -185,7 +494,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telefono", DbType="VarChar(1)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telefono", DbType="VarChar(20)")]
 		public string Telefono
 		{
 			get
@@ -325,6 +634,38 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._Estatus != value))
 				{
 					this._Estatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnvioEmail0", DbType="Bit")]
+		public System.Nullable<bool> EnvioEmail0
+		{
+			get
+			{
+				return this._EnvioEmail0;
+			}
+			set
+			{
+				if ((this._EnvioEmail0 != value))
+				{
+					this._EnvioEmail0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnvioEmail", DbType="VarChar(8) NOT NULL", CanBeNull=false)]
+		public string EnvioEmail
+		{
+			get
+			{
+				return this._EnvioEmail;
+			}
+			set
+			{
+				if ((this._EnvioEmail != value))
+				{
+					this._EnvioEmail = value;
 				}
 			}
 		}
@@ -469,6 +810,22 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._MontoCredito != value))
 				{
 					this._MontoCredito = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadClientes", DbType="Int")]
+		public System.Nullable<int> CantidadClientes
+		{
+			get
+			{
+				return this._CantidadClientes;
+			}
+			set
+			{
+				if ((this._CantidadClientes != value))
+				{
+					this._CantidadClientes = value;
 				}
 			}
 		}
