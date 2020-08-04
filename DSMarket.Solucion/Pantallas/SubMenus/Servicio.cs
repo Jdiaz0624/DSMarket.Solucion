@@ -18,6 +18,7 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         }
 
         Lazy<DSMarket.Logica.Logica.LogicaCaja.LogicaCaja> ObjDataCaja = new Lazy<Logica.Logica.LogicaCaja.LogicaCaja>();
+        Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjdataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
         DSMarket.Logica.Comunes.VariablesGlobales VariablsGlobales = new Logica.Comunes.VariablesGlobales();
         private void Servicio_Load(object sender, EventArgs e)
         {
@@ -25,6 +26,11 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
             lbTitulo.ForeColor = Color.White;
             lbUsuario.Text = DSMarket.Solucion.Pantallas.MenuPrincipal.MenuPrincipal.IdUsuarioMantenimientos.ToString();
             VariablsGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+
+            decimal IdNivelAcceso = DSMarket.Logica.Comunes.ValidarNivelUsuario.ValidarNivelAccesoUsuario(Convert.ToDecimal(lbUsuario.Text));
+            if (IdNivelAcceso == 3) {
+                button1.Enabled = false;
+            }
         }
 
         private void PCerrar_Click(object sender, EventArgs e)

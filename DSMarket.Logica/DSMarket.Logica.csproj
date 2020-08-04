@@ -61,6 +61,7 @@
     <Compile Include="Comunes\ProcesarUsuarios.cs" />
     <Compile Include="Comunes\SeguridadEncriptacion.cs" />
     <Compile Include="Comunes\ValidarControles.cs" />
+    <Compile Include="Comunes\ValidarNivelUsuario.cs" />
     <Compile Include="Comunes\VariablesGlobales.cs" />
     <Compile Include="Entidades\EntidadesCaja\ECajaGeneral.cs" />
     <Compile Include="Entidades\EntidadesCaja\EHistiroalCaja.cs" />

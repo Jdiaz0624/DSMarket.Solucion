@@ -25,12 +25,14 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         private void Nomina_Load(object sender, EventArgs e)
         {
             lbTitulo.Text = "MODULO DE EMPRESA";
+            lbIdUsuario.Text = DSMarket.Solucion.Pantallas.MenuPrincipal.MenuPrincipal.IdUsuarioMantenimientos.ToString();
             lbTitulo.ForeColor = Color.White;
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
             DSMarket.Solucion.Pantallas.Pantallas.Empresa.ClientesConsulta Clientes = new Pantallas.Empresa.ClientesConsulta();
+            Clientes.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
             Clientes.ShowDialog();
         }
 

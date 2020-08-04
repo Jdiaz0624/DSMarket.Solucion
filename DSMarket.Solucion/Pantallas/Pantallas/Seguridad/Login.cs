@@ -86,6 +86,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Seguridad
                             this.Hide();
                             DSMarket.Solucion.Pantallas.MenuPrincipal.MenuPrincipal Menuprincipal = new MenuPrincipal.MenuPrincipal();
                             Menuprincipal.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+                            Menuprincipal.VariablesGlobales.IdNivelAcceso = VariablesGlobales.IdNivelAcceso;
                             Menuprincipal.ShowDialog();
                         }
 

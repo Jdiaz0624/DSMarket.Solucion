@@ -244,7 +244,7 @@
             this.groupBox1.Controls.Add(this.txtCodigoCliente);
             this.groupBox1.Location = new System.Drawing.Point(3, 101);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(377, 127);
+            this.groupBox1.Size = new System.Drawing.Size(424, 127);
             this.groupBox1.TabIndex = 79;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Clientes - Filtros";
@@ -254,14 +254,14 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(8, 90);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 20);
+            this.label3.Size = new System.Drawing.Size(103, 20);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Cedula";
+            this.label3.Text = "RNC/Cedula";
             // 
             // txtCedulaCliente
             // 
             this.txtCedulaCliente.BackColor = System.Drawing.Color.Silver;
-            this.txtCedulaCliente.Location = new System.Drawing.Point(73, 86);
+            this.txtCedulaCliente.Location = new System.Drawing.Point(117, 87);
             this.txtCedulaCliente.Name = "txtCedulaCliente";
             this.txtCedulaCliente.Size = new System.Drawing.Size(291, 27);
             this.txtCedulaCliente.TabIndex = 6;
@@ -269,7 +269,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1, 60);
+            this.label2.Location = new System.Drawing.Point(43, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 20);
             this.label2.TabIndex = 5;
@@ -278,7 +278,7 @@
             // txtNombreCliente
             // 
             this.txtNombreCliente.BackColor = System.Drawing.Color.Silver;
-            this.txtNombreCliente.Location = new System.Drawing.Point(73, 56);
+            this.txtNombreCliente.Location = new System.Drawing.Point(117, 57);
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.Size = new System.Drawing.Size(291, 27);
             this.txtNombreCliente.TabIndex = 4;
@@ -286,7 +286,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 30);
+            this.label1.Location = new System.Drawing.Point(52, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 20);
             this.label1.TabIndex = 3;
@@ -295,7 +295,7 @@
             // txtCodigoCliente
             // 
             this.txtCodigoCliente.BackColor = System.Drawing.Color.Silver;
-            this.txtCodigoCliente.Location = new System.Drawing.Point(73, 26);
+            this.txtCodigoCliente.Location = new System.Drawing.Point(117, 27);
             this.txtCodigoCliente.Name = "txtCodigoCliente";
             this.txtCodigoCliente.Size = new System.Drawing.Size(291, 27);
             this.txtCodigoCliente.TabIndex = 0;

@@ -1491,6 +1491,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
           //  txtParametro.Visible = false;
             lbSeleccionar.Visible = false;
             ddlSeleccionar.Visible = false;
+
+            decimal IdNivelAcceso = DSMarket.Logica.Comunes.ValidarNivelUsuario.ValidarNivelAccesoUsuario(VariablesGlobales.IdUsuario);
+            if (IdNivelAcceso == 3) {
+                btnReporte.Visible = false;
+                btnEstadistica.Visible = false;
+                btnAnular.Visible = false;
+                btnProductos.Visible = false;
+                btnDescartarProducto.Visible = false;
+            }
         }
 
         private void rbGenerar_CheckedChanged(object sender, EventArgs e)

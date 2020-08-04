@@ -38,6 +38,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.lbIdUsuario = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.gbOpciones.SuspendLayout();
@@ -46,6 +49,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.lbIdUsuario);
             this.panel1.Controls.Add(this.PCerrar);
             this.panel1.Controls.Add(this.lbTitulo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -79,6 +83,8 @@
             // 
             // gbOpciones
             // 
+            this.gbOpciones.Controls.Add(this.button5);
+            this.gbOpciones.Controls.Add(this.button4);
             this.gbOpciones.Controls.Add(this.button3);
             this.gbOpciones.Controls.Add(this.button2);
             this.gbOpciones.Controls.Add(this.button1);
@@ -93,6 +99,7 @@
             // button3
             // 
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.Enabled = false;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(6, 91);
@@ -107,6 +114,7 @@
             // button2
             // 
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Enabled = false;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(390, 29);
@@ -121,6 +129,7 @@
             // button1
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Enabled = false;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(198, 29);
@@ -145,6 +154,44 @@
             this.toolTip1.SetToolTip(this.btnClientes, "Mantenimiento de clientes");
             this.btnClientes.UseVisualStyleBackColor = true;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
+            // 
+            // button4
+            // 
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.Enabled = false;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(198, 91);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(186, 56);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "Compra Suplidores";
+            this.toolTip1.SetToolTip(this.button4, "Cargos");
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.Enabled = false;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(390, 91);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(186, 56);
+            this.button5.TabIndex = 5;
+            this.button5.Text = "Envio de Ofertas";
+            this.toolTip1.SetToolTip(this.button5, "Cargos");
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // lbIdUsuario
+            // 
+            this.lbIdUsuario.AutoSize = true;
+            this.lbIdUsuario.Location = new System.Drawing.Point(450, 10);
+            this.lbIdUsuario.Name = "lbIdUsuario";
+            this.lbIdUsuario.Size = new System.Drawing.Size(54, 20);
+            this.lbIdUsuario.TabIndex = 17;
+            this.lbIdUsuario.Text = "label6";
+            this.lbIdUsuario.Visible = false;
             // 
             // Nomina
             // 
@@ -179,5 +226,8 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label lbIdUsuario;
     }
 }

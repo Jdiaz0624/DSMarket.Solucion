@@ -1383,6 +1383,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             txtFechaHasta.Visible = false;
             btnDescartar.Enabled = false;
             MostrarCantidadProductosDefectuosos();
+
+            decimal IdNivelAcceso = DSMarket.Logica.Comunes.ValidarNivelUsuario.ValidarNivelAccesoUsuario(variablesGlobales.IdUsuario);
+
+            if (IdNivelAcceso == 3) {
+                btnEditar.Visible = false;
+                btnEliminar.Visible = false;
+                btnSuplir.Visible = false;
+                btnSuplir.Visible = false;
+                btnDescartar.Visible = false;
+                btnReporte.Visible = false;
+            }
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)

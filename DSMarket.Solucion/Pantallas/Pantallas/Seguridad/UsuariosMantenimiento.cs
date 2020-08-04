@@ -145,6 +145,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Seguridad
             txtUsuario.BackColor = Color.WhiteSmoke;
             txtClave.PasswordChar = '•';
             txtConfirmar.PasswordChar = '•';
+            VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
 
             if (VariablesGlobales.Accion == "INSERT")
             {

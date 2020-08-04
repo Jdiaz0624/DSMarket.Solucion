@@ -16,7 +16,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
         {
             InitializeComponent();
         }
-
+        public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
         private void ClientesConsulta_Load(object sender, EventArgs e)
         {
             this.BackColor = SystemColors.Control;
