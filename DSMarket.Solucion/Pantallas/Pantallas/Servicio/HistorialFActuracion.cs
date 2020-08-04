@@ -1079,6 +1079,18 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             VariablesGlobales.GananciaFacturaUnica = false;
             VariablesGlobales.ProductoHistorial = false;
             btnDescartarProducto.Enabled = false;
+
+            lbCantidadFacturada.Visible = false;
+            txtCantidadFacturada.Visible = false;
+            lbCantidadProcesar.Visible = false;
+            txtCantidadProcesar.Visible = false;
+            lbClaveSeguridad.Visible = false;
+            txtClaveSeguridad.Visible = false;
+            btnDescartarProducto.Enabled = false;
+            lbCantidadDisponible.Visible = false;
+            txtCantidadDisponible.Visible = false;
+            txtCantidadFacturada.Enabled = false;
+            txtCantidadDisponible.Enabled = false;
         }
         #endregion
         #region GENERAR GAANANCIA DE VENTA
@@ -1794,6 +1806,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     lbClaveSeguridad.Visible = true;
                     txtClaveSeguridad.Visible = true;
                     btnDescartarProducto.Enabled = true;
+                    lbCantidadDisponible.Visible = true;
+                    txtCantidadDisponible.Visible = true;
+                    txtCantidadFacturada.Enabled = false;
+                    txtCantidadDisponible.Enabled = false;
                     string ProductoAcumulativo = "";
 
                     foreach (var n in BuscarRegistro) {
@@ -1807,6 +1823,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     else {
                         txtCantidadProcesar.Enabled = false;
                     }
+                }
+
+                int CantidadDIsponibleAlmacen = 0;
+                var SacarCantidadDisponible = ObjDataInventario.Value.BuscaProductos(
+                    VariablesGlobales.IdMantenimeinto,
+                    null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                foreach (var n in SacarCantidadDisponible) {
+                    CantidadDIsponibleAlmacen = Convert.ToInt32(n.Stock);
+                    txtCantidadDisponible.Text = CantidadDIsponibleAlmacen.ToString("N0");
+                    VariablesGlobales.NumeroConectorSeleccionadoAgregarPorpductos = Convert.ToDecimal(n.NumeroConector);
                 }
             }
         }
@@ -2011,50 +2037,74 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         //PEPITO
                         int CantidadFActurada = Convert.ToInt32(txtCantidadFacturada.Text);
                         int CantidadProcesar = Convert.ToInt32(txtCantidadProcesar.Text);
+                        int CantidadAlmacen = Convert.ToInt32(txtCantidadDisponible.Text);
 
                         if (CantidadProcesar > CantidadFActurada)
                         {
                             MessageBox.Show("No es posible proceder con este proceso por que la cantidad que intentas procesar es mayor a la cantidad facturada, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         else {
-                            //PROCESAMOS
-                            var BuscarRegistro = ObjDataInventario.Value.BuscaProductos(
-                                VariablesGlobales.IdMantenimeinto,
-                                null,
-                                null, null, null, null, null, null, null, null, null, null, null,null, 1, 1);
-                            foreach (var n in BuscarRegistro) {
-                                DSMarket.Logica.Comunes.ProcesarProductosDefectuosos Procesar = new Logica.Comunes.ProcesarProductosDefectuosos(
-                                    0,
-                                    VariablesGlobales.NumeroConector,
-                                    Convert.ToDecimal(n.IdTipoProducto),
-                                    Convert.ToDecimal(n.IdCategoria),
-                                    Convert.ToDecimal(n.IdUnidadMedida),
-                                    Convert.ToDecimal(n.IdMarca),
-                                    Convert.ToDecimal(n.IdModelo),
-                                    Convert.ToDecimal(n.IdTipoSuplidor),
-                                    Convert.ToDecimal(n.IdSuplidor),
-                                    n.Producto,
-                                    n.CodigoBarra,
-                                    n.Referencia,
-                                    Convert.ToDecimal(n.PrecioCompra),
-                                    Convert.ToDecimal(n.PrecioVenta),
-                                    Convert.ToDecimal(n.Stock),
-                                    Convert.ToDecimal(n.StockMinimo),
-                                    Convert.ToDecimal(n.PorcientoDescuento),
-                                    Convert.ToBoolean(n.AfectaOferta0),
-                                    Convert.ToBoolean(n.ProductoAcumulativo0),
-                                    Convert.ToBoolean(n.LlevaImagen0),
-                                    Convert.ToDecimal(n.UsuarioAdicion),
-                                    Convert.ToDateTime(n.FechaAdiciona),
-                                    Convert.ToDecimal(n.UsuarioModifica),
-                                    Convert.ToDateTime(n.FechaModifica),
-                                    Convert.ToDateTime(n.Fecha),
-                                    n.Comentario,
-                                    Convert.ToBoolean(n.AplicaParaImpuesto0),
-                                    Convert.ToBoolean(n.EstatusProducto0),
-                                    Convert.ToDecimal(txtCantidadProcesar.Text),
-                                    "INSERT");
-                                Procesar.ProcesarInformaicon();
+                            if (CantidadProcesar > CantidadAlmacen) {
+                                MessageBox.Show("No es posible procesar esta operación por que la cantidad que intentas procesar supera la cantidad que se tiene en almacen, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                            else {
+                                //PROCESAMOS
+                                var BuscarRegistro = ObjDataInventario.Value.BuscaProductos(
+                                    VariablesGlobales.IdMantenimeinto,
+                                    null,
+                                    null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                                bool ProductoSeleccionadoAcumulativo = false;
+                                foreach (var n in BuscarRegistro)
+                                {
+                                    ProductoSeleccionadoAcumulativo = Convert.ToBoolean(n.ProductoAcumulativo0);
+                                    DSMarket.Logica.Comunes.ProcesarProductosDefectuosos Procesar = new Logica.Comunes.ProcesarProductosDefectuosos(
+                                        0,
+                                        VariablesGlobales.NumeroConector,
+                                        Convert.ToDecimal(n.IdTipoProducto),
+                                        Convert.ToDecimal(n.IdCategoria),
+                                        Convert.ToDecimal(n.IdUnidadMedida),
+                                        Convert.ToDecimal(n.IdMarca),
+                                        Convert.ToDecimal(n.IdModelo),
+                                        Convert.ToDecimal(n.IdTipoSuplidor),
+                                        Convert.ToDecimal(n.IdSuplidor),
+                                        n.Producto,
+                                        n.CodigoBarra,
+                                        n.Referencia,
+                                        Convert.ToDecimal(n.PrecioCompra),
+                                        Convert.ToDecimal(n.PrecioVenta),
+                                        Convert.ToDecimal(n.Stock),
+                                        Convert.ToDecimal(n.StockMinimo),
+                                        Convert.ToDecimal(n.PorcientoDescuento),
+                                        Convert.ToBoolean(n.AfectaOferta0),
+                                        Convert.ToBoolean(n.ProductoAcumulativo0),
+                                        Convert.ToBoolean(n.LlevaImagen0),
+                                        Convert.ToDecimal(n.UsuarioAdicion),
+                                        Convert.ToDateTime(n.FechaAdiciona),
+                                        Convert.ToDecimal(n.UsuarioModifica),
+                                        Convert.ToDateTime(n.FechaModifica),
+                                        Convert.ToDateTime(n.Fecha),
+                                        n.Comentario,
+                                        Convert.ToBoolean(n.AplicaParaImpuesto0),
+                                        Convert.ToBoolean(n.EstatusProducto0),
+                                        Convert.ToDecimal(txtCantidadProcesar.Text),
+                                        "INSERT");
+                                    Procesar.ProcesarInformaicon();
+                                }
+
+                                if (ProductoSeleccionadoAcumulativo == true) {
+                                    //SACAMOS LOS PRODUCTOS DEL INVENTARIO
+                                    DSMarket.Logica.Entidades.EntidadesInventario.EProducto Sacar = new Logica.Entidades.EntidadesInventario.EProducto();
+
+                                    Sacar.IdProducto = VariablesGlobales.IdMantenimeinto;
+                                    Sacar.NumeroConector = VariablesGlobales.NumeroConectorSeleccionadoAgregarPorpductos;
+                                    Sacar.Stock = Convert.ToDecimal(txtCantidadProcesar.Text);
+
+                                    var MAN = ObjDataInventario.Value.MantenimientoProducto(Sacar, "LESSPRODUCT");
+                                }
+                              
+
+                                MessageBox.Show("Proceso completado exitosamente", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                RestablecerPantalla();
                             }
                         }
                     }

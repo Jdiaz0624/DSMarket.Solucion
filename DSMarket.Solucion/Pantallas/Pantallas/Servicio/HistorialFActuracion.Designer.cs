@@ -86,6 +86,8 @@
             this.lbClaveSeguridad = new System.Windows.Forms.Label();
             this.btnDescartarProducto = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lbCantidadDisponible = new System.Windows.Forms.Label();
+            this.txtCantidadDisponible = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel2.SuspendLayout();
@@ -114,7 +116,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1325, 38);
+            this.panel1.Size = new System.Drawing.Size(1283, 38);
             this.panel1.TabIndex = 3;
             // 
             // lbCantidadRegistrosVariable
@@ -149,7 +151,7 @@
             this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(1281, 5);
+            this.PCerrar.Location = new System.Drawing.Point(1239, 5);
             this.PCerrar.Margin = new System.Windows.Forms.Padding(5);
             this.PCerrar.Name = "PCerrar";
             this.PCerrar.Size = new System.Drawing.Size(30, 30);
@@ -173,7 +175,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 38);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1325, 58);
+            this.panel2.Size = new System.Drawing.Size(1283, 58);
             this.panel2.TabIndex = 5;
             // 
             // btnEstadistica
@@ -454,7 +456,7 @@
             this.rbfacturaenglish.AutoSize = true;
             this.rbfacturaenglish.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbfacturaenglish.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbfacturaenglish.Location = new System.Drawing.Point(932, 179);
+            this.rbfacturaenglish.Location = new System.Drawing.Point(880, 183);
             this.rbfacturaenglish.Name = "rbfacturaenglish";
             this.rbfacturaenglish.Size = new System.Drawing.Size(72, 24);
             this.rbfacturaenglish.TabIndex = 74;
@@ -469,7 +471,7 @@
             this.rbfacturaspanish.AutoSize = true;
             this.rbfacturaspanish.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbfacturaspanish.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbfacturaspanish.Location = new System.Drawing.Point(839, 179);
+            this.rbfacturaspanish.Location = new System.Drawing.Point(787, 183);
             this.rbfacturaspanish.Name = "rbfacturaspanish";
             this.rbfacturaspanish.Size = new System.Drawing.Size(86, 24);
             this.rbfacturaspanish.TabIndex = 73;
@@ -484,7 +486,7 @@
             this.cbFacturaPuntoVenta.AutoSize = true;
             this.cbFacturaPuntoVenta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbFacturaPuntoVenta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbFacturaPuntoVenta.Location = new System.Drawing.Point(1010, 179);
+            this.cbFacturaPuntoVenta.Location = new System.Drawing.Point(958, 183);
             this.cbFacturaPuntoVenta.Name = "cbFacturaPuntoVenta";
             this.cbFacturaPuntoVenta.Size = new System.Drawing.Size(141, 24);
             this.cbFacturaPuntoVenta.TabIndex = 79;
@@ -533,7 +535,7 @@
             this.groupBox5.Controls.Add(this.dtListado);
             this.groupBox5.Location = new System.Drawing.Point(16, 322);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1297, 275);
+            this.groupBox5.Size = new System.Drawing.Size(1253, 275);
             this.groupBox5.TabIndex = 20;
             this.groupBox5.TabStop = false;
             // 
@@ -555,7 +557,7 @@
             this.dtListado.Name = "dtListado";
             this.dtListado.ReadOnly = true;
             this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(1291, 249);
+            this.dtListado.Size = new System.Drawing.Size(1247, 249);
             this.dtListado.TabIndex = 0;
             this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
@@ -582,7 +584,7 @@
             this.groupBox2.Controls.Add(this.lbParametro);
             this.groupBox2.Location = new System.Drawing.Point(12, 181);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(642, 135);
+            this.groupBox2.Size = new System.Drawing.Size(595, 135);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             // 
@@ -592,14 +594,14 @@
             this.ddlSeleccionar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ddlSeleccionar.FormattingEnabled = true;
-            this.ddlSeleccionar.Location = new System.Drawing.Point(159, 87);
+            this.ddlSeleccionar.Location = new System.Drawing.Point(113, 87);
             this.ddlSeleccionar.Name = "ddlSeleccionar";
             this.ddlSeleccionar.Size = new System.Drawing.Size(471, 28);
             this.ddlSeleccionar.TabIndex = 7;
             // 
             // txtParametro
             // 
-            this.txtParametro.Location = new System.Drawing.Point(159, 56);
+            this.txtParametro.Location = new System.Drawing.Point(113, 56);
             this.txtParametro.Name = "txtParametro";
             this.txtParametro.Size = new System.Drawing.Size(471, 27);
             this.txtParametro.TabIndex = 6;
@@ -608,7 +610,7 @@
             // txtFechaHasta
             // 
             this.txtFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtFechaHasta.Location = new System.Drawing.Point(467, 25);
+            this.txtFechaHasta.Location = new System.Drawing.Point(421, 25);
             this.txtFechaHasta.Name = "txtFechaHasta";
             this.txtFechaHasta.Size = new System.Drawing.Size(163, 27);
             this.txtFechaHasta.TabIndex = 5;
@@ -616,7 +618,7 @@
             // txtFechaDesde
             // 
             this.txtFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtFechaDesde.Location = new System.Drawing.Point(159, 25);
+            this.txtFechaDesde.Location = new System.Drawing.Point(113, 25);
             this.txtFechaDesde.Name = "txtFechaDesde";
             this.txtFechaDesde.Size = new System.Drawing.Size(163, 27);
             this.txtFechaDesde.TabIndex = 4;
@@ -624,7 +626,7 @@
             // lbFechaHAsta
             // 
             this.lbFechaHAsta.AutoSize = true;
-            this.lbFechaHAsta.Location = new System.Drawing.Point(362, 28);
+            this.lbFechaHAsta.Location = new System.Drawing.Point(316, 28);
             this.lbFechaHAsta.Name = "lbFechaHAsta";
             this.lbFechaHAsta.Size = new System.Drawing.Size(102, 20);
             this.lbFechaHAsta.TabIndex = 3;
@@ -633,7 +635,7 @@
             // lbFechaDesde
             // 
             this.lbFechaDesde.AutoSize = true;
-            this.lbFechaDesde.Location = new System.Drawing.Point(53, 28);
+            this.lbFechaDesde.Location = new System.Drawing.Point(7, 28);
             this.lbFechaDesde.Name = "lbFechaDesde";
             this.lbFechaDesde.Size = new System.Drawing.Size(102, 20);
             this.lbFechaDesde.TabIndex = 2;
@@ -642,7 +644,7 @@
             // lbSeleccionar
             // 
             this.lbSeleccionar.AutoSize = true;
-            this.lbSeleccionar.Location = new System.Drawing.Point(62, 90);
+            this.lbSeleccionar.Location = new System.Drawing.Point(16, 90);
             this.lbSeleccionar.Name = "lbSeleccionar";
             this.lbSeleccionar.Size = new System.Drawing.Size(93, 20);
             this.lbSeleccionar.TabIndex = 1;
@@ -651,7 +653,7 @@
             // lbParametro
             // 
             this.lbParametro.AutoSize = true;
-            this.lbParametro.Location = new System.Drawing.Point(67, 59);
+            this.lbParametro.Location = new System.Drawing.Point(21, 59);
             this.lbParametro.Name = "lbParametro";
             this.lbParametro.Size = new System.Drawing.Size(88, 20);
             this.lbParametro.TabIndex = 0;
@@ -660,7 +662,7 @@
             // lbFormatoFactura
             // 
             this.lbFormatoFactura.AutoSize = true;
-            this.lbFormatoFactura.Location = new System.Drawing.Point(673, 181);
+            this.lbFormatoFactura.Location = new System.Drawing.Point(621, 185);
             this.lbFormatoFactura.Name = "lbFormatoFactura";
             this.lbFormatoFactura.Size = new System.Drawing.Size(160, 20);
             this.lbFormatoFactura.TabIndex = 72;
@@ -670,7 +672,7 @@
             // txtCantidadProductos
             // 
             this.txtCantidadProductos.Enabled = false;
-            this.txtCantidadProductos.Location = new System.Drawing.Point(839, 206);
+            this.txtCantidadProductos.Location = new System.Drawing.Point(787, 210);
             this.txtCantidadProductos.Name = "txtCantidadProductos";
             this.txtCantidadProductos.Size = new System.Drawing.Size(139, 27);
             this.txtCantidadProductos.TabIndex = 8;
@@ -680,7 +682,7 @@
             // txtCantidadServicios
             // 
             this.txtCantidadServicios.Enabled = false;
-            this.txtCantidadServicios.Location = new System.Drawing.Point(839, 235);
+            this.txtCantidadServicios.Location = new System.Drawing.Point(787, 239);
             this.txtCantidadServicios.Name = "txtCantidadServicios";
             this.txtCantidadServicios.Size = new System.Drawing.Size(139, 27);
             this.txtCantidadServicios.TabIndex = 75;
@@ -690,7 +692,7 @@
             // txtCantidadTotal
             // 
             this.txtCantidadTotal.Enabled = false;
-            this.txtCantidadTotal.Location = new System.Drawing.Point(839, 264);
+            this.txtCantidadTotal.Location = new System.Drawing.Point(787, 268);
             this.txtCantidadTotal.Name = "txtCantidadTotal";
             this.txtCantidadTotal.Size = new System.Drawing.Size(139, 27);
             this.txtCantidadTotal.TabIndex = 76;
@@ -700,7 +702,7 @@
             // lbCantidadProductos
             // 
             this.lbCantidadProductos.AutoSize = true;
-            this.lbCantidadProductos.Location = new System.Drawing.Point(668, 210);
+            this.lbCantidadProductos.Location = new System.Drawing.Point(616, 214);
             this.lbCantidadProductos.Name = "lbCantidadProductos";
             this.lbCantidadProductos.Size = new System.Drawing.Size(168, 20);
             this.lbCantidadProductos.TabIndex = 8;
@@ -710,7 +712,7 @@
             // lbCantidadServicios
             // 
             this.lbCantidadServicios.AutoSize = true;
-            this.lbCantidadServicios.Location = new System.Drawing.Point(667, 239);
+            this.lbCantidadServicios.Location = new System.Drawing.Point(615, 243);
             this.lbCantidadServicios.Name = "lbCantidadServicios";
             this.lbCantidadServicios.Size = new System.Drawing.Size(169, 20);
             this.lbCantidadServicios.TabIndex = 77;
@@ -720,7 +722,7 @@
             // lbCantidadTotal
             // 
             this.lbCantidadTotal.AutoSize = true;
-            this.lbCantidadTotal.Location = new System.Drawing.Point(714, 268);
+            this.lbCantidadTotal.Location = new System.Drawing.Point(662, 272);
             this.lbCantidadTotal.Name = "lbCantidadTotal";
             this.lbCantidadTotal.Size = new System.Drawing.Size(121, 20);
             this.lbCantidadTotal.TabIndex = 78;
@@ -730,7 +732,7 @@
             // lbCantidadProcesar
             // 
             this.lbCantidadProcesar.AutoSize = true;
-            this.lbCantidadProcesar.Location = new System.Drawing.Point(1021, 239);
+            this.lbCantidadProcesar.Location = new System.Drawing.Point(993, 271);
             this.lbCantidadProcesar.Name = "lbCantidadProcesar";
             this.lbCantidadProcesar.Size = new System.Drawing.Size(146, 20);
             this.lbCantidadProcesar.TabIndex = 84;
@@ -740,7 +742,7 @@
             // lbCantidadFacturada
             // 
             this.lbCantidadFacturada.AutoSize = true;
-            this.lbCantidadFacturada.Location = new System.Drawing.Point(986, 210);
+            this.lbCantidadFacturada.Location = new System.Drawing.Point(958, 213);
             this.lbCantidadFacturada.Name = "lbCantidadFacturada";
             this.lbCantidadFacturada.Size = new System.Drawing.Size(180, 20);
             this.lbCantidadFacturada.TabIndex = 80;
@@ -750,7 +752,7 @@
             // txtCantidadProcesar
             // 
             this.txtCantidadProcesar.Enabled = false;
-            this.txtCantidadProcesar.Location = new System.Drawing.Point(1170, 235);
+            this.txtCantidadProcesar.Location = new System.Drawing.Point(1142, 267);
             this.txtCantidadProcesar.Name = "txtCantidadProcesar";
             this.txtCantidadProcesar.Size = new System.Drawing.Size(124, 27);
             this.txtCantidadProcesar.TabIndex = 82;
@@ -760,7 +762,7 @@
             // 
             // txtCantidadFacturada
             // 
-            this.txtCantidadFacturada.Location = new System.Drawing.Point(1170, 206);
+            this.txtCantidadFacturada.Location = new System.Drawing.Point(1142, 209);
             this.txtCantidadFacturada.Name = "txtCantidadFacturada";
             this.txtCantidadFacturada.Size = new System.Drawing.Size(124, 27);
             this.txtCantidadFacturada.TabIndex = 81;
@@ -770,7 +772,7 @@
             // 
             // txtClaveSeguridad
             // 
-            this.txtClaveSeguridad.Location = new System.Drawing.Point(1170, 264);
+            this.txtClaveSeguridad.Location = new System.Drawing.Point(1142, 296);
             this.txtClaveSeguridad.MaxLength = 20;
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
             this.txtClaveSeguridad.PasswordChar = '•';
@@ -782,7 +784,7 @@
             // lbClaveSeguridad
             // 
             this.lbClaveSeguridad.AutoSize = true;
-            this.lbClaveSeguridad.Location = new System.Drawing.Point(1035, 268);
+            this.lbClaveSeguridad.Location = new System.Drawing.Point(1007, 300);
             this.lbClaveSeguridad.Name = "lbClaveSeguridad";
             this.lbClaveSeguridad.Size = new System.Drawing.Size(132, 20);
             this.lbClaveSeguridad.TabIndex = 85;
@@ -797,7 +799,7 @@
             this.btnDescartarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDescartarProducto.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDescartarProducto.Image = global::DSMarket.Solucion.Properties.Resources.Eliminar;
-            this.btnDescartarProducto.Location = new System.Drawing.Point(1265, 7);
+            this.btnDescartarProducto.Location = new System.Drawing.Point(1232, 7);
             this.btnDescartarProducto.Name = "btnDescartarProducto";
             this.btnDescartarProducto.Size = new System.Drawing.Size(45, 41);
             this.btnDescartarProducto.TabIndex = 71;
@@ -810,13 +812,34 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // lbCantidadDisponible
+            // 
+            this.lbCantidadDisponible.AutoSize = true;
+            this.lbCantidadDisponible.Location = new System.Drawing.Point(980, 242);
+            this.lbCantidadDisponible.Name = "lbCantidadDisponible";
+            this.lbCantidadDisponible.Size = new System.Drawing.Size(159, 20);
+            this.lbCantidadDisponible.TabIndex = 86;
+            this.lbCantidadDisponible.Text = "Cantidad Dispobible";
+            this.lbCantidadDisponible.Visible = false;
+            // 
+            // txtCantidadDisponible
+            // 
+            this.txtCantidadDisponible.Location = new System.Drawing.Point(1142, 238);
+            this.txtCantidadDisponible.Name = "txtCantidadDisponible";
+            this.txtCantidadDisponible.Size = new System.Drawing.Size(124, 27);
+            this.txtCantidadDisponible.TabIndex = 87;
+            this.txtCantidadDisponible.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCantidadDisponible.Visible = false;
+            // 
             // HistorialFActuracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1325, 636);
+            this.ClientSize = new System.Drawing.Size(1283, 636);
+            this.Controls.Add(this.lbCantidadDisponible);
+            this.Controls.Add(this.txtCantidadDisponible);
             this.Controls.Add(this.lbClaveSeguridad);
             this.Controls.Add(this.lbCantidadProcesar);
             this.Controls.Add(this.lbCantidadFacturada);
@@ -930,5 +953,7 @@
         private System.Windows.Forms.TextBox txtCantidadFacturada;
         private System.Windows.Forms.Button btnDescartarProducto;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label lbCantidadDisponible;
+        private System.Windows.Forms.TextBox txtCantidadDisponible;
     }
 }
