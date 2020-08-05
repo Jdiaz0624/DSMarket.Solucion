@@ -27,12 +27,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
         {
             gbSeleccionar.BackColor = SystemColors.Control;
             this.BackColor = SystemColors.Control;
-            cbCradreMail.Checked = false;
             cbCradreMail.ForeColor = Color.DarkRed;
             lbTitulo.Text = "CUADRE DE CAJA";
             lbTitulo.ForeColor = Color.WhiteSmoke;
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
-
+            bool Mail = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(4);
+            if (Mail == true) {
+                cbCradreMail.Checked = true;
+            }
+            else {
+                cbCradreMail.Checked = false;
+            }
         }
 
         private void CuadreCaja_FormClosing(object sender, FormClosingEventArgs e)

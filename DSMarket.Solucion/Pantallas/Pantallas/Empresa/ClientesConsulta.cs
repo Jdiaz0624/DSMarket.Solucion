@@ -94,6 +94,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             this.Hide();
             DSMarket.Solucion.Pantallas.Pantallas.Empresa.ClientesMantenimiento mantenimiento = new ClientesMantenimiento();
             mantenimiento.VariablesGlobales.Accion = "INSERT";
+            mantenimiento.VariablesGlobales.IdMantenimeinto = 0;
             mantenimiento.ShowDialog();
         }
 
@@ -102,6 +103,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             this.Hide();
             DSMarket.Solucion.Pantallas.Pantallas.Empresa.ClientesMantenimiento mantenimiento = new ClientesMantenimiento();
             mantenimiento.VariablesGlobales.Accion = "UPDATE";
+            mantenimiento.VariablesGlobales.IdMantenimeinto = VariablesGlobales.IdMantenimeinto;
             mantenimiento.ShowDialog();
         }
 
@@ -110,6 +112,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             this.Hide();
             DSMarket.Solucion.Pantallas.Pantallas.Empresa.ClientesMantenimiento mantenimiento = new ClientesMantenimiento();
             mantenimiento.VariablesGlobales.Accion = "DELETE";
+            mantenimiento.VariablesGlobales.IdMantenimeinto = VariablesGlobales.IdMantenimeinto;
             mantenimiento.ShowDialog();
         }
 

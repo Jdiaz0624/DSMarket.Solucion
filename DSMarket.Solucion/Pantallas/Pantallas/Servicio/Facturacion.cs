@@ -1271,11 +1271,45 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             //INVOCAMOS LA FACTURA
         }
         #endregion
-       
+        #region SACAR LAS CONFIGURACIONES GENERALES
+
+
+        private void ValidarConfiguracionGeneral() {
+            bool FacturaIngles = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(2);
+            if (FacturaIngles == true)
+            {
+                rbfacturaenglish.Checked = true;
+                rbfacturaspanish.Checked = false;
+                rbfacturaspanish.ForeColor = Color.DarkRed;
+                rbfacturaenglish.ForeColor = Color.LimeGreen;
+            }
+            else {
+                rbfacturaenglish.Checked = false;
+                rbfacturaspanish.Checked = true;
+                rbfacturaenglish.ForeColor = Color.DarkRed;
+                rbfacturaspanish.ForeColor = Color.LimeGreen;
+            }
+
+
+            bool FActuraPuntoVenta = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(3);
+            if (FActuraPuntoVenta == true)
+            {
+                cbFacturaPuntoVenta.Checked = true;
+                cbFacturaPuntoVenta.ForeColor = Color.LimeGreen;
+            }
+            else {
+                cbFacturaPuntoVenta.Checked = false;
+                cbFacturaPuntoVenta.ForeColor = Color.DarkRed;
+            }
+
+        }
+        #endregion
+
 
         private void Facturacion_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+            ValidarConfiguracionGeneral();
             MostrarComprobantesFiscales();
             MostrarTipoIdentificacion();
             MostrarListadoTipoVenta();
@@ -1298,7 +1332,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             rbFacturar.ForeColor = Color.LimeGreen;
             rbCotizar.ForeColor = Color.DarkRed;
             cbAgregarCliente.ForeColor = Color.DarkRed;
-            rbfacturaspanish.Checked = true;
             rbfacturaspanish.ForeColor = Color.LimeGreen;
             rbfacturaenglish.ForeColor = Color.DarkRed;
             cbFacturaPuntoVenta.ForeColor = Color.DarkRed;

@@ -54,12 +54,14 @@
     <Compile Include="Comunes\MantenimientoTipoPago.cs" />
     <Compile Include="Comunes\ModificarImpuesto.cs" />
     <Compile Include="Comunes\ModificarInformacionEmpresa.cs" />
+    <Compile Include="Comunes\PrcesarClientes.cs" />
     <Compile Include="Comunes\ProcesarGananciaVenta.cs" />
     <Compile Include="Comunes\ProcesarProductosDefectuosos.cs" />
     <Compile Include="Comunes\ProcesarRegistrosReporteProductosDefectuosos.cs" />
     <Compile Include="Comunes\ProcesarReporteVenta.cs" />
     <Compile Include="Comunes\ProcesarUsuarios.cs" />
     <Compile Include="Comunes\SeguridadEncriptacion.cs" />
+    <Compile Include="Comunes\ValidarConfiguracionGeneral.cs" />
     <Compile Include="Comunes\ValidarControles.cs" />
     <Compile Include="Comunes\ValidarNivelUsuario.cs" />
     <Compile Include="Comunes\VariablesGlobales.cs" />
