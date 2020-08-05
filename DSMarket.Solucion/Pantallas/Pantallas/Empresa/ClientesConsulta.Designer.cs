@@ -35,6 +35,7 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnRestabelcer = new System.Windows.Forms.Button();
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtListado = new System.Windows.Forms.DataGridView();
@@ -53,7 +54,6 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.lbCantidadRegistrosTitulo = new System.Windows.Forms.Label();
-            this.btnRestabelcer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
@@ -72,6 +72,7 @@
             // btnDeshabilitar
             // 
             this.btnDeshabilitar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeshabilitar.Enabled = false;
             this.btnDeshabilitar.FlatAppearance.BorderSize = 0;
             this.btnDeshabilitar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDeshabilitar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -89,6 +90,7 @@
             // btnEditar
             // 
             this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditar.Enabled = false;
             this.btnEditar.FlatAppearance.BorderSize = 0;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -136,6 +138,23 @@
             this.toolTip1.SetToolTip(this.btnBuscar, "Consultar registros");
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnRestabelcer
+            // 
+            this.btnRestabelcer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestabelcer.FlatAppearance.BorderSize = 0;
+            this.btnRestabelcer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRestabelcer.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestabelcer.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
+            this.btnRestabelcer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRestabelcer.Location = new System.Drawing.Point(707, 7);
+            this.btnRestabelcer.Name = "btnRestabelcer";
+            this.btnRestabelcer.Size = new System.Drawing.Size(170, 41);
+            this.btnRestabelcer.TabIndex = 68;
+            this.btnRestabelcer.Text = "      Restablecer";
+            this.toolTip1.SetToolTip(this.btnRestabelcer, "Deshabilitar registro seleccionado");
+            this.btnRestabelcer.UseVisualStyleBackColor = true;
+            this.btnRestabelcer.Click += new System.EventHandler(this.btnRestabelcer_Click);
             // 
             // txtNumeroRegistros
             // 
@@ -352,23 +371,6 @@
             this.lbCantidadRegistrosTitulo.Size = new System.Drawing.Size(172, 20);
             this.lbCantidadRegistrosTitulo.TabIndex = 30;
             this.lbCantidadRegistrosTitulo.Text = "Cantidad de Registros";
-            // 
-            // btnRestabelcer
-            // 
-            this.btnRestabelcer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestabelcer.FlatAppearance.BorderSize = 0;
-            this.btnRestabelcer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRestabelcer.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRestabelcer.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
-            this.btnRestabelcer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRestabelcer.Location = new System.Drawing.Point(707, 7);
-            this.btnRestabelcer.Name = "btnRestabelcer";
-            this.btnRestabelcer.Size = new System.Drawing.Size(170, 41);
-            this.btnRestabelcer.TabIndex = 68;
-            this.btnRestabelcer.Text = "      Restablecer";
-            this.toolTip1.SetToolTip(this.btnRestabelcer, "Deshabilitar registro seleccionado");
-            this.btnRestabelcer.UseVisualStyleBackColor = true;
-            this.btnRestabelcer.Click += new System.EventHandler(this.btnRestabelcer_Click);
             // 
             // ClientesConsulta
             // 
