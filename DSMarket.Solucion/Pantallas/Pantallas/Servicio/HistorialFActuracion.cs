@@ -1779,10 +1779,12 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     if (ValidarFacturaAnulada.Count() < 1)
                     {
                         btnAnular.Enabled = true;
+                        btnModificarDiasGarantia.Enabled = true;
                     }
                     else
                     {
                         btnAnular.Enabled = false;
+                        btnModificarDiasGarantia.Enabled = false;
                     }
                 }
 
@@ -1793,6 +1795,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 dtListado.DataSource = BuscarRegistro;
                 OcultarColumnas();
                 VariablesGlobales.GananciaFacturaUnica = true;
+
             }
             else {
                 //ESTE BLOQUE ES PARA CUANDO SE NECESITE 
@@ -2126,7 +2129,12 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            DSMarket.Solucion.Pantallas.Pantallas.Servicio.ModificarGarantiaFactura GarantiaEdtt = new ModificarGarantiaFactura();
+            GarantiaEdtt.VariablesGlobales.IdMantenimeinto = VariablesGlobales.IdMantenimeinto;
+            GarantiaEdtt.VariablesGlobales.NumeroConector = VariablesGlobales.NumeroConector;
+            GarantiaEdtt.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+            GarantiaEdtt.ShowDialog();
         }
     }
 }

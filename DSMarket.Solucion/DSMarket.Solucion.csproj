@@ -427,6 +427,12 @@
     <Compile Include="Pantallas\Pantallas\Servicio\MantenimientoTipoPago.Designer.cs">
       <DependentUpon>MantenimientoTipoPago.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Servicio\ModificarGarantiaFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Servicio\ModificarGarantiaFactura.Designer.cs">
+      <DependentUpon>ModificarGarantiaFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Servicio\TipoPago.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -662,6 +668,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Servicio\MantenimientoTipoPago.resx">
       <DependentUpon>MantenimientoTipoPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Servicio\ModificarGarantiaFactura.resx">
+      <DependentUpon>ModificarGarantiaFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Servicio\TipoPago.resx">
       <DependentUpon>TipoPago.cs</DependentUpon>
