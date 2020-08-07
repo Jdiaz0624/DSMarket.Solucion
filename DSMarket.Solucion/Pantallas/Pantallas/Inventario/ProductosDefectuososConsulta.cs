@@ -33,7 +33,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 _DescripcionProducto,
                 _CodigoBarra,
                 _Referencia,
-                null, null, null, null, null, null, null, null, null,
+                null, null, null, null, null, null, null, null, null,null,
                 Convert.ToInt32(txtNumeroPagina.Value),
                 Convert.ToInt32(txtNumeroRegistros.Value));
             dtListado.DataSource = BuscarRegistros;
@@ -203,7 +203,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 _DescripcionProducto,
                 _CodigoBarra,
                 _Referencia,
-                null, null, null, null, null, null, null, null, null,
+                null, null, null, null, null, null, null, null, null,null,
                 Convert.ToInt32(txtNumeroPagina.Value),
                 Convert.ToInt32(txtNumeroRegistros.Value));
             foreach (var n in BuscarRegistros) {
@@ -293,7 +293,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 var BuscarRegostro = ObjDataInventario.Value.BuscaProductosDefectuosos(
                     VariablesGlobales.IdMantenimeinto,
                     VariablesGlobales.NumeroConector,
-                    null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                    null, null, null, null, null, null, null, null, null, null, null, null, null,1, 1);
                 dtListado.DataSource = BuscarRegostro;
                 OcultarColumnas();
                 btnEliminar.Enabled = true;

@@ -215,6 +215,8 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                 Items.IdTipoVenta,
                 Items.IdCantidadDias,
                 Items.IdUsuario,
+                Items.AplicaGarantia,
+                Items.DiasGarantia,
                 Accion);
             if (FacturacionCliente != null) {
                 Guardar = (from n in FacturacionCliente
@@ -234,7 +236,9 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                IdTipoVenta = n.IdTipoVenta,
                                IdCantidadDias = n.IdCantidadDias,
                                IdUsuario = n.IdUsuario,
-                               FechaFacturacion=n.FechaFacturacion
+                               FechaFacturacion=n.FechaFacturacion,
+                               AplicaGarantia=n.AplicaGarantia,
+                               DiasGarantia=n.DiasGarantia
                            }).FirstOrDefault();
             }
             return Guardar;
@@ -611,7 +615,10 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                IdTipoPago=n.IdTipoPago,
                                TipoPago=n.TipoPago,
                                TotalGeneral=n.TotalGeneral,
-                               CantidadRegistros = n.CantidadRegistros
+                               CantidadRegistros = n.CantidadRegistros,
+                               AplicaGarantia0=n.AplicaGarantia0,
+                               AplicaGarantia=n.AplicaGarantia,
+                               DiasGarantia=n.DiasGarantia
                            }).ToList();
             return Listado;
         }

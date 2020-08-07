@@ -424,6 +424,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             ManClientes.IdTipoVenta = Convert.ToDecimal(ddlTipoVenta.SelectedValue);
             ManClientes.IdCantidadDias = Convert.ToDecimal(ddlCantidadDias.SelectedValue);
             ManClientes.IdUsuario = VariablesGlobales.IdUsuario;
+            ManClientes.AplicaGarantia = VariablesGlobales.AplicaGanancia;
+            ManClientes.DiasGarantia = Convert.ToInt32(txtCantidadDiasGarantia.Value);
 
             var MAN = ObjDataServicio.Value.GuardarFacturacionClientes(ManClientes, Accion);
         }
@@ -794,7 +796,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     null,
                     null,
                     null,
-                    1, 1);
+                    null, 1, 1);
                 foreach (var n2 in SacarDatosProducto) {
                     IdTipoProducto = Convert.ToDecimal(n2.IdTipoProducto);
                     Acumulativo = Convert.ToBoolean(n2.ProductoAcumulativo0);
@@ -895,7 +897,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     null,
                     null,
                     null,
-                    1, 1);
+                    null, 1, 1);
                 foreach (var n2 in SacarDatosProducto)
                 {
                     IdTipoProducto = Convert.ToDecimal(n2.IdTipoProducto);
@@ -1227,7 +1229,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     //SACAMOS LA INFORMACION DE QUE SI EL PRODUCTO ES ACUMULATIVO O NO
 
                     var ProductoAcumulativoInformacion = ObjDataInventario.Value.BuscaProductos(
-                        IdProducto, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                        IdProducto, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
                     foreach (var n2 in ProductoAcumulativoInformacion)
                     {
                         ProductoAcumulativo = Convert.ToBoolean(n2.ProductoAcumulativo0);
@@ -1302,6 +1304,18 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 cbFacturaPuntoVenta.ForeColor = Color.DarkRed;
             }
 
+            bool LlevaGarantia = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(5);
+            if (LlevaGarantia == true) {
+                lbCantidadGarantia.Visible = true;
+                txtCantidadDiasGarantia.Visible = true;
+                VariablesGlobales.AplicaGanancia = true;
+            }
+            else {
+                lbCantidadGarantia.Visible = false;
+                txtCantidadDiasGarantia.Visible = false;
+                VariablesGlobales.AplicaGanancia = false;
+            }
+
         }
         #endregion
 
@@ -1309,7 +1323,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void Facturacion_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
-            ValidarConfiguracionGeneral();
+            
             MostrarComprobantesFiscales();
             MostrarTipoIdentificacion();
             MostrarListadoTipoVenta();
@@ -1353,6 +1367,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             MostrarListadoTipoPagos();
             txtMontoPagar.Text = "0";
             CalcularCambio();
+            ValidarConfiguracionGeneral();
         }
 
         private void PCerrar_Click(object sender, EventArgs e)
@@ -1900,6 +1915,25 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void txtMontoPagar_TextChanged(object sender, EventArgs e)
         {
             CalcularCambio();
+        }
+
+        private void txtCantidadDiasGarantia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            DSMarket.Logica.Comunes.ValidarControles.SoloNumeros(e);
+        }
+
+        private void gbGeneral_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNumeroPagina_ValueChanged(object sender, EventArgs e)
+        {
+            if (txtCantidadDiasGarantia.Value < 0)
+            {
+                txtCantidadDiasGarantia.Value = 0;
+            }
+            else { }
         }
     }
 }

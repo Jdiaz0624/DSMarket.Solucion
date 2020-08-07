@@ -1018,6 +1018,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.dtListado.Columns["IdTipoPago"].Visible = false;
             this.dtListado.Columns["CantidadRegistros"].Visible = false;
             this.dtListado.Columns["IdCantidadDias"].Visible = false;
+            this.dtListado.Columns["AplicaGarantia0"].Visible = false;
+            this.dtListado.Columns["AplicaGarantia"].Visible = false;
         }
         #endregion
         #region MOSTRAR EL LISTADO DE DEL ESTATUS DE FACTURACION
@@ -1837,7 +1839,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 int CantidadDIsponibleAlmacen = 0;
                 var SacarCantidadDisponible = ObjDataInventario.Value.BuscaProductos(
                     VariablesGlobales.IdMantenimeinto,
-                    null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                    null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
                 foreach (var n in SacarCantidadDisponible) {
                     CantidadDIsponibleAlmacen = Convert.ToInt32(n.Stock);
                     txtCantidadDisponible.Text = CantidadDIsponibleAlmacen.ToString("N0");
@@ -2061,7 +2063,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                                 var BuscarRegistro = ObjDataInventario.Value.BuscaProductos(
                                     VariablesGlobales.IdMantenimeinto,
                                     null,
-                                    null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                                    null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
                                 bool ProductoSeleccionadoAcumulativo = false;
                                 foreach (var n in BuscarRegistro)
                                 {
@@ -2096,6 +2098,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                                         Convert.ToBoolean(n.AplicaParaImpuesto0),
                                         Convert.ToBoolean(n.EstatusProducto0),
                                         Convert.ToDecimal(txtCantidadProcesar.Text),
+                                        n.NumeroSeguimiento,
                                         "INSERT");
                                     Procesar.ProcesarInformaicon();
                                 }
@@ -2119,6 +2122,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     }
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

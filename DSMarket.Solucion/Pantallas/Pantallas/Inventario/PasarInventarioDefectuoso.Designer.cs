@@ -78,6 +78,8 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbTitulo = new System.Windows.Forms.Label();
+            this.txtNumeroSeguimiento = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
@@ -88,6 +90,8 @@
             // groupBox1
             // 
             this.groupBox1.AutoSize = true;
+            this.groupBox1.Controls.Add(this.txtNumeroSeguimiento);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.txtCantdadProcesar);
             this.groupBox1.Controls.Add(this.label3);
@@ -133,7 +137,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(19, 54);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1237, 428);
+            this.groupBox1.Size = new System.Drawing.Size(1237, 445);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Producto";
@@ -599,6 +603,25 @@
             this.lbTitulo.TabIndex = 13;
             this.lbTitulo.Text = "label6";
             // 
+            // txtNumeroSeguimiento
+            // 
+            this.txtNumeroSeguimiento.BackColor = System.Drawing.Color.Silver;
+            this.txtNumeroSeguimiento.Enabled = false;
+            this.txtNumeroSeguimiento.Location = new System.Drawing.Point(200, 392);
+            this.txtNumeroSeguimiento.Name = "txtNumeroSeguimiento";
+            this.txtNumeroSeguimiento.Size = new System.Drawing.Size(250, 27);
+            this.txtNumeroSeguimiento.TabIndex = 74;
+            this.txtNumeroSeguimiento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(25, 394);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(173, 21);
+            this.label4.TabIndex = 73;
+            this.label4.Text = "Numero Seguimiento";
+            // 
             // PasarInventarioDefectuoso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -676,5 +699,7 @@
         private System.Windows.Forms.TextBox txtCategoria;
         private System.Windows.Forms.TextBox txtTipoProducto;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtNumeroSeguimiento;
+        private System.Windows.Forms.Label label4;
     }
 }

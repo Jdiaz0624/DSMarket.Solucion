@@ -80,5 +80,11 @@ namespace DSMarket.Logica.Entidades.EntidadesServicio
         public System.Nullable<decimal> TotalGeneral {get;set;}
 
         public System.Nullable<int> CantidadRegistros {get;set;}
+
+        public System.Nullable<bool> AplicaGarantia0 { get; set; }
+
+        public string AplicaGarantia { get; set; }
+
+        public System.Nullable<int> DiasGarantia { get; set; }
     }
 }

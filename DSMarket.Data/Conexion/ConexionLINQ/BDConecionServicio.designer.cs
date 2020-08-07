@@ -140,13 +140,6 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			return ((ISingleResult<SP_BUSCA_FACTURACION_ESPEJOResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_BUSCA_HISTORIAL_PRODUCTO")]
-		public ISingleResult<SP_BUSCA_HISTORIAL_PRODUCTOResult> SP_BUSCA_HISTORIAL_PRODUCTO([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdHistorialProducto", DbType="Decimal(20,0)")] System.Nullable<decimal> idHistorialProducto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdProducto", DbType="Decimal(20,0)")] System.Nullable<decimal> idProducto)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idHistorialProducto, idProducto);
-			return ((ISingleResult<SP_BUSCA_HISTORIAL_PRODUCTOResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_MANTENIMIENTO_HISTORIAL_PRODUCTO_INVENTARIO")]
 		public ISingleResult<SP_MANTENIMIENTO_HISTORIAL_PRODUCTO_INVENTARIOResult> SP_MANTENIMIENTO_HISTORIAL_PRODUCTO_INVENTARIO([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdHistorialProducto", DbType="Decimal(20,0)")] System.Nullable<decimal> idHistorialProducto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdProducto", DbType="Decimal(20,0)")] System.Nullable<decimal> idProducto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
 		{
@@ -159,13 +152,6 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idFacturacion, numeroConector, descripcionComprobante, comprobante, accion);
 			return ((ISingleResult<SP_GUARDAR_FACTURACION_COMPROBANTEResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_GUARDAR_CLIENTE_FACTURACION")]
-		public ISingleResult<SP_GUARDAR_CLIENTE_FACTURACIONResult> SP_GUARDAR_CLIENTE_FACTURACION([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdFactura", DbType="Decimal(20,0)")] System.Nullable<decimal> idFactura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroConector", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroConector, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdEstatusFacturacion", DbType="Int")] System.Nullable<int> idEstatusFacturacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdComprobante", DbType="Decimal(20,0)")] System.Nullable<decimal> idComprobante, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nombre", DbType="VarChar(200)")] string nombre, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Telefono", DbType="VarChar(50)")] string telefono, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="VarChar(100)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoIdentificacion", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoIdentificacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroIdentificacion", DbType="VarChar(100)")] string numeroIdentificacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Direccion", DbType="VarChar(8000)")] string direccion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Comentario", DbType="VarChar(8000)")] string comentario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoVenta", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoVenta, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdCantidadDias", DbType="Decimal(20,0)")] System.Nullable<decimal> idCantidadDias, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Decimal(20,0)")] System.Nullable<decimal> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idFactura, numeroConector, idEstatusFacturacion, idComprobante, nombre, telefono, email, idTipoIdentificacion, numeroIdentificacion, direccion, comentario, idTipoVenta, idCantidadDias, idUsuario, accion);
-			return ((ISingleResult<SP_GUARDAR_CLIENTE_FACTURACIONResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_SACAR_NUMERO_FACTURA")]
@@ -203,13 +189,6 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			return ((ISingleResult<SP_VALIDAR_FACTURA_ANULADAResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Historial.SP_BUSCA_HISTORIAL_FACTURACION")]
-		public ISingleResult<SP_BUSCA_HISTORIAL_FACTURACIONResult> SP_BUSCA_HISTORIAL_FACTURACION([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdFactura", DbType="Decimal(20,0)")] System.Nullable<decimal> idFactura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroConector", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroConector, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdEstatusFacturacion", DbType="Decimal(20,0)")] System.Nullable<decimal> idEstatusFacturacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoFacturacion", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoFacturacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoPago", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoPago, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cliente", DbType="VarChar(1000)")] string cliente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaDesde", DbType="Date")] System.Nullable<System.DateTime> fechaDesde, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaHasta", DbType="Date")] System.Nullable<System.DateTime> fechaHasta, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroPagina", DbType="Int")] System.Nullable<int> numeroPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroRegistros", DbType="Int")] System.Nullable<int> numeroRegistros)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idFactura, numeroConector, idEstatusFacturacion, idTipoFacturacion, idTipoPago, cliente, fechaDesde, fechaHasta, numeroPagina, numeroRegistros);
-			return ((ISingleResult<SP_BUSCA_HISTORIAL_FACTURACIONResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_SACAR_GANANCIA_FACTURACION")]
 		public ISingleResult<SP_SACAR_GANANCIA_FACTURACIONResult> SP_SACAR_GANANCIA_FACTURACION([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdFactura", DbType="Decimal(20,0)")] System.Nullable<decimal> idFactura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroConector", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroConector, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdEstatusFacturacion", DbType="Decimal(20,0)")] System.Nullable<decimal> idEstatusFacturacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoFacturacion", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoFacturacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoPago", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoPago, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cliente", DbType="VarChar(1000)")] string cliente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaDesde", DbType="Date")] System.Nullable<System.DateTime> fechaDesde, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaHasta", DbType="Date")] System.Nullable<System.DateTime> fechaHasta)
 		{
@@ -229,6 +208,44 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idTipoPago, descripcion, estatus, usuarioAdiciona, bloqueaMonto, impuestoAdicional, porcentajeEntero, valor, accion);
 			return ((ISingleResult<SP_MANTENIMIENTO_TIPO_PAGOResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_GUARDAR_CLIENTE_FACTURACION")]
+		public ISingleResult<SP_GUARDAR_CLIENTE_FACTURACIONResult> SP_GUARDAR_CLIENTE_FACTURACION(
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdFactura", DbType="Decimal(20,0)")] System.Nullable<decimal> idFactura, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroConector", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroConector, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdEstatusFacturacion", DbType="Int")] System.Nullable<int> idEstatusFacturacion, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdComprobante", DbType="Decimal(20,0)")] System.Nullable<decimal> idComprobante, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nombre", DbType="VarChar(200)")] string nombre, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Telefono", DbType="VarChar(50)")] string telefono, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="VarChar(100)")] string email, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoIdentificacion", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoIdentificacion, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroIdentificacion", DbType="VarChar(100)")] string numeroIdentificacion, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Direccion", DbType="VarChar(8000)")] string direccion, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Comentario", DbType="VarChar(8000)")] string comentario, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoVenta", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoVenta, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdCantidadDias", DbType="Decimal(20,0)")] System.Nullable<decimal> idCantidadDias, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Decimal(20,0)")] System.Nullable<decimal> idUsuario, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="AplicaGarantia", DbType="Bit")] System.Nullable<bool> aplicaGarantia, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiasGarantia", DbType="Int")] System.Nullable<int> diasGarantia, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idFactura, numeroConector, idEstatusFacturacion, idComprobante, nombre, telefono, email, idTipoIdentificacion, numeroIdentificacion, direccion, comentario, idTipoVenta, idCantidadDias, idUsuario, aplicaGarantia, diasGarantia, accion);
+			return ((ISingleResult<SP_GUARDAR_CLIENTE_FACTURACIONResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Historial.SP_BUSCA_HISTORIAL_FACTURACION")]
+		public ISingleResult<SP_BUSCA_HISTORIAL_FACTURACIONResult> SP_BUSCA_HISTORIAL_FACTURACION([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdFactura", DbType="Decimal(20,0)")] System.Nullable<decimal> idFactura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroConector", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroConector, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdEstatusFacturacion", DbType="Decimal(20,0)")] System.Nullable<decimal> idEstatusFacturacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoFacturacion", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoFacturacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoPago", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoPago, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cliente", DbType="VarChar(1000)")] string cliente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaDesde", DbType="Date")] System.Nullable<System.DateTime> fechaDesde, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaHasta", DbType="Date")] System.Nullable<System.DateTime> fechaHasta, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroPagina", DbType="Int")] System.Nullable<int> numeroPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroRegistros", DbType="Int")] System.Nullable<int> numeroRegistros)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idFactura, numeroConector, idEstatusFacturacion, idTipoFacturacion, idTipoPago, cliente, fechaDesde, fechaHasta, numeroPagina, numeroRegistros);
+			return ((ISingleResult<SP_BUSCA_HISTORIAL_FACTURACIONResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_BUSCA_HISTORIAL_PRODUCTO")]
+		public ISingleResult<SP_BUSCA_HISTORIAL_PRODUCTOResult> SP_BUSCA_HISTORIAL_PRODUCTO([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdHistorialProducto", DbType="Decimal(20,0)")] System.Nullable<decimal> idHistorialProducto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdProducto", DbType="Decimal(20,0)")] System.Nullable<decimal> idProducto)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idHistorialProducto, idProducto);
+			return ((ISingleResult<SP_BUSCA_HISTORIAL_PRODUCTOResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -2162,680 +2179,6 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		}
 	}
 	
-	public partial class SP_BUSCA_HISTORIAL_PRODUCTOResult
-	{
-		
-		private System.Nullable<decimal> _IdHistorialProducto;
-		
-		private System.Nullable<decimal> _IdProducto;
-		
-		private System.Nullable<decimal> _NumeroConector;
-		
-		private System.Nullable<decimal> _IdTipoProducto;
-		
-		private string _TipoProducto;
-		
-		private System.Nullable<decimal> _IdCategoria;
-		
-		private string _Categoria;
-		
-		private System.Nullable<decimal> _IdUnidadMedida;
-		
-		private string _UnidadMedida;
-		
-		private System.Nullable<decimal> _IdMarca;
-		
-		private string _Marca;
-		
-		private System.Nullable<decimal> _IdModelo;
-		
-		private string _Modelo;
-		
-		private System.Nullable<decimal> _IdTipoSuplidor;
-		
-		private string _TipoSuplidor;
-		
-		private System.Nullable<decimal> _IdSuplidor;
-		
-		private string _Suplidor;
-		
-		private string _Producto;
-		
-		private string _CodigoBarra;
-		
-		private string _Referencia;
-		
-		private System.Nullable<decimal> _PrecioCompra;
-		
-		private System.Nullable<decimal> _PrecioVenta;
-		
-		private System.Nullable<decimal> _Stock;
-		
-		private System.Nullable<decimal> _StockMinimo;
-		
-		private System.Nullable<decimal> _PorcientoDescuento;
-		
-		private System.Nullable<bool> _AfectaOferta;
-		
-		private System.Nullable<bool> _ProductoAcumulativo0;
-		
-		private string _ProductoAcumulativo;
-		
-		private System.Nullable<bool> _LlevaImagen;
-		
-		private System.Nullable<decimal> _UsuarioAdiciona;
-		
-		private System.Nullable<System.DateTime> _FechaAdiciona;
-		
-		private System.Nullable<decimal> _UsuarioModifica;
-		
-		private System.Nullable<System.DateTime> _FechaModifica;
-		
-		private System.Nullable<System.DateTime> _Fecha;
-		
-		private string _Comentario;
-		
-		private System.Nullable<bool> _AplicaParaimpuesto;
-		
-		private System.Nullable<decimal> _PrecioOriginal;
-		
-		public SP_BUSCA_HISTORIAL_PRODUCTOResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdHistorialProducto", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdHistorialProducto
-		{
-			get
-			{
-				return this._IdHistorialProducto;
-			}
-			set
-			{
-				if ((this._IdHistorialProducto != value))
-				{
-					this._IdHistorialProducto = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdProducto", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdProducto
-		{
-			get
-			{
-				return this._IdProducto;
-			}
-			set
-			{
-				if ((this._IdProducto != value))
-				{
-					this._IdProducto = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroConector", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> NumeroConector
-		{
-			get
-			{
-				return this._NumeroConector;
-			}
-			set
-			{
-				if ((this._NumeroConector != value))
-				{
-					this._NumeroConector = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoProducto", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdTipoProducto
-		{
-			get
-			{
-				return this._IdTipoProducto;
-			}
-			set
-			{
-				if ((this._IdTipoProducto != value))
-				{
-					this._IdTipoProducto = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoProducto", DbType="VarChar(100)")]
-		public string TipoProducto
-		{
-			get
-			{
-				return this._TipoProducto;
-			}
-			set
-			{
-				if ((this._TipoProducto != value))
-				{
-					this._TipoProducto = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCategoria", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdCategoria
-		{
-			get
-			{
-				return this._IdCategoria;
-			}
-			set
-			{
-				if ((this._IdCategoria != value))
-				{
-					this._IdCategoria = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Categoria", DbType="VarChar(100)")]
-		public string Categoria
-		{
-			get
-			{
-				return this._Categoria;
-			}
-			set
-			{
-				if ((this._Categoria != value))
-				{
-					this._Categoria = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUnidadMedida", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdUnidadMedida
-		{
-			get
-			{
-				return this._IdUnidadMedida;
-			}
-			set
-			{
-				if ((this._IdUnidadMedida != value))
-				{
-					this._IdUnidadMedida = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnidadMedida", DbType="VarChar(100)")]
-		public string UnidadMedida
-		{
-			get
-			{
-				return this._UnidadMedida;
-			}
-			set
-			{
-				if ((this._UnidadMedida != value))
-				{
-					this._UnidadMedida = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMarca", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdMarca
-		{
-			get
-			{
-				return this._IdMarca;
-			}
-			set
-			{
-				if ((this._IdMarca != value))
-				{
-					this._IdMarca = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Marca", DbType="VarChar(100)")]
-		public string Marca
-		{
-			get
-			{
-				return this._Marca;
-			}
-			set
-			{
-				if ((this._Marca != value))
-				{
-					this._Marca = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdModelo", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdModelo
-		{
-			get
-			{
-				return this._IdModelo;
-			}
-			set
-			{
-				if ((this._IdModelo != value))
-				{
-					this._IdModelo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Modelo", DbType="VarChar(100)")]
-		public string Modelo
-		{
-			get
-			{
-				return this._Modelo;
-			}
-			set
-			{
-				if ((this._Modelo != value))
-				{
-					this._Modelo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoSuplidor", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdTipoSuplidor
-		{
-			get
-			{
-				return this._IdTipoSuplidor;
-			}
-			set
-			{
-				if ((this._IdTipoSuplidor != value))
-				{
-					this._IdTipoSuplidor = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoSuplidor", DbType="VarChar(100)")]
-		public string TipoSuplidor
-		{
-			get
-			{
-				return this._TipoSuplidor;
-			}
-			set
-			{
-				if ((this._TipoSuplidor != value))
-				{
-					this._TipoSuplidor = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdSuplidor", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdSuplidor
-		{
-			get
-			{
-				return this._IdSuplidor;
-			}
-			set
-			{
-				if ((this._IdSuplidor != value))
-				{
-					this._IdSuplidor = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Suplidor", DbType="VarChar(100)")]
-		public string Suplidor
-		{
-			get
-			{
-				return this._Suplidor;
-			}
-			set
-			{
-				if ((this._Suplidor != value))
-				{
-					this._Suplidor = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Producto", DbType="VarChar(200)")]
-		public string Producto
-		{
-			get
-			{
-				return this._Producto;
-			}
-			set
-			{
-				if ((this._Producto != value))
-				{
-					this._Producto = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodigoBarra", DbType="VarChar(100)")]
-		public string CodigoBarra
-		{
-			get
-			{
-				return this._CodigoBarra;
-			}
-			set
-			{
-				if ((this._CodigoBarra != value))
-				{
-					this._CodigoBarra = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Referencia", DbType="VarChar(100)")]
-		public string Referencia
-		{
-			get
-			{
-				return this._Referencia;
-			}
-			set
-			{
-				if ((this._Referencia != value))
-				{
-					this._Referencia = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrecioCompra", DbType="Decimal(20,2)")]
-		public System.Nullable<decimal> PrecioCompra
-		{
-			get
-			{
-				return this._PrecioCompra;
-			}
-			set
-			{
-				if ((this._PrecioCompra != value))
-				{
-					this._PrecioCompra = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrecioVenta", DbType="Decimal(20,2)")]
-		public System.Nullable<decimal> PrecioVenta
-		{
-			get
-			{
-				return this._PrecioVenta;
-			}
-			set
-			{
-				if ((this._PrecioVenta != value))
-				{
-					this._PrecioVenta = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stock", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> Stock
-		{
-			get
-			{
-				return this._Stock;
-			}
-			set
-			{
-				if ((this._Stock != value))
-				{
-					this._Stock = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StockMinimo", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> StockMinimo
-		{
-			get
-			{
-				return this._StockMinimo;
-			}
-			set
-			{
-				if ((this._StockMinimo != value))
-				{
-					this._StockMinimo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorcientoDescuento", DbType="Decimal(3,0)")]
-		public System.Nullable<decimal> PorcientoDescuento
-		{
-			get
-			{
-				return this._PorcientoDescuento;
-			}
-			set
-			{
-				if ((this._PorcientoDescuento != value))
-				{
-					this._PorcientoDescuento = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AfectaOferta", DbType="Bit")]
-		public System.Nullable<bool> AfectaOferta
-		{
-			get
-			{
-				return this._AfectaOferta;
-			}
-			set
-			{
-				if ((this._AfectaOferta != value))
-				{
-					this._AfectaOferta = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductoAcumulativo0", DbType="Bit")]
-		public System.Nullable<bool> ProductoAcumulativo0
-		{
-			get
-			{
-				return this._ProductoAcumulativo0;
-			}
-			set
-			{
-				if ((this._ProductoAcumulativo0 != value))
-				{
-					this._ProductoAcumulativo0 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductoAcumulativo", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
-		public string ProductoAcumulativo
-		{
-			get
-			{
-				return this._ProductoAcumulativo;
-			}
-			set
-			{
-				if ((this._ProductoAcumulativo != value))
-				{
-					this._ProductoAcumulativo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LlevaImagen", DbType="Bit")]
-		public System.Nullable<bool> LlevaImagen
-		{
-			get
-			{
-				return this._LlevaImagen;
-			}
-			set
-			{
-				if ((this._LlevaImagen != value))
-				{
-					this._LlevaImagen = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsuarioAdiciona", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> UsuarioAdiciona
-		{
-			get
-			{
-				return this._UsuarioAdiciona;
-			}
-			set
-			{
-				if ((this._UsuarioAdiciona != value))
-				{
-					this._UsuarioAdiciona = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaAdiciona", DbType="DateTime")]
-		public System.Nullable<System.DateTime> FechaAdiciona
-		{
-			get
-			{
-				return this._FechaAdiciona;
-			}
-			set
-			{
-				if ((this._FechaAdiciona != value))
-				{
-					this._FechaAdiciona = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsuarioModifica", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> UsuarioModifica
-		{
-			get
-			{
-				return this._UsuarioModifica;
-			}
-			set
-			{
-				if ((this._UsuarioModifica != value))
-				{
-					this._UsuarioModifica = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaModifica", DbType="DateTime")]
-		public System.Nullable<System.DateTime> FechaModifica
-		{
-			get
-			{
-				return this._FechaModifica;
-			}
-			set
-			{
-				if ((this._FechaModifica != value))
-				{
-					this._FechaModifica = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fecha", DbType="Date")]
-		public System.Nullable<System.DateTime> Fecha
-		{
-			get
-			{
-				return this._Fecha;
-			}
-			set
-			{
-				if ((this._Fecha != value))
-				{
-					this._Fecha = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comentario", DbType="VarChar(8000)")]
-		public string Comentario
-		{
-			get
-			{
-				return this._Comentario;
-			}
-			set
-			{
-				if ((this._Comentario != value))
-				{
-					this._Comentario = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AplicaParaimpuesto", DbType="Bit")]
-		public System.Nullable<bool> AplicaParaimpuesto
-		{
-			get
-			{
-				return this._AplicaParaimpuesto;
-			}
-			set
-			{
-				if ((this._AplicaParaimpuesto != value))
-				{
-					this._AplicaParaimpuesto = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrecioOriginal", DbType="Decimal(20,2)")]
-		public System.Nullable<decimal> PrecioOriginal
-		{
-			get
-			{
-				return this._PrecioOriginal;
-			}
-			set
-			{
-				if ((this._PrecioOriginal != value))
-				{
-					this._PrecioOriginal = value;
-				}
-			}
-		}
-	}
-	
 	public partial class SP_MANTENIMIENTO_HISTORIAL_PRODUCTO_INVENTARIOResult
 	{
 		
@@ -2955,284 +2298,6 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._Comprobante != value))
 				{
 					this._Comprobante = value;
-				}
-			}
-		}
-	}
-	
-	public partial class SP_GUARDAR_CLIENTE_FACTURACIONResult
-	{
-		
-		private System.Nullable<decimal> _IdFactura;
-		
-		private System.Nullable<decimal> _NumeroConector;
-		
-		private System.Nullable<int> _IdEstatusFacturacion;
-		
-		private System.Nullable<decimal> _IdComprobante;
-		
-		private string _Nombre;
-		
-		private string _Telefono;
-		
-		private string _Email;
-		
-		private System.Nullable<decimal> _IdTipoIdentificacion;
-		
-		private string _NumeroIdentificacion;
-		
-		private string _Direccion;
-		
-		private string _Comentario;
-		
-		private System.Nullable<decimal> _IdTipoVenta;
-		
-		private System.Nullable<decimal> _IdCantidadDias;
-		
-		private System.Nullable<decimal> _IdUsuario;
-		
-		private System.Nullable<System.DateTime> _FechaFacturacion;
-		
-		public SP_GUARDAR_CLIENTE_FACTURACIONResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdFactura", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdFactura
-		{
-			get
-			{
-				return this._IdFactura;
-			}
-			set
-			{
-				if ((this._IdFactura != value))
-				{
-					this._IdFactura = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroConector", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> NumeroConector
-		{
-			get
-			{
-				return this._NumeroConector;
-			}
-			set
-			{
-				if ((this._NumeroConector != value))
-				{
-					this._NumeroConector = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdEstatusFacturacion", DbType="Int")]
-		public System.Nullable<int> IdEstatusFacturacion
-		{
-			get
-			{
-				return this._IdEstatusFacturacion;
-			}
-			set
-			{
-				if ((this._IdEstatusFacturacion != value))
-				{
-					this._IdEstatusFacturacion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdComprobante", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdComprobante
-		{
-			get
-			{
-				return this._IdComprobante;
-			}
-			set
-			{
-				if ((this._IdComprobante != value))
-				{
-					this._IdComprobante = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(200)")]
-		public string Nombre
-		{
-			get
-			{
-				return this._Nombre;
-			}
-			set
-			{
-				if ((this._Nombre != value))
-				{
-					this._Nombre = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telefono", DbType="VarChar(50)")]
-		public string Telefono
-		{
-			get
-			{
-				return this._Telefono;
-			}
-			set
-			{
-				if ((this._Telefono != value))
-				{
-					this._Telefono = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(100)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this._Email = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoIdentificacion", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdTipoIdentificacion
-		{
-			get
-			{
-				return this._IdTipoIdentificacion;
-			}
-			set
-			{
-				if ((this._IdTipoIdentificacion != value))
-				{
-					this._IdTipoIdentificacion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroIdentificacion", DbType="VarChar(100)")]
-		public string NumeroIdentificacion
-		{
-			get
-			{
-				return this._NumeroIdentificacion;
-			}
-			set
-			{
-				if ((this._NumeroIdentificacion != value))
-				{
-					this._NumeroIdentificacion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Direccion", DbType="VarChar(8000)")]
-		public string Direccion
-		{
-			get
-			{
-				return this._Direccion;
-			}
-			set
-			{
-				if ((this._Direccion != value))
-				{
-					this._Direccion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comentario", DbType="VarChar(8000)")]
-		public string Comentario
-		{
-			get
-			{
-				return this._Comentario;
-			}
-			set
-			{
-				if ((this._Comentario != value))
-				{
-					this._Comentario = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoVenta", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdTipoVenta
-		{
-			get
-			{
-				return this._IdTipoVenta;
-			}
-			set
-			{
-				if ((this._IdTipoVenta != value))
-				{
-					this._IdTipoVenta = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCantidadDias", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdCantidadDias
-		{
-			get
-			{
-				return this._IdCantidadDias;
-			}
-			set
-			{
-				if ((this._IdCantidadDias != value))
-				{
-					this._IdCantidadDias = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdUsuario
-		{
-			get
-			{
-				return this._IdUsuario;
-			}
-			set
-			{
-				if ((this._IdUsuario != value))
-				{
-					this._IdUsuario = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaFacturacion", DbType="Date")]
-		public System.Nullable<System.DateTime> FechaFacturacion
-		{
-			get
-			{
-				return this._FechaFacturacion;
-			}
-			set
-			{
-				if ((this._FechaFacturacion != value))
-				{
-					this._FechaFacturacion = value;
 				}
 			}
 		}
@@ -4214,680 +3279,6 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		}
 	}
 	
-	public partial class SP_BUSCA_HISTORIAL_FACTURACIONResult
-	{
-		
-		private string _Cliente;
-		
-		private string _EstatusFacturacion;
-		
-		private decimal _IdFactura;
-		
-		private decimal _NumeroConector;
-		
-		private int _IdEstatusFacturacion;
-		
-		private string _TipoIdentificacion;
-		
-		private string _DescripcionComprobante;
-		
-		private string _Comprobante;
-		
-		private System.Nullable<decimal> _IdComprobante;
-		
-		private string _Descripcion;
-		
-		private string _Telefono;
-		
-		private string _Email;
-		
-		private System.Nullable<decimal> _IdTipoIdentificacion;
-		
-		private string _NumeroIdentificacion;
-		
-		private string _Direccion;
-		
-		private string _Comentario;
-		
-		private System.Nullable<decimal> _IdTipoVenta;
-		
-		private string _TipoVenta;
-		
-		private string _CantidadDias;
-		
-		private System.Nullable<decimal> _IdCantidadDias;
-		
-		private System.Nullable<decimal> _IdUsuario;
-		
-		private string _CreadoPor;
-		
-		private System.Nullable<System.DateTime> _FechaFacturacion0;
-		
-		private string _FechaFacturacion;
-		
-		private System.Nullable<int> _CantidadProductos;
-		
-		private System.Nullable<int> _CantidadServicios;
-		
-		private System.Nullable<int> _CantidadArticulos;
-		
-		private System.Nullable<decimal> _TotalDescuento;
-		
-		private System.Nullable<decimal> _SubTotal;
-		
-		private System.Nullable<decimal> _Impuesto;
-		
-		private System.Nullable<int> _PorcientoImpuesto;
-		
-		private System.Nullable<decimal> _MontoPagado;
-		
-		private System.Nullable<decimal> _Cambio;
-		
-		private System.Nullable<decimal> _IdTipoPago;
-		
-		private string _TipoPago;
-		
-		private System.Nullable<decimal> _TotalGeneral;
-		
-		private System.Nullable<int> _CantidadRegistros;
-		
-		public SP_BUSCA_HISTORIAL_FACTURACIONResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cliente", DbType="VarChar(200)")]
-		public string Cliente
-		{
-			get
-			{
-				return this._Cliente;
-			}
-			set
-			{
-				if ((this._Cliente != value))
-				{
-					this._Cliente = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EstatusFacturacion", DbType="VarChar(100)")]
-		public string EstatusFacturacion
-		{
-			get
-			{
-				return this._EstatusFacturacion;
-			}
-			set
-			{
-				if ((this._EstatusFacturacion != value))
-				{
-					this._EstatusFacturacion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdFactura", DbType="Decimal(20,0) NOT NULL")]
-		public decimal IdFactura
-		{
-			get
-			{
-				return this._IdFactura;
-			}
-			set
-			{
-				if ((this._IdFactura != value))
-				{
-					this._IdFactura = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroConector", DbType="Decimal(20,0) NOT NULL")]
-		public decimal NumeroConector
-		{
-			get
-			{
-				return this._NumeroConector;
-			}
-			set
-			{
-				if ((this._NumeroConector != value))
-				{
-					this._NumeroConector = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdEstatusFacturacion", DbType="Int NOT NULL")]
-		public int IdEstatusFacturacion
-		{
-			get
-			{
-				return this._IdEstatusFacturacion;
-			}
-			set
-			{
-				if ((this._IdEstatusFacturacion != value))
-				{
-					this._IdEstatusFacturacion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoIdentificacion", DbType="VarChar(100)")]
-		public string TipoIdentificacion
-		{
-			get
-			{
-				return this._TipoIdentificacion;
-			}
-			set
-			{
-				if ((this._TipoIdentificacion != value))
-				{
-					this._TipoIdentificacion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DescripcionComprobante", DbType="VarChar(100)")]
-		public string DescripcionComprobante
-		{
-			get
-			{
-				return this._DescripcionComprobante;
-			}
-			set
-			{
-				if ((this._DescripcionComprobante != value))
-				{
-					this._DescripcionComprobante = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comprobante", DbType="VarChar(100)")]
-		public string Comprobante
-		{
-			get
-			{
-				return this._Comprobante;
-			}
-			set
-			{
-				if ((this._Comprobante != value))
-				{
-					this._Comprobante = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdComprobante", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdComprobante
-		{
-			get
-			{
-				return this._IdComprobante;
-			}
-			set
-			{
-				if ((this._IdComprobante != value))
-				{
-					this._IdComprobante = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(100)")]
-		public string Descripcion
-		{
-			get
-			{
-				return this._Descripcion;
-			}
-			set
-			{
-				if ((this._Descripcion != value))
-				{
-					this._Descripcion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telefono", DbType="VarChar(50)")]
-		public string Telefono
-		{
-			get
-			{
-				return this._Telefono;
-			}
-			set
-			{
-				if ((this._Telefono != value))
-				{
-					this._Telefono = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(100)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this._Email = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoIdentificacion", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdTipoIdentificacion
-		{
-			get
-			{
-				return this._IdTipoIdentificacion;
-			}
-			set
-			{
-				if ((this._IdTipoIdentificacion != value))
-				{
-					this._IdTipoIdentificacion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroIdentificacion", DbType="VarChar(100)")]
-		public string NumeroIdentificacion
-		{
-			get
-			{
-				return this._NumeroIdentificacion;
-			}
-			set
-			{
-				if ((this._NumeroIdentificacion != value))
-				{
-					this._NumeroIdentificacion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Direccion", DbType="VarChar(8000)")]
-		public string Direccion
-		{
-			get
-			{
-				return this._Direccion;
-			}
-			set
-			{
-				if ((this._Direccion != value))
-				{
-					this._Direccion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comentario", DbType="VarChar(8000)")]
-		public string Comentario
-		{
-			get
-			{
-				return this._Comentario;
-			}
-			set
-			{
-				if ((this._Comentario != value))
-				{
-					this._Comentario = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoVenta", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdTipoVenta
-		{
-			get
-			{
-				return this._IdTipoVenta;
-			}
-			set
-			{
-				if ((this._IdTipoVenta != value))
-				{
-					this._IdTipoVenta = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoVenta", DbType="VarChar(100)")]
-		public string TipoVenta
-		{
-			get
-			{
-				return this._TipoVenta;
-			}
-			set
-			{
-				if ((this._TipoVenta != value))
-				{
-					this._TipoVenta = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadDias", DbType="VarChar(10)")]
-		public string CantidadDias
-		{
-			get
-			{
-				return this._CantidadDias;
-			}
-			set
-			{
-				if ((this._CantidadDias != value))
-				{
-					this._CantidadDias = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCantidadDias", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdCantidadDias
-		{
-			get
-			{
-				return this._IdCantidadDias;
-			}
-			set
-			{
-				if ((this._IdCantidadDias != value))
-				{
-					this._IdCantidadDias = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdUsuario
-		{
-			get
-			{
-				return this._IdUsuario;
-			}
-			set
-			{
-				if ((this._IdUsuario != value))
-				{
-					this._IdUsuario = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreadoPor", DbType="VarChar(100)")]
-		public string CreadoPor
-		{
-			get
-			{
-				return this._CreadoPor;
-			}
-			set
-			{
-				if ((this._CreadoPor != value))
-				{
-					this._CreadoPor = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaFacturacion0", DbType="Date")]
-		public System.Nullable<System.DateTime> FechaFacturacion0
-		{
-			get
-			{
-				return this._FechaFacturacion0;
-			}
-			set
-			{
-				if ((this._FechaFacturacion0 != value))
-				{
-					this._FechaFacturacion0 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaFacturacion", DbType="NVarChar(4000)")]
-		public string FechaFacturacion
-		{
-			get
-			{
-				return this._FechaFacturacion;
-			}
-			set
-			{
-				if ((this._FechaFacturacion != value))
-				{
-					this._FechaFacturacion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadProductos", DbType="Int")]
-		public System.Nullable<int> CantidadProductos
-		{
-			get
-			{
-				return this._CantidadProductos;
-			}
-			set
-			{
-				if ((this._CantidadProductos != value))
-				{
-					this._CantidadProductos = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadServicios", DbType="Int")]
-		public System.Nullable<int> CantidadServicios
-		{
-			get
-			{
-				return this._CantidadServicios;
-			}
-			set
-			{
-				if ((this._CantidadServicios != value))
-				{
-					this._CantidadServicios = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadArticulos", DbType="Int")]
-		public System.Nullable<int> CantidadArticulos
-		{
-			get
-			{
-				return this._CantidadArticulos;
-			}
-			set
-			{
-				if ((this._CantidadArticulos != value))
-				{
-					this._CantidadArticulos = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalDescuento", DbType="Decimal(22,2)")]
-		public System.Nullable<decimal> TotalDescuento
-		{
-			get
-			{
-				return this._TotalDescuento;
-			}
-			set
-			{
-				if ((this._TotalDescuento != value))
-				{
-					this._TotalDescuento = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubTotal", DbType="Decimal(22,2)")]
-		public System.Nullable<decimal> SubTotal
-		{
-			get
-			{
-				return this._SubTotal;
-			}
-			set
-			{
-				if ((this._SubTotal != value))
-				{
-					this._SubTotal = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Impuesto", DbType="Decimal(22,2)")]
-		public System.Nullable<decimal> Impuesto
-		{
-			get
-			{
-				return this._Impuesto;
-			}
-			set
-			{
-				if ((this._Impuesto != value))
-				{
-					this._Impuesto = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorcientoImpuesto", DbType="Int")]
-		public System.Nullable<int> PorcientoImpuesto
-		{
-			get
-			{
-				return this._PorcientoImpuesto;
-			}
-			set
-			{
-				if ((this._PorcientoImpuesto != value))
-				{
-					this._PorcientoImpuesto = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MontoPagado", DbType="Decimal(22,2)")]
-		public System.Nullable<decimal> MontoPagado
-		{
-			get
-			{
-				return this._MontoPagado;
-			}
-			set
-			{
-				if ((this._MontoPagado != value))
-				{
-					this._MontoPagado = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cambio", DbType="Decimal(22,2)")]
-		public System.Nullable<decimal> Cambio
-		{
-			get
-			{
-				return this._Cambio;
-			}
-			set
-			{
-				if ((this._Cambio != value))
-				{
-					this._Cambio = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoPago", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdTipoPago
-		{
-			get
-			{
-				return this._IdTipoPago;
-			}
-			set
-			{
-				if ((this._IdTipoPago != value))
-				{
-					this._IdTipoPago = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoPago", DbType="VarChar(100)")]
-		public string TipoPago
-		{
-			get
-			{
-				return this._TipoPago;
-			}
-			set
-			{
-				if ((this._TipoPago != value))
-				{
-					this._TipoPago = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalGeneral", DbType="Decimal(22,2)")]
-		public System.Nullable<decimal> TotalGeneral
-		{
-			get
-			{
-				return this._TotalGeneral;
-			}
-			set
-			{
-				if ((this._TotalGeneral != value))
-				{
-					this._TotalGeneral = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadRegistros", DbType="Int")]
-		public System.Nullable<int> CantidadRegistros
-		{
-			get
-			{
-				return this._CantidadRegistros;
-			}
-			set
-			{
-				if ((this._CantidadRegistros != value))
-				{
-					this._CantidadRegistros = value;
-				}
-			}
-		}
-	}
-	
 	public partial class SP_SACAR_GANANCIA_FACTURACIONResult
 	{
 		
@@ -5717,6 +4108,1722 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._Valor != value))
 				{
 					this._Valor = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_GUARDAR_CLIENTE_FACTURACIONResult
+	{
+		
+		private System.Nullable<decimal> _IdFactura;
+		
+		private System.Nullable<decimal> _NumeroConector;
+		
+		private System.Nullable<int> _IdEstatusFacturacion;
+		
+		private System.Nullable<decimal> _IdComprobante;
+		
+		private string _Nombre;
+		
+		private string _Telefono;
+		
+		private string _Email;
+		
+		private System.Nullable<decimal> _IdTipoIdentificacion;
+		
+		private string _NumeroIdentificacion;
+		
+		private string _Direccion;
+		
+		private string _Comentario;
+		
+		private System.Nullable<decimal> _IdTipoVenta;
+		
+		private System.Nullable<decimal> _IdCantidadDias;
+		
+		private System.Nullable<decimal> _IdUsuario;
+		
+		private System.Nullable<System.DateTime> _FechaFacturacion;
+		
+		private System.Nullable<bool> _AplicaGarantia;
+		
+		private System.Nullable<int> _DiasGarantia;
+		
+		public SP_GUARDAR_CLIENTE_FACTURACIONResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdFactura", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdFactura
+		{
+			get
+			{
+				return this._IdFactura;
+			}
+			set
+			{
+				if ((this._IdFactura != value))
+				{
+					this._IdFactura = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroConector", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> NumeroConector
+		{
+			get
+			{
+				return this._NumeroConector;
+			}
+			set
+			{
+				if ((this._NumeroConector != value))
+				{
+					this._NumeroConector = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdEstatusFacturacion", DbType="Int")]
+		public System.Nullable<int> IdEstatusFacturacion
+		{
+			get
+			{
+				return this._IdEstatusFacturacion;
+			}
+			set
+			{
+				if ((this._IdEstatusFacturacion != value))
+				{
+					this._IdEstatusFacturacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdComprobante", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdComprobante
+		{
+			get
+			{
+				return this._IdComprobante;
+			}
+			set
+			{
+				if ((this._IdComprobante != value))
+				{
+					this._IdComprobante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(200)")]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this._Nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telefono", DbType="VarChar(50)")]
+		public string Telefono
+		{
+			get
+			{
+				return this._Telefono;
+			}
+			set
+			{
+				if ((this._Telefono != value))
+				{
+					this._Telefono = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(100)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoIdentificacion", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdTipoIdentificacion
+		{
+			get
+			{
+				return this._IdTipoIdentificacion;
+			}
+			set
+			{
+				if ((this._IdTipoIdentificacion != value))
+				{
+					this._IdTipoIdentificacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroIdentificacion", DbType="VarChar(100)")]
+		public string NumeroIdentificacion
+		{
+			get
+			{
+				return this._NumeroIdentificacion;
+			}
+			set
+			{
+				if ((this._NumeroIdentificacion != value))
+				{
+					this._NumeroIdentificacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Direccion", DbType="VarChar(8000)")]
+		public string Direccion
+		{
+			get
+			{
+				return this._Direccion;
+			}
+			set
+			{
+				if ((this._Direccion != value))
+				{
+					this._Direccion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comentario", DbType="VarChar(8000)")]
+		public string Comentario
+		{
+			get
+			{
+				return this._Comentario;
+			}
+			set
+			{
+				if ((this._Comentario != value))
+				{
+					this._Comentario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoVenta", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdTipoVenta
+		{
+			get
+			{
+				return this._IdTipoVenta;
+			}
+			set
+			{
+				if ((this._IdTipoVenta != value))
+				{
+					this._IdTipoVenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCantidadDias", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdCantidadDias
+		{
+			get
+			{
+				return this._IdCantidadDias;
+			}
+			set
+			{
+				if ((this._IdCantidadDias != value))
+				{
+					this._IdCantidadDias = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdUsuario
+		{
+			get
+			{
+				return this._IdUsuario;
+			}
+			set
+			{
+				if ((this._IdUsuario != value))
+				{
+					this._IdUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaFacturacion", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaFacturacion
+		{
+			get
+			{
+				return this._FechaFacturacion;
+			}
+			set
+			{
+				if ((this._FechaFacturacion != value))
+				{
+					this._FechaFacturacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AplicaGarantia", DbType="Bit")]
+		public System.Nullable<bool> AplicaGarantia
+		{
+			get
+			{
+				return this._AplicaGarantia;
+			}
+			set
+			{
+				if ((this._AplicaGarantia != value))
+				{
+					this._AplicaGarantia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiasGarantia", DbType="Int")]
+		public System.Nullable<int> DiasGarantia
+		{
+			get
+			{
+				return this._DiasGarantia;
+			}
+			set
+			{
+				if ((this._DiasGarantia != value))
+				{
+					this._DiasGarantia = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCA_HISTORIAL_FACTURACIONResult
+	{
+		
+		private string _Cliente;
+		
+		private string _EstatusFacturacion;
+		
+		private decimal _IdFactura;
+		
+		private decimal _NumeroConector;
+		
+		private int _IdEstatusFacturacion;
+		
+		private string _TipoIdentificacion;
+		
+		private string _DescripcionComprobante;
+		
+		private string _Comprobante;
+		
+		private System.Nullable<decimal> _IdComprobante;
+		
+		private string _Descripcion;
+		
+		private string _Telefono;
+		
+		private string _Email;
+		
+		private System.Nullable<decimal> _IdTipoIdentificacion;
+		
+		private string _NumeroIdentificacion;
+		
+		private string _Direccion;
+		
+		private string _Comentario;
+		
+		private System.Nullable<decimal> _IdTipoVenta;
+		
+		private string _TipoVenta;
+		
+		private string _CantidadDias;
+		
+		private System.Nullable<decimal> _IdCantidadDias;
+		
+		private System.Nullable<decimal> _IdUsuario;
+		
+		private string _CreadoPor;
+		
+		private System.Nullable<System.DateTime> _FechaFacturacion0;
+		
+		private string _FechaFacturacion;
+		
+		private System.Nullable<int> _CantidadProductos;
+		
+		private System.Nullable<int> _CantidadServicios;
+		
+		private System.Nullable<int> _CantidadArticulos;
+		
+		private System.Nullable<decimal> _TotalDescuento;
+		
+		private System.Nullable<decimal> _SubTotal;
+		
+		private System.Nullable<decimal> _Impuesto;
+		
+		private System.Nullable<int> _PorcientoImpuesto;
+		
+		private System.Nullable<decimal> _MontoPagado;
+		
+		private System.Nullable<decimal> _Cambio;
+		
+		private System.Nullable<decimal> _IdTipoPago;
+		
+		private string _TipoPago;
+		
+		private System.Nullable<decimal> _TotalGeneral;
+		
+		private System.Nullable<bool> _AplicaGarantia0;
+		
+		private string _AplicaGarantia;
+		
+		private System.Nullable<int> _DiasGarantia;
+		
+		private System.Nullable<int> _CantidadRegistros;
+		
+		public SP_BUSCA_HISTORIAL_FACTURACIONResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cliente", DbType="VarChar(200)")]
+		public string Cliente
+		{
+			get
+			{
+				return this._Cliente;
+			}
+			set
+			{
+				if ((this._Cliente != value))
+				{
+					this._Cliente = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EstatusFacturacion", DbType="VarChar(100)")]
+		public string EstatusFacturacion
+		{
+			get
+			{
+				return this._EstatusFacturacion;
+			}
+			set
+			{
+				if ((this._EstatusFacturacion != value))
+				{
+					this._EstatusFacturacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdFactura", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdFactura
+		{
+			get
+			{
+				return this._IdFactura;
+			}
+			set
+			{
+				if ((this._IdFactura != value))
+				{
+					this._IdFactura = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroConector", DbType="Decimal(20,0) NOT NULL")]
+		public decimal NumeroConector
+		{
+			get
+			{
+				return this._NumeroConector;
+			}
+			set
+			{
+				if ((this._NumeroConector != value))
+				{
+					this._NumeroConector = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdEstatusFacturacion", DbType="Int NOT NULL")]
+		public int IdEstatusFacturacion
+		{
+			get
+			{
+				return this._IdEstatusFacturacion;
+			}
+			set
+			{
+				if ((this._IdEstatusFacturacion != value))
+				{
+					this._IdEstatusFacturacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoIdentificacion", DbType="VarChar(100)")]
+		public string TipoIdentificacion
+		{
+			get
+			{
+				return this._TipoIdentificacion;
+			}
+			set
+			{
+				if ((this._TipoIdentificacion != value))
+				{
+					this._TipoIdentificacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DescripcionComprobante", DbType="VarChar(100)")]
+		public string DescripcionComprobante
+		{
+			get
+			{
+				return this._DescripcionComprobante;
+			}
+			set
+			{
+				if ((this._DescripcionComprobante != value))
+				{
+					this._DescripcionComprobante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comprobante", DbType="VarChar(100)")]
+		public string Comprobante
+		{
+			get
+			{
+				return this._Comprobante;
+			}
+			set
+			{
+				if ((this._Comprobante != value))
+				{
+					this._Comprobante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdComprobante", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdComprobante
+		{
+			get
+			{
+				return this._IdComprobante;
+			}
+			set
+			{
+				if ((this._IdComprobante != value))
+				{
+					this._IdComprobante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(100)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telefono", DbType="VarChar(50)")]
+		public string Telefono
+		{
+			get
+			{
+				return this._Telefono;
+			}
+			set
+			{
+				if ((this._Telefono != value))
+				{
+					this._Telefono = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(100)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoIdentificacion", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdTipoIdentificacion
+		{
+			get
+			{
+				return this._IdTipoIdentificacion;
+			}
+			set
+			{
+				if ((this._IdTipoIdentificacion != value))
+				{
+					this._IdTipoIdentificacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroIdentificacion", DbType="VarChar(100)")]
+		public string NumeroIdentificacion
+		{
+			get
+			{
+				return this._NumeroIdentificacion;
+			}
+			set
+			{
+				if ((this._NumeroIdentificacion != value))
+				{
+					this._NumeroIdentificacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Direccion", DbType="VarChar(8000)")]
+		public string Direccion
+		{
+			get
+			{
+				return this._Direccion;
+			}
+			set
+			{
+				if ((this._Direccion != value))
+				{
+					this._Direccion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comentario", DbType="VarChar(8000)")]
+		public string Comentario
+		{
+			get
+			{
+				return this._Comentario;
+			}
+			set
+			{
+				if ((this._Comentario != value))
+				{
+					this._Comentario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoVenta", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdTipoVenta
+		{
+			get
+			{
+				return this._IdTipoVenta;
+			}
+			set
+			{
+				if ((this._IdTipoVenta != value))
+				{
+					this._IdTipoVenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoVenta", DbType="VarChar(100)")]
+		public string TipoVenta
+		{
+			get
+			{
+				return this._TipoVenta;
+			}
+			set
+			{
+				if ((this._TipoVenta != value))
+				{
+					this._TipoVenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadDias", DbType="VarChar(10)")]
+		public string CantidadDias
+		{
+			get
+			{
+				return this._CantidadDias;
+			}
+			set
+			{
+				if ((this._CantidadDias != value))
+				{
+					this._CantidadDias = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCantidadDias", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdCantidadDias
+		{
+			get
+			{
+				return this._IdCantidadDias;
+			}
+			set
+			{
+				if ((this._IdCantidadDias != value))
+				{
+					this._IdCantidadDias = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdUsuario
+		{
+			get
+			{
+				return this._IdUsuario;
+			}
+			set
+			{
+				if ((this._IdUsuario != value))
+				{
+					this._IdUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreadoPor", DbType="VarChar(100)")]
+		public string CreadoPor
+		{
+			get
+			{
+				return this._CreadoPor;
+			}
+			set
+			{
+				if ((this._CreadoPor != value))
+				{
+					this._CreadoPor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaFacturacion0", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaFacturacion0
+		{
+			get
+			{
+				return this._FechaFacturacion0;
+			}
+			set
+			{
+				if ((this._FechaFacturacion0 != value))
+				{
+					this._FechaFacturacion0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaFacturacion", DbType="NVarChar(4000)")]
+		public string FechaFacturacion
+		{
+			get
+			{
+				return this._FechaFacturacion;
+			}
+			set
+			{
+				if ((this._FechaFacturacion != value))
+				{
+					this._FechaFacturacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadProductos", DbType="Int")]
+		public System.Nullable<int> CantidadProductos
+		{
+			get
+			{
+				return this._CantidadProductos;
+			}
+			set
+			{
+				if ((this._CantidadProductos != value))
+				{
+					this._CantidadProductos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadServicios", DbType="Int")]
+		public System.Nullable<int> CantidadServicios
+		{
+			get
+			{
+				return this._CantidadServicios;
+			}
+			set
+			{
+				if ((this._CantidadServicios != value))
+				{
+					this._CantidadServicios = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadArticulos", DbType="Int")]
+		public System.Nullable<int> CantidadArticulos
+		{
+			get
+			{
+				return this._CantidadArticulos;
+			}
+			set
+			{
+				if ((this._CantidadArticulos != value))
+				{
+					this._CantidadArticulos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalDescuento", DbType="Decimal(22,2)")]
+		public System.Nullable<decimal> TotalDescuento
+		{
+			get
+			{
+				return this._TotalDescuento;
+			}
+			set
+			{
+				if ((this._TotalDescuento != value))
+				{
+					this._TotalDescuento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubTotal", DbType="Decimal(22,2)")]
+		public System.Nullable<decimal> SubTotal
+		{
+			get
+			{
+				return this._SubTotal;
+			}
+			set
+			{
+				if ((this._SubTotal != value))
+				{
+					this._SubTotal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Impuesto", DbType="Decimal(22,2)")]
+		public System.Nullable<decimal> Impuesto
+		{
+			get
+			{
+				return this._Impuesto;
+			}
+			set
+			{
+				if ((this._Impuesto != value))
+				{
+					this._Impuesto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorcientoImpuesto", DbType="Int")]
+		public System.Nullable<int> PorcientoImpuesto
+		{
+			get
+			{
+				return this._PorcientoImpuesto;
+			}
+			set
+			{
+				if ((this._PorcientoImpuesto != value))
+				{
+					this._PorcientoImpuesto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MontoPagado", DbType="Decimal(22,2)")]
+		public System.Nullable<decimal> MontoPagado
+		{
+			get
+			{
+				return this._MontoPagado;
+			}
+			set
+			{
+				if ((this._MontoPagado != value))
+				{
+					this._MontoPagado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cambio", DbType="Decimal(22,2)")]
+		public System.Nullable<decimal> Cambio
+		{
+			get
+			{
+				return this._Cambio;
+			}
+			set
+			{
+				if ((this._Cambio != value))
+				{
+					this._Cambio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoPago", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdTipoPago
+		{
+			get
+			{
+				return this._IdTipoPago;
+			}
+			set
+			{
+				if ((this._IdTipoPago != value))
+				{
+					this._IdTipoPago = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoPago", DbType="VarChar(100)")]
+		public string TipoPago
+		{
+			get
+			{
+				return this._TipoPago;
+			}
+			set
+			{
+				if ((this._TipoPago != value))
+				{
+					this._TipoPago = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalGeneral", DbType="Decimal(22,2)")]
+		public System.Nullable<decimal> TotalGeneral
+		{
+			get
+			{
+				return this._TotalGeneral;
+			}
+			set
+			{
+				if ((this._TotalGeneral != value))
+				{
+					this._TotalGeneral = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AplicaGarantia0", DbType="Bit")]
+		public System.Nullable<bool> AplicaGarantia0
+		{
+			get
+			{
+				return this._AplicaGarantia0;
+			}
+			set
+			{
+				if ((this._AplicaGarantia0 != value))
+				{
+					this._AplicaGarantia0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AplicaGarantia", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
+		public string AplicaGarantia
+		{
+			get
+			{
+				return this._AplicaGarantia;
+			}
+			set
+			{
+				if ((this._AplicaGarantia != value))
+				{
+					this._AplicaGarantia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiasGarantia", DbType="Int")]
+		public System.Nullable<int> DiasGarantia
+		{
+			get
+			{
+				return this._DiasGarantia;
+			}
+			set
+			{
+				if ((this._DiasGarantia != value))
+				{
+					this._DiasGarantia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadRegistros", DbType="Int")]
+		public System.Nullable<int> CantidadRegistros
+		{
+			get
+			{
+				return this._CantidadRegistros;
+			}
+			set
+			{
+				if ((this._CantidadRegistros != value))
+				{
+					this._CantidadRegistros = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCA_HISTORIAL_PRODUCTOResult
+	{
+		
+		private System.Nullable<decimal> _IdHistorialProducto;
+		
+		private System.Nullable<decimal> _IdProducto;
+		
+		private System.Nullable<decimal> _NumeroConector;
+		
+		private System.Nullable<decimal> _IdTipoProducto;
+		
+		private string _TipoProducto;
+		
+		private System.Nullable<decimal> _IdCategoria;
+		
+		private string _Categoria;
+		
+		private System.Nullable<decimal> _IdUnidadMedida;
+		
+		private string _UnidadMedida;
+		
+		private System.Nullable<decimal> _IdMarca;
+		
+		private string _Marca;
+		
+		private System.Nullable<decimal> _IdModelo;
+		
+		private string _Modelo;
+		
+		private System.Nullable<decimal> _IdTipoSuplidor;
+		
+		private string _TipoSuplidor;
+		
+		private System.Nullable<decimal> _IdSuplidor;
+		
+		private string _Suplidor;
+		
+		private string _Producto;
+		
+		private string _CodigoBarra;
+		
+		private string _Referencia;
+		
+		private System.Nullable<decimal> _PrecioCompra;
+		
+		private System.Nullable<decimal> _PrecioVenta;
+		
+		private System.Nullable<decimal> _Stock;
+		
+		private System.Nullable<decimal> _StockMinimo;
+		
+		private System.Nullable<decimal> _PorcientoDescuento;
+		
+		private System.Nullable<bool> _AfectaOferta;
+		
+		private System.Nullable<bool> _ProductoAcumulativo0;
+		
+		private string _ProductoAcumulativo;
+		
+		private System.Nullable<bool> _LlevaImagen;
+		
+		private System.Nullable<decimal> _UsuarioAdiciona;
+		
+		private System.Nullable<System.DateTime> _FechaAdiciona;
+		
+		private System.Nullable<decimal> _UsuarioModifica;
+		
+		private System.Nullable<System.DateTime> _FechaModifica;
+		
+		private System.Nullable<System.DateTime> _Fecha;
+		
+		private string _Comentario;
+		
+		private System.Nullable<bool> _AplicaParaimpuesto;
+		
+		private System.Nullable<decimal> _PrecioOriginal;
+		
+		public SP_BUSCA_HISTORIAL_PRODUCTOResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdHistorialProducto", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdHistorialProducto
+		{
+			get
+			{
+				return this._IdHistorialProducto;
+			}
+			set
+			{
+				if ((this._IdHistorialProducto != value))
+				{
+					this._IdHistorialProducto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdProducto", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdProducto
+		{
+			get
+			{
+				return this._IdProducto;
+			}
+			set
+			{
+				if ((this._IdProducto != value))
+				{
+					this._IdProducto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroConector", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> NumeroConector
+		{
+			get
+			{
+				return this._NumeroConector;
+			}
+			set
+			{
+				if ((this._NumeroConector != value))
+				{
+					this._NumeroConector = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoProducto", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdTipoProducto
+		{
+			get
+			{
+				return this._IdTipoProducto;
+			}
+			set
+			{
+				if ((this._IdTipoProducto != value))
+				{
+					this._IdTipoProducto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoProducto", DbType="VarChar(100)")]
+		public string TipoProducto
+		{
+			get
+			{
+				return this._TipoProducto;
+			}
+			set
+			{
+				if ((this._TipoProducto != value))
+				{
+					this._TipoProducto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCategoria", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdCategoria
+		{
+			get
+			{
+				return this._IdCategoria;
+			}
+			set
+			{
+				if ((this._IdCategoria != value))
+				{
+					this._IdCategoria = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Categoria", DbType="VarChar(100)")]
+		public string Categoria
+		{
+			get
+			{
+				return this._Categoria;
+			}
+			set
+			{
+				if ((this._Categoria != value))
+				{
+					this._Categoria = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUnidadMedida", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdUnidadMedida
+		{
+			get
+			{
+				return this._IdUnidadMedida;
+			}
+			set
+			{
+				if ((this._IdUnidadMedida != value))
+				{
+					this._IdUnidadMedida = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnidadMedida", DbType="VarChar(100)")]
+		public string UnidadMedida
+		{
+			get
+			{
+				return this._UnidadMedida;
+			}
+			set
+			{
+				if ((this._UnidadMedida != value))
+				{
+					this._UnidadMedida = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMarca", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdMarca
+		{
+			get
+			{
+				return this._IdMarca;
+			}
+			set
+			{
+				if ((this._IdMarca != value))
+				{
+					this._IdMarca = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Marca", DbType="VarChar(100)")]
+		public string Marca
+		{
+			get
+			{
+				return this._Marca;
+			}
+			set
+			{
+				if ((this._Marca != value))
+				{
+					this._Marca = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdModelo", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdModelo
+		{
+			get
+			{
+				return this._IdModelo;
+			}
+			set
+			{
+				if ((this._IdModelo != value))
+				{
+					this._IdModelo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Modelo", DbType="VarChar(100)")]
+		public string Modelo
+		{
+			get
+			{
+				return this._Modelo;
+			}
+			set
+			{
+				if ((this._Modelo != value))
+				{
+					this._Modelo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoSuplidor", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdTipoSuplidor
+		{
+			get
+			{
+				return this._IdTipoSuplidor;
+			}
+			set
+			{
+				if ((this._IdTipoSuplidor != value))
+				{
+					this._IdTipoSuplidor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoSuplidor", DbType="VarChar(100)")]
+		public string TipoSuplidor
+		{
+			get
+			{
+				return this._TipoSuplidor;
+			}
+			set
+			{
+				if ((this._TipoSuplidor != value))
+				{
+					this._TipoSuplidor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdSuplidor", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdSuplidor
+		{
+			get
+			{
+				return this._IdSuplidor;
+			}
+			set
+			{
+				if ((this._IdSuplidor != value))
+				{
+					this._IdSuplidor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Suplidor", DbType="VarChar(100)")]
+		public string Suplidor
+		{
+			get
+			{
+				return this._Suplidor;
+			}
+			set
+			{
+				if ((this._Suplidor != value))
+				{
+					this._Suplidor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Producto", DbType="VarChar(200)")]
+		public string Producto
+		{
+			get
+			{
+				return this._Producto;
+			}
+			set
+			{
+				if ((this._Producto != value))
+				{
+					this._Producto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodigoBarra", DbType="VarChar(100)")]
+		public string CodigoBarra
+		{
+			get
+			{
+				return this._CodigoBarra;
+			}
+			set
+			{
+				if ((this._CodigoBarra != value))
+				{
+					this._CodigoBarra = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Referencia", DbType="VarChar(100)")]
+		public string Referencia
+		{
+			get
+			{
+				return this._Referencia;
+			}
+			set
+			{
+				if ((this._Referencia != value))
+				{
+					this._Referencia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrecioCompra", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> PrecioCompra
+		{
+			get
+			{
+				return this._PrecioCompra;
+			}
+			set
+			{
+				if ((this._PrecioCompra != value))
+				{
+					this._PrecioCompra = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrecioVenta", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> PrecioVenta
+		{
+			get
+			{
+				return this._PrecioVenta;
+			}
+			set
+			{
+				if ((this._PrecioVenta != value))
+				{
+					this._PrecioVenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stock", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> Stock
+		{
+			get
+			{
+				return this._Stock;
+			}
+			set
+			{
+				if ((this._Stock != value))
+				{
+					this._Stock = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StockMinimo", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> StockMinimo
+		{
+			get
+			{
+				return this._StockMinimo;
+			}
+			set
+			{
+				if ((this._StockMinimo != value))
+				{
+					this._StockMinimo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorcientoDescuento", DbType="Decimal(3,0)")]
+		public System.Nullable<decimal> PorcientoDescuento
+		{
+			get
+			{
+				return this._PorcientoDescuento;
+			}
+			set
+			{
+				if ((this._PorcientoDescuento != value))
+				{
+					this._PorcientoDescuento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AfectaOferta", DbType="Bit")]
+		public System.Nullable<bool> AfectaOferta
+		{
+			get
+			{
+				return this._AfectaOferta;
+			}
+			set
+			{
+				if ((this._AfectaOferta != value))
+				{
+					this._AfectaOferta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductoAcumulativo0", DbType="Bit")]
+		public System.Nullable<bool> ProductoAcumulativo0
+		{
+			get
+			{
+				return this._ProductoAcumulativo0;
+			}
+			set
+			{
+				if ((this._ProductoAcumulativo0 != value))
+				{
+					this._ProductoAcumulativo0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductoAcumulativo", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
+		public string ProductoAcumulativo
+		{
+			get
+			{
+				return this._ProductoAcumulativo;
+			}
+			set
+			{
+				if ((this._ProductoAcumulativo != value))
+				{
+					this._ProductoAcumulativo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LlevaImagen", DbType="Bit")]
+		public System.Nullable<bool> LlevaImagen
+		{
+			get
+			{
+				return this._LlevaImagen;
+			}
+			set
+			{
+				if ((this._LlevaImagen != value))
+				{
+					this._LlevaImagen = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsuarioAdiciona", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> UsuarioAdiciona
+		{
+			get
+			{
+				return this._UsuarioAdiciona;
+			}
+			set
+			{
+				if ((this._UsuarioAdiciona != value))
+				{
+					this._UsuarioAdiciona = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaAdiciona", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FechaAdiciona
+		{
+			get
+			{
+				return this._FechaAdiciona;
+			}
+			set
+			{
+				if ((this._FechaAdiciona != value))
+				{
+					this._FechaAdiciona = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsuarioModifica", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> UsuarioModifica
+		{
+			get
+			{
+				return this._UsuarioModifica;
+			}
+			set
+			{
+				if ((this._UsuarioModifica != value))
+				{
+					this._UsuarioModifica = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaModifica", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FechaModifica
+		{
+			get
+			{
+				return this._FechaModifica;
+			}
+			set
+			{
+				if ((this._FechaModifica != value))
+				{
+					this._FechaModifica = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fecha", DbType="Date")]
+		public System.Nullable<System.DateTime> Fecha
+		{
+			get
+			{
+				return this._Fecha;
+			}
+			set
+			{
+				if ((this._Fecha != value))
+				{
+					this._Fecha = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comentario", DbType="VarChar(8000)")]
+		public string Comentario
+		{
+			get
+			{
+				return this._Comentario;
+			}
+			set
+			{
+				if ((this._Comentario != value))
+				{
+					this._Comentario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AplicaParaimpuesto", DbType="Bit")]
+		public System.Nullable<bool> AplicaParaimpuesto
+		{
+			get
+			{
+				return this._AplicaParaimpuesto;
+			}
+			set
+			{
+				if ((this._AplicaParaimpuesto != value))
+				{
+					this._AplicaParaimpuesto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrecioOriginal", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> PrecioOriginal
+		{
+			get
+			{
+				return this._PrecioOriginal;
+			}
+			set
+			{
+				if ((this._PrecioOriginal != value))
+				{
+					this._PrecioOriginal = value;
 				}
 			}
 		}

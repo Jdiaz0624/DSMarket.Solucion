@@ -118,6 +118,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 string _Descripcion = string.IsNullOrEmpty(txtdescripcion.Text.Trim()) ? null : txtdescripcion.Text.Trim();
                 string _CodigoBarra = string.IsNullOrEmpty(txtCodigoBarra.Text.Trim()) ? null : txtCodigoBarra.Text.Trim();
                 string _Referencia = string.IsNullOrEmpty(txtReferencia.Text.Trim()) ? null : txtReferencia.Text.Trim();
+                string _NumeroSeguimiento = string.IsNullOrEmpty(txtNumeroSeguimiento.Text.Trim()) ? null : txtNumeroSeguimiento.Text.Trim();
 
                 //CONSULTA CON TODOS LOS PRODUCTOS (CON OFERTA Y SIN OFERTA)
                 if (rbAmbos.Checked == true)
@@ -140,7 +141,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                 Convert.ToDecimal(ddlSeleccionarUnidadMedida.SelectedValue),
                                 Convert.ToDecimal(ddlSeleccionarMarca.SelectedValue),
                                 Convert.ToDecimal(ddlSeleccionarModelo.SelectedValue),
-                                null, false,
+                                null, false, _NumeroSeguimiento,
                                 Convert.ToInt32(txtNumeroPagina.Value),
                                 Convert.ToInt32(txtNumeroRegistros.Value));
                             dtListado.DataSource = BuscarProductos;
@@ -183,7 +184,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                 null,
                                 null,
                                 null,
-                                null, false,
+                                null, false, _NumeroSeguimiento,
                                 Convert.ToInt32(txtNumeroPagina.Value),
                                 Convert.ToInt32(txtNumeroRegistros.Value));
                             dtListado.DataSource = BuscarProducto;
@@ -229,7 +230,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                 Convert.ToDecimal(ddlSeleccionarUnidadMedida.SelectedValue),
                                 Convert.ToDecimal(ddlSeleccionarMarca.SelectedValue),
                                 Convert.ToDecimal(ddlSeleccionarModelo.SelectedValue),
-                                null, false,
+                                null, false, _NumeroSeguimiento,
                                 Convert.ToInt32(txtNumeroPagina.Value),
                                 Convert.ToInt32(txtNumeroRegistros.Value));
                             dtListado.DataSource = BuscarProductos;
@@ -272,7 +273,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                 null,
                                 null,
                                 null,
-                                null, false,
+                                null, false, _NumeroSeguimiento,
                                 Convert.ToInt32(txtNumeroPagina.Value),
                                 Convert.ToInt32(txtNumeroRegistros.Value));
                             dtListado.DataSource = BuscarProducto;
@@ -324,7 +325,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                 Convert.ToDecimal(ddlSeleccionarUnidadMedida.SelectedValue),
                                 Convert.ToDecimal(ddlSeleccionarMarca.SelectedValue),
                                 Convert.ToDecimal(ddlSeleccionarModelo.SelectedValue),
-                                true, false,
+                                true, false, _NumeroSeguimiento,
                                 Convert.ToInt32(txtNumeroPagina.Value),
                                 Convert.ToInt32(txtNumeroRegistros.Value));
                             dtListado.DataSource = BuscarProductoConOferta;
@@ -367,7 +368,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                 null,
                                 null,
                                 null,
-                                true, false,
+                                true, false, _NumeroSeguimiento,
                                 Convert.ToInt32(txtNumeroPagina.Value),
                                 Convert.ToInt32(txtNumeroRegistros.Value));
                             dtListado.DataSource = BuscarProductoConOferta;
@@ -413,7 +414,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                Convert.ToDecimal(ddlSeleccionarUnidadMedida.SelectedValue),
                                Convert.ToDecimal(ddlSeleccionarMarca.SelectedValue),
                                Convert.ToDecimal(ddlSeleccionarModelo.SelectedValue),
-                               true, false,
+                               true, false, _NumeroSeguimiento,
                                Convert.ToInt32(txtNumeroPagina.Value),
                                Convert.ToInt32(txtNumeroRegistros.Value));
                             dtListado.DataSource = BuscarProductoConOferta;
@@ -456,7 +457,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                null,
                                null,
                                null,
-                               true, false,
+                               true, false, _NumeroSeguimiento,
                                Convert.ToInt32(txtNumeroPagina.Value),
                                Convert.ToInt32(txtNumeroRegistros.Value));
                             dtListado.DataSource = BuscarProductoConOferta;
@@ -508,7 +509,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                 Convert.ToDecimal(ddlSeleccionarUnidadMedida.SelectedValue),
                                 Convert.ToDecimal(ddlSeleccionarMarca.SelectedValue),
                                 Convert.ToDecimal(ddlSeleccionarModelo.SelectedValue),
-                                false, false,
+                                false, false, _NumeroSeguimiento,
                                 Convert.ToInt32(txtNumeroPagina.Value),
                                 Convert.ToInt32(txtNumeroRegistros.Value));
                             dtListado.DataSource = BuscarProductoConOferta;
@@ -551,7 +552,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                null,
                                null,
                                null,
-                               false, false,
+                               false, false, _NumeroSeguimiento,
                                Convert.ToInt32(txtNumeroPagina.Value),
                                Convert.ToInt32(txtNumeroRegistros.Value));
                             dtListado.DataSource = BuscarProductoConOferta;
@@ -597,7 +598,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                Convert.ToDecimal(ddlSeleccionarUnidadMedida.SelectedValue),
                                Convert.ToDecimal(ddlSeleccionarMarca.SelectedValue),
                                Convert.ToDecimal(ddlSeleccionarModelo.SelectedValue),
-                               false, false,
+                               false, false, _NumeroSeguimiento,
                                Convert.ToInt32(txtNumeroPagina.Value),
                                Convert.ToInt32(txtNumeroRegistros.Value));
                             dtListado.DataSource = BuscarProductoConOferta;
@@ -640,7 +641,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                null,
                                null,
                                null,
-                               false, false,
+                               false, false, _NumeroSeguimiento,
                                Convert.ToInt32(txtNumeroPagina.Value),
                                Convert.ToInt32(txtNumeroRegistros.Value));
                             dtListado.DataSource = BuscarProductoConOferta;
@@ -709,7 +710,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                 Convert.ToDecimal(ddlSeleccionarUnidadMedida.SelectedValue),
                                 Convert.ToDecimal(ddlSeleccionarMarca.SelectedValue),
                                 Convert.ToDecimal(ddlSeleccionarModelo.SelectedValue),
-                                null, true,
+                                null, true, null,
                                 Convert.ToInt32(txtNumeroPagina.Value),
                                 Convert.ToInt32(txtNumeroRegistros.Value));
                             dtListado.DataSource = BuscarProductos;
@@ -752,7 +753,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                 null,
                                 null,
                                 null,
-                                null, true,
+                                null, true, null,
                                 Convert.ToInt32(txtNumeroPagina.Value),
                                 Convert.ToInt32(txtNumeroRegistros.Value));
                             dtListado.DataSource = BuscarProducto;
@@ -798,7 +799,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                 Convert.ToDecimal(ddlSeleccionarUnidadMedida.SelectedValue),
                                 Convert.ToDecimal(ddlSeleccionarMarca.SelectedValue),
                                 Convert.ToDecimal(ddlSeleccionarModelo.SelectedValue),
-                                null, true,
+                                null, true, null,
                                 Convert.ToInt32(txtNumeroPagina.Value),
                                 Convert.ToInt32(txtNumeroRegistros.Value));
                             dtListado.DataSource = BuscarProductos;
@@ -841,7 +842,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                 null,
                                 null,
                                 null,
-                                null, true,
+                                null, true, null,
                                 Convert.ToInt32(txtNumeroPagina.Value),
                                 Convert.ToInt32(txtNumeroRegistros.Value));
                             dtListado.DataSource = BuscarProducto;
@@ -893,7 +894,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                 Convert.ToDecimal(ddlSeleccionarUnidadMedida.SelectedValue),
                                 Convert.ToDecimal(ddlSeleccionarMarca.SelectedValue),
                                 Convert.ToDecimal(ddlSeleccionarModelo.SelectedValue),
-                                true, true,
+                                true, true, null,
                                 Convert.ToInt32(txtNumeroPagina.Value),
                                 Convert.ToInt32(txtNumeroRegistros.Value));
                             dtListado.DataSource = BuscarProductoConOferta;
@@ -936,7 +937,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                 null,
                                 null,
                                 null,
-                                true, true,
+                                true, true, null,
                                 Convert.ToInt32(txtNumeroPagina.Value),
                                 Convert.ToInt32(txtNumeroRegistros.Value));
                             dtListado.DataSource = BuscarProductoConOferta;
@@ -982,7 +983,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                Convert.ToDecimal(ddlSeleccionarUnidadMedida.SelectedValue),
                                Convert.ToDecimal(ddlSeleccionarMarca.SelectedValue),
                                Convert.ToDecimal(ddlSeleccionarModelo.SelectedValue),
-                               true, true,
+                               true, true, null,
                                Convert.ToInt32(txtNumeroPagina.Value),
                                Convert.ToInt32(txtNumeroRegistros.Value));
                             dtListado.DataSource = BuscarProductoConOferta;
@@ -1025,7 +1026,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                null,
                                null,
                                null,
-                               true, true,
+                               true, true, null,
                                Convert.ToInt32(txtNumeroPagina.Value),
                                Convert.ToInt32(txtNumeroRegistros.Value));
                             dtListado.DataSource = BuscarProductoConOferta;
@@ -1078,7 +1079,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                 Convert.ToDecimal(ddlSeleccionarUnidadMedida.SelectedValue),
                                 Convert.ToDecimal(ddlSeleccionarMarca.SelectedValue),
                                 Convert.ToDecimal(ddlSeleccionarModelo.SelectedValue),
-                                false, true,
+                                false, true, null,
                                 Convert.ToInt32(txtNumeroPagina.Value),
                                 Convert.ToInt32(txtNumeroRegistros.Value));
                             dtListado.DataSource = BuscarProductoConOferta;
@@ -1121,7 +1122,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                null,
                                null,
                                null,
-                               false, true,
+                               false, true, null,
                                Convert.ToInt32(txtNumeroPagina.Value),
                                Convert.ToInt32(txtNumeroRegistros.Value));
                             dtListado.DataSource = BuscarProductoConOferta;
@@ -1167,7 +1168,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                Convert.ToDecimal(ddlSeleccionarUnidadMedida.SelectedValue),
                                Convert.ToDecimal(ddlSeleccionarMarca.SelectedValue),
                                Convert.ToDecimal(ddlSeleccionarModelo.SelectedValue),
-                               false, true,
+                               false, true, null,
                                Convert.ToInt32(txtNumeroPagina.Value),
                                Convert.ToInt32(txtNumeroRegistros.Value));
                             dtListado.DataSource = BuscarProductoConOferta;
@@ -1210,7 +1211,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                null,
                                null,
                                null,
-                               false, true,
+                               false, true, null,
                                Convert.ToInt32(txtNumeroPagina.Value),
                                Convert.ToInt32(txtNumeroRegistros.Value));
                             dtListado.DataSource = BuscarProductoConOferta;
@@ -1664,7 +1665,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                             var BuscarProducto = ObjDataInventario.Value.BuscaProductos(
                                 variablesGlobales.IdMantenimeinto,
                                 variablesGlobales.NumeroConector,
-                                null, null, null, null, null, null, null, null, null, null, null, true, 1, 1);
+                                null, null, null, null, null, null, null, null, null, null, null, true, null, 1, 1);
                             foreach (var n in BuscarProducto)
                             {
                                 EstatusProducto = Convert.ToBoolean(n.EstatusProducto0);
@@ -1687,7 +1688,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 {
                    
 
-                    var SeleccionarRegistro = ObjDataInventario.Value.BuscaProductos(variablesGlobales.IdMantenimeinto, variablesGlobales.NumeroConector, null, null, null, null, null, null, null, null, null, null, null, false, 1, 1);
+                    var SeleccionarRegistro = ObjDataInventario.Value.BuscaProductos(variablesGlobales.IdMantenimeinto, variablesGlobales.NumeroConector, null, null, null, null, null, null, null, null, null, null, null, false, null, 1, 1);
                     dtListado.DataSource = SeleccionarRegistro;
                     OcultarColumnas();
                     txtNumeroPagina.Enabled = false;

@@ -194,6 +194,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 Mantenimiento.Comentario = txtComentario.Text;
                 Mantenimiento.AplicaParaImpuesto0 = cbAplicaDescuento.Checked;
                 Mantenimiento.EstatusProducto0 = false;
+                Mantenimiento.NumeroSeguimiento = txtNumeroSeguimiento.Text;
 
                 var MAn = ObjDataInventario.Value.MantenimientoProducto(Mantenimiento, VariablesGlobales.Accion);
 
@@ -247,7 +248,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             var SacarDatos = ObjDataInventario.Value.BuscaProductos(
                 IdProducto,
                 NumeroConector,
-                null, null, null, null, null, null, null, null, null, null, null, false, 1, 1);
+                null, null, null, null, null, null, null, null, null, null, null, false, null, 1, 1);
             foreach (var n in SacarDatos)
             {
                 ddlSeleccionarTipoProducto.Text = n.TipoProducto;
@@ -271,6 +272,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 cbLlevaImagen.Checked = (n.LlevaImagen0.HasValue ? n.LlevaImagen0.Value : false);
                 cbAplicaDescuento.Checked = (n.AplicaParaImpuesto0.HasValue ? n.AplicaParaImpuesto0.Value : false);
                 txtStock.Text = n.Stock.ToString();
+                txtNumeroSeguimiento.Text = n.NumeroSeguimiento;
 
                 if (cbLlevaImagen.Checked == true)
                 {
@@ -331,7 +333,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 null,
                 null,
                 null,
-                null, false, 1, 1);
+                null, false, null, 1, 1);
             foreach (var n in SacarId)
             {
                 VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(n.IdProducto);
@@ -442,6 +444,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 btnAgregarSuplidor.Enabled = false;
                 btnRefrescarSuplidor.Enabled = false;
                 cbAceptaOferta.Enabled = false;
+
 
                 lbCLaveSeguridad.Visible = true;
                 txtClaveSeguridad.Visible = true;

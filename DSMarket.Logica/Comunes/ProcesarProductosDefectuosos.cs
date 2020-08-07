@@ -39,6 +39,7 @@ namespace DSMarket.Logica.Comunes
         private bool AplicaParaImpuesto = false;
         private bool EstatusProducto = false;
         private decimal CantidadAgregada = 0;
+        private string NumeroSeguimiento = "";
         private string Accion = "";
 
         //CREAMOS UN METODO CONSTRUCTOR
@@ -72,6 +73,7 @@ namespace DSMarket.Logica.Comunes
         bool AplicaParaImpuestoCON,
         bool EstatusProductoCON,
         decimal CantidadAgregadaCON,
+        string NumeroSeguimientoCON,
         string AccionCON)
         {
         IdProductoDefectuoso = IdProductoDefectuosoCON;
@@ -103,6 +105,7 @@ namespace DSMarket.Logica.Comunes
         AplicaParaImpuesto = AplicaParaImpuestoCON;
         EstatusProducto = EstatusProductoCON;
         CantidadAgregada = CantidadAgregadaCON;
+            NumeroSeguimiento = NumeroSeguimientoCON;
         Accion = AccionCON;
     }
 
@@ -138,6 +141,7 @@ namespace DSMarket.Logica.Comunes
             Procesar.AplicaParaImpuesto0 = AplicaParaImpuesto;
             Procesar.EstatusProducto0 = EstatusProducto;
             Procesar.CantidadAgregada = CantidadAgregada;
+            Procesar.NumeroSeguimiento = NumeroSeguimiento;
 
             var MAN = ObjDataInventario.Value.MantenimientoProductosDefectuoso(Procesar, Accion);
 

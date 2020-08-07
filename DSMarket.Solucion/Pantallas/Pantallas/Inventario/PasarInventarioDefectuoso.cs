@@ -49,7 +49,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 null,
                 null,
                 null,
-                null, 1, 1);
+                null, null, 1, 1);
             foreach (var n in SacarInformacion) {
                 txtTipoProducto.Text = n.TipoProducto;
                 txtCategoria.Text = n.Categoria;
@@ -85,7 +85,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 IdSuplidor = Convert.ToDecimal(n.IdSuplidor);
                 AplicaImpuesto = Convert.ToBoolean(n.AplicaParaImpuesto0);
                 EstatusProducto = Convert.ToBoolean(n.EstatusProducto0);
-
+                txtNumeroSeguimiento.Text = n.NumeroSeguimiento;
                 if (Acumulativo == true)
                 {
                     txtCantdadProcesar.Enabled = true;
@@ -143,6 +143,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                        AplicaImpuesto,
                        false,
                        Convert.ToDecimal(txtCantdadProcesar.Text),
+                       txtNumeroSeguimiento.Text,
                        "INSERT");
             Defectuoso.ProcesarInformaicon();
         }

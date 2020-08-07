@@ -98,5 +98,6 @@ namespace DSMarket.Logica.Comunes
         public bool ProductoHistorial { get; set; }
 
         public decimal TotalPagarFacturacion { get; set; }
+        public bool AplicaGanancia { get; set; }
     }
 }

@@ -93,6 +93,8 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnGuardar = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtNumeroSeguimiento = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -142,6 +144,8 @@
             // groupBox1
             // 
             this.groupBox1.AutoSize = true;
+            this.groupBox1.Controls.Add(this.txtNumeroSeguimiento);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cbAplicaDescuento);
             this.groupBox1.Controls.Add(this.txtPorcientoDescuento);
             this.groupBox1.Controls.Add(this.cbLlevaImagen);
@@ -199,7 +203,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 45);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1237, 425);
+            this.groupBox1.Size = new System.Drawing.Size(1237, 466);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Producto";
@@ -210,7 +214,7 @@
             this.cbAplicaDescuento.AutoSize = true;
             this.cbAplicaDescuento.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbAplicaDescuento.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbAplicaDescuento.Location = new System.Drawing.Point(154, 316);
+            this.cbAplicaDescuento.Location = new System.Drawing.Point(151, 357);
             this.cbAplicaDescuento.Name = "cbAplicaDescuento";
             this.cbAplicaDescuento.Size = new System.Drawing.Size(196, 25);
             this.cbAplicaDescuento.TabIndex = 57;
@@ -247,7 +251,7 @@
             this.cbacumulativo.AutoSize = true;
             this.cbacumulativo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbacumulativo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbacumulativo.Location = new System.Drawing.Point(154, 340);
+            this.cbacumulativo.Location = new System.Drawing.Point(151, 381);
             this.cbacumulativo.Name = "cbacumulativo";
             this.cbacumulativo.Size = new System.Drawing.Size(129, 25);
             this.cbacumulativo.TabIndex = 53;
@@ -297,7 +301,7 @@
             // 
             this.txtClaveSeguridad.BackColor = System.Drawing.Color.Silver;
             this.txtClaveSeguridad.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtClaveSeguridad.Location = new System.Drawing.Point(467, 338);
+            this.txtClaveSeguridad.Location = new System.Drawing.Point(464, 379);
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
             this.txtClaveSeguridad.PasswordChar = '•';
             this.txtClaveSeguridad.Size = new System.Drawing.Size(349, 27);
@@ -307,7 +311,7 @@
             // 
             this.lbCLaveSeguridad.AutoSize = true;
             this.lbCLaveSeguridad.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCLaveSeguridad.Location = new System.Drawing.Point(565, 315);
+            this.lbCLaveSeguridad.Location = new System.Drawing.Point(562, 356);
             this.lbCLaveSeguridad.Name = "lbCLaveSeguridad";
             this.lbCLaveSeguridad.Size = new System.Drawing.Size(153, 20);
             this.lbCLaveSeguridad.TabIndex = 49;
@@ -318,7 +322,7 @@
             this.cbAceptaOferta.AutoSize = true;
             this.cbAceptaOferta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbAceptaOferta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbAceptaOferta.Location = new System.Drawing.Point(138, 374);
+            this.cbAceptaOferta.Location = new System.Drawing.Point(135, 415);
             this.cbAceptaOferta.Name = "cbAceptaOferta";
             this.cbAceptaOferta.Size = new System.Drawing.Size(163, 25);
             this.cbAceptaOferta.TabIndex = 48;
@@ -330,7 +334,7 @@
             // txtComentario
             // 
             this.txtComentario.BackColor = System.Drawing.Color.Silver;
-            this.txtComentario.Location = new System.Drawing.Point(154, 283);
+            this.txtComentario.Location = new System.Drawing.Point(154, 325);
             this.txtComentario.Name = "txtComentario";
             this.txtComentario.Size = new System.Drawing.Size(792, 27);
             this.txtComentario.TabIndex = 47;
@@ -583,7 +587,7 @@
             // txtdescripcion
             // 
             this.txtdescripcion.BackColor = System.Drawing.Color.Silver;
-            this.txtdescripcion.Location = new System.Drawing.Point(154, 253);
+            this.txtdescripcion.Location = new System.Drawing.Point(154, 295);
             this.txtdescripcion.Name = "txtdescripcion";
             this.txtdescripcion.Size = new System.Drawing.Size(792, 27);
             this.txtdescripcion.TabIndex = 25;
@@ -679,7 +683,7 @@
             // lbComentario
             // 
             this.lbComentario.AutoSize = true;
-            this.lbComentario.Location = new System.Drawing.Point(47, 286);
+            this.lbComentario.Location = new System.Drawing.Point(47, 328);
             this.lbComentario.Name = "lbComentario";
             this.lbComentario.Size = new System.Drawing.Size(104, 21);
             this.lbComentario.TabIndex = 16;
@@ -688,7 +692,7 @@
             // lbPorcientoDescuento
             // 
             this.lbPorcientoDescuento.AutoSize = true;
-            this.lbPorcientoDescuento.Location = new System.Drawing.Point(547, 221);
+            this.lbPorcientoDescuento.Location = new System.Drawing.Point(547, 218);
             this.lbPorcientoDescuento.Name = "lbPorcientoDescuento";
             this.lbPorcientoDescuento.Size = new System.Drawing.Size(146, 21);
             this.lbPorcientoDescuento.TabIndex = 15;
@@ -751,7 +755,7 @@
             // lbDescripcion
             // 
             this.lbDescripcion.AutoSize = true;
-            this.lbDescripcion.Location = new System.Drawing.Point(41, 256);
+            this.lbDescripcion.Location = new System.Drawing.Point(41, 298);
             this.lbDescripcion.Name = "lbDescripcion";
             this.lbDescripcion.Size = new System.Drawing.Size(110, 21);
             this.lbDescripcion.TabIndex = 7;
@@ -833,7 +837,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::DSMarket.Solucion.Properties.Resources.Guardar;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(448, 450);
+            this.btnGuardar.Location = new System.Drawing.Point(448, 498);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(406, 41);
             this.btnGuardar.TabIndex = 7;
@@ -847,11 +851,28 @@
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
             // 
+            // txtNumeroSeguimiento
+            // 
+            this.txtNumeroSeguimiento.BackColor = System.Drawing.Color.Silver;
+            this.txtNumeroSeguimiento.Location = new System.Drawing.Point(696, 245);
+            this.txtNumeroSeguimiento.Name = "txtNumeroSeguimiento";
+            this.txtNumeroSeguimiento.Size = new System.Drawing.Size(250, 27);
+            this.txtNumeroSeguimiento.TabIndex = 59;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(495, 248);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(198, 21);
+            this.label1.TabIndex = 58;
+            this.label1.Text = "Numero de Seguimiento";
+            // 
             // MantenimientoProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1255, 498);
+            this.ClientSize = new System.Drawing.Size(1255, 542);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
@@ -942,5 +963,7 @@
         private System.Windows.Forms.NumericUpDown txtPorcientoDescuento;
         private System.Windows.Forms.CheckBox cbAplicaDescuento;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.TextBox txtNumeroSeguimiento;
+        private System.Windows.Forms.Label label1;
     }
 }

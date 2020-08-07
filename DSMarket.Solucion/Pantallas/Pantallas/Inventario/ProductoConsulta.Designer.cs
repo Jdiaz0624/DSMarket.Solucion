@@ -45,6 +45,7 @@
             this.cbTodoHistorial = new System.Windows.Forms.CheckBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbProductosVendidosDescartados = new System.Windows.Forms.CheckBox();
             this.btnRestablecer = new System.Windows.Forms.Button();
             this.btnOferta = new System.Windows.Forms.Button();
             this.txtFechaHasta = new System.Windows.Forms.DateTimePicker();
@@ -95,9 +96,10 @@
             this.lbCantidadProductosConOferta = new System.Windows.Forms.Label();
             this.lbCantidadPoductosAgotarse = new System.Windows.Forms.Label();
             this.lbProductosAgotados = new System.Windows.Forms.Label();
-            this.cbProductosVendidosDescartados = new System.Windows.Forms.CheckBox();
             this.lbClaveSeguridad = new System.Windows.Forms.Label();
             this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
+            this.lbNumeroSeguimiento = new System.Windows.Forms.Label();
+            this.txtNumeroSeguimiento = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel2.SuspendLayout();
@@ -291,7 +293,7 @@
             this.cbTodoHistorial.AutoSize = true;
             this.cbTodoHistorial.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbTodoHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbTodoHistorial.Location = new System.Drawing.Point(427, 55);
+            this.cbTodoHistorial.Location = new System.Drawing.Point(427, 87);
             this.cbTodoHistorial.Name = "cbTodoHistorial";
             this.cbTodoHistorial.Size = new System.Drawing.Size(148, 24);
             this.cbTodoHistorial.TabIndex = 71;
@@ -301,6 +303,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbNumeroSeguimiento);
+            this.groupBox1.Controls.Add(this.txtNumeroSeguimiento);
             this.groupBox1.Controls.Add(this.cbProductosVendidosDescartados);
             this.groupBox1.Controls.Add(this.cbTodoHistorial);
             this.groupBox1.Controls.Add(this.btnRestablecer);
@@ -340,6 +344,20 @@
             this.groupBox1.Text = "Datos de producto";
             this.toolTip1.SetToolTip(this.groupBox1, "Filtrar de manera precisa");
             // 
+            // cbProductosVendidosDescartados
+            // 
+            this.cbProductosVendidosDescartados.AutoSize = true;
+            this.cbProductosVendidosDescartados.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbProductosVendidosDescartados.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbProductosVendidosDescartados.Location = new System.Drawing.Point(581, 87);
+            this.cbProductosVendidosDescartados.Name = "cbProductosVendidosDescartados";
+            this.cbProductosVendidosDescartados.Size = new System.Drawing.Size(272, 24);
+            this.cbProductosVendidosDescartados.TabIndex = 72;
+            this.cbProductosVendidosDescartados.Text = "Productos Vendidos / Descartados";
+            this.toolTip1.SetToolTip(this.cbProductosVendidosDescartados, "Mostrar todos los productos que fueron vendidos o descartados");
+            this.cbProductosVendidosDescartados.UseVisualStyleBackColor = true;
+            this.cbProductosVendidosDescartados.CheckedChanged += new System.EventHandler(this.cbProductosVendidosDescartados_CheckedChanged);
+            // 
             // btnRestablecer
             // 
             this.btnRestablecer.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -365,7 +383,7 @@
             this.btnOferta.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOferta.Image = global::DSMarket.Solucion.Properties.Resources.Eliminar;
             this.btnOferta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOferta.Location = new System.Drawing.Point(638, 116);
+            this.btnOferta.Location = new System.Drawing.Point(638, 148);
             this.btnOferta.Name = "btnOferta";
             this.btnOferta.Size = new System.Drawing.Size(170, 41);
             this.btnOferta.TabIndex = 69;
@@ -378,7 +396,7 @@
             // txtFechaHasta
             // 
             this.txtFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtFechaHasta.Location = new System.Drawing.Point(443, 122);
+            this.txtFechaHasta.Location = new System.Drawing.Point(443, 154);
             this.txtFechaHasta.Name = "txtFechaHasta";
             this.txtFechaHasta.Size = new System.Drawing.Size(154, 27);
             this.txtFechaHasta.TabIndex = 26;
@@ -386,7 +404,7 @@
             // lbFechaHasta
             // 
             this.lbFechaHasta.AutoSize = true;
-            this.lbFechaHasta.Location = new System.Drawing.Point(337, 125);
+            this.lbFechaHasta.Location = new System.Drawing.Point(337, 157);
             this.lbFechaHasta.Name = "lbFechaHasta";
             this.lbFechaHasta.Size = new System.Drawing.Size(102, 20);
             this.lbFechaHasta.TabIndex = 25;
@@ -395,7 +413,7 @@
             // txtFechaDesde
             // 
             this.txtFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtFechaDesde.Location = new System.Drawing.Point(177, 120);
+            this.txtFechaDesde.Location = new System.Drawing.Point(177, 152);
             this.txtFechaDesde.Name = "txtFechaDesde";
             this.txtFechaDesde.Size = new System.Drawing.Size(154, 27);
             this.txtFechaDesde.TabIndex = 24;
@@ -403,7 +421,7 @@
             // lbFechaDesde
             // 
             this.lbFechaDesde.AutoSize = true;
-            this.lbFechaDesde.Location = new System.Drawing.Point(71, 123);
+            this.lbFechaDesde.Location = new System.Drawing.Point(71, 155);
             this.lbFechaDesde.Name = "lbFechaDesde";
             this.lbFechaDesde.Size = new System.Drawing.Size(102, 20);
             this.lbFechaDesde.TabIndex = 23;
@@ -412,7 +430,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.pbFoto);
-            this.groupBox3.Location = new System.Drawing.Point(889, 55);
+            this.groupBox3.Location = new System.Drawing.Point(889, 87);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(332, 191);
             this.groupBox3.TabIndex = 22;
@@ -437,7 +455,7 @@
             this.ddlSeleccionarUnidadMedida.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlSeleccionarUnidadMedida.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ddlSeleccionarUnidadMedida.FormattingEnabled = true;
-            this.ddlSeleccionarUnidadMedida.Location = new System.Drawing.Point(176, 218);
+            this.ddlSeleccionarUnidadMedida.Location = new System.Drawing.Point(176, 250);
             this.ddlSeleccionarUnidadMedida.Name = "ddlSeleccionarUnidadMedida";
             this.ddlSeleccionarUnidadMedida.Size = new System.Drawing.Size(280, 28);
             this.ddlSeleccionarUnidadMedida.TabIndex = 21;
@@ -449,7 +467,7 @@
             this.ddlSeleccionarModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlSeleccionarModelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ddlSeleccionarModelo.FormattingEnabled = true;
-            this.ddlSeleccionarModelo.Location = new System.Drawing.Point(528, 187);
+            this.ddlSeleccionarModelo.Location = new System.Drawing.Point(528, 219);
             this.ddlSeleccionarModelo.Name = "ddlSeleccionarModelo";
             this.ddlSeleccionarModelo.Size = new System.Drawing.Size(280, 28);
             this.ddlSeleccionarModelo.TabIndex = 20;
@@ -461,7 +479,7 @@
             this.ddlSeleccionarMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlSeleccionarMarca.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ddlSeleccionarMarca.FormattingEnabled = true;
-            this.ddlSeleccionarMarca.Location = new System.Drawing.Point(528, 154);
+            this.ddlSeleccionarMarca.Location = new System.Drawing.Point(528, 186);
             this.ddlSeleccionarMarca.Name = "ddlSeleccionarMarca";
             this.ddlSeleccionarMarca.Size = new System.Drawing.Size(280, 28);
             this.ddlSeleccionarMarca.TabIndex = 19;
@@ -474,7 +492,7 @@
             this.ddlSeleccionarCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlSeleccionarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ddlSeleccionarCategoria.FormattingEnabled = true;
-            this.ddlSeleccionarCategoria.Location = new System.Drawing.Point(176, 184);
+            this.ddlSeleccionarCategoria.Location = new System.Drawing.Point(176, 216);
             this.ddlSeleccionarCategoria.Name = "ddlSeleccionarCategoria";
             this.ddlSeleccionarCategoria.Size = new System.Drawing.Size(280, 28);
             this.ddlSeleccionarCategoria.TabIndex = 18;
@@ -487,7 +505,7 @@
             this.ddlSeleccionarTipoProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlSeleccionarTipoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ddlSeleccionarTipoProducto.FormattingEnabled = true;
-            this.ddlSeleccionarTipoProducto.Location = new System.Drawing.Point(176, 152);
+            this.ddlSeleccionarTipoProducto.Location = new System.Drawing.Point(176, 184);
             this.ddlSeleccionarTipoProducto.Name = "ddlSeleccionarTipoProducto";
             this.ddlSeleccionarTipoProducto.Size = new System.Drawing.Size(280, 28);
             this.ddlSeleccionarTipoProducto.TabIndex = 17;
@@ -496,7 +514,7 @@
             // lbUnidadMdida
             // 
             this.lbUnidadMdida.AutoSize = true;
-            this.lbUnidadMdida.Location = new System.Drawing.Point(27, 222);
+            this.lbUnidadMdida.Location = new System.Drawing.Point(27, 254);
             this.lbUnidadMdida.Name = "lbUnidadMdida";
             this.lbUnidadMdida.Size = new System.Drawing.Size(144, 20);
             this.lbUnidadMdida.TabIndex = 16;
@@ -505,7 +523,7 @@
             // lbModelo
             // 
             this.lbModelo.AutoSize = true;
-            this.lbModelo.Location = new System.Drawing.Point(462, 190);
+            this.lbModelo.Location = new System.Drawing.Point(462, 222);
             this.lbModelo.Name = "lbModelo";
             this.lbModelo.Size = new System.Drawing.Size(62, 20);
             this.lbModelo.TabIndex = 15;
@@ -514,7 +532,7 @@
             // lbMArca
             // 
             this.lbMArca.AutoSize = true;
-            this.lbMArca.Location = new System.Drawing.Point(468, 158);
+            this.lbMArca.Location = new System.Drawing.Point(468, 190);
             this.lbMArca.Name = "lbMArca";
             this.lbMArca.Size = new System.Drawing.Size(56, 20);
             this.lbMArca.TabIndex = 14;
@@ -523,7 +541,7 @@
             // lbCategoria
             // 
             this.lbCategoria.AutoSize = true;
-            this.lbCategoria.Location = new System.Drawing.Point(89, 187);
+            this.lbCategoria.Location = new System.Drawing.Point(89, 219);
             this.lbCategoria.Name = "lbCategoria";
             this.lbCategoria.Size = new System.Drawing.Size(82, 20);
             this.lbCategoria.TabIndex = 13;
@@ -532,7 +550,7 @@
             // lbTipoProducto
             // 
             this.lbTipoProducto.AutoSize = true;
-            this.lbTipoProducto.Location = new System.Drawing.Point(39, 156);
+            this.lbTipoProducto.Location = new System.Drawing.Point(39, 188);
             this.lbTipoProducto.Name = "lbTipoProducto";
             this.lbTipoProducto.Size = new System.Drawing.Size(133, 20);
             this.lbTipoProducto.TabIndex = 12;
@@ -598,7 +616,7 @@
             this.cbAgregarFiltroPreciso.AutoSize = true;
             this.cbAgregarFiltroPreciso.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbAgregarFiltroPreciso.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbAgregarFiltroPreciso.Location = new System.Drawing.Point(231, 55);
+            this.cbAgregarFiltroPreciso.Location = new System.Drawing.Point(231, 87);
             this.cbAgregarFiltroPreciso.Name = "cbAgregarFiltroPreciso";
             this.cbAgregarFiltroPreciso.Size = new System.Drawing.Size(190, 24);
             this.cbAgregarFiltroPreciso.TabIndex = 10;
@@ -611,7 +629,7 @@
             this.cbAgregarRangoFecha.AutoSize = true;
             this.cbAgregarRangoFecha.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbAgregarRangoFecha.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbAgregarRangoFecha.Location = new System.Drawing.Point(16, 55);
+            this.cbAgregarRangoFecha.Location = new System.Drawing.Point(16, 87);
             this.cbAgregarRangoFecha.Name = "cbAgregarRangoFecha";
             this.cbAgregarRangoFecha.Size = new System.Drawing.Size(209, 24);
             this.cbAgregarRangoFecha.TabIndex = 8;
@@ -675,7 +693,7 @@
             this.btnProductosDefectuosos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProductosDefectuosos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnProductosDefectuosos.Image = global::DSMarket.Solucion.Properties.Resources.ojo;
-            this.btnProductosDefectuosos.Location = new System.Drawing.Point(707, 662);
+            this.btnProductosDefectuosos.Location = new System.Drawing.Point(707, 694);
             this.btnProductosDefectuosos.Name = "btnProductosDefectuosos";
             this.btnProductosDefectuosos.Size = new System.Drawing.Size(41, 29);
             this.btnProductosDefectuosos.TabIndex = 71;
@@ -688,7 +706,7 @@
             this.btnVerProductosAgotados.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVerProductosAgotados.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnVerProductosAgotados.Image = global::DSMarket.Solucion.Properties.Resources.ojo;
-            this.btnVerProductosAgotados.Location = new System.Drawing.Point(1104, 662);
+            this.btnVerProductosAgotados.Location = new System.Drawing.Point(1104, 694);
             this.btnVerProductosAgotados.Name = "btnVerProductosAgotados";
             this.btnVerProductosAgotados.Size = new System.Drawing.Size(41, 29);
             this.btnVerProductosAgotados.TabIndex = 70;
@@ -701,7 +719,7 @@
             this.btnVerProductosPoximoAgotar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVerProductosPoximoAgotar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnVerProductosPoximoAgotar.Image = global::DSMarket.Solucion.Properties.Resources.ojo;
-            this.btnVerProductosPoximoAgotar.Location = new System.Drawing.Point(1104, 627);
+            this.btnVerProductosPoximoAgotar.Location = new System.Drawing.Point(1104, 659);
             this.btnVerProductosPoximoAgotar.Name = "btnVerProductosPoximoAgotar";
             this.btnVerProductosPoximoAgotar.Size = new System.Drawing.Size(41, 29);
             this.btnVerProductosPoximoAgotar.TabIndex = 69;
@@ -714,7 +732,7 @@
             this.txtNumeroRegistros.BackColor = System.Drawing.Color.LightGray;
             this.txtNumeroRegistros.Cursor = System.Windows.Forms.Cursors.Hand;
             this.txtNumeroRegistros.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroRegistros.Location = new System.Drawing.Point(260, 633);
+            this.txtNumeroRegistros.Location = new System.Drawing.Point(260, 665);
             this.txtNumeroRegistros.Maximum = new decimal(new int[] {
             999999999,
             0,
@@ -734,7 +752,7 @@
             // 
             this.groupBox4.Controls.Add(this.dtListado);
             this.groupBox4.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(3, 355);
+            this.groupBox4.Location = new System.Drawing.Point(3, 387);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(1226, 269);
             this.groupBox4.TabIndex = 53;
@@ -789,7 +807,7 @@
             // 
             this.lbNumeroRegistros.AutoSize = true;
             this.lbNumeroRegistros.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNumeroRegistros.Location = new System.Drawing.Point(153, 636);
+            this.lbNumeroRegistros.Location = new System.Drawing.Point(153, 668);
             this.lbNumeroRegistros.Name = "lbNumeroRegistros";
             this.lbNumeroRegistros.Size = new System.Drawing.Size(103, 20);
             this.lbNumeroRegistros.TabIndex = 56;
@@ -800,7 +818,7 @@
             this.txtNumeroPagina.BackColor = System.Drawing.Color.LightGray;
             this.txtNumeroPagina.Cursor = System.Windows.Forms.Cursors.Hand;
             this.txtNumeroPagina.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroPagina.Location = new System.Drawing.Point(96, 630);
+            this.txtNumeroPagina.Location = new System.Drawing.Point(96, 662);
             this.txtNumeroPagina.Maximum = new decimal(new int[] {
             999999999,
             0,
@@ -820,7 +838,7 @@
             // 
             this.lbNumeroPagina.AutoSize = true;
             this.lbNumeroPagina.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNumeroPagina.Location = new System.Drawing.Point(5, 633);
+            this.lbNumeroPagina.Location = new System.Drawing.Point(5, 665);
             this.lbNumeroPagina.Name = "lbNumeroPagina";
             this.lbNumeroPagina.Size = new System.Drawing.Size(87, 20);
             this.lbNumeroPagina.TabIndex = 54;
@@ -835,7 +853,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(404, 627);
+            this.label4.Location = new System.Drawing.Point(404, 659);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(180, 20);
             this.label4.TabIndex = 58;
@@ -845,7 +863,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(410, 664);
+            this.label5.Location = new System.Drawing.Point(410, 696);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(172, 20);
             this.label5.TabIndex = 59;
@@ -865,7 +883,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(786, 630);
+            this.label7.Location = new System.Drawing.Point(786, 662);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(219, 20);
             this.label7.TabIndex = 61;
@@ -875,7 +893,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(840, 665);
+            this.label8.Location = new System.Drawing.Point(840, 697);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(165, 20);
             this.label8.TabIndex = 62;
@@ -885,7 +903,7 @@
             // 
             this.lbCantidadProductos.AutoSize = true;
             this.lbCantidadProductos.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCantidadProductos.Location = new System.Drawing.Point(582, 627);
+            this.lbCantidadProductos.Location = new System.Drawing.Point(582, 659);
             this.lbCantidadProductos.Name = "lbCantidadProductos";
             this.lbCantidadProductos.Size = new System.Drawing.Size(18, 20);
             this.lbCantidadProductos.TabIndex = 63;
@@ -895,7 +913,7 @@
             // 
             this.lbCantidadProductosConOferta.AutoSize = true;
             this.lbCantidadProductosConOferta.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCantidadProductosConOferta.Location = new System.Drawing.Point(586, 665);
+            this.lbCantidadProductosConOferta.Location = new System.Drawing.Point(586, 697);
             this.lbCantidadProductosConOferta.Name = "lbCantidadProductosConOferta";
             this.lbCantidadProductosConOferta.Size = new System.Drawing.Size(18, 20);
             this.lbCantidadProductosConOferta.TabIndex = 64;
@@ -905,7 +923,7 @@
             // 
             this.lbCantidadPoductosAgotarse.AutoSize = true;
             this.lbCantidadPoductosAgotarse.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCantidadPoductosAgotarse.Location = new System.Drawing.Point(1011, 632);
+            this.lbCantidadPoductosAgotarse.Location = new System.Drawing.Point(1011, 664);
             this.lbCantidadPoductosAgotarse.Name = "lbCantidadPoductosAgotarse";
             this.lbCantidadPoductosAgotarse.Size = new System.Drawing.Size(18, 20);
             this.lbCantidadPoductosAgotarse.TabIndex = 65;
@@ -915,31 +933,17 @@
             // 
             this.lbProductosAgotados.AutoSize = true;
             this.lbProductosAgotados.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbProductosAgotados.Location = new System.Drawing.Point(1011, 665);
+            this.lbProductosAgotados.Location = new System.Drawing.Point(1011, 697);
             this.lbProductosAgotados.Name = "lbProductosAgotados";
             this.lbProductosAgotados.Size = new System.Drawing.Size(18, 20);
             this.lbProductosAgotados.TabIndex = 66;
             this.lbProductosAgotados.Text = "0";
             // 
-            // cbProductosVendidosDescartados
-            // 
-            this.cbProductosVendidosDescartados.AutoSize = true;
-            this.cbProductosVendidosDescartados.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbProductosVendidosDescartados.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbProductosVendidosDescartados.Location = new System.Drawing.Point(581, 55);
-            this.cbProductosVendidosDescartados.Name = "cbProductosVendidosDescartados";
-            this.cbProductosVendidosDescartados.Size = new System.Drawing.Size(272, 24);
-            this.cbProductosVendidosDescartados.TabIndex = 72;
-            this.cbProductosVendidosDescartados.Text = "Productos Vendidos / Descartados";
-            this.toolTip1.SetToolTip(this.cbProductosVendidosDescartados, "Mostrar todos los productos que fueron vendidos o descartados");
-            this.cbProductosVendidosDescartados.UseVisualStyleBackColor = true;
-            this.cbProductosVendidosDescartados.CheckedChanged += new System.EventHandler(this.cbProductosVendidosDescartados_CheckedChanged);
-            // 
             // lbClaveSeguridad
             // 
             this.lbClaveSeguridad.AutoSize = true;
             this.lbClaveSeguridad.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbClaveSeguridad.Location = new System.Drawing.Point(10, 675);
+            this.lbClaveSeguridad.Location = new System.Drawing.Point(10, 707);
             this.lbClaveSeguridad.Name = "lbClaveSeguridad";
             this.lbClaveSeguridad.Size = new System.Drawing.Size(166, 21);
             this.lbClaveSeguridad.TabIndex = 74;
@@ -950,12 +954,29 @@
             // 
             this.txtClaveSeguridad.BackColor = System.Drawing.Color.Silver;
             this.txtClaveSeguridad.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtClaveSeguridad.Location = new System.Drawing.Point(182, 672);
+            this.txtClaveSeguridad.Location = new System.Drawing.Point(182, 704);
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
             this.txtClaveSeguridad.PasswordChar = '•';
             this.txtClaveSeguridad.Size = new System.Drawing.Size(226, 27);
             this.txtClaveSeguridad.TabIndex = 73;
             this.txtClaveSeguridad.Visible = false;
+            // 
+            // lbNumeroSeguimiento
+            // 
+            this.lbNumeroSeguimiento.AutoSize = true;
+            this.lbNumeroSeguimiento.Location = new System.Drawing.Point(18, 57);
+            this.lbNumeroSeguimiento.Name = "lbNumeroSeguimiento";
+            this.lbNumeroSeguimiento.Size = new System.Drawing.Size(158, 20);
+            this.lbNumeroSeguimiento.TabIndex = 74;
+            this.lbNumeroSeguimiento.Text = "Numro Seguimiento";
+            // 
+            // txtNumeroSeguimiento
+            // 
+            this.txtNumeroSeguimiento.BackColor = System.Drawing.Color.Silver;
+            this.txtNumeroSeguimiento.Location = new System.Drawing.Point(182, 50);
+            this.txtNumeroSeguimiento.Name = "txtNumeroSeguimiento";
+            this.txtNumeroSeguimiento.Size = new System.Drawing.Size(274, 27);
+            this.txtNumeroSeguimiento.TabIndex = 73;
             // 
             // ProductoConsulta
             // 
@@ -963,7 +984,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1242, 708);
+            this.ClientSize = new System.Drawing.Size(1242, 739);
             this.Controls.Add(this.lbClaveSeguridad);
             this.Controls.Add(this.btnProductosDefectuosos);
             this.Controls.Add(this.txtClaveSeguridad);
@@ -1083,5 +1104,7 @@
         private System.Windows.Forms.CheckBox cbProductosVendidosDescartados;
         private System.Windows.Forms.Label lbClaveSeguridad;
         private System.Windows.Forms.TextBox txtClaveSeguridad;
+        private System.Windows.Forms.Label lbNumeroSeguimiento;
+        private System.Windows.Forms.TextBox txtNumeroSeguimiento;
     }
 }

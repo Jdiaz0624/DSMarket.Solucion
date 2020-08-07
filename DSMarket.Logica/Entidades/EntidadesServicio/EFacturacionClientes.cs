@@ -36,5 +36,8 @@ namespace DSMarket.Logica.Entidades.EntidadesServicio
 
         public System.Nullable<decimal> IdUsuario {get;set;}
         public System.Nullable<System.DateTime> FechaFacturacion { get; set; }
+        public System.Nullable<bool> AplicaGarantia { get; set; }
+
+        public System.Nullable<int> DiasGarantia { get; set; }
     }
 }

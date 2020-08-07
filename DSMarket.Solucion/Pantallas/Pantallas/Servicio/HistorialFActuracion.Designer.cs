@@ -36,6 +36,7 @@
             this.lbCantidadRegistrosTitulo = new System.Windows.Forms.Label();
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnDescartarProducto = new System.Windows.Forms.Button();
             this.btnEstadistica = new System.Windows.Forms.Button();
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnReporte = new System.Windows.Forms.Button();
@@ -84,10 +85,10 @@
             this.txtCantidadFacturada = new System.Windows.Forms.TextBox();
             this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
             this.lbClaveSeguridad = new System.Windows.Forms.Label();
-            this.btnDescartarProducto = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.lbCantidadDisponible = new System.Windows.Forms.Label();
             this.txtCantidadDisponible = new System.Windows.Forms.TextBox();
+            this.btnModificarDiasGarantia = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel2.SuspendLayout();
@@ -177,6 +178,23 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1283, 58);
             this.panel2.TabIndex = 5;
+            // 
+            // btnDescartarProducto
+            // 
+            this.btnDescartarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDescartarProducto.Enabled = false;
+            this.btnDescartarProducto.FlatAppearance.BorderSize = 0;
+            this.btnDescartarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDescartarProducto.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDescartarProducto.Image = global::DSMarket.Solucion.Properties.Resources.Eliminar;
+            this.btnDescartarProducto.Location = new System.Drawing.Point(1232, 7);
+            this.btnDescartarProducto.Name = "btnDescartarProducto";
+            this.btnDescartarProducto.Size = new System.Drawing.Size(45, 41);
+            this.btnDescartarProducto.TabIndex = 71;
+            this.btnDescartarProducto.Text = "      ";
+            this.toolTip1.SetToolTip(this.btnDescartarProducto, "Descartar Producto Seleccionado");
+            this.btnDescartarProducto.UseVisualStyleBackColor = true;
+            this.btnDescartarProducto.Click += new System.EventHandler(this.btnDescartarProducto_Click);
             // 
             // btnEstadistica
             // 
@@ -442,9 +460,9 @@
             this.btnProductos.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProductos.Image = global::DSMarket.Solucion.Properties.Resources.ojo;
             this.btnProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProductos.Location = new System.Drawing.Point(1056, 118);
+            this.btnProductos.Location = new System.Drawing.Point(1056, 103);
             this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Size = new System.Drawing.Size(163, 41);
+            this.btnProductos.Size = new System.Drawing.Size(210, 35);
             this.btnProductos.TabIndex = 71;
             this.btnProductos.Text = "      Productos";
             this.toolTip1.SetToolTip(this.btnProductos, "Ver Listado de los productos facturados.");
@@ -791,23 +809,6 @@
             this.lbClaveSeguridad.Text = "Clave Seguridad";
             this.lbClaveSeguridad.Visible = false;
             // 
-            // btnDescartarProducto
-            // 
-            this.btnDescartarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDescartarProducto.Enabled = false;
-            this.btnDescartarProducto.FlatAppearance.BorderSize = 0;
-            this.btnDescartarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDescartarProducto.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDescartarProducto.Image = global::DSMarket.Solucion.Properties.Resources.Eliminar;
-            this.btnDescartarProducto.Location = new System.Drawing.Point(1232, 7);
-            this.btnDescartarProducto.Name = "btnDescartarProducto";
-            this.btnDescartarProducto.Size = new System.Drawing.Size(45, 41);
-            this.btnDescartarProducto.TabIndex = 71;
-            this.btnDescartarProducto.Text = "      ";
-            this.toolTip1.SetToolTip(this.btnDescartarProducto, "Descartar Producto Seleccionado");
-            this.btnDescartarProducto.UseVisualStyleBackColor = true;
-            this.btnDescartarProducto.Click += new System.EventHandler(this.btnDescartarProducto_Click);
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
@@ -831,6 +832,24 @@
             this.txtCantidadDisponible.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCantidadDisponible.Visible = false;
             // 
+            // btnModificarDiasGarantia
+            // 
+            this.btnModificarDiasGarantia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificarDiasGarantia.Enabled = false;
+            this.btnModificarDiasGarantia.FlatAppearance.BorderSize = 0;
+            this.btnModificarDiasGarantia.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnModificarDiasGarantia.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarDiasGarantia.Image = global::DSMarket.Solucion.Properties.Resources.Editar;
+            this.btnModificarDiasGarantia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificarDiasGarantia.Location = new System.Drawing.Point(1056, 142);
+            this.btnModificarDiasGarantia.Name = "btnModificarDiasGarantia";
+            this.btnModificarDiasGarantia.Size = new System.Drawing.Size(210, 35);
+            this.btnModificarDiasGarantia.TabIndex = 88;
+            this.btnModificarDiasGarantia.Text = "      Dias de Garantia";
+            this.toolTip1.SetToolTip(this.btnModificarDiasGarantia, "Modificar los dias de garantia de la factura");
+            this.btnModificarDiasGarantia.UseVisualStyleBackColor = true;
+            this.btnModificarDiasGarantia.Click += new System.EventHandler(this.button1_Click);
+            // 
             // HistorialFActuracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -838,6 +857,7 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1283, 636);
+            this.Controls.Add(this.btnModificarDiasGarantia);
             this.Controls.Add(this.lbCantidadDisponible);
             this.Controls.Add(this.txtCantidadDisponible);
             this.Controls.Add(this.lbClaveSeguridad);
@@ -955,5 +975,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label lbCantidadDisponible;
         private System.Windows.Forms.TextBox txtCantidadDisponible;
+        private System.Windows.Forms.Button btnModificarDiasGarantia;
     }
 }

@@ -287,6 +287,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                         false,
                         false,
                         Convert.ToDecimal(txtCantidadIngresar.Text),
+                        txtNumeroSeguimiento.Text,
                         "INSERT");
                     Procesar.ProcesarInformaicon();
                     MessageBox.Show("Registro guardado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -352,6 +353,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                       false,
                       false,
                       Convert.ToDecimal(txtCantidadIngresar.Text),
+                      txtNumeroSeguimiento.Text,
                       "INSERT");
                                 Procesar.ProcesarInformaicon();
                                 MessageBox.Show("Registro modificado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);

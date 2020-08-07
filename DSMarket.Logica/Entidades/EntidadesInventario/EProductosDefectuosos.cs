@@ -95,6 +95,7 @@ namespace DSMarket.Logica.Entidades.EntidadesInventario
         public string AplicaParaImpuesto {get;set;}
 
         public System.Nullable<decimal> CantidadAgregada {get;set;}
+        public string NumeroSeguimiento { get; set; }
 
         public System.Nullable<int> CantidadRegistros {get;set;}
 
