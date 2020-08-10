@@ -53,5 +53,12 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
             DSMarket.Solucion.Pantallas.Pantallas.Empresa.CargosConsulta Cargos = new Pantallas.Empresa.CargosConsulta();
             Cargos.ShowDialog();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Empresa.CompraSuplidores CompraSuplidoresConsulta = new Pantallas.Empresa.CompraSuplidores();
+            CompraSuplidoresConsulta.Variableslobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
+            CompraSuplidoresConsulta.ShowDialog();
+        }
     }
 }

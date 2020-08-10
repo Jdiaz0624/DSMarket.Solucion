@@ -103,5 +103,138 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
             return Mantenimeinto;
         }
         #endregion
+
+        #region MANTENIMIENTO DE COMPRA DE SUPLIDORES
+        //LISTADO DE COMPRA A SUPLIDORES
+        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.ECompraSuplidores> BuscaCompraSuplidores(decimal? IdCompraSuplidor = null, decimal? IdTipoSuplidor = null, decimal? IdSuplidor = null, string RNCCedula = null, DateTime? FechaCreadoDesde = null, DateTime? FechaCreadoHasta = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_BUSCA_REGISTROS_COMPRA_SUPLIDORES(
+                IdCompraSuplidor,
+                IdTipoSuplidor,
+                IdSuplidor,
+                RNCCedula,
+                FechaCreadoDesde,
+                FechaCreadoHasta,
+                NumeroPagina,
+                NumeroRegistros)
+                           select new DSMarket.Logica.Entidades.EntidadesEmpresa.ECompraSuplidores
+                           {
+                               IdCompraSuplidor=n.IdCompraSuplidor,
+                               IdTipoSuplidor=n.IdTipoSuplidor,
+                               TipoSuplidor=n.TipoSuplidor,
+                               IdSuplidor=n.IdSuplidor,
+                               Suplidor=n.Suplidor,
+                               RNCCedula=n.RNCCedula,
+                               IdTipoIdentificacion=n.IdTipoIdentificacion,
+                               TipoIdentificacion=n.TipoIdentificacion,
+                               IdTipoBienesServicios=n.IdTipoBienesServicios,
+                               TipoBienesServicios=n.TipoBienesServicios,
+                               NCF=n.NCF,
+                               NCFModificado=n.NCFModificado,
+                               FechaComprobante0=n.FechaComprobante0,
+                               FechaComprobante=n.FechaComprobante,
+                               FechaPago0=n.FechaPago0,
+                               FechaPago=n.FechaPago,
+                               MontoFacturadoServicios=n.MontoFacturadoServicios,
+                               MontoFacturadoBienes=n.MontoFacturadoBienes,
+                               TotalMontoFacturado=n.TotalMontoFacturado,
+                               ITBISFacturado=n.ITBISFacturado,
+                               ITBISRetenido=n.ITBISRetenido,
+                               ITBISSujetoProporcionalidad=n.ITBISSujetoProporcionalidad,
+                               ITBISLlevadoCosto=n.ITBISLlevadoCosto,
+                               ITBISPorAdelantar=n.ITBISPorAdelantar,
+                               ITBISPercibidoCompras=n.ITBISPercibidoCompras,
+                               IdTipoRetencionISR=n.IdTipoRetencionISR,
+                               TipoRetencionISR=n.TipoRetencionISR,
+                               MontoRetencionRenta=n.MontoRetencionRenta,
+                               ISRPercibidoCompras=n.ISRPercibidoCompras,
+                               ImpuestoSelectivoConsumo=n.ImpuestoSelectivoConsumo,
+                               OtrosImpuestosTasa=n.OtrosImpuestosTasa,
+                               MontoPropinaLegal=n.MontoPropinaLegal,
+                               IdFormaPago=n.IdFormaPago,
+                               FormaPago=n.FormaPago,
+                               UsuarioAdiciona=n.UsuarioAdiciona,
+                               CreadoPor=n.CreadoPor,
+                               FechaCreado0=n.FechaCreado0,
+                               FechaCreado=n.FechaCreado,
+                               CantidadRegistros=n.CantidadRegistros
+                           }).ToList();
+            return Listado;
+        }
+
+        //MANTENIMIENTO DE COMPRA DE SUPLIDORES
+        public DSMarket.Logica.Entidades.EntidadesEmpresa.ECompraSuplidores MantenimientoCompraSuplidores(DSMarket.Logica.Entidades.EntidadesEmpresa.ECompraSuplidores Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesEmpresa.ECompraSuplidores Mantenimiento = null;
+
+            var CompraSuplidores = ObjData.SP_MANTENIMIENTO_COMPRAS_SUPLIDORES(
+                Item.IdCompraSuplidor,
+                Item.IdTipoSuplidor,
+                Item.IdSuplidor,
+                Item.RNCCedula,
+                Item.IdTipoIdentificacion,
+                Item.IdTipoBienesServicios,
+                Item.NCF,
+                Item.NCFModificado,
+                Item.FechaComprobante0,
+                Item.FechaPago0,
+                Item.MontoFacturadoServicios,
+                Item.MontoFacturadoBienes,
+                Item.TotalMontoFacturado,
+                Item.ITBISFacturado,
+                Item.ITBISRetenido,
+                Item.ITBISSujetoProporcionalidad,
+                Item.ITBISLlevadoCosto,
+                Item.ITBISPorAdelantar,
+                Item.ITBISPercibidoCompras,
+                Item.IdTipoRetencionISR,
+                Item.MontoRetencionRenta,
+                Item.ISRPercibidoCompras,
+                Item.ImpuestoSelectivoConsumo,
+                Item.OtrosImpuestosTasa,
+                Item.MontoPropinaLegal,
+                Item.IdFormaPago,
+                Item.UsuarioAdiciona,
+                Item.FechaCreado0,
+                Accion);
+            if (CompraSuplidores != null) {
+                Mantenimiento = (from n in CompraSuplidores
+                                 select new DSMarket.Logica.Entidades.EntidadesEmpresa.ECompraSuplidores
+                                 {
+                                     IdCompraSuplidor = n.IdCompraSuplidor,
+                                     IdTipoSuplidor = n.IdTipoSuplidor,
+                                     IdSuplidor = n.IdSuplidor,
+                                     RNCCedula = n.RNCCedula,
+                                     IdTipoIdentificacion = n.IdTipoIdentificacion,
+                                     IdTipoBienesServicios = n.IdTipoBienesServicios,
+                                     NCF = n.NCF,
+                                     NCFModificado = n.NCFModificado,
+                                     FechaComprobante0 = n.FechaComprobante,
+                                     FechaPago0 = n.FechaPago,
+                                     MontoFacturadoServicios = n.MontoFacturadoServicios,
+                                     MontoFacturadoBienes = n.MontoFacturadoBienes,
+                                     TotalMontoFacturado = n.TotalMontoFacturado,
+                                     ITBISFacturado = n.ITBISFacturado,
+                                     ITBISRetenido = n.ITBISRetenido,
+                                     ITBISSujetoProporcionalidad = n.ITBISSujetoProporcionalidad,
+                                     ITBISLlevadoCosto = n.ITBISLlevadoCosto,
+                                     ITBISPorAdelantar = n.ITBISPorAdelantar,
+                                     ITBISPercibidoCompras = n.ITBISPercibidoCompras,
+                                     IdTipoRetencionISR = n.IdTipoRetencionISR,
+                                     MontoRetencionRenta = n.MontoRetencionRenta,
+                                     ISRPercibidoCompras = n.ISRPercibidoCompras,
+                                     ImpuestoSelectivoConsumo = n.ImpuestoSelectivoConsumo,
+                                     OtrosImpuestosTasa = n.OtrosImpuestosTasa,
+                                     MontoPropinaLegal = n.MontoPropinaLegal,
+                                     IdFormaPago = n.IdFormaPago,
+                                     UsuarioAdiciona = n.UsuarioAdiciona,
+                                     FechaCreado0 = n.FechaCreado
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
+        #endregion
     }
 }

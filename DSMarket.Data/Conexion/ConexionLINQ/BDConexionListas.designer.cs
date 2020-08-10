@@ -180,6 +180,20 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idCategoria);
 			return ((ISingleResult<SP_CARGAR_MARCASResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTADO_BIENES_SERVICIOS")]
+		public ISingleResult<SP_LISTADO_BIENES_SERVICIOSResult> SP_LISTADO_BIENES_SERVICIOS()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_LISTADO_BIENES_SERVICIOSResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTADO_TIPO_RETENCION_ISR")]
+		public ISingleResult<SP_LISTADO_TIPO_RETENCION_ISRResult> SP_LISTADO_TIPO_RETENCION_ISR()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_LISTADO_TIPO_RETENCION_ISRResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_CARGAR_LISTA_TIPO_PRODUCTOResult
@@ -997,6 +1011,112 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._Descripcion != value))
 				{
 					this._Descripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_LISTADO_BIENES_SERVICIOSResult
+	{
+		
+		private int _IdTipoBienesServicio;
+		
+		private string _Descripcion;
+		
+		public SP_LISTADO_BIENES_SERVICIOSResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoBienesServicio", DbType="Int NOT NULL")]
+		public int IdTipoBienesServicio
+		{
+			get
+			{
+				return this._IdTipoBienesServicio;
+			}
+			set
+			{
+				if ((this._IdTipoBienesServicio != value))
+				{
+					this._IdTipoBienesServicio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(100)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_LISTADO_TIPO_RETENCION_ISRResult
+	{
+		
+		private System.Nullable<int> _IdTipoRetencionISR;
+		
+		private string _Descripcion;
+		
+		private System.Nullable<bool> _Estatus;
+		
+		public SP_LISTADO_TIPO_RETENCION_ISRResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoRetencionISR", DbType="Int")]
+		public System.Nullable<int> IdTipoRetencionISR
+		{
+			get
+			{
+				return this._IdTipoRetencionISR;
+			}
+			set
+			{
+				if ((this._IdTipoRetencionISR != value))
+				{
+					this._IdTipoRetencionISR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(100)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="Bit")]
+		public System.Nullable<bool> Estatus
+		{
+			get
+			{
+				return this._Estatus;
+			}
+			set
+			{
+				if ((this._Estatus != value))
+				{
+					this._Estatus = value;
 				}
 			}
 		}

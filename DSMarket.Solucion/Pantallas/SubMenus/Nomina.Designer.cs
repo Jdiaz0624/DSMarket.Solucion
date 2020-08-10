@@ -30,17 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbIdUsuario = new System.Windows.Forms.Label();
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.gbOpciones = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.lbIdUsuario = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.gbOpciones.SuspendLayout();
@@ -57,6 +57,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(608, 44);
             this.panel1.TabIndex = 15;
+            // 
+            // lbIdUsuario
+            // 
+            this.lbIdUsuario.AutoSize = true;
+            this.lbIdUsuario.Location = new System.Drawing.Point(450, 10);
+            this.lbIdUsuario.Name = "lbIdUsuario";
+            this.lbIdUsuario.Size = new System.Drawing.Size(54, 20);
+            this.lbIdUsuario.TabIndex = 17;
+            this.lbIdUsuario.Text = "label6";
+            this.lbIdUsuario.Visible = false;
             // 
             // PCerrar
             // 
@@ -95,6 +105,35 @@
             this.gbOpciones.TabIndex = 14;
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Empresa - Seleccionar Opcion";
+            // 
+            // button5
+            // 
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.Enabled = false;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(390, 91);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(186, 56);
+            this.button5.TabIndex = 5;
+            this.button5.Text = "Envio de Ofertas";
+            this.toolTip1.SetToolTip(this.button5, "Cargos");
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.Enabled = false;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(198, 91);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(186, 56);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "Compra Suplidores";
+            this.toolTip1.SetToolTip(this.button4, "Cargos");
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -154,44 +193,6 @@
             this.toolTip1.SetToolTip(this.btnClientes, "Mantenimiento de clientes");
             this.btnClientes.UseVisualStyleBackColor = true;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
-            // 
-            // button4
-            // 
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.Enabled = false;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(198, 91);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(186, 56);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Compra Suplidores";
-            this.toolTip1.SetToolTip(this.button4, "Cargos");
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.Enabled = false;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(390, 91);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(186, 56);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Envio de Ofertas";
-            this.toolTip1.SetToolTip(this.button5, "Cargos");
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // lbIdUsuario
-            // 
-            this.lbIdUsuario.AutoSize = true;
-            this.lbIdUsuario.Location = new System.Drawing.Point(450, 10);
-            this.lbIdUsuario.Name = "lbIdUsuario";
-            this.lbIdUsuario.Size = new System.Drawing.Size(54, 20);
-            this.lbIdUsuario.TabIndex = 17;
-            this.lbIdUsuario.Text = "label6";
-            this.lbIdUsuario.Visible = false;
             // 
             // Nomina
             // 

@@ -87,6 +87,7 @@
     <Compile Include="Entidades\EntidadesConfiguracion\ERutaBackup.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\ERutaReporte.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\EClientes.cs" />
+    <Compile Include="Entidades\EntidadesEmpresa\ECompraSuplidores.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECantidadProductosDefectuosos.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECategorias.cs" />
     <Compile Include="Entidades\EntidadesInventario\Emarcas.cs" />
@@ -115,6 +116,8 @@
     <Compile Include="Entidades\EntidadesListas\EListaTipoSuplidor.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoVenta.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaUsuarios.cs" />
+    <Compile Include="Entidades\EntidadesListas\ETipoBienesServicios.cs" />
+    <Compile Include="Entidades\EntidadesListas\ETipoRetencionISR.cs" />
     <Compile Include="Entidades\EntidadesListas\EUnidadMedida.cs" />
     <Compile Include="Entidades\EntidadesSeguridad\ECredenciales.cs" />
     <Compile Include="Entidades\EntidadesSeguridad\EMantenimientoClaveSeguridad.cs" />

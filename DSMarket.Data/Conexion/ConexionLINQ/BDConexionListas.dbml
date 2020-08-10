@@ -113,4 +113,17 @@
       <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Listas.SP_LISTADO_BIENES_SERVICIOS" Method="SP_LISTADO_BIENES_SERVICIOS">
+    <ElementType Name="SP_LISTADO_BIENES_SERVICIOSResult">
+      <Column Name="IdTipoBienesServicio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_LISTADO_TIPO_RETENCION_ISR" Method="SP_LISTADO_TIPO_RETENCION_ISR">
+    <ElementType Name="SP_LISTADO_TIPO_RETENCION_ISRResult">
+      <Column Name="IdTipoRetencionISR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Estatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

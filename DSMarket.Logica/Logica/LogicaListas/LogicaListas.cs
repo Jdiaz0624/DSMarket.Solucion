@@ -257,5 +257,32 @@ namespace DSMarket.Logica.Logica.LogicaListas
             return Listado;
         }
         #endregion
+        #region LISTADO DE BIENES Y SERVICIOS
+        public List<DSMarket.Logica.Entidades.EntidadesListas.ETipoBienesServicios> ListadoBienesServicios() {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjDataListas.SP_LISTADO_BIENES_SERVICIOS()
+                           select new DSMarket.Logica.Entidades.EntidadesListas.ETipoBienesServicios
+                           {
+                               IdTipoBienesServicio=n.IdTipoBienesServicio,
+                               Descripcion=n.Descripcion
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
+        #region LISTADO DE TIPO DE RETENCION ISR
+        public List<DSMarket.Logica.Entidades.EntidadesListas.ETipoRetencionISR> BuscaTipoRetencionISR() {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjDataListas.SP_LISTADO_TIPO_RETENCION_ISR()
+                           select new DSMarket.Logica.Entidades.EntidadesListas.ETipoRetencionISR
+                           {
+                               IdTipoRetencionISR=n.IdTipoRetencionISR,
+                               Descripcion=n.Descripcion,
+                               Estatus=n.Estatus
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
     }
 }

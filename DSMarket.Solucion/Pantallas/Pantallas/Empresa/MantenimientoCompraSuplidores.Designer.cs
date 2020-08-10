@@ -36,59 +36,59 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.txtFechaPago = new System.Windows.Forms.DateTimePicker();
+            this.txtFechaComprobante = new System.Windows.Forms.DateTimePicker();
+            this.txtITBISFacturado = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.txtTotalMontoFacturado = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.txtMontoFacturadoBienes = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.txtMontoFActuradoServicios = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNCFModificado = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNCF = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.ddlSeleccionarTipoBienesServicios = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.ddlseleccionarTipoIdentificacion = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtRNCCedula = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.ddlSeleccionarFormaPAgo = new System.Windows.Forms.ComboBox();
             this.label31 = new System.Windows.Forms.Label();
-            this.textBox24 = new System.Windows.Forms.TextBox();
+            this.txtMontoPropinaLegal = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
-            this.textBox23 = new System.Windows.Forms.TextBox();
+            this.OtrosImpuestosTasa = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.txtISRRecibidoCompras = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.txtImpuestoSelecticoConsumo = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.txtMontoRetencionCompras = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.txtMontoRetencionVenta = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.ddlSeleccionarTipoRetencionISR = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.txtITBISPercibidoCompras = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.txtITBISAdelantar = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.txtITBISLlevadoCosto = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.txtITBISSujeto = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.txtITBISRetenido = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.ddlSeleccionarTipoSuplidor = new System.Windows.Forms.ComboBox();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.ddlSeleccionarSuplidores = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -108,7 +108,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::DSMarket.Solucion.Properties.Resources.Guardar;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(374, 465);
+            this.btnGuardar.Location = new System.Drawing.Point(375, 533);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(406, 41);
             this.btnGuardar.TabIndex = 97;
@@ -151,99 +151,125 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.textBox12);
+            this.groupBox1.Controls.Add(this.txtFechaPago);
+            this.groupBox1.Controls.Add(this.txtFechaComprobante);
+            this.groupBox1.Controls.Add(this.txtITBISFacturado);
             this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.textBox11);
+            this.groupBox1.Controls.Add(this.txtTotalMontoFacturado);
             this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.textBox10);
+            this.groupBox1.Controls.Add(this.txtMontoFacturadoBienes);
             this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.textBox9);
+            this.groupBox1.Controls.Add(this.txtMontoFActuradoServicios);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtNCFModificado);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtNCF);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.ddlSeleccionarTipoBienesServicios);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.ddlseleccionarTipoIdentificacion);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtRNCCedula);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 79);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1152, 186);
+            this.groupBox1.Size = new System.Drawing.Size(1152, 219);
             this.groupBox1.TabIndex = 95;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Encabezado del Formato";
             // 
-            // textBox12
+            // txtFechaPago
             // 
-            this.textBox12.Location = new System.Drawing.Point(251, 149);
-            this.textBox12.MaxLength = 20;
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(141, 27);
-            this.textBox12.TabIndex = 31;
+            this.txtFechaPago.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFechaPago.Location = new System.Drawing.Point(491, 123);
+            this.txtFechaPago.Name = "txtFechaPago";
+            this.txtFechaPago.Size = new System.Drawing.Size(129, 27);
+            this.txtFechaPago.TabIndex = 33;
+            // 
+            // txtFechaComprobante
+            // 
+            this.txtFechaComprobante.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFechaComprobante.Location = new System.Drawing.Point(222, 124);
+            this.txtFechaComprobante.Name = "txtFechaComprobante";
+            this.txtFechaComprobante.Size = new System.Drawing.Size(129, 27);
+            this.txtFechaComprobante.TabIndex = 32;
+            // 
+            // txtITBISFacturado
+            // 
+            this.txtITBISFacturado.Location = new System.Drawing.Point(252, 185);
+            this.txtITBISFacturado.MaxLength = 20;
+            this.txtITBISFacturado.Name = "txtITBISFacturado";
+            this.txtITBISFacturado.Size = new System.Drawing.Size(141, 27);
+            this.txtITBISFacturado.TabIndex = 31;
+            this.txtITBISFacturado.Text = "0";
+            this.txtITBISFacturado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoPropinaLegal_KeyPress);
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(115, 152);
+            this.label17.Location = new System.Drawing.Point(116, 188);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(132, 21);
             this.label17.TabIndex = 30;
             this.label17.Text = "ITBIS Facturado";
             // 
-            // textBox11
+            // txtTotalMontoFacturado
             // 
-            this.textBox11.Enabled = false;
-            this.textBox11.Location = new System.Drawing.Point(969, 119);
-            this.textBox11.MaxLength = 20;
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(141, 27);
-            this.textBox11.TabIndex = 29;
+            this.txtTotalMontoFacturado.Enabled = false;
+            this.txtTotalMontoFacturado.Location = new System.Drawing.Point(970, 155);
+            this.txtTotalMontoFacturado.MaxLength = 20;
+            this.txtTotalMontoFacturado.Name = "txtTotalMontoFacturado";
+            this.txtTotalMontoFacturado.Size = new System.Drawing.Size(141, 27);
+            this.txtTotalMontoFacturado.TabIndex = 29;
+            this.txtTotalMontoFacturado.Text = "0";
+            this.txtTotalMontoFacturado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoPropinaLegal_KeyPress);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(773, 122);
+            this.label16.Location = new System.Drawing.Point(774, 158);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(192, 21);
             this.label16.TabIndex = 28;
             this.label16.Text = "Total Monto Facturado";
             // 
-            // textBox10
+            // txtMontoFacturadoBienes
             // 
-            this.textBox10.Location = new System.Drawing.Point(627, 119);
-            this.textBox10.MaxLength = 20;
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(141, 27);
-            this.textBox10.TabIndex = 27;
+            this.txtMontoFacturadoBienes.Location = new System.Drawing.Point(628, 155);
+            this.txtMontoFacturadoBienes.MaxLength = 20;
+            this.txtMontoFacturadoBienes.Name = "txtMontoFacturadoBienes";
+            this.txtMontoFacturadoBienes.Size = new System.Drawing.Size(141, 27);
+            this.txtMontoFacturadoBienes.TabIndex = 27;
+            this.txtMontoFacturadoBienes.Text = "0";
+            this.txtMontoFacturadoBienes.TextChanged += new System.EventHandler(this.txtMontoFacturadoBienes_TextChanged);
+            this.txtMontoFacturadoBienes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoPropinaLegal_KeyPress);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(398, 122);
+            this.label15.Location = new System.Drawing.Point(399, 158);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(225, 21);
             this.label15.TabIndex = 26;
             this.label15.Text = "Monto Facturado en Bienes";
             // 
-            // textBox9
+            // txtMontoFActuradoServicios
             // 
-            this.textBox9.Location = new System.Drawing.Point(251, 119);
-            this.textBox9.MaxLength = 20;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(141, 27);
-            this.textBox9.TabIndex = 25;
+            this.txtMontoFActuradoServicios.Location = new System.Drawing.Point(252, 155);
+            this.txtMontoFActuradoServicios.MaxLength = 20;
+            this.txtMontoFActuradoServicios.Name = "txtMontoFActuradoServicios";
+            this.txtMontoFActuradoServicios.Size = new System.Drawing.Size(141, 27);
+            this.txtMontoFActuradoServicios.TabIndex = 25;
+            this.txtMontoFActuradoServicios.Text = "0";
+            this.txtMontoFActuradoServicios.TextChanged += new System.EventHandler(this.txtMontoFActuradoServicios_TextChanged);
+            this.txtMontoFActuradoServicios.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoPropinaLegal_KeyPress);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 122);
+            this.label14.Location = new System.Drawing.Point(7, 158);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(242, 21);
             this.label14.TabIndex = 24;
@@ -252,7 +278,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(357, 91);
+            this.label13.Location = new System.Drawing.Point(358, 127);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(129, 21);
             this.label13.TabIndex = 17;
@@ -261,70 +287,74 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(41, 91);
+            this.label6.Location = new System.Drawing.Point(42, 127);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(176, 21);
             this.label6.TabIndex = 10;
             this.label6.Text = "Fecha Comprobante";
             // 
-            // textBox2
+            // txtNCFModificado
             // 
-            this.textBox2.Location = new System.Drawing.Point(490, 56);
-            this.textBox2.MaxLength = 20;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(208, 27);
-            this.textBox2.TabIndex = 9;
+            this.txtNCFModificado.Location = new System.Drawing.Point(491, 92);
+            this.txtNCFModificado.MaxLength = 20;
+            this.txtNCFModificado.Name = "txtNCFModificado";
+            this.txtNCFModificado.Size = new System.Drawing.Size(208, 27);
+            this.txtNCFModificado.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(351, 59);
+            this.label5.Location = new System.Drawing.Point(352, 95);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(136, 21);
             this.label5.TabIndex = 8;
             this.label5.Text = "NCF Modificado";
             // 
-            // textBox1
+            // txtNCF
             // 
-            this.textBox1.Location = new System.Drawing.Point(134, 53);
-            this.textBox1.MaxLength = 20;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(208, 27);
-            this.textBox1.TabIndex = 7;
+            this.txtNCF.Location = new System.Drawing.Point(135, 89);
+            this.txtNCF.MaxLength = 20;
+            this.txtNCF.Name = "txtNCF";
+            this.txtNCF.Size = new System.Drawing.Size(208, 27);
+            this.txtNCF.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(87, 56);
+            this.label4.Location = new System.Drawing.Point(88, 92);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 21);
             this.label4.TabIndex = 6;
             this.label4.Text = "NCF";
             // 
-            // comboBox2
+            // ddlSeleccionarTipoBienesServicios
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(886, 24);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(208, 29);
-            this.comboBox2.TabIndex = 5;
+            this.ddlSeleccionarTipoBienesServicios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarTipoBienesServicios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarTipoBienesServicios.FormattingEnabled = true;
+            this.ddlSeleccionarTipoBienesServicios.Location = new System.Drawing.Point(211, 57);
+            this.ddlSeleccionarTipoBienesServicios.Name = "ddlSeleccionarTipoBienesServicios";
+            this.ddlSeleccionarTipoBienesServicios.Size = new System.Drawing.Size(916, 29);
+            this.ddlSeleccionarTipoBienesServicios.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(705, 27);
+            this.label3.Location = new System.Drawing.Point(30, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(175, 21);
             this.label3.TabIndex = 4;
             this.label3.Text = "Tipo Bienes y Servicios";
             // 
-            // comboBox1
+            // ddlseleccionarTipoIdentificacion
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(491, 24);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(208, 29);
-            this.comboBox1.TabIndex = 3;
+            this.ddlseleccionarTipoIdentificacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlseleccionarTipoIdentificacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlseleccionarTipoIdentificacion.FormattingEnabled = true;
+            this.ddlseleccionarTipoIdentificacion.Location = new System.Drawing.Point(491, 24);
+            this.ddlseleccionarTipoIdentificacion.Name = "ddlseleccionarTipoIdentificacion";
+            this.ddlseleccionarTipoIdentificacion.Size = new System.Drawing.Size(208, 29);
+            this.ddlseleccionarTipoIdentificacion.TabIndex = 3;
             // 
             // label2
             // 
@@ -354,216 +384,238 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.comboBox4);
+            this.groupBox2.Controls.Add(this.ddlSeleccionarFormaPAgo);
             this.groupBox2.Controls.Add(this.label31);
-            this.groupBox2.Controls.Add(this.textBox24);
+            this.groupBox2.Controls.Add(this.txtMontoPropinaLegal);
             this.groupBox2.Controls.Add(this.label30);
-            this.groupBox2.Controls.Add(this.textBox23);
+            this.groupBox2.Controls.Add(this.OtrosImpuestosTasa);
             this.groupBox2.Controls.Add(this.label29);
-            this.groupBox2.Controls.Add(this.textBox21);
+            this.groupBox2.Controls.Add(this.txtISRRecibidoCompras);
             this.groupBox2.Controls.Add(this.label27);
-            this.groupBox2.Controls.Add(this.textBox20);
+            this.groupBox2.Controls.Add(this.txtImpuestoSelecticoConsumo);
             this.groupBox2.Controls.Add(this.label26);
-            this.groupBox2.Controls.Add(this.textBox19);
+            this.groupBox2.Controls.Add(this.txtMontoRetencionCompras);
             this.groupBox2.Controls.Add(this.label25);
-            this.groupBox2.Controls.Add(this.textBox18);
+            this.groupBox2.Controls.Add(this.txtMontoRetencionVenta);
             this.groupBox2.Controls.Add(this.label24);
-            this.groupBox2.Controls.Add(this.comboBox3);
+            this.groupBox2.Controls.Add(this.ddlSeleccionarTipoRetencionISR);
             this.groupBox2.Controls.Add(this.label23);
-            this.groupBox2.Controls.Add(this.textBox17);
+            this.groupBox2.Controls.Add(this.txtITBISPercibidoCompras);
             this.groupBox2.Controls.Add(this.label22);
-            this.groupBox2.Controls.Add(this.textBox16);
+            this.groupBox2.Controls.Add(this.txtITBISAdelantar);
             this.groupBox2.Controls.Add(this.label21);
-            this.groupBox2.Controls.Add(this.textBox15);
+            this.groupBox2.Controls.Add(this.txtITBISLlevadoCosto);
             this.groupBox2.Controls.Add(this.label20);
-            this.groupBox2.Controls.Add(this.textBox14);
+            this.groupBox2.Controls.Add(this.txtITBISSujeto);
             this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Controls.Add(this.textBox13);
+            this.groupBox2.Controls.Add(this.txtITBISRetenido);
             this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Location = new System.Drawing.Point(12, 270);
+            this.groupBox2.Location = new System.Drawing.Point(19, 304);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1152, 190);
+            this.groupBox2.Size = new System.Drawing.Size(1152, 223);
             this.groupBox2.TabIndex = 96;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Continuación del detalle";
             // 
-            // comboBox4
+            // ddlSeleccionarFormaPAgo
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(517, 150);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(208, 29);
-            this.comboBox4.TabIndex = 33;
+            this.ddlSeleccionarFormaPAgo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarFormaPAgo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarFormaPAgo.FormattingEnabled = true;
+            this.ddlSeleccionarFormaPAgo.Location = new System.Drawing.Point(517, 186);
+            this.ddlSeleccionarFormaPAgo.Name = "ddlSeleccionarFormaPAgo";
+            this.ddlSeleccionarFormaPAgo.Size = new System.Drawing.Size(629, 29);
+            this.ddlSeleccionarFormaPAgo.TabIndex = 33;
             // 
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(384, 154);
+            this.label31.Location = new System.Drawing.Point(384, 190);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(129, 21);
             this.label31.TabIndex = 32;
             this.label31.Text = "Forma de Pago";
             // 
-            // textBox24
+            // txtMontoPropinaLegal
             // 
-            this.textBox24.Location = new System.Drawing.Point(239, 151);
-            this.textBox24.MaxLength = 20;
-            this.textBox24.Name = "textBox24";
-            this.textBox24.Size = new System.Drawing.Size(141, 27);
-            this.textBox24.TabIndex = 56;
+            this.txtMontoPropinaLegal.Location = new System.Drawing.Point(239, 187);
+            this.txtMontoPropinaLegal.MaxLength = 20;
+            this.txtMontoPropinaLegal.Name = "txtMontoPropinaLegal";
+            this.txtMontoPropinaLegal.Size = new System.Drawing.Size(141, 27);
+            this.txtMontoPropinaLegal.TabIndex = 56;
+            this.txtMontoPropinaLegal.Text = "0";
+            this.txtMontoPropinaLegal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoPropinaLegal_KeyPress);
             // 
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(64, 154);
+            this.label30.Location = new System.Drawing.Point(64, 190);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(171, 21);
             this.label30.TabIndex = 55;
             this.label30.Text = "Monto Propina Legal";
             // 
-            // textBox23
+            // OtrosImpuestosTasa
             // 
-            this.textBox23.Location = new System.Drawing.Point(984, 121);
-            this.textBox23.MaxLength = 20;
-            this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(141, 27);
-            this.textBox23.TabIndex = 54;
+            this.OtrosImpuestosTasa.Location = new System.Drawing.Point(984, 157);
+            this.OtrosImpuestosTasa.MaxLength = 20;
+            this.OtrosImpuestosTasa.Name = "OtrosImpuestosTasa";
+            this.OtrosImpuestosTasa.Size = new System.Drawing.Size(141, 27);
+            this.OtrosImpuestosTasa.TabIndex = 54;
+            this.OtrosImpuestosTasa.Text = "0";
+            this.OtrosImpuestosTasa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoPropinaLegal_KeyPress);
             // 
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(793, 124);
+            this.label29.Location = new System.Drawing.Point(793, 160);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(187, 21);
             this.label29.TabIndex = 53;
             this.label29.Text = "Otros Impuestos / Tasa";
             // 
-            // textBox21
+            // txtISRRecibidoCompras
             // 
-            this.textBox21.Location = new System.Drawing.Point(239, 121);
-            this.textBox21.MaxLength = 20;
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(141, 27);
-            this.textBox21.TabIndex = 50;
+            this.txtISRRecibidoCompras.Location = new System.Drawing.Point(239, 157);
+            this.txtISRRecibidoCompras.MaxLength = 20;
+            this.txtISRRecibidoCompras.Name = "txtISRRecibidoCompras";
+            this.txtISRRecibidoCompras.Size = new System.Drawing.Size(141, 27);
+            this.txtISRRecibidoCompras.TabIndex = 50;
+            this.txtISRRecibidoCompras.Text = "0";
+            this.txtISRRecibidoCompras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoPropinaLegal_KeyPress);
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(30, 124);
+            this.label27.Location = new System.Drawing.Point(30, 160);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(205, 21);
             this.label27.TabIndex = 49;
             this.label27.Text = "ISR Percibido en compras";
             // 
-            // textBox20
+            // txtImpuestoSelecticoConsumo
             // 
-            this.textBox20.Location = new System.Drawing.Point(1008, 93);
-            this.textBox20.MaxLength = 20;
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(141, 27);
-            this.textBox20.TabIndex = 48;
+            this.txtImpuestoSelecticoConsumo.Location = new System.Drawing.Point(1008, 129);
+            this.txtImpuestoSelecticoConsumo.MaxLength = 20;
+            this.txtImpuestoSelecticoConsumo.Name = "txtImpuestoSelecticoConsumo";
+            this.txtImpuestoSelecticoConsumo.Size = new System.Drawing.Size(141, 27);
+            this.txtImpuestoSelecticoConsumo.TabIndex = 48;
+            this.txtImpuestoSelecticoConsumo.Text = "0";
+            this.txtImpuestoSelecticoConsumo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoPropinaLegal_KeyPress);
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(752, 96);
+            this.label26.Location = new System.Drawing.Point(752, 132);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(255, 21);
             this.label26.TabIndex = 47;
             this.label26.Text = "Impuesto Selectivo al Consumo";
             // 
-            // textBox19
+            // txtMontoRetencionCompras
             // 
-            this.textBox19.Location = new System.Drawing.Point(606, 92);
-            this.textBox19.MaxLength = 20;
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(141, 27);
-            this.textBox19.TabIndex = 46;
+            this.txtMontoRetencionCompras.Location = new System.Drawing.Point(606, 128);
+            this.txtMontoRetencionCompras.MaxLength = 20;
+            this.txtMontoRetencionCompras.Name = "txtMontoRetencionCompras";
+            this.txtMontoRetencionCompras.Size = new System.Drawing.Size(141, 27);
+            this.txtMontoRetencionCompras.TabIndex = 46;
+            this.txtMontoRetencionCompras.Text = "0";
+            this.txtMontoRetencionCompras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoPropinaLegal_KeyPress);
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(383, 95);
+            this.label25.Location = new System.Drawing.Point(383, 131);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(221, 21);
             this.label25.TabIndex = 45;
             this.label25.Text = "Monto Retencion Compras";
             // 
-            // textBox18
+            // txtMontoRetencionVenta
             // 
-            this.textBox18.Location = new System.Drawing.Point(239, 92);
-            this.textBox18.MaxLength = 20;
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(141, 27);
-            this.textBox18.TabIndex = 44;
+            this.txtMontoRetencionVenta.Location = new System.Drawing.Point(239, 128);
+            this.txtMontoRetencionVenta.MaxLength = 20;
+            this.txtMontoRetencionVenta.Name = "txtMontoRetencionVenta";
+            this.txtMontoRetencionVenta.Size = new System.Drawing.Size(141, 27);
+            this.txtMontoRetencionVenta.TabIndex = 44;
+            this.txtMontoRetencionVenta.Text = "0";
+            this.txtMontoRetencionVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoPropinaLegal_KeyPress);
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(37, 95);
+            this.label24.Location = new System.Drawing.Point(37, 131);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(199, 21);
             this.label24.TabIndex = 43;
             this.label24.Text = "Monto Retencion Venta";
             // 
-            // comboBox3
+            // ddlSeleccionarTipoRetencionISR
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(924, 60);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(208, 29);
-            this.comboBox3.TabIndex = 32;
+            this.ddlSeleccionarTipoRetencionISR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarTipoRetencionISR.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarTipoRetencionISR.FormattingEnabled = true;
+            this.ddlSeleccionarTipoRetencionISR.Location = new System.Drawing.Point(216, 63);
+            this.ddlSeleccionarTipoRetencionISR.Name = "ddlSeleccionarTipoRetencionISR";
+            this.ddlSeleccionarTipoRetencionISR.Size = new System.Drawing.Size(904, 29);
+            this.ddlSeleccionarTipoRetencionISR.TabIndex = 32;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(718, 65);
+            this.label23.Location = new System.Drawing.Point(10, 68);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(202, 21);
             this.label23.TabIndex = 42;
             this.label23.Text = "Tipo de Retención en ISR";
             // 
-            // textBox17
+            // txtITBISPercibidoCompras
             // 
-            this.textBox17.Location = new System.Drawing.Point(571, 62);
-            this.textBox17.MaxLength = 20;
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(141, 27);
-            this.textBox17.TabIndex = 41;
+            this.txtITBISPercibidoCompras.Location = new System.Drawing.Point(571, 98);
+            this.txtITBISPercibidoCompras.MaxLength = 20;
+            this.txtITBISPercibidoCompras.Name = "txtITBISPercibidoCompras";
+            this.txtITBISPercibidoCompras.Size = new System.Drawing.Size(141, 27);
+            this.txtITBISPercibidoCompras.TabIndex = 41;
+            this.txtITBISPercibidoCompras.Text = "0";
+            this.txtITBISPercibidoCompras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoPropinaLegal_KeyPress);
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(341, 65);
+            this.label22.Location = new System.Drawing.Point(341, 101);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(226, 21);
+            this.label22.Size = new System.Drawing.Size(219, 21);
             this.label22.TabIndex = 40;
-            this.label22.Text = "ITBIS percibodo en compras";
+            this.label22.Text = "ITBIS percibido en compras";
             // 
-            // textBox16
+            // txtITBISAdelantar
             // 
-            this.textBox16.Location = new System.Drawing.Point(197, 62);
-            this.textBox16.MaxLength = 20;
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(141, 27);
-            this.textBox16.TabIndex = 39;
+            this.txtITBISAdelantar.Location = new System.Drawing.Point(197, 98);
+            this.txtITBISAdelantar.MaxLength = 20;
+            this.txtITBISAdelantar.Name = "txtITBISAdelantar";
+            this.txtITBISAdelantar.Size = new System.Drawing.Size(141, 27);
+            this.txtITBISAdelantar.TabIndex = 39;
+            this.txtITBISAdelantar.Text = "0";
+            this.txtITBISAdelantar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoPropinaLegal_KeyPress);
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(36, 65);
+            this.label21.Location = new System.Drawing.Point(36, 101);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(158, 21);
             this.label21.TabIndex = 38;
             this.label21.Text = "ITBIS Por Adelantar";
             // 
-            // textBox15
+            // txtITBISLlevadoCosto
             // 
-            this.textBox15.Location = new System.Drawing.Point(953, 29);
-            this.textBox15.MaxLength = 20;
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(141, 27);
-            this.textBox15.TabIndex = 37;
+            this.txtITBISLlevadoCosto.Location = new System.Drawing.Point(953, 29);
+            this.txtITBISLlevadoCosto.MaxLength = 20;
+            this.txtITBISLlevadoCosto.Name = "txtITBISLlevadoCosto";
+            this.txtITBISLlevadoCosto.Size = new System.Drawing.Size(141, 27);
+            this.txtITBISLlevadoCosto.TabIndex = 37;
+            this.txtITBISLlevadoCosto.Text = "0";
+            this.txtITBISLlevadoCosto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoPropinaLegal_KeyPress);
             // 
             // label20
             // 
@@ -574,13 +626,15 @@
             this.label20.TabIndex = 36;
             this.label20.Text = "ITBIS llevado al Costo";
             // 
-            // textBox14
+            // txtITBISSujeto
             // 
-            this.textBox14.Location = new System.Drawing.Point(621, 26);
-            this.textBox14.MaxLength = 20;
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(141, 27);
-            this.textBox14.TabIndex = 35;
+            this.txtITBISSujeto.Location = new System.Drawing.Point(621, 26);
+            this.txtITBISSujeto.MaxLength = 20;
+            this.txtITBISSujeto.Name = "txtITBISSujeto";
+            this.txtITBISSujeto.Size = new System.Drawing.Size(141, 27);
+            this.txtITBISSujeto.TabIndex = 35;
+            this.txtITBISSujeto.Text = "0";
+            this.txtITBISSujeto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoPropinaLegal_KeyPress);
             // 
             // label19
             // 
@@ -591,13 +645,15 @@
             this.label19.TabIndex = 34;
             this.label19.Text = "ITBIS Sujeto a Proporcionalidades (Art. 349";
             // 
-            // textBox13
+            // txtITBISRetenido
             // 
-            this.textBox13.Location = new System.Drawing.Point(134, 26);
-            this.textBox13.MaxLength = 20;
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(141, 27);
-            this.textBox13.TabIndex = 33;
+            this.txtITBISRetenido.Location = new System.Drawing.Point(134, 26);
+            this.txtITBISRetenido.MaxLength = 20;
+            this.txtITBISRetenido.Name = "txtITBISRetenido";
+            this.txtITBISRetenido.Size = new System.Drawing.Size(141, 27);
+            this.txtITBISRetenido.TabIndex = 33;
+            this.txtITBISRetenido.Text = "0";
+            this.txtITBISRetenido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoPropinaLegal_KeyPress);
             // 
             // label18
             // 
@@ -608,13 +664,16 @@
             this.label18.TabIndex = 32;
             this.label18.Text = "ITBIS Retenido";
             // 
-            // comboBox5
+            // ddlSeleccionarTipoSuplidor
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(153, 45);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(251, 29);
-            this.comboBox5.TabIndex = 33;
+            this.ddlSeleccionarTipoSuplidor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarTipoSuplidor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarTipoSuplidor.FormattingEnabled = true;
+            this.ddlSeleccionarTipoSuplidor.Location = new System.Drawing.Point(153, 45);
+            this.ddlSeleccionarTipoSuplidor.Name = "ddlSeleccionarTipoSuplidor";
+            this.ddlSeleccionarTipoSuplidor.Size = new System.Drawing.Size(251, 29);
+            this.ddlSeleccionarTipoSuplidor.TabIndex = 33;
+            this.ddlSeleccionarTipoSuplidor.SelectedIndexChanged += new System.EventHandler(this.ddlSeleccionarTipoSuplidor_SelectedIndexChanged);
             // 
             // label32
             // 
@@ -634,38 +693,24 @@
             this.label33.TabIndex = 98;
             this.label33.Text = "Suplidor";
             // 
-            // comboBox6
+            // ddlSeleccionarSuplidores
             // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(503, 45);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(251, 29);
-            this.comboBox6.TabIndex = 99;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(221, 88);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(129, 27);
-            this.dateTimePicker1.TabIndex = 32;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(490, 87);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(129, 27);
-            this.dateTimePicker2.TabIndex = 33;
+            this.ddlSeleccionarSuplidores.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarSuplidores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarSuplidores.FormattingEnabled = true;
+            this.ddlSeleccionarSuplidores.Location = new System.Drawing.Point(503, 45);
+            this.ddlSeleccionarSuplidores.Name = "ddlSeleccionarSuplidores";
+            this.ddlSeleccionarSuplidores.Size = new System.Drawing.Size(251, 29);
+            this.ddlSeleccionarSuplidores.TabIndex = 99;
             // 
             // MantenimientoCompraSuplidores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1178, 518);
-            this.Controls.Add(this.comboBox6);
+            this.ClientSize = new System.Drawing.Size(1178, 587);
+            this.Controls.Add(this.ddlSeleccionarSuplidores);
             this.Controls.Add(this.label33);
-            this.Controls.Add(this.comboBox5);
+            this.Controls.Add(this.ddlSeleccionarTipoSuplidor);
             this.Controls.Add(this.label32);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox2);
@@ -700,57 +745,57 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtNCFModificado;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNCF;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox ddlSeleccionarTipoBienesServicios;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox ddlseleccionarTipoIdentificacion;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtRNCCedula;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox txtTotalMontoFacturado;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox txtMontoFacturadoBienes;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtMontoFActuradoServicios;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox ddlSeleccionarFormaPAgo;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.TextBox textBox24;
+        private System.Windows.Forms.TextBox txtMontoPropinaLegal;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox textBox23;
+        private System.Windows.Forms.TextBox OtrosImpuestosTasa;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.TextBox txtISRRecibidoCompras;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox txtImpuestoSelecticoConsumo;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox txtMontoRetencionCompras;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox txtMontoRetencionVenta;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox ddlSeleccionarTipoRetencionISR;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox txtITBISPercibidoCompras;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox txtITBISAdelantar;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox txtITBISLlevadoCosto;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox txtITBISSujeto;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox txtITBISRetenido;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox txtITBISFacturado;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox ddlSeleccionarSuplidores;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox ddlSeleccionarTipoSuplidor;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker txtFechaPago;
+        private System.Windows.Forms.DateTimePicker txtFechaComprobante;
     }
 }
