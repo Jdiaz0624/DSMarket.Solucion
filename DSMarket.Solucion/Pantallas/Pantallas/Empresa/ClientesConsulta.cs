@@ -65,7 +65,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
         {
             this.BackColor = SystemColors.Control;
             dtListado.BackgroundColor = SystemColors.Control;
-
+              
             txtCedulaCliente.BackColor = Color.WhiteSmoke;
            // txtCodigoCliente.BackColor = Color.WhiteSmoke;
             txtNombreCliente.BackColor = Color.WhiteSmoke;
