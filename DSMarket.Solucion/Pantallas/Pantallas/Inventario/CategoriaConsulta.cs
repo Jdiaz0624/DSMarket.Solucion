@@ -201,7 +201,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
-        }
+        }   
 
         private void btnDeshabilitar_Click(object sender, EventArgs e)
         {

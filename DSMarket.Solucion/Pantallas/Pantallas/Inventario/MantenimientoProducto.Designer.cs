@@ -34,6 +34,8 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtNumeroSeguimiento = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.cbAplicaDescuento = new System.Windows.Forms.CheckBox();
             this.txtPorcientoDescuento = new System.Windows.Forms.NumericUpDown();
             this.cbLlevaImagen = new System.Windows.Forms.CheckBox();
@@ -93,8 +95,6 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnGuardar = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.txtNumeroSeguimiento = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -208,6 +208,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Producto";
             this.toolTip1.SetToolTip(this.groupBox1, "Buscar Foto del Articulo");
+            // 
+            // txtNumeroSeguimiento
+            // 
+            this.txtNumeroSeguimiento.BackColor = System.Drawing.Color.Silver;
+            this.txtNumeroSeguimiento.Location = new System.Drawing.Point(696, 245);
+            this.txtNumeroSeguimiento.Name = "txtNumeroSeguimiento";
+            this.txtNumeroSeguimiento.Size = new System.Drawing.Size(250, 27);
+            this.txtNumeroSeguimiento.TabIndex = 59;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(495, 248);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(198, 21);
+            this.label1.TabIndex = 58;
+            this.label1.Text = "Numero de Seguimiento";
             // 
             // cbAplicaDescuento
             // 
@@ -850,23 +867,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
-            // 
-            // txtNumeroSeguimiento
-            // 
-            this.txtNumeroSeguimiento.BackColor = System.Drawing.Color.Silver;
-            this.txtNumeroSeguimiento.Location = new System.Drawing.Point(696, 245);
-            this.txtNumeroSeguimiento.Name = "txtNumeroSeguimiento";
-            this.txtNumeroSeguimiento.Size = new System.Drawing.Size(250, 27);
-            this.txtNumeroSeguimiento.TabIndex = 59;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(495, 248);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(198, 21);
-            this.label1.TabIndex = 58;
-            this.label1.Text = "Numero de Seguimiento";
             // 
             // MantenimientoProducto
             // 
