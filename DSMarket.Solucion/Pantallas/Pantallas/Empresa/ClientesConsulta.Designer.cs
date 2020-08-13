@@ -416,7 +416,7 @@
         private System.Windows.Forms.NumericUpDown txtNumeroRegistros;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dtListado;
-        private System.Windows.Forms.DataGridViewButtonColumn Select;
+        private new System.Windows.Forms.DataGridViewButtonColumn Select;
         private System.Windows.Forms.Label lbNumeroRegistros;
         private System.Windows.Forms.NumericUpDown txtNumeroPagina;
         private System.Windows.Forms.Label lbNumeroPagina;

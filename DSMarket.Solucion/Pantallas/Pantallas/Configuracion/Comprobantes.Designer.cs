@@ -514,7 +514,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dtListado;
-        private System.Windows.Forms.DataGridViewButtonColumn Select;
+        private new System.Windows.Forms.DataGridViewButtonColumn Select;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnBuscar;

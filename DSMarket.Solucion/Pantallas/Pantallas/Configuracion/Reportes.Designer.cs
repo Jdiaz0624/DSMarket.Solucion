@@ -302,7 +302,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dtListado;
-        private System.Windows.Forms.DataGridViewButtonColumn Select;
+        private new System.Windows.Forms.DataGridViewButtonColumn Select;
         private System.Windows.Forms.Button btnBuscarRuta;
         private System.Windows.Forms.TextBox txtRutaReporte;
         private System.Windows.Forms.TextBox txtNombreReporte;

@@ -329,7 +329,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dtListado;
-        private System.Windows.Forms.DataGridViewButtonColumn Select;
+        private new System.Windows.Forms.DataGridViewButtonColumn Select;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.TextBox txtClaveSeguridad;
         private System.Windows.Forms.Button btnGuardar;

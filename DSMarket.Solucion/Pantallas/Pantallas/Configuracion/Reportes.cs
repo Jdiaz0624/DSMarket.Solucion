@@ -66,7 +66,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
 
         private void btnBuscarRuta_Click(object sender, EventArgs e)
         {
-            Stream myStream = null;
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
             openFileDialog1.InitialDirectory = "c:\\";
