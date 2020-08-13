@@ -89,10 +89,16 @@
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.ddlSeleccionarSuplidores = new System.Windows.Forms.ComboBox();
+            this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
+            this.lbCLaveSeguriad = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -108,13 +114,14 @@
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::DSMarket.Solucion.Properties.Resources.Guardar;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(375, 533);
+            this.btnGuardar.Location = new System.Drawing.Point(758, 533);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(406, 41);
             this.btnGuardar.TabIndex = 97;
             this.btnGuardar.Text = "Guardar";
             this.toolTip1.SetToolTip(this.btnGuardar, "Completar Operación");
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // panel1
             // 
@@ -139,6 +146,7 @@
             this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PCerrar.TabIndex = 15;
             this.PCerrar.TabStop = false;
+            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
             // 
             // lbTitulo
             // 
@@ -703,11 +711,41 @@
             this.ddlSeleccionarSuplidores.Size = new System.Drawing.Size(251, 29);
             this.ddlSeleccionarSuplidores.TabIndex = 99;
             // 
+            // txtClaveSeguridad
+            // 
+            this.txtClaveSeguridad.Location = new System.Drawing.Point(200, 540);
+            this.txtClaveSeguridad.MaxLength = 20;
+            this.txtClaveSeguridad.Name = "txtClaveSeguridad";
+            this.txtClaveSeguridad.PasswordChar = '•';
+            this.txtClaveSeguridad.Size = new System.Drawing.Size(208, 27);
+            this.txtClaveSeguridad.TabIndex = 35;
+            this.txtClaveSeguridad.Visible = false;
+            // 
+            // lbCLaveSeguriad
+            // 
+            this.lbCLaveSeguriad.AutoSize = true;
+            this.lbCLaveSeguriad.Location = new System.Drawing.Point(28, 543);
+            this.lbCLaveSeguriad.Name = "lbCLaveSeguriad";
+            this.lbCLaveSeguriad.Size = new System.Drawing.Size(166, 21);
+            this.lbCLaveSeguriad.TabIndex = 34;
+            this.lbCLaveSeguriad.Text = "Clave de Seguridad";
+            this.lbCLaveSeguriad.Visible = false;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
+            // 
             // MantenimientoCompraSuplidores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1178, 587);
+            this.Controls.Add(this.txtClaveSeguridad);
+            this.Controls.Add(this.lbCLaveSeguriad);
             this.Controls.Add(this.ddlSeleccionarSuplidores);
             this.Controls.Add(this.label33);
             this.Controls.Add(this.ddlSeleccionarTipoSuplidor);
@@ -730,6 +768,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -797,5 +837,9 @@
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.DateTimePicker txtFechaPago;
         private System.Windows.Forms.DateTimePicker txtFechaComprobante;
+        private System.Windows.Forms.TextBox txtClaveSeguridad;
+        private System.Windows.Forms.Label lbCLaveSeguriad;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
     }
 }

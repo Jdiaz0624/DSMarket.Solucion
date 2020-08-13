@@ -125,6 +125,9 @@ namespace DSMarket.Logica.Comunes
             Procesar.ITBISLlevadoCosto = ITBISLlevadoCosto;
             Procesar.ITBISPorAdelantar = ITBISPorAdelantar;
             Procesar.ITBISPercibidoCompras = ITBISPercibidoCompras;
+            Procesar.IdTipoRetencionISR = IdTipoRetencionISR;
+            Procesar.MontoRetencionRenta = MontoRetencionRenta;
+            Procesar.ISRPercibidoCompras = ISRPercibidoCompras;
             Procesar.ImpuestoSelectivoConsumo = ImpuestoSelectivoConsumo;
             Procesar.OtrosImpuestosTasa = OtrosImpuestosTasa;
             Procesar.MontoPropinaLegal = MontoPropinaLegal;

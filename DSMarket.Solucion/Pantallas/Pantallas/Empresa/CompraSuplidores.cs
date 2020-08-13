@@ -142,7 +142,37 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             if (MessageBox.Show("¿Quieres seleccionar este registro?", Variableslobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
 
                 this.Variableslobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdCompraSuplidor"].Value.ToString());
+
+                var BuscarRegistro = ObjdataEmpresa.Value.BuscaCompraSuplidores(
+                    Variableslobales.IdMantenimeinto,
+                    null, null, null, null, null, 1, 1);
+                dtListado.DataSource = BuscarRegistro;
+                OcultarColumnas();
+                btnBuscar.Enabled = false;
+                btnNuevo.Enabled = false;
+                btnEditar.Enabled = true;
+                btnEliminar.Enabled = true;
+                txtNumeroPagina.Enabled = false;
+                txtNumeroRegistros.Enabled = false;
+                btnRestablecer.Enabled = true;
             }
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            btnBuscar.Enabled = true;
+            btnNuevo.Enabled = true;
+            btnEditar.Enabled = false;
+            btnEliminar.Enabled = false;
+            txtNumeroPagina.Enabled = true;
+            txtNumeroRegistros.Enabled = true;
+            txtNumeroPagina.Value = 1;
+            txtNumeroRegistros.Value = 10;
+            txtRNC.Text = string.Empty;
+            txtFechaDesde.Text = DateTime.Now.ToString();
+            txtFechaHasta.Text = DateTime.Now.ToString();
+            btnRestablecer.Enabled = false;
+            MostrarListadoCompras();
         }
     }
 }

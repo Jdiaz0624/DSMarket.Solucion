@@ -56,6 +56,7 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.lbCantidadRegistrosTitulo = new System.Windows.Forms.Label();
+            this.btnRestablecer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -315,6 +316,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Linen;
+            this.panel2.Controls.Add(this.btnRestablecer);
             this.panel2.Controls.Add(this.btnEliminar);
             this.panel2.Controls.Add(this.btnEditar);
             this.panel2.Controls.Add(this.btnNuevo);
@@ -379,6 +381,24 @@
             this.lbCantidadRegistrosTitulo.Size = new System.Drawing.Size(184, 21);
             this.lbCantidadRegistrosTitulo.TabIndex = 30;
             this.lbCantidadRegistrosTitulo.Text = "Cantidad de Registros";
+            // 
+            // btnRestablecer
+            // 
+            this.btnRestablecer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestablecer.Enabled = false;
+            this.btnRestablecer.FlatAppearance.BorderSize = 0;
+            this.btnRestablecer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRestablecer.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestablecer.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
+            this.btnRestablecer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRestablecer.Location = new System.Drawing.Point(707, 7);
+            this.btnRestablecer.Name = "btnRestablecer";
+            this.btnRestablecer.Size = new System.Drawing.Size(170, 41);
+            this.btnRestablecer.TabIndex = 68;
+            this.btnRestablecer.Text = "      Restablecer";
+            this.toolTip1.SetToolTip(this.btnRestablecer, "Restablecer Pantalla");
+            this.btnRestablecer.UseVisualStyleBackColor = true;
+            this.btnRestablecer.Click += new System.EventHandler(this.Button1_Click);
             // 
             // CompraSuplidores
             // 
@@ -445,5 +465,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtRNC;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnRestablecer;
     }
 }
