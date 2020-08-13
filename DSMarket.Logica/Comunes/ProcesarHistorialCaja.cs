@@ -33,7 +33,7 @@ namespace DSMarket.Logica.Comunes
             Accion = AccionCON;
         }
 
-        private void ProcesarInformacion() {
+        public void ProcesarInformacion() {
             DSMarket.Logica.Entidades.EntidadesCaja.EHistorialCierreCaja Procesar = new Entidades.EntidadesCaja.EHistorialCierreCaja();
 
             Procesar.IdHistirualCierreCaja = IdHistorialCierreCaja;

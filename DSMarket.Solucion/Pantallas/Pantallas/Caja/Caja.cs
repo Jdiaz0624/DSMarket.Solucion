@@ -145,6 +145,26 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
             {
                 AbrirCerrarCaja("CLOSEBOX");
                 MostrarEstatusCaja();
+
+                //MODIFICAMOS EL MONTO ACTUAL DE LA CAJA
+                decimal MontoActualCaja = Convert.ToDecimal(lbMonto.Text);
+                decimal MontoInicialCaja = 0;
+
+                var SacarMontoInicialCaja = ObjDataLogica.Value.BuscaMontoInicialCaja(1);
+                foreach (var n in SacarMontoInicialCaja) {
+                    MontoInicialCaja = Convert.ToDecimal(n.MontoInicialCaja);
+                }
+
+                //GUARDAMOS EL HISTORIAL DE LA CAJA
+                DSMarket.Logica.Comunes.ProcesarHistorialCaja Guardar = new Logica.Comunes.ProcesarHistorialCaja(
+                    0,
+                    VariablesGlobales.IdUsuario,
+                    MontoActualCaja,
+                    MontoInicialCaja,
+                    "Cierre de caja",
+                    "INSERT");
+                Guardar.ProcesarInformacion();
+                lbMonto.Text = MontoInicialCaja.ToString("N2");
             }
             else {
                 AbrirCerrarCaja("OPENBOX");
@@ -218,6 +238,21 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
             {
                 ValidarClave();
             }
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            var BuscarRegistros = ObjDataLogica.Value.BuscaHistorialCierreCaja(
+                new Nullable<decimal>(),
+                null,
+                Convert.ToDateTime(txtFechaDesde.Text),
+                Convert.ToDateTime(txtFechaHAsta.Text),
+                Convert.ToInt32(txtNumeroPagina.Value),
+                Convert.ToInt32(txtNumeroRegistros.Value));
+            dataGridView1.DataSource = BuscarRegistros;
+            this.dataGridView1.Columns["IdHistirualCierreCaja"].Visible = false;
+            this.dataGridView1.Columns["IdUsuario"].Visible = false;
+            this.dataGridView1.Columns["FechaCierre0"].Visible = false;
         }
     }
 }

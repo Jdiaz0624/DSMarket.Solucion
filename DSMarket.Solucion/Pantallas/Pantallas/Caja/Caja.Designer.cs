@@ -48,15 +48,30 @@
             this.txtClaveSegrudiad = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.button2 = new System.Windows.Forms.Button();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.PCerrar = new System.Windows.Forms.PictureBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtFechaDesde = new System.Windows.Forms.DateTimePicker();
+            this.txtFechaHAsta = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
+            this.lbNumeroRegistros = new System.Windows.Forms.Label();
+            this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
+            this.lbNumeroPagina = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gbDatosCaja.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -266,20 +281,6 @@
             this.panel1.Size = new System.Drawing.Size(814, 38);
             this.panel1.TabIndex = 5;
             // 
-            // PCerrar
-            // 
-            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(772, 5);
-            this.PCerrar.Name = "PCerrar";
-            this.PCerrar.Size = new System.Drawing.Size(30, 30);
-            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PCerrar.TabIndex = 16;
-            this.PCerrar.TabStop = false;
-            this.toolTip1.SetToolTip(this.PCerrar, "Cerrar");
-            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
-            // 
             // lbTitulo
             // 
             this.lbTitulo.AutoSize = true;
@@ -308,11 +309,166 @@
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
             // 
+            // PCerrar
+            // 
+            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
+            this.PCerrar.Location = new System.Drawing.Point(772, 5);
+            this.PCerrar.Name = "PCerrar";
+            this.PCerrar.Size = new System.Drawing.Size(30, 30);
+            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PCerrar.TabIndex = 16;
+            this.PCerrar.TabStop = false;
+            this.toolTip1.SetToolTip(this.PCerrar, "Cerrar");
+            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Location = new System.Drawing.Point(13, 372);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(786, 211);
+            this.groupBox2.TabIndex = 10;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Historial de Cierre de Caja";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(24, 349);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 20);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Desde";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(239, 349);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 20);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Hasta";
+            // 
+            // txtFechaDesde
+            // 
+            this.txtFechaDesde.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFechaDesde.Location = new System.Drawing.Point(98, 344);
+            this.txtFechaDesde.Name = "txtFechaDesde";
+            this.txtFechaDesde.Size = new System.Drawing.Size(135, 27);
+            this.txtFechaDesde.TabIndex = 13;
+            // 
+            // txtFechaHAsta
+            // 
+            this.txtFechaHAsta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtFechaHAsta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFechaHAsta.Location = new System.Drawing.Point(298, 344);
+            this.txtFechaHAsta.Name = "txtFechaHAsta";
+            this.txtFechaHAsta.Size = new System.Drawing.Size(135, 27);
+            this.txtFechaHAsta.TabIndex = 14;
+            // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(439, 340);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(96, 36);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Buscar";
+            this.toolTip1.SetToolTip(this.button1, "Validar Clave de Seguridad");
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 23);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(780, 185);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // txtNumeroRegistros
+            // 
+            this.txtNumeroRegistros.BackColor = System.Drawing.Color.LightGray;
+            this.txtNumeroRegistros.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtNumeroRegistros.Location = new System.Drawing.Point(272, 582);
+            this.txtNumeroRegistros.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.txtNumeroRegistros.Name = "txtNumeroRegistros";
+            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 27);
+            this.txtNumeroRegistros.TabIndex = 88;
+            this.txtNumeroRegistros.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // lbNumeroRegistros
+            // 
+            this.lbNumeroRegistros.AutoSize = true;
+            this.lbNumeroRegistros.Location = new System.Drawing.Point(165, 586);
+            this.lbNumeroRegistros.Name = "lbNumeroRegistros";
+            this.lbNumeroRegistros.Size = new System.Drawing.Size(103, 20);
+            this.lbNumeroRegistros.TabIndex = 87;
+            this.lbNumeroRegistros.Text = "No.Registros";
+            // 
+            // txtNumeroPagina
+            // 
+            this.txtNumeroPagina.BackColor = System.Drawing.Color.LightGray;
+            this.txtNumeroPagina.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtNumeroPagina.Location = new System.Drawing.Point(110, 584);
+            this.txtNumeroPagina.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.txtNumeroPagina.Name = "txtNumeroPagina";
+            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 27);
+            this.txtNumeroPagina.TabIndex = 86;
+            this.txtNumeroPagina.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lbNumeroPagina
+            // 
+            this.lbNumeroPagina.AutoSize = true;
+            this.lbNumeroPagina.Location = new System.Drawing.Point(19, 588);
+            this.lbNumeroPagina.Name = "lbNumeroPagina";
+            this.lbNumeroPagina.Size = new System.Drawing.Size(87, 20);
+            this.lbNumeroPagina.TabIndex = 85;
+            this.lbNumeroPagina.Text = "No.Pagina";
+            // 
             // Caja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(814, 364);
+            this.ClientSize = new System.Drawing.Size(814, 622);
+            this.Controls.Add(this.txtNumeroRegistros);
+            this.Controls.Add(this.lbNumeroRegistros);
+            this.Controls.Add(this.txtNumeroPagina);
+            this.Controls.Add(this.lbNumeroPagina);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.txtFechaHAsta);
+            this.Controls.Add(this.txtFechaDesde);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.txtClaveSegrudiad);
             this.Controls.Add(this.groupBox1);
@@ -321,6 +477,7 @@
             this.Controls.Add(this.gbDatosCaja);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5);
@@ -337,6 +494,10 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -368,5 +529,16 @@
         private System.Windows.Forms.PictureBox PCerrar;
         private System.Windows.Forms.Button button2;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DateTimePicker txtFechaHAsta;
+        private System.Windows.Forms.DateTimePicker txtFechaDesde;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.NumericUpDown txtNumeroRegistros;
+        private System.Windows.Forms.Label lbNumeroRegistros;
+        private System.Windows.Forms.NumericUpDown txtNumeroPagina;
+        private System.Windows.Forms.Label lbNumeroPagina;
     }
 }
