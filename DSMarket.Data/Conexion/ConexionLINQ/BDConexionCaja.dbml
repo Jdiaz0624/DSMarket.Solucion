@@ -113,4 +113,20 @@
       <Column Name="Cantidadmovimientos" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Caja.SP_BUSCAR_MONTO_INICIAL_CAJA" Method="SP_BUSCAR_MONTO_INICIAL_CAJA">
+    <Parameter Name="IdCaja" Parameter="idCaja" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_BUSCAR_MONTO_INICIAL_CAJAResult">
+      <Column Name="IdCaja" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MontoInicialCaja" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Caja.SP_MODIFICAR_MONTO_INICIAL_CAJA" Method="SP_MODIFICAR_MONTO_INICIAL_CAJA">
+    <Parameter Name="IdCaja" Parameter="idCaja" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MontoInicialCaja" Parameter="montoInicialCaja" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_MODIFICAR_MONTO_INICIAL_CAJAResult">
+      <Column Name="IdCaja" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MontoInicialCaja" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

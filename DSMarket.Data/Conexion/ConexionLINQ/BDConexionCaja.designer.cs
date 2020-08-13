@@ -103,6 +103,20 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario);
 			return ((ISingleResult<SP_GENERAR_REPORTE_CUADRE_CAJAResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Caja.SP_BUSCAR_MONTO_INICIAL_CAJA")]
+		public ISingleResult<SP_BUSCAR_MONTO_INICIAL_CAJAResult> SP_BUSCAR_MONTO_INICIAL_CAJA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdCaja", DbType="Int")] System.Nullable<int> idCaja)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idCaja);
+			return ((ISingleResult<SP_BUSCAR_MONTO_INICIAL_CAJAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Caja.SP_MODIFICAR_MONTO_INICIAL_CAJA")]
+		public ISingleResult<SP_MODIFICAR_MONTO_INICIAL_CAJAResult> SP_MODIFICAR_MONTO_INICIAL_CAJA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdCaja", DbType="Int")] System.Nullable<int> idCaja, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MontoInicialCaja", DbType="Decimal(20,2)")] System.Nullable<decimal> montoInicialCaja, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idCaja, montoInicialCaja, accion);
+			return ((ISingleResult<SP_MODIFICAR_MONTO_INICIAL_CAJAResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_ESTATUS_CAJAResult
@@ -1220,7 +1234,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LogoEmpresa", DbType="Image", CanBeNull=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LogoEmpresa", DbType="Image")]
 		public System.Data.Linq.Binary LogoEmpresa
 		{
 			get
@@ -1264,6 +1278,94 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._Cantidadmovimientos != value))
 				{
 					this._Cantidadmovimientos = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCAR_MONTO_INICIAL_CAJAResult
+	{
+		
+		private int _IdCaja;
+		
+		private System.Nullable<decimal> _MontoInicialCaja;
+		
+		public SP_BUSCAR_MONTO_INICIAL_CAJAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCaja", DbType="Int NOT NULL")]
+		public int IdCaja
+		{
+			get
+			{
+				return this._IdCaja;
+			}
+			set
+			{
+				if ((this._IdCaja != value))
+				{
+					this._IdCaja = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MontoInicialCaja", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> MontoInicialCaja
+		{
+			get
+			{
+				return this._MontoInicialCaja;
+			}
+			set
+			{
+				if ((this._MontoInicialCaja != value))
+				{
+					this._MontoInicialCaja = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_MODIFICAR_MONTO_INICIAL_CAJAResult
+	{
+		
+		private System.Nullable<int> _IdCaja;
+		
+		private System.Nullable<decimal> _MontoInicialCaja;
+		
+		public SP_MODIFICAR_MONTO_INICIAL_CAJAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCaja", DbType="Int")]
+		public System.Nullable<int> IdCaja
+		{
+			get
+			{
+				return this._IdCaja;
+			}
+			set
+			{
+				if ((this._IdCaja != value))
+				{
+					this._IdCaja = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MontoInicialCaja", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> MontoInicialCaja
+		{
+			get
+			{
+				return this._MontoInicialCaja;
+			}
+			set
+			{
+				if ((this._MontoInicialCaja != value))
+				{
+					this._MontoInicialCaja = value;
 				}
 			}
 		}

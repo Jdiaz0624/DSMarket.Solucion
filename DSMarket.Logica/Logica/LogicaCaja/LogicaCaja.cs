@@ -145,6 +145,41 @@ namespace DSMarket.Logica.Logica.LogicaCaja
             return Listado;
         }
 
+        //BUSCAR EL MONTO INICIAL DE LA CAJA
+        public List<DSMarket.Logica.Entidades.EntidadesCaja.EMontoInicialCaja> BuscaMontoInicialCaja(int? IdCaja = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Buscar = (from n in ObjData.SP_BUSCAR_MONTO_INICIAL_CAJA(IdCaja)
+                          select new DSMarket.Logica.Entidades.EntidadesCaja.EMontoInicialCaja
+                          {
+                              IdCaja=n.IdCaja,
+                              MontoInicialCaja=n.MontoInicialCaja
+                          }).ToList();
+            return Buscar;
+        }
+
+
+        //MANTENIMIENTO DEL MONTO DE LA CAJA
+        public DSMarket.Logica.Entidades.EntidadesCaja.EMontoInicialCaja MantenimientoMontoInicialCaja(DSMarket.Logica.Entidades.EntidadesCaja.EMontoInicialCaja Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesCaja.EMontoInicialCaja MAntenimiento = null;
+
+            var MontoInicialCaja = ObjData.SP_MODIFICAR_MONTO_INICIAL_CAJA(
+                Item.IdCaja,
+                Item.MontoInicialCaja,
+                Accion);
+            if (MontoInicialCaja != null) {
+                MAntenimiento = (from n in MontoInicialCaja
+                                 select new DSMarket.Logica.Entidades.EntidadesCaja.EMontoInicialCaja
+                                 {
+                                     IdCaja=n.IdCaja,
+                                     MontoInicialCaja=n.MontoInicialCaja
+                                 }).FirstOrDefault();
+            }
+            return MAntenimiento;
+
+        }
 
     }
 }

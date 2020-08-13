@@ -175,6 +175,12 @@
     <Compile Include="Pantallas\Pantallas\Caja\Caja.Designer.cs">
       <DependentUpon>Caja.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Caja\ConfigurarMontoInicialCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Caja\ConfigurarMontoInicialCaja.Designer.cs">
+      <DependentUpon>ConfigurarMontoInicialCaja.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Caja\CuadreCaja.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -590,6 +596,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Caja\Caja.resx">
       <DependentUpon>Caja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Caja\ConfigurarMontoInicialCaja.resx">
+      <DependentUpon>ConfigurarMontoInicialCaja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Caja\CuadreCaja.resx">
       <DependentUpon>CuadreCaja.cs</DependentUpon>
