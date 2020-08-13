@@ -40,6 +40,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.gbSeleccionar.SuspendLayout();
@@ -158,6 +159,11 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Fecha Desde";
             // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 30;
+            this.bunifuElipse1.TargetControl = this;
+            // 
             // CuadreCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -197,5 +203,6 @@
         private System.Windows.Forms.PictureBox PCerrar;
         private System.Windows.Forms.CheckBox cbCradreMail;
         private System.Windows.Forms.ToolTip toolTip1;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
     }
 }

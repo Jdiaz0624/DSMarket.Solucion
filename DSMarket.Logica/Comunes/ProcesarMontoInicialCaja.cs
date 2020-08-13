@@ -16,10 +16,12 @@ namespace DSMarket.Logica.Comunes
 
         public ProcesarMontoInicialCaja(
             int IdCajaCON,
-            decimal MontoInicialCajaCON)
+            decimal MontoInicialCajaCON,
+            string AccionCON)
         {
             IdCaja = IdCajaCON;
             MontoInicialCaja = MontoInicialCajaCON;
+            Accion = AccionCON;
         }
 
         public void ProcesarInformacion() {

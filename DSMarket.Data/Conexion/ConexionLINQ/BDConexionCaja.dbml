@@ -129,4 +129,38 @@
       <Column Name="MontoInicialCaja" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Caja.SP_BUSCA_HISTORIAL_CIERRE_CAJA" Method="SP_BUSCA_HISTORIAL_CIERRE_CAJA">
+    <Parameter Name="IdHistorialCierreCaja" Parameter="idHistorialCierreCaja" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="FechaCierreDesde" Parameter="fechaCierreDesde" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FechaCierreHasta" Parameter="fechaCierreHasta" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="NumeroPagina" Parameter="numeroPagina" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NumeroRegistros" Parameter="numeroRegistros" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_BUSCA_HISTORIAL_CIERRE_CAJAResult">
+      <Column Name="IdHistirualCierreCaja" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="CerradoPor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FechaCierre0" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaCierre" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="MontoAntesCerrar" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="MontoDespuesCierre" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="ConceptoCierre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Caja.SP_MANTENIMIENTO_HISTORIAL_CIERRE_CAJA" Method="SP_MANTENIMIENTO_HISTORIAL_CIERRE_CAJA">
+    <Parameter Name="IdHistorialCierreCaja" Parameter="idHistorialCierreCaja" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="MontoAntesCerrar" Parameter="montoAntesCerrar" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="MontoDespuesCerrar" Parameter="montoDespuesCerrar" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="ConceptoCierre" Parameter="conceptoCierre" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_MANTENIMIENTO_HISTORIAL_CIERRE_CAJAResult">
+      <Column Name="IdHistorialCierreCaja" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="FechaCierre" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="MontoAntesCerrar" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="MontoDespuesCerrar" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="ConceptoCierre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

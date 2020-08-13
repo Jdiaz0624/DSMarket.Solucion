@@ -50,9 +50,9 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
 
         private void btnMonedas_Click(object sender, EventArgs e)
         {
-            DSMarket.Solucion.Pantallas.Pantallas.Caja.MomedasConsulta Modedas = new Pantallas.Caja.MomedasConsulta();
-           // Modedas.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
-            Modedas.ShowDialog();
+            DSMarket.Solucion.Pantallas.Pantallas.Caja.ConfigurarMontoInicialCaja MontoInicial = new Pantallas.Caja.ConfigurarMontoInicialCaja();
+            MontoInicial.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
+            MontoInicial.ShowDialog();
         }
     }
 }

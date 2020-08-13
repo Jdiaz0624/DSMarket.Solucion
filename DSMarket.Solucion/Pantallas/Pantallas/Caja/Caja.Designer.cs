@@ -52,6 +52,7 @@
             this.lbTitulo = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.button2 = new System.Windows.Forms.Button();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.groupBox1.SuspendLayout();
             this.gbDatosCaja.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -302,6 +303,11 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 30;
+            this.bunifuElipse1.TargetControl = this;
+            // 
             // Caja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -361,5 +367,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.PictureBox PCerrar;
         private System.Windows.Forms.Button button2;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
     }
 }

@@ -181,5 +181,54 @@ namespace DSMarket.Logica.Logica.LogicaCaja
 
         }
 
+        #region MANTENIMIENTO DE HISTORIAL DE CIERRE DE CAJA
+        //LISTADO DE HISTORIAL DE CIERRE CAJA
+        public List<DSMarket.Logica.Entidades.EntidadesCaja.EHistorialCierreCaja> BuscaHistorialCierreCaja(decimal? IdHistorialCierreCaja = null, decimal? IdUsuario = null, DateTime? FechaCierreDesde = null, DateTime? FechaCierreHasta = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_BUSCA_HISTORIAL_CIERRE_CAJA(IdHistorialCierreCaja, IdUsuario, FechaCierreDesde, FechaCierreHasta, NumeroPagina, NumeroRegistros)
+                           select new DSMarket.Logica.Entidades.EntidadesCaja.EHistorialCierreCaja
+                           {
+                               IdHistirualCierreCaja=n.IdHistirualCierreCaja,
+                               IdUsuario=n.IdUsuario,
+                               CerradoPor=n.CerradoPor,
+                               FechaCierre0=n.FechaCierre0,
+                               FechaCierre=n.FechaCierre,
+                               MontoAntesCerrar=n.MontoAntesCerrar,
+                               MontoDespuesCierre=n.MontoDespuesCierre,
+                               ConceptoCierre=n.ConceptoCierre
+                           }).ToList();
+            return Listado;
+        }
+
+        //MANTENIMIENTO DE HISTORIAL DE CIERRE DE CAJA
+        public DSMarket.Logica.Entidades.EntidadesCaja.EHistorialCierreCaja MantenimientoHistorialCierreCaja(DSMarket.Logica.Entidades.EntidadesCaja.EHistorialCierreCaja Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesCaja.EHistorialCierreCaja Mantenimiento = null;
+
+            var HistorialCierreCaja = ObjData.SP_MANTENIMIENTO_HISTORIAL_CIERRE_CAJA(
+                Item.IdHistirualCierreCaja,
+                Item.IdUsuario,
+                Item.MontoAntesCerrar,
+                Item.MontoDespuesCierre,
+                Item.ConceptoCierre,
+                Accion);
+            if (HistorialCierreCaja != null) {
+                Mantenimiento = (from n in HistorialCierreCaja
+                                 select new DSMarket.Logica.Entidades.EntidadesCaja.EHistorialCierreCaja
+                                 {
+                                     IdHistirualCierreCaja=n.IdHistorialCierreCaja,
+                                     IdUsuario=n.IdUsuario,
+                                     FechaCierre0=n.FechaCierre,
+                                     MontoAntesCerrar=n.MontoAntesCerrar,
+                                     MontoDespuesCierre=n.MontoDespuesCerrar,
+                                     ConceptoCierre=n.ConceptoCierre
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
+        #endregion
+
     }
 }

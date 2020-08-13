@@ -117,6 +117,20 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idCaja, montoInicialCaja, accion);
 			return ((ISingleResult<SP_MODIFICAR_MONTO_INICIAL_CAJAResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Caja.SP_BUSCA_HISTORIAL_CIERRE_CAJA")]
+		public ISingleResult<SP_BUSCA_HISTORIAL_CIERRE_CAJAResult> SP_BUSCA_HISTORIAL_CIERRE_CAJA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdHistorialCierreCaja", DbType="Decimal(20,0)")] System.Nullable<decimal> idHistorialCierreCaja, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Decimal(20,0)")] System.Nullable<decimal> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaCierreDesde", DbType="Date")] System.Nullable<System.DateTime> fechaCierreDesde, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaCierreHasta", DbType="Date")] System.Nullable<System.DateTime> fechaCierreHasta, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroPagina", DbType="Int")] System.Nullable<int> numeroPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroRegistros", DbType="Int")] System.Nullable<int> numeroRegistros)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idHistorialCierreCaja, idUsuario, fechaCierreDesde, fechaCierreHasta, numeroPagina, numeroRegistros);
+			return ((ISingleResult<SP_BUSCA_HISTORIAL_CIERRE_CAJAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Caja.SP_MANTENIMIENTO_HISTORIAL_CIERRE_CAJA")]
+		public ISingleResult<SP_MANTENIMIENTO_HISTORIAL_CIERRE_CAJAResult> SP_MANTENIMIENTO_HISTORIAL_CIERRE_CAJA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdHistorialCierreCaja", DbType="Decimal(20,0)")] System.Nullable<decimal> idHistorialCierreCaja, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Decimal(20,0)")] System.Nullable<decimal> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MontoAntesCerrar", DbType="Decimal(20,2)")] System.Nullable<decimal> montoAntesCerrar, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MontoDespuesCerrar", DbType="Decimal(20,2)")] System.Nullable<decimal> montoDespuesCerrar, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ConceptoCierre", DbType="VarChar(100)")] string conceptoCierre, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idHistorialCierreCaja, idUsuario, montoAntesCerrar, montoDespuesCerrar, conceptoCierre, accion);
+			return ((ISingleResult<SP_MANTENIMIENTO_HISTORIAL_CIERRE_CAJAResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_ESTATUS_CAJAResult
@@ -1366,6 +1380,274 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._MontoInicialCaja != value))
 				{
 					this._MontoInicialCaja = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCA_HISTORIAL_CIERRE_CAJAResult
+	{
+		
+		private decimal _IdHistirualCierreCaja;
+		
+		private System.Nullable<decimal> _IdUsuario;
+		
+		private string _CerradoPor;
+		
+		private System.Nullable<System.DateTime> _FechaCierre0;
+		
+		private string _FechaCierre;
+		
+		private System.Nullable<decimal> _MontoAntesCerrar;
+		
+		private System.Nullable<decimal> _MontoDespuesCierre;
+		
+		private string _ConceptoCierre;
+		
+		public SP_BUSCA_HISTORIAL_CIERRE_CAJAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdHistirualCierreCaja", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdHistirualCierreCaja
+		{
+			get
+			{
+				return this._IdHistirualCierreCaja;
+			}
+			set
+			{
+				if ((this._IdHistirualCierreCaja != value))
+				{
+					this._IdHistirualCierreCaja = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdUsuario
+		{
+			get
+			{
+				return this._IdUsuario;
+			}
+			set
+			{
+				if ((this._IdUsuario != value))
+				{
+					this._IdUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CerradoPor", DbType="VarChar(100)")]
+		public string CerradoPor
+		{
+			get
+			{
+				return this._CerradoPor;
+			}
+			set
+			{
+				if ((this._CerradoPor != value))
+				{
+					this._CerradoPor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaCierre0", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaCierre0
+		{
+			get
+			{
+				return this._FechaCierre0;
+			}
+			set
+			{
+				if ((this._FechaCierre0 != value))
+				{
+					this._FechaCierre0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaCierre", DbType="NVarChar(4000)")]
+		public string FechaCierre
+		{
+			get
+			{
+				return this._FechaCierre;
+			}
+			set
+			{
+				if ((this._FechaCierre != value))
+				{
+					this._FechaCierre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MontoAntesCerrar", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> MontoAntesCerrar
+		{
+			get
+			{
+				return this._MontoAntesCerrar;
+			}
+			set
+			{
+				if ((this._MontoAntesCerrar != value))
+				{
+					this._MontoAntesCerrar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MontoDespuesCierre", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> MontoDespuesCierre
+		{
+			get
+			{
+				return this._MontoDespuesCierre;
+			}
+			set
+			{
+				if ((this._MontoDespuesCierre != value))
+				{
+					this._MontoDespuesCierre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConceptoCierre", DbType="VarChar(100)")]
+		public string ConceptoCierre
+		{
+			get
+			{
+				return this._ConceptoCierre;
+			}
+			set
+			{
+				if ((this._ConceptoCierre != value))
+				{
+					this._ConceptoCierre = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_MANTENIMIENTO_HISTORIAL_CIERRE_CAJAResult
+	{
+		
+		private System.Nullable<decimal> _IdHistorialCierreCaja;
+		
+		private System.Nullable<decimal> _IdUsuario;
+		
+		private System.Nullable<System.DateTime> _FechaCierre;
+		
+		private System.Nullable<decimal> _MontoAntesCerrar;
+		
+		private System.Nullable<decimal> _MontoDespuesCerrar;
+		
+		private string _ConceptoCierre;
+		
+		public SP_MANTENIMIENTO_HISTORIAL_CIERRE_CAJAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdHistorialCierreCaja", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdHistorialCierreCaja
+		{
+			get
+			{
+				return this._IdHistorialCierreCaja;
+			}
+			set
+			{
+				if ((this._IdHistorialCierreCaja != value))
+				{
+					this._IdHistorialCierreCaja = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdUsuario
+		{
+			get
+			{
+				return this._IdUsuario;
+			}
+			set
+			{
+				if ((this._IdUsuario != value))
+				{
+					this._IdUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaCierre", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaCierre
+		{
+			get
+			{
+				return this._FechaCierre;
+			}
+			set
+			{
+				if ((this._FechaCierre != value))
+				{
+					this._FechaCierre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MontoAntesCerrar", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> MontoAntesCerrar
+		{
+			get
+			{
+				return this._MontoAntesCerrar;
+			}
+			set
+			{
+				if ((this._MontoAntesCerrar != value))
+				{
+					this._MontoAntesCerrar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MontoDespuesCerrar", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> MontoDespuesCerrar
+		{
+			get
+			{
+				return this._MontoDespuesCerrar;
+			}
+			set
+			{
+				if ((this._MontoDespuesCerrar != value))
+				{
+					this._MontoDespuesCerrar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConceptoCierre", DbType="VarChar(100)")]
+		public string ConceptoCierre
+		{
+			get
+			{
+				return this._ConceptoCierre;
+			}
+			set
+			{
+				if ((this._ConceptoCierre != value))
+				{
+					this._ConceptoCierre = value;
 				}
 			}
 		}
