@@ -110,7 +110,7 @@
             // 
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(390, 29);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(186, 56);
@@ -123,7 +123,7 @@
             // 
             this.btnOpciones.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOpciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpciones.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpciones.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpciones.Location = new System.Drawing.Point(390, 91);
             this.btnOpciones.Name = "btnOpciones";
             this.btnOpciones.Size = new System.Drawing.Size(186, 56);
@@ -136,7 +136,7 @@
             // 
             this.btnPantallas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPantallas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPantallas.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPantallas.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPantallas.Location = new System.Drawing.Point(198, 91);
             this.btnPantallas.Name = "btnPantallas";
             this.btnPantallas.Size = new System.Drawing.Size(186, 56);
@@ -149,7 +149,7 @@
             // 
             this.btnModulos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnModulos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModulos.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModulos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModulos.Location = new System.Drawing.Point(6, 91);
             this.btnModulos.Name = "btnModulos";
             this.btnModulos.Size = new System.Drawing.Size(186, 56);
@@ -162,7 +162,7 @@
             // 
             this.btnClaveSeguridad.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClaveSeguridad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClaveSeguridad.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClaveSeguridad.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClaveSeguridad.Location = new System.Drawing.Point(198, 29);
             this.btnClaveSeguridad.Name = "btnClaveSeguridad";
             this.btnClaveSeguridad.Size = new System.Drawing.Size(186, 56);
@@ -175,7 +175,7 @@
             // 
             this.btnUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsuarios.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuarios.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuarios.Location = new System.Drawing.Point(6, 29);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(186, 56);
@@ -188,7 +188,7 @@
             // 
             this.btnPerfilesUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPerfilesUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPerfilesUsuarios.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPerfilesUsuarios.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPerfilesUsuarios.Location = new System.Drawing.Point(6, 153);
             this.btnPerfilesUsuarios.Name = "btnPerfilesUsuarios";
             this.btnPerfilesUsuarios.Size = new System.Drawing.Size(186, 56);

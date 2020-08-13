@@ -33,6 +33,7 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.gbOpciones = new System.Windows.Forms.GroupBox();
+            this.btnComfiguracionGeneral = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -40,7 +41,6 @@
             this.btnInformacionEmpresa = new System.Windows.Forms.Button();
             this.btnComprobantes = new System.Windows.Forms.Button();
             this.lbUsuario = new System.Windows.Forms.Label();
-            this.btnComfiguracionGeneral = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
@@ -97,11 +97,24 @@
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Configuración - Seleccionar Opcion";
             // 
+            // btnComfiguracionGeneral
+            // 
+            this.btnComfiguracionGeneral.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnComfiguracionGeneral.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnComfiguracionGeneral.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComfiguracionGeneral.Location = new System.Drawing.Point(6, 153);
+            this.btnComfiguracionGeneral.Name = "btnComfiguracionGeneral";
+            this.btnComfiguracionGeneral.Size = new System.Drawing.Size(186, 56);
+            this.btnComfiguracionGeneral.TabIndex = 13;
+            this.btnComfiguracionGeneral.Text = "General";
+            this.toolTip1.SetToolTip(this.btnComfiguracionGeneral, "Configuración General");
+            this.btnComfiguracionGeneral.UseVisualStyleBackColor = true;
+            // 
             // button3
             // 
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(390, 91);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(186, 56);
@@ -115,7 +128,7 @@
             // 
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(198, 91);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(186, 56);
@@ -129,7 +142,7 @@
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(6, 91);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(186, 56);
@@ -143,7 +156,7 @@
             // 
             this.btnReportes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReportes.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportes.Location = new System.Drawing.Point(390, 29);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(186, 56);
@@ -157,7 +170,7 @@
             // 
             this.btnInformacionEmpresa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnInformacionEmpresa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInformacionEmpresa.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInformacionEmpresa.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInformacionEmpresa.Location = new System.Drawing.Point(6, 29);
             this.btnInformacionEmpresa.Name = "btnInformacionEmpresa";
             this.btnInformacionEmpresa.Size = new System.Drawing.Size(186, 56);
@@ -171,7 +184,7 @@
             // 
             this.btnComprobantes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnComprobantes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnComprobantes.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComprobantes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnComprobantes.Location = new System.Drawing.Point(198, 29);
             this.btnComprobantes.Name = "btnComprobantes";
             this.btnComprobantes.Size = new System.Drawing.Size(186, 56);
@@ -190,19 +203,6 @@
             this.lbUsuario.TabIndex = 9;
             this.lbUsuario.Text = "label1";
             this.lbUsuario.Visible = false;
-            // 
-            // btnComfiguracionGeneral
-            // 
-            this.btnComfiguracionGeneral.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnComfiguracionGeneral.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnComfiguracionGeneral.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnComfiguracionGeneral.Location = new System.Drawing.Point(6, 153);
-            this.btnComfiguracionGeneral.Name = "btnComfiguracionGeneral";
-            this.btnComfiguracionGeneral.Size = new System.Drawing.Size(186, 56);
-            this.btnComfiguracionGeneral.TabIndex = 13;
-            this.btnComfiguracionGeneral.Text = "General";
-            this.toolTip1.SetToolTip(this.btnComfiguracionGeneral, "Configuración General");
-            this.btnComfiguracionGeneral.UseVisualStyleBackColor = true;
             // 
             // Configuracion
             // 
