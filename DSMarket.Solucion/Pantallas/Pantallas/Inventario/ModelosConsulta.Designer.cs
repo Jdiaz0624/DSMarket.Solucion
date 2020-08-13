@@ -494,7 +494,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox ddlSeleccionarMarcas;
         private System.Windows.Forms.DataGridView dtListado;
-        private System.Windows.Forms.DataGridViewButtonColumn Select;
+        private new System.Windows.Forms.DataGridViewButtonColumn Select;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox ddlSeleccionarTipoProducto;
         private System.Windows.Forms.Label label4;

@@ -966,7 +966,7 @@
         private System.Windows.Forms.Label lbCantidadRegistrosAgregados;
         private System.Windows.Forms.Label lbCantidadProductosAgregadosTitulo;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
-        private System.Windows.Forms.DataGridViewButtonColumn Select;
+        private new System.Windows.Forms.DataGridViewButtonColumn Select;
         private System.Windows.Forms.CheckBox cbAgregarCategorias;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private System.Windows.Forms.Button btnfoto;

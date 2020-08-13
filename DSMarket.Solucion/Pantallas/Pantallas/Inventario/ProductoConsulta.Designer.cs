@@ -1097,7 +1097,7 @@
         private System.Windows.Forms.Button btnVerProductosAgotados;
         private System.Windows.Forms.Button btnVerProductosPoximoAgotar;
         private System.Windows.Forms.DataGridView dtListado;
-        private System.Windows.Forms.DataGridViewButtonColumn Select;
+        private new System.Windows.Forms.DataGridViewButtonColumn Select;
         private System.Windows.Forms.Button btnRestablecer;
         private System.Windows.Forms.CheckBox cbTodoHistorial;
         private System.Windows.Forms.Button btnDescartar;

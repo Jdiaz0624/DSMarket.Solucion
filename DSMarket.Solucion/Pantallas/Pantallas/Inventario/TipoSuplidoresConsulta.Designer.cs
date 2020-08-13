@@ -416,6 +416,6 @@
         private System.Windows.Forms.Label lbCantidadRegistrosTitulo;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private System.Windows.Forms.DataGridView dtListado;
-        private System.Windows.Forms.DataGridViewButtonColumn Select;
+        private new System.Windows.Forms.DataGridViewButtonColumn Select;
     }
 }

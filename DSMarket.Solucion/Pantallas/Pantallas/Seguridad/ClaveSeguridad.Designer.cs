@@ -453,7 +453,7 @@
         private System.Windows.Forms.Label lbNumeroPagina;
         private System.Windows.Forms.GroupBox gbListado;
         private System.Windows.Forms.DataGridView dtListado;
-        private System.Windows.Forms.DataGridViewButtonColumn Select;
+        private new System.Windows.Forms.DataGridViewButtonColumn Select;
         private System.Windows.Forms.GroupBox gbMantenimiento;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtConfirmarClave;
