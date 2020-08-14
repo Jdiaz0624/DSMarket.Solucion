@@ -79,5 +79,19 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
         }
+
+        private void PCerrar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void ConfigurarRutaArchivotxt_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            switch (e.CloseReason) {
+                case CloseReason.UserClosing:
+                    e.Cancel = true;
+                    break;
+            }
+        }
     }
 }

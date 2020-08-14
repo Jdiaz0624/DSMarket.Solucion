@@ -62,6 +62,7 @@
             this.CurvaForms = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.EfectoIda = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.EfectoBotones = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.btnReportesSistema = new Bunifu.Framework.UI.BunifuFlatButton();
             this.PanelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PRestaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PMinimizar)).BeginInit();
@@ -264,6 +265,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.PanelOpciones.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelOpciones.BackgroundImage")));
             this.PanelOpciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PanelOpciones.Controls.Add(this.btnReportesSistema);
             this.PanelOpciones.Controls.Add(this.btnSeguridad);
             this.PanelOpciones.Controls.Add(this.btnCerrarSesion);
             this.PanelOpciones.Controls.Add(this.btnConfiguracion);
@@ -289,6 +291,7 @@
             // 
             // btnSeguridad
             // 
+            this.btnSeguridad.Active = false;
             this.btnSeguridad.Activecolor = System.Drawing.Color.Transparent;
             this.btnSeguridad.BackColor = System.Drawing.Color.Transparent;
             this.btnSeguridad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -310,7 +313,7 @@
             this.btnSeguridad.IconVisible = true;
             this.btnSeguridad.IconZoom = 90D;
             this.btnSeguridad.IsTab = false;
-            this.btnSeguridad.Location = new System.Drawing.Point(9, 320);
+            this.btnSeguridad.Location = new System.Drawing.Point(9, 375);
             this.btnSeguridad.Name = "btnSeguridad";
             this.btnSeguridad.Normalcolor = System.Drawing.Color.Transparent;
             this.btnSeguridad.OnHovercolor = System.Drawing.Color.Transparent;
@@ -326,6 +329,7 @@
             // 
             // btnCerrarSesion
             // 
+            this.btnCerrarSesion.Active = false;
             this.btnCerrarSesion.Activecolor = System.Drawing.Color.Transparent;
             this.btnCerrarSesion.BackColor = System.Drawing.Color.Transparent;
             this.btnCerrarSesion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -347,7 +351,7 @@
             this.btnCerrarSesion.IconVisible = true;
             this.btnCerrarSesion.IconZoom = 90D;
             this.btnCerrarSesion.IsTab = false;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(9, 374);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(9, 429);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Normalcolor = System.Drawing.Color.Transparent;
             this.btnCerrarSesion.OnHovercolor = System.Drawing.Color.Transparent;
@@ -363,6 +367,7 @@
             // 
             // btnConfiguracion
             // 
+            this.btnConfiguracion.Active = false;
             this.btnConfiguracion.Activecolor = System.Drawing.Color.Transparent;
             this.btnConfiguracion.BackColor = System.Drawing.Color.Transparent;
             this.btnConfiguracion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -384,7 +389,7 @@
             this.btnConfiguracion.IconVisible = true;
             this.btnConfiguracion.IconZoom = 90D;
             this.btnConfiguracion.IsTab = false;
-            this.btnConfiguracion.Location = new System.Drawing.Point(9, 269);
+            this.btnConfiguracion.Location = new System.Drawing.Point(9, 324);
             this.btnConfiguracion.Name = "btnConfiguracion";
             this.btnConfiguracion.Normalcolor = System.Drawing.Color.Transparent;
             this.btnConfiguracion.OnHovercolor = System.Drawing.Color.Transparent;
@@ -414,6 +419,7 @@
             // 
             // btnReportes
             // 
+            this.btnReportes.Active = false;
             this.btnReportes.Activecolor = System.Drawing.Color.Transparent;
             this.btnReportes.BackColor = System.Drawing.Color.Transparent;
             this.btnReportes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -466,6 +472,7 @@
             // 
             // btneEmpresa
             // 
+            this.btneEmpresa.Active = false;
             this.btneEmpresa.Activecolor = System.Drawing.Color.Transparent;
             this.btneEmpresa.BackColor = System.Drawing.Color.Transparent;
             this.btneEmpresa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -517,6 +524,7 @@
             // 
             // btnCaja
             // 
+            this.btnCaja.Active = false;
             this.btnCaja.Activecolor = System.Drawing.Color.Transparent;
             this.btnCaja.BackColor = System.Drawing.Color.Transparent;
             this.btnCaja.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -554,6 +562,7 @@
             // 
             // btnServicio
             // 
+            this.btnServicio.Active = false;
             this.btnServicio.Activecolor = System.Drawing.Color.Transparent;
             this.btnServicio.BackColor = System.Drawing.Color.Transparent;
             this.btnServicio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -591,6 +600,7 @@
             // 
             // btnInventario
             // 
+            this.btnInventario.Active = false;
             this.btnInventario.Activecolor = System.Drawing.Color.Transparent;
             this.btnInventario.BackColor = System.Drawing.Color.Transparent;
             this.btnInventario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -689,6 +699,44 @@
             animation2.TransparencyCoeff = 0F;
             this.EfectoBotones.DefaultAnimation = animation2;
             // 
+            // btnReportesSistema
+            // 
+            this.btnReportesSistema.Active = false;
+            this.btnReportesSistema.Activecolor = System.Drawing.Color.Transparent;
+            this.btnReportesSistema.BackColor = System.Drawing.Color.Transparent;
+            this.btnReportesSistema.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnReportesSistema.BorderRadius = 0;
+            this.btnReportesSistema.ButtonText = "      REPORTES";
+            this.btnReportesSistema.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EfectoIda.SetDecoration(this.btnReportesSistema, BunifuAnimatorNS.DecorationType.None);
+            this.EfectoBotones.SetDecoration(this.btnReportesSistema, BunifuAnimatorNS.DecorationType.None);
+            this.btnReportesSistema.DisabledColor = System.Drawing.Color.Gray;
+            this.btnReportesSistema.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnReportesSistema.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnReportesSistema.Iconimage")));
+            this.btnReportesSistema.Iconimage_right = null;
+            this.btnReportesSistema.Iconimage_right_Selected = null;
+            this.btnReportesSistema.Iconimage_Selected = null;
+            this.btnReportesSistema.IconMarginLeft = 0;
+            this.btnReportesSistema.IconMarginRight = 0;
+            this.btnReportesSistema.IconRightVisible = true;
+            this.btnReportesSistema.IconRightZoom = 0D;
+            this.btnReportesSistema.IconVisible = true;
+            this.btnReportesSistema.IconZoom = 90D;
+            this.btnReportesSistema.IsTab = false;
+            this.btnReportesSistema.Location = new System.Drawing.Point(9, 269);
+            this.btnReportesSistema.Name = "btnReportesSistema";
+            this.btnReportesSistema.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnReportesSistema.OnHovercolor = System.Drawing.Color.Transparent;
+            this.btnReportesSistema.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnReportesSistema.selected = false;
+            this.btnReportesSistema.Size = new System.Drawing.Size(241, 48);
+            this.btnReportesSistema.TabIndex = 16;
+            this.btnReportesSistema.Text = "      REPORTES";
+            this.btnReportesSistema.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportesSistema.Textcolor = System.Drawing.Color.White;
+            this.btnReportesSistema.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportesSistema.Visible = false;
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -752,5 +800,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnServicio;
         private System.Windows.Forms.Label lbIdUsuario;
         private System.Windows.Forms.Label lbIdNivel;
+        private Bunifu.Framework.UI.BunifuFlatButton btnReportesSistema;
     }
 }
