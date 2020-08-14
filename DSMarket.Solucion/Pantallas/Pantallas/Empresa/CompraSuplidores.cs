@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.IO;
 namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
 {
     public partial class CompraSuplidores : Form
@@ -17,6 +17,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             InitializeComponent();
         }
         Lazy<DSMarket.Logica.Logica.LogicaEmpresa.LogicaEmpresa> ObjdataEmpresa = new Lazy<Logica.Logica.LogicaEmpresa.LogicaEmpresa>();
+        Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
         public DSMarket.Logica.Comunes.VariablesGlobales Variableslobales = new Logica.Comunes.VariablesGlobales();
 
         #region MOSTRAR EL LISTADO DE LAS COMPRAS DE SUPLIDORES
@@ -58,6 +59,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             this.dtListado.Columns["UsuarioAdiciona"].Visible = false;
             this.dtListado.Columns["FechaCreado0"].Visible = false;
             this.dtListado.Columns["CantidadRegistros"].Visible = false;
+            this.dtListado.Columns["CodigoTipoBienesServicio"].Visible = false;
+            this.dtListado.Columns["CodigoTipoRetencionISR"].Visible = false;
+            this.dtListado.Columns["CodigoTipoPago"].Visible = false;
         }
         #endregion
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -76,6 +80,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             lbTitulo.ForeColor = Color.White;
             lbCantidadRegistrosTitulo.ForeColor = Color.White;
             lbCantidadRegistrosVariable.ForeColor = Color.White;
+            rbPorPantalla.Checked = true;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -173,6 +178,108 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             txtFechaHasta.Text = DateTime.Now.ToString();
             btnRestablecer.Enabled = false;
             MostrarListadoCompras();
+        }
+
+        private void Button1_Click_1(object sender, EventArgs e)
+        {
+            if (rbPorPantalla.Checked == true) { }
+            else if (rbEntxt.Checked == true) {
+                string RutaArchivo = "";
+
+                var SacarRutaArchivo = ObjDataConfiguracion.Value.BuscaRutaArchivotxt(1);
+                foreach (var n in SacarRutaArchivo) {
+                    RutaArchivo = n.Ruta;
+                }
+
+                //GENERAMOS LA FECHA DE PERIODO
+                DateTime FechaPeriodo = Convert.ToDateTime(txtPeriodo.Text);
+                int Year = FechaPeriodo.Year;
+                string Month = FechaPeriodo.Month.ToString();
+                string day = FechaPeriodo.Day.ToString();
+
+                if (Month.Length == 1) {
+                    Month = "0" + Month;
+                }
+
+                if (day.Length == 1)
+                {
+                    day = "0" + day;
+                }
+
+                string RNC = "";
+                string Periofo = Year.ToString() + Month + day;
+                string CantidadRegistros = "";
+
+                //SACAMOS EL RNC DE LA EMPRESA
+                var SacarRNC = ObjDataConfiguracion.Value.BuscaInformacionEmpresa();
+                foreach (var n in SacarRNC)
+                {
+                    RNC = n.RNC;
+                }
+
+                //SACAMOS LA CANTIDAD DE REGISTROS
+                string _RNC = string.IsNullOrEmpty(txtRNC.Text.Trim()) ? null : txtRNC.Text.Trim();
+                var SacarCantidadRegistros = ObjdataEmpresa.Value.BuscaCompraSuplidores(
+                    new Nullable<decimal>(),
+                    null,
+                    null,
+                    _RNC,
+                    Convert.ToDateTime(txtFechaDesde.Text),
+                    Convert.ToDateTime(txtFechaHasta.Text),
+                    1, 999999999);
+                foreach (var Cantidad in SacarCantidadRegistros)
+                {
+                    CantidadRegistros = Cantidad.CantidadRegistros.ToString();
+                }
+
+                using (StreamWriter outPutFile = new StreamWriter(@""+RutaArchivo +@"\DGII_F_606_"+RNC+"_"+Periofo+".txt"))
+                {
+                 
+                    var Lineas = ObjdataEmpresa.Value.BuscaCompraSuplidores(
+                         new Nullable<decimal>(),
+                    null,
+                    null,
+                    _RNC,
+                    Convert.ToDateTime(txtFechaDesde.Text),
+                    Convert.ToDateTime(txtFechaHasta.Text),
+                    1, 999999999);
+                    outPutFile.WriteLine("606|" + RNC + "|"+Periofo+"|"+CantidadRegistros);
+                    foreach (var n in Lineas)
+                    {
+                        outPutFile.WriteLine(n.RNCCedula + "|" + n.IdTipoIdentificacion + "|" + n.CodigoTipoBienesServicio + "|" + n.NCF + "|" + n.NCFModificado + "|" + n.FechaComprobante + "|" + n.FechaPago + "|" + n.MontoFacturadoServicios + "|" + n.MontoFacturadoBienes + "|" + n.TotalMontoFacturado + "|" + n.ITBISFacturado + "|" + n.ITBISRetenido + "|" + n.ITBISSujetoProporcionalidad + "|" + n.ITBISLlevadoCosto + "|" + n.ITBISPorAdelantar + "|" + n.ITBISPercibidoCompras + "|" + n.CodigoTipoRetencionISR + "|" + n.MontoRetencionRenta + "|" + n.ISRPercibidoCompras + "|" + n.ImpuestoSelectivoConsumo + "|" + n.OtrosImpuestosTasa + "|" + n.MontoPropinaLegal + "|" + n.CodigoTipoPago);
+                    }
+                }
+
+            }
+            else {
+                MessageBox.Show("Favor de seleccionar una opcioón para el reporte", Variableslobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void RbPorPantalla_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbPorPantalla.Checked)
+            {
+                lbPeriodo.Visible = false;
+                txtPeriodo.Visible = false;
+            }
+            else {
+                lbPeriodo.Visible = true;
+                txtPeriodo.Visible = true;
+            }
+        }
+
+        private void RbEntxt_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbEntxt.Checked)
+            {
+                lbPeriodo.Visible = true;
+                txtPeriodo.Visible = true;
+            }
+            else {
+                lbPeriodo.Visible = false;
+                txtPeriodo.Visible = false;
+            }
         }
     }
 }

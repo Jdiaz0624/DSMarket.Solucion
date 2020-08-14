@@ -22,6 +22,7 @@ namespace DSMarket.Logica.Comunes
         private bool ImpuestoAdicional = false;
         private bool PorcentajeEntero = false;
         private decimal Valor = 0;
+        private string CodigoTipoPago = "";
         private string Accion = "";
 
         public MantenimientoTipoPago(
@@ -36,6 +37,7 @@ namespace DSMarket.Logica.Comunes
             bool ImpuestoAdicionalCON,
             bool PorcentajeEnteroCON,
             decimal ValorCON,
+            string CodigoTipoPagoCON,
             string AccionCON)
         {
             IdTipoPago = IdTipoPagoCON;
@@ -49,6 +51,7 @@ namespace DSMarket.Logica.Comunes
             ImpuestoAdicional = ImpuestoAdicionalCON;
             PorcentajeEntero = PorcentajeEnteroCON;
             Valor = ValorCON;
+            CodigoTipoPago = CodigoTipoPagoCON;
             Accion = AccionCON;
            
         }
@@ -66,6 +69,7 @@ namespace DSMarket.Logica.Comunes
             Mantenimiento.BloqueaMonto = BloqueaMonto;
             Mantenimiento.ImpuestoAdicional = ImpuestoAdicional;
             Mantenimiento.PorcentajeEntero = PorcentajeEntero;
+            Mantenimiento.CodigoTipoPago = CodigoTipoPago;
             Mantenimiento.Valor = Valor;
 
             var MAN = ObjdataServicios.Value.MantenimientoTipoPago(Mantenimiento, Accion);

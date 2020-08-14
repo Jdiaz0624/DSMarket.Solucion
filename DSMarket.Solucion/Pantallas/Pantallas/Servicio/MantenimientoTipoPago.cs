@@ -45,6 +45,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     cbImpuestoAdicional.Checked,
                     cbPorcentajeEntero.Checked,
                     Convert.ToDecimal(txtValor.Text),
+                    txtCodigo.Text,
                     Accion);
                 TipoPago.MANtenimeinto();
             }
@@ -99,6 +100,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     cbImpuestoAdicional.Checked = (n.ImpuestoAdicional0.HasValue ? n.ImpuestoAdicional0.Value : false);
                     cbPorcentajeEntero.Checked = (n.PorcentajeEntero0.HasValue ? n.PorcentajeEntero0.Value : false);
                     txtValor.Text = n.Valor.ToString();
+                    txtCodigo.Text = n.CodigoTipoPago;
                 }
             }
         }

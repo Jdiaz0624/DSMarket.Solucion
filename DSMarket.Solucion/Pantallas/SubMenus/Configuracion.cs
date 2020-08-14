@@ -21,6 +21,7 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         {
             lbTitulo.Text = "CONFIGURACION DEL SISTEMA";
             lbTitulo.ForeColor = Color.White;
+
         }
 
         private void PCerrar_Click(object sender, EventArgs e)
@@ -63,6 +64,12 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         {
             DSMarket.Solucion.Pantallas.Pantallas.Configuracion.ConfigurarMail Mail = new Pantallas.Configuracion.ConfigurarMail();
             Mail.ShowDialog();
+        }
+
+        private void BtnRutaArchivotxt_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Configuracion.ConfigurarRutaArchivotxt txt = new Pantallas.Configuracion.ConfigurarRutaArchivotxt();
+            txt.ShowDialog();
         }
     }
 }

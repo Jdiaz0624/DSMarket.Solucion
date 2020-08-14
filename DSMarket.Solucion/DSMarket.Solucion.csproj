@@ -211,6 +211,12 @@
     <Compile Include="Pantallas\Pantallas\Configuracion\ConfigurarMail.Designer.cs">
       <DependentUpon>ConfigurarMail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\ConfigurarRutaArchivotxt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\ConfigurarRutaArchivotxt.Designer.cs">
+      <DependentUpon>ConfigurarRutaArchivotxt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Configuracion\ConfigurarRutaBackup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -614,6 +620,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\ConfigurarMail.resx">
       <DependentUpon>ConfigurarMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\ConfigurarRutaArchivotxt.resx">
+      <DependentUpon>ConfigurarRutaArchivotxt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\ConfigurarRutaBackup.resx">
       <DependentUpon>ConfigurarRutaBackup.cs</DependentUpon>

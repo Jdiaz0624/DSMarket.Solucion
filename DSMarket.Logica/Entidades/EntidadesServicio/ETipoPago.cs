@@ -43,6 +43,7 @@ namespace DSMarket.Logica.Entidades.EntidadesServicio
         public string PorcentajeEntero{get;set;}
 
         public System.Nullable<decimal> Valor{get;set;}
+        public string CodigoTipoPago { get; set; }
 
         public System.Nullable<int> CantidadRegistros{get;set;}
     }

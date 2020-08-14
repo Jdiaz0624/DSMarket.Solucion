@@ -244,7 +244,6 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             return Listado;
         }
         #endregion
-
         #region MANTENIMIENTO DE RUTA DE REPORTES
         //LISTADO DE RUTA DE REPORTES
         public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaReporte> BuscaRutaReporte(int? IdRutaReporte = null)
@@ -285,7 +284,6 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             return Mantenimiento;
         }
         #endregion
-
         #region PROCESAR CUADRE CAJA
         public DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarReporteCuadreCaja ProcesarCuadreCaja(DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarReporteCuadreCaja Item, string Accion)
         {
@@ -525,6 +523,41 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             return Generar;
         }
         #endregion
+        #region MANTENIMIENTO DE RUTA DE ARCHIVO TXT
+        //BUSCA RUTA ARCHIVO TXT
+        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaArchivotxt> BuscaRutaArchivotxt(int? IdRutaArchivostxt = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Buscar = (from n in ObjData.SP_BUSCAR_RUTA_ARCHIVO_TXT(IdRutaArchivostxt)
+                          select new DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaArchivotxt
+                          {
+                              IdRutaArchivotxt=n.IdRutaArchivotxt,
+                              Ruta=n.Ruta
+                          }).ToList();
+            return Buscar;
+        }
+        //MODFICAR RUTA ARCHIVO TXT
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaArchivotxt ModificarRUtaArchivotxt(DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaArchivotxt Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaArchivotxt Modificar = null;
+
+            var RutaArchivotxt = ObjData.SP_MODIFICAR_RUTA_ARCHIVO_TXT(
+                Item.IdRutaArchivotxt,
+                Item.Ruta,
+                Accion);
+            if (RutaArchivotxt != null)
+            {
+                Modificar = (from n in RutaArchivotxt
+                             select new DSMarket.Logica.Entidades.EntidadesConfiguracion.ERutaArchivotxt
+                             {
+                                 IdRutaArchivotxt=n.IdRutaArchivotxt,
+                                 Ruta=n.Ruta
+                             }).FirstOrDefault();
+            }
+            return Modificar;
+        }
+        #endregion
         #region MANTENIMIENTO DE PORCIENTO DE IMPUESTO
         public DSMarket.Logica.Entidades.EntidadesConfiguracion.EModificarImpuestoVenta ModificarImpuesto(DSMarket.Logica.Entidades.EntidadesConfiguracion.EModificarImpuestoVenta Item, string Accion)
         {
@@ -742,6 +775,7 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             }
             return Guardar;
             #endregion
+           
         }
     }
 }

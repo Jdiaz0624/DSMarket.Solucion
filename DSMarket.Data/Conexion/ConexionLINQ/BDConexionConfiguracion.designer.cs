@@ -320,6 +320,20 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, numeroConector, idTipoProducto, producto, tipoProducto, idCategoria, categoria, idUnidadMedida, unidadMedida, idmarca, marca, idModelo, modelo, idTipoSuplidor, tipoSuplidor, idSuplidor, suplidor, codigoBarra, referencia, precioCompra, precioVenta, stock, stockMinimo, porcientoDescuento, afctaOferta0, afectaOferta, productoAcumulativo0, productoAcumulativo, llevaImagen0, llevaImagen, usuarioAdiciona, creadoPor, fechaAdiciona, fechaCreado, usuarioModifica, modificadoPor, fechaModifica, fechaModificado, fecha, aplicaParaImpuesto0, estatusProducto0, estatusProducto, aplicaImpuesto, cantidadAgregada, cantidadRegistros, productoConOferta, productoProximoAgotarse, productosAgostados, totalProductos, comentario, accion);
 			return ((ISingleResult<SP_GUARDAR_DATOS_REPORTE_PRODUCTOS_DEFECTUOSOSResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Configuracion.SP_BUSCAR_RUTA_ARCHIVO_TXT")]
+		public ISingleResult<SP_BUSCAR_RUTA_ARCHIVO_TXTResult> SP_BUSCAR_RUTA_ARCHIVO_TXT([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdRutaArchivostxt", DbType="Int")] System.Nullable<int> idRutaArchivostxt)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idRutaArchivostxt);
+			return ((ISingleResult<SP_BUSCAR_RUTA_ARCHIVO_TXTResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Configuracion.SP_MODIFICAR_RUTA_ARCHIVO_TXT")]
+		public ISingleResult<SP_MODIFICAR_RUTA_ARCHIVO_TXTResult> SP_MODIFICAR_RUTA_ARCHIVO_TXT([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdRutaArchivotxt", DbType="Int")] System.Nullable<int> idRutaArchivotxt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ruta", DbType="VarChar(8000)")] string ruta, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idRutaArchivotxt, ruta, accion);
+			return ((ISingleResult<SP_MODIFICAR_RUTA_ARCHIVO_TXTResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_BUSCA_LISTASResult
@@ -4291,6 +4305,94 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._Comentario != value))
 				{
 					this._Comentario = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCAR_RUTA_ARCHIVO_TXTResult
+	{
+		
+		private System.Nullable<int> _IdRutaArchivotxt;
+		
+		private string _Ruta;
+		
+		public SP_BUSCAR_RUTA_ARCHIVO_TXTResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdRutaArchivotxt", DbType="Int")]
+		public System.Nullable<int> IdRutaArchivotxt
+		{
+			get
+			{
+				return this._IdRutaArchivotxt;
+			}
+			set
+			{
+				if ((this._IdRutaArchivotxt != value))
+				{
+					this._IdRutaArchivotxt = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ruta", DbType="VarChar(8000)")]
+		public string Ruta
+		{
+			get
+			{
+				return this._Ruta;
+			}
+			set
+			{
+				if ((this._Ruta != value))
+				{
+					this._Ruta = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_MODIFICAR_RUTA_ARCHIVO_TXTResult
+	{
+		
+		private System.Nullable<int> _IdRutaArchivotxt;
+		
+		private string _Ruta;
+		
+		public SP_MODIFICAR_RUTA_ARCHIVO_TXTResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdRutaArchivotxt", DbType="Int")]
+		public System.Nullable<int> IdRutaArchivotxt
+		{
+			get
+			{
+				return this._IdRutaArchivotxt;
+			}
+			set
+			{
+				if ((this._IdRutaArchivotxt != value))
+				{
+					this._IdRutaArchivotxt = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ruta", DbType="VarChar(8000)")]
+		public string Ruta
+		{
+			get
+			{
+				return this._Ruta;
+			}
+			set
+			{
+				if ((this._Ruta != value))
+				{
+					this._Ruta = value;
 				}
 			}
 		}

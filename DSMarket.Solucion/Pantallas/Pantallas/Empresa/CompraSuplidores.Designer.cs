@@ -35,6 +35,7 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnRestablecer = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -56,7 +57,11 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.lbCantidadRegistrosTitulo = new System.Windows.Forms.Label();
-            this.btnRestablecer = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.rbPorPantalla = new System.Windows.Forms.RadioButton();
+            this.rbEntxt = new System.Windows.Forms.RadioButton();
+            this.txtPeriodo = new System.Windows.Forms.DateTimePicker();
+            this.lbPeriodo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -142,6 +147,24 @@
             this.toolTip1.SetToolTip(this.btnEliminar, "Eliminar registro seleccionado");
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnRestablecer
+            // 
+            this.btnRestablecer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestablecer.Enabled = false;
+            this.btnRestablecer.FlatAppearance.BorderSize = 0;
+            this.btnRestablecer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRestablecer.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestablecer.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
+            this.btnRestablecer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRestablecer.Location = new System.Drawing.Point(707, 7);
+            this.btnRestablecer.Name = "btnRestablecer";
+            this.btnRestablecer.Size = new System.Drawing.Size(170, 41);
+            this.btnRestablecer.TabIndex = 68;
+            this.btnRestablecer.Text = "      Restablecer";
+            this.toolTip1.SetToolTip(this.btnRestablecer, "Restablecer Pantalla");
+            this.btnRestablecer.UseVisualStyleBackColor = true;
+            this.btnRestablecer.Click += new System.EventHandler(this.Button1_Click);
             // 
             // errorProvider1
             // 
@@ -249,6 +272,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtPeriodo);
+            this.groupBox1.Controls.Add(this.lbPeriodo);
+            this.groupBox1.Controls.Add(this.rbEntxt);
+            this.groupBox1.Controls.Add(this.rbPorPantalla);
             this.groupBox1.Controls.Add(this.txtFechaHasta);
             this.groupBox1.Controls.Add(this.txtFechaDesde);
             this.groupBox1.Controls.Add(this.label4);
@@ -316,6 +343,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Linen;
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.btnRestablecer);
             this.panel2.Controls.Add(this.btnEliminar);
             this.panel2.Controls.Add(this.btnEditar);
@@ -382,23 +410,71 @@
             this.lbCantidadRegistrosTitulo.TabIndex = 30;
             this.lbCantidadRegistrosTitulo.Text = "Cantidad de Registros";
             // 
-            // btnRestablecer
+            // button1
             // 
-            this.btnRestablecer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestablecer.Enabled = false;
-            this.btnRestablecer.FlatAppearance.BorderSize = 0;
-            this.btnRestablecer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRestablecer.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRestablecer.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
-            this.btnRestablecer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRestablecer.Location = new System.Drawing.Point(707, 7);
-            this.btnRestablecer.Name = "btnRestablecer";
-            this.btnRestablecer.Size = new System.Drawing.Size(170, 41);
-            this.btnRestablecer.TabIndex = 68;
-            this.btnRestablecer.Text = "      Restablecer";
-            this.toolTip1.SetToolTip(this.btnRestablecer, "Restablecer Pantalla");
-            this.btnRestablecer.UseVisualStyleBackColor = true;
-            this.btnRestablecer.Click += new System.EventHandler(this.Button1_Click);
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = global::DSMarket.Solucion.Properties.Resources.Editar;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(883, 7);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(170, 41);
+            this.button1.TabIndex = 69;
+            this.button1.Text = "      606";
+            this.toolTip1.SetToolTip(this.button1, "Restablecer Pantalla");
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
+            // 
+            // rbPorPantalla
+            // 
+            this.rbPorPantalla.AutoSize = true;
+            this.rbPorPantalla.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbPorPantalla.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbPorPantalla.Location = new System.Drawing.Point(626, 19);
+            this.rbPorPantalla.Name = "rbPorPantalla";
+            this.rbPorPantalla.Size = new System.Drawing.Size(151, 25);
+            this.rbPorPantalla.TabIndex = 8;
+            this.rbPorPantalla.TabStop = true;
+            this.rbPorPantalla.Text = "606 Por Pantalla";
+            this.toolTip1.SetToolTip(this.rbPorPantalla, "Generar el archivo 606 por pantalla");
+            this.rbPorPantalla.UseVisualStyleBackColor = true;
+            this.rbPorPantalla.CheckedChanged += new System.EventHandler(this.RbPorPantalla_CheckedChanged);
+            // 
+            // rbEntxt
+            // 
+            this.rbEntxt.AutoSize = true;
+            this.rbEntxt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbEntxt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbEntxt.Location = new System.Drawing.Point(626, 48);
+            this.rbEntxt.Name = "rbEntxt";
+            this.rbEntxt.Size = new System.Drawing.Size(104, 25);
+            this.rbEntxt.TabIndex = 9;
+            this.rbEntxt.TabStop = true;
+            this.rbEntxt.Text = "606 en txt";
+            this.toolTip1.SetToolTip(this.rbEntxt, "Generar el reporte 606 en archivo txt");
+            this.rbEntxt.UseVisualStyleBackColor = true;
+            this.rbEntxt.CheckedChanged += new System.EventHandler(this.RbEntxt_CheckedChanged);
+            // 
+            // txtPeriodo
+            // 
+            this.txtPeriodo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtPeriodo.Location = new System.Drawing.Point(892, 16);
+            this.txtPeriodo.Name = "txtPeriodo";
+            this.txtPeriodo.Size = new System.Drawing.Size(136, 27);
+            this.txtPeriodo.TabIndex = 11;
+            this.txtPeriodo.Visible = false;
+            // 
+            // lbPeriodo
+            // 
+            this.lbPeriodo.AutoSize = true;
+            this.lbPeriodo.Location = new System.Drawing.Point(818, 19);
+            this.lbPeriodo.Name = "lbPeriodo";
+            this.lbPeriodo.Size = new System.Drawing.Size(68, 21);
+            this.lbPeriodo.TabIndex = 10;
+            this.lbPeriodo.Text = "Periodo";
+            this.lbPeriodo.Visible = false;
             // 
             // CompraSuplidores
             // 
@@ -466,5 +542,10 @@
         private System.Windows.Forms.TextBox txtRNC;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnRestablecer;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RadioButton rbEntxt;
+        private System.Windows.Forms.RadioButton rbPorPantalla;
+        private System.Windows.Forms.DateTimePicker txtPeriodo;
+        private System.Windows.Forms.Label lbPeriodo;
     }
 }

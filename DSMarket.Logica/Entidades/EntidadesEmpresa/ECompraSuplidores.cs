@@ -28,6 +28,8 @@ namespace DSMarket.Logica.Entidades.EntidadesEmpresa
 
         public string TipoBienesServicios {get;set;}
 
+        public string CodigoTipoBienesServicio {get;set;}
+
         public string NCF {get;set;}
 
         public string NCFModificado {get;set;}
@@ -62,6 +64,8 @@ namespace DSMarket.Logica.Entidades.EntidadesEmpresa
 
         public string TipoRetencionISR {get;set;}
 
+        public string CodigoTipoRetencionISR {get;set;}
+
         public System.Nullable<decimal> MontoRetencionRenta {get;set;}
 
         public System.Nullable<decimal> ISRPercibidoCompras {get;set;}
@@ -75,6 +79,8 @@ namespace DSMarket.Logica.Entidades.EntidadesEmpresa
         public System.Nullable<decimal> IdFormaPago {get;set;}
 
         public string FormaPago {get;set;}
+
+        public string CodigoTipoPago {get;set;}
 
         public System.Nullable<decimal> UsuarioAdiciona {get;set;}
 

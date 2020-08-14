@@ -476,4 +476,20 @@
       <Column Name="Comentario" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Configuracion.SP_BUSCAR_RUTA_ARCHIVO_TXT" Method="SP_BUSCAR_RUTA_ARCHIVO_TXT">
+    <Parameter Name="IdRutaArchivostxt" Parameter="idRutaArchivostxt" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_BUSCAR_RUTA_ARCHIVO_TXTResult">
+      <Column Name="IdRutaArchivotxt" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ruta" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Configuracion.SP_MODIFICAR_RUTA_ARCHIVO_TXT" Method="SP_MODIFICAR_RUTA_ARCHIVO_TXT">
+    <Parameter Name="IdRutaArchivotxt" Parameter="idRutaArchivotxt" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Ruta" Parameter="ruta" Type="System.String" DbType="VarChar(8000)" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_MODIFICAR_RUTA_ARCHIVO_TXTResult">
+      <Column Name="IdRutaArchivotxt" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ruta" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>
