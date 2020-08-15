@@ -80,6 +80,7 @@
     <Compile Include="Entidades\EntidadesConfiguracion\EConfiguracionGeneral.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EGenerarComprobante.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EGenerarRutaReporte.cs" />
+    <Compile Include="Entidades\EntidadesConfiguracion\EGuardarDatosReporte606.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EGuardarReporteVenta.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EImpuesto.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EInformacionEmpresa.cs" />

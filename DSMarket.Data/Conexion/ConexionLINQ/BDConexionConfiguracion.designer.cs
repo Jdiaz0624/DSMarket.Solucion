@@ -334,6 +334,56 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idRutaArchivotxt, ruta, accion);
 			return ((ISingleResult<SP_MODIFICAR_RUTA_ARCHIVO_TXTResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Reporte.SP_GUARDAR_DATOS_REPORTE_606")]
+		public ISingleResult<SP_GUARDAR_DATOS_REPORTE_606Result> SP_GUARDAR_DATOS_REPORTE_606(
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Decimal(20,0)")] System.Nullable<decimal> idUsuario, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdCompraSuplidor", DbType="Decimal(20,0)")] System.Nullable<decimal> idCompraSuplidor, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TipoSuplidor", DbType="VarChar(100)")] string tipoSuplidor, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdSuplidor", DbType="Decimal(20,0)")] System.Nullable<decimal> idSuplidor, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Suplidor", DbType="VarChar(100)")] string suplidor, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="RNCCedula", DbType="VarChar(100)")] string rNCCedula, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoIdentificacion", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoIdentificacion, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TipoIdentificacion", DbType="VarChar(100)")] string tipoIdentificacion, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoBienesServicios", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoBienesServicios, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TipoBienesServicios", DbType="VarChar(100)")] string tipoBienesServicios, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodigoTipoBienesServicio", DbType="VarChar(2)")] string codigoTipoBienesServicio, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NCF", DbType="VarChar(100)")] string nCF, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NCFMODIFICADO", DbType="VarChar(100)")] string nCFMODIFICADO, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaComprobante0", DbType="Date")] System.Nullable<System.DateTime> fechaComprobante0, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaComprobante", DbType="VarChar(100)")] string fechaComprobante, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaPago0", DbType="Date")] System.Nullable<System.DateTime> fechaPago0, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaPago", DbType="VarChar(100)")] string fechaPago, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MontoFacturadoServicios", DbType="Decimal(20,2)")] System.Nullable<decimal> montoFacturadoServicios, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MontoFacturadoBienes", DbType="Decimal(20,2)")] System.Nullable<decimal> montoFacturadoBienes, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TotalMontoFacturado", DbType="Decimal(20,2)")] System.Nullable<decimal> totalMontoFacturado, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ITBISFacturado", DbType="Decimal(20,2)")] System.Nullable<decimal> iTBISFacturado, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ITBISRetenido", DbType="Decimal(20,2)")] System.Nullable<decimal> iTBISRetenido, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ITBISSujetoProporcionalidad", DbType="Decimal(20,2)")] System.Nullable<decimal> iTBISSujetoProporcionalidad, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ITBISLlevadoCosto", DbType="Decimal(20,2)")] System.Nullable<decimal> iTBISLlevadoCosto, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ITBISPorAdelantar", DbType="Decimal(20,2)")] System.Nullable<decimal> iTBISPorAdelantar, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ITBISPercibidoCompras", DbType="Decimal(20,2)")] System.Nullable<decimal> iTBISPercibidoCompras, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoRetencionISR", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoRetencionISR, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TipoRetencionISR", DbType="VarChar(100)")] string tipoRetencionISR, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodigoTipoRetencionISR", DbType="VarChar(2)")] string codigoTipoRetencionISR, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MontoRetencionRenta", DbType="Decimal(20,2)")] System.Nullable<decimal> montoRetencionRenta, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ISRPercibidoCompras", DbType="Decimal(20,2)")] System.Nullable<decimal> iSRPercibidoCompras, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ImpuestoSelectivoConsumo", DbType="Decimal(20,2)")] System.Nullable<decimal> impuestoSelectivoConsumo, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="OtrosImpuestosTasa", DbType="Decimal(20,2)")] System.Nullable<decimal> otrosImpuestosTasa, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MontoPropinaLegal", DbType="Decimal(20,2)")] System.Nullable<decimal> montoPropinaLegal, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdFormaPago", DbType="Decimal(20,0)")] System.Nullable<decimal> idFormaPago, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FormaPago", DbType="VarChar(100)")] string formaPago, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodigoTipoPago", DbType="VarChar(2)")] string codigoTipoPago, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="UsuarioAdiciona", DbType="Decimal(20,0)")] System.Nullable<decimal> usuarioAdiciona, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CreadoPor", DbType="VarChar(100)")] string creadoPor, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaCreado0", DbType="Date")] System.Nullable<System.DateTime> fechaCreado0, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaCreado", DbType="VarChar(100)")] string fechaCreado, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CantidadRegistros", DbType="Decimal(20,0)")] System.Nullable<decimal> cantidadRegistros, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, idCompraSuplidor, tipoSuplidor, idSuplidor, suplidor, rNCCedula, idTipoIdentificacion, tipoIdentificacion, idTipoBienesServicios, tipoBienesServicios, codigoTipoBienesServicio, nCF, nCFMODIFICADO, fechaComprobante0, fechaComprobante, fechaPago0, fechaPago, montoFacturadoServicios, montoFacturadoBienes, totalMontoFacturado, iTBISFacturado, iTBISRetenido, iTBISSujetoProporcionalidad, iTBISLlevadoCosto, iTBISPorAdelantar, iTBISPercibidoCompras, idTipoRetencionISR, tipoRetencionISR, codigoTipoRetencionISR, montoRetencionRenta, iSRPercibidoCompras, impuestoSelectivoConsumo, otrosImpuestosTasa, montoPropinaLegal, idFormaPago, formaPago, codigoTipoPago, usuarioAdiciona, creadoPor, fechaCreado0, fechaCreado, cantidadRegistros, accion);
+			return ((ISingleResult<SP_GUARDAR_DATOS_REPORTE_606Result>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_BUSCA_LISTASResult
@@ -4393,6 +4443,770 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._Ruta != value))
 				{
 					this._Ruta = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_GUARDAR_DATOS_REPORTE_606Result
+	{
+		
+		private System.Nullable<decimal> _IdUsuario;
+		
+		private System.Nullable<decimal> _IdCompraSuplidor;
+		
+		private string _TipoSuplidor;
+		
+		private System.Nullable<decimal> _IdSuplidor;
+		
+		private string _Suplidor;
+		
+		private string _RNCCedula;
+		
+		private System.Nullable<decimal> _IdTipoIdentificacion;
+		
+		private string _TipoIdentificacion;
+		
+		private System.Nullable<decimal> _IdTipoBienesServicios;
+		
+		private string _TipoBienesServicios;
+		
+		private string _CodigoTipoBienesServicio;
+		
+		private string _NCF;
+		
+		private string _NCFMODIFICADO;
+		
+		private System.Nullable<System.DateTime> _FechaComprobante0;
+		
+		private string _FechaComprobante;
+		
+		private System.Nullable<System.DateTime> _FechaPago0;
+		
+		private string _FechaPago;
+		
+		private System.Nullable<decimal> _MontoFacturadoServicios;
+		
+		private System.Nullable<decimal> _MontoFacturadoBienes;
+		
+		private System.Nullable<decimal> _TotalMontoFacturado;
+		
+		private System.Nullable<decimal> _ITBISFacturado;
+		
+		private System.Nullable<decimal> _ITBISRetenido;
+		
+		private System.Nullable<decimal> _ITBISSujetoProporcionalidad;
+		
+		private System.Nullable<decimal> _ITBISLlevadoCosto;
+		
+		private System.Nullable<decimal> _ITBISPorAdelantar;
+		
+		private System.Nullable<decimal> _ITBISPercibidoCompras;
+		
+		private System.Nullable<decimal> _IdTipoRetencionISR;
+		
+		private string _TipoRetencionISR;
+		
+		private string _CodigoTipoRetencionISR;
+		
+		private System.Nullable<decimal> _MontoRetencionRenta;
+		
+		private System.Nullable<decimal> _ISRPercibidoCompras;
+		
+		private System.Nullable<decimal> _ImpuestoSelectivoConsumo;
+		
+		private System.Nullable<decimal> _OtrosImpuestosTasa;
+		
+		private System.Nullable<decimal> _MontoPropinaLegal;
+		
+		private System.Nullable<decimal> _IdFormaPago;
+		
+		private string _FormaPago;
+		
+		private string _CodigoTipoPago;
+		
+		private System.Nullable<decimal> _UsuarioAdiciona;
+		
+		private string _CreadoPor;
+		
+		private System.Nullable<System.DateTime> _FechaCreado0;
+		
+		private string _FechaCreado;
+		
+		private System.Nullable<decimal> _CantidadRegistros;
+		
+		public SP_GUARDAR_DATOS_REPORTE_606Result()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdUsuario
+		{
+			get
+			{
+				return this._IdUsuario;
+			}
+			set
+			{
+				if ((this._IdUsuario != value))
+				{
+					this._IdUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCompraSuplidor", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdCompraSuplidor
+		{
+			get
+			{
+				return this._IdCompraSuplidor;
+			}
+			set
+			{
+				if ((this._IdCompraSuplidor != value))
+				{
+					this._IdCompraSuplidor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoSuplidor", DbType="VarChar(100)")]
+		public string TipoSuplidor
+		{
+			get
+			{
+				return this._TipoSuplidor;
+			}
+			set
+			{
+				if ((this._TipoSuplidor != value))
+				{
+					this._TipoSuplidor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdSuplidor", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdSuplidor
+		{
+			get
+			{
+				return this._IdSuplidor;
+			}
+			set
+			{
+				if ((this._IdSuplidor != value))
+				{
+					this._IdSuplidor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Suplidor", DbType="VarChar(100)")]
+		public string Suplidor
+		{
+			get
+			{
+				return this._Suplidor;
+			}
+			set
+			{
+				if ((this._Suplidor != value))
+				{
+					this._Suplidor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RNCCedula", DbType="VarChar(100)")]
+		public string RNCCedula
+		{
+			get
+			{
+				return this._RNCCedula;
+			}
+			set
+			{
+				if ((this._RNCCedula != value))
+				{
+					this._RNCCedula = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoIdentificacion", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdTipoIdentificacion
+		{
+			get
+			{
+				return this._IdTipoIdentificacion;
+			}
+			set
+			{
+				if ((this._IdTipoIdentificacion != value))
+				{
+					this._IdTipoIdentificacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoIdentificacion", DbType="VarChar(100)")]
+		public string TipoIdentificacion
+		{
+			get
+			{
+				return this._TipoIdentificacion;
+			}
+			set
+			{
+				if ((this._TipoIdentificacion != value))
+				{
+					this._TipoIdentificacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoBienesServicios", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdTipoBienesServicios
+		{
+			get
+			{
+				return this._IdTipoBienesServicios;
+			}
+			set
+			{
+				if ((this._IdTipoBienesServicios != value))
+				{
+					this._IdTipoBienesServicios = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoBienesServicios", DbType="VarChar(100)")]
+		public string TipoBienesServicios
+		{
+			get
+			{
+				return this._TipoBienesServicios;
+			}
+			set
+			{
+				if ((this._TipoBienesServicios != value))
+				{
+					this._TipoBienesServicios = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodigoTipoBienesServicio", DbType="VarChar(2)")]
+		public string CodigoTipoBienesServicio
+		{
+			get
+			{
+				return this._CodigoTipoBienesServicio;
+			}
+			set
+			{
+				if ((this._CodigoTipoBienesServicio != value))
+				{
+					this._CodigoTipoBienesServicio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NCF", DbType="VarChar(100)")]
+		public string NCF
+		{
+			get
+			{
+				return this._NCF;
+			}
+			set
+			{
+				if ((this._NCF != value))
+				{
+					this._NCF = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NCFMODIFICADO", DbType="VarChar(100)")]
+		public string NCFMODIFICADO
+		{
+			get
+			{
+				return this._NCFMODIFICADO;
+			}
+			set
+			{
+				if ((this._NCFMODIFICADO != value))
+				{
+					this._NCFMODIFICADO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaComprobante0", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaComprobante0
+		{
+			get
+			{
+				return this._FechaComprobante0;
+			}
+			set
+			{
+				if ((this._FechaComprobante0 != value))
+				{
+					this._FechaComprobante0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaComprobante", DbType="VarChar(100)")]
+		public string FechaComprobante
+		{
+			get
+			{
+				return this._FechaComprobante;
+			}
+			set
+			{
+				if ((this._FechaComprobante != value))
+				{
+					this._FechaComprobante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaPago0", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaPago0
+		{
+			get
+			{
+				return this._FechaPago0;
+			}
+			set
+			{
+				if ((this._FechaPago0 != value))
+				{
+					this._FechaPago0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaPago", DbType="VarChar(100)")]
+		public string FechaPago
+		{
+			get
+			{
+				return this._FechaPago;
+			}
+			set
+			{
+				if ((this._FechaPago != value))
+				{
+					this._FechaPago = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MontoFacturadoServicios", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> MontoFacturadoServicios
+		{
+			get
+			{
+				return this._MontoFacturadoServicios;
+			}
+			set
+			{
+				if ((this._MontoFacturadoServicios != value))
+				{
+					this._MontoFacturadoServicios = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MontoFacturadoBienes", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> MontoFacturadoBienes
+		{
+			get
+			{
+				return this._MontoFacturadoBienes;
+			}
+			set
+			{
+				if ((this._MontoFacturadoBienes != value))
+				{
+					this._MontoFacturadoBienes = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalMontoFacturado", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> TotalMontoFacturado
+		{
+			get
+			{
+				return this._TotalMontoFacturado;
+			}
+			set
+			{
+				if ((this._TotalMontoFacturado != value))
+				{
+					this._TotalMontoFacturado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ITBISFacturado", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> ITBISFacturado
+		{
+			get
+			{
+				return this._ITBISFacturado;
+			}
+			set
+			{
+				if ((this._ITBISFacturado != value))
+				{
+					this._ITBISFacturado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ITBISRetenido", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> ITBISRetenido
+		{
+			get
+			{
+				return this._ITBISRetenido;
+			}
+			set
+			{
+				if ((this._ITBISRetenido != value))
+				{
+					this._ITBISRetenido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ITBISSujetoProporcionalidad", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> ITBISSujetoProporcionalidad
+		{
+			get
+			{
+				return this._ITBISSujetoProporcionalidad;
+			}
+			set
+			{
+				if ((this._ITBISSujetoProporcionalidad != value))
+				{
+					this._ITBISSujetoProporcionalidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ITBISLlevadoCosto", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> ITBISLlevadoCosto
+		{
+			get
+			{
+				return this._ITBISLlevadoCosto;
+			}
+			set
+			{
+				if ((this._ITBISLlevadoCosto != value))
+				{
+					this._ITBISLlevadoCosto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ITBISPorAdelantar", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> ITBISPorAdelantar
+		{
+			get
+			{
+				return this._ITBISPorAdelantar;
+			}
+			set
+			{
+				if ((this._ITBISPorAdelantar != value))
+				{
+					this._ITBISPorAdelantar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ITBISPercibidoCompras", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> ITBISPercibidoCompras
+		{
+			get
+			{
+				return this._ITBISPercibidoCompras;
+			}
+			set
+			{
+				if ((this._ITBISPercibidoCompras != value))
+				{
+					this._ITBISPercibidoCompras = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoRetencionISR", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdTipoRetencionISR
+		{
+			get
+			{
+				return this._IdTipoRetencionISR;
+			}
+			set
+			{
+				if ((this._IdTipoRetencionISR != value))
+				{
+					this._IdTipoRetencionISR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoRetencionISR", DbType="VarChar(100)")]
+		public string TipoRetencionISR
+		{
+			get
+			{
+				return this._TipoRetencionISR;
+			}
+			set
+			{
+				if ((this._TipoRetencionISR != value))
+				{
+					this._TipoRetencionISR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodigoTipoRetencionISR", DbType="VarChar(2)")]
+		public string CodigoTipoRetencionISR
+		{
+			get
+			{
+				return this._CodigoTipoRetencionISR;
+			}
+			set
+			{
+				if ((this._CodigoTipoRetencionISR != value))
+				{
+					this._CodigoTipoRetencionISR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MontoRetencionRenta", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> MontoRetencionRenta
+		{
+			get
+			{
+				return this._MontoRetencionRenta;
+			}
+			set
+			{
+				if ((this._MontoRetencionRenta != value))
+				{
+					this._MontoRetencionRenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ISRPercibidoCompras", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> ISRPercibidoCompras
+		{
+			get
+			{
+				return this._ISRPercibidoCompras;
+			}
+			set
+			{
+				if ((this._ISRPercibidoCompras != value))
+				{
+					this._ISRPercibidoCompras = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImpuestoSelectivoConsumo", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> ImpuestoSelectivoConsumo
+		{
+			get
+			{
+				return this._ImpuestoSelectivoConsumo;
+			}
+			set
+			{
+				if ((this._ImpuestoSelectivoConsumo != value))
+				{
+					this._ImpuestoSelectivoConsumo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtrosImpuestosTasa", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> OtrosImpuestosTasa
+		{
+			get
+			{
+				return this._OtrosImpuestosTasa;
+			}
+			set
+			{
+				if ((this._OtrosImpuestosTasa != value))
+				{
+					this._OtrosImpuestosTasa = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MontoPropinaLegal", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> MontoPropinaLegal
+		{
+			get
+			{
+				return this._MontoPropinaLegal;
+			}
+			set
+			{
+				if ((this._MontoPropinaLegal != value))
+				{
+					this._MontoPropinaLegal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdFormaPago", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdFormaPago
+		{
+			get
+			{
+				return this._IdFormaPago;
+			}
+			set
+			{
+				if ((this._IdFormaPago != value))
+				{
+					this._IdFormaPago = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FormaPago", DbType="VarChar(100)")]
+		public string FormaPago
+		{
+			get
+			{
+				return this._FormaPago;
+			}
+			set
+			{
+				if ((this._FormaPago != value))
+				{
+					this._FormaPago = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodigoTipoPago", DbType="VarChar(2)")]
+		public string CodigoTipoPago
+		{
+			get
+			{
+				return this._CodigoTipoPago;
+			}
+			set
+			{
+				if ((this._CodigoTipoPago != value))
+				{
+					this._CodigoTipoPago = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsuarioAdiciona", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> UsuarioAdiciona
+		{
+			get
+			{
+				return this._UsuarioAdiciona;
+			}
+			set
+			{
+				if ((this._UsuarioAdiciona != value))
+				{
+					this._UsuarioAdiciona = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreadoPor", DbType="VarChar(100)")]
+		public string CreadoPor
+		{
+			get
+			{
+				return this._CreadoPor;
+			}
+			set
+			{
+				if ((this._CreadoPor != value))
+				{
+					this._CreadoPor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaCreado0", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaCreado0
+		{
+			get
+			{
+				return this._FechaCreado0;
+			}
+			set
+			{
+				if ((this._FechaCreado0 != value))
+				{
+					this._FechaCreado0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaCreado", DbType="VarChar(100)")]
+		public string FechaCreado
+		{
+			get
+			{
+				return this._FechaCreado;
+			}
+			set
+			{
+				if ((this._FechaCreado != value))
+				{
+					this._FechaCreado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadRegistros", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> CantidadRegistros
+		{
+			get
+			{
+				return this._CantidadRegistros;
+			}
+			set
+			{
+				if ((this._CantidadRegistros != value))
+				{
+					this._CantidadRegistros = value;
 				}
 			}
 		}

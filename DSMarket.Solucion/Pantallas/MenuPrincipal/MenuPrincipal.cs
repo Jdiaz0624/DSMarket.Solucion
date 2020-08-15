@@ -219,5 +219,11 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
         {
 
         }
+
+        private void BtnReportesSistema_Click(object sender, EventArgs e)
+        {
+            IdUsuarioMantenimientos = Convert.ToDecimal(lbIdUsuario.Text);
+            AbrirPantallasEnPanel(new DSMarket.Solucion.Pantallas.SubMenus.Reportes());
+        }
     }
 }

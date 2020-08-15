@@ -10,6 +10,109 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
     {
         DSMarket.Data.Conexion.ConexionLINQ.BDConexionConfiguracionDataContext ObjData = new Data.Conexion.ConexionLINQ.BDConexionConfiguracionDataContext(System.Configuration.ConfigurationManager.ConnectionStrings["DSMarketConexion"].ConnectionString);
 
+        #region REPORTES CONTABLES
+        //GUARDAR LOS DATOS PARA EL RPEORTE DEL 606
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EGuardarDatosReporte606 GuardarDatosReporte606(DSMarket.Logica.Entidades.EntidadesConfiguracion.EGuardarDatosReporte606 Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesConfiguracion.EGuardarDatosReporte606 Guardar = null;
+
+            var DatosReporte606 = ObjData.SP_GUARDAR_DATOS_REPORTE_606(
+                Item.IdUsuario,
+                Item.IdCompraSuplidor,
+                Item.TipoSuplidor,
+                Item.IdSuplidor,
+                Item.Suplidor,
+                Item.RNCCedula,
+                Item.IdTipoIdentificacion,
+                Item.TipoIdentificacion,
+                Item.IdTipoBienesServicios,
+                Item.TipoBienesServicios,
+                Item.CodigoTipoBienesServicio,
+                Item.NCF,
+                Item.NCFMODIFICADO,
+                Item.FechaComprobante0,
+                Item.FechaComprobante,
+                Item.FechaPago0,
+                Item.FechaPago,
+                Item.MontoFacturadoServicios,
+                Item.MontoFacturadoBienes,
+                Item.TotalMontoFacturado,
+                Item.ITBISFacturado,
+                Item.ITBISRetenido,
+                Item.ITBISSujetoProporcionalidad,
+                Item.ITBISLlevadoCosto,
+                Item.ITBISPorAdelantar,
+                Item.ITBISPercibidoCompras,
+                Item.IdTipoRetencionISR,
+                Item.TipoRetencionISR,
+                Item.CodigoTipoRetencionISR,
+                Item.MontoRetencionRenta,
+                Item.ISRPercibidoCompras,
+                Item.ImpuestoSelectivoConsumo,
+                Item.OtrosImpuestosTasa,
+                Item.MontoPropinaLegal,
+                Item.IdFormaPago,
+                Item.FormaPago,
+                Item.CodigoTipoPago,
+                Item.UsuarioAdiciona,
+                Item.CreadoPor,
+                Item.FechaCreado0,
+                Item.FechaCreado,
+                Item.CantidadRegistros,
+                Accion);
+            if (DatosReporte606 != null) {
+
+                Guardar = (from n in DatosReporte606
+                           select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EGuardarDatosReporte606
+                           {
+                IdUsuario = n.IdUsuario,
+                IdCompraSuplidor = n.IdCompraSuplidor,
+                TipoSuplidor = n.TipoSuplidor,
+                IdSuplidor = n.IdSuplidor,
+                Suplidor = n.Suplidor,
+                RNCCedula = n.RNCCedula,
+                IdTipoIdentificacion = n.IdTipoIdentificacion,
+                TipoIdentificacion = n.TipoIdentificacion,
+                IdTipoBienesServicios = n.IdTipoBienesServicios,
+                TipoBienesServicios = n.TipoBienesServicios,
+                CodigoTipoBienesServicio = n.CodigoTipoBienesServicio,
+                NCF = n.NCF,
+                NCFMODIFICADO = n.NCFMODIFICADO,
+                FechaComprobante0 = n.FechaComprobante0,
+                FechaComprobante = n.FechaComprobante,
+                FechaPago0 = n.FechaPago0,
+                FechaPago = n.FechaPago,
+                MontoFacturadoServicios = n.MontoFacturadoServicios,
+                MontoFacturadoBienes = n.MontoFacturadoBienes,
+                TotalMontoFacturado = n.TotalMontoFacturado,
+                ITBISFacturado = n.ITBISFacturado,
+                ITBISRetenido = n.ITBISRetenido,
+                ITBISSujetoProporcionalidad = n.ITBISSujetoProporcionalidad,
+                ITBISLlevadoCosto = n.ITBISLlevadoCosto,
+                ITBISPorAdelantar = n.ITBISPorAdelantar,
+                ITBISPercibidoCompras = n.ITBISPercibidoCompras,
+                IdTipoRetencionISR = n.IdTipoRetencionISR,
+                TipoRetencionISR = n.TipoRetencionISR,
+                CodigoTipoRetencionISR = n.CodigoTipoRetencionISR,
+                MontoRetencionRenta = n.MontoRetencionRenta,
+                ISRPercibidoCompras = n.ISRPercibidoCompras,
+                ImpuestoSelectivoConsumo = n.ImpuestoSelectivoConsumo,
+                OtrosImpuestosTasa = n.OtrosImpuestosTasa,
+                MontoPropinaLegal = n.MontoPropinaLegal,
+                IdFormaPago = n.IdFormaPago,
+                FormaPago = n.FormaPago,
+                CodigoTipoPago = n.CodigoTipoPago,
+                UsuarioAdiciona = n.UsuarioAdiciona,
+                CreadoPor = n.CreadoPor,
+                FechaCreado0 = n.FechaCreado0,
+                FechaCreado = n.FechaCreado,
+                CantidadRegistros = n.CantidadRegistros
+                           }).FirstOrDefault();
+            }
+            return Guardar;
+        }
+        #endregion
         #region BUSCA LISTAS
         //BUSCA LISTAS
         public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EListas> BuscaListas(string NombreLista = null, string PrimerFiltro = null, string SegundoFiltro = null, string TerceFiltro = null, string CuartoFiltro = null, string QuintoFiltro = null)
@@ -775,7 +878,9 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             }
             return Guardar;
             #endregion
-           
+
+            
+
         }
     }
 }
