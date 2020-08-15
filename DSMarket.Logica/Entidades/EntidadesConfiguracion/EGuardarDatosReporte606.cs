@@ -11,6 +11,7 @@ namespace DSMarket.Logica.Entidades.EntidadesConfiguracion
         public System.Nullable<decimal> IdUsuario {get;set;}
 
         public System.Nullable<decimal> IdCompraSuplidor {get;set;}
+        public System.Nullable<decimal> IdTipoSuplidor { get; set; }
 
         public string TipoSuplidor {get;set;}
 

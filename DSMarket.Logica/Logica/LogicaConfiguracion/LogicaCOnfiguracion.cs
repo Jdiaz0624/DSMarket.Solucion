@@ -20,6 +20,7 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             var DatosReporte606 = ObjData.SP_GUARDAR_DATOS_REPORTE_606(
                 Item.IdUsuario,
                 Item.IdCompraSuplidor,
+                Item.IdTipoSuplidor,
                 Item.TipoSuplidor,
                 Item.IdSuplidor,
                 Item.Suplidor,
@@ -68,6 +69,7 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                            {
                 IdUsuario = n.IdUsuario,
                 IdCompraSuplidor = n.IdCompraSuplidor,
+                IdTipoSuplidor=n.IdTipoSuplidor,
                 TipoSuplidor = n.TipoSuplidor,
                 IdSuplidor = n.IdSuplidor,
                 Suplidor = n.Suplidor,

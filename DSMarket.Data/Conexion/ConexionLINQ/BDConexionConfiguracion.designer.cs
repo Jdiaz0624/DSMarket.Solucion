@@ -339,6 +339,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		public ISingleResult<SP_GUARDAR_DATOS_REPORTE_606Result> SP_GUARDAR_DATOS_REPORTE_606(
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Decimal(20,0)")] System.Nullable<decimal> idUsuario, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdCompraSuplidor", DbType="Decimal(20,0)")] System.Nullable<decimal> idCompraSuplidor, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoSuplidor", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoSuplidor, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TipoSuplidor", DbType="VarChar(100)")] string tipoSuplidor, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdSuplidor", DbType="Decimal(20,0)")] System.Nullable<decimal> idSuplidor, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Suplidor", DbType="VarChar(100)")] string suplidor, 
@@ -381,7 +382,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CantidadRegistros", DbType="Decimal(20,0)")] System.Nullable<decimal> cantidadRegistros, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, idCompraSuplidor, tipoSuplidor, idSuplidor, suplidor, rNCCedula, idTipoIdentificacion, tipoIdentificacion, idTipoBienesServicios, tipoBienesServicios, codigoTipoBienesServicio, nCF, nCFMODIFICADO, fechaComprobante0, fechaComprobante, fechaPago0, fechaPago, montoFacturadoServicios, montoFacturadoBienes, totalMontoFacturado, iTBISFacturado, iTBISRetenido, iTBISSujetoProporcionalidad, iTBISLlevadoCosto, iTBISPorAdelantar, iTBISPercibidoCompras, idTipoRetencionISR, tipoRetencionISR, codigoTipoRetencionISR, montoRetencionRenta, iSRPercibidoCompras, impuestoSelectivoConsumo, otrosImpuestosTasa, montoPropinaLegal, idFormaPago, formaPago, codigoTipoPago, usuarioAdiciona, creadoPor, fechaCreado0, fechaCreado, cantidadRegistros, accion);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, idCompraSuplidor, idTipoSuplidor, tipoSuplidor, idSuplidor, suplidor, rNCCedula, idTipoIdentificacion, tipoIdentificacion, idTipoBienesServicios, tipoBienesServicios, codigoTipoBienesServicio, nCF, nCFMODIFICADO, fechaComprobante0, fechaComprobante, fechaPago0, fechaPago, montoFacturadoServicios, montoFacturadoBienes, totalMontoFacturado, iTBISFacturado, iTBISRetenido, iTBISSujetoProporcionalidad, iTBISLlevadoCosto, iTBISPorAdelantar, iTBISPercibidoCompras, idTipoRetencionISR, tipoRetencionISR, codigoTipoRetencionISR, montoRetencionRenta, iSRPercibidoCompras, impuestoSelectivoConsumo, otrosImpuestosTasa, montoPropinaLegal, idFormaPago, formaPago, codigoTipoPago, usuarioAdiciona, creadoPor, fechaCreado0, fechaCreado, cantidadRegistros, accion);
 			return ((ISingleResult<SP_GUARDAR_DATOS_REPORTE_606Result>)(result.ReturnValue));
 		}
 	}
@@ -4455,6 +4456,8 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		
 		private System.Nullable<decimal> _IdCompraSuplidor;
 		
+		private System.Nullable<decimal> _IdTipoSuplidor;
+		
 		private string _TipoSuplidor;
 		
 		private System.Nullable<decimal> _IdSuplidor;
@@ -4567,6 +4570,22 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._IdCompraSuplidor != value))
 				{
 					this._IdCompraSuplidor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoSuplidor", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdTipoSuplidor
+		{
+			get
+			{
+				return this._IdTipoSuplidor;
+			}
+			set
+			{
+				if ((this._IdTipoSuplidor != value))
+				{
+					this._IdTipoSuplidor = value;
 				}
 			}
 		}

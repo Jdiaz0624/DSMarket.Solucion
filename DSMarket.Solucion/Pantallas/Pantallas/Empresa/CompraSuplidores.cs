@@ -182,7 +182,67 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
 
         private void Button1_Click_1(object sender, EventArgs e)
         {
-            if (rbPorPantalla.Checked == true) { }
+            if (rbPorPantalla.Checked == true) {
+                string _RNC = string.IsNullOrEmpty(txtRNC.Text.Trim()) ? null : txtRNC.Text.Trim();
+                var SacarCantidadRegistros = ObjdataEmpresa.Value.BuscaCompraSuplidores(
+                    new Nullable<decimal>(),
+                    null,
+                    null,
+                    _RNC,
+                    Convert.ToDateTime(txtFechaDesde.Text),
+                    Convert.ToDateTime(txtFechaHasta.Text),
+                    1, 999999999);
+                foreach (var Data in SacarCantidadRegistros)
+                {
+                    DSMarket.Logica.Comunes.ProcesarInformacionDataReporte606 Guardar = new Logica.Comunes.ProcesarInformacionDataReporte606(
+                        Variableslobales.IdUsuario,
+                        Convert.ToDecimal(Data.IdCompraSuplidor),
+                        Convert.ToDecimal(Data.IdTipoSuplidor),
+                        Data.TipoSuplidor,
+                        Convert.ToDecimal(Data.IdSuplidor),
+                        Data.Suplidor,
+                        Data.RNCCedula,
+                        Convert.ToDecimal(Data.IdTipoIdentificacion),
+                        Data.TipoIdentificacion,
+                        Convert.ToDecimal(Data.IdTipoBienesServicios),
+                        Data.TipoBienesServicios,
+                        Data.CodigoTipoBienesServicio,
+                        Data.NCF,
+                        Data.NCFModificado,
+                        Convert.ToDateTime(Data.FechaComprobante0),
+                        Data.FechaComprobante,
+                        Convert.ToDateTime(Data.FechaPago0),
+                        Data.FechaPago,
+                        Convert.ToDecimal(Data.MontoFacturadoServicios),
+                        Convert.ToDecimal(Data.MontoFacturadoBienes),
+                        Convert.ToDecimal(Data.TotalMontoFacturado),
+                        Convert.ToDecimal(Data.ITBISFacturado),
+                        Convert.ToDecimal(Data.ITBISRetenido),
+                        Convert.ToDecimal(Data.ITBISSujetoProporcionalidad),
+                        Convert.ToDecimal(Data.ITBISLlevadoCosto),
+                        Convert.ToDecimal(Data.ITBISPorAdelantar),
+                        Convert.ToDecimal(Data.ITBISPercibidoCompras),
+                        Convert.ToDecimal(Data.IdTipoRetencionISR),
+                        Data.TipoRetencionISR,
+                        Data.CodigoTipoRetencionISR,
+                        Convert.ToDecimal(Data.MontoRetencionRenta),
+                        Convert.ToDecimal(Data.ISRPercibidoCompras),
+                        Convert.ToDecimal(Data.ImpuestoSelectivoConsumo),
+                        Convert.ToDecimal(Data.OtrosImpuestosTasa),
+                        Convert.ToDecimal(Data.MontoPropinaLegal),
+                        Convert.ToDecimal(Data.IdFormaPago),
+                        Data.FormaPago,
+                        Data.CodigoTipoPago,
+                        Convert.ToDecimal(Data.UsuarioAdiciona),
+                        Data.CreadoPor,
+                        Convert.ToDateTime(Data.FechaCreado0),
+                        Data.FechaCreado,
+                        Convert.ToDecimal(Data.CantidadRegistros),
+                        "INSERT");
+                    Guardar.ProcesarInformacionReporte606();
+                }
+
+            }
             else if (rbEntxt.Checked == true) {
                 string RutaArchivo = "";
 

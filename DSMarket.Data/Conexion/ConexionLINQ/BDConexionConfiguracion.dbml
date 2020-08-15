@@ -495,6 +495,7 @@
   <Function Name="Reporte.SP_GUARDAR_DATOS_REPORTE_606" Method="SP_GUARDAR_DATOS_REPORTE_606">
     <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="IdCompraSuplidor" Parameter="idCompraSuplidor" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdTipoSuplidor" Parameter="idTipoSuplidor" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="TipoSuplidor" Parameter="tipoSuplidor" Type="System.String" DbType="VarChar(100)" />
     <Parameter Name="IdSuplidor" Parameter="idSuplidor" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="Suplidor" Parameter="suplidor" Type="System.String" DbType="VarChar(100)" />
@@ -539,6 +540,7 @@
     <ElementType Name="SP_GUARDAR_DATOS_REPORTE_606Result">
       <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="IdCompraSuplidor" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdTipoSuplidor" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="TipoSuplidor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="IdSuplidor" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="Suplidor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
