@@ -82,6 +82,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.BackColor = SystemColors.Control;
 
             txtdescripcion.BackColor = Color.WhiteSmoke;
+            txtNumeroSeguimiento.BackColor = Color.WhiteSmoke;
             txtCodigoBarra.BackColor = Color.WhiteSmoke;
             txtReferencia.BackColor = Color.WhiteSmoke;
             txtNumeroPagina.BackColor = Color.WhiteSmoke;
@@ -101,6 +102,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             ddlSeleccionarMarca.ForeColor = Color.Black;
             ddlSeleccionarModelo.ForeColor = Color.Black;
             ddlSeleccionarTipoProducto.ForeColor = Color.Black;
+            txtNumeroSeguimiento.ForeColor = Color.Black;
             ddlSeleccionarUnidadMedida.ForeColor = Color.Black;
 
             dtListado.BackgroundColor = SystemColors.Control;
@@ -1832,6 +1834,54 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             else {
                 lbClaveSeguridad.Visible = false;
                 txtClaveSeguridad.Visible = false;
+            }
+        }
+
+        private void Txtdescripcion_TextChanged(object sender, EventArgs e)
+        {
+            if (cbProductosVendidosDescartados.Checked == true)
+            {
+                MostrarListadoProductosVendidosDescartados();
+            }
+            else
+            {
+                MostrarListadoProducto();
+            }
+        }
+
+        private void TxtCodigoBarra_TextChanged(object sender, EventArgs e)
+        {
+            if (cbProductosVendidosDescartados.Checked == true)
+            {
+                MostrarListadoProductosVendidosDescartados();
+            }
+            else
+            {
+                MostrarListadoProducto();
+            }
+        }
+
+        private void TxtReferencia_TextChanged(object sender, EventArgs e)
+        {
+            if (cbProductosVendidosDescartados.Checked == true)
+            {
+                MostrarListadoProductosVendidosDescartados();
+            }
+            else
+            {
+                MostrarListadoProducto();
+            }
+        }
+
+        private void TxtNumeroSeguimiento_TextChanged(object sender, EventArgs e)
+        {
+            if (cbProductosVendidosDescartados.Checked == true)
+            {
+                MostrarListadoProductosVendidosDescartados();
+            }
+            else
+            {
+                MostrarListadoProducto();
             }
         }
     }

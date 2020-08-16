@@ -59,6 +59,7 @@
     <Compile Include="Comunes\ProcesarHistorialCaja.cs" />
     <Compile Include="Comunes\ProcesarInformacionCompraSuplidores.cs" />
     <Compile Include="Comunes\ProcesarInformacionDataReporte606.cs" />
+    <Compile Include="Comunes\ProcesarInformacionModificarConfiguracionGeneral.cs" />
     <Compile Include="Comunes\ProcesarMontoInicialCaja.cs" />
     <Compile Include="Comunes\ProcesarProductosDefectuosos.cs" />
     <Compile Include="Comunes\ProcesarRegistrosReporteProductosDefectuosos.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Entidades\EntidadesConfiguracion\EListas.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EMail.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EMantenimientoComprobantes.cs" />
+    <Compile Include="Entidades\EntidadesConfiguracion\EModificarConfiguracionGeneral.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EModificarImpuestoVenta.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EProcesarInformacionGanancia.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EProcesarReporteCuadreCaja.cs" />

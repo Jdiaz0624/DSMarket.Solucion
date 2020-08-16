@@ -883,10 +883,35 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
 
             }
             return Guardar;
-            #endregion
+           
 
             
 
         }
+        #endregion
+        #region MODIFICAR LA CONFIGURACION GENERAL
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EModificarConfiguracionGeneral ModificarConfiguracionGeneral(DSMarket.Logica.Entidades.EntidadesConfiguracion.EModificarConfiguracionGeneral Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesConfiguracion.EModificarConfiguracionGeneral Modificar = null;
+
+            var ConfiguracionGeneral = ObjData.SP_MODIFICAR_CONFIGURACION_GENERAL(
+                Item.IdConfiguracionGeneral,
+                Item.Descripcion,
+                Item.Estatus,
+                Accion);
+            if (ConfiguracionGeneral != null) {
+                Modificar = (from n in ConfiguracionGeneral
+                             select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EModificarConfiguracionGeneral
+                             {
+                                 IdConfiguracionGeneral=n.IdConfiguracionGeneral,
+                                 Descripcion=n.Descripcion,
+                                 Estatus=n.Estatus
+                             }).FirstOrDefault();
+                
+            }
+            return Modificar;
+        }
+        #endregion
     }
 }

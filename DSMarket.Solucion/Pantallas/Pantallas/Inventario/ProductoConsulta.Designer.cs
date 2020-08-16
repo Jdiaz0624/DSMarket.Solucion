@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
@@ -45,6 +45,8 @@
             this.cbTodoHistorial = new System.Windows.Forms.CheckBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbNumeroSeguimiento = new System.Windows.Forms.Label();
+            this.txtNumeroSeguimiento = new System.Windows.Forms.TextBox();
             this.cbProductosVendidosDescartados = new System.Windows.Forms.CheckBox();
             this.btnRestablecer = new System.Windows.Forms.Button();
             this.btnOferta = new System.Windows.Forms.Button();
@@ -98,8 +100,6 @@
             this.lbProductosAgotados = new System.Windows.Forms.Label();
             this.lbClaveSeguridad = new System.Windows.Forms.Label();
             this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
-            this.lbNumeroSeguimiento = new System.Windows.Forms.Label();
-            this.txtNumeroSeguimiento = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel2.SuspendLayout();
@@ -343,6 +343,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de producto";
             this.toolTip1.SetToolTip(this.groupBox1, "Filtrar de manera precisa");
+            // 
+            // lbNumeroSeguimiento
+            // 
+            this.lbNumeroSeguimiento.AutoSize = true;
+            this.lbNumeroSeguimiento.Location = new System.Drawing.Point(18, 57);
+            this.lbNumeroSeguimiento.Name = "lbNumeroSeguimiento";
+            this.lbNumeroSeguimiento.Size = new System.Drawing.Size(158, 20);
+            this.lbNumeroSeguimiento.TabIndex = 74;
+            this.lbNumeroSeguimiento.Text = "Numro Seguimiento";
+            // 
+            // txtNumeroSeguimiento
+            // 
+            this.txtNumeroSeguimiento.BackColor = System.Drawing.Color.Silver;
+            this.txtNumeroSeguimiento.Location = new System.Drawing.Point(182, 50);
+            this.txtNumeroSeguimiento.Name = "txtNumeroSeguimiento";
+            this.txtNumeroSeguimiento.Size = new System.Drawing.Size(274, 27);
+            this.txtNumeroSeguimiento.TabIndex = 73;
+            this.txtNumeroSeguimiento.TextChanged += new System.EventHandler(this.TxtNumeroSeguimiento_TextChanged);
             // 
             // cbProductosVendidosDescartados
             // 
@@ -653,6 +671,7 @@
             this.txtReferencia.Name = "txtReferencia";
             this.txtReferencia.Size = new System.Drawing.Size(274, 27);
             this.txtReferencia.TabIndex = 6;
+            this.txtReferencia.TextChanged += new System.EventHandler(this.TxtReferencia_TextChanged);
             // 
             // label2
             // 
@@ -670,6 +689,7 @@
             this.txtCodigoBarra.Name = "txtCodigoBarra";
             this.txtCodigoBarra.Size = new System.Drawing.Size(274, 27);
             this.txtCodigoBarra.TabIndex = 4;
+            this.txtCodigoBarra.TextChanged += new System.EventHandler(this.TxtCodigoBarra_TextChanged);
             // 
             // label1
             // 
@@ -687,6 +707,7 @@
             this.txtdescripcion.Name = "txtdescripcion";
             this.txtdescripcion.Size = new System.Drawing.Size(274, 27);
             this.txtdescripcion.TabIndex = 0;
+            this.txtdescripcion.TextChanged += new System.EventHandler(this.Txtdescripcion_TextChanged);
             // 
             // btnProductosDefectuosos
             // 
@@ -763,21 +784,21 @@
             // 
             this.dtListado.AllowUserToAddRows = false;
             this.dtListado.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtListado.BackgroundColor = System.Drawing.Color.LightGray;
             this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Select});
@@ -960,23 +981,6 @@
             this.txtClaveSeguridad.Size = new System.Drawing.Size(226, 27);
             this.txtClaveSeguridad.TabIndex = 73;
             this.txtClaveSeguridad.Visible = false;
-            // 
-            // lbNumeroSeguimiento
-            // 
-            this.lbNumeroSeguimiento.AutoSize = true;
-            this.lbNumeroSeguimiento.Location = new System.Drawing.Point(18, 57);
-            this.lbNumeroSeguimiento.Name = "lbNumeroSeguimiento";
-            this.lbNumeroSeguimiento.Size = new System.Drawing.Size(158, 20);
-            this.lbNumeroSeguimiento.TabIndex = 74;
-            this.lbNumeroSeguimiento.Text = "Numro Seguimiento";
-            // 
-            // txtNumeroSeguimiento
-            // 
-            this.txtNumeroSeguimiento.BackColor = System.Drawing.Color.Silver;
-            this.txtNumeroSeguimiento.Location = new System.Drawing.Point(182, 50);
-            this.txtNumeroSeguimiento.Name = "txtNumeroSeguimiento";
-            this.txtNumeroSeguimiento.Size = new System.Drawing.Size(274, 27);
-            this.txtNumeroSeguimiento.TabIndex = 73;
             // 
             // ProductoConsulta
             // 

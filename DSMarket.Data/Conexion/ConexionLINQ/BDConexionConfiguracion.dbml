@@ -587,4 +587,15 @@
       <Column Name="ValidadoHasta" Type="System.DateTime" DbType="Date" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Configuracion.SP_MODIFICAR_CONFIGURACION_GENERAL" Method="SP_MODIFICAR_CONFIGURACION_GENERAL">
+    <Parameter Name="IdConfiguracionGeneral" Parameter="idConfiguracionGeneral" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="Estatus" Parameter="estatus" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_MODIFICAR_CONFIGURACION_GENERALResult">
+      <Column Name="IdConfiguracionGeneral" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Estatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

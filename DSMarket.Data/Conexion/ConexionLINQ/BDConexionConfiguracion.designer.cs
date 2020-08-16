@@ -387,6 +387,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, idCompraSuplidor, idTipoSuplidor, tipoSuplidor, idSuplidor, suplidor, rNCCedula, idTipoIdentificacion, tipoIdentificacion, idTipoBienesServicios, tipoBienesServicios, codigoTipoBienesServicio, nCF, nCFMODIFICADO, fechaComprobante0, fechaComprobante, fechaPago0, fechaPago, montoFacturadoServicios, montoFacturadoBienes, totalMontoFacturado, iTBISFacturado, iTBISRetenido, iTBISSujetoProporcionalidad, iTBISLlevadoCosto, iTBISPorAdelantar, iTBISPercibidoCompras, idTipoRetencionISR, tipoRetencionISR, codigoTipoRetencionISR, montoRetencionRenta, iSRPercibidoCompras, impuestoSelectivoConsumo, otrosImpuestosTasa, montoPropinaLegal, idFormaPago, formaPago, codigoTipoPago, usuarioAdiciona, creadoPor, fechaCreado0, fechaCreado, cantidadRegistros, validadoDesde, validadoHasta, accion);
 			return ((ISingleResult<SP_GUARDAR_DATOS_REPORTE_606Result>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Configuracion.SP_MODIFICAR_CONFIGURACION_GENERAL")]
+		public ISingleResult<SP_MODIFICAR_CONFIGURACION_GENERALResult> SP_MODIFICAR_CONFIGURACION_GENERAL([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdConfiguracionGeneral", DbType="Int")] System.Nullable<int> idConfiguracionGeneral, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Descripcion", DbType="VarChar(200)")] string descripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Estatus", DbType="Bit")] System.Nullable<bool> estatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idConfiguracionGeneral, descripcion, estatus, accion);
+			return ((ISingleResult<SP_MODIFICAR_CONFIGURACION_GENERALResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_BUSCA_LISTASResult
@@ -5264,6 +5271,68 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._ValidadoHasta != value))
 				{
 					this._ValidadoHasta = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_MODIFICAR_CONFIGURACION_GENERALResult
+	{
+		
+		private System.Nullable<int> _IdConfiguracionGeneral;
+		
+		private string _Descripcion;
+		
+		private System.Nullable<bool> _Estatus;
+		
+		public SP_MODIFICAR_CONFIGURACION_GENERALResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdConfiguracionGeneral", DbType="Int")]
+		public System.Nullable<int> IdConfiguracionGeneral
+		{
+			get
+			{
+				return this._IdConfiguracionGeneral;
+			}
+			set
+			{
+				if ((this._IdConfiguracionGeneral != value))
+				{
+					this._IdConfiguracionGeneral = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(200)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="Bit")]
+		public System.Nullable<bool> Estatus
+		{
+			get
+			{
+				return this._Estatus;
+			}
+			set
+			{
+				if ((this._Estatus != value))
+				{
+					this._Estatus = value;
 				}
 			}
 		}
