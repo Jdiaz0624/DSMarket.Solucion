@@ -92,5 +92,9 @@ namespace DSMarket.Logica.Entidades.EntidadesConfiguracion
         public string FechaCreado {get;set;}
 
         public System.Nullable<decimal> CantidadRegistros {get;set;}
+
+        public System.Nullable<System.DateTime> ValidadoDesde { get; set; }
+
+        public System.Nullable<System.DateTime> ValidadoHasta { get; set; }
     }
 }

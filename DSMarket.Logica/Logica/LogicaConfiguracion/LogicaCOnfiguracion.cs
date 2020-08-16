@@ -61,6 +61,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                 Item.FechaCreado0,
                 Item.FechaCreado,
                 Item.CantidadRegistros,
+                Item.ValidadoDesde,
+                Item.ValidadoHasta,
                 Accion);
             if (DatosReporte606 != null) {
 
@@ -109,7 +111,9 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                 CreadoPor = n.CreadoPor,
                 FechaCreado0 = n.FechaCreado0,
                 FechaCreado = n.FechaCreado,
-                CantidadRegistros = n.CantidadRegistros
+                CantidadRegistros = n.CantidadRegistros,
+                ValidadoDesde=n.ValidadoDesde,
+                ValidadoHasta=n.ValidadoHasta
                            }).FirstOrDefault();
             }
             return Guardar;

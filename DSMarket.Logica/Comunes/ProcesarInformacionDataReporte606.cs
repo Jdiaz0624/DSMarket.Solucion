@@ -54,6 +54,8 @@ namespace DSMarket.Logica.Comunes
         private DateTime FechaCreado0 = DateTime.Now;
         private string FechaCreado = "";
         private decimal CantidadRegistros = 0;
+        private DateTime ValidadoDesde = DateTime.Now;
+        private DateTime ValidadoHasta = DateTime.Now;
         private string Accion = "";
 
         //CREAMOS UN CONSTUTRUCTOR PARA PASARLE LOS DATOS A LAS VARIABLES
@@ -101,6 +103,8 @@ namespace DSMarket.Logica.Comunes
               DateTime FechaCreado0CON,
               string FechaCreadoCON,
               decimal CantidadRegistrosCON,
+              DateTime ValidadoDesdeCON,
+              DateTime ValidadoHastaCON,
               string AccionCON
             )
         {
@@ -147,6 +151,8 @@ namespace DSMarket.Logica.Comunes
             FechaCreado0 = FechaCreado0CON;
             FechaCreado = FechaCreadoCON;
             CantidadRegistros = CantidadRegistrosCON;
+            ValidadoDesde = ValidadoDesdeCON;
+            ValidadoHasta = ValidadoHastaCON;
             Accion = AccionCON;
     }
         public void ProcesarInformacionReporte606() {
@@ -195,7 +201,8 @@ namespace DSMarket.Logica.Comunes
             Procesar.FechaCreado0 = FechaCreado0;
             Procesar.FechaCreado = FechaCreado;
             Procesar.CantidadRegistros = CantidadRegistros;
-
+            Procesar.ValidadoDesde = ValidadoDesde;
+            Procesar.ValidadoHasta = ValidadoHasta;
             var MAN = GuardarDatosReporte606(Procesar, Accion);
 
 

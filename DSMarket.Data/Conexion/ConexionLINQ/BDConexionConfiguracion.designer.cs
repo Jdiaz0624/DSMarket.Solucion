@@ -33,7 +33,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
     #endregion
 		
 		public BDConexionConfiguracionDataContext() : 
-				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString, mappingSource)
+				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString4, mappingSource)
 		{
 			OnCreated();
 		}
@@ -380,9 +380,11 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaCreado0", DbType="Date")] System.Nullable<System.DateTime> fechaCreado0, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaCreado", DbType="VarChar(100)")] string fechaCreado, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CantidadRegistros", DbType="Decimal(20,0)")] System.Nullable<decimal> cantidadRegistros, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ValidadoDesde", DbType="Date")] System.Nullable<System.DateTime> validadoDesde, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ValidadoHasta", DbType="Date")] System.Nullable<System.DateTime> validadoHasta, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, idCompraSuplidor, idTipoSuplidor, tipoSuplidor, idSuplidor, suplidor, rNCCedula, idTipoIdentificacion, tipoIdentificacion, idTipoBienesServicios, tipoBienesServicios, codigoTipoBienesServicio, nCF, nCFMODIFICADO, fechaComprobante0, fechaComprobante, fechaPago0, fechaPago, montoFacturadoServicios, montoFacturadoBienes, totalMontoFacturado, iTBISFacturado, iTBISRetenido, iTBISSujetoProporcionalidad, iTBISLlevadoCosto, iTBISPorAdelantar, iTBISPercibidoCompras, idTipoRetencionISR, tipoRetencionISR, codigoTipoRetencionISR, montoRetencionRenta, iSRPercibidoCompras, impuestoSelectivoConsumo, otrosImpuestosTasa, montoPropinaLegal, idFormaPago, formaPago, codigoTipoPago, usuarioAdiciona, creadoPor, fechaCreado0, fechaCreado, cantidadRegistros, accion);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, idCompraSuplidor, idTipoSuplidor, tipoSuplidor, idSuplidor, suplidor, rNCCedula, idTipoIdentificacion, tipoIdentificacion, idTipoBienesServicios, tipoBienesServicios, codigoTipoBienesServicio, nCF, nCFMODIFICADO, fechaComprobante0, fechaComprobante, fechaPago0, fechaPago, montoFacturadoServicios, montoFacturadoBienes, totalMontoFacturado, iTBISFacturado, iTBISRetenido, iTBISSujetoProporcionalidad, iTBISLlevadoCosto, iTBISPorAdelantar, iTBISPercibidoCompras, idTipoRetencionISR, tipoRetencionISR, codigoTipoRetencionISR, montoRetencionRenta, iSRPercibidoCompras, impuestoSelectivoConsumo, otrosImpuestosTasa, montoPropinaLegal, idFormaPago, formaPago, codigoTipoPago, usuarioAdiciona, creadoPor, fechaCreado0, fechaCreado, cantidadRegistros, validadoDesde, validadoHasta, accion);
 			return ((ISingleResult<SP_GUARDAR_DATOS_REPORTE_606Result>)(result.ReturnValue));
 		}
 	}
@@ -4538,6 +4540,10 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		
 		private System.Nullable<decimal> _CantidadRegistros;
 		
+		private System.Nullable<System.DateTime> _ValidadoDesde;
+		
+		private System.Nullable<System.DateTime> _ValidadoHasta;
+		
 		public SP_GUARDAR_DATOS_REPORTE_606Result()
 		{
 		}
@@ -5226,6 +5232,38 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._CantidadRegistros != value))
 				{
 					this._CantidadRegistros = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ValidadoDesde", DbType="Date")]
+		public System.Nullable<System.DateTime> ValidadoDesde
+		{
+			get
+			{
+				return this._ValidadoDesde;
+			}
+			set
+			{
+				if ((this._ValidadoDesde != value))
+				{
+					this._ValidadoDesde = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ValidadoHasta", DbType="Date")]
+		public System.Nullable<System.DateTime> ValidadoHasta
+		{
+			get
+			{
+				return this._ValidadoHasta;
+			}
+			set
+			{
+				if ((this._ValidadoHasta != value))
+				{
+					this._ValidadoHasta = value;
 				}
 			}
 		}

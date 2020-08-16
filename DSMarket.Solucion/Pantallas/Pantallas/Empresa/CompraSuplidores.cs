@@ -18,6 +18,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
         }
         Lazy<DSMarket.Logica.Logica.LogicaEmpresa.LogicaEmpresa> ObjdataEmpresa = new Lazy<Logica.Logica.LogicaEmpresa.LogicaEmpresa>();
         Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
+        Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjdataSeguriad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
         public DSMarket.Logica.Comunes.VariablesGlobales Variableslobales = new Logica.Comunes.VariablesGlobales();
 
         #region MOSTRAR EL LISTADO DE LAS COMPRAS DE SUPLIDORES
@@ -183,6 +184,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
         private void Button1_Click_1(object sender, EventArgs e)
         {
             if (rbPorPantalla.Checked == true) {
+
+                //ELIMINAMOS EL REGISTRO
+                DSMarket.Logica.Comunes.ProcesarInformacionDataReporte606 Eliminar = new Logica.Comunes.ProcesarInformacionDataReporte606(
+                        Variableslobales.IdUsuario,0,0,"",0,"","",0,"",0,"","","","",DateTime.Now,"",DateTime.Now,"",0,0,0,0,0,0,0,0,0,0,"","",0,0,0,0,0,0,"","",0,"",DateTime.Now,"",0,DateTime.Now,DateTime.Now, "DELETE");
+                Eliminar.ProcesarInformacionReporte606();
+
+
                 string _RNC = string.IsNullOrEmpty(txtRNC.Text.Trim()) ? null : txtRNC.Text.Trim();
                 var SacarCantidadRegistros = ObjdataEmpresa.Value.BuscaCompraSuplidores(
                     new Nullable<decimal>(),
@@ -238,10 +246,39 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
                         Convert.ToDateTime(Data.FechaCreado0),
                         Data.FechaCreado,
                         Convert.ToDecimal(Data.CantidadRegistros),
+                        Convert.ToDateTime(txtFechaDesde.Text),
+                        Convert.ToDateTime(txtFechaHasta.Text),
                         "INSERT");
                     Guardar.ProcesarInformacionReporte606();
                 }
 
+
+                //INVOCAMOS EL REPORTE FISICO DEL 606
+                string RutaReporte = "";
+                string UsuarioBD = "";
+                string ClaveBD = "";
+
+                //SACAMOS LA RUTA DEL REPORTE
+                var SacarRutareporte = ObjDataConfiguracion.Value.BuscaRutaReporte(10);
+                foreach (var nruta in SacarRutareporte) {
+                    RutaReporte = nruta.RutaReporte;
+                }
+
+                //VAR SACAR CREDENCIALES
+                var SacarCredencialesBD = ObjdataSeguriad.Value.SacarCredencialBD(1);
+                foreach (var ncredenciales in SacarCredencialesBD) {
+                    UsuarioBD = ncredenciales.Usuario;
+                    ClaveBD = DSMarket.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(ncredenciales.Clave);
+                }
+
+                //INVOCAMOS EL REPORTE
+                DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes Reporte606 = new Reportes.Reportes();
+                Reporte606.GenerarReporte606(
+                    Variableslobales.IdUsuario,
+                    RutaReporte,
+                    UsuarioBD,
+                    ClaveBD);
+                Reporte606.ShowDialog();
             }
             else if (rbEntxt.Checked == true) {
                 string RutaArchivo = "";
