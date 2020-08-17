@@ -34,14 +34,15 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.gbOpciones = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnReporteClientes = new System.Windows.Forms.Button();
             this.btnReporteComprobantesFiscales = new System.Windows.Forms.Button();
             this.btnReporteCotizaciones = new System.Windows.Forms.Button();
             this.btnReporteEmpleados = new System.Windows.Forms.Button();
             this.btnReporteInventario = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.lbIdUsuario = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -52,6 +53,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.lbIdUsuario);
             this.panel1.Controls.Add(this.PCerrar);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.lbTitulo);
@@ -115,6 +117,21 @@
             this.gbOpciones.TabIndex = 17;
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Reportes - Seleccionar Opcion";
+            // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(316, 114);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(308, 41);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Reporte DGII";
+            this.toolTip1.SetToolTip(this.button1, "Gererar los reportes de la DGII");
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // btnCerrar
             // 
@@ -198,19 +215,16 @@
             this.btnReporteInventario.Text = "Reporte de Productos";
             this.btnReporteInventario.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // lbIdUsuario
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(316, 114);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(308, 41);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Reporte DGII";
-            this.toolTip1.SetToolTip(this.button1, "Gererar los reportes de la DGII");
-            this.button1.UseVisualStyleBackColor = true;
+            this.lbIdUsuario.AutoSize = true;
+            this.lbIdUsuario.Location = new System.Drawing.Point(350, 18);
+            this.lbIdUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbIdUsuario.Name = "lbIdUsuario";
+            this.lbIdUsuario.Size = new System.Drawing.Size(54, 20);
+            this.lbIdUsuario.TabIndex = 17;
+            this.lbIdUsuario.Text = "label6";
+            this.lbIdUsuario.Visible = false;
             // 
             // Reportes
             // 
@@ -251,5 +265,6 @@
         private System.Windows.Forms.PictureBox PCerrar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label lbIdUsuario;
     }
 }

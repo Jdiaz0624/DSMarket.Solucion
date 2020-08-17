@@ -36,6 +36,9 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnRestablecer = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.rbPorPantalla = new System.Windows.Forms.RadioButton();
+            this.rbEntxt = new System.Windows.Forms.RadioButton();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -45,6 +48,8 @@
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtPeriodo = new System.Windows.Forms.DateTimePicker();
+            this.lbPeriodo = new System.Windows.Forms.Label();
             this.txtFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.txtFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -57,11 +62,6 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.lbCantidadRegistrosTitulo = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.rbPorPantalla = new System.Windows.Forms.RadioButton();
-            this.rbEntxt = new System.Windows.Forms.RadioButton();
-            this.txtPeriodo = new System.Windows.Forms.DateTimePicker();
-            this.lbPeriodo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -165,6 +165,54 @@
             this.toolTip1.SetToolTip(this.btnRestablecer, "Restablecer Pantalla");
             this.btnRestablecer.UseVisualStyleBackColor = true;
             this.btnRestablecer.Click += new System.EventHandler(this.Button1_Click);
+            // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = global::DSMarket.Solucion.Properties.Resources.Editar;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(883, 7);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(170, 41);
+            this.button1.TabIndex = 69;
+            this.button1.Text = "      606";
+            this.toolTip1.SetToolTip(this.button1, "Restablecer Pantalla");
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
+            // 
+            // rbPorPantalla
+            // 
+            this.rbPorPantalla.AutoSize = true;
+            this.rbPorPantalla.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbPorPantalla.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbPorPantalla.Location = new System.Drawing.Point(626, 19);
+            this.rbPorPantalla.Name = "rbPorPantalla";
+            this.rbPorPantalla.Size = new System.Drawing.Size(151, 25);
+            this.rbPorPantalla.TabIndex = 8;
+            this.rbPorPantalla.TabStop = true;
+            this.rbPorPantalla.Text = "606 Por Pantalla";
+            this.toolTip1.SetToolTip(this.rbPorPantalla, "Generar el archivo 606 por pantalla");
+            this.rbPorPantalla.UseVisualStyleBackColor = true;
+            this.rbPorPantalla.CheckedChanged += new System.EventHandler(this.RbPorPantalla_CheckedChanged);
+            // 
+            // rbEntxt
+            // 
+            this.rbEntxt.AutoSize = true;
+            this.rbEntxt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbEntxt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbEntxt.Location = new System.Drawing.Point(626, 48);
+            this.rbEntxt.Name = "rbEntxt";
+            this.rbEntxt.Size = new System.Drawing.Size(104, 25);
+            this.rbEntxt.TabIndex = 9;
+            this.rbEntxt.TabStop = true;
+            this.rbEntxt.Text = "606 en txt";
+            this.toolTip1.SetToolTip(this.rbEntxt, "Generar el reporte 606 en archivo txt");
+            this.rbEntxt.UseVisualStyleBackColor = true;
+            this.rbEntxt.CheckedChanged += new System.EventHandler(this.RbEntxt_CheckedChanged);
             // 
             // errorProvider1
             // 
@@ -290,6 +338,25 @@
             this.groupBox1.Text = "Compras - Filtro";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // txtPeriodo
+            // 
+            this.txtPeriodo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtPeriodo.Location = new System.Drawing.Point(892, 16);
+            this.txtPeriodo.Name = "txtPeriodo";
+            this.txtPeriodo.Size = new System.Drawing.Size(136, 27);
+            this.txtPeriodo.TabIndex = 11;
+            this.txtPeriodo.Visible = false;
+            // 
+            // lbPeriodo
+            // 
+            this.lbPeriodo.AutoSize = true;
+            this.lbPeriodo.Location = new System.Drawing.Point(818, 19);
+            this.lbPeriodo.Name = "lbPeriodo";
+            this.lbPeriodo.Size = new System.Drawing.Size(68, 21);
+            this.lbPeriodo.TabIndex = 10;
+            this.lbPeriodo.Text = "Periodo";
+            this.lbPeriodo.Visible = false;
+            // 
             // txtFechaHasta
             // 
             this.txtFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -409,72 +476,6 @@
             this.lbCantidadRegistrosTitulo.Size = new System.Drawing.Size(184, 21);
             this.lbCantidadRegistrosTitulo.TabIndex = 30;
             this.lbCantidadRegistrosTitulo.Text = "Cantidad de Registros";
-            // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = global::DSMarket.Solucion.Properties.Resources.Editar;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(883, 7);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(170, 41);
-            this.button1.TabIndex = 69;
-            this.button1.Text = "      606";
-            this.toolTip1.SetToolTip(this.button1, "Restablecer Pantalla");
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
-            // 
-            // rbPorPantalla
-            // 
-            this.rbPorPantalla.AutoSize = true;
-            this.rbPorPantalla.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbPorPantalla.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbPorPantalla.Location = new System.Drawing.Point(626, 19);
-            this.rbPorPantalla.Name = "rbPorPantalla";
-            this.rbPorPantalla.Size = new System.Drawing.Size(151, 25);
-            this.rbPorPantalla.TabIndex = 8;
-            this.rbPorPantalla.TabStop = true;
-            this.rbPorPantalla.Text = "606 Por Pantalla";
-            this.toolTip1.SetToolTip(this.rbPorPantalla, "Generar el archivo 606 por pantalla");
-            this.rbPorPantalla.UseVisualStyleBackColor = true;
-            this.rbPorPantalla.CheckedChanged += new System.EventHandler(this.RbPorPantalla_CheckedChanged);
-            // 
-            // rbEntxt
-            // 
-            this.rbEntxt.AutoSize = true;
-            this.rbEntxt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbEntxt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbEntxt.Location = new System.Drawing.Point(626, 48);
-            this.rbEntxt.Name = "rbEntxt";
-            this.rbEntxt.Size = new System.Drawing.Size(104, 25);
-            this.rbEntxt.TabIndex = 9;
-            this.rbEntxt.TabStop = true;
-            this.rbEntxt.Text = "606 en txt";
-            this.toolTip1.SetToolTip(this.rbEntxt, "Generar el reporte 606 en archivo txt");
-            this.rbEntxt.UseVisualStyleBackColor = true;
-            this.rbEntxt.CheckedChanged += new System.EventHandler(this.RbEntxt_CheckedChanged);
-            // 
-            // txtPeriodo
-            // 
-            this.txtPeriodo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtPeriodo.Location = new System.Drawing.Point(892, 16);
-            this.txtPeriodo.Name = "txtPeriodo";
-            this.txtPeriodo.Size = new System.Drawing.Size(136, 27);
-            this.txtPeriodo.TabIndex = 11;
-            this.txtPeriodo.Visible = false;
-            // 
-            // lbPeriodo
-            // 
-            this.lbPeriodo.AutoSize = true;
-            this.lbPeriodo.Location = new System.Drawing.Point(818, 19);
-            this.lbPeriodo.Name = "lbPeriodo";
-            this.lbPeriodo.Size = new System.Drawing.Size(68, 21);
-            this.lbPeriodo.TabIndex = 10;
-            this.lbPeriodo.Text = "Periodo";
-            this.lbPeriodo.Visible = false;
             // 
             // CompraSuplidores
             // 

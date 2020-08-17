@@ -21,11 +21,19 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         {
             lbTitulo.Text = "MODULO DE REPORTES";
             lbTitulo.ForeColor = Color.White;
+            lbIdUsuario.Text = DSMarket.Solucion.Pantallas.MenuPrincipal.MenuPrincipal.IdUsuarioMantenimientos.ToString();
         }
 
         private void PCerrar_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Reportes.ReportesDGII DGII = new Pantallas.Reportes.ReportesDGII();
+            DGII.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
+            DGII.ShowDialog();
         }
     }
 }
