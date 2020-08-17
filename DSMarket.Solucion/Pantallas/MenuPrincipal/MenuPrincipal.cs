@@ -125,9 +125,10 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
             btnServicio.Enabled = true;
             btnInventario.Enabled = true;
             btnCaja.Enabled = true;
-            btneEmpresa.Enabled = true;
+            btneEmpresa.Enabled = false;
             btnConfiguracion.Enabled = true;
             btnSeguridad.Enabled = true;
+            btnReportesSistema.Enabled = false;
 
             if (VariablesGlobales.IdNivelAcceso == 3) {
                 btnCaja.Enabled = false;

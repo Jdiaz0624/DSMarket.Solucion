@@ -103,6 +103,7 @@
             // btnRutaArchivotxt
             // 
             this.btnRutaArchivotxt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRutaArchivotxt.Enabled = false;
             this.btnRutaArchivotxt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRutaArchivotxt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRutaArchivotxt.Location = new System.Drawing.Point(198, 153);
