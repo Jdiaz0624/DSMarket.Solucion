@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Facturacion));
             this.gbGeneral = new System.Windows.Forms.GroupBox();
+            this.txtCantidadDiasGarantia = new System.Windows.Forms.NumericUpDown();
+            this.lbCantidadGarantia = new System.Windows.Forms.Label();
             this.txtImpuestoAdicional = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.cbEliminarfacturaMinimizada = new System.Windows.Forms.CheckBox();
@@ -113,9 +115,8 @@
             this.lbTitulo = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.lbCantidadGarantia = new System.Windows.Forms.Label();
-            this.txtCantidadDiasGarantia = new System.Windows.Forms.NumericUpDown();
             this.gbGeneral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCantidadDiasGarantia)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtFacturasMinimizadas)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -124,7 +125,6 @@
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCantidadDiasGarantia)).BeginInit();
             this.SuspendLayout();
             // 
             // gbGeneral
@@ -177,6 +177,31 @@
             this.gbGeneral.TabStop = false;
             this.gbGeneral.Text = "Datos de Facturación";
             this.gbGeneral.Enter += new System.EventHandler(this.gbGeneral_Enter);
+            // 
+            // txtCantidadDiasGarantia
+            // 
+            this.txtCantidadDiasGarantia.BackColor = System.Drawing.Color.LightGray;
+            this.txtCantidadDiasGarantia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtCantidadDiasGarantia.Location = new System.Drawing.Point(255, 266);
+            this.txtCantidadDiasGarantia.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.txtCantidadDiasGarantia.Name = "txtCantidadDiasGarantia";
+            this.txtCantidadDiasGarantia.Size = new System.Drawing.Size(83, 27);
+            this.txtCantidadDiasGarantia.TabIndex = 63;
+            this.txtCantidadDiasGarantia.ValueChanged += new System.EventHandler(this.txtNumeroPagina_ValueChanged);
+            // 
+            // lbCantidadGarantia
+            // 
+            this.lbCantidadGarantia.AutoSize = true;
+            this.lbCantidadGarantia.Location = new System.Drawing.Point(21, 268);
+            this.lbCantidadGarantia.Name = "lbCantidadGarantia";
+            this.lbCantidadGarantia.Size = new System.Drawing.Size(228, 20);
+            this.lbCantidadGarantia.TabIndex = 62;
+            this.lbCantidadGarantia.Text = "Cantidad de Dias de Garantia";
+            this.lbCantidadGarantia.Visible = false;
             // 
             // txtImpuestoAdicional
             // 
@@ -402,6 +427,7 @@
             this.ddlTipoVenta.Name = "ddlTipoVenta";
             this.ddlTipoVenta.Size = new System.Drawing.Size(127, 28);
             this.ddlTipoVenta.TabIndex = 29;
+            this.ddlTipoVenta.Visible = false;
             this.ddlTipoVenta.SelectedIndexChanged += new System.EventHandler(this.ddlTipoVenta_SelectedIndexChanged);
             // 
             // label22
@@ -412,6 +438,7 @@
             this.label22.Size = new System.Drawing.Size(112, 20);
             this.label22.TabIndex = 49;
             this.label22.Text = "Tipo de Venta";
+            this.label22.Visible = false;
             // 
             // txtCambio
             // 
@@ -1100,31 +1127,6 @@
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
             // 
-            // lbCantidadGarantia
-            // 
-            this.lbCantidadGarantia.AutoSize = true;
-            this.lbCantidadGarantia.Location = new System.Drawing.Point(21, 268);
-            this.lbCantidadGarantia.Name = "lbCantidadGarantia";
-            this.lbCantidadGarantia.Size = new System.Drawing.Size(228, 20);
-            this.lbCantidadGarantia.TabIndex = 62;
-            this.lbCantidadGarantia.Text = "Cantidad de Dias de Garantia";
-            this.lbCantidadGarantia.Visible = false;
-            // 
-            // txtCantidadDiasGarantia
-            // 
-            this.txtCantidadDiasGarantia.BackColor = System.Drawing.Color.LightGray;
-            this.txtCantidadDiasGarantia.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtCantidadDiasGarantia.Location = new System.Drawing.Point(255, 266);
-            this.txtCantidadDiasGarantia.Maximum = new decimal(new int[] {
-            999999999,
-            0,
-            0,
-            0});
-            this.txtCantidadDiasGarantia.Name = "txtCantidadDiasGarantia";
-            this.txtCantidadDiasGarantia.Size = new System.Drawing.Size(83, 27);
-            this.txtCantidadDiasGarantia.TabIndex = 63;
-            this.txtCantidadDiasGarantia.ValueChanged += new System.EventHandler(this.txtNumeroPagina_ValueChanged);
-            // 
             // Facturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -1146,6 +1148,7 @@
             this.Load += new System.EventHandler(this.Facturacion_Load);
             this.gbGeneral.ResumeLayout(false);
             this.gbGeneral.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCantidadDiasGarantia)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtFacturasMinimizadas)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -1156,7 +1159,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCantidadDiasGarantia)).EndInit();
             this.ResumeLayout(false);
 
         }

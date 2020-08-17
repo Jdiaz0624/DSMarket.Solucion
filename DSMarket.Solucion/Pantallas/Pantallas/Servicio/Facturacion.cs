@@ -1368,6 +1368,14 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             txtMontoPagar.Text = "0";
             CalcularCambio();
             ValidarConfiguracionGeneral();
+
+
+
+            cbAgregarCliente.Visible = false;
+            cbAgregarCliente.Checked = true;
+            cbBuscarPorCodigo.Visible = false;
+            txtCodigoConsulta.Visible = false;
+            btnBuscarCodigoCliente.Visible = false;
         }
 
         private void PCerrar_Click(object sender, EventArgs e)

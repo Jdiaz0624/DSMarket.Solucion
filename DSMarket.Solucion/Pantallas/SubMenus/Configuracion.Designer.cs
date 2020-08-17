@@ -30,8 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.gbOpciones = new System.Windows.Forms.GroupBox();
+            this.btnRutaArchivotxt = new System.Windows.Forms.Button();
             this.btnComfiguracionGeneral = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -41,11 +43,9 @@
             this.btnComprobantes = new System.Windows.Forms.Button();
             this.lbUsuario = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnRutaArchivotxt = new System.Windows.Forms.Button();
-            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            this.gbOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
+            this.gbOpciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -58,6 +58,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(603, 44);
             this.panel1.TabIndex = 18;
+            // 
+            // PCerrar
+            // 
+            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PCerrar.BackColor = System.Drawing.Color.Transparent;
+            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
+            this.PCerrar.Location = new System.Drawing.Point(562, 10);
+            this.PCerrar.Name = "PCerrar";
+            this.PCerrar.Size = new System.Drawing.Size(30, 30);
+            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PCerrar.TabIndex = 19;
+            this.PCerrar.TabStop = false;
+            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
             // 
             // lbTitulo
             // 
@@ -86,6 +100,20 @@
             this.gbOpciones.Text = "Configuración - Seleccionar Opcion";
             this.toolTip1.SetToolTip(this.gbOpciones, "Configurar la ruta donde se van a guardar los archivos txt");
             // 
+            // btnRutaArchivotxt
+            // 
+            this.btnRutaArchivotxt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRutaArchivotxt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRutaArchivotxt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRutaArchivotxt.Location = new System.Drawing.Point(198, 153);
+            this.btnRutaArchivotxt.Name = "btnRutaArchivotxt";
+            this.btnRutaArchivotxt.Size = new System.Drawing.Size(186, 56);
+            this.btnRutaArchivotxt.TabIndex = 14;
+            this.btnRutaArchivotxt.Text = "Ruta Archivo TXT";
+            this.toolTip1.SetToolTip(this.btnRutaArchivotxt, "Configuración General");
+            this.btnRutaArchivotxt.UseVisualStyleBackColor = true;
+            this.btnRutaArchivotxt.Click += new System.EventHandler(this.BtnRutaArchivotxt_Click);
+            // 
             // btnComfiguracionGeneral
             // 
             this.btnComfiguracionGeneral.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -98,6 +126,7 @@
             this.btnComfiguracionGeneral.Text = "General";
             this.toolTip1.SetToolTip(this.btnComfiguracionGeneral, "Configuración General");
             this.btnComfiguracionGeneral.UseVisualStyleBackColor = true;
+            this.btnComfiguracionGeneral.Click += new System.EventHandler(this.BtnComfiguracionGeneral_Click);
             // 
             // button3
             // 
@@ -193,34 +222,6 @@
             this.lbUsuario.Text = "label1";
             this.lbUsuario.Visible = false;
             // 
-            // btnRutaArchivotxt
-            // 
-            this.btnRutaArchivotxt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRutaArchivotxt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRutaArchivotxt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRutaArchivotxt.Location = new System.Drawing.Point(198, 153);
-            this.btnRutaArchivotxt.Name = "btnRutaArchivotxt";
-            this.btnRutaArchivotxt.Size = new System.Drawing.Size(186, 56);
-            this.btnRutaArchivotxt.TabIndex = 14;
-            this.btnRutaArchivotxt.Text = "Ruta Archivo TXT";
-            this.toolTip1.SetToolTip(this.btnRutaArchivotxt, "Configuración General");
-            this.btnRutaArchivotxt.UseVisualStyleBackColor = true;
-            this.btnRutaArchivotxt.Click += new System.EventHandler(this.BtnRutaArchivotxt_Click);
-            // 
-            // PCerrar
-            // 
-            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PCerrar.BackColor = System.Drawing.Color.Transparent;
-            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(562, 10);
-            this.PCerrar.Name = "PCerrar";
-            this.PCerrar.Size = new System.Drawing.Size(30, 30);
-            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PCerrar.TabIndex = 19;
-            this.PCerrar.TabStop = false;
-            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
-            // 
             // Configuracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -238,8 +239,8 @@
             this.Load += new System.EventHandler(this.Configuracion_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.gbOpciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
+            this.gbOpciones.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

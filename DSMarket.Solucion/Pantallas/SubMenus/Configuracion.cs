@@ -16,12 +16,14 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         {
             InitializeComponent();
         }
+        Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
+        public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         private void Configuracion_Load(object sender, EventArgs e)
         {
             lbTitulo.Text = "CONFIGURACION DEL SISTEMA";
             lbTitulo.ForeColor = Color.White;
-
+            VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
         }
 
         private void PCerrar_Click(object sender, EventArgs e)
@@ -37,8 +39,21 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
 
         private void btnComprobantes_Click(object sender, EventArgs e)
         {
-            DSMarket.Solucion.Pantallas.Pantallas.Configuracion.Comprobantes Comprobantes = new Pantallas.Configuracion.Comprobantes();
-            Comprobantes.ShowDialog();
+            bool UsoComprobante = false;
+
+            var SacarValidacion = ObjDataConfiguracion.Value.BuscaCOnfiguracionGeneral(1);
+            foreach (var n in SacarValidacion) {
+                UsoComprobante = Convert.ToBoolean(n.Estatus0);
+            }
+
+            if (UsoComprobante == true)
+            {
+                DSMarket.Solucion.Pantallas.Pantallas.Configuracion.Comprobantes Comprobantes = new Pantallas.Configuracion.Comprobantes();
+                Comprobantes.ShowDialog();
+            }
+            else {
+                MessageBox.Show("El uso de comprobantes fiscales esta desactivado, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
@@ -70,6 +85,12 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         {
             DSMarket.Solucion.Pantallas.Pantallas.Configuracion.ConfigurarRutaArchivotxt txt = new Pantallas.Configuracion.ConfigurarRutaArchivotxt();
             txt.ShowDialog();
+        }
+
+        private void BtnComfiguracionGeneral_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Configuracion.ModificarConfiguracionGeneral ConfiguracionGeneral = new Pantallas.Configuracion.ModificarConfiguracionGeneral();
+            ConfiguracionGeneral.ShowDialog();
         }
     }
 }

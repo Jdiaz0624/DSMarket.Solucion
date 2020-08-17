@@ -301,6 +301,7 @@
             this.EfectoIda.SetDecoration(this.btnReportesSistema, BunifuAnimatorNS.DecorationType.None);
             this.EfectoBotones.SetDecoration(this.btnReportesSistema, BunifuAnimatorNS.DecorationType.None);
             this.btnReportesSistema.DisabledColor = System.Drawing.Color.Gray;
+            this.btnReportesSistema.Enabled = false;
             this.btnReportesSistema.Iconcolor = System.Drawing.Color.Transparent;
             this.btnReportesSistema.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnReportesSistema.Iconimage")));
             this.btnReportesSistema.Iconimage_right = null;
@@ -521,6 +522,7 @@
             this.EfectoIda.SetDecoration(this.btneEmpresa, BunifuAnimatorNS.DecorationType.None);
             this.EfectoBotones.SetDecoration(this.btneEmpresa, BunifuAnimatorNS.DecorationType.None);
             this.btneEmpresa.DisabledColor = System.Drawing.Color.Gray;
+            this.btneEmpresa.Enabled = false;
             this.btneEmpresa.Iconcolor = System.Drawing.Color.Transparent;
             this.btneEmpresa.Iconimage = ((System.Drawing.Image)(resources.GetObject("btneEmpresa.Iconimage")));
             this.btneEmpresa.Iconimage_right = null;

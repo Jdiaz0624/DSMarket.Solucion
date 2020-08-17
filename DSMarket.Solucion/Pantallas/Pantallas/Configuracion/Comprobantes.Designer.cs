@@ -151,6 +151,7 @@
             this.cbUsarComprobantes.Text = "Usar Comprobantes";
             this.toolTip1.SetToolTip(this.cbUsarComprobantes, "Estatus de Comprobante");
             this.cbUsarComprobantes.UseVisualStyleBackColor = true;
+            this.cbUsarComprobantes.Visible = false;
             this.cbUsarComprobantes.CheckedChanged += new System.EventHandler(this.cbUsarComprobantes_CheckedChanged);
             // 
             // panel1
