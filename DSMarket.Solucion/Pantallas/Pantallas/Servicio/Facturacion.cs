@@ -1320,6 +1320,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         #endregion
 
 
+        #region MOSTRAR EL LISTADO DE LOS TIPOS DE INGRESOS
+        private void MostrarLosTipoSIngresos() {
+            var TiposIngresos = ObjDataListas.Value.ListadoTipoIngresos();
+            ddlSeleccionarTipoIngres.DataSource = TiposIngresos;
+            ddlSeleccionarTipoIngres.DisplayMember = "Descripcion";
+            ddlSeleccionarTipoIngres.ValueMember = "IdTipoIngreso";
+        }
+        #endregion
+
         private void Facturacion_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
@@ -1330,6 +1339,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             ListadoCantidadDias();
             ListadoFacturaMinimizadas();
             TemaGenerico();
+            MostrarLosTipoSIngresos();
             if (VariablesGlobales.GenerarConector == true) {
                 GenerarNumeroConector();
             }

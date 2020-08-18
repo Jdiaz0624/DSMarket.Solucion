@@ -284,5 +284,20 @@ namespace DSMarket.Logica.Logica.LogicaListas
             return Listado;
         }
         #endregion
+        #region LISTADO TIPOS DEINGRESOS
+        //CARGAR LISTDO DE TIPOS DE INGRESOS
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EListaTipoIngresos> ListadoTipoIngresos() {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjDataListas.SP_BUSCA_LISTA_TIPO_INGRESOS()
+                           select new DSMarket.Logica.Entidades.EntidadesListas.EListaTipoIngresos
+                           {
+                               IdTipoIngreso=n.IdTipoIngreso,
+                               Descripcion=n.Descripcion
+
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
     }
 }

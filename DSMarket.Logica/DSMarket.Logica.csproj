@@ -122,6 +122,7 @@
     <Compile Include="Entidades\EntidadesListas\EListaNivelAcceso.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaSuplidor.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoIdentificacion.cs" />
+    <Compile Include="Entidades\EntidadesListas\EListaTipoIngresos.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoMail.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoProducto.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoSuplidor.cs" />

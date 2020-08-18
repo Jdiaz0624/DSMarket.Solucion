@@ -1,0 +1,33 @@
+create table Configuracion.TipoIngresos
+(
+IdTipoIngreso int primary key not null,
+Descripcion varchar(100),
+CodigoTipoIngreso varchar(10),
+Estatus bit,
+PorDefecto bit
+)
+
+insert into [Configuracion].[TipoIngresos] (IdTipoIngreso,Descripcion,CodigoTipoIngreso,Estatus,PorDefecto) values
+(1,'','01',1,1),
+(2,'','02',1,0),
+(3,'','03',1,0),
+(4,'','04',1,0),
+(5,'','05',1,0),
+(6,'','06',1,0)
+
+select * from Configuracion.TipoIngresos
+
+
+
+CREATE PROCEDURE [Listas].[SP_BUSCA_LISTA_TIPO_INGRESOS]
+
+AS
+
+SELECT
+  TI.IdTipoIngreso
+, TI.Descripcion
+FROM [Configuracion].[TipoIngresos] TI
+
+WHERE Estatus = 1
+
+ORDER BY PorDefecto DESC

@@ -115,6 +115,8 @@
             this.lbTitulo = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.ddlSeleccionarTipoIngres = new System.Windows.Forms.ComboBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.gbGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCantidadDiasGarantia)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -129,6 +131,8 @@
             // 
             // gbGeneral
             // 
+            this.gbGeneral.Controls.Add(this.ddlSeleccionarTipoIngres);
+            this.gbGeneral.Controls.Add(this.label24);
             this.gbGeneral.Controls.Add(this.txtCantidadDiasGarantia);
             this.gbGeneral.Controls.Add(this.lbCantidadGarantia);
             this.gbGeneral.Controls.Add(this.txtImpuestoAdicional);
@@ -1127,6 +1131,27 @@
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
             // 
+            // ddlSeleccionarTipoIngres
+            // 
+            this.ddlSeleccionarTipoIngres.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlSeleccionarTipoIngres.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarTipoIngres.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarTipoIngres.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarTipoIngres.FormattingEnabled = true;
+            this.ddlSeleccionarTipoIngres.Location = new System.Drawing.Point(481, 265);
+            this.ddlSeleccionarTipoIngres.Name = "ddlSeleccionarTipoIngres";
+            this.ddlSeleccionarTipoIngres.Size = new System.Drawing.Size(466, 28);
+            this.ddlSeleccionarTipoIngres.TabIndex = 64;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(352, 269);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(123, 20);
+            this.label24.TabIndex = 65;
+            this.label24.Text = "Tipo de Ingreso";
+            // 
             // Facturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -1250,5 +1275,7 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label lbCantidadGarantia;
         private System.Windows.Forms.NumericUpDown txtCantidadDiasGarantia;
+        public System.Windows.Forms.ComboBox ddlSeleccionarTipoIngres;
+        private System.Windows.Forms.Label label24;
     }
 }
