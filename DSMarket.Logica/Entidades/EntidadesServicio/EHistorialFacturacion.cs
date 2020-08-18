@@ -46,6 +46,9 @@ namespace DSMarket.Logica.Entidades.EntidadesServicio
         public string CantidadDias {get;set;}
 
         public System.Nullable<decimal> IdCantidadDias {get;set;}
+        public System.Nullable<int> IdTipoIngreso { get; set; }
+
+        public string TipoIngreso { get; set; }
 
         public System.Nullable<decimal> IdUsuario {get;set;}
 

@@ -126,74 +126,85 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
 
                 }
                 else if (rbArchivotxt.Checked == true) {
-                    string RutaArchivo = "";
-
-                    var SacarRutaArchivo = ObjDataConfiguracion.Value.BuscaRutaArchivotxt(1);
-                    foreach (var n in SacarRutaArchivo)
+                    if (string.IsNullOrEmpty(txtAno.Text.Trim()))
                     {
-                        RutaArchivo = n.Ruta;
+                        MessageBox.Show("Favor ingresar el campo año para procesar este reporte", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-
-                    //GENERAMOS LA FECHA DE PERIODO
-                    DateTime FechaPeriodo = Convert.ToDateTime(txtPeriodo.Text);
-                    int Year = FechaPeriodo.Year;
-                    string Month = FechaPeriodo.Month.ToString();
-                    string day = FechaPeriodo.Day.ToString();
-
-                    if (Month.Length == 1)
-                    {
-                        Month = "0" + Month;
-                    }
-
-                    if (day.Length == 1)
-                    {
-                        day = "0" + day;
-                    }
-
-                    string RNC = "";
-                    string Periofo = Year.ToString() + Month + day;
-                    string CantidadRegistros = "";
-
-                    //SACAMOS EL RNC DE LA EMPRESA
-                    var SacarRNC = ObjDataConfiguracion.Value.BuscaInformacionEmpresa();
-                    foreach (var n in SacarRNC)
-                    {
-                        RNC = n.RNC;
-                    }
-
-                    //SACAMOS LA CANTIDAD DE REGISTROS
-                   // string _RNC = string.IsNullOrEmpty(txtRNC.Text.Trim()) ? null : txtRNC.Text.Trim();
-                    var SacarCantidadRegistros = ObjDataEmpresa.Value.BuscaCompraSuplidores(
-                        new Nullable<decimal>(),
-                        null,
-                        null,
-                        null,
-                        Convert.ToDateTime(txtFechaDesde.Text),
-                        Convert.ToDateTime(txtFechaHasta.Text),
-                        1, 999999999);
-                    foreach (var Cantidad in SacarCantidadRegistros)
-                    {
-                        CantidadRegistros = Cantidad.CantidadRegistros.ToString();
-                    }
-
-                    using (StreamWriter outPutFile = new StreamWriter(@"" + RutaArchivo + @"\DGII_F_606_" + RNC + "_" + Periofo + ".txt"))
-                    {
-
-                        var Lineas = ObjDataEmpresa.Value.BuscaCompraSuplidores(
-                             new Nullable<decimal>(),
-                        null,
-                        null,
-                        null,
-                        Convert.ToDateTime(txtFechaDesde.Text),
-                        Convert.ToDateTime(txtFechaHasta.Text),
-                        1, 999999999);
-                        outPutFile.WriteLine("606|" + RNC + "|" + Periofo + "|" + CantidadRegistros);
-                        foreach (var n in Lineas)
+                    else {
+                        if (string.IsNullOrEmpty(txtMes.Text.Trim()))
                         {
-                            outPutFile.WriteLine(n.RNCCedula + "|" + n.IdTipoIdentificacion + "|" + n.CodigoTipoBienesServicio + "|" + n.NCF + "|" + n.NCFModificado + "|" + n.FechaComprobante + "|" + n.FechaPago + "|" + n.MontoFacturadoServicios + "|" + n.MontoFacturadoBienes + "|" + n.TotalMontoFacturado + "|" + n.ITBISFacturado + "|" + n.ITBISRetenido + "|" + n.ITBISSujetoProporcionalidad + "|" + n.ITBISLlevadoCosto + "|" + n.ITBISPorAdelantar + "|" + n.ITBISPercibidoCompras + "|" + n.CodigoTipoRetencionISR + "|" + n.MontoRetencionRenta + "|" + n.ISRPercibidoCompras + "|" + n.ImpuestoSelectivoConsumo + "|" + n.OtrosImpuestosTasa + "|" + n.MontoPropinaLegal + "|" + n.CodigoTipoPago);
+                            MessageBox.Show("favor ingresar el mes para procesar este reporte", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else {
+                            string RutaArchivo = "";
+
+                            var SacarRutaArchivo = ObjDataConfiguracion.Value.BuscaRutaArchivotxt(1);
+                            foreach (var n in SacarRutaArchivo)
+                            {
+                                RutaArchivo = n.Ruta;
+                            }
+
+                            //GENERAMOS LA FECHA DE PERIODO
+                            int Year = Convert.ToInt32(txtAno.Text);
+                            string Month = txtMes.Text;
+
+                            if (Month.Length == 1)
+                            {
+                                Month = "0" + Month;
+                            }
+
+
+                            string RNC = "";
+                            string Periofo = Year.ToString() + Month;
+                            string CantidadRegistros = "";
+
+                            //SACAMOS EL RNC DE LA EMPRESA
+                            var SacarRNC = ObjDataConfiguracion.Value.BuscaInformacionEmpresa();
+                            foreach (var n in SacarRNC)
+                            {
+                                RNC = n.RNC;
+                            }
+
+                            //SACAMOS LA CANTIDAD DE REGISTROS
+                            // string _RNC = string.IsNullOrEmpty(txtRNC.Text.Trim()) ? null : txtRNC.Text.Trim();
+                            var SacarCantidadRegistros = ObjDataEmpresa.Value.BuscaCompraSuplidores(
+                                new Nullable<decimal>(),
+                                null,
+                                null,
+                                null,
+                                Convert.ToDateTime(txtFechaDesde.Text),
+                                Convert.ToDateTime(txtFechaHasta.Text),
+                                1, 999999999);
+                            if (SacarCantidadRegistros.Count() < 1) {
+                                CantidadRegistros = 0.ToString();
+                            }
+                            else {
+                                foreach (var Cantidad in SacarCantidadRegistros)
+                                {
+                                    CantidadRegistros = Cantidad.CantidadRegistros.ToString();
+                                }
+                            }
+
+                            using (StreamWriter outPutFile = new StreamWriter(@"" + RutaArchivo + @"\DGII_F_606_" + RNC + "_" + Periofo + ".txt"))
+                            {
+
+                                var Lineas = ObjDataEmpresa.Value.BuscaCompraSuplidores(
+                                     new Nullable<decimal>(),
+                                null,
+                                null,
+                                null,
+                                Convert.ToDateTime(txtFechaDesde.Text),
+                                Convert.ToDateTime(txtFechaHasta.Text),
+                                1, 999999999);
+                                outPutFile.WriteLine("606|" + RNC + "|" + Periofo + "|" + CantidadRegistros);
+                                foreach (var n in Lineas)
+                                {
+                                    outPutFile.WriteLine(n.RNCCedula + "|" + n.IdTipoIdentificacion + "|" + n.CodigoTipoBienesServicio + "|" + n.NCF + "|" + n.NCFModificado + "|" + n.FechaComprobante + "|" + n.FechaPago + "|" + n.MontoFacturadoServicios + "|" + n.MontoFacturadoBienes + "|" + n.TotalMontoFacturado + "|" + n.ITBISFacturado + "|" + n.ITBISRetenido + "|" + n.ITBISSujetoProporcionalidad + "|" + n.ITBISLlevadoCosto + "|" + n.ITBISPorAdelantar + "|" + n.ITBISPercibidoCompras + "|" + n.CodigoTipoRetencionISR + "|" + n.MontoRetencionRenta + "|" + n.ISRPercibidoCompras + "|" + n.ImpuestoSelectivoConsumo + "|" + n.OtrosImpuestosTasa + "|" + n.MontoPropinaLegal + "|" + n.CodigoTipoPago);
+                                }
+                            }
+                            MessageBox.Show("Archivo Generado con exito en la siguiente ruta " + RutaArchivo, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
-                    MessageBox.Show("Archivo Generado con exito en la siguiente ruta " + RutaArchivo, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
 

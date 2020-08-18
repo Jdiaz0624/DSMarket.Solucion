@@ -286,7 +286,10 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                FacturarCotizar = n.FacturarCotizar,
                                FacturaPuntoVenta = n.FacturaPuntoVenta,
                                FormatoFactura = n.FormatoFactura,
-                               BloqueaControles = n.BloqueaControles
+                               BloqueaControles = n.BloqueaControles,
+                               CantidadDiasGarantia=n.CantidadDiasGarantia,
+                               IdTipoIngreso=n.IdTipoIngreso,
+                               TipoIngreso=n.TipoIngreso
                            }).ToList();
             return Listado;
         }
@@ -318,6 +321,8 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                 Item.FacturaPuntoVenta,
                 Item.FormatoFactura,
                 Item.BloqueaControles,
+                Item.CantidadDiasGarantia,
+                Item.IdTipoIngreso,
                 Accion);
             if (FacturacionEspejo != null)
             {
@@ -343,7 +348,9 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                      FacturarCotizar = n.FacturarCotizar,
                                      FacturaPuntoVenta = n.FacturaPuntoVenta,
                                      FormatoFactura = n.FormatoFactura,
-                                     BloqueaControles = n.BloqueaControles
+                                     BloqueaControles = n.BloqueaControles,
+                                     CantidadDiasGarantia=n.CantidadDiasGarantia,
+                                     IdTipoIngreso=n.IdTipoIngreso
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
@@ -610,6 +617,8 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                TipoVenta=n.TipoVenta,
                                CantidadDias=n.CantidadDias,
                                IdCantidadDias=n.IdCantidadDias,
+                               IdTipoIngreso=n.IdTipoIngreso,
+                               TipoIngreso=n.TipoIngreso,
                                IdUsuario=n.IdUsuario,
                                CreadoPor=n.CreadoPor,
                                FechaFacturacion=n.FechaFacturacion,

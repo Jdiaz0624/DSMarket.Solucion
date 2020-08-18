@@ -1020,6 +1020,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.dtListado.Columns["IdCantidadDias"].Visible = false;
             this.dtListado.Columns["AplicaGarantia0"].Visible = false;
             this.dtListado.Columns["AplicaGarantia"].Visible = false;
+            this.dtListado.Columns["IdTipoIngreso"].Visible = false;
         }
         #endregion
         #region MOSTRAR EL LISTADO DE DEL ESTATUS DE FACTURACION
