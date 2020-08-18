@@ -250,6 +250,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             cbBuscarPorCodigo.Checked = false;
             MostrarListadoTipoVenta();
             cbAgregarCliente.Enabled = true;
+            MostrarLosTipoSIngresos();
+            txtCantidadDiasGarantia.Value = 0;
         }
         #endregion
         #region MOSTRAR LA CANTIDAD DE DIAS
@@ -371,6 +373,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 Mantenimiento.FacturaPuntoVenta = cbFacturaPuntoVenta.Checked;
                 Mantenimiento.FormatoFactura = FormatoFActura;
                 Mantenimiento.BloqueaControles = VariablesGlobales.BloqueaControles;
+                Mantenimiento.CantidadDiasGarantia = Convert.ToInt32(txtCantidadDiasGarantia.Value);
+                Mantenimiento.IdTipoIngreso = Convert.ToInt32(ddlSeleccionarTipoIngres.SelectedValue);
 
                 var MANFacturaMinimizada = ObjDataServicio.Value.MantenimientoFacturaMinimizado(Mantenimiento, Accion);
 
@@ -426,6 +430,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             ManClientes.IdUsuario = VariablesGlobales.IdUsuario;
             ManClientes.AplicaGarantia = VariablesGlobales.AplicaGanancia;
             ManClientes.DiasGarantia = Convert.ToInt32(txtCantidadDiasGarantia.Value);
+            ManClientes.IdTipoIngreso = Convert.ToInt32(ddlSeleccionarTipoIngres.SelectedValue);
 
             var MAN = ObjDataServicio.Value.GuardarFacturacionClientes(ManClientes, Accion);
         }
@@ -470,6 +475,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 txtTelefono.Text = n.Telefono;
                 txtEmail.Text = n.Email;
                 txtNoCotizacion.Text = n.NoCotizacion.ToString();
+                txtCantidadDiasGarantia.Value = Convert.ToInt32(n.CantidadDiasGarantia);
+                ddlSeleccionarTipoIngres.Text = n.TipoIngreso;
                 if (string.IsNullOrEmpty(txtNoCotizacion.Text.Trim()))
                 {
                     txtNoCotizacion.Text = string.Empty;

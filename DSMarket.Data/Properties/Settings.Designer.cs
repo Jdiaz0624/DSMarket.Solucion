@@ -74,5 +74,15 @@ namespace DSMarket.Data.Properties {
                 return ((string)(this["DSMarketConnectionString4"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=TECNOLOGIA;Initial Catalog=DSMarket;User ID=SA")]
+        public string DSMarketConnectionString5 {
+            get {
+                return ((string)(this["DSMarketConnectionString5"]));
+            }
+        }
     }
 }

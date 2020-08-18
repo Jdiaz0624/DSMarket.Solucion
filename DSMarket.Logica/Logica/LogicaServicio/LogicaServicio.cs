@@ -125,7 +125,10 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                FacturaPuntoVenta = n.FacturaPuntoVenta,
                                FormatoFactura = n.FormatoFactura,
                                BloqueaControles = n.BloqueaControles,
-                               Cantidadregistros = n.Cantidadregistros
+                               Cantidadregistros = n.Cantidadregistros,
+                               CantidadDiasGarantia=n.CantidadDiasGarantia,
+                               IdTipoIngreso=n.IdTipoIngreso,
+                               TipoIngreso=n.TipoIngreso
                            }).ToList();
             return Listado;
         }
@@ -163,6 +166,8 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                 Item.FacturaPuntoVenta,
                 Item.FormatoFactura,
                 Item.BloqueaControles,
+                Item.CantidadDiasGarantia,
+                Item.IdTipoIngreso,
                 Accion);
             if (FacturasMinimizadas != null)
             {
@@ -189,7 +194,9 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                      FacturarCotizar = n.FacturarCotizar,
                                      FacturaPuntoVenta = n.FacturaPuntoVenta,
                                      FormatoFactura = n.FormatoFactura,
-                                     BloqueaControles = n.BloqueaControles
+                                     BloqueaControles = n.BloqueaControles,
+                                     CantidadDiasGarantia=n.CantidadDiasGarantia,
+                                     IdTipoIngreso=n.IdTipoIngreso
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
@@ -220,6 +227,7 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                 Items.IdUsuario,
                 Items.AplicaGarantia,
                 Items.DiasGarantia,
+                Items.IdTipoIngreso,
                 Accion);
             if (FacturacionCliente != null) {
                 Guardar = (from n in FacturacionCliente

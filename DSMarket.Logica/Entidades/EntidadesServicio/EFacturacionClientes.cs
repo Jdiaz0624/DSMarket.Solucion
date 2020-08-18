@@ -39,5 +39,6 @@ namespace DSMarket.Logica.Entidades.EntidadesServicio
         public System.Nullable<bool> AplicaGarantia { get; set; }
 
         public System.Nullable<int> DiasGarantia { get; set; }
+        public System.Nullable<int> IdTipoIngreso { get; set; }
     }
 }

@@ -59,6 +59,12 @@ namespace DSMarket.Logica.Entidades.EntidadesServicio
 
         public System.Nullable<bool> BloqueaControles { get; set; }
 
+        public System.Nullable<int> CantidadDiasGarantia { get; set; }
+
+        public System.Nullable<int> IdTipoIngreso { get; set; }
+
+        public string TipoIngreso { get; set; }
+
         public System.Nullable<int> Cantidadregistros { get; set; }
     }
 }
