@@ -300,6 +300,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
+           
             if (VariablesGlobales.Accion != "INSERT")
             {
                 if (string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim())) {
@@ -328,11 +329,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
                     }
                     else
                     {
+                        CalcularTotalMontoFacturado();
                         MANCOmpraSuplidores(VariablesGlobales.Accion);
                     }
                 }
             }
             else {
+                CalcularTotalMontoFacturado();
                 MANCOmpraSuplidores(VariablesGlobales.Accion);
             }
         }

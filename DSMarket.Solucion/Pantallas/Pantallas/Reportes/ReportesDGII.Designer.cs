@@ -43,15 +43,15 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtMes = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtAno = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.txtFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtAno = new System.Windows.Forms.TextBox();
-            this.txtMes = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -106,7 +106,6 @@
             // 
             this.rbReporte607.AutoSize = true;
             this.rbReporte607.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbReporte607.Enabled = false;
             this.rbReporte607.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbReporte607.Location = new System.Drawing.Point(173, 27);
             this.rbReporte607.Name = "rbReporte607";
@@ -227,6 +226,49 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Seleccionar Parametros";
             // 
+            // txtMes
+            // 
+            this.txtMes.Location = new System.Drawing.Point(223, 26);
+            this.txtMes.MaxLength = 2;
+            this.txtMes.Name = "txtMes";
+            this.txtMes.Size = new System.Drawing.Size(47, 27);
+            this.txtMes.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(177, 29);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 21);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Mes";
+            // 
+            // txtAno
+            // 
+            this.txtAno.Location = new System.Drawing.Point(122, 26);
+            this.txtAno.MaxLength = 4;
+            this.txtAno.Name = "txtAno";
+            this.txtAno.Size = new System.Drawing.Size(47, 27);
+            this.txtAno.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(76, 29);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 21);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Año";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 21);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Periodo";
+            // 
             // txtFechaHasta
             // 
             this.txtFechaHasta.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -262,49 +304,6 @@
             this.label2.Size = new System.Drawing.Size(112, 21);
             this.label2.TabIndex = 2;
             this.label2.Text = "Fecha Desde";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 21);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Periodo";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(76, 29);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 21);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Año";
-            // 
-            // txtAno
-            // 
-            this.txtAno.Location = new System.Drawing.Point(122, 26);
-            this.txtAno.MaxLength = 4;
-            this.txtAno.Name = "txtAno";
-            this.txtAno.Size = new System.Drawing.Size(47, 27);
-            this.txtAno.TabIndex = 8;
-            // 
-            // txtMes
-            // 
-            this.txtMes.Location = new System.Drawing.Point(223, 26);
-            this.txtMes.MaxLength = 2;
-            this.txtMes.Name = "txtMes";
-            this.txtMes.Size = new System.Drawing.Size(47, 27);
-            this.txtMes.TabIndex = 10;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(177, 29);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 21);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Mes";
             // 
             // ReportesDGII
             // 
