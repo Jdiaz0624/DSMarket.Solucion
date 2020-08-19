@@ -118,6 +118,45 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             }
             return Guardar;
         }
+
+        //MOSTRAR EL LISTADO DEL REPORTE DEL 607 PARA ARCHIVO TXT
+        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarArchivo607> Reporte607(DateTime? FechaDesde = null, DateTime? FechaHasta = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_GENERAR_ARCHIVO_REPORTE_607(FechaDesde, FechaHasta)
+                           select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarArchivo607
+                           {
+                               NumeroIdentificacion=n.NumeroIdentificacion,
+                               TipoIdentificacion=n.TipoIdentificacion,
+                               IdTipoIdentificacion=n.IdTipoIdentificacion,
+                               NCF=n.NCF,
+                               NCFModificado=n.NCFModificado,
+                               IdTipoIngreso=n.IdTipoIngreso,
+                               TipoIngreso=n.TipoIngreso,
+                               CodigoTipoIngreso=n.CodigoTipoIngreso,
+                               FechaFacturacion=n.FechaFacturacion,
+                               FechaArchivo=n.FechaArchivo,
+                               FechaRetencion=n.FechaRetencion,
+                               MontoFacturado=n.MontoFacturado,
+                               ImpuestoFacturado=n.ImpuestoFacturado,
+                               ITBISRetenidoPorTerceros=n.ITBISRetenidoPorTerceros,
+                               ITBISPercibido=n.ITBISPercibido,
+                               RetencionRentaPorTerceros=n.RetencionRentaPorTerceros,
+                               ISRPercibido=n.ISRPercibido,
+                               ImpuestoSostenidoConsumo=n.ImpuestoSostenidoConsumo,
+                               OtrosImpuestoTasa=n.OtrosImpuestoTasa,
+                               MontoPropinaLegal=n.MontoPropinaLegal,
+                               MontoEfectivo=n.MontoEfectivo,
+                               MontoChequeTransferenciaDeposito=n.MontoChequeTransferenciaDeposito,
+                               MontoTarjetaDebitoCredito=n.MontoTarjetaDebitoCredito,
+                               MontoVentaCredito=n.MontoVentaCredito,
+                               BonosCertificadosRegalos=n.BonosCertificadosRegalos,
+                               Permuta=n.Permuta,
+                               OtrasFormasVenta=n.OtrasFormasVenta,
+                               CantidadRegistros=n.CantidadRegistros
+                           }).ToList();
+            return Listado;
+        }
         #endregion
         #region BUSCA LISTAS
         //BUSCA LISTAS
@@ -911,6 +950,19 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                 
             }
             return Modificar;
+        }
+        #endregion
+        #region OBTENER EL PRIMER DIA DEL MES
+        //SACAR EL PRIMER DIA DEL MES
+        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EObtenerPrimerDiaMes> ObtenerPrimerDiaMes() {
+            ObjData.CommandTimeout = 99999999;
+
+            var PrimerDia = (from n in ObjData.SP_OBTENER_PRIMER_DIA_MES()
+                             select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EObtenerPrimerDiaMes
+                             {
+                                 PrimerDia=n.PrimerDia
+                             }).ToList();
+            return PrimerDia;
         }
         #endregion
     }

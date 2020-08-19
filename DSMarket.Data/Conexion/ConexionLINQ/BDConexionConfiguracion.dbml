@@ -598,4 +598,43 @@
       <Column Name="Estatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Configuracion.SP_OBTENER_PRIMER_DIA_MES" Method="SP_OBTENER_PRIMER_DIA_MES">
+    <ElementType Name="SP_OBTENER_PRIMER_DIA_MESResult">
+      <Column Name="PrimerDia" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Reporte.SP_GENERAR_ARCHIVO_REPORTE_607" Method="SP_GENERAR_ARCHIVO_REPORTE_607">
+    <Parameter Name="FechaDesde" Parameter="fechaDesde" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FechaHAsta" Parameter="fechaHAsta" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="SP_GENERAR_ARCHIVO_REPORTE_607Result">
+      <Column Name="NumeroIdentificacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="TipoIdentificacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdTipoIdentificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NCF" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="NCFModificado" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="IdTipoIngreso" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TipoIngreso" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CodigoTipoIngreso" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="FechaFacturacion" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaArchivo" Type="System.String" DbType="VarChar(92) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaRetencion" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="MontoFacturado" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="ImpuestoFacturado" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="ITBISRetenidoPorTerceros" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ITBISPercibido" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="RetencionRentaPorTerceros" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ISRPercibido" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ImpuestoSostenidoConsumo" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="OtrosImpuestoTasa" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="MontoPropinaLegal" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="MontoEfectivo" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="MontoChequeTransferenciaDeposito" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="MontoTarjetaDebitoCredito" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="MontoVentaCredito" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="BonosCertificadosRegalos" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Permuta" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="OtrasFormasVenta" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="CantidadRegistros" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

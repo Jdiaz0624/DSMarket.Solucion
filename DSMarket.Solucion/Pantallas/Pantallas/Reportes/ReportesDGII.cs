@@ -21,6 +21,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
         Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
         Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
+
+        private void ObtenerPrimerDiaMEs() {
+            var Obtener = ObjDataConfiguracion.Value.ObtenerPrimerDiaMes();
+            foreach (var n in Obtener) {
+                txtFechaDesde.Text = n.PrimerDia.ToString();
+            }
+        }
         private void ReportesDGII_Load(object sender, EventArgs e)
         {
             lbTitulo.Text = "GENERAR REPORTES DGII";
@@ -28,6 +35,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             rbReporte606.Checked = true;
             rbPorPantalla.Checked = true;
+            ObtenerPrimerDiaMEs();
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -166,7 +174,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
                             }
 
                             //SACAMOS LA CANTIDAD DE REGISTROS
-                            // string _RNC = string.IsNullOrEmpty(txtRNC.Text.Trim()) ? null : txtRNC.Text.Trim();
                             var SacarCantidadRegistros = ObjDataEmpresa.Value.BuscaCompraSuplidores(
                                 new Nullable<decimal>(),
                                 null,
@@ -199,7 +206,29 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
                                 outPutFile.WriteLine("606|" + RNC + "|" + Periofo + "|" + CantidadRegistros);
                                 foreach (var n in Lineas)
                                 {
-                                    outPutFile.WriteLine(n.RNCCedula + "|" + n.IdTipoIdentificacion + "|" + n.CodigoTipoBienesServicio + "|" + n.NCF + "|" + n.NCFModificado + "|" + n.FechaComprobante + "|" + n.FechaPago + "|" + n.MontoFacturadoServicios + "|" + n.MontoFacturadoBienes + "|" + n.TotalMontoFacturado + "|" + n.ITBISFacturado + "|" + n.ITBISRetenido + "|" + n.ITBISSujetoProporcionalidad + "|" + n.ITBISLlevadoCosto + "|" + n.ITBISPorAdelantar + "|" + n.ITBISPercibidoCompras + "|" + n.CodigoTipoRetencionISR + "|" + n.MontoRetencionRenta + "|" + n.ISRPercibidoCompras + "|" + n.ImpuestoSelectivoConsumo + "|" + n.OtrosImpuestosTasa + "|" + n.MontoPropinaLegal + "|" + n.CodigoTipoPago);
+                                    outPutFile.WriteLine(
+                                        n.RNCCedula + "|" + 
+                                        n.IdTipoIdentificacion + "|" + 
+                                        n.CodigoTipoBienesServicio + "|" + 
+                                        n.NCF + "|" + n.NCFModificado + "|" + 
+                                        n.FechaComprobante + "|" + 
+                                        n.FechaPago + "|" + 
+                                        n.MontoFacturadoServicios + "|" + 
+                                        n.MontoFacturadoBienes + "|" + 
+                                        n.TotalMontoFacturado + "|" + 
+                                        n.ITBISFacturado + "|" + 
+                                        n.ITBISRetenido + "|" + 
+                                        n.ITBISSujetoProporcionalidad + "|" + 
+                                        n.ITBISLlevadoCosto + "|" + 
+                                        n.ITBISPorAdelantar + "|" + 
+                                        n.ITBISPercibidoCompras + "|" + 
+                                        n.CodigoTipoRetencionISR + "|" + 
+                                        n.MontoRetencionRenta + "|" + 
+                                        n.ISRPercibidoCompras + "|" + 
+                                        n.ImpuestoSelectivoConsumo + "|" + 
+                                        n.OtrosImpuestosTasa + "|" + 
+                                        n.MontoPropinaLegal + "|" + 
+                                        n.CodigoTipoPago);
                                 }
                             }
                             MessageBox.Show("Archivo Generado con exito en la siguiente ruta " + RutaArchivo, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -211,7 +240,94 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
             //GENERAR REPORTE DEL 607
             else if (rbReporte607.Checked == true) {
                 if (rbPorPantalla.Checked == true) { }
-                else if (rbArchivotxt.Checked == true) { }
+                else if (rbArchivotxt.Checked == true) {
+                    if (string.IsNullOrEmpty(txtAno.Text.Trim()))
+                    {
+                        MessageBox.Show("El campo año no puede estar vacio para generar este archivo", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else {
+                        if (string.IsNullOrEmpty(txtMes.Text.Trim()))
+                        {
+                            MessageBox.Show("El campo mes no puede estar vacio para generar este archivo", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else {
+                            //GENERAMOS EL ARCHIVO DEL 607
+                            string RutaArchivo = "";
+
+                            var SacarRutaArchivo = ObjDataConfiguracion.Value.BuscaRutaArchivotxt(1);
+                            foreach (var n in SacarRutaArchivo)
+                            {
+                                RutaArchivo = n.Ruta;
+                            }
+
+                            //GENERAMOS LA FECHA DE PERIODO
+                            int Year = Convert.ToInt32(txtAno.Text);
+                            string Month = txtMes.Text;
+
+                            if (Month.Length == 1)
+                            {
+                                Month = "0" + Month;
+                            }
+
+
+                            string RNC = "";
+                            string Periofo = Year.ToString() + Month;
+                            string CantidadRegistros = "";
+
+                            //SACAMOS EL RNC DE LA EMPRESA
+                            var SacarRNC = ObjDataConfiguracion.Value.BuscaInformacionEmpresa();
+                            foreach (var n in SacarRNC)
+                            {
+                                RNC = n.RNC;
+                            }
+
+                            //SACAMOS LA CANTIDAD DE REGISTROS
+                            var SacarCantidadRegistros = ObjDataConfiguracion.Value.Reporte607(
+                                Convert.ToDateTime(txtFechaDesde.Text),
+                                Convert.ToDateTime(txtFechaHasta.Text));
+                            foreach (var nCantidad in SacarCantidadRegistros) {
+                                CantidadRegistros = nCantidad.CantidadRegistros.ToString();
+                            }
+                            using (StreamWriter outPutFile = new StreamWriter(@"" + RutaArchivo + @"\DGII_F_607_" + RNC + "_" + Periofo + ".txt"))
+                            {
+                                var Lineas = ObjDataConfiguracion.Value.Reporte607(
+                                    Convert.ToDateTime(txtFechaDesde.Text),
+                                    Convert.ToDateTime(txtFechaHasta.Text));
+                                outPutFile.WriteLine("607|" + RNC + "|" + Periofo + "|" + CantidadRegistros);
+                                foreach (var n in Lineas) {
+                                    outPutFile.WriteLine(
+                                        n.NumeroIdentificacion + "|" +
+                                        n.IdTipoIdentificacion.ToString() + "|" +
+                                        n.NCF + "|" + 
+                                        n.NCFModificado + "|" +
+                                        n.IdTipoIngreso.ToString() + "|" +
+                                        n.FechaArchivo + "|" +
+                                        n.FechaRetencion + "|" +
+                                        n.MontoFacturado + "|" +
+                                        n.ImpuestoFacturado + "|" +
+                                        n.ITBISRetenidoPorTerceros + "|" +
+                                        n.ITBISPercibido + "|" +
+                                        n.RetencionRentaPorTerceros + "|" +
+                                        n.ISRPercibido + "|" +
+                                        n.ImpuestoSostenidoConsumo + "|" +
+                                        n.OtrosImpuestoTasa + "|" +
+                                        n.MontoPropinaLegal + "|" +
+                                        n.MontoEfectivo + "|" +
+                                        n.MontoChequeTransferenciaDeposito + "|" +
+                                        n.MontoTarjetaDebitoCredito + "|" +
+                                        n.MontoVentaCredito + "|" +
+                                        n.BonosCertificadosRegalos + "|" +
+                                        n.Permuta + "|" +
+                                        n.OtrasFormasVenta);
+                                }
+                                //var Lineas = ObjDataEmpresa.Value.BuscaCompraSuplidores(
+                            
+                            }
+                            MessageBox.Show("Archivo Generado con exito en la siguiente ruta " + RutaArchivo, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+
+                }
             }
 
             //GENERAR REPORTE DEL 608
