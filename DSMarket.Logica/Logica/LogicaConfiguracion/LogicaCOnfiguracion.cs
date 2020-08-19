@@ -157,6 +157,87 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                            }).ToList();
             return Listado;
         }
+
+        //PROCESAR INFORMACION PARA GENERAR REPORTE DEL 607 POR PANTALLA
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarInformacion607 ProcesarInformacion607(DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarInformacion607 Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarInformacion607 Procesar = null;
+
+            var Informacion607 = ObjData.SP_PROCESAR_INFORMACION_REPORTE_607(
+                Item.IdUsuario,
+                Item.NumeroIdentificacion,
+                Item.TipoIdentificacion,
+                Item.IdTipoIdentificacion,
+                Item.NCF,
+                Item.NCFModificado,
+                Item.IdTipoIngreso,
+                Item.TipoIngreso,
+                Item.CodigoTipoIngreso,
+                Item.FechaFacturacion,
+                Item.FechaArchivo,
+                Item.FechaRetencion,
+                Item.MontoFacturado,
+                Item.ImpuestoFacturado,
+                Item.ITBISRetenidoPorTerceros,
+                Item.ITBISPercibido,
+                Item.RetencionRentaPorTerceros,
+                Item.ISRPercibido,
+                Item.ImpuestoSostenidoConsumo,
+                Item.OtrosImpuestoTasa,
+                Item.MontoPropinaLegal,
+                Item.MontoEfectivo,
+                Item.MontoChequeTransferenciaDeposito,
+                Item.MontoTarjetaDebitoCredito,
+                Item.MontoVentaCredito,
+                Item.BonosCertificadosRegalos,
+                Item.Permuta,
+                Item.OtrasFormasVenta,
+                Item.CantidadRegistros,
+                Item.FechaDesde,
+                Item.FechaHasta,
+                Accion);
+            if (Informacion607 != null) {
+                Procesar = (from n in Informacion607
+                            select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarInformacion607
+                            {
+
+                                IdUsuario = n.IdUsuario,
+                                NumeroIdentificacion = n.NumeroIdentificacion,
+                                TipoIdentificacion = n.TipoIdentificacion,
+                                IdTipoIdentificacion = n.IdTipoIdentificacion,
+                                NCF = n.NCF,
+                                NCFModificado = n.NCFModificado,
+                                IdTipoIngreso = n.IdTipoIngreso,
+                                TipoIngreso = n.TipoIngreso,
+                                CodigoTipoIngreso = n.CodigoTipoIngreso,
+                                FechaFacturacion = n.FechaFacturacion,
+                                FechaArchivo = n.FechaArchivo,
+                                FechaRetencion = n.FechaRetencion,
+                                MontoFacturado = n.MontoFacturado,
+                                ImpuestoFacturado = n.ImpuestoFacturado,
+                                ITBISRetenidoPorTerceros = n.ITBISRetenidoPorTerceros,
+                                ITBISPercibido = n.ITBISPercibido,
+                                RetencionRentaPorTerceros = n.RetencionRentaPorTerceros,
+                                ISRPercibido = n.ISRPercibido,
+                                ImpuestoSostenidoConsumo = n.ImpuestoSostenidoConsumo,
+                                OtrosImpuestoTasa = n.OtrosImpuestoTasa,
+                                MontoPropinaLegal = n.MontoPropinaLegal,
+                                MontoEfectivo = n.MontoEfectivo,
+                                MontoChequeTransferenciaDeposito = n.MontoChequeTransferenciaDeposito,
+                                MontoTarjetaDebitoCredito = n.MontoTarjetaDebitoCredito,
+                                MontoVentaCredito = n.MontoVentaCredito,
+                                BonosCertificadosRegalos = n.BonosCertificadosRegalos,
+                                Permuta = n.Permuta,
+                                OtrasFormasVenta = n.OtrasFormasVenta,
+                                CantidadRegistros = n.CantidadRegistros,
+                                FechaDesde=n.FechaDesde,
+                                FechaHasta=n.FechaHasta
+
+                            }).FirstOrDefault();
+            }
+            return Procesar;
+        }
         #endregion
         #region BUSCA LISTAS
         //BUSCA LISTAS

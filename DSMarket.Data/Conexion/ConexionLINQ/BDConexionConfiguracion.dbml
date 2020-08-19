@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DSMarket" Class="BDConexionConfiguracionDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=DSMarket;Persist Security Info=True;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString4" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=TECNOLOGIA;Initial Catalog=DSMarket;User ID=SA" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString5" Provider="System.Data.SqlClient" />
   <Function Name="Configuracion.SP_BUSCA_LISTAS" Method="SP_BUSCA_LISTAS">
     <Parameter Name="NombreLista" Parameter="nombreLista" Type="System.String" DbType="VarChar(150)" />
     <Parameter Name="PrimerFiltro" Parameter="primerFiltro" Type="System.String" DbType="VarChar(150)" />
@@ -635,6 +635,73 @@
       <Column Name="Permuta" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
       <Column Name="OtrasFormasVenta" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
       <Column Name="CantidadRegistros" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Reporte.SP_PROCESAR_INFORMACION_REPORTE_607" Method="SP_PROCESAR_INFORMACION_REPORTE_607">
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NumeroIdentificacion" Parameter="numeroIdentificacion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="TipoIdentificacion" Parameter="tipoIdentificacion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="IdTipoIdentificacion" Parameter="idTipoIdentificacion" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NCF" Parameter="nCF" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="NCFModificado" Parameter="nCFModificado" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="IdTipoIngreso" Parameter="idTipoIngreso" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="TipoIngreso" Parameter="tipoIngreso" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CodigoTipoIngreso" Parameter="codigoTipoIngreso" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="FechaFacturacion" Parameter="fechaFacturacion" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FechaArchivo" Parameter="fechaArchivo" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="FechaRetencion" Parameter="fechaRetencion" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="MontoFacturado" Parameter="montoFacturado" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="ImpuestoFacturado" Parameter="impuestoFacturado" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="ITBISRetenidoPorTerceros" Parameter="iTBISRetenidoPorTerceros" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="ITBISPercibido" Parameter="iTBISPercibido" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="RetencionRentaPorTerceros" Parameter="retencionRentaPorTerceros" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="ISRPercibido" Parameter="iSRPercibido" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="ImpuestoSostenidoConsumo" Parameter="impuestoSostenidoConsumo" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="OtrosImpuestoTasa" Parameter="otrosImpuestoTasa" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="MontoPropinaLegal" Parameter="montoPropinaLegal" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="MontoEfectivo" Parameter="montoEfectivo" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="MontoChequeTransferenciaDeposito" Parameter="montoChequeTransferenciaDeposito" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="MontoTarjetaDebitoCredito" Parameter="montoTarjetaDebitoCredito" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="MontoVentaCredito" Parameter="montoVentaCredito" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="BonosCertificadosRegalos" Parameter="bonosCertificadosRegalos" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="Permuta" Parameter="permuta" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="OtrasFormasVenta" Parameter="otrasFormasVenta" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="CantidadRegistros" Parameter="cantidadRegistros" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="FechaDesde" Parameter="fechaDesde" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FechaHasta" Parameter="fechaHasta" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_PROCESAR_INFORMACION_REPORTE_607Result">
+      <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NumeroIdentificacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="TipoIdentificacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdTipoIdentificacion" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NCF" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="NCFModificado" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdTipoIngreso" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="TipoIngreso" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CodigoTipoIngreso" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="FechaFacturacion" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaArchivo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FechaRetencion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MontoFacturado" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="ImpuestoFacturado" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="ITBISRetenidoPorTerceros" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="ITBISPercibido" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="RetencionRentaPorTerceros" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="ISRPercibido" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="ImpuestoSostenidoConsumo" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="OtrosImpuestoTasa" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="MontoPropinaLegal" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="MontoEfectivo" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="MontoChequeTransferenciaDeposito" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="MontoTarjetaDebitoCredito" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="MontoVentaCredito" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="BonosCertificadosRegalos" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Permuta" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="OtrasFormasVenta" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="CantidadRegistros" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="FechaDesde" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaHasta" Type="System.DateTime" DbType="Date" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

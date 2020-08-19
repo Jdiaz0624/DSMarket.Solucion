@@ -239,7 +239,58 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
 
             //GENERAR REPORTE DEL 607
             else if (rbReporte607.Checked == true) {
-                if (rbPorPantalla.Checked == true) { }
+                if (rbPorPantalla.Checked == true) {
+                    //ELIMINAMOS LOS DATOS REGISTRADOS BAJO EL USUARIO
+                    DSMarket.Logica.Comunes.ProcesarInformacion607 EliminarDatos607 = new Logica.Comunes.ProcesarInformacion607(
+                        VariablesGlobales.IdUsuario, "", "", 0, "", "", 0, "", "", DateTime.Now, "", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,DateTime.Now,DateTime.Now, "DELETE");
+                    EliminarDatos607.ProcesarInformacion();
+
+                    //BUSCAMOS LOS DATOS PARA PROCESAR EL 607
+                    var BuscarInformacion607 = ObjDataConfiguracion.Value.Reporte607(
+                        Convert.ToDateTime(txtFechaDesde.Text),
+                        Convert.ToDateTime(txtFechaHasta.Text));
+                    foreach (var n in BuscarInformacion607) {
+                        DSMarket.Logica.Comunes.ProcesarInformacion607 ProcesarInformacion = new Logica.Comunes.ProcesarInformacion607(
+                            VariablesGlobales.IdUsuario,
+                            n.NumeroIdentificacion,
+                            n.TipoIdentificacion,
+                            Convert.ToDecimal(n.IdTipoIdentificacion),
+                            n.NCF,
+                            n.NCFModificado,
+                            Convert.ToDecimal(n.IdTipoIngreso),
+                            n.TipoIngreso,
+                            n.CodigoTipoIngreso,
+                            Convert.ToDateTime(n.FechaFacturacion),
+                            n.FechaArchivo,
+                            n.FechaRetencion,
+                            Convert.ToDecimal(n.MontoFacturado),
+                            Convert.ToDecimal(n.ImpuestoFacturado),
+                            0, //ITBISRetenidoPorTerceros
+                            0, //ITBISPercibido
+                            0, //RetencionRentaPorTerceros
+                            0, //ISRPercibido
+                            0, //ImpuestoSostenidoConsumo
+                            0, //OtrosImpuestoTasa
+                            0, //MontoPropinaLegal
+                            Convert.ToDecimal(n.MontoEfectivo),
+                            Convert.ToDecimal(n.MontoChequeTransferenciaDeposito),
+                            Convert.ToDecimal(n.MontoTarjetaDebitoCredito),
+                            Convert.ToDecimal(n.MontoVentaCredito),
+                            Convert.ToDecimal(n.BonosCertificadosRegalos),
+                            Convert.ToDecimal(n.Permuta),
+                            Convert.ToDecimal(n.OtrasFormasVenta),
+                            Convert.ToDecimal(n.CantidadRegistros),
+                            Convert.ToDateTime(txtFechaDesde.Text),
+                            Convert.ToDateTime(txtFechaHasta.Text),
+                            "INSERT");
+                        ProcesarInformacion.ProcesarInformacion();
+                    }
+
+                    //INVICAMOS EL REPORTE DEL 607 PARA VISUALIZARLO POR PANTALLA
+                    DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes Invicar = new Reportes();
+                    Invicar.GenerarReporte607(VariablesGlobales.IdUsuario);
+                    Invicar.ShowDialog();
+                }
                 else if (rbArchivotxt.Checked == true) {
                     if (string.IsNullOrEmpty(txtAno.Text.Trim()))
                     {

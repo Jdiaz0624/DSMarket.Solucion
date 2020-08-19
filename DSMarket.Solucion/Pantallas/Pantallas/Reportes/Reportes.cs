@@ -21,6 +21,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
         {
             InitializeComponent();
         }
+        Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
+        Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region MOSTRAR LA FACTURA 
@@ -174,6 +176,53 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
 
                 SqlCommand comando = new SqlCommand();
                 comando.CommandText = "EXEC [Reporte].[SP_GENERAR_REPORTE_606] @IdUsuario";
+                comando.Connection = DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion();
+
+                comando.Parameters.Add("@IdUsuario", SqlDbType.Decimal);
+                comando.Parameters["@IdUsuario"].Value = IdUsuario;
+
+                Ganancia.Load(@"" + RutaReporte);
+                Ganancia.Refresh();
+                Ganancia.SetParameterValue("@IdUsuario", IdUsuario);
+                Ganancia.SetDatabaseLogon(UsuarioBD, ClaveBD);
+                crystalReportViewer1.ReportSource = Ganancia;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al generar el reporte del 606, codigo de error: " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
+
+        #region GENERAR EL REPORTE DEL 607
+        public void GenerarReporte607(decimal IdUsuario)
+        {
+            try
+            {
+
+               
+                string RutaReporte = "";
+                string UsuarioBD = "";
+                string ClaveBD = "";
+
+                //GENERAMOS EL REPORTE
+                var SacarRutaReporte = ObjDataConfiguracion.Value.BuscaRutaReporte(11);
+                foreach (var n in SacarRutaReporte) {
+                    RutaReporte = n.RutaReporte;
+                }
+
+                //SACAMOS LAS CREDENCIALES DE LA BASE DE DATOS
+                var SacarCredenciales = ObjDataSeguridad.Value.SacarCredencialBD(1);
+                foreach (var nSeguridad in SacarCredenciales) {
+                    UsuarioBD = nSeguridad.Usuario;
+                    ClaveBD = DSMarket.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(nSeguridad.Clave);
+                }
+
+                //INVOCAMOS EL REPORTE
+                ReportDocument Ganancia = new ReportDocument();
+
+                SqlCommand comando = new SqlCommand();
+                comando.CommandText = "EXEC [Reporte].[SP_GENERAR_REPORTE_607_POR_PANTALLA] @IdUsuario";
                 comando.Connection = DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion();
 
                 comando.Parameters.Add("@IdUsuario", SqlDbType.Decimal);
