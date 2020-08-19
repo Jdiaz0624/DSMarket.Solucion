@@ -704,4 +704,45 @@
       <Column Name="FechaHasta" Type="System.DateTime" DbType="Date" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Reporte.SP_GENERAR_ARCHIVO_608" Method="SP_GENERAR_ARCHIVO_608">
+    <Parameter Name="FechaDesde" Parameter="fechaDesde" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FechaHasta" Parameter="fechaHasta" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="SP_GENERAR_ARCHIVO_608Result">
+      <Column Name="Comprobante" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FechaFacturacion0" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaFacturacion" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="FechaArchivo" Type="System.String" DbType="VarChar(74) NOT NULL" CanBeNull="false" />
+      <Column Name="TipoAnulacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CodigoTipoAnulacion" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="Comentario" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="CantidadRegistros" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Reporte.SP_PROCESAR_INFORMACION_REPORTE_608" Method="SP_PROCESAR_INFORMACION_REPORTE_608">
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Comprobante" Parameter="comprobante" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="FechaFacturacion0" Parameter="fechaFacturacion0" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FechaFActuracion" Parameter="fechaFActuracion" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="FechaArchivo" Parameter="fechaArchivo" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="TipoAnulacion" Parameter="tipoAnulacion" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="CodigoTipoAnulacion" Parameter="codigoTipoAnulacion" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="Comentario" Parameter="comentario" Type="System.String" DbType="VarChar(8000)" />
+    <Parameter Name="CantidadRegistros" Parameter="cantidadRegistros" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="ValidadoDesde" Parameter="validadoDesde" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="ValidadoHasta" Parameter="validadoHasta" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_PROCESAR_INFORMACION_REPORTE_608Result">
+      <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Comprobante" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FechaFacturacion0" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaFActuracion" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="FechaArchivo" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="TipoAnulacion" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="CodigoTipoAnulacion" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="Comentario" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="CantidadRegistros" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="ValidadoDesde" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ValidadoHasta" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

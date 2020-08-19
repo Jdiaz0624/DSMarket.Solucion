@@ -40,5 +40,6 @@ namespace DSMarket.Logica.Entidades.EntidadesServicio
 
         public System.Nullable<int> DiasGarantia { get; set; }
         public System.Nullable<int> IdTipoIngreso { get; set; }
+        public System.Nullable<decimal> IdTipoAnulaicon { get; set; }
     }
 }

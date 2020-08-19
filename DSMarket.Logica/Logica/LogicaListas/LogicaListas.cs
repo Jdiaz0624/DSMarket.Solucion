@@ -299,5 +299,18 @@ namespace DSMarket.Logica.Logica.LogicaListas
             return Listado;
         }
         #endregion
+        #region MOSTRAR LOS TIPOS DE ANULACIONES
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EListadoTipoAnulaicon> ListadoTipoAnulaciones() {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjDataListas.SP_MOSTRAR_LISTADO_TIPO_ANULACION()
+                           select new DSMarket.Logica.Entidades.EntidadesListas.EListadoTipoAnulaicon
+                           {
+                               IdTipoAnulacion=n.IdTipoAnulacion,
+                               Descripcion=n.Descripcion
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
     }
 }

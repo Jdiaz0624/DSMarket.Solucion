@@ -85,6 +85,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label7 = new System.Windows.Forms.Label();
+            this.ddlSeleccionarTipoAnulacion = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.gbGeneral.SuspendLayout();
@@ -267,9 +269,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dtListado);
-            this.groupBox1.Location = new System.Drawing.Point(8, 375);
+            this.groupBox1.Location = new System.Drawing.Point(8, 390);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(990, 208);
+            this.groupBox1.Size = new System.Drawing.Size(990, 193);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Productos";
@@ -289,11 +291,13 @@
             this.dtListado.Name = "dtListado";
             this.dtListado.ReadOnly = true;
             this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(984, 182);
+            this.dtListado.Size = new System.Drawing.Size(984, 167);
             this.dtListado.TabIndex = 0;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.ddlSeleccionarTipoAnulacion);
+            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.txtComentario);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.txtFaturadoPor);
@@ -334,7 +338,7 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Location = new System.Drawing.Point(5, 21);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(982, 348);
+            this.groupBox2.Size = new System.Drawing.Size(982, 363);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de Cliente";
@@ -343,7 +347,7 @@
             // 
             this.txtComentario.BackColor = System.Drawing.Color.Silver;
             this.txtComentario.Enabled = false;
-            this.txtComentario.Location = new System.Drawing.Point(112, 309);
+            this.txtComentario.Location = new System.Drawing.Point(112, 327);
             this.txtComentario.Name = "txtComentario";
             this.txtComentario.Size = new System.Drawing.Size(854, 27);
             this.txtComentario.TabIndex = 56;
@@ -351,7 +355,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(10, 312);
+            this.label12.Location = new System.Drawing.Point(10, 330);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(96, 20);
             this.label12.TabIndex = 55;
@@ -687,6 +691,27 @@
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(55, 299);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(231, 20);
+            this.label7.TabIndex = 57;
+            this.label7.Text = "Seleccionar Tipo de Anulacion";
+            // 
+            // ddlSeleccionarTipoAnulacion
+            // 
+            this.ddlSeleccionarTipoAnulacion.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlSeleccionarTipoAnulacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarTipoAnulacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarTipoAnulacion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarTipoAnulacion.FormattingEnabled = true;
+            this.ddlSeleccionarTipoAnulacion.Location = new System.Drawing.Point(290, 295);
+            this.ddlSeleccionarTipoAnulacion.Name = "ddlSeleccionarTipoAnulacion";
+            this.ddlSeleccionarTipoAnulacion.Size = new System.Drawing.Size(676, 28);
+            this.ddlSeleccionarTipoAnulacion.TabIndex = 65;
+            // 
             // AnularFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -776,5 +801,7 @@
         private System.Windows.Forms.Label lbNumeroPagina;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label7;
+        public System.Windows.Forms.ComboBox ddlSeleccionarTipoAnulacion;
     }
 }

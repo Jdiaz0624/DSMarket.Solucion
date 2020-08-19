@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 {
-    public partial class AnularFactura : Form
+    public partial class AnularFactura : Form 
     {
         public AnularFactura()
         {
@@ -21,6 +21,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
         Lazy<DSMarket.Logica.Logica.LogicaInventario.LogicaInventario> ObjDataInventario = new Lazy<Logica.Logica.LogicaInventario.LogicaInventario>();
         Lazy<DSMarket.Logica.Logica.LogicaCaja.LogicaCaja> ObjDataCaja = new Lazy<Logica.Logica.LogicaCaja.LogicaCaja>();
+        Lazy<DSMarket.Logica.Logica.LogicaListas.LogicaListas> ObjDataListas = new Lazy<Logica.Logica.LogicaListas.LogicaListas>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region APLICAR TEMA
@@ -175,6 +176,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             Mantenimiento.IdCantidadDias = VariablesGlobales.IdCantidadDiasAnularFactura;
             Mantenimiento.IdUsuario = VariablesGlobales.IdUsuario;
             Mantenimiento.FechaFacturacion = DateTime.Now;
+            Mantenimiento.IdTipoAnulaicon = Convert.ToDecimal(ddlSeleccionarTipoAnulacion.SelectedValue);
 
 
 
@@ -408,6 +410,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             }
         }
         #endregion
+        #region MOSTRAR EL LISTADO DE LOS TIPOS DE ANULACIONES
+        private void MostrarListadoTipoAnulaciones() {
+            var ListadoAnulaciones = ObjDataListas.Value.ListadoTipoAnulaciones();
+            ddlSeleccionarTipoAnulacion.DataSource = ListadoAnulaciones;
+            ddlSeleccionarTipoAnulacion.DisplayMember = "Descripcion";
+            ddlSeleccionarTipoAnulacion.ValueMember = "IdTipoAnulacion";
+        }
+        #endregion
+
         private void PCerrar_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -427,6 +438,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             txtClaveSeguridad.PasswordChar = '•';
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             SacarInformacionFactura(VariablesGlobales.IdMantenimeinto);
+            MostrarListadoTipoAnulaciones();
         }
 
         private void AnularFactura_FormClosing(object sender, FormClosingEventArgs e)
@@ -466,8 +478,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             {
                                 //DEVOLVEMOS
                                 FacturacionCliente(VariablesGlobales.NumeroConector, "INSERT");
-                               // Productos(VariablesGlobales.NumeroConector, "INSERT");
-                              //  FacturacionCalculos(VariablesGlobales.NumeroConector, "INSERT");
+                                FacturacionCliente(VariablesGlobales.NumeroConector, "CHANGESTATUSCANCEL");
+                                // Productos(VariablesGlobales.NumeroConector, "INSERT");
+                                //  FacturacionCalculos(VariablesGlobales.NumeroConector, "INSERT");
                                 //AFECTAMOS COMPROBANTE
                                 AfectarComprobanteFiscal();
                                
@@ -528,8 +541,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             else
                             {
                                 FacturacionCliente(VariablesGlobales.NumeroConector, "INSERT");
-                               // Productos(VariablesGlobales.NumeroConector, "INSERT");
-                              //  FacturacionCalculos(VariablesGlobales.NumeroConector, "INSERT");
+                                FacturacionCliente(VariablesGlobales.NumeroConector, "CHANGESTATUSCANCEL");
+                                // Productos(VariablesGlobales.NumeroConector, "INSERT");
+                                //  FacturacionCalculos(VariablesGlobales.NumeroConector, "INSERT");
                                 //AFECTAMOS COMPROBANTE
                                 AfectarComprobanteFiscal();
 

@@ -447,6 +447,20 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, numeroIdentificacion, tipoIdentificacion, idTipoIdentificacion, nCF, nCFModificado, idTipoIngreso, tipoIngreso, codigoTipoIngreso, fechaFacturacion, fechaArchivo, fechaRetencion, montoFacturado, impuestoFacturado, iTBISRetenidoPorTerceros, iTBISPercibido, retencionRentaPorTerceros, iSRPercibido, impuestoSostenidoConsumo, otrosImpuestoTasa, montoPropinaLegal, montoEfectivo, montoChequeTransferenciaDeposito, montoTarjetaDebitoCredito, montoVentaCredito, bonosCertificadosRegalos, permuta, otrasFormasVenta, cantidadRegistros, fechaDesde, fechaHasta, accion);
 			return ((ISingleResult<SP_PROCESAR_INFORMACION_REPORTE_607Result>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Reporte.SP_GENERAR_ARCHIVO_608")]
+		public ISingleResult<SP_GENERAR_ARCHIVO_608Result> SP_GENERAR_ARCHIVO_608([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaDesde", DbType="Date")] System.Nullable<System.DateTime> fechaDesde, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaHasta", DbType="Date")] System.Nullable<System.DateTime> fechaHasta)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fechaDesde, fechaHasta);
+			return ((ISingleResult<SP_GENERAR_ARCHIVO_608Result>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Reporte.SP_PROCESAR_INFORMACION_REPORTE_608")]
+		public ISingleResult<SP_PROCESAR_INFORMACION_REPORTE_608Result> SP_PROCESAR_INFORMACION_REPORTE_608([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Decimal(20,0)")] System.Nullable<decimal> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Comprobante", DbType="VarChar(100)")] string comprobante, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaFacturacion0", DbType="Date")] System.Nullable<System.DateTime> fechaFacturacion0, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaFActuracion", DbType="VarChar(30)")] string fechaFActuracion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaArchivo", DbType="VarChar(30)")] string fechaArchivo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TipoAnulacion", DbType="VarChar(150)")] string tipoAnulacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodigoTipoAnulacion", DbType="VarChar(2)")] string codigoTipoAnulacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Comentario", DbType="VarChar(8000)")] string comentario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CantidadRegistros", DbType="Decimal(20,0)")] System.Nullable<decimal> cantidadRegistros, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ValidadoDesde", DbType="Date")] System.Nullable<System.DateTime> validadoDesde, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ValidadoHasta", DbType="Date")] System.Nullable<System.DateTime> validadoHasta, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, comprobante, fechaFacturacion0, fechaFActuracion, fechaArchivo, tipoAnulacion, codigoTipoAnulacion, comentario, cantidadRegistros, validadoDesde, validadoHasta, accion);
+			return ((ISingleResult<SP_PROCESAR_INFORMACION_REPORTE_608Result>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_BUSCA_LISTASResult
@@ -6490,6 +6504,364 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._FechaHasta != value))
 				{
 					this._FechaHasta = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_GENERAR_ARCHIVO_608Result
+	{
+		
+		private string _Comprobante;
+		
+		private System.Nullable<System.DateTime> _FechaFacturacion0;
+		
+		private string _FechaFacturacion;
+		
+		private string _FechaArchivo;
+		
+		private string _TipoAnulacion;
+		
+		private string _CodigoTipoAnulacion;
+		
+		private string _Comentario;
+		
+		private System.Nullable<int> _CantidadRegistros;
+		
+		public SP_GENERAR_ARCHIVO_608Result()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comprobante", DbType="VarChar(100)")]
+		public string Comprobante
+		{
+			get
+			{
+				return this._Comprobante;
+			}
+			set
+			{
+				if ((this._Comprobante != value))
+				{
+					this._Comprobante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaFacturacion0", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaFacturacion0
+		{
+			get
+			{
+				return this._FechaFacturacion0;
+			}
+			set
+			{
+				if ((this._FechaFacturacion0 != value))
+				{
+					this._FechaFacturacion0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaFacturacion", DbType="NVarChar(4000)")]
+		public string FechaFacturacion
+		{
+			get
+			{
+				return this._FechaFacturacion;
+			}
+			set
+			{
+				if ((this._FechaFacturacion != value))
+				{
+					this._FechaFacturacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaArchivo", DbType="VarChar(74) NOT NULL", CanBeNull=false)]
+		public string FechaArchivo
+		{
+			get
+			{
+				return this._FechaArchivo;
+			}
+			set
+			{
+				if ((this._FechaArchivo != value))
+				{
+					this._FechaArchivo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoAnulacion", DbType="VarChar(100)")]
+		public string TipoAnulacion
+		{
+			get
+			{
+				return this._TipoAnulacion;
+			}
+			set
+			{
+				if ((this._TipoAnulacion != value))
+				{
+					this._TipoAnulacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodigoTipoAnulacion", DbType="VarChar(2)")]
+		public string CodigoTipoAnulacion
+		{
+			get
+			{
+				return this._CodigoTipoAnulacion;
+			}
+			set
+			{
+				if ((this._CodigoTipoAnulacion != value))
+				{
+					this._CodigoTipoAnulacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comentario", DbType="VarChar(8000)")]
+		public string Comentario
+		{
+			get
+			{
+				return this._Comentario;
+			}
+			set
+			{
+				if ((this._Comentario != value))
+				{
+					this._Comentario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadRegistros", DbType="Int")]
+		public System.Nullable<int> CantidadRegistros
+		{
+			get
+			{
+				return this._CantidadRegistros;
+			}
+			set
+			{
+				if ((this._CantidadRegistros != value))
+				{
+					this._CantidadRegistros = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_PROCESAR_INFORMACION_REPORTE_608Result
+	{
+		
+		private System.Nullable<decimal> _IdUsuario;
+		
+		private string _Comprobante;
+		
+		private System.Nullable<System.DateTime> _FechaFacturacion0;
+		
+		private string _FechaFActuracion;
+		
+		private string _FechaArchivo;
+		
+		private string _TipoAnulacion;
+		
+		private string _CodigoTipoAnulacion;
+		
+		private string _Comentario;
+		
+		private System.Nullable<decimal> _CantidadRegistros;
+		
+		private System.Nullable<System.DateTime> _ValidadoDesde;
+		
+		private System.Nullable<System.DateTime> _ValidadoHasta;
+		
+		public SP_PROCESAR_INFORMACION_REPORTE_608Result()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdUsuario
+		{
+			get
+			{
+				return this._IdUsuario;
+			}
+			set
+			{
+				if ((this._IdUsuario != value))
+				{
+					this._IdUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comprobante", DbType="VarChar(100)")]
+		public string Comprobante
+		{
+			get
+			{
+				return this._Comprobante;
+			}
+			set
+			{
+				if ((this._Comprobante != value))
+				{
+					this._Comprobante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaFacturacion0", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaFacturacion0
+		{
+			get
+			{
+				return this._FechaFacturacion0;
+			}
+			set
+			{
+				if ((this._FechaFacturacion0 != value))
+				{
+					this._FechaFacturacion0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaFActuracion", DbType="VarChar(30)")]
+		public string FechaFActuracion
+		{
+			get
+			{
+				return this._FechaFActuracion;
+			}
+			set
+			{
+				if ((this._FechaFActuracion != value))
+				{
+					this._FechaFActuracion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaArchivo", DbType="VarChar(30)")]
+		public string FechaArchivo
+		{
+			get
+			{
+				return this._FechaArchivo;
+			}
+			set
+			{
+				if ((this._FechaArchivo != value))
+				{
+					this._FechaArchivo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoAnulacion", DbType="VarChar(150)")]
+		public string TipoAnulacion
+		{
+			get
+			{
+				return this._TipoAnulacion;
+			}
+			set
+			{
+				if ((this._TipoAnulacion != value))
+				{
+					this._TipoAnulacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodigoTipoAnulacion", DbType="VarChar(2)")]
+		public string CodigoTipoAnulacion
+		{
+			get
+			{
+				return this._CodigoTipoAnulacion;
+			}
+			set
+			{
+				if ((this._CodigoTipoAnulacion != value))
+				{
+					this._CodigoTipoAnulacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comentario", DbType="VarChar(8000)")]
+		public string Comentario
+		{
+			get
+			{
+				return this._Comentario;
+			}
+			set
+			{
+				if ((this._Comentario != value))
+				{
+					this._Comentario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadRegistros", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> CantidadRegistros
+		{
+			get
+			{
+				return this._CantidadRegistros;
+			}
+			set
+			{
+				if ((this._CantidadRegistros != value))
+				{
+					this._CantidadRegistros = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ValidadoDesde", DbType="Date")]
+		public System.Nullable<System.DateTime> ValidadoDesde
+		{
+			get
+			{
+				return this._ValidadoDesde;
+			}
+			set
+			{
+				if ((this._ValidadoDesde != value))
+				{
+					this._ValidadoDesde = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ValidadoHasta", DbType="Date")]
+		public System.Nullable<System.DateTime> ValidadoHasta
+		{
+			get
+			{
+				return this._ValidadoHasta;
+			}
+			set
+			{
+				if ((this._ValidadoHasta != value))
+				{
+					this._ValidadoHasta = value;
 				}
 			}
 		}

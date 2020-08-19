@@ -434,6 +434,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             ManClientes.AplicaGarantia = VariablesGlobales.AplicaGanancia;
             ManClientes.DiasGarantia = Convert.ToInt32(txtCantidadDiasGarantia.Value);
             ManClientes.IdTipoIngreso = Convert.ToInt32(ddlSeleccionarTipoIngres.SelectedValue);
+            ManClientes.IdTipoAnulaicon = 0;
 
             var MAN = ObjDataServicio.Value.GuardarFacturacionClientes(ManClientes, Accion);
         }

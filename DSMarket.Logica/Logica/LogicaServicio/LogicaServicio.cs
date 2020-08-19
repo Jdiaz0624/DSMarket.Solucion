@@ -228,6 +228,7 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                 Items.AplicaGarantia,
                 Items.DiasGarantia,
                 Items.IdTipoIngreso,
+                Items.IdTipoAnulaicon,
                 Accion);
             if (FacturacionCliente != null) {
                 Guardar = (from n in FacturacionCliente
@@ -249,7 +250,8 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                IdUsuario = n.IdUsuario,
                                FechaFacturacion=n.FechaFacturacion,
                                AplicaGarantia=n.AplicaGarantia,
-                               DiasGarantia=n.DiasGarantia
+                               DiasGarantia=n.DiasGarantia,
+                               IdTipoAnulaicon=n.IdTipoAnulaicon
                            }).FirstOrDefault();
             }
             return Guardar;

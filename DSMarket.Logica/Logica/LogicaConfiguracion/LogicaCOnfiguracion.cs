@@ -238,6 +238,64 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             }
             return Procesar;
         }
+
+        //GENERAR ARCHIVO PARA EL REPORTE DEL 608
+        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarArchivo608> GenerarArchivo608(DateTime? FechaDesde = null, DateTime? FechaHasta = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_GENERAR_ARCHIVO_608(FechaDesde, FechaHasta)
+                           select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarArchivo608
+                           {
+                               Comprobante=n.Comprobante,
+                               FechaFacturacion0=n.FechaFacturacion0,
+                               FechaFacturacion=n.FechaFacturacion,
+                               FechaArchivo=n.FechaArchivo,
+                               TipoAnulacion=n.TipoAnulacion,
+                               CodigoTipoAnulacion=n.CodigoTipoAnulacion,
+                               Comentario=n.Comentario,
+                               CantidadRegistros=n.CantidadRegistros
+                           }).ToList();
+            return Listado;
+        }
+
+        //PROCESAR LA INFORMACION PARA GENERAR EL REPORTE DEL 608 POR PANTALLA
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarInformacion608 ProcesarInformacion608(DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarInformacion608 Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarInformacion608 Procesar = null;
+
+            var Informacion608 = ObjData.SP_PROCESAR_INFORMACION_REPORTE_608(
+                Item.IdUsuario,
+                Item.Comprobante,
+                Item.FechaFacturacion0,
+                Item.FechaFActuracion,
+                Item.FechaArchivo,
+                Item.TipoAnulacion,
+                Item.CodigoTipoAnulacion,
+                Item.Comentario,
+                Item.CantidadRegistros,
+                Item.ValidadoDesde,
+                Item.ValidadoHasta,
+                Accion);
+            if(Informacion608!=null){
+                Procesar = (from n in Informacion608
+                            select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarInformacion608
+                            {
+                                IdUsuario=n.IdUsuario,
+                                Comprobante=n.Comprobante,
+                                FechaFacturacion0=n.FechaFacturacion0,
+                                FechaFActuracion=n.FechaFActuracion,
+                                FechaArchivo=n.FechaArchivo,
+                                TipoAnulacion=n.TipoAnulacion,
+                                CodigoTipoAnulacion=n.CodigoTipoAnulacion,
+                                Comentario=n.Comentario,
+                                CantidadRegistros=n.CantidadRegistros,
+                                ValidadoDesde=n.ValidadoDesde,
+                                ValidadoHasta=n.ValidadoHasta
+                            }).FirstOrDefault();
+            }
+            return Procesar;
+        }
         #endregion
         #region BUSCA LISTAS
         //BUSCA LISTAS

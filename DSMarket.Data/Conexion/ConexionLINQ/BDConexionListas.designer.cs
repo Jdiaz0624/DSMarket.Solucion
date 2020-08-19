@@ -33,7 +33,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
     #endregion
 		
 		public BDConexionListasDataContext() : 
-				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString4, mappingSource)
+				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString5, mappingSource)
 		{
 			OnCreated();
 		}
@@ -200,6 +200,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<SP_BUSCA_LISTA_TIPO_INGRESOSResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_MOSTRAR_LISTADO_TIPO_ANULACION")]
+		public ISingleResult<SP_MOSTRAR_LISTADO_TIPO_ANULACIONResult> SP_MOSTRAR_LISTADO_TIPO_ANULACION()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_MOSTRAR_LISTADO_TIPO_ANULACIONResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -1152,6 +1159,50 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._IdTipoIngreso != value))
 				{
 					this._IdTipoIngreso = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(100)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_MOSTRAR_LISTADO_TIPO_ANULACIONResult
+	{
+		
+		private decimal _IdTipoAnulacion;
+		
+		private string _Descripcion;
+		
+		public SP_MOSTRAR_LISTADO_TIPO_ANULACIONResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoAnulacion", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdTipoAnulacion
+		{
+			get
+			{
+				return this._IdTipoAnulacion;
+			}
+			set
+			{
+				if ((this._IdTipoAnulacion != value))
+				{
+					this._IdTipoAnulacion = value;
 				}
 			}
 		}

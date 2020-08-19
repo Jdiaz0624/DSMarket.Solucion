@@ -61,6 +61,7 @@
     <Compile Include="Comunes\ProcesarInformacionCompraSuplidores.cs" />
     <Compile Include="Comunes\ProcesarInformacionDataReporte606.cs" />
     <Compile Include="Comunes\ProcesarInformacionModificarConfiguracionGeneral.cs" />
+    <Compile Include="Comunes\ProcesarInformacionReporte608.cs" />
     <Compile Include="Comunes\ProcesarMontoInicialCaja.cs" />
     <Compile Include="Comunes\ProcesarProductosDefectuosos.cs" />
     <Compile Include="Comunes\ProcesarRegistrosReporteProductosDefectuosos.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Entidades\EntidadesConfiguracion\EComprobantes.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EConfiguracionGeneral.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EGenerarArchivo607.cs" />
+    <Compile Include="Entidades\EntidadesConfiguracion\EGenerarArchivo608.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EGenerarComprobante.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EGenerarRutaReporte.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EGuardarDatosReporte606.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="Entidades\EntidadesConfiguracion\EModificarImpuestoVenta.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EObtenerPrimerDiaMes.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EProcesarInformacion607.cs" />
+    <Compile Include="Entidades\EntidadesConfiguracion\EProcesarInformacion608.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EProcesarInformacionGanancia.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EProcesarReporteCuadreCaja.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EReporteProductosDefectuosos.cs" />
@@ -119,6 +122,7 @@
     <Compile Include="Entidades\EntidadesListas\EComprobantesNulos.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaCategorias.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaComprobantesFiscales.cs" />
+    <Compile Include="Entidades\EntidadesListas\EListadoTipoAnulaicon.cs" />
     <Compile Include="Entidades\EntidadesListas\EListadoTipoPago.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaEstatusFacturacion.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaMarcas.cs" />

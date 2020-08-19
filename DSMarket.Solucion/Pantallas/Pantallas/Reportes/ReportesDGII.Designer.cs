@@ -120,7 +120,6 @@
             // 
             this.rbReporte608.AutoSize = true;
             this.rbReporte608.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbReporte608.Enabled = false;
             this.rbReporte608.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbReporte608.Location = new System.Drawing.Point(328, 27);
             this.rbReporte608.Name = "rbReporte608";

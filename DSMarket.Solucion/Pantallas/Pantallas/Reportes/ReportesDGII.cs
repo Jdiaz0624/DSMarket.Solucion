@@ -231,7 +231,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
                                         n.CodigoTipoPago);
                                 }
                             }
-                            MessageBox.Show("Archivo Generado con exito en la siguiente ruta " + RutaArchivo, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Archivo 606 Generado con exito en la siguiente ruta " + RutaArchivo, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }
@@ -374,7 +374,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
                                 //var Lineas = ObjDataEmpresa.Value.BuscaCompraSuplidores(
                             
                             }
-                            MessageBox.Show("Archivo Generado con exito en la siguiente ruta " + RutaArchivo, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Archivo Generado 607 con exito en la siguiente ruta " + RutaArchivo, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
 
@@ -383,8 +383,109 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
 
             //GENERAR REPORTE DEL 608
             else if (rbReporte608.Checked == true) {
-                if (rbPorPantalla.Checked == true) { }
-                else if (rbArchivotxt.Checked == true) { }
+                if (rbPorPantalla.Checked == true) {
+                    //ELIMINAMOS TODOS LOS REGISTROS RELACIONADOS CON EL USUARIO
+                    DSMarket.Logica.Comunes.ProcesarInformacionReporte608 EliminarData = new Logica.Comunes.ProcesarInformacionReporte608(VariablesGlobales.IdUsuario, "", DateTime.Now, "", "", "", "", "", 0, DateTime.Now, DateTime.Now, "DELETE");
+                    EliminarData.ProcesarInformacion();
+
+                    //CONSULTAMOS LOS DATOS QUE SE VAN A GUARDAR
+                    var BuscarData = ObjDataConfiguracion.Value.GenerarArchivo608(
+                        Convert.ToDateTime(txtFechaDesde.Text),
+                        Convert.ToDateTime(txtFechaHasta.Text));
+                    foreach (var n in BuscarData) {
+                        DSMarket.Logica.Comunes.ProcesarInformacionReporte608 Procesar = new Logica.Comunes.ProcesarInformacionReporte608(
+                            VariablesGlobales.IdUsuario,
+                            n.Comprobante,
+                            Convert.ToDateTime(n.FechaFacturacion0),
+                            n.FechaFacturacion,
+                            n.FechaArchivo,
+                            n.TipoAnulacion,
+                            n.CodigoTipoAnulacion,
+                            n.Comentario,
+                            Convert.ToDecimal(n.CantidadRegistros),
+                            Convert.ToDateTime(txtFechaDesde.Text),
+                            Convert.ToDateTime(txtFechaHasta.Text),
+                            "INSERT");
+                        Procesar.ProcesarInformacion();
+                    }
+
+                    //INVOCAMOS EL REPORTE A MOSTRAR
+
+                }
+                else if (rbArchivotxt.Checked == true) {
+                    if (string.IsNullOrEmpty(txtAno.Text.Trim()))
+                    {
+                        MessageBox.Show("El campo año no puede estar vacio para generar este archivo", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else {
+                        if (string.IsNullOrEmpty(txtMes.Text.Trim()))
+                        {
+                            MessageBox.Show("El campo Mes no puede estar vacio para generar este archivo", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else {
+                            //INICIAMOS EL PROCESO PARA GENERAR EL ARCHVO
+
+                            //1-SACAMOS LA RUTA DEL ARCHIVO
+                            string RutaArchivo = "";
+
+                            var SacarRutaArchivo = ObjDataConfiguracion.Value.BuscaRutaArchivotxt(1);
+                            foreach (var n in SacarRutaArchivo)
+                            {
+                                RutaArchivo = n.Ruta;
+                            }
+
+                            //2-GENERAMOS LA FECHA DE PERIODO
+                            int Year = Convert.ToInt32(txtAno.Text);
+                            string Month = txtMes.Text;
+
+                            if (Month.Length == 1)
+                            {
+                                Month = "0" + Month;
+                            }
+
+                            string RNC = "";
+                            string Periofo = Year.ToString() + Month;
+                            string CantidadRegistros = "";
+
+                            //SACAMOS EL RNC DE LA EMPRESA
+                            var SacarRNC = ObjDataConfiguracion.Value.BuscaInformacionEmpresa();
+                            foreach (var n in SacarRNC)
+                            {
+                                RNC = n.RNC;
+                            }
+
+                            //3-SACAMOS LA CANTIDAD DE REGISTROS
+                            var SacarCantidadRegistros = ObjDataConfiguracion.Value.GenerarArchivo608(
+                                Convert.ToDateTime(txtFechaDesde.Text),
+                                Convert.ToDateTime(txtFechaHasta.Text));
+                            foreach (var nCantidad in SacarCantidadRegistros)
+                            {
+                                CantidadRegistros = nCantidad.CantidadRegistros.ToString();
+                            }
+
+                            //4-ESCRIBIMOS EL ARCHIVO
+                            using (StreamWriter outPutFile = new StreamWriter(@"" + RutaArchivo + @"\DGII_F_608_" + RNC + "_" + Periofo + ".txt"))
+                            {
+                                var Lineas = ObjDataConfiguracion.Value.GenerarArchivo608(
+                                    Convert.ToDateTime(txtFechaDesde.Text),
+                                    Convert.ToDateTime(txtFechaHasta.Text));
+                                outPutFile.WriteLine("608|" + RNC + "|" + Periofo + "|" + CantidadRegistros);
+                                foreach (var n in Lineas)
+                                {
+                                    outPutFile.WriteLine(
+                                        n.Comprobante + "|" +
+                                        n.FechaArchivo + "|" +
+                                        n.CodigoTipoAnulacion
+                                        );
+                                }
+                                MessageBox.Show("Archivo 608 Generado con exito en la siguiente ruta " + RutaArchivo, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                //var Lineas = ObjDataEmpresa.Value.BuscaCompraSuplidores(
+
+                            }
+                        }
+                    }
+
+                }
             }
         }
 
