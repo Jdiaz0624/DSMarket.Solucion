@@ -35,6 +35,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.gbOpciones = new System.Windows.Forms.GroupBox();
+            this.btnEstadoResultado = new System.Windows.Forms.Button();
+            this.btnEstadoSituacion = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnReporteClientes = new System.Windows.Forms.Button();
@@ -43,8 +45,6 @@
             this.btnReporteEmpleados = new System.Windows.Forms.Button();
             this.btnReporteInventario = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnEstadoSituacion = new System.Windows.Forms.Button();
-            this.btnEstadoResultado = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -133,6 +133,34 @@
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Reportes - Seleccionar Opcion";
             // 
+            // btnEstadoResultado
+            // 
+            this.btnEstadoResultado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEstadoResultado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEstadoResultado.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEstadoResultado.Location = new System.Drawing.Point(316, 159);
+            this.btnEstadoResultado.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEstadoResultado.Name = "btnEstadoResultado";
+            this.btnEstadoResultado.Size = new System.Drawing.Size(308, 41);
+            this.btnEstadoResultado.TabIndex = 16;
+            this.btnEstadoResultado.Text = "Estado de Resultado";
+            this.toolTip1.SetToolTip(this.btnEstadoResultado, "Generar Reporte de Estado de Resultado");
+            this.btnEstadoResultado.UseVisualStyleBackColor = true;
+            // 
+            // btnEstadoSituacion
+            // 
+            this.btnEstadoSituacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEstadoSituacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEstadoSituacion.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEstadoSituacion.Location = new System.Drawing.Point(4, 159);
+            this.btnEstadoSituacion.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEstadoSituacion.Name = "btnEstadoSituacion";
+            this.btnEstadoSituacion.Size = new System.Drawing.Size(308, 41);
+            this.btnEstadoSituacion.TabIndex = 15;
+            this.btnEstadoSituacion.Text = "Estado de Situación";
+            this.toolTip1.SetToolTip(this.btnEstadoSituacion, "Generar Reporte de Estado de Situacion");
+            this.btnEstadoSituacion.UseVisualStyleBackColor = true;
+            // 
             // button1
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -191,7 +219,6 @@
             // btnReporteCotizaciones
             // 
             this.btnReporteCotizaciones.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReporteCotizaciones.Enabled = false;
             this.btnReporteCotizaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReporteCotizaciones.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReporteCotizaciones.Location = new System.Drawing.Point(4, 69);
@@ -201,6 +228,7 @@
             this.btnReporteCotizaciones.TabIndex = 3;
             this.btnReporteCotizaciones.Text = "Cuadre de Caja";
             this.btnReporteCotizaciones.UseVisualStyleBackColor = true;
+            this.btnReporteCotizaciones.Click += new System.EventHandler(this.BtnReporteCotizaciones_Click);
             // 
             // btnReporteEmpleados
             // 
@@ -229,34 +257,6 @@
             this.btnReporteInventario.TabIndex = 0;
             this.btnReporteInventario.Text = "Reporte de Productos";
             this.btnReporteInventario.UseVisualStyleBackColor = true;
-            // 
-            // btnEstadoSituacion
-            // 
-            this.btnEstadoSituacion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEstadoSituacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEstadoSituacion.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEstadoSituacion.Location = new System.Drawing.Point(4, 159);
-            this.btnEstadoSituacion.Margin = new System.Windows.Forms.Padding(2);
-            this.btnEstadoSituacion.Name = "btnEstadoSituacion";
-            this.btnEstadoSituacion.Size = new System.Drawing.Size(308, 41);
-            this.btnEstadoSituacion.TabIndex = 15;
-            this.btnEstadoSituacion.Text = "Estado de Situación";
-            this.toolTip1.SetToolTip(this.btnEstadoSituacion, "Generar Reporte de Estado de Situacion");
-            this.btnEstadoSituacion.UseVisualStyleBackColor = true;
-            // 
-            // btnEstadoResultado
-            // 
-            this.btnEstadoResultado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEstadoResultado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEstadoResultado.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEstadoResultado.Location = new System.Drawing.Point(316, 159);
-            this.btnEstadoResultado.Margin = new System.Windows.Forms.Padding(2);
-            this.btnEstadoResultado.Name = "btnEstadoResultado";
-            this.btnEstadoResultado.Size = new System.Drawing.Size(308, 41);
-            this.btnEstadoResultado.TabIndex = 16;
-            this.btnEstadoResultado.Text = "Estado de Resultado";
-            this.toolTip1.SetToolTip(this.btnEstadoResultado, "Generar Reporte de Estado de Resultado");
-            this.btnEstadoResultado.UseVisualStyleBackColor = true;
             // 
             // Reportes
             // 
