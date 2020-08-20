@@ -194,7 +194,7 @@
             this.groupBox1.Size = new System.Drawing.Size(569, 69);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tipo de Reporye";
+            this.groupBox1.Text = "Seleccionar Tipo de Reporte";
             // 
             // groupBox2
             // 
@@ -205,7 +205,7 @@
             this.groupBox2.Size = new System.Drawing.Size(268, 69);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Seleccionar Tipo de Formato";
+            this.groupBox2.Text = "Seleccionar Formato";
             // 
             // groupBox3
             // 
@@ -320,6 +320,7 @@
             this.Name = "ReportesDGII";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReportesDGII";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ReportesDGII_FormClosing);
             this.Load += new System.EventHandler(this.ReportesDGII_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.panel1.ResumeLayout(false);

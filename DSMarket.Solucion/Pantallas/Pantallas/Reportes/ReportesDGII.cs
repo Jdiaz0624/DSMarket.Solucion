@@ -410,7 +410,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
                     }
 
                     //INVOCAMOS EL REPORTE A MOSTRAR
-
+                    DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes Invocar608 = new Reportes();
+                    Invocar608.GenerarReporte608(VariablesGlobales.IdUsuario);
+                    Invocar608.ShowDialog();
                 }
                 else if (rbArchivotxt.Checked == true) {
                     if (string.IsNullOrEmpty(txtAno.Text.Trim()))
@@ -492,6 +494,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
         private void PCerrar_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void ReportesDGII_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            switch (e.CloseReason) {
+                case CloseReason.UserClosing:
+                    e.Cancel = true;
+                    break;
+            }
         }
     }
 }

@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbIdUsuario = new System.Windows.Forms.Label();
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
@@ -42,7 +43,8 @@
             this.btnReporteEmpleados = new System.Windows.Forms.Button();
             this.btnReporteInventario = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.lbIdUsuario = new System.Windows.Forms.Label();
+            this.btnEstadoSituacion = new System.Windows.Forms.Button();
+            this.btnEstadoResultado = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -63,6 +65,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(653, 41);
             this.panel1.TabIndex = 18;
+            // 
+            // lbIdUsuario
+            // 
+            this.lbIdUsuario.AutoSize = true;
+            this.lbIdUsuario.Location = new System.Drawing.Point(350, 18);
+            this.lbIdUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbIdUsuario.Name = "lbIdUsuario";
+            this.lbIdUsuario.Size = new System.Drawing.Size(54, 20);
+            this.lbIdUsuario.TabIndex = 17;
+            this.lbIdUsuario.Text = "label6";
+            this.lbIdUsuario.Visible = false;
             // 
             // PCerrar
             // 
@@ -101,6 +114,8 @@
             // 
             // gbOpciones
             // 
+            this.gbOpciones.Controls.Add(this.btnEstadoResultado);
+            this.gbOpciones.Controls.Add(this.btnEstadoSituacion);
             this.gbOpciones.Controls.Add(this.button1);
             this.gbOpciones.Controls.Add(this.btnCerrar);
             this.gbOpciones.Controls.Add(this.btnReporteClientes);
@@ -113,7 +128,7 @@
             this.gbOpciones.Margin = new System.Windows.Forms.Padding(2);
             this.gbOpciones.Name = "gbOpciones";
             this.gbOpciones.Padding = new System.Windows.Forms.Padding(2);
-            this.gbOpciones.Size = new System.Drawing.Size(631, 163);
+            this.gbOpciones.Size = new System.Drawing.Size(631, 210);
             this.gbOpciones.TabIndex = 17;
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Reportes - Seleccionar Opcion";
@@ -215,22 +230,39 @@
             this.btnReporteInventario.Text = "Reporte de Productos";
             this.btnReporteInventario.UseVisualStyleBackColor = true;
             // 
-            // lbIdUsuario
+            // btnEstadoSituacion
             // 
-            this.lbIdUsuario.AutoSize = true;
-            this.lbIdUsuario.Location = new System.Drawing.Point(350, 18);
-            this.lbIdUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbIdUsuario.Name = "lbIdUsuario";
-            this.lbIdUsuario.Size = new System.Drawing.Size(54, 20);
-            this.lbIdUsuario.TabIndex = 17;
-            this.lbIdUsuario.Text = "label6";
-            this.lbIdUsuario.Visible = false;
+            this.btnEstadoSituacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEstadoSituacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEstadoSituacion.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEstadoSituacion.Location = new System.Drawing.Point(4, 159);
+            this.btnEstadoSituacion.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEstadoSituacion.Name = "btnEstadoSituacion";
+            this.btnEstadoSituacion.Size = new System.Drawing.Size(308, 41);
+            this.btnEstadoSituacion.TabIndex = 15;
+            this.btnEstadoSituacion.Text = "Estado de Situación";
+            this.toolTip1.SetToolTip(this.btnEstadoSituacion, "Generar Reporte de Estado de Situacion");
+            this.btnEstadoSituacion.UseVisualStyleBackColor = true;
+            // 
+            // btnEstadoResultado
+            // 
+            this.btnEstadoResultado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEstadoResultado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEstadoResultado.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEstadoResultado.Location = new System.Drawing.Point(316, 159);
+            this.btnEstadoResultado.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEstadoResultado.Name = "btnEstadoResultado";
+            this.btnEstadoResultado.Size = new System.Drawing.Size(308, 41);
+            this.btnEstadoResultado.TabIndex = 16;
+            this.btnEstadoResultado.Text = "Estado de Resultado";
+            this.toolTip1.SetToolTip(this.btnEstadoResultado, "Generar Reporte de Estado de Resultado");
+            this.btnEstadoResultado.UseVisualStyleBackColor = true;
             // 
             // Reportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 219);
+            this.ClientSize = new System.Drawing.Size(653, 257);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gbOpciones);
             this.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -266,5 +298,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label lbIdUsuario;
+        private System.Windows.Forms.Button btnEstadoResultado;
+        private System.Windows.Forms.Button btnEstadoSituacion;
     }
 }

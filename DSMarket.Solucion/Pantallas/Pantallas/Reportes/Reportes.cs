@@ -241,6 +241,55 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
         }
         #endregion
 
+        #region GENERAR EL REPORTE DEL 608
+        public void GenerarReporte608(decimal IdUsuario)
+        {
+            try
+            {
+
+
+                string RutaReporte = "";
+                string UsuarioBD = "";
+                string ClaveBD = "";
+
+                //GENERAMOS EL REPORTE
+                var SacarRutaReporte = ObjDataConfiguracion.Value.BuscaRutaReporte(13);
+                foreach (var n in SacarRutaReporte)
+                {
+                    RutaReporte = n.RutaReporte;
+                }
+
+                //SACAMOS LAS CREDENCIALES DE LA BASE DE DATOS
+                var SacarCredenciales = ObjDataSeguridad.Value.SacarCredencialBD(1);
+                foreach (var nSeguridad in SacarCredenciales)
+                {
+                    UsuarioBD = nSeguridad.Usuario;
+                    ClaveBD = DSMarket.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(nSeguridad.Clave);
+                }
+
+                //INVOCAMOS EL REPORTE
+                ReportDocument Ganancia = new ReportDocument();
+
+                SqlCommand comando = new SqlCommand();
+                comando.CommandText = "EXEC [Reporte].[SP_REPORTE_PANTALLA_608] @IdUsuario";
+                comando.Connection = DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion();
+
+                comando.Parameters.Add("@IdUsuario", SqlDbType.Decimal);
+                comando.Parameters["@IdUsuario"].Value = IdUsuario;
+
+                Ganancia.Load(@"" + RutaReporte);
+                Ganancia.Refresh();
+                Ganancia.SetParameterValue("@IdUsuario", IdUsuario);
+                Ganancia.SetDatabaseLogon(UsuarioBD, ClaveBD);
+                crystalReportViewer1.ReportSource = Ganancia;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al generar el reporte del 606, codigo de error: " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
+
         private void Reportes_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
