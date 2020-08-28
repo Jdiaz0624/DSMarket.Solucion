@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DSMarket" Class="BDConexionContabilidadDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=DSMarket;Persist Security Info=True;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString4" Provider="System.Data.SqlClient" />
+  <Function Name="Contabilidad.SP_BUSCA_REGISTROS_CATALOGO_CUENTAS" Method="SP_BUSCA_REGISTROS_CATALOGO_CUENTAS">
+    <Parameter Name="IdRegistro" Parameter="idRegistro" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="CuentaContable" Parameter="cuentaContable" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Auxiliar" Parameter="auxiliar" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="DescripcionCuenta" Parameter="descripcionCuenta" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="CuentaDecarge" Parameter="cuentaDecarge" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="NumeroPagina" Parameter="numeroPagina" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NumeroRegistros" Parameter="numeroRegistros" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_BUSCA_REGISTROS_CATALOGO_CUENTASResult">
+      <Column Name="IdRegistro" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Cuenta" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Auxiliar" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="NombreCuenta" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="IdOrigenCuenta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Origen" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="IdTipoCuenta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="IdClaseCuenta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Clase" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdAceptaMovimientoCuenta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AceptaMovimiento" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="CodAnexo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CuentaDescargo" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="CuentaPresupuesto" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="AuxiliarPresupuesto" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Estatus0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Estatus" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="CuentaAnterior" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="UsuarioAdiciona" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreadoPor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FechaAdiciona" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaCreado" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="UsuarioModifica" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModificadoPor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FechaModifica" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaModificado" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Contabilidad.SP_MANTENIMIENTO_CATALOGO_CUENTA" Method="SP_MANTENIMIENTO_CATALOGO_CUENTA">
+    <Parameter Name="IdRegistro" Parameter="idRegistro" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Cuenta" Parameter="cuenta" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Auxiliar" Parameter="auxiliar" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="IdOrigenCuenta" Parameter="idOrigenCuenta" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdTipoCuenta" Parameter="idTipoCuenta" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdClaseCuenta" Parameter="idClaseCuenta" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdAceptaMovimientoCuenta" Parameter="idAceptaMovimientoCuenta" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CodAnexo" Parameter="codAnexo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CuentaDescargo" Parameter="cuentaDescargo" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="CuentaPresupuesto" Parameter="cuentaPresupuesto" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="AuxiliarPresupuesto" Parameter="auxiliarPresupuesto" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Estatus" Parameter="estatus" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="CuentaAnterior" Parameter="cuentaAnterior" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_MANTENIMIENTO_CATALOGO_CUENTAResult">
+      <Column Name="IdRegistro" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Cuenta" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Auxiliar" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="IdOrigenCuenta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdTipoCuenta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdClaseCuenta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdAceptaMovimientoCuenta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CodAnexo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CuentaDescargo" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="CuentaPresupuesto" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="AuxiliarPresupuesto" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Estatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CuentaAnterior" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="UsuarioAdiciona" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FechaAdiciona" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="UsuarioModifica" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FechaModifica" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

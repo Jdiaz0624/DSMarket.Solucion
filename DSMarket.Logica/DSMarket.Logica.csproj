@@ -62,6 +62,7 @@
     <Compile Include="Comunes\ProcesarInformacionDataReporte606.cs" />
     <Compile Include="Comunes\ProcesarInformacionModificarConfiguracionGeneral.cs" />
     <Compile Include="Comunes\ProcesarInformacionReporte608.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionCatalogoCuentas.cs" />
     <Compile Include="Comunes\ProcesarMontoInicialCaja.cs" />
     <Compile Include="Comunes\ProcesarProductosDefectuosos.cs" />
     <Compile Include="Comunes\ProcesarRegistrosReporteProductosDefectuosos.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Entidades\EntidadesConfiguracion\ERutaArchivotxt.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\ERutaBackup.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\ERutaReporte.cs" />
+    <Compile Include="Entidades\EntidadesContabilidad\ECatalogoCuentas.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\EClientes.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\ECompraSuplidores.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECantidadProductosDefectuosos.cs" />
@@ -160,6 +162,7 @@
     <Compile Include="Entidades\EntidadesServicio\EValidarFacturaAnulada.cs" />
     <Compile Include="Logica\LogicaCaja\LogicaCaja.cs" />
     <Compile Include="Logica\LogicaConfiguracion\LogicaCOnfiguracion.cs" />
+    <Compile Include="Logica\LogicaContabilidad\LogicaContabilidad.cs" />
     <Compile Include="Logica\LogicaEmpresa\LogicaEmpresa.cs" />
     <Compile Include="Logica\LogicaInventario\LogicaInventario.cs" />
     <Compile Include="Entidades\EntidadesSeguridad\EClaveSeguridad.cs" />

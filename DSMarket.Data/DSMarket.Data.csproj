@@ -59,6 +59,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BDConexionConfiguracion.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Conexion\ConexionLINQ\BDConexionContabilidad.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BDConexionContabilidad.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Conexion\ConexionLINQ\BDConexionEmpresa.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -100,6 +105,11 @@
     <None Include="Conexion\ConexionLINQ\BDConexionConfiguracion.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>BDConexionConfiguracion.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Conexion\ConexionLINQ\BDConexionContabilidad.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>BDConexionContabilidad.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="Conexion\ConexionLINQ\BDConexionEmpresa.dbml">
@@ -164,6 +174,11 @@
   <ItemGroup>
     <None Include="Conexion\ConexionLINQ\BDConexionEmpresa.dbml.layout">
       <DependentUpon>BDConexionEmpresa.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Conexion\ConexionLINQ\BDConexionContabilidad.dbml.layout">
+      <DependentUpon>BDConexionContabilidad.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

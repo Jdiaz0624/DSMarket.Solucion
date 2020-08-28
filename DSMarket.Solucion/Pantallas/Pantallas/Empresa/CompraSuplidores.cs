@@ -43,6 +43,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
                 foreach (var n in Consultar) {
                     int CantidadRegistros = Convert.ToInt32(n.CantidadRegistros);
                     lbCantidadRegistrosVariable.Text = CantidadRegistros.ToString("N0");
+                    
                 }
             }
             OcultarColumnas();
