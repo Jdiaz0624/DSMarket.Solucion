@@ -259,6 +259,18 @@
     <Compile Include="Pantallas\Pantallas\Configuracion\Reportes.Designer.cs">
       <DependentUpon>Reportes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Contabilidad\CatalogoCuentasConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Contabilidad\CatalogoCuentasConsulta.Designer.cs">
+      <DependentUpon>CatalogoCuentasConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Contabilidad\CatalogoCuentasMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Contabilidad\CatalogoCuentasMantenimiento.Designer.cs">
+      <DependentUpon>CatalogoCuentasMantenimiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Empresa\CargosConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -571,6 +583,12 @@
     <Compile Include="Pantallas\SubMenus\Configuracion.Designer.cs">
       <DependentUpon>Configuracion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\SubMenus\Contabilidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\SubMenus\Contabilidad.Designer.cs">
+      <DependentUpon>Contabilidad.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\SubMenus\Inventario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -656,6 +674,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\Reportes.resx">
       <DependentUpon>Reportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Contabilidad\CatalogoCuentasConsulta.resx">
+      <DependentUpon>CatalogoCuentasConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Contabilidad\CatalogoCuentasMantenimiento.resx">
+      <DependentUpon>CatalogoCuentasMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\CargosConsulta.resx">
       <DependentUpon>CargosConsulta.cs</DependentUpon>
@@ -806,6 +830,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\SubMenus\Configuracion.resx">
       <DependentUpon>Configuracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\SubMenus\Contabilidad.resx">
+      <DependentUpon>Contabilidad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\SubMenus\Inventario.resx">
       <DependentUpon>Inventario.cs</DependentUpon>

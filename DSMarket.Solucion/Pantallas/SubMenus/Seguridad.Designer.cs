@@ -157,6 +157,7 @@
             this.btnModulos.Text = "Modulos";
             this.btnModulos.UseVisualStyleBackColor = true;
             this.btnModulos.Visible = false;
+            this.btnModulos.Click += new System.EventHandler(this.btnModulos_Click);
             // 
             // btnClaveSeguridad
             // 

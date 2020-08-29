@@ -42,5 +42,10 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
             lbTitulo.ForeColor = Color.White;
             lbusuario.Text = DSMarket.Solucion.Pantallas.MenuPrincipal.MenuPrincipal.IdUsuarioMantenimientos.ToString();
         }
+
+        private void btnModulos_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

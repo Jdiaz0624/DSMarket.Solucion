@@ -101,6 +101,8 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
             EfectoBotones.Show(btnCaja);
             btneEmpresa.Visible = false;
             EfectoBotones.Show(btneEmpresa);
+            btnContabilidad.Visible = false;
+            EfectoBotones.Show(btnContabilidad);
             btnReportesSistema.Visible = false;
             EfectoBotones.Show(btnReportesSistema);
             btnConfiguracion.Visible = false;
@@ -135,6 +137,7 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
                 btneEmpresa.Enabled = false;
                 btnConfiguracion.Enabled = false;
                 btnSeguridad.Enabled = false;
+                btnContabilidad.Enabled = false;
             }
 
         }
@@ -225,6 +228,12 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
         {
             IdUsuarioMantenimientos = Convert.ToDecimal(lbIdUsuario.Text);
             AbrirPantallasEnPanel(new DSMarket.Solucion.Pantallas.SubMenus.Reportes());
+        }
+
+        private void btnContabilidad_Click(object sender, EventArgs e)
+        {
+            IdUsuarioMantenimientos = Convert.ToDecimal(lbIdUsuario.Text);
+            AbrirPantallasEnPanel(new DSMarket.Solucion.Pantallas.SubMenus.Contabilidad());
         }
     }
 }
