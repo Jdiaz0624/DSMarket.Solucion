@@ -120,7 +120,9 @@
     <Compile Include="Entidades\EntidadesInventario\ETipoProducto.cs" />
     <Compile Include="Entidades\EntidadesInventario\ETipoSuplidores.cs" />
     <Compile Include="Entidades\EntidadesInventario\EUnidadMedida.cs" />
+    <Compile Include="Entidades\EntidadesListas\EAceptaMovimientoCuentasCOntables.cs" />
     <Compile Include="Entidades\EntidadesListas\ECantidadDias.cs" />
+    <Compile Include="Entidades\EntidadesListas\EClasesCuentasContables.cs" />
     <Compile Include="Entidades\EntidadesListas\EComprobantesNulos.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaCategorias.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaComprobantesFiscales.cs" />
@@ -138,7 +140,9 @@
     <Compile Include="Entidades\EntidadesListas\EListaTipoSuplidor.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoVenta.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaUsuarios.cs" />
+    <Compile Include="Entidades\EntidadesListas\EOrigenCuentaContables.cs" />
     <Compile Include="Entidades\EntidadesListas\ETipoBienesServicios.cs" />
+    <Compile Include="Entidades\EntidadesListas\ETipoCuentasContables.cs" />
     <Compile Include="Entidades\EntidadesListas\ETipoRetencionISR.cs" />
     <Compile Include="Entidades\EntidadesListas\EUnidadMedida.cs" />
     <Compile Include="Entidades\EntidadesSeguridad\ECredenciales.cs" />

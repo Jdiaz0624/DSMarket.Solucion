@@ -33,7 +33,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
     #endregion
 		
 		public BDConexionListasDataContext() : 
-				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString5, mappingSource)
+				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString4, mappingSource)
 		{
 			OnCreated();
 		}
@@ -207,6 +207,34 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<SP_MOSTRAR_LISTADO_TIPO_ANULACIONResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_BUSCA_ORIGEN_CUENTAS_CONTABLES")]
+		public ISingleResult<SP_BUSCA_ORIGEN_CUENTAS_CONTABLESResult> SP_BUSCA_ORIGEN_CUENTAS_CONTABLES()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_BUSCA_ORIGEN_CUENTAS_CONTABLESResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_BUSCA_TIPO_CUENTAS_CONTABLES")]
+		public ISingleResult<SP_BUSCA_TIPO_CUENTAS_CONTABLESResult> SP_BUSCA_TIPO_CUENTAS_CONTABLES()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_BUSCA_TIPO_CUENTAS_CONTABLESResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_BUSCAR_LISTADO_CLASES_CUENTAS_CONTABLES")]
+		public ISingleResult<SP_BUSCAR_LISTADO_CLASES_CUENTAS_CONTABLESResult> SP_BUSCAR_LISTADO_CLASES_CUENTAS_CONTABLES()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_BUSCAR_LISTADO_CLASES_CUENTAS_CONTABLESResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_BUSCA_ACEPTA_MOVIMIENTOS_CUENTAS_CONTABLES")]
+		public ISingleResult<SP_BUSCA_ACEPTA_MOVIMIENTOS_CUENTAS_CONTABLESResult> SP_BUSCA_ACEPTA_MOVIMIENTOS_CUENTAS_CONTABLES()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_BUSCA_ACEPTA_MOVIMIENTOS_CUENTAS_CONTABLESResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -1208,6 +1236,182 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(100)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCA_ORIGEN_CUENTAS_CONTABLESResult
+	{
+		
+		private int _IdOrigenCuenta;
+		
+		private string _Descripcion;
+		
+		public SP_BUSCA_ORIGEN_CUENTAS_CONTABLESResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdOrigenCuenta", DbType="Int NOT NULL")]
+		public int IdOrigenCuenta
+		{
+			get
+			{
+				return this._IdOrigenCuenta;
+			}
+			set
+			{
+				if ((this._IdOrigenCuenta != value))
+				{
+					this._IdOrigenCuenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(20)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCA_TIPO_CUENTAS_CONTABLESResult
+	{
+		
+		private int _IdTipoCuentas;
+		
+		private string _Descripcion;
+		
+		public SP_BUSCA_TIPO_CUENTAS_CONTABLESResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoCuentas", DbType="Int NOT NULL")]
+		public int IdTipoCuentas
+		{
+			get
+			{
+				return this._IdTipoCuentas;
+			}
+			set
+			{
+				if ((this._IdTipoCuentas != value))
+				{
+					this._IdTipoCuentas = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(30)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCAR_LISTADO_CLASES_CUENTAS_CONTABLESResult
+	{
+		
+		private int _IdClaseCuenta;
+		
+		private string _Descripcion;
+		
+		public SP_BUSCAR_LISTADO_CLASES_CUENTAS_CONTABLESResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdClaseCuenta", DbType="Int NOT NULL")]
+		public int IdClaseCuenta
+		{
+			get
+			{
+				return this._IdClaseCuenta;
+			}
+			set
+			{
+				if ((this._IdClaseCuenta != value))
+				{
+					this._IdClaseCuenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(100)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCA_ACEPTA_MOVIMIENTOS_CUENTAS_CONTABLESResult
+	{
+		
+		private int _IdMovimientoCuenta;
+		
+		private string _Descripcion;
+		
+		public SP_BUSCA_ACEPTA_MOVIMIENTOS_CUENTAS_CONTABLESResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMovimientoCuenta", DbType="Int NOT NULL")]
+		public int IdMovimientoCuenta
+		{
+			get
+			{
+				return this._IdMovimientoCuenta;
+			}
+			set
+			{
+				if ((this._IdMovimientoCuenta != value))
+				{
+					this._IdMovimientoCuenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(2)")]
 		public string Descripcion
 		{
 			get

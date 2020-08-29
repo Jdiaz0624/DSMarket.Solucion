@@ -312,5 +312,61 @@ namespace DSMarket.Logica.Logica.LogicaListas
             return Listado;
         }
         #endregion
+
+        #region PROPIEDADES CATALOGO CUENTAS
+        //LISTADO DE CLASES DE CUENTAS CONTABLES
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EClasesCuentasContables> BuscaClasesCuentasContables()
+        {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjDataListas.SP_BUSCAR_LISTADO_CLASES_CUENTAS_CONTABLES()
+                           select new DSMarket.Logica.Entidades.EntidadesListas.EClasesCuentasContables
+                           {
+                               IdClaseCuenta=n.IdClaseCuenta,
+                               Descripcion=n.Descripcion
+                           }).ToList();
+            return Listado;
+        }
+
+        //LISTADO DE ORIGENES DE CUENTAS CONTABLES
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EOrigenCuentaContables> BuscaOrigenesCuentasCOntables() {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjDataListas.SP_BUSCA_ORIGEN_CUENTAS_CONTABLES()
+                           select new DSMarket.Logica.Entidades.EntidadesListas.EOrigenCuentaContables
+                           {
+                               IdOrigenCuenta=n.IdOrigenCuenta,
+                               Descripcion=n.Descripcion
+                              
+                           }).ToList();
+            return Listado;
+        }
+
+        //LISTADO DE TIPO DE CUENTAS CONTABLES
+        public List<DSMarket.Logica.Entidades.EntidadesListas.ETipoCuentasContables> BuscaTiposCuentasContables() {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjDataListas.SP_BUSCA_TIPO_CUENTAS_CONTABLES()
+                           select new DSMarket.Logica.Entidades.EntidadesListas.ETipoCuentasContables
+                           {
+                               IdTipoCuentas=n.IdTipoCuentas,
+                               Descripcion=n.Descripcion
+                           }).ToList();
+            return Listado;
+        }
+
+        //LISTADO DE ACEPTA MOVIMIENTOS CUENTAS CONTABLES
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EAceptaMovimientoCuentasCOntables> BuscaAceptaMovimientoSCuentasCotables() {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjDataListas.SP_BUSCA_ACEPTA_MOVIMIENTOS_CUENTAS_CONTABLES()
+                           select new DSMarket.Logica.Entidades.EntidadesListas.EAceptaMovimientoCuentasCOntables
+                           {
+                               IdMovimientoCuenta=n.IdMovimientoCuenta,
+                               Descripcion=n.Descripcion
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
     }
 }

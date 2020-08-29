@@ -9,7 +9,6 @@ namespace DSMarket.Logica.Logica.LogicaContabilidad
     public class LogicaContabilidad
     {
         DSMarket.Data.Conexion.ConexionLINQ.BDConexionContabilidadDataContext ObjData = new Data.Conexion.ConexionLINQ.BDConexionContabilidadDataContext(System.Configuration.ConfigurationManager.ConnectionStrings["DSMarketConexion"].ConnectionString);
-
         #region MANTENIMIENTO DE CATALOGO DE CUENTAS
         //LISTADO DE CATALOGO DE CUENTAS
         public List<DSMarket.Logica.Entidades.EntidadesContabilidad.ECatalogoCuentas> BuscaCatalogoCuentas(decimal? IdRegistro = null, string CuentaContable = null, string Auxiliar = null, string DescripcionCuenta = null, string CuentaDecarge = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
@@ -99,5 +98,7 @@ namespace DSMarket.Logica.Logica.LogicaContabilidad
             return Mantenimiento;
         }
         #endregion
+
+     
     }
 }

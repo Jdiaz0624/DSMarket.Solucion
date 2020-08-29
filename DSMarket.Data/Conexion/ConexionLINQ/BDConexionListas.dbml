@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DSMarket" Class="BDConexionListasDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=TECNOLOGIA;Initial Catalog=DSMarket;User ID=SA" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString5" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=DSMarket;Persist Security Info=True;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString4" Provider="System.Data.SqlClient" />
   <Function Name="Listas.SP_CARGAR_LISTA_TIPO_PRODUCTO" Method="SP_CARGAR_LISTA_TIPO_PRODUCTO">
     <Parameter Name="IdTipoproducto" Parameter="idTipoproducto" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(100)" />
@@ -136,6 +136,30 @@
     <ElementType Name="SP_MOSTRAR_LISTADO_TIPO_ANULACIONResult">
       <Column Name="IdTipoAnulacion" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
       <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_BUSCA_ORIGEN_CUENTAS_CONTABLES" Method="SP_BUSCA_ORIGEN_CUENTAS_CONTABLES">
+    <ElementType Name="SP_BUSCA_ORIGEN_CUENTAS_CONTABLESResult">
+      <Column Name="IdOrigenCuenta" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_BUSCA_TIPO_CUENTAS_CONTABLES" Method="SP_BUSCA_TIPO_CUENTAS_CONTABLES">
+    <ElementType Name="SP_BUSCA_TIPO_CUENTAS_CONTABLESResult">
+      <Column Name="IdTipoCuentas" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_BUSCAR_LISTADO_CLASES_CUENTAS_CONTABLES" Method="SP_BUSCAR_LISTADO_CLASES_CUENTAS_CONTABLES">
+    <ElementType Name="SP_BUSCAR_LISTADO_CLASES_CUENTAS_CONTABLESResult">
+      <Column Name="IdClaseCuenta" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_BUSCA_ACEPTA_MOVIMIENTOS_CUENTAS_CONTABLES" Method="SP_BUSCA_ACEPTA_MOVIMIENTOS_CUENTAS_CONTABLES">
+    <ElementType Name="SP_BUSCA_ACEPTA_MOVIMIENTOS_CUENTAS_CONTABLESResult">
+      <Column Name="IdMovimientoCuenta" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

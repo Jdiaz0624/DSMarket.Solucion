@@ -31,8 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbCantidadRegistrosVariable = new System.Windows.Forms.Label();
+            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.lbCantidadRegistrosTitulo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -44,30 +49,92 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.dtListadoNiveles = new System.Windows.Forms.DataGridView();
+            this.dtListado = new System.Windows.Forms.DataGridView();
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtListadoNiveles)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
+            // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = global::DSMarket.Solucion.Properties.Resources.Editar;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(531, 7);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(170, 41);
+            this.button1.TabIndex = 67;
+            this.button1.Text = "      Reporte";
+            this.toolTip1.SetToolTip(this.button1, "Reporte de Cuentas");
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditar.FlatAppearance.BorderSize = 0;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEditar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.Image = global::DSMarket.Solucion.Properties.Resources.Editar;
+            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditar.Location = new System.Drawing.Point(355, 7);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(170, 41);
+            this.btnEditar.TabIndex = 66;
+            this.btnEditar.Text = "      Editar";
+            this.toolTip1.SetToolTip(this.btnEditar, "Modificar registro seleccionado");
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNuevo.FlatAppearance.BorderSize = 0;
+            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
+            this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevo.Location = new System.Drawing.Point(179, 7);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(170, 41);
+            this.btnNuevo.TabIndex = 65;
+            this.btnNuevo.Text = "      Nuevo";
+            this.toolTip1.SetToolTip(this.btnNuevo, "Crear registro nuevo");
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscar.Location = new System.Drawing.Point(3, 7);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(170, 41);
+            this.btnBuscar.TabIndex = 64;
+            this.btnBuscar.Text = "      Buscar";
+            this.toolTip1.SetToolTip(this.btnBuscar, "Consultar registros");
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // panel1
             // 
@@ -91,6 +158,18 @@
             this.lbCantidadRegistrosVariable.Size = new System.Drawing.Size(19, 21);
             this.lbCantidadRegistrosVariable.TabIndex = 31;
             this.lbCantidadRegistrosVariable.Text = "0";
+            // 
+            // PCerrar
+            // 
+            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
+            this.PCerrar.Location = new System.Drawing.Point(919, 5);
+            this.PCerrar.Name = "PCerrar";
+            this.PCerrar.Size = new System.Drawing.Size(30, 30);
+            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PCerrar.TabIndex = 15;
+            this.PCerrar.TabStop = false;
             // 
             // lbTitulo
             // 
@@ -138,6 +217,7 @@
             this.txtAuxiliarConsulta.Name = "txtAuxiliarConsulta";
             this.txtAuxiliarConsulta.Size = new System.Drawing.Size(135, 27);
             this.txtAuxiliarConsulta.TabIndex = 14;
+            this.txtAuxiliarConsulta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAuxiliarConsulta_KeyPress);
             // 
             // txtNumeroCuentaConsulta
             // 
@@ -145,6 +225,7 @@
             this.txtNumeroCuentaConsulta.Name = "txtNumeroCuentaConsulta";
             this.txtNumeroCuentaConsulta.Size = new System.Drawing.Size(135, 27);
             this.txtNumeroCuentaConsulta.TabIndex = 13;
+            this.txtNumeroCuentaConsulta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAuxiliarConsulta_KeyPress);
             // 
             // label5
             // 
@@ -189,7 +270,7 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.dtListadoNiveles);
+            this.groupBox6.Controls.Add(this.dtListado);
             this.groupBox6.Location = new System.Drawing.Point(12, 212);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(939, 259);
@@ -197,21 +278,21 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Listado de Cuentas Contables";
             // 
-            // dtListadoNiveles
+            // dtListado
             // 
-            this.dtListadoNiveles.AllowUserToAddRows = false;
-            this.dtListadoNiveles.AllowUserToDeleteRows = false;
-            this.dtListadoNiveles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dtListadoNiveles.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dtListadoNiveles.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dtListadoNiveles.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dtListadoNiveles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtListadoNiveles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtListadoNiveles.Location = new System.Drawing.Point(3, 23);
-            this.dtListadoNiveles.Name = "dtListadoNiveles";
-            this.dtListadoNiveles.ReadOnly = true;
-            this.dtListadoNiveles.Size = new System.Drawing.Size(933, 233);
-            this.dtListadoNiveles.TabIndex = 0;
+            this.dtListado.AllowUserToAddRows = false;
+            this.dtListado.AllowUserToDeleteRows = false;
+            this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtListado.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtListado.Location = new System.Drawing.Point(3, 23);
+            this.dtListado.Name = "dtListado";
+            this.dtListado.ReadOnly = true;
+            this.dtListado.Size = new System.Drawing.Size(933, 233);
+            this.dtListado.TabIndex = 0;
             // 
             // txtNumeroRegistros
             // 
@@ -231,6 +312,7 @@
             0,
             0,
             0});
+            this.txtNumeroRegistros.ValueChanged += new System.EventHandler(this.txtNumeroRegistros_ValueChanged);
             // 
             // lbNumeroRegistros
             // 
@@ -259,6 +341,7 @@
             0,
             0,
             0});
+            this.txtNumeroPagina.ValueChanged += new System.EventHandler(this.txtNumeroPagina_ValueChanged);
             // 
             // lbNumeroPagina
             // 
@@ -268,82 +351,6 @@
             this.lbNumeroPagina.Size = new System.Drawing.Size(91, 21);
             this.lbNumeroPagina.TabIndex = 104;
             this.lbNumeroPagina.Text = "No.Pagina";
-            // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = global::DSMarket.Solucion.Properties.Resources.Editar;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(531, 7);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(170, 41);
-            this.button1.TabIndex = 67;
-            this.button1.Text = "      Reporte";
-            this.toolTip1.SetToolTip(this.button1, "Reporte de Cuentas");
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditar.FlatAppearance.BorderSize = 0;
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEditar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.Image = global::DSMarket.Solucion.Properties.Resources.Editar;
-            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(355, 7);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(170, 41);
-            this.btnEditar.TabIndex = 66;
-            this.btnEditar.Text = "      Editar";
-            this.toolTip1.SetToolTip(this.btnEditar, "Modificar registro seleccionado");
-            this.btnEditar.UseVisualStyleBackColor = true;
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNuevo.FlatAppearance.BorderSize = 0;
-            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
-            this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(179, 7);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(170, 41);
-            this.btnNuevo.TabIndex = 65;
-            this.btnNuevo.Text = "      Nuevo";
-            this.toolTip1.SetToolTip(this.btnNuevo, "Crear registro nuevo");
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
-            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(3, 7);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(170, 41);
-            this.btnBuscar.TabIndex = 64;
-            this.btnBuscar.Text = "      Buscar";
-            this.toolTip1.SetToolTip(this.btnBuscar, "Consultar registros");
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // PCerrar
-            // 
-            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(919, 5);
-            this.PCerrar.Name = "PCerrar";
-            this.PCerrar.Size = new System.Drawing.Size(30, 30);
-            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PCerrar.TabIndex = 15;
-            this.PCerrar.TabStop = false;
             // 
             // CatalogoCuentasConsulta
             // 
@@ -367,14 +374,14 @@
             this.Load += new System.EventHandler(this.CatalogoCuentasConsulta_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtListadoNiveles)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -402,7 +409,7 @@
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.DataGridView dtListadoNiveles;
+        private System.Windows.Forms.DataGridView dtListado;
         private System.Windows.Forms.NumericUpDown txtNumeroRegistros;
         private System.Windows.Forms.Label lbNumeroRegistros;
         private System.Windows.Forms.NumericUpDown txtNumeroPagina;
