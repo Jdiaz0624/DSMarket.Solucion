@@ -21,7 +21,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Contabilidad
         DSMarket.Logica.Logica.LogicaContabilidad.LogicaContabilidad ObjDataContabilidad = new LogicaContabilidad();
 
         #region LISTADO DE CUENTAS CONTABLES
-        private void MostrarListadoCUentas() {
+        private void MostrarListadoCUentas()
+        {
             string _NumeroCuenta = string.IsNullOrEmpty(txtNumeroCuentaConsulta.Text.Trim()) ? null : txtNumeroCuentaConsulta.Text.Trim();
             string _AuxiliarCuenta = string.IsNullOrEmpty(txtAuxiliarConsulta.Text.Trim()) ? null : txtAuxiliarConsulta.Text.Trim();
             string _DescripcionCuenta = string.IsNullOrEmpty(txtDescripcionConsulta.Text.Trim()) ? null : txtDescripcionConsulta.Text.Trim();
@@ -37,7 +38,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Contabilidad
             dtListado.DataSource = Buscar;
             OcultarColumnas();
         }
-        private void OcultarColumnas() {
+        private void OcultarColumnas()
+        {
             this.dtListado.Columns["IdRegistro"].Visible = false;
             this.dtListado.Columns["IdOrigenCuenta"].Visible = false;
             this.dtListado.Columns["IdTipoCuenta"].Visible = false;
@@ -59,6 +61,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Contabilidad
         private void CatalogoCuentasConsulta_Load(object sender, EventArgs e)
         {
             MostrarListadoCUentas();
+            lbTitulo.Text = "CATALOGO DE CUENTAS CONSULTA";
+            lbTitulo.ForeColor=Color.White;
+            VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -93,7 +98,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Contabilidad
                 txtNumeroPagina.Value = 1;
                 MostrarListadoCUentas();
             }
-            else {
+            else
+            {
                 MostrarListadoCUentas();
             }
         }
@@ -105,7 +111,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Contabilidad
                 txtNumeroRegistros.Value = 10;
                 MostrarListadoCUentas();
             }
-            else {
+            else
+            {
                 MostrarListadoCUentas();
             }
         }
@@ -113,6 +120,52 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Contabilidad
         private void txtAuxiliarConsulta_KeyPress(object sender, KeyPressEventArgs e)
         {
 
+        }
+
+        private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdRegistro"].Value.ToString());
+
+                var BucarRegistroSeleccionado = ObjDataContabilidad.BuscaCatalogoCuentas(
+                    VariablesGlobales.IdMantenimeinto,
+                    null, null, null, null, 1, 1);
+                dtListado.DataSource = BucarRegistroSeleccionado;
+
+                btnBuscar.Enabled = false;
+                btnNuevo.Enabled = false;
+                btnEditar.Enabled = true;
+                txtNumeroPagina.Enabled = false;
+                txtNumeroRegistros.Enabled = false;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            txtNumeroRegistros.Value = 10;
+            txtNumeroPagina.Value = 1;
+            txtDescripcionConsulta.Text = string.Empty;
+            txtAuxiliarConsulta.Text = string.Empty;
+            txtNumeroCuentaConsulta.Text = string.Empty;
+            MostrarListadoCUentas();
+            btnBuscar.Enabled = true;
+            btnNuevo.Enabled = true;
+            btnEditar.Enabled = false;
+        }
+
+        private void CatalogoCuentasConsulta_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            switch (e.CloseReason) {
+                case CloseReason.UserClosing:
+                    e.Cancel = true;
+                    break;
+            }
+        }
+
+        private void PCerrar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

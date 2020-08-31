@@ -9,6 +9,13 @@ namespace DSMarket.Logica.Entidades.EntidadesInventario
     public class EProducto
     {
         public System.Nullable<decimal> IdProducto {get;set;}
+        public System.Nullable<decimal> IdMarca { get; set; }
+
+        public string Marca { get; set; }
+
+        public System.Nullable<decimal> IdModelo { get; set; }
+
+        public string Modelo { get; set; }
 
         public System.Nullable<decimal> NumeroConector {get;set;}
 
@@ -26,13 +33,7 @@ namespace DSMarket.Logica.Entidades.EntidadesInventario
 
         public string UnidadMedida {get;set;}
 
-        public System.Nullable<decimal> IdMarca {get;set;}
-
-        public string Marca {get;set;}
-
-        public System.Nullable<decimal> IdModelo {get;set;}
-
-        public string Modelo {get;set;}
+       
 
         public System.Nullable<decimal> IdTipoSuplidor {get;set;}
 

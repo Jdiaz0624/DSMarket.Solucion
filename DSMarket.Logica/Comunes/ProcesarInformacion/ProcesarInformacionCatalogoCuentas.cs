@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -80,7 +81,7 @@ namespace DSMarket.Logica.Comunes.ProcesarInformacion
             Procesar.IdRegistro = IdRegistro;
             Procesar.Cuenta = Cuenta;
             Procesar.Auxiliar = Auxiliar;
-            Procesar.CuentaDescargo = Descripcion;
+            Procesar.NombreCuenta = Descripcion;
             Procesar.IdOrigenCuenta = IdOrigenCuenta;
             Procesar.IdTipoCuenta = IdTipoCuenta;
             Procesar.IdClaseCuenta = IdClaseCuenta;

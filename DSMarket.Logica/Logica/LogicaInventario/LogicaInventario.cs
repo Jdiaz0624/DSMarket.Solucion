@@ -462,7 +462,11 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                           select new DSMarket.Logica.Entidades.EntidadesInventario.EProducto
                           {
                               IdProducto=n.IdProducto,
-                              NumeroConector=n.NumeroConector,
+                              IdMarca = n.IdMarca,
+                              Marca = n.Marca,
+                              IdModelo = n.IdModelo,
+                              Modelo = n.Modelo,
+                              NumeroConector =n.NumeroConector,
                               IdTipoProducto=n.IdTipoProducto,
                               Producto=n.Producto,
                               TipoProducto=n.TipoProducto,
@@ -470,10 +474,6 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                               Categoria=n.Categoria,
                               IdUnidadMedida=n.IdUnidadMedida,
                               UnidadMedida=n.UnidadMedida,
-                              IdMarca=n.IdMarca,
-                              Marca=n.Marca,
-                              IdModelo=n.IdModelo,
-                              Modelo=n.Modelo,
                               IdTipoSuplidor=n.IdTipoSuplidor,
                               TipoSuplidor=n.TipoSuplidor,
                               IdSuplidor=n.IdSuplidor,
