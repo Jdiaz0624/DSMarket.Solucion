@@ -167,5 +167,12 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Contabilidad
         {
             this.Dispose();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Pantallas.Reportes.Reportes Reporte = new Reportes.Reportes();
+            Reporte.GenerarReporteCatalogoCuentas();
+            Reporte.ShowDialog();
+        }
     }
 }

@@ -35,6 +35,7 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbCantidadRegistrosVariable = new System.Windows.Forms.Label();
             this.PCerrar = new System.Windows.Forms.PictureBox();
@@ -50,12 +51,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.dtListado = new System.Windows.Forms.DataGridView();
+            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -86,6 +86,7 @@
             this.button1.Text = "      Reporte";
             this.toolTip1.SetToolTip(this.button1, "Reporte de Cuentas");
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnEditar
             // 
@@ -138,6 +139,23 @@
             this.toolTip1.SetToolTip(this.btnBuscar, "Consultar registros");
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // button2
+            // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(531, 7);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(170, 41);
+            this.button2.TabIndex = 68;
+            this.button2.Text = "      Restablecer";
+            this.toolTip1.SetToolTip(this.button2, "Modificar registro seleccionado");
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel1
             // 
@@ -303,6 +321,17 @@
             this.dtListado.TabIndex = 0;
             this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
+            // Select
+            // 
+            this.Select.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Select.HeaderText = "Select";
+            this.Select.Name = "Select";
+            this.Select.ReadOnly = true;
+            this.Select.Text = "Select";
+            this.Select.ToolTipText = "Select";
+            this.Select.UseColumnTextForButtonValue = true;
+            this.Select.Width = 64;
+            // 
             // txtNumeroRegistros
             // 
             this.txtNumeroRegistros.BackColor = System.Drawing.Color.LightGray;
@@ -360,34 +389,6 @@
             this.lbNumeroPagina.Size = new System.Drawing.Size(91, 21);
             this.lbNumeroPagina.TabIndex = 104;
             this.lbNumeroPagina.Text = "No.Pagina";
-            // 
-            // button2
-            // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(531, 7);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(170, 41);
-            this.button2.TabIndex = 68;
-            this.button2.Text = "      Restablecer";
-            this.toolTip1.SetToolTip(this.button2, "Modificar registro seleccionado");
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // Select
-            // 
-            this.Select.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Select.HeaderText = "Select";
-            this.Select.Name = "Select";
-            this.Select.ReadOnly = true;
-            this.Select.Text = "Select";
-            this.Select.ToolTipText = "Select";
-            this.Select.UseColumnTextForButtonValue = true;
-            this.Select.Width = 64;
             // 
             // CatalogoCuentasConsulta
             // 
