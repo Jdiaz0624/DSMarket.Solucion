@@ -405,7 +405,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
                             Convert.ToDecimal(n.CantidadRegistros),
                             Convert.ToDateTime(txtFechaDesde.Text),
                             Convert.ToDateTime(txtFechaHasta.Text),
-                            "INSERT");
+                            "INSERT");   
                         Procesar.ProcesarInformacion();
                     }
 
