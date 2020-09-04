@@ -226,7 +226,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
 
                 var Comprobantes = ObjDataConfiguracion.Value.BuscaComprobantesFiscales(
                     VariablesGlobales.IdMantenimeinto);
-                dtListado.DataSource = components;
+                dtListado.DataSource = Comprobantes;
                 foreach (var n in Comprobantes) {
                     txtDescripcion.Text = n.Comprobante;
                     txtSerie.Text = n.Serie;
@@ -271,7 +271,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
                     else
                     {
                         //modificamos
-                        MAnCOmprobantesFiscales("INSERT");
+                        MAnCOmprobantesFiscales("UPDATE");
                         MessageBox.Show("Registro modificado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         RestabelcerPantalla();
                     }

@@ -106,5 +106,12 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
             }
 
         }
+
+        private void btnReporteComprobantesFiscales_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes Invocar = new Pantallas.Reportes.Reportes();
+            Invocar.GenerarReporteComprobantes();
+            Invocar.ShowDialog();
+        }
     }
 }

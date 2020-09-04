@@ -205,7 +205,6 @@
             // btnReporteComprobantesFiscales
             // 
             this.btnReporteComprobantesFiscales.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReporteComprobantesFiscales.Enabled = false;
             this.btnReporteComprobantesFiscales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReporteComprobantesFiscales.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReporteComprobantesFiscales.Location = new System.Drawing.Point(317, 24);
@@ -215,6 +214,7 @@
             this.btnReporteComprobantesFiscales.TabIndex = 10;
             this.btnReporteComprobantesFiscales.Text = "Reporte de Comprobantes";
             this.btnReporteComprobantesFiscales.UseVisualStyleBackColor = true;
+            this.btnReporteComprobantesFiscales.Click += new System.EventHandler(this.btnReporteComprobantesFiscales_Click);
             // 
             // btnReporteCotizaciones
             // 
