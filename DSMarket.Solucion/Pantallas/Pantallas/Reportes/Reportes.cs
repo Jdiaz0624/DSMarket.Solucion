@@ -333,7 +333,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
                 MessageBox.Show("Error al generar el reporte de estado de cuenta, codigo de error " + ex.Message, "ERROR AL GENERAR REPORTE",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        #endregion
+        #endregion  
 
         #region GENERAR EL REPORTE DE PRODUCTOS DEFECTUOSOS
         public void GenerarReporteComprobantes()
