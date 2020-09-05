@@ -35,5 +35,6 @@ namespace DSMarket.Logica.Entidades.EntidadesContabilidad
 		public string ConceptoCuenta { get; set; }
 
 		public System.Nullable<decimal> NumeroRelacionado { get; set; }
+		public System.Nullable<int> IdClaseCuenta { get; set; }
 	}
 }

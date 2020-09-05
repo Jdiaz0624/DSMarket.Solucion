@@ -108,6 +108,7 @@
     <Compile Include="Entidades\EntidadesConfiguracion\ERutaReporte.cs" />
     <Compile Include="Entidades\EntidadesContabilidad\EBancos.cs" />
     <Compile Include="Entidades\EntidadesContabilidad\ECatalogoCuentas.cs" />
+    <Compile Include="Entidades\EntidadesContabilidad\EConceptoCuentasProcesos.cs" />
     <Compile Include="Entidades\EntidadesContabilidad\EGuardarCuentasMovimientos.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\EClientes.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\ECompraSuplidores.cs" />

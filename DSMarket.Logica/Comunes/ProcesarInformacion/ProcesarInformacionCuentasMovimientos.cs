@@ -26,6 +26,7 @@ namespace DSMarket.Logica.Comunes.ProcesarInformacion
         private int IdOrigen = 0;
         private string ConceptoCuenta = "";
         private decimal NumeroRelacionado = 0;
+        private int IdClaseCuenta = 0;
         private string Accion = "";
 
         //CREAMOS UN CONSTRUCTOR PARA PROCESAR LA INFORMACION DE ENTRADA
@@ -44,6 +45,7 @@ namespace DSMarket.Logica.Comunes.ProcesarInformacion
         int IdOrigenCON,
         string ConceptoCuentaCON,
         decimal NumeroRelacionadoCON,
+        int IdClasecuentaCON,
         string AccionCON)
         {
             IdRegistro = IdRegistroCON;
@@ -60,6 +62,7 @@ namespace DSMarket.Logica.Comunes.ProcesarInformacion
             IdOrigen = IdOrigenCON;
             ConceptoCuenta = ConceptoCuentaCON;
             NumeroRelacionado = NumeroRelacionadoCON;
+            IdClaseCuenta = IdClasecuentaCON;
             Accion = AccionCON;
         }
 
@@ -81,6 +84,8 @@ namespace DSMarket.Logica.Comunes.ProcesarInformacion
             Procesar.IdOrigen = IdOrigen;
             Procesar.ConceptoCuenta = ConceptoCuenta;
             Procesar.NumeroRelacionado = NumeroRelacionado;
+            Procesar.IdClaseCuenta = IdClaseCuenta;
+           
 
             var MAN = ObjData.Value.GuardarCuentasMovimientos(Procesar, Accion);
         }

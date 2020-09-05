@@ -1343,34 +1343,105 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         }
         #endregion
         #region AFECTAR CUENTAS CONTABLES
-        private void AfectarCuentasContablesDebitos(string Ano, string Mes,decimal IdBanco,string Cuenta, string Auxiliar,string Concepto,decimal NumeroRelacionado) {
+        private void AfectarCuentas(string Ano, string Mes,decimal IdBanco,string Cuenta, string Auxiliar,decimal Valor, string Concepto,decimal NumeroRelacionado,int IdClaseCuenta) {
             if (rbFacturar.Checked) {
                 int TipoVenta = 0;
 
 
                 TipoVenta = Convert.ToInt32(ddlTipoVenta.SelectedValue);
-                if (TipoVenta == 1) {
-                //AFECTAMOS LAS CUENTAS CONTABLES REALIZANDO UNA VENTA  A CONTADO
+
+                DSMarket.Logica.Comunes.ProcesarInformacion.ProcesarInformacionCuentasMovimientos Procesar = new Logica.Comunes.ProcesarInformacion.ProcesarInformacionCuentasMovimientos(
+                       0,
+                       Ano,
+                       Mes,
+                       1,
+                       1,
+                       VariablesGlobales.NumeroConector,
+                       0,
+                       IdBanco,
+                       Cuenta,
+                       Auxiliar,
+                       Valor,
+                       1,
+                       Concepto,
+                       NumeroRelacionado,
+                       IdClaseCuenta,
+                       "INSERT");
+                Procesar.ProcesarInformacion();
+
+                if (TipoVenta == 2) {
+                    //AFECTAMOS LAS CUENTAS CONTABLES REALIZANDO UNA VENTA  A CREDITO
+                   
                 }
-                else if (TipoVenta == 2) {
-                //AFECTAMOS LAS CUENTAS CONTABLES REALIZANDO UNA VENTA A CREDITO
-                }
+                
             
             }
         }
-        private void AfectarCuentasContablesCreditos(string Ano, string Mes, decimal IdBanco, string Cuenta, string Auxiliar, string Concepto, decimal NumeroRelacionado) {
-            if (rbFacturar.Checked) {
-                int TipoVenta = 0;
-                TipoVenta = Convert.ToInt32(ddlTipoVenta.SelectedValue);
-                if (TipoVenta == 1)
-                {
-                    //AFECTAMOS LAS CUENTAS CONTABLES REALIZANDO UNA VENTA  A CONTADO
-                }
-                else if (TipoVenta == 2)
-                {
-                    //AFECTAMOS LAS CUENTAS CONTABLES REALIZANDO UNA VENTA A CREDITO
-                }
+        #endregion
+        #region PROCESAR INFORMACION CUENTAS CONTABLES
+        private void ProcesarInformacionCuentasContables() {
+            //AFECTAMOS LAS CUENTAS EN DEBITO
+            //SACAMOS EL AÑO ACTUAL
+            string AnoActual = DateTime.Now.Year.ToString();
+
+            //SACAMOS EL MES ACTUAL
+            string Mes = DateTime.Now.Month.ToString();
+            string MesActual = "";
+            int CantidadCaracteresMes = Mes.Length;
+            if (CantidadCaracteresMes == 1)
+            {
+                MesActual = "0" + Mes;
             }
+            else
+            {
+                MesActual = Mes;
+            }
+
+            //SACAMOS EL BANCO POR DEFECTO
+            decimal IdBanco = 0;
+            var SacarBancoPorDefecto = ObjdataContabilidad.Value.BuscaBancos(
+                new Nullable<decimal>(),
+                null,
+                true,
+                1, 1);
+            foreach (var n in SacarBancoPorDefecto)
+            {
+                IdBanco = Convert.ToDecimal(n.IdBanco);
+            }
+
+            //SACAMOS LA CUENTA Y EL AUXILIAR
+            string CuentaContable = "";
+            string Auxiliar = "";
+            int IdClaseCuenta = 0;
+
+            var SacarDatosCuenta = ObjdataContabilidad.Value.BuscaCatalogoCuentas(
+                8, null, null, null, null, 1, 1);
+            foreach (var nCunetas in SacarDatosCuenta)
+            {
+                IdClaseCuenta = Convert.ToInt32(nCunetas.IdClaseCuenta);
+                CuentaContable = nCunetas.Cuenta;
+                Auxiliar = nCunetas.Auxiliar;
+            }
+
+            //SACAMOS EL VALOR DE LA VENTA
+            decimal ValorVenta = Convert.ToDecimal(txtTotal.Text);
+
+            //SACAMOS EL CONCEPTO DE LA CUENTA
+            string ConceptoCuenta = "";
+            var SacarConceptoCuenta = ObjdataContabilidad.Value.BuscaProcesosCuentas(1);
+            foreach (var nConcepto in SacarConceptoCuenta)
+            {
+                ConceptoCuenta = nConcepto.Concepto;
+            }
+            //SACAMOS EL NUMERO DE FACTURA
+            decimal NumeroRelacionado = 0;
+
+            var SacarNumeroFactura = ObjDataServicio.Value.SacarNumeroFactura(VariablesGlobales.NumeroConector);
+            foreach (var nFactura in SacarNumeroFactura)
+            {
+                NumeroRelacionado = Convert.ToDecimal(nFactura.IdFactura);
+            }
+            AfectarCuentas(AnoActual, MesActual, IdBanco, CuentaContable, Auxiliar, ValorVenta, ConceptoCuenta, NumeroRelacionado, IdClaseCuenta);
         }
         #endregion
 
@@ -1864,6 +1935,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                                 AfectarComprobanteFiscal();
                                 AfectarCaja();
                                 IngresarSacarDinero("ADDMONEY");
+                                ProcesarInformacionCuentasContables();
+
+                                
 
 
                                 MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1893,6 +1967,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                                         AfectarComprobanteFiscal();
                                         AfectarCaja();
                                         IngresarSacarDinero("ADDMONEY");
+                                        ProcesarInformacionCuentasContables();
                                         MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         GenerarFacturaVenta();
                                         this.Dispose();

@@ -119,6 +119,7 @@ namespace DSMarket.Logica.Logica.LogicaContabilidad
                 Item.IdOrigen,
                 Item.ConceptoCuenta,
                 Item.NumeroRelacionado,
+                Item.IdClaseCuenta,
                 Accion);
             if (CuentasMovimientos != null) {
                 Mantenimiento = (from n in CuentasMovimientos
@@ -137,7 +138,8 @@ namespace DSMarket.Logica.Logica.LogicaContabilidad
                                      Valor=n.Valor,
                                      IdOrigen=n.IdOrigen,
                                      ConceptoCuenta=n.ConceptoCuenta,
-                                     NumeroRelacionado=n.NumeroRelacionado
+                                     NumeroRelacionado=n.NumeroRelacionado,
+                                     IdClaseCuenta=n.IdClaseCuenta
                                  }).FirstOrDefault();
 
             }
@@ -188,7 +190,19 @@ namespace DSMarket.Logica.Logica.LogicaContabilidad
             return Mantenimiento;
         }
         #endregion
+        #region BUSCA CONCEPTOS CUENTAS PROCESOS
+        public List<DSMarket.Logica.Entidades.EntidadesContabilidad.EConceptoCuentasProcesos> BuscaProcesosCuentas(int? IdConceptoCuentasProcesos = null) {
+            ObjData.CommandTimeout = 999999999;
 
+            var Buscar = (from n in ObjData.SP_BUSCA_CONCEPTOS_CUENTAS_PROCESOS(IdConceptoCuentasProcesos)
+                          select new DSMarket.Logica.Entidades.EntidadesContabilidad.EConceptoCuentasProcesos
+                          {
+                              IdConceptoCuentasProcesos=n.IdConceptoCuentasProcesos,
+                              Concepto=n.Concepto
+                          }).ToList();
+            return Buscar;
+        }
+        #endregion
 
     }
 }
