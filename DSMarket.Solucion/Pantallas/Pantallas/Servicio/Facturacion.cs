@@ -1334,8 +1334,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         }
         #endregion
-
-
         #region MOSTRAR EL LISTADO DE LOS TIPOS DE INGRESOS
         private void MostrarLosTipoSIngresos() {
             var TiposIngresos = ObjDataListas.Value.ListadoTipoIngresos();
@@ -1344,6 +1342,38 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             ddlSeleccionarTipoIngres.ValueMember = "IdTipoIngreso";
         }
         #endregion
+        #region AFECTAR CUENTAS CONTABLES
+        private void AfectarCuentasContablesDebitos(string Ano, string Mes,decimal IdBanco,string Cuenta, string Auxiliar,string Concepto,decimal NumeroRelacionado) {
+            if (rbFacturar.Checked) {
+                int TipoVenta = 0;
+
+
+                TipoVenta = Convert.ToInt32(ddlTipoVenta.SelectedValue);
+                if (TipoVenta == 1) {
+                //AFECTAMOS LAS CUENTAS CONTABLES REALIZANDO UNA VENTA  A CONTADO
+                }
+                else if (TipoVenta == 2) {
+                //AFECTAMOS LAS CUENTAS CONTABLES REALIZANDO UNA VENTA A CREDITO
+                }
+            
+            }
+        }
+        private void AfectarCuentasContablesCreditos(string Ano, string Mes, decimal IdBanco, string Cuenta, string Auxiliar, string Concepto, decimal NumeroRelacionado) {
+            if (rbFacturar.Checked) {
+                int TipoVenta = 0;
+                TipoVenta = Convert.ToInt32(ddlTipoVenta.SelectedValue);
+                if (TipoVenta == 1)
+                {
+                    //AFECTAMOS LAS CUENTAS CONTABLES REALIZANDO UNA VENTA  A CONTADO
+                }
+                else if (TipoVenta == 2)
+                {
+                    //AFECTAMOS LAS CUENTAS CONTABLES REALIZANDO UNA VENTA A CREDITO
+                }
+            }
+        }
+        #endregion
+
 
         private void Facturacion_Load(object sender, EventArgs e)
         {
