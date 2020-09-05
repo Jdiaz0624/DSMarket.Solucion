@@ -63,6 +63,7 @@
     <Compile Include="Comunes\ProcesarInformacionModificarConfiguracionGeneral.cs" />
     <Compile Include="Comunes\ProcesarInformacionReporte608.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionCatalogoCuentas.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionCuentasMovimientos.cs" />
     <Compile Include="Comunes\ProcesarMontoInicialCaja.cs" />
     <Compile Include="Comunes\ProcesarProductosDefectuosos.cs" />
     <Compile Include="Comunes\ProcesarRegistrosReporteProductosDefectuosos.cs" />
@@ -105,7 +106,9 @@
     <Compile Include="Entidades\EntidadesConfiguracion\ERutaArchivotxt.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\ERutaBackup.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\ERutaReporte.cs" />
+    <Compile Include="Entidades\EntidadesContabilidad\EBancos.cs" />
     <Compile Include="Entidades\EntidadesContabilidad\ECatalogoCuentas.cs" />
+    <Compile Include="Entidades\EntidadesContabilidad\EGuardarCuentasMovimientos.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\EClientes.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\ECompraSuplidores.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECantidadProductosDefectuosos.cs" />

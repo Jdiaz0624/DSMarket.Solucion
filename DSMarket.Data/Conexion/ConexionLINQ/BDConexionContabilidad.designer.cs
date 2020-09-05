@@ -91,6 +91,27 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idRegistro, cuenta, auxiliar, descripcion, idOrigenCuenta, idTipoCuenta, idClaseCuenta, idAceptaMovimientoCuenta, codAnexo, cuentaDescargo, cuentaPresupuesto, auxiliarPresupuesto, estatus, cuentaAnterior, idUsuario, accion);
 			return ((ISingleResult<SP_MANTENIMIENTO_CATALOGO_CUENTAResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Contabilidad.SP_GUARDAR_CUENTAS_MOVIMIENTOS")]
+		public ISingleResult<SP_GUARDAR_CUENTAS_MOVIMIENTOSResult> SP_GUARDAR_CUENTAS_MOVIMIENTOS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdRegistro", DbType="Decimal(25,0)")] System.Nullable<decimal> idRegistro, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ano", DbType="VarChar(4)")] string ano, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mes", DbType="VarChar(2)")] string mes, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoCuenta", DbType="Int")] System.Nullable<int> idTipoCuenta, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdModulo", DbType="Int")] System.Nullable<int> idModulo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Conector", DbType="Decimal(20,0)")] System.Nullable<decimal> conector, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Secuencia", DbType="Decimal(20,0)")] System.Nullable<decimal> secuencia, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Banco", DbType="Decimal(20,0)")] System.Nullable<decimal> banco, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cuenta", DbType="VarChar(10)")] string cuenta, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Auxiliar", DbType="VarChar(10)")] string auxiliar, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Valor", DbType="Decimal(20,2)")] System.Nullable<decimal> valor, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdOrigen", DbType="Int")] System.Nullable<int> idOrigen, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ConceptoCuenta", DbType="VarChar(8000)")] string conceptoCuenta, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroRelacionado", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroRelacionado, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idRegistro, ano, mes, idTipoCuenta, idModulo, conector, secuencia, banco, cuenta, auxiliar, valor, idOrigen, conceptoCuenta, numeroRelacionado, accion);
+			return ((ISingleResult<SP_GUARDAR_CUENTAS_MOVIMIENTOSResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Contabilidad.SP_BUSCA_BANCOS")]
+		public ISingleResult<SP_BUSCA_BANCOSResult> SP_BUSCA_BANCOS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdBanco", DbType="Decimal(20,0)")] System.Nullable<decimal> idBanco, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Banco", DbType="VarChar(100)")] string banco, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PorDefecto", DbType="Bit")] System.Nullable<bool> porDefecto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroPagina", DbType="Int")] System.Nullable<int> numeroPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroRegistros", DbType="Int")] System.Nullable<int> numeroRegistros)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idBanco, banco, porDefecto, numeroPagina, numeroRegistros);
+			return ((ISingleResult<SP_BUSCA_BANCOSResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Contabilidad.SP_MANTENIMIENTO_BANCOS")]
+		public ISingleResult<SP_MANTENIMIENTO_BANCOSResult> SP_MANTENIMIENTO_BANCOS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdBanco", DbType="Decimal(20,0)")] System.Nullable<decimal> idBanco, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Banco", DbType="VarChar(100)")] string banco, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Estatus", DbType="Bit")] System.Nullable<bool> estatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PorDefecto", DbType="Bit")] System.Nullable<bool> porDefecto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idBanco, banco, estatus, porDefecto, accion);
+			return ((ISingleResult<SP_MANTENIMIENTO_BANCOSResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_BUSCA_REGISTROS_CATALOGO_CUENTASResult
@@ -914,6 +935,462 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._FechaModifica != value))
 				{
 					this._FechaModifica = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_GUARDAR_CUENTAS_MOVIMIENTOSResult
+	{
+		
+		private System.Nullable<decimal> _IdRegistro;
+		
+		private string _Ano;
+		
+		private string _Mes;
+		
+		private System.Nullable<int> _IdTipoCuenta;
+		
+		private System.Nullable<int> _IdModulo;
+		
+		private System.Nullable<decimal> _Conector;
+		
+		private System.Nullable<decimal> _Secuencia;
+		
+		private System.Nullable<decimal> _Banco;
+		
+		private string _Cuenta;
+		
+		private string _Auxiliar;
+		
+		private System.Nullable<decimal> _Valor;
+		
+		private System.Nullable<int> _IdOrigen;
+		
+		private string _ConceptoCuenta;
+		
+		private System.Nullable<decimal> _NumeroRelacionado;
+		
+		public SP_GUARDAR_CUENTAS_MOVIMIENTOSResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdRegistro", DbType="Decimal(25,0)")]
+		public System.Nullable<decimal> IdRegistro
+		{
+			get
+			{
+				return this._IdRegistro;
+			}
+			set
+			{
+				if ((this._IdRegistro != value))
+				{
+					this._IdRegistro = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ano", DbType="VarChar(4)")]
+		public string Ano
+		{
+			get
+			{
+				return this._Ano;
+			}
+			set
+			{
+				if ((this._Ano != value))
+				{
+					this._Ano = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mes", DbType="VarChar(2)")]
+		public string Mes
+		{
+			get
+			{
+				return this._Mes;
+			}
+			set
+			{
+				if ((this._Mes != value))
+				{
+					this._Mes = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoCuenta", DbType="Int")]
+		public System.Nullable<int> IdTipoCuenta
+		{
+			get
+			{
+				return this._IdTipoCuenta;
+			}
+			set
+			{
+				if ((this._IdTipoCuenta != value))
+				{
+					this._IdTipoCuenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdModulo", DbType="Int")]
+		public System.Nullable<int> IdModulo
+		{
+			get
+			{
+				return this._IdModulo;
+			}
+			set
+			{
+				if ((this._IdModulo != value))
+				{
+					this._IdModulo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Conector", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> Conector
+		{
+			get
+			{
+				return this._Conector;
+			}
+			set
+			{
+				if ((this._Conector != value))
+				{
+					this._Conector = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Secuencia", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> Secuencia
+		{
+			get
+			{
+				return this._Secuencia;
+			}
+			set
+			{
+				if ((this._Secuencia != value))
+				{
+					this._Secuencia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Banco", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> Banco
+		{
+			get
+			{
+				return this._Banco;
+			}
+			set
+			{
+				if ((this._Banco != value))
+				{
+					this._Banco = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cuenta", DbType="VarChar(10)")]
+		public string Cuenta
+		{
+			get
+			{
+				return this._Cuenta;
+			}
+			set
+			{
+				if ((this._Cuenta != value))
+				{
+					this._Cuenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Auxiliar", DbType="VarChar(10)")]
+		public string Auxiliar
+		{
+			get
+			{
+				return this._Auxiliar;
+			}
+			set
+			{
+				if ((this._Auxiliar != value))
+				{
+					this._Auxiliar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Valor", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> Valor
+		{
+			get
+			{
+				return this._Valor;
+			}
+			set
+			{
+				if ((this._Valor != value))
+				{
+					this._Valor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdOrigen", DbType="Int")]
+		public System.Nullable<int> IdOrigen
+		{
+			get
+			{
+				return this._IdOrigen;
+			}
+			set
+			{
+				if ((this._IdOrigen != value))
+				{
+					this._IdOrigen = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConceptoCuenta", DbType="VarChar(8000)")]
+		public string ConceptoCuenta
+		{
+			get
+			{
+				return this._ConceptoCuenta;
+			}
+			set
+			{
+				if ((this._ConceptoCuenta != value))
+				{
+					this._ConceptoCuenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroRelacionado", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> NumeroRelacionado
+		{
+			get
+			{
+				return this._NumeroRelacionado;
+			}
+			set
+			{
+				if ((this._NumeroRelacionado != value))
+				{
+					this._NumeroRelacionado = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCA_BANCOSResult
+	{
+		
+		private int _IdBanco;
+		
+		private string _Banco;
+		
+		private System.Nullable<bool> _Estatus0;
+		
+		private string _Estatus;
+		
+		private System.Nullable<bool> _PorDefecto0;
+		
+		private string _PorDefecto;
+		
+		public SP_BUSCA_BANCOSResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdBanco", DbType="Int NOT NULL")]
+		public int IdBanco
+		{
+			get
+			{
+				return this._IdBanco;
+			}
+			set
+			{
+				if ((this._IdBanco != value))
+				{
+					this._IdBanco = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Banco", DbType="VarChar(100)")]
+		public string Banco
+		{
+			get
+			{
+				return this._Banco;
+			}
+			set
+			{
+				if ((this._Banco != value))
+				{
+					this._Banco = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus0", DbType="Bit")]
+		public System.Nullable<bool> Estatus0
+		{
+			get
+			{
+				return this._Estatus0;
+			}
+			set
+			{
+				if ((this._Estatus0 != value))
+				{
+					this._Estatus0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="VarChar(8) NOT NULL", CanBeNull=false)]
+		public string Estatus
+		{
+			get
+			{
+				return this._Estatus;
+			}
+			set
+			{
+				if ((this._Estatus != value))
+				{
+					this._Estatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorDefecto0", DbType="Bit")]
+		public System.Nullable<bool> PorDefecto0
+		{
+			get
+			{
+				return this._PorDefecto0;
+			}
+			set
+			{
+				if ((this._PorDefecto0 != value))
+				{
+					this._PorDefecto0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorDefecto", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
+		public string PorDefecto
+		{
+			get
+			{
+				return this._PorDefecto;
+			}
+			set
+			{
+				if ((this._PorDefecto != value))
+				{
+					this._PorDefecto = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_MANTENIMIENTO_BANCOSResult
+	{
+		
+		private System.Nullable<decimal> _IdBanco;
+		
+		private string _Banco;
+		
+		private System.Nullable<bool> _Estatus;
+		
+		private System.Nullable<bool> _PorDefecto;
+		
+		public SP_MANTENIMIENTO_BANCOSResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdBanco", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdBanco
+		{
+			get
+			{
+				return this._IdBanco;
+			}
+			set
+			{
+				if ((this._IdBanco != value))
+				{
+					this._IdBanco = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Banco", DbType="VarChar(100)")]
+		public string Banco
+		{
+			get
+			{
+				return this._Banco;
+			}
+			set
+			{
+				if ((this._Banco != value))
+				{
+					this._Banco = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="Bit")]
+		public System.Nullable<bool> Estatus
+		{
+			get
+			{
+				return this._Estatus;
+			}
+			set
+			{
+				if ((this._Estatus != value))
+				{
+					this._Estatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorDefecto", DbType="Bit")]
+		public System.Nullable<bool> PorDefecto
+		{
+			get
+			{
+				return this._PorDefecto;
+			}
+			set
+			{
+				if ((this._PorDefecto != value))
+				{
+					this._PorDefecto = value;
 				}
 			}
 		}

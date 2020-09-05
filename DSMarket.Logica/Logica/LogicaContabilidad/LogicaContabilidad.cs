@@ -98,7 +98,97 @@ namespace DSMarket.Logica.Logica.LogicaContabilidad
             return Mantenimiento;
         }
         #endregion
+        #region MANTENIMIENTO DE CUENTAS MOVIMIENTOS
+        public DSMarket.Logica.Entidades.EntidadesContabilidad.EGuardarCuentasMovimientos GuardarCuentasMovimientos(DSMarket.Logica.Entidades.EntidadesContabilidad.EGuardarCuentasMovimientos Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
 
-     
+            DSMarket.Logica.Entidades.EntidadesContabilidad.EGuardarCuentasMovimientos Mantenimiento = null;
+
+            var CuentasMovimientos = ObjData.SP_GUARDAR_CUENTAS_MOVIMIENTOS(
+                Item.IdRegistro,
+                Item.Ano,
+                Item.Mes,
+                Item.IdTipoCuenta,
+                Item.IdModulo,
+                Item.Conector,
+                Item.Secuencia,
+                Item.Banco,
+                Item.Cuenta,
+                Item.Auxiliar,
+                Item.Valor,
+                Item.IdOrigen,
+                Item.ConceptoCuenta,
+                Item.NumeroRelacionado,
+                Accion);
+            if (CuentasMovimientos != null) {
+                Mantenimiento = (from n in CuentasMovimientos
+                                 select new DSMarket.Logica.Entidades.EntidadesContabilidad.EGuardarCuentasMovimientos
+                                 {
+                                     IdRegistro=n.IdRegistro,
+                                     Ano=n.Ano,
+                                     Mes=n.Mes,
+                                     IdTipoCuenta=n.IdTipoCuenta,
+                                     IdModulo=n.IdModulo,
+                                     Conector=n.Conector,
+                                     Secuencia=n.Secuencia,
+                                     Banco=n.Banco,
+                                     Cuenta=n.Cuenta,
+                                     Auxiliar=n.Auxiliar,
+                                     Valor=n.Valor,
+                                     IdOrigen=n.IdOrigen,
+                                     ConceptoCuenta=n.ConceptoCuenta,
+                                     NumeroRelacionado=n.NumeroRelacionado
+                                 }).FirstOrDefault();
+
+            }
+            return Mantenimiento;
+
+        }
+        #endregion
+        #region MANTENIMIENTO DE BANCOS
+        //LISTADO DE BANCOS
+        public List<DSMarket.Logica.Entidades.EntidadesContabilidad.EBancos> BuscaBancos(decimal? IdBanco = null, string Banco = null, bool? PorDefecto = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_BUSCA_BANCOS(IdBanco, Banco, PorDefecto, NumeroPagina, NumeroRegistros)
+                           select new DSMarket.Logica.Entidades.EntidadesContabilidad.EBancos
+                           {
+                               IdBanco=n.IdBanco,
+                               Banco=n.Banco,
+                               Estatus0=n.Estatus0,
+                               Estatus=n.Estatus,
+                               PorDefecto0=n.PorDefecto0,
+                               PorDefecto=n.PorDefecto,
+                               
+                           }).ToList();
+            return Listado;
+        }
+        //MANTENIMIENTO DE BANCOS
+        public DSMarket.Logica.Entidades.EntidadesContabilidad.EBancos MantenimientoBancos(DSMarket.Logica.Entidades.EntidadesContabilidad.EBancos Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesContabilidad.EBancos Mantenimiento = null;
+
+            var Bancos = ObjData.SP_MANTENIMIENTO_BANCOS(
+                Item.IdBanco,
+                Item.Banco,
+                Item.Estatus0,
+                Item.PorDefecto0,
+                Accion);
+            if (Bancos != null) {
+                Mantenimiento = (from n in Bancos
+                                 select new DSMarket.Logica.Entidades.EntidadesContabilidad.EBancos
+                                 {
+                                     IdBanco=Convert.ToInt32(n.IdBanco),
+                                     Banco=n.Banco,
+                                     Estatus0=n.Estatus,
+                                     PorDefecto0=n.PorDefecto
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
+        #endregion
+
+
     }
 }
