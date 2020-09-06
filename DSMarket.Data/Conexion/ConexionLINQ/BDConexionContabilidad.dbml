@@ -127,6 +127,7 @@
     <Parameter Name="ConceptoCuenta" Parameter="conceptoCuenta" Type="System.String" DbType="VarChar(8000)" />
     <Parameter Name="NumeroRelacionado" Parameter="numeroRelacionado" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="IdClaseCuenta" Parameter="idClaseCuenta" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdCuentaContable" Parameter="idCuentaContable" Type="System.Decimal" DbType="Decimal(25,0)" />
     <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
     <ElementType Name="SP_GUARDAR_CUENTAS_MOVIMIENTOSResult">
       <Column Name="IdRegistro" Type="System.Decimal" DbType="Decimal(25,0)" CanBeNull="true" />
@@ -144,6 +145,7 @@
       <Column Name="ConceptoCuenta" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
       <Column Name="NumeroRelacionado" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="IdClaseCuenta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdCuentaContable" Type="System.Decimal" DbType="Decimal(25,0)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

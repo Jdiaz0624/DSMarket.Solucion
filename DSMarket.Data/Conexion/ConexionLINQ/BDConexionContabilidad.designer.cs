@@ -130,9 +130,10 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ConceptoCuenta", DbType="VarChar(8000)")] string conceptoCuenta, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroRelacionado", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroRelacionado, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdClaseCuenta", DbType="Int")] System.Nullable<int> idClaseCuenta, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdCuentaContable", DbType="Decimal(25,0)")] System.Nullable<decimal> idCuentaContable, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idRegistro, ano, mes, idTipoCuenta, idModulo, conector, secuencia, banco, cuenta, auxiliar, valor, idOrigen, conceptoCuenta, numeroRelacionado, idClaseCuenta, accion);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idRegistro, ano, mes, idTipoCuenta, idModulo, conector, secuencia, banco, cuenta, auxiliar, valor, idOrigen, conceptoCuenta, numeroRelacionado, idClaseCuenta, idCuentaContable, accion);
 			return ((ISingleResult<SP_GUARDAR_CUENTAS_MOVIMIENTOSResult>)(result.ReturnValue));
 		}
 	}
@@ -1236,6 +1237,8 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		
 		private System.Nullable<int> _IdClaseCuenta;
 		
+		private System.Nullable<decimal> _IdCuentaContable;
+		
 		public SP_GUARDAR_CUENTAS_MOVIMIENTOSResult()
 		{
 		}
@@ -1476,6 +1479,22 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._IdClaseCuenta != value))
 				{
 					this._IdClaseCuenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCuentaContable", DbType="Decimal(25,0)")]
+		public System.Nullable<decimal> IdCuentaContable
+		{
+			get
+			{
+				return this._IdCuentaContable;
+			}
+			set
+			{
+				if ((this._IdCuentaContable != value))
+				{
+					this._IdCuentaContable = value;
 				}
 			}
 		}

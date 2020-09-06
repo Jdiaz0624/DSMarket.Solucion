@@ -1343,7 +1343,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         }
         #endregion
         #region AFECTAR CUENTAS CONTABLES
-        private void AfectarCuentas(string Ano, string Mes,decimal IdBanco,string Cuenta, string Auxiliar,decimal Valor, string Concepto,decimal NumeroRelacionado,int IdClaseCuenta) {
+        private void AfectarCuentas(string Ano, string Mes,decimal IdBanco,string Cuenta, string Auxiliar,decimal Valor, string Concepto,decimal NumeroRelacionado,int IdClaseCuenta,int IdTipoCuenta,int IdOrigenCuenta,int IdCuentaContable) {
             if (rbFacturar.Checked) {
                 int TipoVenta = 0;
 
@@ -1354,7 +1354,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                        0,
                        Ano,
                        Mes,
-                       1,
+                       IdTipoCuenta,
                        1,
                        VariablesGlobales.NumeroConector,
                        0,
@@ -1362,10 +1362,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                        Cuenta,
                        Auxiliar,
                        Valor,
-                       1,
+                       IdOrigenCuenta,
                        Concepto,
                        NumeroRelacionado,
                        IdClaseCuenta,
+                       IdCuentaContable,
                        "INSERT");
                 Procesar.ProcesarInformacion();
 
@@ -1413,6 +1414,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             string CuentaContable = "";
             string Auxiliar = "";
             int IdClaseCuenta = 0;
+            int IdTipoCuenta = 0;
+            int IdOrigenCuenta = 0;
 
             var SacarDatosCuenta = ObjdataContabilidad.Value.BuscaCatalogoCuentas(
                 8, null, null, null, null, 1, 1);
@@ -1421,6 +1424,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 IdClaseCuenta = Convert.ToInt32(nCunetas.IdClaseCuenta);
                 CuentaContable = nCunetas.Cuenta;
                 Auxiliar = nCunetas.Auxiliar;
+                IdTipoCuenta = Convert.ToInt32(nCunetas.IdTipoCuenta);
+                IdOrigenCuenta = Convert.ToInt32(nCunetas.IdOrigenCuenta);
             }
 
             //SACAMOS EL VALOR DE LA VENTA
@@ -1441,7 +1446,89 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             {
                 NumeroRelacionado = Convert.ToDecimal(nFactura.IdFactura);
             }
-            AfectarCuentas(AnoActual, MesActual, IdBanco, CuentaContable, Auxiliar, ValorVenta, ConceptoCuenta, NumeroRelacionado, IdClaseCuenta);
+            AfectarCuentas(AnoActual, MesActual, IdBanco, CuentaContable, Auxiliar, ValorVenta, ConceptoCuenta, NumeroRelacionado, IdClaseCuenta, IdTipoCuenta, IdOrigenCuenta,8);
+        }
+
+        //AFECTAMOS LAS CUENTAS CONTABLES CUANDO AFECTANDO LAS CUENTAS A CREDITO
+        private void AfectarCuentasContablesCreditos() {
+            /*
+             PROCESOS A REALIZAR
+
+                 1- VALIDAR TODOS LOS PRODUCTOS A FACTURAR Y SACAR EL ID DE CADA PRODUCTO
+                 2- CON EL ID VALIDAR SI EL PRODUCTO APLICA PARA ITBIS
+                 3- SI EL PRODUCTO APLICA PARA ITBIS GUARDAR LOS DATOS EN LA CUENTA 4.2 EL VALOR SIN ITBIS Y EN LA CUENTA 2.1 EL MONTO DEL ITBIS, DE LO CONTRARIO SOLO GUARDAR EN LA CUENTA 4.1
+
+
+             */
+
+            //SACAMOS EL AÑO ACTUAL
+            string Ano = DateTime.Now.Year.ToString();
+            //SACAMOS EL MES ACTUAL
+            string Mes = DateTime.Now.Month.ToString();
+            int CantidadCaracteresMes = Mes.Length;
+            string MesActual = "";
+            if (CantidadCaracteresMes == 1) {
+                MesActual = "0" + Mes;
+            }
+            else {
+                MesActual = Mes;
+            }
+            //SACAMOS EL BANCO POR DEFECTO
+            decimal IdBanco = 0;
+            var SacarCodigoBanco = ObjdataContabilidad.Value.BuscaBancos(
+                new Nullable<decimal>(), null, true, 1, 1);
+            foreach (var nBanco in SacarCodigoBanco) {
+                IdBanco = Convert.ToDecimal(nBanco.IdBanco);
+            }
+            var SacarProductosAgragados = ObjDataServicio.Value.BuscapRoductosAgregados(
+                new Nullable<decimal>(),
+                VariablesGlobales.NumeroConector);
+            foreach (var nProductosAgregados in SacarProductosAgragados) {
+                decimal IdProducto = Convert.ToDecimal(nProductosAgregados.IdProducto);
+                decimal ValorProducto = Convert.ToDecimal(nProductosAgregados.Precio);
+                //BUSCAMOS EL PRODUCTO Y VERIFICAMOS SI EL PRODUCTO APLICA PARA ITBIS
+                var BuscarProducto = ObjDataInventario.Value.BuscaProductos(
+                    IdProducto, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                foreach (var nInventario in BuscarProducto) {
+                    bool AplicaImpuesto = Convert.ToBoolean(nInventario.AplicaParaImpuesto0);
+
+                    if (AplicaImpuesto == true) {
+                    //GUARDAMOS LA INFORMACION CUANDO EL PRODUCTO APLICA PARA IMPUESTO
+                    }
+                    else {
+                        //GUARDAMLS LA INFORMACION CUANDO EL PRODUCTO NO APLICA PARA IMPUSTO
+
+                        string CuentaContable = "";
+                        string Auxiliar = "";
+                        int IdClaseCuenta = 0;
+                        int IdTipoCuenta = 0;
+                        int IdOrigenCuenta = 0;
+
+
+                        var SacarDatosCuenta = ObjdataContabilidad.Value.BuscaCatalogoCuentas(9, null, null, null, null, 1, 1);
+                        foreach (var nCatalogo in SacarDatosCuenta) {
+                            CuentaContable = nCatalogo.Cuenta;
+                            Auxiliar = nCatalogo.Auxiliar;
+                            IdClaseCuenta = Convert.ToInt32(nCatalogo.IdClaseCuenta);
+                            IdTipoCuenta = Convert.ToInt32(nCatalogo.IdTipoCuenta);
+                            IdOrigenCuenta = Convert.ToInt32(nCatalogo.IdOrigenCuenta);
+                        }
+
+                        string ConceptoCuentaCredito = "";
+                        var SacarConcepto = ObjdataContabilidad.Value.BuscaProcesosCuentas(3);
+                        foreach (var nConcepto in SacarConcepto) {
+                            ConceptoCuentaCredito = nConcepto.Concepto;
+                        }
+
+                        decimal NumeroRelacionado = 0;
+                        var SacarNumeroFactura = ObjDataServicio.Value.SacarNumeroFactura(VariablesGlobales.NumeroConector);
+                        foreach (var nFactura in SacarNumeroFactura) {
+                            NumeroRelacionado = Convert.ToDecimal(nFactura.IdFactura);
+                        }
+                        AfectarCuentas(Ano, MesActual, IdBanco, CuentaContable, Auxiliar, ValorProducto, ConceptoCuentaCredito, NumeroRelacionado, IdClaseCuenta, IdTipoCuenta, IdOrigenCuenta,9);
+                    }
+                }
+            }
         }
         #endregion
 
@@ -1936,6 +2023,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                                 AfectarCaja();
                                 IngresarSacarDinero("ADDMONEY");
                                 ProcesarInformacionCuentasContables();
+                                AfectarCuentasContablesCreditos();
 
                                 
 
@@ -1968,6 +2056,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                                         AfectarCaja();
                                         IngresarSacarDinero("ADDMONEY");
                                         ProcesarInformacionCuentasContables();
+                                        AfectarCuentasContablesCreditos();
                                         MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         GenerarFacturaVenta();
                                         this.Dispose();

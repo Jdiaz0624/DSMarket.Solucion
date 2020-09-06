@@ -120,6 +120,7 @@ namespace DSMarket.Logica.Logica.LogicaContabilidad
                 Item.ConceptoCuenta,
                 Item.NumeroRelacionado,
                 Item.IdClaseCuenta,
+                Item.IdCuentaContable,
                 Accion);
             if (CuentasMovimientos != null) {
                 Mantenimiento = (from n in CuentasMovimientos
@@ -139,7 +140,8 @@ namespace DSMarket.Logica.Logica.LogicaContabilidad
                                      IdOrigen=n.IdOrigen,
                                      ConceptoCuenta=n.ConceptoCuenta,
                                      NumeroRelacionado=n.NumeroRelacionado,
-                                     IdClaseCuenta=n.IdClaseCuenta
+                                     IdClaseCuenta=n.IdClaseCuenta,
+                                     IdCuentaContable=n.IdCuentaContable
                                  }).FirstOrDefault();
 
             }
