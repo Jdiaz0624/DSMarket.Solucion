@@ -1486,6 +1486,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             foreach (var nProductosAgregados in SacarProductosAgragados) {
                 decimal IdProducto = Convert.ToDecimal(nProductosAgregados.IdProducto);
                 decimal ValorProducto = Convert.ToDecimal(nProductosAgregados.Precio);
+                decimal ImpuestoProducto = Convert.ToDecimal(nProductosAgregados.Impuesto);
+                decimal PrecioSinImpuesto = ValorProducto - ImpuestoProducto;
                 //BUSCAMOS EL PRODUCTO Y VERIFICAMOS SI EL PRODUCTO APLICA PARA ITBIS
                 var BuscarProducto = ObjDataInventario.Value.BuscaProductos(
                     IdProducto, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
@@ -1493,7 +1495,57 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     bool AplicaImpuesto = Convert.ToBoolean(nInventario.AplicaParaImpuesto0);
 
                     if (AplicaImpuesto == true) {
-                    //GUARDAMOS LA INFORMACION CUANDO EL PRODUCTO APLICA PARA IMPUESTO
+                        //GUARDAMOS LA INFORMACION CUANDO EL PRODUCTO APLICA PARA IMPUESTO
+
+                        string CuentaContableCredito = "";
+                        string AuxiliarCredito = "";
+                        int IdClaseCuentaCredito = 0;
+                        int IdTipoCuentaCredito = 0;
+                        int IdOrigenCuentaCredito = 0;
+                        //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                        var SacarDatosCuenta = ObjdataContabilidad.Value.BuscaCatalogoCuentas(14, null, null, null, null, 1, 1);
+                        foreach (var nCatalogo in SacarDatosCuenta)
+                        {
+                            CuentaContableCredito = nCatalogo.Cuenta;
+                            AuxiliarCredito = nCatalogo.Auxiliar;
+                            IdClaseCuentaCredito = Convert.ToInt32(nCatalogo.IdClaseCuenta);
+                            IdTipoCuentaCredito = Convert.ToInt32(nCatalogo.IdTipoCuenta);
+                            IdOrigenCuentaCredito = Convert.ToInt32(nCatalogo.IdOrigenCuenta);
+                        }
+                        //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                        string ConceptoCuentaCredito = DSMarket.Logica.Comunes.ObtenerConceptoCuentas.SacarConceptoCuenta(4);
+                        //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                        decimal NumeroRelacionado = 0;
+                        var SacarNumeroFactura = ObjDataServicio.Value.SacarNumeroFactura(VariablesGlobales.NumeroConector);
+                        foreach (var nFactura in SacarNumeroFactura)
+                        {
+                            NumeroRelacionado = Convert.ToDecimal(nFactura.IdFactura);
+                        }
+                        AfectarCuentas(Ano, MesActual, IdBanco, CuentaContableCredito, AuxiliarCredito, PrecioSinImpuesto, ConceptoCuentaCredito, NumeroRelacionado, IdClaseCuentaCredito, IdTipoCuentaCredito, IdOrigenCuentaCredito, 14);
+                        //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                        //GUARDAMOS LOS DATOS PARA EL ITBIS
+                        string CuentaContableITBIS = "";
+                        string AuxiliarITBIS = "";
+                        int IdClaseCuentaITBIS = 0;
+                        int IdTipoCuentaITBIS = 0;
+                        int IdOrigenCuentaITBIS = 0;
+                        //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                        var SacarDatosCuentaITBIS = ObjdataContabilidad.Value.BuscaCatalogoCuentas(10, null, null, null, null, 1, 1);
+                        foreach (var nITBIS in SacarDatosCuentaITBIS) {
+                            CuentaContableITBIS = nITBIS.Cuenta;
+                            AuxiliarITBIS = nITBIS.Auxiliar;
+                            IdClaseCuentaITBIS = Convert.ToInt32(nITBIS.IdClaseCuenta);
+                            IdTipoCuentaITBIS = Convert.ToInt32(nITBIS.IdTipoCuenta);
+                            IdOrigenCuentaITBIS = Convert.ToInt32(nITBIS.IdOrigenCuenta);
+                        }
+                        //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                        string ConceptoCuentaITBIS = DSMarket.Logica.Comunes.ObtenerConceptoCuentas.SacarConceptoCuenta(5);
+                        //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                        AfectarCuentas(Ano, MesActual, IdBanco, CuentaContableITBIS, AuxiliarITBIS, ImpuestoProducto, ConceptoCuentaITBIS, NumeroRelacionado, IdClaseCuentaITBIS, IdTipoCuentaITBIS, IdOrigenCuentaITBIS, 10);
+
+                       
+
                     }
                     else {
                         //GUARDAMLS LA INFORMACION CUANDO EL PRODUCTO NO APLICA PARA IMPUSTO
@@ -1514,11 +1566,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             IdOrigenCuenta = Convert.ToInt32(nCatalogo.IdOrigenCuenta);
                         }
 
-                        string ConceptoCuentaCredito = "";
-                        var SacarConcepto = ObjdataContabilidad.Value.BuscaProcesosCuentas(3);
-                        foreach (var nConcepto in SacarConcepto) {
-                            ConceptoCuentaCredito = nConcepto.Concepto;
-                        }
+                        string ConceptoCuentaCredito = DSMarket.Logica.Comunes.ObtenerConceptoCuentas.SacarConceptoCuenta(3);
+                      
 
                         decimal NumeroRelacionado = 0;
                         var SacarNumeroFactura = ObjDataServicio.Value.SacarNumeroFactura(VariablesGlobales.NumeroConector);
