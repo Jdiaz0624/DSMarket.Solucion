@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         Lazy<DSMarket.Logica.Logica.LogicaInventario.LogicaInventario> ObjDataInventario = new Lazy<Logica.Logica.LogicaInventario.LogicaInventario>();
         Lazy<DSMarket.Logica.Logica.LogicaCaja.LogicaCaja> ObjDataCaja = new Lazy<Logica.Logica.LogicaCaja.LogicaCaja>();
         Lazy<DSMarket.Logica.Logica.LogicaListas.LogicaListas> ObjDataListas = new Lazy<Logica.Logica.LogicaListas.LogicaListas>();
+        Lazy<DSMarket.Logica.Logica.LogicaContabilidad.LogicaContabilidad> ObjdataContabilidad = new Lazy<Logica.Logica.LogicaContabilidad.LogicaContabilidad>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region APLICAR TEMA
@@ -418,6 +420,62 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             ddlSeleccionarTipoAnulacion.ValueMember = "IdTipoAnulacion";
         }
         #endregion
+        #region AFECTAR LAS CUENTAS CONTABLES
+        private void AfectarCuentasContablesDebitos() {
+            //SACAMOS EL AñO DE LA ANULACION
+            string AnoActual = DateTime.Now.Year.ToString();
+            string Mes = DateTime.Now.Month.ToString();
+            int Digitomes = Mes.Length;
+            string MesActual = "";
+            if (Digitomes == 1) {
+                MesActual = "0" + Mes;
+            }
+            else {
+                MesActual = Mes;
+            }
+
+
+            int IdTipoCuentaDebito = 0;
+            int IdorigenCuentaDebito = 0;
+            int IdClaseCuentaDebito = 0;
+            int IdCuentaCatalogoCuenta = 0;
+            string CuentaDebito = "";
+            string AuxiliarDebito = "";
+            decimal IdBanco = 0;
+           
+
+            var SacarDatosCuentas = ObjdataContabilidad.Value.BuscaCatalogoCuentas(8, null, null, null, null, 1, 1);
+            foreach (var nCatalogo in SacarDatosCuentas) {
+                IdTipoCuentaDebito = Convert.ToInt32(nCatalogo.IdTipoCuenta);
+                IdorigenCuentaDebito = Convert.ToInt32(nCatalogo.IdOrigenCuenta);
+                IdClaseCuentaDebito = Convert.ToInt32(nCatalogo.IdClaseCuenta);
+                IdCuentaCatalogoCuenta = Convert.ToInt32(nCatalogo.IdRegistro);
+                CuentaDebito = nCatalogo.Cuenta;
+                AuxiliarDebito = nCatalogo.Auxiliar;
+            }
+
+            //SACAMOS EL COIGO DEL BANCO
+            var SacarInformacionBanco = ObjdataContabilidad.Value.BuscaBancos(
+                new Nullable<decimal>(), null, true, 1, 1);
+            foreach (var nBanco in SacarInformacionBanco) {
+                IdBanco = Convert.ToDecimal(nBanco.IdBanco);
+            }
+
+            decimal MontoPagar = Convert.ToDecimal(txtMontoPagar.Text);
+            decimal Valor = MontoPagar * -1;
+
+            string Concepto = DSMarket.Logica.Comunes.ObtenerValores.SacarConceptoCuenta(6);
+            decimal NumeroRelacionado = DSMarket.Logica.Comunes.ObtenerValores.SacarNumeroFactura(VariablesGlobales.NumeroConector);
+
+
+            DSMarket.Logica.Comunes.ProcesarInformacion.ProcesarInformacionCuentasMovimientos Procesar = new Logica.Comunes.ProcesarInformacion.ProcesarInformacionCuentasMovimientos(
+              0, AnoActual, MesActual, IdTipoCuentaDebito, 1, VariablesGlobales.NumeroConector, 0, IdBanco, CuentaDebito, AuxiliarDebito, Valor, IdorigenCuentaDebito, Concepto, NumeroRelacionado, IdClaseCuentaDebito, IdCuentaCatalogoCuenta, "INSERT");
+            Procesar.ProcesarInformacion();
+        }
+        private void AfectarCuentasContablesCreditos() { 
+        
+        }
+        #endregion
 
         private void PCerrar_Click(object sender, EventArgs e)
         {
@@ -524,6 +582,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                                                 var Add = ObjDataInventario.Value.MantenimientoProducto(Devolver, "CHANGESTATUS");
                                             }
                                         }
+                                        AfectarCuentasContablesDebitos();
                                         MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                         //IMPRIMIMOS LA FACTURA
@@ -546,7 +605,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                                 //  FacturacionCalculos(VariablesGlobales.NumeroConector, "INSERT");
                                 //AFECTAMOS COMPROBANTE
                                 AfectarComprobanteFiscal();
-
+                                AfectarCuentasContablesDebitos();
                                 MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                 //IMPRIMIMOS LA FACTURA

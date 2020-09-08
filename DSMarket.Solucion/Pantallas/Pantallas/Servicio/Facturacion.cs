@@ -1513,7 +1513,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             IdOrigenCuentaCredito = Convert.ToInt32(nCatalogo.IdOrigenCuenta);
                         }
                         //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                        string ConceptoCuentaCredito = DSMarket.Logica.Comunes.ObtenerConceptoCuentas.SacarConceptoCuenta(4);
+                        string ConceptoCuentaCredito = DSMarket.Logica.Comunes.ObtenerValores.SacarConceptoCuenta(4);
                         //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                         decimal NumeroRelacionado = 0;
                         var SacarNumeroFactura = ObjDataServicio.Value.SacarNumeroFactura(VariablesGlobales.NumeroConector);
@@ -1540,7 +1540,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             IdOrigenCuentaITBIS = Convert.ToInt32(nITBIS.IdOrigenCuenta);
                         }
                         //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                        string ConceptoCuentaITBIS = DSMarket.Logica.Comunes.ObtenerConceptoCuentas.SacarConceptoCuenta(5);
+                        string ConceptoCuentaITBIS = DSMarket.Logica.Comunes.ObtenerValores.SacarConceptoCuenta(5);
                         //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                         AfectarCuentas(Ano, MesActual, IdBanco, CuentaContableITBIS, AuxiliarITBIS, ImpuestoProducto, ConceptoCuentaITBIS, NumeroRelacionado, IdClaseCuentaITBIS, IdTipoCuentaITBIS, IdOrigenCuentaITBIS, 10);
 
@@ -1566,7 +1566,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             IdOrigenCuenta = Convert.ToInt32(nCatalogo.IdOrigenCuenta);
                         }
 
-                        string ConceptoCuentaCredito = DSMarket.Logica.Comunes.ObtenerConceptoCuentas.SacarConceptoCuenta(3);
+                        string ConceptoCuentaCredito = DSMarket.Logica.Comunes.ObtenerValores.SacarConceptoCuenta(3);
                       
 
                         decimal NumeroRelacionado = 0;
