@@ -472,8 +472,116 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
               0, AnoActual, MesActual, IdTipoCuentaDebito, 1, VariablesGlobales.NumeroConector, 0, IdBanco, CuentaDebito, AuxiliarDebito, Valor, IdorigenCuentaDebito, Concepto, NumeroRelacionado, IdClaseCuentaDebito, IdCuentaCatalogoCuenta, "INSERT");
             Procesar.ProcesarInformacion();
         }
-        private void AfectarCuentasContablesCreditos() { 
-        
+        private void AfectarCuentasContablesCreditos() {
+            //DECLARAMOS LAS VARIABLES CORRESPONDIENTES PARA REALIZAR ESTE PROCESO
+            int IdTipoCuentaContable = 0;
+            int IdBanco = 0;
+            string CuentaContable = "";
+            string AuxiliarContable = "";
+            int IdOrigenCuenta = 0;
+            
+            decimal NumeroRelacionado = DSMarket.Logica.Comunes.ObtenerValores.SacarNumeroFactura(VariablesGlobales.NumeroConector);
+            int IdClaseCuenta = 0;
+            int IdCuentaContable = 0;
+
+            decimal IdProducto = 0;
+            decimal PrecioProducto = 0;
+            decimal ImpuestoProducto = 0;
+            decimal ProductoSinImpuesto = 0;
+
+            var SacarLosDatosBanco = ObjdataContabilidad.Value.BuscaBancos(new Nullable<decimal>(), null, true, 1, 1);
+            foreach (var nBancos in SacarLosDatosBanco) {
+                IdBanco = Convert.ToInt32(nBancos.IdBanco);
+            }
+
+            //BUSCAMOS LOS PRODUCTOS AGREGADOS A FACTURA
+            var BuscarProductosAgregados = ObjDataServicio.Value.BuscapRoductosAgregados(
+                new Nullable<decimal>(),
+                VariablesGlobales.NumeroConector);
+            foreach (var nAgregados in BuscarProductosAgregados) {
+                IdProducto = Convert.ToDecimal(nAgregados.IdProducto);
+                PrecioProducto = Convert.ToDecimal(nAgregados.Precio);
+                ImpuestoProducto = Convert.ToInt32(nAgregados.Impuesto);
+
+                var InspeccionarProducto = ObjDataInventario.Value.BuscaProductos(
+                    IdProducto, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                foreach (var nProducto in InspeccionarProducto) {
+                    bool AplicaImpuesto = Convert.ToBoolean(nProducto.AplicaParaImpuesto0);
+
+                    //SACAMOS EL AÑO Y EL MES
+                    string AnoActual = DateTime.Now.Year.ToString();
+                    string Mes = DateTime.Now.Month.ToString();
+                    int Cantidaddigitos = Mes.Length;
+                    string MesActual = "";
+                    if (Cantidaddigitos == 1) {
+                        MesActual = "0" + Mes;
+                    }
+                    else {
+                        MesActual = Mes;
+                    }
+
+                    
+
+                    if (AplicaImpuesto == true) {
+                        string CuentaConcepto = DSMarket.Logica.Comunes.ObtenerValores.SacarConceptoCuenta(9);
+                        //PRODUCTOS NO EXENTO DE IMPUESTO
+                        //SACAMOS LOS DATOS DE LA CUENTA
+                        var SacarInformacionCuentaContable = ObjdataContabilidad.Value.BuscaCatalogoCuentas(14, null, null, null, null, 1, 1);
+                        foreach (var n in SacarInformacionCuentaContable)
+                        {
+                            IdTipoCuentaContable = Convert.ToInt32(n.IdTipoCuenta);
+                            CuentaContable = n.Cuenta;
+                            AuxiliarContable = n.Auxiliar;
+                            IdOrigenCuenta = Convert.ToInt32(n.IdOrigenCuenta);
+                            IdClaseCuenta = Convert.ToInt32(n.IdClaseCuenta);
+                            IdCuentaContable = Convert.ToInt32(n.IdRegistro);
+                        }
+
+                        ProductoSinImpuesto = PrecioProducto - ImpuestoProducto;
+                        decimal ProductoSinImpuestoNeto = ProductoSinImpuesto * -1;
+                        DSMarket.Logica.Comunes.ProcesarInformacion.ProcesarInformacionCuentasMovimientos Procesar = new Logica.Comunes.ProcesarInformacion.ProcesarInformacionCuentasMovimientos(
+                            0, AnoActual, MesActual, IdTipoCuentaContable, 1, VariablesGlobales.NumeroConector, 0, IdBanco, CuentaContable, AuxiliarContable, ProductoSinImpuestoNeto, IdOrigenCuenta, CuentaConcepto, NumeroRelacionado, IdClaseCuenta, IdCuentaContable, "INSERT");
+                        Procesar.ProcesarInformacion();
+
+                        //AGREGAMOS LOS DATOS DEL ITBIS
+                        CuentaConcepto = DSMarket.Logica.Comunes.ObtenerValores.SacarConceptoCuenta(10);
+                        var SacarInformacionCuentaContableitbis = ObjdataContabilidad.Value.BuscaCatalogoCuentas(10, null, null, null, null, 1, 1);
+                        foreach (var n2 in SacarInformacionCuentaContableitbis)
+                        {
+                            IdTipoCuentaContable = Convert.ToInt32(n2.IdTipoCuenta);
+                            CuentaContable = n2.Cuenta;
+                            AuxiliarContable = n2.Auxiliar;
+                            IdOrigenCuenta = Convert.ToInt32(n2.IdOrigenCuenta);
+                            IdClaseCuenta = Convert.ToInt32(n2.IdClaseCuenta);
+                            IdCuentaContable = Convert.ToInt32(n2.IdRegistro);
+                        }
+                        decimal ValorITBISProcesar = ImpuestoProducto * -1;
+                        DSMarket.Logica.Comunes.ProcesarInformacion.ProcesarInformacionCuentasMovimientos Procesaritbis = new Logica.Comunes.ProcesarInformacion.ProcesarInformacionCuentasMovimientos(
+                            0, AnoActual, MesActual, IdTipoCuentaContable, 1, VariablesGlobales.NumeroConector, 0, IdBanco, CuentaContable, AuxiliarContable, ValorITBISProcesar, IdOrigenCuenta, CuentaConcepto, NumeroRelacionado, IdClaseCuenta, IdCuentaContable, "INSERT");
+                        Procesaritbis.ProcesarInformacion();
+                    }
+                    else {
+                        string CuentaConcepto = DSMarket.Logica.Comunes.ObtenerValores.SacarConceptoCuenta(8);
+                        //SACAMOS LOS DATOS DE LA CUENTA
+                        var SacarInformacionCuentaContable = ObjdataContabilidad.Value.BuscaCatalogoCuentas(9, null, null, null, null, 1, 1);
+                        foreach (var n in SacarInformacionCuentaContable)
+                        {
+                            IdTipoCuentaContable = Convert.ToInt32(n.IdTipoCuenta);
+                            CuentaContable = n.Cuenta;
+                            AuxiliarContable = n.Auxiliar;
+                            IdOrigenCuenta = Convert.ToInt32(n.IdOrigenCuenta);
+                            IdClaseCuenta = Convert.ToInt32(n.IdClaseCuenta);
+                            IdCuentaContable = Convert.ToInt32(n.IdRegistro);
+                        }
+                        //PRODUCTO EXENTO DE IMPUESTO
+                        decimal Valorprocesar = PrecioProducto * -1;
+                        DSMarket.Logica.Comunes.ProcesarInformacion.ProcesarInformacionCuentasMovimientos Procesar = new Logica.Comunes.ProcesarInformacion.ProcesarInformacionCuentasMovimientos(
+                            0, AnoActual, MesActual, IdTipoCuentaContable, 1, VariablesGlobales.NumeroConector, 0, IdBanco, CuentaContable, AuxiliarContable, Valorprocesar, IdOrigenCuenta, CuentaConcepto, NumeroRelacionado, IdClaseCuenta, IdCuentaContable, "INSERT");
+                        Procesar.ProcesarInformacion();
+                    }
+
+                }
+            }
         }
         #endregion
 
@@ -583,6 +691,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                                             }
                                         }
                                         AfectarCuentasContablesDebitos();
+                                        AfectarCuentasContablesCreditos();
                                         MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                         //IMPRIMIMOS LA FACTURA
@@ -606,6 +715,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                                 //AFECTAMOS COMPROBANTE
                                 AfectarComprobanteFiscal();
                                 AfectarCuentasContablesDebitos();
+                                AfectarCuentasContablesCreditos();
                                 MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                 //IMPRIMIMOS LA FACTURA
