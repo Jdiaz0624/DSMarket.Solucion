@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbTitulo = new System.Windows.Forms.Label();
-            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbIdUsuario = new System.Windows.Forms.Label();
             this.gbOpciones = new System.Windows.Forms.GroupBox();
             this.btnSuplidores = new System.Windows.Forms.Button();
@@ -43,9 +42,13 @@
             this.btnTipoProducto = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnColores = new System.Windows.Forms.Button();
+            this.btnCondiciones = new System.Windows.Forms.Button();
+            this.btbCapacidad = new System.Windows.Forms.Button();
+            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.gbOpciones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -71,19 +74,6 @@
             this.lbTitulo.TabIndex = 16;
             this.lbTitulo.Text = "label6";
             // 
-            // PCerrar
-            // 
-            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(564, 10);
-            this.PCerrar.Name = "PCerrar";
-            this.PCerrar.Size = new System.Drawing.Size(30, 30);
-            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PCerrar.TabIndex = 15;
-            this.PCerrar.TabStop = false;
-            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
-            // 
             // lbIdUsuario
             // 
             this.lbIdUsuario.AutoSize = true;
@@ -97,6 +87,9 @@
             // 
             // gbOpciones
             // 
+            this.gbOpciones.Controls.Add(this.btbCapacidad);
+            this.gbOpciones.Controls.Add(this.btnCondiciones);
+            this.gbOpciones.Controls.Add(this.btnColores);
             this.gbOpciones.Controls.Add(this.btnSuplidores);
             this.gbOpciones.Controls.Add(this.btnTipoSuplidores);
             this.gbOpciones.Controls.Add(this.btnCategoria);
@@ -108,7 +101,7 @@
             this.gbOpciones.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbOpciones.Location = new System.Drawing.Point(12, 50);
             this.gbOpciones.Name = "gbOpciones";
-            this.gbOpciones.Size = new System.Drawing.Size(584, 218);
+            this.gbOpciones.Size = new System.Drawing.Size(584, 290);
             this.gbOpciones.TabIndex = 16;
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Inventario - Seleccionar Opción";
@@ -227,11 +220,66 @@
             this.btnProductos.UseVisualStyleBackColor = true;
             this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
+            // btnColores
+            // 
+            this.btnColores.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnColores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnColores.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnColores.Location = new System.Drawing.Point(390, 153);
+            this.btnColores.Name = "btnColores";
+            this.btnColores.Size = new System.Drawing.Size(186, 56);
+            this.btnColores.TabIndex = 8;
+            this.btnColores.Text = "Colores";
+            this.toolTip1.SetToolTip(this.btnColores, "Mantenimiento de tipo de producto");
+            this.btnColores.UseVisualStyleBackColor = true;
+            this.btnColores.Click += new System.EventHandler(this.btnColores_Click);
+            // 
+            // btnCondiciones
+            // 
+            this.btnCondiciones.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCondiciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCondiciones.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCondiciones.Location = new System.Drawing.Point(7, 215);
+            this.btnCondiciones.Name = "btnCondiciones";
+            this.btnCondiciones.Size = new System.Drawing.Size(186, 56);
+            this.btnCondiciones.TabIndex = 9;
+            this.btnCondiciones.Text = "Condiciones";
+            this.toolTip1.SetToolTip(this.btnCondiciones, "Mantenimiento de Codiciones de Equipos");
+            this.btnCondiciones.UseVisualStyleBackColor = true;
+            this.btnCondiciones.Click += new System.EventHandler(this.btnCondiciones_Click);
+            // 
+            // btbCapacidad
+            // 
+            this.btbCapacidad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btbCapacidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btbCapacidad.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btbCapacidad.Location = new System.Drawing.Point(198, 215);
+            this.btbCapacidad.Name = "btbCapacidad";
+            this.btbCapacidad.Size = new System.Drawing.Size(186, 56);
+            this.btbCapacidad.TabIndex = 10;
+            this.btbCapacidad.Text = "Capacidad";
+            this.toolTip1.SetToolTip(this.btbCapacidad, "Mantenimiento de Capacidad de equipos");
+            this.btbCapacidad.UseVisualStyleBackColor = true;
+            this.btbCapacidad.Click += new System.EventHandler(this.btbCapacidad_Click);
+            // 
+            // PCerrar
+            // 
+            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
+            this.PCerrar.Location = new System.Drawing.Point(564, 10);
+            this.PCerrar.Name = "PCerrar";
+            this.PCerrar.Size = new System.Drawing.Size(30, 30);
+            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PCerrar.TabIndex = 15;
+            this.PCerrar.TabStop = false;
+            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
+            // 
             // Inventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(606, 279);
+            this.ClientSize = new System.Drawing.Size(606, 351);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gbOpciones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -241,8 +289,8 @@
             this.Load += new System.EventHandler(this.Inventario_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.gbOpciones.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -263,5 +311,8 @@
         private System.Windows.Forms.Button btnSuplidores;
         private System.Windows.Forms.Button btnTipoSuplidores;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button btbCapacidad;
+        private System.Windows.Forms.Button btnCondiciones;
+        private System.Windows.Forms.Button btnColores;
     }
 }

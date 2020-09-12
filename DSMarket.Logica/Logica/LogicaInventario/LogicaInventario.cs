@@ -851,5 +851,58 @@ namespace DSMarket.Logica.Logica.LogicaInventario
             return Cantidad;
         }
         #endregion
+        #region MANTENIMIENTO DE COLORES DE ARTICULOS
+        //LISTADO DE COLORES
+        public List<DSMarket.Logica.Entidades.EntidadesInventario.EColorArticulo> BuscaColoresArticulos(decimal? IdColorArticulo = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
+            Objdata.CommandTimeout = 999999999;
+
+            var Listado = (from n in Objdata.SP_BUSCA_COLORES_EQUIPOS(IdColorArticulo, Descripcion, NumeroPagina, NumeroRegistros)
+                           select new DSMarket.Logica.Entidades.EntidadesInventario.EColorArticulo
+                           {
+                               IdColor=n.IdColor,
+                                Color=n.Color,
+                                Estatus0=n.Estatus0,
+                                Estatus=n.Estatus,
+                                UsuarioAdiciona=n.UsuarioAdiciona,
+                                CreadoPor=n.CreadoPor,
+                                FechaAdiciona=n.FechaAdiciona,
+                                FechaCreado=n.FechaCreado,
+                                UsuarioModifica=n.UsuarioModifica,
+                                ModificadoPor=n.ModificadoPor,
+                                FechaModifica=n.FechaModifica,
+                                FechaModificado=n.FechaModificado,
+                                CantidadRegistros=n.CantidadRegistros
+                           }).ToList();
+            return Listado;
+        }
+
+        //MANTENIMIENTO DE COLORES DE ARTICULOS
+        public DSMarket.Logica.Entidades.EntidadesInventario.EColorArticulo MantenimientoColorArticulos(DSMarket.Logica.Entidades.EntidadesInventario.EColorArticulo Item, string Accion) {
+            Objdata.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesInventario.EColorArticulo Mantenimiento = null;
+
+            var ColorArticulo = Objdata.SP_MANTENIMIENTO_COLORES_EQUIPOS(
+                Item.IdColor,
+                Item.Color,
+                Item.Estatus0,
+                Item.UsuarioAdiciona,
+                Accion);
+            if (ColorArticulo != null) {
+                Mantenimiento = (from n in ColorArticulo
+                                 select new DSMarket.Logica.Entidades.EntidadesInventario.EColorArticulo
+                                 {
+                                     IdColor=n.IdColor,
+                                     Color=n.Descripcion,
+                                     Estatus0=n.Estatus,
+                                     UsuarioAdiciona=n.UsuarioAdiciona,
+                                     FechaAdiciona=n.FechaAdiciona,
+                                     UsuarioModifica=n.UsuarioModifica,
+                                     FechaModifica=n.FechaModifica
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
+        #endregion
     }
 }

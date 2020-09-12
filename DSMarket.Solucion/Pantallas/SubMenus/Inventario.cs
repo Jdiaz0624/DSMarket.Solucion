@@ -89,5 +89,22 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         {
 
         }
+
+        private void btnColores_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Inventario.ConsultaColores Consulta = new Pantallas.Inventario.ConsultaColores();
+            Consulta.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
+            Consulta.ShowDialog();
+        }
+
+        private void btnCondiciones_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btbCapacidad_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

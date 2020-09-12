@@ -349,6 +349,12 @@
     <Compile Include="Pantallas\Pantallas\Inventario\CategoriaConsulta.Designer.cs">
       <DependentUpon>CategoriaConsulta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\ConsultaColores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\ConsultaColores.Designer.cs">
+      <DependentUpon>ConsultaColores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\EstadisticaProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -360,6 +366,12 @@
     </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoCategoria.Designer.cs">
       <DependentUpon>MantenimientoCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoColores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoColores.Designer.cs">
+      <DependentUpon>MantenimientoColores.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoMarcas.cs">
       <SubType>Form</SubType>
@@ -726,11 +738,17 @@
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\CategoriaConsulta.resx">
       <DependentUpon>CategoriaConsulta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\ConsultaColores.resx">
+      <DependentUpon>ConsultaColores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\EstadisticaProductos.resx">
       <DependentUpon>EstadisticaProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MantenimientoCategoria.resx">
       <DependentUpon>MantenimientoCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MantenimientoColores.resx">
+      <DependentUpon>MantenimientoColores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MantenimientoMarcas.resx">
       <DependentUpon>MantenimientoMarcas.cs</DependentUpon>
