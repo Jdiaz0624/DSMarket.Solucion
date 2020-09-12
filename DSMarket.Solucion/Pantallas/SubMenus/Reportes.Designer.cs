@@ -31,24 +31,23 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbIdUsuario = new System.Windows.Forms.Label();
-            this.PCerrar = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.gbOpciones = new System.Windows.Forms.GroupBox();
-            this.btnEstadoResultado = new System.Windows.Forms.Button();
             this.btnEstadoSituacion = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnReporteClientes = new System.Windows.Forms.Button();
             this.btnReporteComprobantesFiscales = new System.Windows.Forms.Button();
             this.btnReporteCotizaciones = new System.Windows.Forms.Button();
             this.btnReporteEmpleados = new System.Windows.Forms.Button();
             this.btnReporteInventario = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.PCerrar = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            this.gbOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.gbOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,31 +76,6 @@
             this.lbIdUsuario.Text = "label6";
             this.lbIdUsuario.Visible = false;
             // 
-            // PCerrar
-            // 
-            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PCerrar.BackColor = System.Drawing.Color.Transparent;
-            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(612, 8);
-            this.PCerrar.Name = "PCerrar";
-            this.PCerrar.Size = new System.Drawing.Size(30, 30);
-            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PCerrar.TabIndex = 16;
-            this.PCerrar.TabStop = false;
-            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Location = new System.Drawing.Point(620, 2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(22, 21);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            // 
             // lbTitulo
             // 
             this.lbTitulo.AutoSize = true;
@@ -114,7 +88,6 @@
             // 
             // gbOpciones
             // 
-            this.gbOpciones.Controls.Add(this.btnEstadoResultado);
             this.gbOpciones.Controls.Add(this.btnEstadoSituacion);
             this.gbOpciones.Controls.Add(this.button1);
             this.gbOpciones.Controls.Add(this.btnCerrar);
@@ -133,20 +106,6 @@
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Reportes - Seleccionar Opcion";
             // 
-            // btnEstadoResultado
-            // 
-            this.btnEstadoResultado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEstadoResultado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEstadoResultado.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEstadoResultado.Location = new System.Drawing.Point(316, 159);
-            this.btnEstadoResultado.Margin = new System.Windows.Forms.Padding(2);
-            this.btnEstadoResultado.Name = "btnEstadoResultado";
-            this.btnEstadoResultado.Size = new System.Drawing.Size(308, 41);
-            this.btnEstadoResultado.TabIndex = 16;
-            this.btnEstadoResultado.Text = "Estado de Resultado";
-            this.toolTip1.SetToolTip(this.btnEstadoResultado, "Generar Reporte de Estado de Resultado");
-            this.btnEstadoResultado.UseVisualStyleBackColor = true;
-            // 
             // btnEstadoSituacion
             // 
             this.btnEstadoSituacion.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -157,9 +116,10 @@
             this.btnEstadoSituacion.Name = "btnEstadoSituacion";
             this.btnEstadoSituacion.Size = new System.Drawing.Size(308, 41);
             this.btnEstadoSituacion.TabIndex = 15;
-            this.btnEstadoSituacion.Text = "Estado de Situación";
+            this.btnEstadoSituacion.Text = "Reportes Financieros";
             this.toolTip1.SetToolTip(this.btnEstadoSituacion, "Generar Reporte de Estado de Situacion");
             this.btnEstadoSituacion.UseVisualStyleBackColor = true;
+            this.btnEstadoSituacion.Click += new System.EventHandler(this.btnEstadoSituacion_Click);
             // 
             // button1
             // 
@@ -175,18 +135,6 @@
             this.toolTip1.SetToolTip(this.button1, "Gererar los reportes de la DGII");
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Location = new System.Drawing.Point(596, 185);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(29, 26);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnCerrar.TabIndex = 13;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.Visible = false;
             // 
             // btnReporteClientes
             // 
@@ -258,6 +206,43 @@
             this.btnReporteInventario.Text = "Reporte de Productos";
             this.btnReporteInventario.UseVisualStyleBackColor = true;
             // 
+            // PCerrar
+            // 
+            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PCerrar.BackColor = System.Drawing.Color.Transparent;
+            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
+            this.PCerrar.Location = new System.Drawing.Point(612, 8);
+            this.PCerrar.Name = "PCerrar";
+            this.PCerrar.Size = new System.Drawing.Size(30, 30);
+            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PCerrar.TabIndex = 16;
+            this.PCerrar.TabStop = false;
+            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Location = new System.Drawing.Point(620, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(22, 21);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.Location = new System.Drawing.Point(596, 185);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(29, 26);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnCerrar.TabIndex = 13;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.Visible = false;
+            // 
             // Reportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -274,9 +259,9 @@
             this.Load += new System.EventHandler(this.Reportes_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.gbOpciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.gbOpciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.ResumeLayout(false);
 
@@ -298,7 +283,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label lbIdUsuario;
-        private System.Windows.Forms.Button btnEstadoResultado;
         private System.Windows.Forms.Button btnEstadoSituacion;
     }
 }

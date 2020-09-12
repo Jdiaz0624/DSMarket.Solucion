@@ -205,6 +205,39 @@ namespace DSMarket.Logica.Logica.LogicaContabilidad
             return Buscar;
         }
         #endregion
+        #region SACAR INFORMACION CUENTAS MOVIMIENTOS
+        public List<DSMarket.Logica.Entidades.EntidadesContabilidad.ESacarInformacionCuentasMovimientos> SacarInformacionCuentasMovimientos(string Ano = null, string Mes = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_SACAR_INFORMACION_CUENTAS_MOVIMIENTOS(Ano, Mes)
+                           select new DSMarket.Logica.Entidades.EntidadesContabilidad.ESacarInformacionCuentasMovimientos
+                           {
+                               IdRegistro=n.IdRegistro,
+                               Ano=n.Ano,
+                               Mes=n.Mes,
+                               IdTipoCuenta=n.IdTipoCuenta,
+                               TipoCuenta=n.TipoCuenta,
+                               IdModulo=n.IdModulo,
+                               Modulo=n.Modulo,
+                               Conector=n.Conector,
+                               Secuencia=n.Secuencia,
+                               Banco=n.Banco,
+                               NombreBanco=n.NombreBanco,
+                               Cuenta=n.Cuenta,
+                               Auxiliar=n.Auxiliar,
+                               Valor=n.Valor,
+                               IdOrigen=n.IdOrigen,
+                               OrigenCuenta=n.OrigenCuenta,
+                               ConceptoCuenta=n.ConceptoCuenta,
+                               NumeroRelacionado=n.NumeroRelacionado,
+                               IdClaseCuenta=n.IdClaseCuenta,
+                               ClaseCuenta=n.ClaseCuenta,
+                               IdCuentaContable=n.IdCuentaContable,
+                               CuentaDescargo=n.CuentaDescargo
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
 
     }
 }

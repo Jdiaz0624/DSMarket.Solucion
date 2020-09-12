@@ -148,4 +148,32 @@
       <Column Name="IdCuentaContable" Type="System.Decimal" DbType="Decimal(25,0)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Contabilidad.SP_SACAR_INFORMACION_CUENTAS_MOVIMIENTOS" Method="SP_SACAR_INFORMACION_CUENTAS_MOVIMIENTOS">
+    <Parameter Name="Ano" Parameter="ano" Type="System.String" DbType="VarChar(4)" />
+    <Parameter Name="Mes" Parameter="mes" Type="System.String" DbType="VarChar(2)" />
+    <ElementType Name="SP_SACAR_INFORMACION_CUENTAS_MOVIMIENTOSResult">
+      <Column Name="IdRegistro" Type="System.Decimal" DbType="Decimal(25,0)" CanBeNull="true" />
+      <Column Name="Ano" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="Mes" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="IdTipoCuenta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TipoCuenta" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="IdModulo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Modulo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Conector" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Secuencia" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Banco" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NombreBanco" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Cuenta" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Auxiliar" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Valor" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="IdOrigen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrigenCuenta" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ConceptoCuenta" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="NumeroRelacionado" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdClaseCuenta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ClaseCuenta" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdCuentaContable" Type="System.Decimal" DbType="Decimal(25,0)" CanBeNull="true" />
+      <Column Name="CuentaDescargo" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

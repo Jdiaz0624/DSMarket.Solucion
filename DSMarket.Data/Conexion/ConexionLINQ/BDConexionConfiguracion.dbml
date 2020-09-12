@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DSMarket" Class="BDConexionConfiguracionDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=TECNOLOGIA;Initial Catalog=DSMarket;User ID=SA" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString5" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=DSMarket;Persist Security Info=True;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString4" Provider="System.Data.SqlClient" />
   <Function Name="Configuracion.SP_BUSCA_LISTAS" Method="SP_BUSCA_LISTAS">
     <Parameter Name="NombreLista" Parameter="nombreLista" Type="System.String" DbType="VarChar(150)" />
     <Parameter Name="PrimerFiltro" Parameter="primerFiltro" Type="System.String" DbType="VarChar(150)" />
@@ -743,6 +743,57 @@
       <Column Name="CantidadRegistros" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="ValidadoDesde" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="ValidadoHasta" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Reporte.SP_PROCESAR_DATOS_REPORTES_FINANCIEROS" Method="SP_PROCESAR_DATOS_REPORTES_FINANCIEROS">
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdRegistro" Parameter="idRegistro" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Ano" Parameter="ano" Type="System.String" DbType="VarChar(4)" />
+    <Parameter Name="Mes" Parameter="mes" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="IdTipoCuenta" Parameter="idTipoCuenta" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TipoCuenta" Parameter="tipoCuenta" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="IdModulo" Parameter="idModulo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Modulo" Parameter="modulo" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Conector" Parameter="conector" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Secuencia" Parameter="secuencia" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Banco" Parameter="banco" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NombreBanco" Parameter="nombreBanco" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Cuenta" Parameter="cuenta" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Auxiliar" Parameter="auxiliar" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Valor" Parameter="valor" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="IdOrigenCuenta" Parameter="idOrigenCuenta" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OrigenCuenta" Parameter="origenCuenta" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CuentaConcepto" Parameter="cuentaConcepto" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="NumeroRelacionado" Parameter="numeroRelacionado" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdClaseCuenta" Parameter="idClaseCuenta" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ClaseCuenta" Parameter="claseCuenta" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="IdCuentaContable" Parameter="idCuentaContable" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Cuentadescargo" Parameter="cuentadescargo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_PROCESAR_DATOS_REPORTES_FINANCIEROSResult">
+      <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdRegistro" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Ano" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="Mes" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="IdTipoCuenta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TipoCuenta" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdModulo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Modulo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Conector" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Secuencia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Banco" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NombreBanco" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Cuenta" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Auxiliar" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Valor" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="IdOrigenCuenta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrigenCuenta" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CuentaConcepto" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="NumeroRelacionado" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdClaseCuenta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ClaseCuenta" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdCuentaContable" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Cuentadescargo" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

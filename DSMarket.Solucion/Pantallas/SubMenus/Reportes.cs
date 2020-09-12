@@ -113,5 +113,12 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
             Invocar.GenerarReporteComprobantes();
             Invocar.ShowDialog();
         }
+
+        private void btnEstadoSituacion_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Reportes.ReportesFinancieros Invocar = new Pantallas.Reportes.ReportesFinancieros();
+            Invocar.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
+            Invocar.ShowDialog();
+        }
     }
 }

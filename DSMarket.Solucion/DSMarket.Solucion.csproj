@@ -481,6 +481,12 @@
     <Compile Include="Pantallas\Pantallas\Reportes\ReportesDGII.Designer.cs">
       <DependentUpon>ReportesDGII.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Reportes\ReportesFinancieros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Reportes\ReportesFinancieros.Designer.cs">
+      <DependentUpon>ReportesFinancieros.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Seguridad\CambiaClaveUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -785,6 +791,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Reportes\ReportesDGII.resx">
       <DependentUpon>ReportesDGII.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Reportes\ReportesFinancieros.resx">
+      <DependentUpon>ReportesFinancieros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Seguridad\CambiaClaveUsuario.resx">
       <DependentUpon>CambiaClaveUsuario.cs</DependentUpon>

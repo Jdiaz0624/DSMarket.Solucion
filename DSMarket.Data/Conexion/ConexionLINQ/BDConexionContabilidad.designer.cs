@@ -136,6 +136,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idRegistro, ano, mes, idTipoCuenta, idModulo, conector, secuencia, banco, cuenta, auxiliar, valor, idOrigen, conceptoCuenta, numeroRelacionado, idClaseCuenta, idCuentaContable, accion);
 			return ((ISingleResult<SP_GUARDAR_CUENTAS_MOVIMIENTOSResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Contabilidad.SP_SACAR_INFORMACION_CUENTAS_MOVIMIENTOS")]
+		public ISingleResult<SP_SACAR_INFORMACION_CUENTAS_MOVIMIENTOSResult> SP_SACAR_INFORMACION_CUENTAS_MOVIMIENTOS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ano", DbType="VarChar(4)")] string ano, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mes", DbType="VarChar(2)")] string mes)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ano, mes);
+			return ((ISingleResult<SP_SACAR_INFORMACION_CUENTAS_MOVIMIENTOSResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_BUSCA_REGISTROS_CATALOGO_CUENTASResult
@@ -1495,6 +1502,410 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._IdCuentaContable != value))
 				{
 					this._IdCuentaContable = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_SACAR_INFORMACION_CUENTAS_MOVIMIENTOSResult
+	{
+		
+		private System.Nullable<decimal> _IdRegistro;
+		
+		private string _Ano;
+		
+		private string _Mes;
+		
+		private System.Nullable<int> _IdTipoCuenta;
+		
+		private string _TipoCuenta;
+		
+		private System.Nullable<int> _IdModulo;
+		
+		private string _Modulo;
+		
+		private System.Nullable<decimal> _Conector;
+		
+		private System.Nullable<decimal> _Secuencia;
+		
+		private System.Nullable<decimal> _Banco;
+		
+		private string _NombreBanco;
+		
+		private string _Cuenta;
+		
+		private string _Auxiliar;
+		
+		private System.Nullable<decimal> _Valor;
+		
+		private System.Nullable<int> _IdOrigen;
+		
+		private string _OrigenCuenta;
+		
+		private string _ConceptoCuenta;
+		
+		private System.Nullable<decimal> _NumeroRelacionado;
+		
+		private System.Nullable<int> _IdClaseCuenta;
+		
+		private string _ClaseCuenta;
+		
+		private System.Nullable<decimal> _IdCuentaContable;
+		
+		private string _CuentaDescargo;
+		
+		public SP_SACAR_INFORMACION_CUENTAS_MOVIMIENTOSResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdRegistro", DbType="Decimal(25,0)")]
+		public System.Nullable<decimal> IdRegistro
+		{
+			get
+			{
+				return this._IdRegistro;
+			}
+			set
+			{
+				if ((this._IdRegistro != value))
+				{
+					this._IdRegistro = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ano", DbType="VarChar(4)")]
+		public string Ano
+		{
+			get
+			{
+				return this._Ano;
+			}
+			set
+			{
+				if ((this._Ano != value))
+				{
+					this._Ano = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mes", DbType="VarChar(2)")]
+		public string Mes
+		{
+			get
+			{
+				return this._Mes;
+			}
+			set
+			{
+				if ((this._Mes != value))
+				{
+					this._Mes = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoCuenta", DbType="Int")]
+		public System.Nullable<int> IdTipoCuenta
+		{
+			get
+			{
+				return this._IdTipoCuenta;
+			}
+			set
+			{
+				if ((this._IdTipoCuenta != value))
+				{
+					this._IdTipoCuenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoCuenta", DbType="VarChar(30)")]
+		public string TipoCuenta
+		{
+			get
+			{
+				return this._TipoCuenta;
+			}
+			set
+			{
+				if ((this._TipoCuenta != value))
+				{
+					this._TipoCuenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdModulo", DbType="Int")]
+		public System.Nullable<int> IdModulo
+		{
+			get
+			{
+				return this._IdModulo;
+			}
+			set
+			{
+				if ((this._IdModulo != value))
+				{
+					this._IdModulo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Modulo", DbType="VarChar(100)")]
+		public string Modulo
+		{
+			get
+			{
+				return this._Modulo;
+			}
+			set
+			{
+				if ((this._Modulo != value))
+				{
+					this._Modulo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Conector", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> Conector
+		{
+			get
+			{
+				return this._Conector;
+			}
+			set
+			{
+				if ((this._Conector != value))
+				{
+					this._Conector = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Secuencia", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> Secuencia
+		{
+			get
+			{
+				return this._Secuencia;
+			}
+			set
+			{
+				if ((this._Secuencia != value))
+				{
+					this._Secuencia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Banco", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> Banco
+		{
+			get
+			{
+				return this._Banco;
+			}
+			set
+			{
+				if ((this._Banco != value))
+				{
+					this._Banco = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NombreBanco", DbType="VarChar(100)")]
+		public string NombreBanco
+		{
+			get
+			{
+				return this._NombreBanco;
+			}
+			set
+			{
+				if ((this._NombreBanco != value))
+				{
+					this._NombreBanco = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cuenta", DbType="VarChar(10)")]
+		public string Cuenta
+		{
+			get
+			{
+				return this._Cuenta;
+			}
+			set
+			{
+				if ((this._Cuenta != value))
+				{
+					this._Cuenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Auxiliar", DbType="VarChar(10)")]
+		public string Auxiliar
+		{
+			get
+			{
+				return this._Auxiliar;
+			}
+			set
+			{
+				if ((this._Auxiliar != value))
+				{
+					this._Auxiliar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Valor", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> Valor
+		{
+			get
+			{
+				return this._Valor;
+			}
+			set
+			{
+				if ((this._Valor != value))
+				{
+					this._Valor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdOrigen", DbType="Int")]
+		public System.Nullable<int> IdOrigen
+		{
+			get
+			{
+				return this._IdOrigen;
+			}
+			set
+			{
+				if ((this._IdOrigen != value))
+				{
+					this._IdOrigen = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrigenCuenta", DbType="VarChar(20)")]
+		public string OrigenCuenta
+		{
+			get
+			{
+				return this._OrigenCuenta;
+			}
+			set
+			{
+				if ((this._OrigenCuenta != value))
+				{
+					this._OrigenCuenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConceptoCuenta", DbType="VarChar(8000)")]
+		public string ConceptoCuenta
+		{
+			get
+			{
+				return this._ConceptoCuenta;
+			}
+			set
+			{
+				if ((this._ConceptoCuenta != value))
+				{
+					this._ConceptoCuenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroRelacionado", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> NumeroRelacionado
+		{
+			get
+			{
+				return this._NumeroRelacionado;
+			}
+			set
+			{
+				if ((this._NumeroRelacionado != value))
+				{
+					this._NumeroRelacionado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdClaseCuenta", DbType="Int")]
+		public System.Nullable<int> IdClaseCuenta
+		{
+			get
+			{
+				return this._IdClaseCuenta;
+			}
+			set
+			{
+				if ((this._IdClaseCuenta != value))
+				{
+					this._IdClaseCuenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClaseCuenta", DbType="VarChar(100)")]
+		public string ClaseCuenta
+		{
+			get
+			{
+				return this._ClaseCuenta;
+			}
+			set
+			{
+				if ((this._ClaseCuenta != value))
+				{
+					this._ClaseCuenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCuentaContable", DbType="Decimal(25,0)")]
+		public System.Nullable<decimal> IdCuentaContable
+		{
+			get
+			{
+				return this._IdCuentaContable;
+			}
+			set
+			{
+				if ((this._IdCuentaContable != value))
+				{
+					this._IdCuentaContable = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CuentaDescargo", DbType="VarChar(30)")]
+		public string CuentaDescargo
+		{
+			get
+			{
+				return this._CuentaDescargo;
+			}
+			set
+			{
+				if ((this._CuentaDescargo != value))
+				{
+					this._CuentaDescargo = value;
 				}
 			}
 		}

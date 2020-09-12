@@ -1104,5 +1104,68 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             return PrimerDia;
         }
         #endregion
+        #region PROCESAR LOS DATOS PARA EL REPORTE FINANCIERO
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarDatosReportesFinancieros ProcesarDatosReportesFinancieros(DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarDatosReportesFinancieros Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarDatosReportesFinancieros Procesar = null;
+
+            var DatosReportesFinancieros = ObjData.SP_PROCESAR_DATOS_REPORTES_FINANCIEROS(
+                Item.IdUsuario,
+                Item.IdRegistro,
+                Item.Ano,
+                Item.Mes,
+                Item.IdTipoCuenta,
+                Item.TipoCuenta,
+                Item.IdModulo,
+                Item.Modulo,
+                Item.Conector,
+                Item.Secuencia,
+                Item.Banco,
+                Item.NombreBanco,
+                Item.Cuenta,
+                Item.Auxiliar,
+                Item.Valor,
+                Item.IdOrigenCuenta,
+                Item.OrigenCuenta,
+                Item.CuentaConcepto,
+                Item.NumeroRelacionado,
+                Item.IdClaseCuenta,
+                Item.ClaseCuenta,
+                Item.IdCuentaContable,
+                Item.Cuentadescargo,
+                Accion);
+            if (DatosReportesFinancieros != null) {
+                Procesar = (from n in DatosReportesFinancieros
+                            select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarDatosReportesFinancieros
+                            {
+                                IdUsuario=n.IdUsuario,
+                                IdRegistro=n.IdRegistro,
+                                Ano=n.Ano,
+                                Mes=n.Mes,
+                                IdTipoCuenta=n.IdTipoCuenta,
+                                TipoCuenta=n.TipoCuenta,
+                                IdModulo=n.IdModulo,
+                                Modulo=n.Modulo,
+                                Conector=n.Conector,
+                                Secuencia=n.Secuencia,
+                                Banco=n.Banco,
+                                NombreBanco=n.NombreBanco,
+                                Cuenta=n.Cuenta,
+                                Auxiliar=n.Auxiliar,
+                                Valor=n.Valor,
+                                IdOrigenCuenta=n.IdOrigenCuenta,
+                                OrigenCuenta=n.OrigenCuenta,
+                                CuentaConcepto=n.CuentaConcepto,
+                                NumeroRelacionado=n.NumeroRelacionado,
+                                IdClaseCuenta=n.IdClaseCuenta,
+                                ClaseCuenta=n.ClaseCuenta,
+                                IdCuentaContable=n.IdCuentaContable,
+                                Cuentadescargo=n.Cuentadescargo
+                            }).FirstOrDefault();
+            }
+            return Procesar;
+        }
+        #endregion
     }
 }

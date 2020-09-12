@@ -65,6 +65,7 @@
     <Compile Include="Comunes\ProcesarInformacionReporte608.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionCatalogoCuentas.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionCuentasMovimientos.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionReportesFinancieros.cs" />
     <Compile Include="Comunes\ProcesarMontoInicialCaja.cs" />
     <Compile Include="Comunes\ProcesarProductosDefectuosos.cs" />
     <Compile Include="Comunes\ProcesarRegistrosReporteProductosDefectuosos.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Entidades\EntidadesConfiguracion\EModificarConfiguracionGeneral.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EModificarImpuestoVenta.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EObtenerPrimerDiaMes.cs" />
+    <Compile Include="Entidades\EntidadesConfiguracion\EProcesarDatosReportesFinancieros.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EProcesarInformacion607.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EProcesarInformacion608.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EProcesarInformacionGanancia.cs" />
@@ -111,6 +113,7 @@
     <Compile Include="Entidades\EntidadesContabilidad\ECatalogoCuentas.cs" />
     <Compile Include="Entidades\EntidadesContabilidad\EConceptoCuentasProcesos.cs" />
     <Compile Include="Entidades\EntidadesContabilidad\EGuardarCuentasMovimientos.cs" />
+    <Compile Include="Entidades\EntidadesContabilidad\ESacarInformacionCuentasMovimientos.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\EClientes.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\ECompraSuplidores.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECantidadProductosDefectuosos.cs" />
