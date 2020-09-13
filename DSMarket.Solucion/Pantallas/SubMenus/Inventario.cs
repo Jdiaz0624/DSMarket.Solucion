@@ -104,7 +104,9 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
 
         private void btbCapacidad_Click(object sender, EventArgs e)
         {
-
+            DSMarket.Solucion.Pantallas.Pantallas.Inventario.CapacidadConulta Capacidad = new Pantallas.Inventario.CapacidadConulta();
+            Capacidad.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
+            Capacidad.ShowDialog();
         }
     }
 }

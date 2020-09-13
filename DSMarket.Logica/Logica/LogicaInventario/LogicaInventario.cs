@@ -70,7 +70,6 @@ namespace DSMarket.Logica.Logica.LogicaInventario
             return Mantenimeinto;
         }
         #endregion
-
         #region MANTENIMIENTO DE CATEGORIAS
         //LISTADO DE CATEGORIAS
         public List<DSMarket.Logica.Entidades.EntidadesInventario.ECategorias> Buscacategoria(decimal? Idcategoria = null,decimal? IdTipoProducto = null, string Descripcion = null, int? NumeroPagina = null, int? Numeroregistros = null)
@@ -131,7 +130,6 @@ namespace DSMarket.Logica.Logica.LogicaInventario
             return Mantenimiento;
         }
         #endregion
-
         #region MANTENIMIENTO DE MARCAS
         //LISTADO DE MARCAS
         public List<DSMarket.Logica.Entidades.EntidadesInventario.Emarcas> Buscamarcas(decimal? IdMarca = null,decimal? IdTipoProducto = null, decimal? IdCategoria = null, string Descripcion = null, int? NumeroPagina = null, int? Numeroregistros = null)
@@ -196,7 +194,6 @@ namespace DSMarket.Logica.Logica.LogicaInventario
             return Mantenimiento;
         }
         #endregion
-
         #region MANTENIMIENTO DE UNIDAD DE MEDIDA
         //LISTADO DE UNIDAD DE MEDIDA
         public List<DSMarket.Logica.Entidades.EntidadesInventario.EUnidadMedida> BuscaUnidadMedida(decimal? IdUnidadMedida = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistros = null)
@@ -253,7 +250,6 @@ namespace DSMarket.Logica.Logica.LogicaInventario
             return Mantenimiento;
         }
         #endregion
-
         #region MANTENIMIENTO DE MODELOS
         //LISTADO DE MODELOS
         public List<DSMarket.Logica.Entidades.EntidadesInventario.EModelos> BuscaModelos(decimal? IdTipoProducto = null, decimal? IdCategoria = null, decimal? IdMarca = null, decimal? IdModelo = null, string Descripcion = null, int? NumeroPagina = null, int? Numeroregistro = null)
@@ -322,7 +318,6 @@ namespace DSMarket.Logica.Logica.LogicaInventario
             return Mantenimiento;
         }
         #endregion
-
         #region MANTENIMIENTO DE TIPO DE SUPLIDORES
         //LISTADO DE TIPO DE SUPLIDORES
         public List<DSMarket.Logica.Entidades.EntidadesInventario.ETipoSuplidores> BuscaTipoSupidores(decimal? IdTipoSuplidor = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistros = null)
@@ -379,7 +374,6 @@ namespace DSMarket.Logica.Logica.LogicaInventario
             return Mantenimiento;
         }
         #endregion
-
         #region MANTENIMIENTO DE SUPLIDORES
         //LISTADO DE SUPLIDORES
         public List<DSMarket.Logica.Entidades.EntidadesInventario.ESuplidores> BuscaSupervisores(decimal? IdTipoSuplidor = null, decimal? IdSuplidor = null, string Suplidor = null, int? NumeroPagina = null, int? NumeroRegistros = 10)
@@ -451,7 +445,6 @@ namespace DSMarket.Logica.Logica.LogicaInventario
             return Mantenimiento;
         }
         #endregion
-
         #region MANTENIMIENTO DE PRODUCTO
         //LISTADO DE PRODUCTOS
         public List<DSMarket.Logica.Entidades.EntidadesInventario.EProducto> BuscaProductos(decimal? IdProducto = null, decimal? NumeroConector = null, string Descripcion = null, string CodigoBarra = null, string Referencia = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null, decimal? IdTipoProducto = null, decimal? IdCategoria = null, decimal? IdUnidadMedida = null, decimal? IdMarca = null, decimal? IdModelo = null,bool? TieneOferta = null, bool? EstatusProducto = null,string NumeroSeguimiento = null, int? NumeroPagina = null, int? NumeroRegistros = null)
@@ -695,7 +688,6 @@ namespace DSMarket.Logica.Logica.LogicaInventario
             return Listado;
         }
         #endregion
-
         #region MANTENIMIENTO DE PRODUCTOS DEFECTUOSOS
         //LISTADO DE PRODUCTOS DEFECTUOSOS
         public List<DSMarket.Logica.Entidades.EntidadesInventario.EProductosDefectuosos> BuscaProductosDefectuosos(decimal? IdProducto = null, decimal? NumeroConector = null, string Descripcion = null, string CodigoBarra = null, string Referencia = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null, decimal? IdTipoProducto = null, decimal? IdCategoria = null, decimal? IdUnidadMedida = null, decimal? IdMarca = null, decimal? IdModelo = null, bool? TieneOferta = null, bool? EstatusProducto = null, string NumeroSeguimiento = null, int? NumeroPagina = null, int? NumeroRegistros = null)
@@ -838,7 +830,6 @@ namespace DSMarket.Logica.Logica.LogicaInventario
         }
 
         #endregion
-
         #region MOSTRAR LA CANTIDAD DE LOS PRODUCTOS DEFECTUOSOS
         public List<DSMarket.Logica.Entidades.EntidadesInventario.ECantidadProductosDefectuosos> CantidadProductosDefectuosos() {
             Objdata.CommandTimeout = 999999999;
@@ -902,6 +893,60 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
+        }
+        #endregion
+        #region MANTENIMIENTO DE CAPACIDAD DE ARTICULOS
+        //LISTADO DE CAPACIDAD DE ARTICULOS
+        public List<DSMarket.Logica.Entidades.EntidadesInventario.ECapacidadArticulos> CapacidadArticulos(decimal? IdCapacidad = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
+            Objdata.CommandTimeout = 999999999;
+
+            var Listado = (from n in Objdata.SP_BUSCA_CAPACIDAD_ARTICULO(IdCapacidad, Descripcion, NumeroPagina, NumeroRegistros)
+                           select new DSMarket.Logica.Entidades.EntidadesInventario.ECapacidadArticulos
+                           {
+                               IdCapacidad=n.IdCapacidad,
+                               Capacidad=n.Capacidad,
+                               Estatus=n.Estatus,
+                               Estatus0=n.Estatus0,
+                               UsuarioAdiciona=n.UsuarioAdiciona,
+                               FechaAdiciona=n.FechaAdiciona,
+                               CreadoPor=n.CreadoPor,
+                               FechaCreado=n.FechaCreado,
+                               UsuarioModifica=n.UsuarioModifica,
+                               FechaModifica=n.FechaModifica,
+                               ModificadoPor=n.ModificadoPor,
+                               FechaModificado=n.FechaModificado,
+                               CantidadRegistros=n.CantidadRegistros
+                           }).ToList();
+            return Listado;
+        }
+
+        //MANTENIMIENTO DE CAPACIDAD DE ARTICULOS
+        public DSMarket.Logica.Entidades.EntidadesInventario.ECapacidadArticulos MantenimientoCapacidadArticulos(DSMarket.Logica.Entidades.EntidadesInventario.ECapacidadArticulos Item, string Accion) {
+            Objdata.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesInventario.ECapacidadArticulos Mantenimiento = null;
+
+            var CapacidadArticulos = Objdata.SP_MANTENIMIENTO_CAPACIDAD_ARTICULOS(
+                Item.IdCapacidad,
+                Item.Capacidad,
+                Item.Estatus0,
+                Item.UsuarioAdiciona,
+                Accion);
+            if (CapacidadArticulos != null) {
+                Mantenimiento = (from n in CapacidadArticulos
+                                 select new DSMarket.Logica.Entidades.EntidadesInventario.ECapacidadArticulos
+                                 {
+                                     IdCapacidad=n.IdCapacidad,
+                                     Capacidad=n.Descripcion,
+                                     Estatus0=n.Estatus,
+                                     UsuarioAdiciona=n.UsuarioAdiciona,
+                                     FechaAdiciona=n.FechaAdiciona,
+                                     UsuarioModifica=n.UsuarioModifica,
+                                     FechaModifica=n.FechaModifica
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+
         }
         #endregion
     }

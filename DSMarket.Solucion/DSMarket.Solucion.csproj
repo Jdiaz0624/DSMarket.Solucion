@@ -343,6 +343,18 @@
     <Compile Include="Pantallas\Pantallas\Inventario\AgregarQuitarProductos.Designer.cs">
       <DependentUpon>AgregarQuitarProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\CapacidadConulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\CapacidadConulta.Designer.cs">
+      <DependentUpon>CapacidadConulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\CapacidadMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\CapacidadMantenimiento.Designer.cs">
+      <DependentUpon>CapacidadMantenimiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\CategoriaConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -734,6 +746,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\AgregarQuitarProductos.resx">
       <DependentUpon>AgregarQuitarProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\CapacidadConulta.resx">
+      <DependentUpon>CapacidadConulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\CapacidadMantenimiento.resx">
+      <DependentUpon>CapacidadMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\CategoriaConsulta.resx">
       <DependentUpon>CategoriaConsulta.cs</DependentUpon>

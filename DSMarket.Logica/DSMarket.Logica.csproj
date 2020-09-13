@@ -63,6 +63,7 @@
     <Compile Include="Comunes\ProcesarInformacionDataReporte606.cs" />
     <Compile Include="Comunes\ProcesarInformacionModificarConfiguracionGeneral.cs" />
     <Compile Include="Comunes\ProcesarInformacionReporte608.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionCapacidadArticulos.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionCatalogoCuentas.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionColoresArticulos.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionCuentasMovimientos.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="Entidades\EntidadesEmpresa\EClientes.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\ECompraSuplidores.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECantidadProductosDefectuosos.cs" />
+    <Compile Include="Entidades\EntidadesInventario\ECapacidadArticulos.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECategorias.cs" />
     <Compile Include="Entidades\EntidadesInventario\EColorArticulo.cs" />
     <Compile Include="Entidades\EntidadesInventario\Emarcas.cs" />
