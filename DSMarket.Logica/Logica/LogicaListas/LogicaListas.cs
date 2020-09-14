@@ -368,5 +368,45 @@ namespace DSMarket.Logica.Logica.LogicaListas
             return Listado;
         }
         #endregion
+        #region LISTADO DE COLORES
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EColor> ListadoColores() {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjDataListas.SP_LISTADO_COLORES()
+                           select new DSMarket.Logica.Entidades.EntidadesListas.EColor
+                           {
+                               IdColor=n.IdColor,
+                               Color=n.Color
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
+        #region LISTADO DE CONDICIONES
+        public List<DSMarket.Logica.Entidades.EntidadesListas.ECondicion> ListadoCondiciones() {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjDataListas.SP_LISTADO_CONDICIONES()
+                           select new DSMarket.Logica.Entidades.EntidadesListas.ECondicion
+                           {
+                               IdCondicion=n.IdCondicion,
+                               Condicion=n.Condicion
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
+
+        #region LISTADO DE CAPACIDAD
+        public List<DSMarket.Logica.Entidades.EntidadesListas.ECapacidadArticulos> ListadoCapacidad() {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjDataListas.SP_LISTADO_CAPACIDAD_ARTICULO()
+                           select new DSMarket.Logica.Entidades.EntidadesListas.ECapacidadArticulos
+                           {
+                               IdCapacidad=n.IdCapacidad,
+                               Capacidad=n.Capacidad
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
     }
 }

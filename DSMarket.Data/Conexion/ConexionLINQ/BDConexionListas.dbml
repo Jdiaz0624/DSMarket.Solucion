@@ -162,4 +162,22 @@
       <Column Name="Descripcion" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Listas.SP_LISTADO_CAPACIDAD_ARTICULO" Method="SP_LISTADO_CAPACIDAD_ARTICULO">
+    <ElementType Name="SP_LISTADO_CAPACIDAD_ARTICULOResult">
+      <Column Name="IdCapacidad" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Capacidad" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_LISTADO_COLORES" Method="SP_LISTADO_COLORES">
+    <ElementType Name="SP_LISTADO_COLORESResult">
+      <Column Name="IdColor" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_LISTADO_CONDICIONES" Method="SP_LISTADO_CONDICIONES">
+    <ElementType Name="SP_LISTADO_CONDICIONESResult">
+      <Column Name="IdCondicion" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Condicion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

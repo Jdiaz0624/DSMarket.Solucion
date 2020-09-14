@@ -99,7 +99,9 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
 
         private void btnCondiciones_Click(object sender, EventArgs e)
         {
-
+            DSMarket.Solucion.Pantallas.Pantallas.Inventario.CondicionConsulta Condiciones = new Pantallas.Inventario.CondicionConsulta();
+            Condiciones.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
+            Condiciones.ShowDialog();
         }
 
         private void btbCapacidad_Click(object sender, EventArgs e)

@@ -236,6 +236,27 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<SP_BUSCA_ACEPTA_MOVIMIENTOS_CUENTAS_CONTABLESResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTADO_CAPACIDAD_ARTICULO")]
+		public ISingleResult<SP_LISTADO_CAPACIDAD_ARTICULOResult> SP_LISTADO_CAPACIDAD_ARTICULO()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_LISTADO_CAPACIDAD_ARTICULOResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTADO_COLORES")]
+		public ISingleResult<SP_LISTADO_COLORESResult> SP_LISTADO_COLORES()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_LISTADO_COLORESResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTADO_CONDICIONES")]
+		public ISingleResult<SP_LISTADO_CONDICIONESResult> SP_LISTADO_CONDICIONES()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_LISTADO_CONDICIONESResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_CARGAR_LISTA_TIPO_PRODUCTOResult
@@ -1423,6 +1444,138 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._Descripcion != value))
 				{
 					this._Descripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_LISTADO_CAPACIDAD_ARTICULOResult
+	{
+		
+		private decimal _IdCapacidad;
+		
+		private string _Capacidad;
+		
+		public SP_LISTADO_CAPACIDAD_ARTICULOResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCapacidad", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdCapacidad
+		{
+			get
+			{
+				return this._IdCapacidad;
+			}
+			set
+			{
+				if ((this._IdCapacidad != value))
+				{
+					this._IdCapacidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Capacidad", DbType="VarChar(100)")]
+		public string Capacidad
+		{
+			get
+			{
+				return this._Capacidad;
+			}
+			set
+			{
+				if ((this._Capacidad != value))
+				{
+					this._Capacidad = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_LISTADO_COLORESResult
+	{
+		
+		private decimal _IdColor;
+		
+		private string _Color;
+		
+		public SP_LISTADO_COLORESResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdColor", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdColor
+		{
+			get
+			{
+				return this._IdColor;
+			}
+			set
+			{
+				if ((this._IdColor != value))
+				{
+					this._IdColor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Color", DbType="VarChar(100)")]
+		public string Color
+		{
+			get
+			{
+				return this._Color;
+			}
+			set
+			{
+				if ((this._Color != value))
+				{
+					this._Color = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_LISTADO_CONDICIONESResult
+	{
+		
+		private decimal _IdCondicion;
+		
+		private string _Condicion;
+		
+		public SP_LISTADO_CONDICIONESResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCondicion", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdCondicion
+		{
+			get
+			{
+				return this._IdCondicion;
+			}
+			set
+			{
+				if ((this._IdCondicion != value))
+				{
+					this._IdCondicion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Condicion", DbType="VarChar(100)")]
+		public string Condicion
+		{
+			get
+			{
+				return this._Condicion;
+			}
+			set
+			{
+				if ((this._Condicion != value))
+				{
+					this._Condicion = value;
 				}
 			}
 		}

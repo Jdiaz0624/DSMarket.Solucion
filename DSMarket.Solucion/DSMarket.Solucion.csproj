@@ -361,6 +361,12 @@
     <Compile Include="Pantallas\Pantallas\Inventario\CategoriaConsulta.Designer.cs">
       <DependentUpon>CategoriaConsulta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\CondicionConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\CondicionConsulta.Designer.cs">
+      <DependentUpon>CondicionConsulta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\ConsultaColores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -384,6 +390,12 @@
     </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoColores.Designer.cs">
       <DependentUpon>MantenimientoColores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoCondicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoCondicion.Designer.cs">
+      <DependentUpon>MantenimientoCondicion.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoMarcas.cs">
       <SubType>Form</SubType>
@@ -756,6 +768,9 @@
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\CategoriaConsulta.resx">
       <DependentUpon>CategoriaConsulta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\CondicionConsulta.resx">
+      <DependentUpon>CondicionConsulta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\ConsultaColores.resx">
       <DependentUpon>ConsultaColores.cs</DependentUpon>
     </EmbeddedResource>
@@ -767,6 +782,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MantenimientoColores.resx">
       <DependentUpon>MantenimientoColores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MantenimientoCondicion.resx">
+      <DependentUpon>MantenimientoCondicion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MantenimientoMarcas.resx">
       <DependentUpon>MantenimientoMarcas.cs</DependentUpon>

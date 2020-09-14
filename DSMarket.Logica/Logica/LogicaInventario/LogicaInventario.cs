@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DSMarket.Logica.Entidades.EntidadesListas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -947,6 +948,59 @@ namespace DSMarket.Logica.Logica.LogicaInventario
             }
             return Mantenimiento;
 
+        }
+        #endregion
+        #region MANTENIMIENTO DE CONDICION
+        //LISTADO DE CONDICIONES
+        public List<DSMarket.Logica.Entidades.EntidadesInventario.ECondiciones> BuscaCondiciones(decimal? IdCondiciones = null, string Descripcion = null, int? NumeroPagina = 1, int? NumeroRegistros = 10) {
+            Objdata.CommandTimeout = 999999999;
+
+            var Buscar = (from n in Objdata.SP_BUSCA_CONDICION_ARTICULO(IdCondiciones, Descripcion, NumeroPagina, NumeroRegistros)
+                          select new DSMarket.Logica.Entidades.EntidadesInventario.ECondiciones
+                          {
+                              IdCondicion=n.IdCondicion,
+                              Condicion=n.Condicion,
+                              Estatus0=n.Estatus0,
+                              Estatus=n.Estatus,
+                              UsuarioAdiciona=n.UsuarioAdiciona,
+                              CreadoPor=n.CreadoPor,
+                              FechaAdiciona=n.FechaAdiciona,
+                              FechaCreado=n.FechaCreado,
+                             UsuarioModifica=n.UsuarioModifica,
+                             ModificadoPor=n.ModificadoPor,
+                             FechaModifica=n.FechaModifica,
+                             FechaModificado=n.FechaModificado,
+                             CantidadRegistros=n.CantidadRegistros
+                          }).ToList();
+            return Buscar;
+        }
+
+        //MANTENIMIENTO DE CONDICIONES
+        public DSMarket.Logica.Entidades.EntidadesInventario.ECondiciones MantenimientoCondiciones(DSMarket.Logica.Entidades.EntidadesInventario.ECondiciones Item, string Accion) {
+            Objdata.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesInventario.ECondiciones Mantenimiento = null;
+
+            var Condifiones = Objdata.SP_MANTENIMIENTO_CONDICION_ARTICULOS(
+                Item.IdCondicion,
+                Item.Condicion,
+                Item.Estatus0,
+                Convert.ToInt32(Item.UsuarioAdiciona),
+                Accion);
+            if (Condifiones != null) {
+                Mantenimiento = (from n in Condifiones
+                                 select new DSMarket.Logica.Entidades.EntidadesInventario.ECondiciones
+                                 {
+                                     IdCondicion=n.IdCondicion,
+                                     Condicion=n.Descripcion,
+                                     Estatus0=n.Estatus,
+                                     UsuarioAdiciona=n.UsuarioAdiciona,
+                                     FechaAdiciona=n.FechaAdiciona,
+                                     UsuarioModifica=n.UsuarioModifica,
+                                     FechaModifica=n.FechaModifica
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
         }
         #endregion
     }
