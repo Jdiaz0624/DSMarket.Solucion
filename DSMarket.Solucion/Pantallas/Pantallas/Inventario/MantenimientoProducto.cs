@@ -182,39 +182,41 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         private void MANProductos()
         {
             try {
-                DSMarket.Logica.Entidades.EntidadesInventario.EProducto Mantenimiento = new Logica.Entidades.EntidadesInventario.EProducto();
-
-                Mantenimiento.IdProducto = VariablesGlobales.IdMantenimeinto;
-                Mantenimiento.NumeroConector = VariablesGlobales.NumeroConector;
-                Mantenimiento.IdTipoProducto = Convert.ToDecimal(ddlSeleccionarTipoProducto.SelectedValue);
-                Mantenimiento.IdCategoria = Convert.ToDecimal(ddlSeleccionarCategoria.SelectedValue);
-                Mantenimiento.IdUnidadMedida = Convert.ToDecimal(ddlSeleccionarUnidadMedida.SelectedValue);
-                Mantenimiento.IdMarca = Convert.ToDecimal(ddlSeleccionarMarca.SelectedValue);
-                Mantenimiento.IdModelo = Convert.ToDecimal(ddlSeleccionarModelo.SelectedValue);
-                Mantenimiento.IdTipoSuplidor = Convert.ToDecimal(ddlSeleccionarTipoSuplidor.SelectedValue);
-                Mantenimiento.IdSuplidor = Convert.ToDecimal(ddlSeleccionarSuplidor.SelectedValue);
-                Mantenimiento.Producto = txtdescripcion.Text;
-                Mantenimiento.CodigoBarra = txtCodigoBarra.Text;
-                Mantenimiento.Referencia = txtReferencia.Text;
-                Mantenimiento.PrecioCompra = Convert.ToDecimal(txtPrecioCompra.Text);
-                Mantenimiento.PrecioVenta = Convert.ToDecimal(txtPrecioVenta.Text);
-                Mantenimiento.Stock = Convert.ToDecimal(txtStock.Text);
-                Mantenimiento.StockMinimo = Convert.ToDecimal(txtStockMinimo.Text);
-                Mantenimiento.PorcientoDescuento = Convert.ToDecimal(txtPorcientoDescuento.Text);
-                Mantenimiento.AfectaOferta0 = cbAceptaOferta.Checked;
-                Mantenimiento.ProductoAcumulativo0 = cbacumulativo.Checked;
-                Mantenimiento.LlevaImagen0 = cbLlevaImagen.Checked;
-                Mantenimiento.UsuarioAdicion = VariablesGlobales.IdUsuario;
-                Mantenimiento.FechaAdiciona = DateTime.Now;
-                Mantenimiento.UsuarioModifica = VariablesGlobales.IdUsuario;
-                Mantenimiento.FechaModifica = DateTime.Now;
-                Mantenimiento.Fecha = DateTime.Now;
-                Mantenimiento.Comentario = txtComentario.Text;
-                Mantenimiento.AplicaParaImpuesto0 = cbAplicaDescuento.Checked;
-                Mantenimiento.EstatusProducto0 = false;
-                Mantenimiento.NumeroSeguimiento = txtNumeroSeguimiento.Text;
-
-                var MAn = ObjDataInventario.Value.MantenimientoProducto(Mantenimiento, VariablesGlobales.Accion);
+                DSMarket.Logica.Comunes.ProcesarInformacion.ProcesarInformacionProductos Procesar = new Logica.Comunes.ProcesarInformacion.ProcesarInformacionProductos(
+                    VariablesGlobales.IdMantenimeinto,
+                    VariablesGlobales.NumeroConector,
+                    Convert.ToDecimal(ddlSeleccionarTipoProducto.SelectedValue),
+                    Convert.ToDecimal(ddlSeleccionarCategoria.SelectedValue),
+                    Convert.ToDecimal(ddlSeleccionarUnidadMedida.SelectedValue),
+                    Convert.ToDecimal(ddlSeleccionarMarca.SelectedValue),
+                    Convert.ToDecimal(ddlSeleccionarModelo.SelectedValue),
+                    Convert.ToDecimal(ddlSeleccionarTipoSuplidor.SelectedValue),
+                    Convert.ToDecimal(ddlSeleccionarSuplidor.SelectedValue),
+                    txtdescripcion.Text,
+                    txtCodigoBarra.Text,
+                    txtReferencia.Text,
+                    Convert.ToDecimal(txtPrecioCompra.Text),
+                    Convert.ToDecimal(txtPrecioVenta.Text),
+                    Convert.ToDecimal(txtStock.Text),
+                    Convert.ToDecimal(txtStockMinimo.Text),
+                    Convert.ToDecimal(txtPorcientoDescuento.Value),
+                    cbAceptaOferta.Checked,
+                    cbacumulativo.Checked,
+                    cbLlevaImagen.Checked,
+                    VariablesGlobales.IdUsuario,
+                    DateTime.Now,
+                    VariablesGlobales.IdUsuario,
+                    DateTime.Now,
+                    DateTime.Now,
+                    txtComentario.Text,
+                    cbAplicaDescuento.Checked,
+                    false,
+                    txtNumeroSeguimiento.Text,
+                    Convert.ToDecimal(ddlSeleccionarColor.SelectedValue),
+                    Convert.ToDecimal(ddlSeleccionarCondicion.SelectedValue),
+                    Convert.ToDecimal(ddlSeleccionarCapacidad.SelectedValue),
+                    VariablesGlobales.Accion);
+                Procesar.ProcesarInformacion();
 
 
 
