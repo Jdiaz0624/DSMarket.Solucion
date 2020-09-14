@@ -95,6 +95,18 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnGuardar = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ddlSeleccionarColor = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ddlSeleccionarCapacidad = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ddlSeleccionarCondicion = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -114,7 +126,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1255, 38);
+            this.panel1.Size = new System.Drawing.Size(1344, 38);
             this.panel1.TabIndex = 3;
             // 
             // PCerrar
@@ -122,7 +134,7 @@
             this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(1213, 5);
+            this.PCerrar.Location = new System.Drawing.Point(1302, 5);
             this.PCerrar.Name = "PCerrar";
             this.PCerrar.Size = new System.Drawing.Size(30, 30);
             this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -144,6 +156,19 @@
             // groupBox1
             // 
             this.groupBox1.AutoSize = true;
+            this.groupBox1.Controls.Add(this.button5);
+            this.groupBox1.Controls.Add(this.button6);
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.button4);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.btnGuardar);
+            this.groupBox1.Controls.Add(this.ddlSeleccionarCondicion);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.ddlSeleccionarCapacidad);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.ddlSeleccionarColor);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtNumeroSeguimiento);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cbAplicaDescuento);
@@ -203,16 +228,17 @@
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 45);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1237, 466);
+            this.groupBox1.Size = new System.Drawing.Size(1295, 505);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Producto";
             this.toolTip1.SetToolTip(this.groupBox1, "Buscar Foto del Articulo");
+            this.groupBox1.Enter += new System.EventHandler(this.GroupBox1_Enter);
             // 
             // txtNumeroSeguimiento
             // 
             this.txtNumeroSeguimiento.BackColor = System.Drawing.Color.Silver;
-            this.txtNumeroSeguimiento.Location = new System.Drawing.Point(696, 245);
+            this.txtNumeroSeguimiento.Location = new System.Drawing.Point(696, 280);
             this.txtNumeroSeguimiento.Name = "txtNumeroSeguimiento";
             this.txtNumeroSeguimiento.Size = new System.Drawing.Size(250, 27);
             this.txtNumeroSeguimiento.TabIndex = 59;
@@ -220,7 +246,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(495, 248);
+            this.label1.Location = new System.Drawing.Point(495, 283);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(198, 21);
             this.label1.TabIndex = 58;
@@ -231,7 +257,7 @@
             this.cbAplicaDescuento.AutoSize = true;
             this.cbAplicaDescuento.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbAplicaDescuento.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbAplicaDescuento.Location = new System.Drawing.Point(151, 357);
+            this.cbAplicaDescuento.Location = new System.Drawing.Point(151, 383);
             this.cbAplicaDescuento.Name = "cbAplicaDescuento";
             this.cbAplicaDescuento.Size = new System.Drawing.Size(196, 25);
             this.cbAplicaDescuento.TabIndex = 57;
@@ -254,7 +280,7 @@
             this.cbLlevaImagen.AutoSize = true;
             this.cbLlevaImagen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbLlevaImagen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbLlevaImagen.Location = new System.Drawing.Point(955, 348);
+            this.cbLlevaImagen.Location = new System.Drawing.Point(1042, 342);
             this.cbLlevaImagen.Name = "cbLlevaImagen";
             this.cbLlevaImagen.Size = new System.Drawing.Size(134, 25);
             this.cbLlevaImagen.TabIndex = 54;
@@ -268,7 +294,7 @@
             this.cbacumulativo.AutoSize = true;
             this.cbacumulativo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbacumulativo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbacumulativo.Location = new System.Drawing.Point(151, 381);
+            this.cbacumulativo.Location = new System.Drawing.Point(151, 407);
             this.cbacumulativo.Name = "cbacumulativo";
             this.cbacumulativo.Size = new System.Drawing.Size(129, 25);
             this.cbacumulativo.TabIndex = 53;
@@ -284,9 +310,9 @@
             this.btnBuscarFoto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnBuscarFoto.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
             this.btnBuscarFoto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarFoto.Location = new System.Drawing.Point(955, 313);
+            this.btnBuscarFoto.Location = new System.Drawing.Point(1042, 307);
             this.btnBuscarFoto.Name = "btnBuscarFoto";
-            this.btnBuscarFoto.Size = new System.Drawing.Size(273, 29);
+            this.btnBuscarFoto.Size = new System.Drawing.Size(247, 29);
             this.btnBuscarFoto.TabIndex = 52;
             this.btnBuscarFoto.Text = "Buscar Foto";
             this.toolTip1.SetToolTip(this.btnBuscarFoto, "Buscar Cliente mediante el codigo");
@@ -296,7 +322,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.pbFoto);
-            this.groupBox3.Location = new System.Drawing.Point(984, 19);
+            this.groupBox3.Location = new System.Drawing.Point(1042, 13);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(247, 291);
             this.groupBox3.TabIndex = 51;
@@ -318,7 +344,7 @@
             // 
             this.txtClaveSeguridad.BackColor = System.Drawing.Color.Silver;
             this.txtClaveSeguridad.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtClaveSeguridad.Location = new System.Drawing.Point(464, 379);
+            this.txtClaveSeguridad.Location = new System.Drawing.Point(537, 405);
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
             this.txtClaveSeguridad.PasswordChar = '•';
             this.txtClaveSeguridad.Size = new System.Drawing.Size(349, 27);
@@ -328,7 +354,7 @@
             // 
             this.lbCLaveSeguridad.AutoSize = true;
             this.lbCLaveSeguridad.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCLaveSeguridad.Location = new System.Drawing.Point(562, 356);
+            this.lbCLaveSeguridad.Location = new System.Drawing.Point(628, 382);
             this.lbCLaveSeguridad.Name = "lbCLaveSeguridad";
             this.lbCLaveSeguridad.Size = new System.Drawing.Size(153, 20);
             this.lbCLaveSeguridad.TabIndex = 49;
@@ -339,7 +365,7 @@
             this.cbAceptaOferta.AutoSize = true;
             this.cbAceptaOferta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbAceptaOferta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbAceptaOferta.Location = new System.Drawing.Point(135, 415);
+            this.cbAceptaOferta.Location = new System.Drawing.Point(903, 405);
             this.cbAceptaOferta.Name = "cbAceptaOferta";
             this.cbAceptaOferta.Size = new System.Drawing.Size(163, 25);
             this.cbAceptaOferta.TabIndex = 48;
@@ -351,7 +377,7 @@
             // txtComentario
             // 
             this.txtComentario.BackColor = System.Drawing.Color.Silver;
-            this.txtComentario.Location = new System.Drawing.Point(154, 325);
+            this.txtComentario.Location = new System.Drawing.Point(154, 350);
             this.txtComentario.Name = "txtComentario";
             this.txtComentario.Size = new System.Drawing.Size(792, 27);
             this.txtComentario.TabIndex = 47;
@@ -361,7 +387,7 @@
             this.btnRefrescarSuplidor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRefrescarSuplidor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRefrescarSuplidor.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
-            this.btnRefrescarSuplidor.Location = new System.Drawing.Point(479, 218);
+            this.btnRefrescarSuplidor.Location = new System.Drawing.Point(453, 218);
             this.btnRefrescarSuplidor.Name = "btnRefrescarSuplidor";
             this.btnRefrescarSuplidor.Size = new System.Drawing.Size(41, 29);
             this.btnRefrescarSuplidor.TabIndex = 46;
@@ -375,7 +401,7 @@
             this.btnAgregarSuplidor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregarSuplidor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAgregarSuplidor.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
-            this.btnAgregarSuplidor.Location = new System.Drawing.Point(436, 218);
+            this.btnAgregarSuplidor.Location = new System.Drawing.Point(410, 218);
             this.btnAgregarSuplidor.Name = "btnAgregarSuplidor";
             this.btnAgregarSuplidor.Size = new System.Drawing.Size(41, 29);
             this.btnAgregarSuplidor.TabIndex = 45;
@@ -388,7 +414,7 @@
             this.btnRefrescarTipoSuplidor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRefrescarTipoSuplidor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRefrescarTipoSuplidor.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
-            this.btnRefrescarTipoSuplidor.Location = new System.Drawing.Point(479, 185);
+            this.btnRefrescarTipoSuplidor.Location = new System.Drawing.Point(453, 185);
             this.btnRefrescarTipoSuplidor.Name = "btnRefrescarTipoSuplidor";
             this.btnRefrescarTipoSuplidor.Size = new System.Drawing.Size(41, 29);
             this.btnRefrescarTipoSuplidor.TabIndex = 44;
@@ -402,7 +428,7 @@
             this.btnAgregarTipoSuplidor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregarTipoSuplidor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAgregarTipoSuplidor.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
-            this.btnAgregarTipoSuplidor.Location = new System.Drawing.Point(436, 185);
+            this.btnAgregarTipoSuplidor.Location = new System.Drawing.Point(410, 185);
             this.btnAgregarTipoSuplidor.Name = "btnAgregarTipoSuplidor";
             this.btnAgregarTipoSuplidor.Size = new System.Drawing.Size(41, 29);
             this.btnAgregarTipoSuplidor.TabIndex = 43;
@@ -415,7 +441,7 @@
             this.btnRefrescarModelo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRefrescarModelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRefrescarModelo.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
-            this.btnRefrescarModelo.Location = new System.Drawing.Point(479, 153);
+            this.btnRefrescarModelo.Location = new System.Drawing.Point(453, 153);
             this.btnRefrescarModelo.Name = "btnRefrescarModelo";
             this.btnRefrescarModelo.Size = new System.Drawing.Size(41, 29);
             this.btnRefrescarModelo.TabIndex = 42;
@@ -429,7 +455,7 @@
             this.btnAgregarModelo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregarModelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAgregarModelo.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
-            this.btnAgregarModelo.Location = new System.Drawing.Point(436, 153);
+            this.btnAgregarModelo.Location = new System.Drawing.Point(410, 153);
             this.btnAgregarModelo.Name = "btnAgregarModelo";
             this.btnAgregarModelo.Size = new System.Drawing.Size(41, 29);
             this.btnAgregarModelo.TabIndex = 41;
@@ -442,7 +468,7 @@
             this.btnRefrescarMarca.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRefrescarMarca.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRefrescarMarca.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
-            this.btnRefrescarMarca.Location = new System.Drawing.Point(479, 121);
+            this.btnRefrescarMarca.Location = new System.Drawing.Point(453, 121);
             this.btnRefrescarMarca.Name = "btnRefrescarMarca";
             this.btnRefrescarMarca.Size = new System.Drawing.Size(41, 29);
             this.btnRefrescarMarca.TabIndex = 40;
@@ -456,7 +482,7 @@
             this.btnAgregarMarca.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregarMarca.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAgregarMarca.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
-            this.btnAgregarMarca.Location = new System.Drawing.Point(436, 121);
+            this.btnAgregarMarca.Location = new System.Drawing.Point(410, 121);
             this.btnAgregarMarca.Name = "btnAgregarMarca";
             this.btnAgregarMarca.Size = new System.Drawing.Size(41, 29);
             this.btnAgregarMarca.TabIndex = 39;
@@ -469,7 +495,7 @@
             this.btnRefrescarUnidadMedida.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRefrescarUnidadMedida.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRefrescarUnidadMedida.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
-            this.btnRefrescarUnidadMedida.Location = new System.Drawing.Point(479, 90);
+            this.btnRefrescarUnidadMedida.Location = new System.Drawing.Point(453, 90);
             this.btnRefrescarUnidadMedida.Name = "btnRefrescarUnidadMedida";
             this.btnRefrescarUnidadMedida.Size = new System.Drawing.Size(41, 29);
             this.btnRefrescarUnidadMedida.TabIndex = 38;
@@ -483,7 +509,7 @@
             this.btnAgregarUnidadMedida.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregarUnidadMedida.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAgregarUnidadMedida.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
-            this.btnAgregarUnidadMedida.Location = new System.Drawing.Point(436, 90);
+            this.btnAgregarUnidadMedida.Location = new System.Drawing.Point(410, 90);
             this.btnAgregarUnidadMedida.Name = "btnAgregarUnidadMedida";
             this.btnAgregarUnidadMedida.Size = new System.Drawing.Size(41, 29);
             this.btnAgregarUnidadMedida.TabIndex = 37;
@@ -496,7 +522,7 @@
             this.btnRefrescarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRefrescarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRefrescarCategoria.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
-            this.btnRefrescarCategoria.Location = new System.Drawing.Point(479, 58);
+            this.btnRefrescarCategoria.Location = new System.Drawing.Point(453, 58);
             this.btnRefrescarCategoria.Name = "btnRefrescarCategoria";
             this.btnRefrescarCategoria.Size = new System.Drawing.Size(41, 29);
             this.btnRefrescarCategoria.TabIndex = 36;
@@ -510,7 +536,7 @@
             this.btnAgregarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAgregarCategoria.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
-            this.btnAgregarCategoria.Location = new System.Drawing.Point(436, 58);
+            this.btnAgregarCategoria.Location = new System.Drawing.Point(410, 58);
             this.btnAgregarCategoria.Name = "btnAgregarCategoria";
             this.btnAgregarCategoria.Size = new System.Drawing.Size(41, 29);
             this.btnAgregarCategoria.TabIndex = 35;
@@ -523,7 +549,7 @@
             this.btnRefrescarTipoProducto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRefrescarTipoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRefrescarTipoProducto.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
-            this.btnRefrescarTipoProducto.Location = new System.Drawing.Point(479, 26);
+            this.btnRefrescarTipoProducto.Location = new System.Drawing.Point(453, 26);
             this.btnRefrescarTipoProducto.Name = "btnRefrescarTipoProducto";
             this.btnRefrescarTipoProducto.Size = new System.Drawing.Size(41, 29);
             this.btnRefrescarTipoProducto.TabIndex = 34;
@@ -537,7 +563,7 @@
             this.btnAgregarTipoProducto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregarTipoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAgregarTipoProducto.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
-            this.btnAgregarTipoProducto.Location = new System.Drawing.Point(436, 26);
+            this.btnAgregarTipoProducto.Location = new System.Drawing.Point(410, 26);
             this.btnAgregarTipoProducto.Name = "btnAgregarTipoProducto";
             this.btnAgregarTipoProducto.Size = new System.Drawing.Size(41, 29);
             this.btnAgregarTipoProducto.TabIndex = 33;
@@ -604,7 +630,7 @@
             // txtdescripcion
             // 
             this.txtdescripcion.BackColor = System.Drawing.Color.Silver;
-            this.txtdescripcion.Location = new System.Drawing.Point(154, 295);
+            this.txtdescripcion.Location = new System.Drawing.Point(154, 320);
             this.txtdescripcion.Name = "txtdescripcion";
             this.txtdescripcion.Size = new System.Drawing.Size(792, 27);
             this.txtdescripcion.TabIndex = 25;
@@ -700,7 +726,7 @@
             // lbComentario
             // 
             this.lbComentario.AutoSize = true;
-            this.lbComentario.Location = new System.Drawing.Point(47, 328);
+            this.lbComentario.Location = new System.Drawing.Point(47, 353);
             this.lbComentario.Name = "lbComentario";
             this.lbComentario.Size = new System.Drawing.Size(104, 21);
             this.lbComentario.TabIndex = 16;
@@ -772,7 +798,7 @@
             // lbDescripcion
             // 
             this.lbDescripcion.AutoSize = true;
-            this.lbDescripcion.Location = new System.Drawing.Point(41, 298);
+            this.lbDescripcion.Location = new System.Drawing.Point(41, 323);
             this.lbDescripcion.Name = "lbDescripcion";
             this.lbDescripcion.Size = new System.Drawing.Size(110, 21);
             this.lbDescripcion.TabIndex = 7;
@@ -854,7 +880,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::DSMarket.Solucion.Properties.Resources.Guardar;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(448, 498);
+            this.btnGuardar.Location = new System.Drawing.Point(499, 438);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(406, 41);
             this.btnGuardar.TabIndex = 7;
@@ -868,12 +894,152 @@
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
             // 
+            // ddlSeleccionarColor
+            // 
+            this.ddlSeleccionarColor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlSeleccionarColor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarColor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarColor.FormattingEnabled = true;
+            this.ddlSeleccionarColor.Location = new System.Drawing.Point(169, 252);
+            this.ddlSeleccionarColor.Name = "ddlSeleccionarColor";
+            this.ddlSeleccionarColor.Size = new System.Drawing.Size(235, 29);
+            this.ddlSeleccionarColor.TabIndex = 61;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(103, 257);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 21);
+            this.label2.TabIndex = 60;
+            this.label2.Text = "Color *";
+            // 
+            // ddlSeleccionarCapacidad
+            // 
+            this.ddlSeleccionarCapacidad.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlSeleccionarCapacidad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarCapacidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarCapacidad.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarCapacidad.FormattingEnabled = true;
+            this.ddlSeleccionarCapacidad.Location = new System.Drawing.Point(169, 285);
+            this.ddlSeleccionarCapacidad.Name = "ddlSeleccionarCapacidad";
+            this.ddlSeleccionarCapacidad.Size = new System.Drawing.Size(235, 29);
+            this.ddlSeleccionarCapacidad.TabIndex = 63;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(52, 290);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(112, 21);
+            this.label3.TabIndex = 62;
+            this.label3.Text = "Capacidad *";
+            // 
+            // ddlSeleccionarCondicion
+            // 
+            this.ddlSeleccionarCondicion.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlSeleccionarCondicion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarCondicion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarCondicion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarCondicion.FormattingEnabled = true;
+            this.ddlSeleccionarCondicion.Location = new System.Drawing.Point(696, 248);
+            this.ddlSeleccionarCondicion.Name = "ddlSeleccionarCondicion";
+            this.ddlSeleccionarCondicion.Size = new System.Drawing.Size(250, 29);
+            this.ddlSeleccionarCondicion.TabIndex = 65;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(592, 252);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(100, 21);
+            this.label4.TabIndex = 64;
+            this.label4.Text = "Condición *";
+            // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
+            this.button1.Location = new System.Drawing.Point(453, 253);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(41, 29);
+            this.button1.TabIndex = 67;
+            this.toolTip1.SetToolTip(this.button1, "Refrescar Listado de Suplidores");
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            // 
+            // button2
+            // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
+            this.button2.Location = new System.Drawing.Point(410, 253);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(41, 29);
+            this.button2.TabIndex = 66;
+            this.toolTip1.SetToolTip(this.button2, "Agregar Suplidores");
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            // 
+            // button3
+            // 
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button3.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
+            this.button3.Location = new System.Drawing.Point(453, 285);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(41, 29);
+            this.button3.TabIndex = 69;
+            this.toolTip1.SetToolTip(this.button3, "Refrescar Listado de Suplidores");
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Visible = false;
+            // 
+            // button4
+            // 
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button4.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
+            this.button4.Location = new System.Drawing.Point(410, 285);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(41, 29);
+            this.button4.TabIndex = 68;
+            this.toolTip1.SetToolTip(this.button4, "Agregar Suplidores");
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Visible = false;
+            // 
+            // button5
+            // 
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button5.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
+            this.button5.Location = new System.Drawing.Point(995, 249);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(41, 29);
+            this.button5.TabIndex = 71;
+            this.toolTip1.SetToolTip(this.button5, "Refrescar Listado de Suplidores");
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Visible = false;
+            // 
+            // button6
+            // 
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button6.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
+            this.button6.Location = new System.Drawing.Point(952, 249);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(41, 29);
+            this.button6.TabIndex = 70;
+            this.toolTip1.SetToolTip(this.button6, "Agregar Suplidores");
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Visible = false;
+            // 
             // MantenimientoProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1255, 542);
-            this.Controls.Add(this.btnGuardar);
+            this.ClientSize = new System.Drawing.Size(1344, 565);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -965,5 +1131,17 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.TextBox txtNumeroSeguimiento;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox ddlSeleccionarCondicion;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox ddlSeleccionarCapacidad;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox ddlSeleccionarColor;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

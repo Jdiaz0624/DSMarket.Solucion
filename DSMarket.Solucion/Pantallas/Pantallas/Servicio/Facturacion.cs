@@ -809,7 +809,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     null,
                     null,
                     null,
-                    null,
+                    null, null, null, null,
                     null,
                     null,
                     null, 1, 1);
@@ -910,7 +910,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     null,
                     null,
                     null,
-                    null,
+                    null, null, null, null,
                     null,
                     null,
                     null, 1, 1);
@@ -1245,7 +1245,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     //SACAMOS LA INFORMACION DE QUE SI EL PRODUCTO ES ACUMULATIVO O NO
 
                     var ProductoAcumulativoInformacion = ObjDataInventario.Value.BuscaProductos(
-                        IdProducto, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                        IdProducto, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
                     foreach (var n2 in ProductoAcumulativoInformacion)
                     {
                         ProductoAcumulativo = Convert.ToBoolean(n2.ProductoAcumulativo0);
@@ -1490,7 +1490,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 decimal PrecioSinImpuesto = ValorProducto - ImpuestoProducto;
                 //BUSCAMOS EL PRODUCTO Y VERIFICAMOS SI EL PRODUCTO APLICA PARA ITBIS
                 var BuscarProducto = ObjDataInventario.Value.BuscaProductos(
-                    IdProducto, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                    IdProducto,null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,1,1);
                 foreach (var nInventario in BuscarProducto) {
                     bool AplicaImpuesto = Convert.ToBoolean(nInventario.AplicaParaImpuesto0);
 

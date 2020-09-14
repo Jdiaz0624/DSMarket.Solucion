@@ -504,7 +504,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 ImpuestoProducto = Convert.ToInt32(nAgregados.Impuesto);
 
                 var InspeccionarProducto = ObjDataInventario.Value.BuscaProductos(
-                    IdProducto, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                    IdProducto, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
                 foreach (var nProducto in InspeccionarProducto) {
                     bool AplicaImpuesto = Convert.ToBoolean(nProducto.AplicaParaImpuesto0);
 
@@ -665,7 +665,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
                                     //BUSCAMOS EL PRODUCTO Y ANALIZAMOS EL TIPO DE PRODUCTO Y SI ES ACUMULATIVO
                                     var BuscarPrducto = ObjDataInventario.Value.BuscaProductos(IdProducto,
-                                        null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                                        null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
                                     foreach (var n2 in BuscarPrducto) {
                                         VariablesGlobales.IdTipoProductoAnularFactura = Convert.ToDecimal(n2.IdTipoProducto);
                                         VariablesGlobales.AcumulativoAnularFactura = Convert.ToBoolean(n2.ProductoAcumulativo0);

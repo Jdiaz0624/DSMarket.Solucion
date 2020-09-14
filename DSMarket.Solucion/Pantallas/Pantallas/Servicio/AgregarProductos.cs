@@ -112,7 +112,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         null,
                         null,
                         null,
-                        null, false,null,
+                        null, null, null, null, false,null,
                         Convert.ToInt32(txtNumeroPagina.Value),
                         Convert.ToInt32(txtNumeroRegistros.Value));
                     dtSeleccionarproducto.DataSource = BuscaRegistros;
@@ -143,7 +143,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                           null,
                           null,
                           null,
-                          null, false,null,
+                          null, null, null, null, false,null,
                           Convert.ToInt32(txtNumeroPagina.Value),
                           Convert.ToInt32(txtNumeroRegistros.Value));
                     dtSeleccionarproducto.DataSource = BuscaRegistros;
@@ -442,7 +442,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 this.VariablesGlbales.IdTipoProductoNuevo = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["IdTipoProducto"].Value.ToString());
                 var SacarNumeroConectorProducto = ObjDataLogicaInventario.Value.BuscaProductos(
                     VariablesGlbales.IdProductoSeleccionadoAgregarEditar,
-                    null, null, null, null, null, null, null, null, null, null, null, null, false, null, 1, 1);
+                    null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, false, null, 1, 1);
                 foreach (var n in SacarNumeroConectorProducto) {
                     VariablesGlbales.IdNumeroConectorProductoAgregarEditar = Convert.ToDecimal(n.NumeroConector);
                 }
@@ -459,7 +459,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     {
                         var Buscar = ObjDataLogicaInventario.Value.BuscaProductos(
                      IdProductoSeleccionado,
-                     null, null, null, null, null, null, null, null, null, null, null, null, false, null, 1, 1);
+                     null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, false, null, 1, 1);
 
                         foreach (var n in Buscar)
                         {
@@ -648,7 +648,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                                     null,
                                     null,
                                     null,
-                                    null, false,null,
+                                    null, null, null, null, false,null,
                                     1, 1);
                                 foreach (var n in ValidarCantidadDisponible)
                                 {
@@ -772,7 +772,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             null,
                             null,
                             null,
-                            null, false,null,
+                            null, null, null, null, false,null,
                             1, 1);
                         foreach (var n2 in BuscarCantidadDispobible)
                         {
@@ -813,7 +813,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 var SacarNumeroConector = ObjDataLogicaInventario.Value.BuscaProductos(
                     VariablesGlbales.IdProductoModificarRegistro,
                     null,
-                    null, null, null, null, null, null, null, null, null, null, null, false,null, 1, 1);
+                    null, null, null, null, null, null, null, null, null, null, null, null, null, null, false,null, 1, 1);
                 foreach (var n in SacarNumeroConector)
                 {
                     NumeroConectorProducto = Convert.ToDecimal(n.NumeroConector);
@@ -837,7 +837,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     //SACAMOS LOS DATOS DEL PRODUCTO
                     var SacarDatosProducto = ObjDataLogicaInventario.Value.BuscaProductos(
                         VariablesGlbales.IdProductoSeleccionadoAgregarEditar,
-                        null, null, null, null, null, null, null, null, null, null, null, null, null,null, 1, 1);
+                        null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,null, 1, 1);
                     foreach (var n in SacarDatosProducto) {
                         IdProductoChange = Convert.ToDecimal(n.IdProducto);
                         IdTipoProductoChange = Convert.ToDecimal(n.IdTipoProducto);
@@ -873,7 +873,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 var SacarNumeroConector = ObjDataLogicaInventario.Value.BuscaProductos(
                     VariablesGlbales.IdProductoModificarRegistro,
                     null,
-                    null, null, null, null, null, null, null, null, null, null, null, false,null, 1, 1);
+                    null, null, null, null, null, null, null, null, null, null, null, null, null, null, false,null, 1, 1);
                 foreach (var n in SacarNumeroConector) {
                     NumeroConectorProducto = Convert.ToDecimal(n.NumeroConector);
                     CantidadAlmacen = Convert.ToInt32(n.Stock);

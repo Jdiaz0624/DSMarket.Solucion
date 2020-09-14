@@ -448,11 +448,11 @@ namespace DSMarket.Logica.Logica.LogicaInventario
         #endregion
         #region MANTENIMIENTO DE PRODUCTO
         //LISTADO DE PRODUCTOS
-        public List<DSMarket.Logica.Entidades.EntidadesInventario.EProducto> BuscaProductos(decimal? IdProducto = null, decimal? NumeroConector = null, string Descripcion = null, string CodigoBarra = null, string Referencia = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null, decimal? IdTipoProducto = null, decimal? IdCategoria = null, decimal? IdUnidadMedida = null, decimal? IdMarca = null, decimal? IdModelo = null,bool? TieneOferta = null, bool? EstatusProducto = null,string NumeroSeguimiento = null, int? NumeroPagina = null, int? NumeroRegistros = null)
+        public List<DSMarket.Logica.Entidades.EntidadesInventario.EProducto> BuscaProductos(decimal? IdProducto = null, decimal? NumeroConector = null, string Descripcion = null, string CodigoBarra = null, string Referencia = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null, decimal? IdTipoProducto = null, decimal? IdCategoria = null, decimal? IdUnidadMedida = null, decimal? IdMarca = null, decimal? IdModelo = null, decimal? IdColor = null, decimal? IdCondicion = null, decimal? IdCapacidad = null, bool? TieneOferta = null, bool? EstatusProducto = null,string NumeroSeguimiento = null, int? NumeroPagina = null, int? NumeroRegistros = null)
         {
             Objdata.CommandTimeout = 999999999;
 
-            var Buscar = (from n in Objdata.SP_BUSCA_PRODUCTO(IdProducto, NumeroConector, Descripcion, CodigoBarra, Referencia, FechaDesde, FechaHasta, IdTipoProducto, IdCategoria, IdUnidadMedida, IdMarca, IdModelo, TieneOferta, EstatusProducto, NumeroSeguimiento, NumeroPagina, NumeroRegistros)
+            var Buscar = (from n in Objdata.SP_BUSCA_PRODUCTO(IdProducto, NumeroConector, Descripcion, CodigoBarra, Referencia, FechaDesde, FechaHasta, IdTipoProducto, IdCategoria, IdUnidadMedida, IdMarca, IdModelo, IdColor, IdCondicion, IdCapacidad, TieneOferta, EstatusProducto, NumeroSeguimiento, NumeroPagina, NumeroRegistros)
                           select new DSMarket.Logica.Entidades.EntidadesInventario.EProducto
                           {
                               IdProducto=n.IdProducto,
@@ -460,6 +460,12 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                               Marca = n.Marca,
                               IdModelo = n.IdModelo,
                               Modelo = n.Modelo,
+                              IdColor=n.IdColor,
+                              Color=n.Color,
+                              IdCondicion=n.IdCondicion,
+                              Condicion=n.Condicion,
+                              IdCapacidad=n.IdCapacidad,
+                              Capacidad=n.Capacidad,
                               NumeroConector =n.NumeroConector,
                               IdTipoProducto=n.IdTipoProducto,
                               Producto=n.Producto,
@@ -542,6 +548,9 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                 , Item.AplicaParaImpuesto0
                 , Item.EstatusProducto0
                 , Item.NumeroSeguimiento
+                , Item.IdColor
+                , Item.IdCondicion
+                , Item.IdCapacidad
                 , Accion);
             if (Producto != null)
             {
@@ -576,7 +585,10 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                                       Comentario=n.Comentario,
                                       AplicaParaImpuesto0=n.AplicaParaImpuesto,
                                       EstatusProducto0 = n.EstatusProducto,
-                                      NumeroSeguimiento=n.NumeroSeguimiento
+                                      NumeroSeguimiento=n.NumeroSeguimiento,
+                                      IdColor=n.IdColor,
+                                      IdCondicion=n.IdCondicion,
+                                      IdCapacidad=n.IdCapacidad
                                  }).FirstOrDefault();
             }
             return Mantenimiento;

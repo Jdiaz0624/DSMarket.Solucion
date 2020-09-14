@@ -42,8 +42,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         {
             var SacarDatos = ObjDataInventario.Value.BuscaProductos(
                 IdProducto,
-                NumeroConector,
-                null, null, null, null, null, null, null, null, null, null, null,false, null, 1, 1);
+                NumeroConector, null, null, null, null, null, null, null, null, null, null, null, null, null, null, false, null, 1, 1);
             foreach (var n in SacarDatos)
             {
                 lbTipoProductoVariable.Text = n.TipoProducto;

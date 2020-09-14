@@ -8,14 +8,27 @@ namespace DSMarket.Logica.Entidades.EntidadesInventario
 {
     public class EProducto
     {
-        public System.Nullable<decimal> IdProducto {get;set;}
-        public System.Nullable<decimal> IdMarca { get; set; }
+        public decimal? IdProducto {get;set;}
 
-        public string Marca { get; set; }
+        public System.Nullable<decimal> IdMarca {get;set;}
 
-        public System.Nullable<decimal> IdModelo { get; set; }
+        public string Marca {get;set;}
 
-        public string Modelo { get; set; }
+        public System.Nullable<decimal> IdModelo {get;set;}
+
+        public string Modelo {get;set;}
+
+        public System.Nullable<decimal> IdColor {get;set;}
+
+        public string Color {get;set;}
+
+        public System.Nullable<decimal> IdCapacidad {get;set;}
+
+        public string Capacidad {get;set;}
+
+        public System.Nullable<decimal> IdCondicion {get;set;}
+
+        public string Condicion {get;set;}
 
         public System.Nullable<decimal> NumeroConector {get;set;}
 
@@ -32,8 +45,6 @@ namespace DSMarket.Logica.Entidades.EntidadesInventario
         public System.Nullable<decimal> IdUnidadMedida {get;set;}
 
         public string UnidadMedida {get;set;}
-
-       
 
         public System.Nullable<decimal> IdTipoSuplidor {get;set;}
 
@@ -86,14 +97,16 @@ namespace DSMarket.Logica.Entidades.EntidadesInventario
         public string FechaModificado {get;set;}
 
         public System.Nullable<System.DateTime> Fecha {get;set;}
-        public System.Nullable<bool> EstatusProducto0 { get; set; }
 
-        public string EstatusProducto { get; set; }
+        public System.Nullable<bool> AplicaParaImpuesto0 {get;set;}
 
-        public System.Nullable<bool> AplicaParaImpuesto0 { get; set; }
+        public System.Nullable<bool> EstatusProducto0 {get;set;}
 
-        public string AplicaParaImpuesto { get; set; }
-        public string NumeroSeguimiento { get; set; }
+        public string EstatusProducto {get;set;}
+
+        public string AplicaParaImpuesto {get;set;}
+
+        public string NumeroSeguimiento {get;set;}
 
         public System.Nullable<int> CantidadRegistros {get;set;}
 

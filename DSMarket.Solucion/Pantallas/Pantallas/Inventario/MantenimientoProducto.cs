@@ -106,6 +106,24 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             }
             catch (Exception) { }
         }
+        private void CargarColores() {
+            var CargarListaColores = ObjDataListas.Value.ListadoColores();
+            ddlSeleccionarColor.DataSource = CargarListaColores;
+            ddlSeleccionarColor.DisplayMember = "Color";
+            ddlSeleccionarColor.ValueMember = "IdColor";
+        }
+        private void CargarCondiciones() {
+            var CargarListaCondiciones = ObjDataListas.Value.ListadoCondiciones();
+            ddlSeleccionarCondicion.DataSource = CargarListaCondiciones;
+            ddlSeleccionarCondicion.DisplayMember = "Condicion";
+            ddlSeleccionarCondicion.ValueMember = "IdCondicion";
+        }
+        private void CargarCapacidad() {
+            var CargarCapacidad = ObjDataListas.Value.ListadoCapacidad();
+            ddlSeleccionarCapacidad.DataSource = CargarCapacidad;
+            ddlSeleccionarCapacidad.DisplayMember = "Capacidad";
+            ddlSeleccionarCapacidad.ValueMember = "IdCapacidad";
+        }
         #endregion
         #region APLICAR TEMA
         private void AplicarTema() {
@@ -248,7 +266,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             var SacarDatos = ObjDataInventario.Value.BuscaProductos(
                 IdProducto,
                 NumeroConector,
-                null, null, null, null, null, null, null, null, null, null, null, false, null, 1, 1);
+                null, null, null, null, null, null, null, null, null, null, null, null, null, null, false, null, 1, 1);
             foreach (var n in SacarDatos)
             {
                 ddlSeleccionarTipoProducto.Text = n.TipoProducto;
@@ -258,6 +276,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 ddlSeleccionarModelo.Text = n.Modelo;
                 ddlSeleccionarTipoSuplidor.Text = n.TipoSuplidor;
                 ddlSeleccionarSuplidor.Text = n.Suplidor;
+                ddlSeleccionarColor.Text = n.Color;
+                ddlSeleccionarCondicion.Text = n.Condicion;
+                ddlSeleccionarCapacidad.Text = n.Capacidad;
                 txtdescripcion.Text = n.Producto;
                 txtComentario.Text = n.Comentario;
                 txtCodigoBarra.Text = n.CodigoBarra;
@@ -323,17 +344,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             var SacarId = ObjDataInventario.Value.BuscaProductos(
                 new Nullable<decimal>(),
                 NumeroConector,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null, false, null, 1, 1);
+                null, null, null, null, null, null, null, null, null, null, null, null, null, null, false, null, 1, 1);
             foreach (var n in SacarId)
             {
                 VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(n.IdProducto);
@@ -382,6 +393,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             CargarModelos();
             CargarTipoSuplidores();
             CargarSupldores();
+            CargarColores();
+            CargarCondiciones();
+            CargarCapacidad();
             lbTitulo.ForeColor = Color.WhiteSmoke;
             if (VariablesGlobales.Accion == "INSERT")
             {
@@ -679,6 +693,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 CargarMarcas();
             }
             catch (Exception) { }
+        }
+
+        private void GroupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

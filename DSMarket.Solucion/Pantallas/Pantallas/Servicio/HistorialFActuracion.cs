@@ -1843,7 +1843,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 int CantidadDIsponibleAlmacen = 0;
                 var SacarCantidadDisponible = ObjDataInventario.Value.BuscaProductos(
                     VariablesGlobales.IdMantenimeinto,
-                    null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                    null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
                 foreach (var n in SacarCantidadDisponible) {
                     CantidadDIsponibleAlmacen = Convert.ToInt32(n.Stock);
                     txtCantidadDisponible.Text = CantidadDIsponibleAlmacen.ToString("N0");
@@ -2067,7 +2067,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                                 var BuscarRegistro = ObjDataInventario.Value.BuscaProductos(
                                     VariablesGlobales.IdMantenimeinto,
                                     null,
-                                    null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                                    null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
                                 bool ProductoSeleccionadoAcumulativo = false;
                                 foreach (var n in BuscarRegistro)
                                 {
