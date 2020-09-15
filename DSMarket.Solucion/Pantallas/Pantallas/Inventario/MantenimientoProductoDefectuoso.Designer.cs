@@ -34,6 +34,8 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtNumeroSeguimiento = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtCantidadIngresar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
@@ -68,8 +70,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.txtNumeroSeguimiento = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.ddlSeleccionarCondicion = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.ddlSeleccionarCapacidad = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ddlSeleccionarColor = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -98,6 +104,12 @@
             // groupBox1
             // 
             this.groupBox1.AutoSize = true;
+            this.groupBox1.Controls.Add(this.ddlSeleccionarCondicion);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.ddlSeleccionarCapacidad);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.ddlSeleccionarColor);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtNumeroSeguimiento);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtCantidadIngresar);
@@ -133,11 +145,28 @@
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 45);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1005, 396);
+            this.groupBox1.Size = new System.Drawing.Size(1005, 457);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Producto";
             this.toolTip1.SetToolTip(this.groupBox1, "Buscar Foto del Articulo");
+            // 
+            // txtNumeroSeguimiento
+            // 
+            this.txtNumeroSeguimiento.BackColor = System.Drawing.Color.Silver;
+            this.txtNumeroSeguimiento.Location = new System.Drawing.Point(696, 183);
+            this.txtNumeroSeguimiento.Name = "txtNumeroSeguimiento";
+            this.txtNumeroSeguimiento.Size = new System.Drawing.Size(250, 27);
+            this.txtNumeroSeguimiento.TabIndex = 54;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(496, 186);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(198, 21);
+            this.label2.TabIndex = 53;
+            this.label2.Text = "Numero de Seguimiento";
             // 
             // txtCantidadIngresar
             // 
@@ -161,7 +190,7 @@
             // 
             this.txtClaveSeguridad.BackColor = System.Drawing.Color.Silver;
             this.txtClaveSeguridad.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtClaveSeguridad.Location = new System.Drawing.Point(368, 343);
+            this.txtClaveSeguridad.Location = new System.Drawing.Point(345, 404);
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
             this.txtClaveSeguridad.PasswordChar = '•';
             this.txtClaveSeguridad.Size = new System.Drawing.Size(349, 27);
@@ -171,7 +200,7 @@
             // 
             this.lbCLaveSeguridad.AutoSize = true;
             this.lbCLaveSeguridad.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCLaveSeguridad.Location = new System.Drawing.Point(466, 320);
+            this.lbCLaveSeguridad.Location = new System.Drawing.Point(443, 381);
             this.lbCLaveSeguridad.Name = "lbCLaveSeguridad";
             this.lbCLaveSeguridad.Size = new System.Drawing.Size(153, 20);
             this.lbCLaveSeguridad.TabIndex = 49;
@@ -180,7 +209,7 @@
             // txtComentario
             // 
             this.txtComentario.BackColor = System.Drawing.Color.Silver;
-            this.txtComentario.Location = new System.Drawing.Point(154, 283);
+            this.txtComentario.Location = new System.Drawing.Point(143, 352);
             this.txtComentario.Name = "txtComentario";
             this.txtComentario.Size = new System.Drawing.Size(792, 27);
             this.txtComentario.TabIndex = 47;
@@ -222,7 +251,7 @@
             // txtdescripcion
             // 
             this.txtdescripcion.BackColor = System.Drawing.Color.Silver;
-            this.txtdescripcion.Location = new System.Drawing.Point(154, 253);
+            this.txtdescripcion.Location = new System.Drawing.Point(143, 322);
             this.txtdescripcion.Name = "txtdescripcion";
             this.txtdescripcion.Size = new System.Drawing.Size(792, 27);
             this.txtdescripcion.TabIndex = 25;
@@ -318,7 +347,7 @@
             // lbComentario
             // 
             this.lbComentario.AutoSize = true;
-            this.lbComentario.Location = new System.Drawing.Point(47, 286);
+            this.lbComentario.Location = new System.Drawing.Point(36, 355);
             this.lbComentario.Name = "lbComentario";
             this.lbComentario.Size = new System.Drawing.Size(104, 21);
             this.lbComentario.TabIndex = 16;
@@ -363,7 +392,7 @@
             // lbDescripcion
             // 
             this.lbDescripcion.AutoSize = true;
-            this.lbDescripcion.Location = new System.Drawing.Point(41, 256);
+            this.lbDescripcion.Location = new System.Drawing.Point(30, 325);
             this.lbDescripcion.Name = "lbDescripcion";
             this.lbDescripcion.Size = new System.Drawing.Size(110, 21);
             this.lbDescripcion.TabIndex = 7;
@@ -440,7 +469,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::DSMarket.Solucion.Properties.Resources.Guardar;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(335, 447);
+            this.btnGuardar.Location = new System.Drawing.Point(325, 509);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(406, 41);
             this.btnGuardar.TabIndex = 51;
@@ -476,28 +505,74 @@
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
             // 
-            // txtNumeroSeguimiento
+            // ddlSeleccionarCondicion
             // 
-            this.txtNumeroSeguimiento.BackColor = System.Drawing.Color.Silver;
-            this.txtNumeroSeguimiento.Location = new System.Drawing.Point(696, 183);
-            this.txtNumeroSeguimiento.Name = "txtNumeroSeguimiento";
-            this.txtNumeroSeguimiento.Size = new System.Drawing.Size(250, 27);
-            this.txtNumeroSeguimiento.TabIndex = 54;
+            this.ddlSeleccionarCondicion.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlSeleccionarCondicion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarCondicion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarCondicion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarCondicion.FormattingEnabled = true;
+            this.ddlSeleccionarCondicion.Location = new System.Drawing.Point(696, 214);
+            this.ddlSeleccionarCondicion.Name = "ddlSeleccionarCondicion";
+            this.ddlSeleccionarCondicion.Size = new System.Drawing.Size(250, 29);
+            this.ddlSeleccionarCondicion.TabIndex = 71;
             // 
-            // label2
+            // label4
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(496, 186);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(198, 21);
-            this.label2.TabIndex = 53;
-            this.label2.Text = "Numero de Seguimiento";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(592, 218);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(100, 21);
+            this.label4.TabIndex = 70;
+            this.label4.Text = "Condición *";
+            // 
+            // ddlSeleccionarCapacidad
+            // 
+            this.ddlSeleccionarCapacidad.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlSeleccionarCapacidad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarCapacidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarCapacidad.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarCapacidad.FormattingEnabled = true;
+            this.ddlSeleccionarCapacidad.Location = new System.Drawing.Point(169, 287);
+            this.ddlSeleccionarCapacidad.Name = "ddlSeleccionarCapacidad";
+            this.ddlSeleccionarCapacidad.Size = new System.Drawing.Size(235, 29);
+            this.ddlSeleccionarCapacidad.TabIndex = 69;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(52, 292);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(112, 21);
+            this.label3.TabIndex = 68;
+            this.label3.Text = "Capacidad *";
+            // 
+            // ddlSeleccionarColor
+            // 
+            this.ddlSeleccionarColor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlSeleccionarColor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarColor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarColor.FormattingEnabled = true;
+            this.ddlSeleccionarColor.Location = new System.Drawing.Point(169, 254);
+            this.ddlSeleccionarColor.Name = "ddlSeleccionarColor";
+            this.ddlSeleccionarColor.Size = new System.Drawing.Size(235, 29);
+            this.ddlSeleccionarColor.TabIndex = 67;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(103, 259);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 21);
+            this.label5.TabIndex = 66;
+            this.label5.Text = "Color *";
             // 
             // MantenimientoProductoDefectuoso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1034, 502);
+            this.ClientSize = new System.Drawing.Size(1034, 561);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
@@ -560,5 +635,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNumeroSeguimiento;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox ddlSeleccionarCondicion;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox ddlSeleccionarCapacidad;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox ddlSeleccionarColor;
+        private System.Windows.Forms.Label label5;
     }
 }

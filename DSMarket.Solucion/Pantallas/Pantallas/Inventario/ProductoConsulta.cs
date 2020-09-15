@@ -1306,8 +1306,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.dtListado.Columns["AplicaParaImpuesto0"].Visible = false;
             this.dtListado.Columns["EstatusProducto0"].Visible = false;
             this.dtListado.Columns["EstatusProducto"].Visible = false;
-
-
+            this.dtListado.Columns["IdColor"].Visible = false;
+            this.dtListado.Columns["IdCapacidad"].Visible = false;
+            this.dtListado.Columns["IdCondicion"].Visible = false;
         }
         #endregion
         #region MOSTRAR LA IMAGEN POR DEFECTO

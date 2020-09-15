@@ -40,6 +40,9 @@ namespace DSMarket.Logica.Comunes
         private bool EstatusProducto = false;
         private decimal CantidadAgregada = 0;
         private string NumeroSeguimiento = "";
+        private decimal IdColor = 0;
+        private decimal IdCondicion = 0;
+        private decimal IdCapacidad = 0;
         private string Accion = "";
 
         //CREAMOS UN METODO CONSTRUCTOR
@@ -74,6 +77,9 @@ namespace DSMarket.Logica.Comunes
         bool EstatusProductoCON,
         decimal CantidadAgregadaCON,
         string NumeroSeguimientoCON,
+         decimal IdColorCON,
+         decimal IdCondicionCON,
+         decimal IdCapacidadCON,
         string AccionCON)
         {
         IdProductoDefectuoso = IdProductoDefectuosoCON;
@@ -106,6 +112,9 @@ namespace DSMarket.Logica.Comunes
         EstatusProducto = EstatusProductoCON;
         CantidadAgregada = CantidadAgregadaCON;
             NumeroSeguimiento = NumeroSeguimientoCON;
+            IdColor = IdColorCON;
+            IdCondicion = IdCondicionCON;
+            IdCapacidad = IdCapacidadCON;
         Accion = AccionCON;
     }
 
@@ -142,6 +151,9 @@ namespace DSMarket.Logica.Comunes
             Procesar.EstatusProducto0 = EstatusProducto;
             Procesar.CantidadAgregada = CantidadAgregada;
             Procesar.NumeroSeguimiento = NumeroSeguimiento;
+            Procesar.IdColor = IdColor;
+            Procesar.IdCondicion = IdCondicion;
+            Procesar.IdCapacidad = IdCapacidad;
 
             var MAN = ObjDataInventario.Value.MantenimientoProductosDefectuoso(Procesar, Accion);
 

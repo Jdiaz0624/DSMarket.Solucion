@@ -29,6 +29,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         public decimal IdModelo = 0;
         public decimal IdTipoSuplidor = 0;
         public decimal IdSuplidor = 0;
+        public decimal IdColor = 0;
+        public decimal IdCondicion = 0;
+        public decimal Idcapacidad = 0;
         public bool AplicaImpuesto = false;
         public DateTime FechaIngreso = DateTime.Now;
         public bool EstatusProducto = false;
@@ -68,6 +71,12 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 IdTipoProducto = Convert.ToDecimal(n.IdTipoProducto);
                 IdCategoria = Convert.ToDecimal(n.IdCategoria);
                 IdUnidadMedida = Convert.ToDecimal(n.IdUnidadMedida);
+                IdColor = Convert.ToDecimal(n.IdColor);
+                txtcolor.Text = n.Color;
+                IdCondicion = Convert.ToDecimal(n.IdCondicion);
+                txtcondicion.Text = n.Condicion;
+                Idcapacidad = Convert.ToDecimal(n.IdCapacidad);
+                txtcapacidad.Text = n.Capacidad;
                 IdMarca = Convert.ToDecimal(n.IdMarca);
                 IdModelo = Convert.ToDecimal(n.IdModelo);
                 IdTipoSuplidor = Convert.ToDecimal(n.IdTipoSuplidor);
@@ -133,6 +142,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                        false,
                        Convert.ToDecimal(txtCantdadProcesar.Text),
                        txtNumeroSeguimiento.Text,
+                       IdColor,
+                       IdCondicion,
+                       Idcapacidad,
                        "INSERT");
             Defectuoso.ProcesarInformaicon();
         }

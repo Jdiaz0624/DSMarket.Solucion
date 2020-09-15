@@ -89,6 +89,27 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             }
             catch (Exception) { }
         }
+        private void CargarColores()
+        {
+            var CargarListaColores = ObjDataListas.Value.ListadoColores();
+            ddlSeleccionarColor.DataSource = CargarListaColores;
+            ddlSeleccionarColor.DisplayMember = "Color";
+            ddlSeleccionarColor.ValueMember = "IdColor";
+        }
+        private void CargarCondiciones()
+        {
+            var CargarListaCondiciones = ObjDataListas.Value.ListadoCondiciones();
+            ddlSeleccionarCondicion.DataSource = CargarListaCondiciones;
+            ddlSeleccionarCondicion.DisplayMember = "Condicion";
+            ddlSeleccionarCondicion.ValueMember = "IdCondicion";
+        }
+        private void CargarCapacidad()
+        {
+            var CargarCapacidad = ObjDataListas.Value.ListadoCapacidad();
+            ddlSeleccionarCapacidad.DataSource = CargarCapacidad;
+            ddlSeleccionarCapacidad.DisplayMember = "Capacidad";
+            ddlSeleccionarCapacidad.ValueMember = "IdCapacidad";
+        }
         #endregion
         #region CERRAR Y LIMPIAR PANTALLA
         private void CerrarPantalla() {
@@ -126,6 +147,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             CargarModelos();
             CargarTipoSuplidores();
             CargarSupldores();
+            CargarColores();
+            CargarCondiciones();
+            CargarCapacidad();
 
             if (VariablesGlobales.Accion == "UPDATE")
             {
@@ -288,6 +312,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                         false,
                         Convert.ToDecimal(txtCantidadIngresar.Text),
                         txtNumeroSeguimiento.Text,
+                        Convert.ToDecimal(ddlSeleccionarColor.SelectedValue),
+                        Convert.ToDecimal(ddlSeleccionarCondicion.SelectedValue),
+                        Convert.ToDecimal(ddlSeleccionarCapacidad.SelectedValue),
                         "INSERT");
                     Procesar.ProcesarInformaicon();
                     MessageBox.Show("Registro guardado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -354,6 +381,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                       false,
                       Convert.ToDecimal(txtCantidadIngresar.Text),
                       txtNumeroSeguimiento.Text,
+                      Convert.ToDecimal(ddlSeleccionarColor.SelectedValue),
+                      Convert.ToDecimal(ddlSeleccionarCondicion.SelectedValue),
+                      Convert.ToDecimal(ddlSeleccionarCapacidad.SelectedValue),
                       "INSERT");
                                 Procesar.ProcesarInformaicon();
                                 MessageBox.Show("Registro modificado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);

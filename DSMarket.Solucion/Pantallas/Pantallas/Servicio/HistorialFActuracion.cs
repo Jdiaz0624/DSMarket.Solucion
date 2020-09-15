@@ -2103,6 +2103,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                                         Convert.ToBoolean(n.EstatusProducto0),
                                         Convert.ToDecimal(txtCantidadProcesar.Text),
                                         n.NumeroSeguimiento,
+                                        Convert.ToDecimal(n.IdColor),
+                                        Convert.ToDecimal(n.IdCondicion),
+                                        Convert.ToDecimal(n.IdCapacidad),
                                         "INSERT");
                                     Procesar.ProcesarInformaicon();
                                 }

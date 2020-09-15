@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtNumeroSeguimiento = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.txtCantdadProcesar = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -78,8 +80,12 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbTitulo = new System.Windows.Forms.Label();
-            this.txtNumeroSeguimiento = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.txtcolor = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtcondicion = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtcapacidad = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
@@ -90,6 +96,12 @@
             // groupBox1
             // 
             this.groupBox1.AutoSize = true;
+            this.groupBox1.Controls.Add(this.txtcapacidad);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.txtcondicion);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txtcolor);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtNumeroSeguimiento);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.button1);
@@ -137,12 +149,31 @@
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(19, 54);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1237, 445);
+            this.groupBox1.Size = new System.Drawing.Size(1237, 544);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Producto";
             this.toolTip1.SetToolTip(this.groupBox1, "Buscar Foto del Articulo");
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // txtNumeroSeguimiento
+            // 
+            this.txtNumeroSeguimiento.BackColor = System.Drawing.Color.Silver;
+            this.txtNumeroSeguimiento.Enabled = false;
+            this.txtNumeroSeguimiento.Location = new System.Drawing.Point(200, 392);
+            this.txtNumeroSeguimiento.Name = "txtNumeroSeguimiento";
+            this.txtNumeroSeguimiento.Size = new System.Drawing.Size(250, 27);
+            this.txtNumeroSeguimiento.TabIndex = 74;
+            this.txtNumeroSeguimiento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(25, 394);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(173, 21);
+            this.label4.TabIndex = 73;
+            this.label4.Text = "Numero Seguimiento";
             // 
             // button1
             // 
@@ -603,30 +634,68 @@
             this.lbTitulo.TabIndex = 13;
             this.lbTitulo.Text = "label6";
             // 
-            // txtNumeroSeguimiento
+            // txtcolor
             // 
-            this.txtNumeroSeguimiento.BackColor = System.Drawing.Color.Silver;
-            this.txtNumeroSeguimiento.Enabled = false;
-            this.txtNumeroSeguimiento.Location = new System.Drawing.Point(200, 392);
-            this.txtNumeroSeguimiento.Name = "txtNumeroSeguimiento";
-            this.txtNumeroSeguimiento.Size = new System.Drawing.Size(250, 27);
-            this.txtNumeroSeguimiento.TabIndex = 74;
-            this.txtNumeroSeguimiento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtcolor.BackColor = System.Drawing.Color.Silver;
+            this.txtcolor.Enabled = false;
+            this.txtcolor.Location = new System.Drawing.Point(200, 425);
+            this.txtcolor.Name = "txtcolor";
+            this.txtcolor.Size = new System.Drawing.Size(250, 27);
+            this.txtcolor.TabIndex = 76;
+            this.txtcolor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label4
+            // label5
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 394);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(173, 21);
-            this.label4.TabIndex = 73;
-            this.label4.Text = "Numero Seguimiento";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(146, 428);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 21);
+            this.label5.TabIndex = 75;
+            this.label5.Text = "Color";
+            // 
+            // txtcondicion
+            // 
+            this.txtcondicion.BackColor = System.Drawing.Color.Silver;
+            this.txtcondicion.Enabled = false;
+            this.txtcondicion.Location = new System.Drawing.Point(200, 458);
+            this.txtcondicion.Name = "txtcondicion";
+            this.txtcondicion.Size = new System.Drawing.Size(250, 27);
+            this.txtcondicion.TabIndex = 78;
+            this.txtcondicion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(108, 461);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(90, 21);
+            this.label6.TabIndex = 77;
+            this.label6.Text = "Condición";
+            // 
+            // txtcapacidad
+            // 
+            this.txtcapacidad.BackColor = System.Drawing.Color.Silver;
+            this.txtcapacidad.Enabled = false;
+            this.txtcapacidad.Location = new System.Drawing.Point(200, 491);
+            this.txtcapacidad.Name = "txtcapacidad";
+            this.txtcapacidad.Size = new System.Drawing.Size(250, 27);
+            this.txtcapacidad.TabIndex = 80;
+            this.txtcapacidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(95, 494);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(102, 21);
+            this.label7.TabIndex = 79;
+            this.label7.Text = "Capacidad";
             // 
             // PasarInventarioDefectuoso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1270, 485);
+            this.ClientSize = new System.Drawing.Size(1270, 604);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -701,5 +770,11 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtNumeroSeguimiento;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtcapacidad;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtcondicion;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtcolor;
+        private System.Windows.Forms.Label label5;
     }
 }
