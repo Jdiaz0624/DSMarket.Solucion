@@ -69,6 +69,7 @@
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacioNCondicionArticulos.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionCuentasMovimientos.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionProductos.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionProductosDefectuosos.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionReportesFinancieros.cs" />
     <Compile Include="Comunes\ProcesarMontoInicialCaja.cs" />
     <Compile Include="Comunes\ProcesarProductosDefectuosos.cs" />

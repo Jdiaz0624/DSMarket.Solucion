@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
@@ -401,7 +401,7 @@
             this.btnOferta.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOferta.Image = global::DSMarket.Solucion.Properties.Resources.Eliminar;
             this.btnOferta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOferta.Location = new System.Drawing.Point(638, 148);
+            this.btnOferta.Location = new System.Drawing.Point(472, 46);
             this.btnOferta.Name = "btnOferta";
             this.btnOferta.Size = new System.Drawing.Size(170, 41);
             this.btnOferta.TabIndex = 69;
@@ -414,7 +414,7 @@
             // txtFechaHasta
             // 
             this.txtFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtFechaHasta.Location = new System.Drawing.Point(443, 154);
+            this.txtFechaHasta.Location = new System.Drawing.Point(381, 118);
             this.txtFechaHasta.Name = "txtFechaHasta";
             this.txtFechaHasta.Size = new System.Drawing.Size(154, 27);
             this.txtFechaHasta.TabIndex = 26;
@@ -422,7 +422,7 @@
             // lbFechaHasta
             // 
             this.lbFechaHasta.AutoSize = true;
-            this.lbFechaHasta.Location = new System.Drawing.Point(337, 157);
+            this.lbFechaHasta.Location = new System.Drawing.Point(275, 121);
             this.lbFechaHasta.Name = "lbFechaHasta";
             this.lbFechaHasta.Size = new System.Drawing.Size(102, 20);
             this.lbFechaHasta.TabIndex = 25;
@@ -431,7 +431,7 @@
             // txtFechaDesde
             // 
             this.txtFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtFechaDesde.Location = new System.Drawing.Point(177, 152);
+            this.txtFechaDesde.Location = new System.Drawing.Point(115, 116);
             this.txtFechaDesde.Name = "txtFechaDesde";
             this.txtFechaDesde.Size = new System.Drawing.Size(154, 27);
             this.txtFechaDesde.TabIndex = 24;
@@ -439,7 +439,7 @@
             // lbFechaDesde
             // 
             this.lbFechaDesde.AutoSize = true;
-            this.lbFechaDesde.Location = new System.Drawing.Point(71, 155);
+            this.lbFechaDesde.Location = new System.Drawing.Point(9, 119);
             this.lbFechaDesde.Name = "lbFechaDesde";
             this.lbFechaDesde.Size = new System.Drawing.Size(102, 20);
             this.lbFechaDesde.TabIndex = 23;
@@ -473,7 +473,7 @@
             this.ddlSeleccionarUnidadMedida.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlSeleccionarUnidadMedida.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ddlSeleccionarUnidadMedida.FormattingEnabled = true;
-            this.ddlSeleccionarUnidadMedida.Location = new System.Drawing.Point(176, 250);
+            this.ddlSeleccionarUnidadMedida.Location = new System.Drawing.Point(157, 214);
             this.ddlSeleccionarUnidadMedida.Name = "ddlSeleccionarUnidadMedida";
             this.ddlSeleccionarUnidadMedida.Size = new System.Drawing.Size(280, 28);
             this.ddlSeleccionarUnidadMedida.TabIndex = 21;
@@ -485,7 +485,7 @@
             this.ddlSeleccionarModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlSeleccionarModelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ddlSeleccionarModelo.FormattingEnabled = true;
-            this.ddlSeleccionarModelo.Location = new System.Drawing.Point(528, 219);
+            this.ddlSeleccionarModelo.Location = new System.Drawing.Point(510, 181);
             this.ddlSeleccionarModelo.Name = "ddlSeleccionarModelo";
             this.ddlSeleccionarModelo.Size = new System.Drawing.Size(280, 28);
             this.ddlSeleccionarModelo.TabIndex = 20;
@@ -497,7 +497,7 @@
             this.ddlSeleccionarMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlSeleccionarMarca.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ddlSeleccionarMarca.FormattingEnabled = true;
-            this.ddlSeleccionarMarca.Location = new System.Drawing.Point(528, 186);
+            this.ddlSeleccionarMarca.Location = new System.Drawing.Point(510, 148);
             this.ddlSeleccionarMarca.Name = "ddlSeleccionarMarca";
             this.ddlSeleccionarMarca.Size = new System.Drawing.Size(280, 28);
             this.ddlSeleccionarMarca.TabIndex = 19;
@@ -510,7 +510,7 @@
             this.ddlSeleccionarCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlSeleccionarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ddlSeleccionarCategoria.FormattingEnabled = true;
-            this.ddlSeleccionarCategoria.Location = new System.Drawing.Point(176, 216);
+            this.ddlSeleccionarCategoria.Location = new System.Drawing.Point(157, 180);
             this.ddlSeleccionarCategoria.Name = "ddlSeleccionarCategoria";
             this.ddlSeleccionarCategoria.Size = new System.Drawing.Size(280, 28);
             this.ddlSeleccionarCategoria.TabIndex = 18;
@@ -523,7 +523,7 @@
             this.ddlSeleccionarTipoProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlSeleccionarTipoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ddlSeleccionarTipoProducto.FormattingEnabled = true;
-            this.ddlSeleccionarTipoProducto.Location = new System.Drawing.Point(176, 184);
+            this.ddlSeleccionarTipoProducto.Location = new System.Drawing.Point(157, 148);
             this.ddlSeleccionarTipoProducto.Name = "ddlSeleccionarTipoProducto";
             this.ddlSeleccionarTipoProducto.Size = new System.Drawing.Size(280, 28);
             this.ddlSeleccionarTipoProducto.TabIndex = 17;
@@ -532,7 +532,7 @@
             // lbUnidadMdida
             // 
             this.lbUnidadMdida.AutoSize = true;
-            this.lbUnidadMdida.Location = new System.Drawing.Point(27, 254);
+            this.lbUnidadMdida.Location = new System.Drawing.Point(8, 218);
             this.lbUnidadMdida.Name = "lbUnidadMdida";
             this.lbUnidadMdida.Size = new System.Drawing.Size(144, 20);
             this.lbUnidadMdida.TabIndex = 16;
@@ -541,7 +541,7 @@
             // lbModelo
             // 
             this.lbModelo.AutoSize = true;
-            this.lbModelo.Location = new System.Drawing.Point(462, 222);
+            this.lbModelo.Location = new System.Drawing.Point(444, 184);
             this.lbModelo.Name = "lbModelo";
             this.lbModelo.Size = new System.Drawing.Size(62, 20);
             this.lbModelo.TabIndex = 15;
@@ -550,7 +550,7 @@
             // lbMArca
             // 
             this.lbMArca.AutoSize = true;
-            this.lbMArca.Location = new System.Drawing.Point(468, 190);
+            this.lbMArca.Location = new System.Drawing.Point(450, 152);
             this.lbMArca.Name = "lbMArca";
             this.lbMArca.Size = new System.Drawing.Size(56, 20);
             this.lbMArca.TabIndex = 14;
@@ -559,7 +559,7 @@
             // lbCategoria
             // 
             this.lbCategoria.AutoSize = true;
-            this.lbCategoria.Location = new System.Drawing.Point(89, 219);
+            this.lbCategoria.Location = new System.Drawing.Point(70, 183);
             this.lbCategoria.Name = "lbCategoria";
             this.lbCategoria.Size = new System.Drawing.Size(82, 20);
             this.lbCategoria.TabIndex = 13;
@@ -568,7 +568,7 @@
             // lbTipoProducto
             // 
             this.lbTipoProducto.AutoSize = true;
-            this.lbTipoProducto.Location = new System.Drawing.Point(39, 188);
+            this.lbTipoProducto.Location = new System.Drawing.Point(20, 152);
             this.lbTipoProducto.Name = "lbTipoProducto";
             this.lbTipoProducto.Size = new System.Drawing.Size(133, 20);
             this.lbTipoProducto.TabIndex = 12;
@@ -579,7 +579,7 @@
             this.groupBox2.Controls.Add(this.rbSinOferta);
             this.groupBox2.Controls.Add(this.rbConOferta);
             this.groupBox2.Controls.Add(this.rbAmbos);
-            this.groupBox2.Location = new System.Drawing.Point(824, 152);
+            this.groupBox2.Location = new System.Drawing.Point(841, 152);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(318, 63);
             this.groupBox2.TabIndex = 11;
@@ -746,6 +746,7 @@
             this.btnVerProductosPoximoAgotar.TabIndex = 69;
             this.toolTip1.SetToolTip(this.btnVerProductosPoximoAgotar, "Ver listado de los productos proximo a agotarse");
             this.btnVerProductosPoximoAgotar.UseVisualStyleBackColor = true;
+            this.btnVerProductosPoximoAgotar.Visible = false;
             this.btnVerProductosPoximoAgotar.Click += new System.EventHandler(this.btnVerProductosPoximoAgotar_Click);
             // 
             // txtNumeroRegistros
@@ -784,21 +785,21 @@
             // 
             this.dtListado.AllowUserToAddRows = false;
             this.dtListado.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtListado.BackgroundColor = System.Drawing.Color.LightGray;
             this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Select});
@@ -909,6 +910,7 @@
             this.label7.Size = new System.Drawing.Size(219, 20);
             this.label7.TabIndex = 61;
             this.label7.Text = "Productos Proximo agotarse:";
+            this.label7.Visible = false;
             // 
             // label8
             // 
@@ -949,6 +951,7 @@
             this.lbCantidadPoductosAgotarse.Size = new System.Drawing.Size(18, 20);
             this.lbCantidadPoductosAgotarse.TabIndex = 65;
             this.lbCantidadPoductosAgotarse.Text = "0";
+            this.lbCantidadPoductosAgotarse.Visible = false;
             // 
             // lbProductosAgotados
             // 

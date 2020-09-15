@@ -723,6 +723,12 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                               Marca = n.Marca,
                               IdModelo = n.IdModelo,
                               Modelo = n.Modelo,
+                              IdColor=n.IdColor,
+                              Color=n.Color,
+                              IdCondicion = n.IdCondicion,
+                              Condicion = n.Condicion,
+                              IdCapacidad =n.IdCapacidad,
+                              Capacidad=n.Capacidad,
                               IdTipoSuplidor = n.IdTipoSuplidor,
                               TipoSuplidor = n.TipoSuplidor,
                               IdSuplidor = n.IdSuplidor,
@@ -800,6 +806,9 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                 , Item.EstatusProducto0
                 , Item.CantidadAgregada
                 , Item.NumeroSeguimiento
+                , Item.IdColor
+                , Item.IdCapacidad
+                , Item.IdCondicion
                 , Accion);
             if (Producto != null)
             {
@@ -835,7 +844,10 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                                      AplicaParaImpuesto0 = n.AplicaParaImpuesto,
                                      EstatusProducto0 = n.EstatusProducto,
                                     CantidadAgregada=n.CantidadAgregada,
-                                    NumeroSeguimiento=n.NumeroSeguimiento
+                                    NumeroSeguimiento=n.NumeroSeguimiento,
+                                    IdColor=n.IdColor,
+                                    IdCapacidad=n.IdCapacidad,
+                                    IdCondicion=n.IdCondicion
                                     
                                  }).FirstOrDefault();
             }
