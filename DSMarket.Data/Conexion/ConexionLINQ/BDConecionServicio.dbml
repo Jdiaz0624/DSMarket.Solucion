@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DSMarket" Class="BDConecionServicioDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=TECNOLOGIA;Initial Catalog=DSMarket;User ID=SA" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString5" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=DSMarket;Persist Security Info=True;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString4" Provider="System.Data.SqlClient" />
   <Function Name="Servicio.SP_GUARDAR_CLIENTE_FACTURACION_ESPEJO" Method="SP_GUARDAR_CLIENTE_FACTURACION_ESPEJO">
     <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
@@ -548,6 +548,22 @@
       <Column Name="DiasGarantia" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="IdTipoIngreso" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="IdTipoAnulaicon" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Servicio.SP_BUSCA_OBSERVACIONES" Method="SP_BUSCA_OBSERVACIONES">
+    <Parameter Name="IdObservacion" Parameter="idObservacion" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_BUSCA_OBSERVACIONESResult">
+      <Column Name="IdObServacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Observacion" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Servicio.SP_MODIFICAR_OBSERVACION" Method="SP_MODIFICAR_OBSERVACION">
+    <Parameter Name="IdObservacion" Parameter="idObservacion" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Observacion" Parameter="observacion" Type="System.String" DbType="VarChar(8000)" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_MODIFICAR_OBSERVACIONResult">
+      <Column Name="IdObservacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Observacion" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

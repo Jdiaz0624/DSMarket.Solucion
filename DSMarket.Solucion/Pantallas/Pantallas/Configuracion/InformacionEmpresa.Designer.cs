@@ -31,15 +31,11 @@
             this.components = new System.ComponentModel.Container();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnBucaImagen = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.cbCambiarLogo = new System.Windows.Forms.CheckBox();
             this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtTelefonos = new System.Windows.Forms.TextBox();
             this.txtInstagram = new System.Windows.Forms.TextBox();
@@ -58,48 +54,22 @@
             this.lbRNC = new System.Windows.Forms.Label();
             this.lbNombreEmpresa = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnPoliticas = new System.Windows.Forms.Button();
+            this.btnBucaImagen = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
-            // 
-            // btnBucaImagen
-            // 
-            this.btnBucaImagen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBucaImagen.Enabled = false;
-            this.btnBucaImagen.FlatAppearance.BorderSize = 2;
-            this.btnBucaImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBucaImagen.Image = global::DSMarket.Solucion.Properties.Resources.foto;
-            this.btnBucaImagen.Location = new System.Drawing.Point(982, 295);
-            this.btnBucaImagen.Name = "btnBucaImagen";
-            this.btnBucaImagen.Size = new System.Drawing.Size(76, 71);
-            this.btnBucaImagen.TabIndex = 103;
-            this.toolTip1.SetToolTip(this.btnBucaImagen, "Buscar Logo");
-            this.btnBucaImagen.UseVisualStyleBackColor = true;
-            this.btnBucaImagen.Click += new System.EventHandler(this.btnBucaImagen_Click);
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificar.FlatAppearance.BorderSize = 2;
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Image = global::DSMarket.Solucion.Properties.Resources.Editar;
-            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(571, 296);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(207, 40);
-            this.btnModificar.TabIndex = 99;
-            this.btnModificar.Text = "      Modificar";
-            this.toolTip1.SetToolTip(this.btnModificar, "Modificar Información");
-            this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // panel1
             // 
@@ -112,19 +82,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1073, 38);
             this.panel1.TabIndex = 95;
-            // 
-            // PCerrar
-            // 
-            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(1031, 5);
-            this.PCerrar.Name = "PCerrar";
-            this.PCerrar.Size = new System.Drawing.Size(30, 30);
-            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PCerrar.TabIndex = 15;
-            this.PCerrar.TabStop = false;
-            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
             // 
             // lbTitulo
             // 
@@ -166,18 +123,6 @@
             this.groupBox2.TabIndex = 98;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Logo";
-            // 
-            // pbLogo
-            // 
-            this.pbLogo.BackColor = System.Drawing.Color.LightGray;
-            this.pbLogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbLogo.Image = global::DSMarket.Solucion.Properties.Resources.tulogo;
-            this.pbLogo.Location = new System.Drawing.Point(3, 23);
-            this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(487, 206);
-            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbLogo.TabIndex = 0;
-            this.pbLogo.TabStop = false;
             // 
             // groupBox1
             // 
@@ -365,11 +310,84 @@
             this.label1.Text = "Clave de Seguridad";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // btnPoliticas
+            // 
+            this.btnPoliticas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPoliticas.FlatAppearance.BorderSize = 2;
+            this.btnPoliticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPoliticas.Image = global::DSMarket.Solucion.Properties.Resources.seguridad;
+            this.btnPoliticas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPoliticas.Location = new System.Drawing.Point(784, 296);
+            this.btnPoliticas.Name = "btnPoliticas";
+            this.btnPoliticas.Size = new System.Drawing.Size(192, 40);
+            this.btnPoliticas.TabIndex = 104;
+            this.btnPoliticas.Text = "      Politicas";
+            this.toolTip1.SetToolTip(this.btnPoliticas, "Politicas de la Empresa");
+            this.btnPoliticas.UseVisualStyleBackColor = true;
+            this.btnPoliticas.Click += new System.EventHandler(this.btnPoliticas_Click);
+            // 
+            // btnBucaImagen
+            // 
+            this.btnBucaImagen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBucaImagen.Enabled = false;
+            this.btnBucaImagen.FlatAppearance.BorderSize = 2;
+            this.btnBucaImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBucaImagen.Image = global::DSMarket.Solucion.Properties.Resources.foto;
+            this.btnBucaImagen.Location = new System.Drawing.Point(982, 295);
+            this.btnBucaImagen.Name = "btnBucaImagen";
+            this.btnBucaImagen.Size = new System.Drawing.Size(76, 71);
+            this.btnBucaImagen.TabIndex = 103;
+            this.toolTip1.SetToolTip(this.btnBucaImagen, "Buscar Logo");
+            this.btnBucaImagen.UseVisualStyleBackColor = true;
+            this.btnBucaImagen.Click += new System.EventHandler(this.btnBucaImagen_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar.FlatAppearance.BorderSize = 2;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Image = global::DSMarket.Solucion.Properties.Resources.Editar;
+            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar.Location = new System.Drawing.Point(571, 296);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(207, 40);
+            this.btnModificar.TabIndex = 99;
+            this.btnModificar.Text = "      Modificar";
+            this.toolTip1.SetToolTip(this.btnModificar, "Modificar Información");
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // pbLogo
+            // 
+            this.pbLogo.BackColor = System.Drawing.Color.LightGray;
+            this.pbLogo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbLogo.Image = global::DSMarket.Solucion.Properties.Resources.tulogo;
+            this.pbLogo.Location = new System.Drawing.Point(3, 23);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(487, 206);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLogo.TabIndex = 0;
+            this.pbLogo.TabStop = false;
+            // 
+            // PCerrar
+            // 
+            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
+            this.PCerrar.Location = new System.Drawing.Point(1031, 5);
+            this.PCerrar.Name = "PCerrar";
+            this.PCerrar.Size = new System.Drawing.Size(30, 30);
+            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PCerrar.TabIndex = 15;
+            this.PCerrar.TabStop = false;
+            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
+            // 
             // InformacionEmpresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1073, 415);
+            this.Controls.Add(this.btnPoliticas);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBucaImagen);
             this.Controls.Add(this.cbCambiarLogo);
@@ -390,11 +408,11 @@
             this.Load += new System.EventHandler(this.InformacionEmpresa_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -431,5 +449,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox PCerrar;
         public System.Windows.Forms.Label lbTitulo;
+        private System.Windows.Forms.Button btnPoliticas;
     }
 }

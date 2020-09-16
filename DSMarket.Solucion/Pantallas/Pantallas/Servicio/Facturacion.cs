@@ -1580,6 +1580,47 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             }
         }
         #endregion
+        #region VALIDAR USO DE COMPROBANTES
+        private void ManupularUsoComprobante()
+        {
+            if (cbUsarComprobantes.Checked == true)
+            {
+                cbUsarComprobantes.ForeColor = Color.LimeGreen;
+
+                DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral Modificar = new Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral();
+
+                Modificar.IdConfiguracionGeneral = 1;
+                Modificar.Descripcion = "Usar Comprobantes Fiscales";
+                Modificar.Estatus0 = true;
+
+                var MAN = ObjDataConfiguracion.Value.MantenimientoConfiguracionGeneral(Modificar, "UPDATE");
+                MostrarComprobantesFiscales();
+            }
+            else
+            {
+                cbUsarComprobantes.ForeColor = Color.DarkRed;
+
+                DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral Modificar = new Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral();
+
+                Modificar.IdConfiguracionGeneral = 1;
+                Modificar.Descripcion = "Usar Comprobantes Fiscales";
+                Modificar.Estatus0 = false;
+
+                var MAN = ObjDataConfiguracion.Value.MantenimientoConfiguracionGeneral(Modificar, "UPDATE");
+                MostrarComprobantesFiscales();
+
+            }
+        }
+        private void ValidarUsoComprobantes() {
+            var SacarData = ObjDataConfiguracion.Value.BuscaCOnfiguracionGeneral(1);
+            foreach (var n in SacarData)
+            {
+                cbUsarComprobantes.Checked = (n.Estatus0.HasValue ? n.Estatus0.Value : false);
+            }
+            ManupularUsoComprobante();
+
+        }
+        #endregion
 
 
         private void Facturacion_Load(object sender, EventArgs e)
@@ -1587,6 +1628,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             
             MostrarComprobantesFiscales();
+            ValidarUsoComprobantes();
             MostrarTipoIdentificacion();
             MostrarListadoTipoVenta();
             ListadoCantidadDias();
@@ -1988,6 +2030,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 else {
                     txtMontoPagar.Enabled = true;
                     txtMontoPagar.Text = string.Empty;
+                    txtMontoPagar.Text = "0";
                 }
 
                 if (ImpuestoAdicional == true) {
@@ -2127,6 +2170,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     }
                     else if (rbCotizar.Checked == true)
                     {
+                        if (string.IsNullOrEmpty(txtMontoPagar.Text.Trim())) {
+                            txtMontoPagar.Text = "0";
+                        }
                         //COTIZAMOS
                         ProcesoCotizar(VariablesGlobales.NumeroConector);
                         GuardarDatosClientes(0,"INSERT");
@@ -2211,6 +2257,12 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 txtCantidadDiasGarantia.Value = 0;
             }
             else { }
+        }
+
+        private void cbUsarComprobantes_CheckedChanged(object sender, EventArgs e)
+        {
+            ManupularUsoComprobante();
+          
         }
     }
 }

@@ -278,5 +278,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
                 }
             }
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

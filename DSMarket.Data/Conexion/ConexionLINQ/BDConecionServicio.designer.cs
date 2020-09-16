@@ -33,7 +33,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
     #endregion
 		
 		public BDConecionServicioDataContext() : 
-				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString5, mappingSource)
+				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString4, mappingSource)
 		{
 			OnCreated();
 		}
@@ -252,6 +252,20 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idFactura, numeroConector, idEstatusFacturacion, idComprobante, nombre, telefono, email, idTipoIdentificacion, numeroIdentificacion, direccion, comentario, idTipoVenta, idCantidadDias, idUsuario, aplicaGarantia, diasGarantia, idTipoIngreso, idTipoAnulaicon, accion);
 			return ((ISingleResult<SP_GUARDAR_CLIENTE_FACTURACIONResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_BUSCA_OBSERVACIONES")]
+		public ISingleResult<SP_BUSCA_OBSERVACIONESResult> SP_BUSCA_OBSERVACIONES([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdObservacion", DbType="Int")] System.Nullable<int> idObservacion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idObservacion);
+			return ((ISingleResult<SP_BUSCA_OBSERVACIONESResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_MODIFICAR_OBSERVACION")]
+		public ISingleResult<SP_MODIFICAR_OBSERVACIONResult> SP_MODIFICAR_OBSERVACION([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdObservacion", DbType="Int")] System.Nullable<int> idObservacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Observacion", DbType="VarChar(8000)")] string observacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idObservacion, observacion, accion);
+			return ((ISingleResult<SP_MODIFICAR_OBSERVACIONResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -6136,6 +6150,94 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._IdTipoAnulaicon != value))
 				{
 					this._IdTipoAnulaicon = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCA_OBSERVACIONESResult
+	{
+		
+		private int _IdObServacion;
+		
+		private string _Observacion;
+		
+		public SP_BUSCA_OBSERVACIONESResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdObServacion", DbType="Int NOT NULL")]
+		public int IdObServacion
+		{
+			get
+			{
+				return this._IdObServacion;
+			}
+			set
+			{
+				if ((this._IdObServacion != value))
+				{
+					this._IdObServacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Observacion", DbType="VarChar(8000)")]
+		public string Observacion
+		{
+			get
+			{
+				return this._Observacion;
+			}
+			set
+			{
+				if ((this._Observacion != value))
+				{
+					this._Observacion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_MODIFICAR_OBSERVACIONResult
+	{
+		
+		private System.Nullable<int> _IdObservacion;
+		
+		private string _Observacion;
+		
+		public SP_MODIFICAR_OBSERVACIONResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdObservacion", DbType="Int")]
+		public System.Nullable<int> IdObservacion
+		{
+			get
+			{
+				return this._IdObservacion;
+			}
+			set
+			{
+				if ((this._IdObservacion != value))
+				{
+					this._IdObservacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Observacion", DbType="VarChar(8000)")]
+		public string Observacion
+		{
+			get
+			{
+				return this._Observacion;
+			}
+			set
+			{
+				if ((this._Observacion != value))
+				{
+					this._Observacion = value;
 				}
 			}
 		}

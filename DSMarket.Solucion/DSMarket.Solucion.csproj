@@ -253,6 +253,12 @@
     <Compile Include="Pantallas\Pantallas\Configuracion\ModificarConfiguracionGeneral.Designer.cs">
       <DependentUpon>ModificarConfiguracionGeneral.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\PoliticasEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\PoliticasEmpresa.Designer.cs">
+      <DependentUpon>PoliticasEmpresa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Configuracion\Reportes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -713,6 +719,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\ModificarConfiguracionGeneral.resx">
       <DependentUpon>ModificarConfiguracionGeneral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\PoliticasEmpresa.resx">
+      <DependentUpon>PoliticasEmpresa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\Reportes.resx">
       <DependentUpon>Reportes.cs</DependentUpon>

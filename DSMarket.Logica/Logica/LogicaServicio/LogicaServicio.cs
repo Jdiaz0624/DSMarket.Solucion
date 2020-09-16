@@ -684,7 +684,41 @@ namespace DSMarket.Logica.Logica.LogicaServicio
             return Listado;
         }
         #endregion
+        #region MANTENIMIENTO DE OBSERVACIONES
+        //LISTADO DE OBSERVACIONES
+        public List<DSMarket.Logica.Entidades.EntidadesServicio.EObservaciones> BuscaObservaciones(int? IdObservacion = null) {
+            ObjData.CommandTimeout = 999999999;
 
+            var Listado = (from n in ObjData.SP_BUSCA_OBSERVACIONES(IdObservacion)
+                           select new DSMarket.Logica.Entidades.EntidadesServicio.EObservaciones
+                           {
+                               IdObServacion=n.IdObServacion,
+                               Observacion=n.Observacion
+                           }).ToList();
+            return Listado;
+        }
+        //MANTENIMIENTO DE OBSERVACION
+        public DSMarket.Logica.Entidades.EntidadesServicio.EObservaciones MantenimientoObservacion(DSMarket.Logica.Entidades.EntidadesServicio.EObservaciones Item, string Accion) {
+
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesServicio.EObservaciones Mantenimiento = null;
+
+            var Observacion = ObjData.SP_MODIFICAR_OBSERVACION(
+               Item.IdObServacion,
+               Item.Observacion,
+               Accion);
+            if (Observacion != null) {
+                Mantenimiento = (from n in Observacion
+                                 select new DSMarket.Logica.Entidades.EntidadesServicio.EObservaciones
+                                 {
+                                     IdObServacion=n.IdObservacion,
+                                     Observacion=n.Observacion
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
+        #endregion
 
 
     }

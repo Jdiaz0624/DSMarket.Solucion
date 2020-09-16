@@ -214,5 +214,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
                 ModificarInformacion();
             }
         }
+
+        private void btnPoliticas_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DSMarket.Solucion.Pantallas.Pantallas.Configuracion.PoliticasEmpresa politicas = new PoliticasEmpresa();
+            politicas.variablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+            politicas.ShowDialog();
+        }
     }
 }
