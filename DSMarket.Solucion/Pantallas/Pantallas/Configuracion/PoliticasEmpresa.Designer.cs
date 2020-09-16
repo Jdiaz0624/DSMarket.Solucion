@@ -31,17 +31,17 @@
             this.components = new System.ComponentModel.Container();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbTitulo = new System.Windows.Forms.Label();
             this.PCerrar = new System.Windows.Forms.PictureBox();
+            this.lbTitulo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtProductosAgregados = new System.Windows.Forms.DataGridView();
+            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtPolitica = new System.Windows.Forms.TextBox();
             this.lbNombreEmpresa = new System.Windows.Forms.Label();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -53,102 +53,6 @@
             // 
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.panel1.Controls.Add(this.PCerrar);
-            this.panel1.Controls.Add(this.lbTitulo);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1333, 38);
-            this.panel1.TabIndex = 96;
-            // 
-            // lbTitulo
-            // 
-            this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Location = new System.Drawing.Point(15, 9);
-            this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(57, 21);
-            this.lbTitulo.TabIndex = 13;
-            this.lbTitulo.Text = "label6";
-            // 
-            // PCerrar
-            // 
-            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(1291, 5);
-            this.PCerrar.Name = "PCerrar";
-            this.PCerrar.Size = new System.Drawing.Size(30, 30);
-            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PCerrar.TabIndex = 15;
-            this.PCerrar.TabStop = false;
-            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.dtProductosAgregados);
-            this.groupBox1.Location = new System.Drawing.Point(12, 45);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1309, 465);
-            this.groupBox1.TabIndex = 97;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Productos agregados";
-            // 
-            // dtProductosAgregados
-            // 
-            this.dtProductosAgregados.AllowUserToAddRows = false;
-            this.dtProductosAgregados.AllowUserToDeleteRows = false;
-            this.dtProductosAgregados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dtProductosAgregados.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dtProductosAgregados.BackgroundColor = System.Drawing.Color.Linen;
-            this.dtProductosAgregados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dtProductosAgregados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtProductosAgregados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Select});
-            this.dtProductosAgregados.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtProductosAgregados.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtProductosAgregados.Location = new System.Drawing.Point(3, 23);
-            this.dtProductosAgregados.Name = "dtProductosAgregados";
-            this.dtProductosAgregados.ReadOnly = true;
-            this.dtProductosAgregados.RowTemplate.Height = 24;
-            this.dtProductosAgregados.Size = new System.Drawing.Size(1303, 439);
-            this.dtProductosAgregados.TabIndex = 0;
-            this.dtProductosAgregados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtProductosAgregados_CellContentClick);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.txtPolitica);
-            this.groupBox2.Controls.Add(this.lbNombreEmpresa);
-            this.groupBox2.Location = new System.Drawing.Point(19, 516);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1299, 151);
-            this.groupBox2.TabIndex = 98;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Información de Empresa";
-            // 
-            // txtPolitica
-            // 
-            this.txtPolitica.BackColor = System.Drawing.Color.Silver;
-            this.txtPolitica.Location = new System.Drawing.Point(227, 36);
-            this.txtPolitica.MaxLength = 100;
-            this.txtPolitica.Multiline = true;
-            this.txtPolitica.Name = "txtPolitica";
-            this.txtPolitica.Size = new System.Drawing.Size(1066, 109);
-            this.txtPolitica.TabIndex = 9;
-            // 
-            // lbNombreEmpresa
-            // 
-            this.lbNombreEmpresa.AutoSize = true;
-            this.lbNombreEmpresa.Location = new System.Drawing.Point(155, 83);
-            this.lbNombreEmpresa.Name = "lbNombreEmpresa";
-            this.lbNombreEmpresa.Size = new System.Drawing.Size(66, 21);
-            this.lbNombreEmpresa.TabIndex = 0;
-            this.lbNombreEmpresa.Text = "Politica";
-            this.lbNombreEmpresa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnModificar
             // 
@@ -183,6 +87,71 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.PCerrar);
+            this.panel1.Controls.Add(this.lbTitulo);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1333, 38);
+            this.panel1.TabIndex = 96;
+            // 
+            // PCerrar
+            // 
+            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
+            this.PCerrar.Location = new System.Drawing.Point(1291, 5);
+            this.PCerrar.Name = "PCerrar";
+            this.PCerrar.Size = new System.Drawing.Size(30, 30);
+            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PCerrar.TabIndex = 15;
+            this.PCerrar.TabStop = false;
+            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
+            // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(15, 9);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(57, 21);
+            this.lbTitulo.TabIndex = 13;
+            this.lbTitulo.Text = "label6";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dtProductosAgregados);
+            this.groupBox1.Location = new System.Drawing.Point(12, 45);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1309, 465);
+            this.groupBox1.TabIndex = 97;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Productos agregados";
+            // 
+            // dtProductosAgregados
+            // 
+            this.dtProductosAgregados.AllowUserToAddRows = false;
+            this.dtProductosAgregados.AllowUserToDeleteRows = false;
+            this.dtProductosAgregados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtProductosAgregados.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtProductosAgregados.BackgroundColor = System.Drawing.Color.Linen;
+            this.dtProductosAgregados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dtProductosAgregados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtProductosAgregados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Select});
+            this.dtProductosAgregados.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtProductosAgregados.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtProductosAgregados.Location = new System.Drawing.Point(3, 23);
+            this.dtProductosAgregados.Name = "dtProductosAgregados";
+            this.dtProductosAgregados.ReadOnly = true;
+            this.dtProductosAgregados.RowTemplate.Height = 24;
+            this.dtProductosAgregados.Size = new System.Drawing.Size(1303, 439);
+            this.dtProductosAgregados.TabIndex = 0;
+            this.dtProductosAgregados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtProductosAgregados_CellContentClick);
+            // 
             // Select
             // 
             this.Select.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -193,6 +162,37 @@
             this.Select.ToolTipText = "Select";
             this.Select.UseColumnTextForButtonValue = true;
             this.Select.Width = 64;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txtPolitica);
+            this.groupBox2.Controls.Add(this.lbNombreEmpresa);
+            this.groupBox2.Location = new System.Drawing.Point(19, 516);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1299, 151);
+            this.groupBox2.TabIndex = 98;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Información de Empresa";
+            // 
+            // txtPolitica
+            // 
+            this.txtPolitica.BackColor = System.Drawing.Color.Silver;
+            this.txtPolitica.Location = new System.Drawing.Point(227, 36);
+            this.txtPolitica.MaxLength = 8000;
+            this.txtPolitica.Multiline = true;
+            this.txtPolitica.Name = "txtPolitica";
+            this.txtPolitica.Size = new System.Drawing.Size(1066, 109);
+            this.txtPolitica.TabIndex = 9;
+            // 
+            // lbNombreEmpresa
+            // 
+            this.lbNombreEmpresa.AutoSize = true;
+            this.lbNombreEmpresa.Location = new System.Drawing.Point(155, 83);
+            this.lbNombreEmpresa.Name = "lbNombreEmpresa";
+            this.lbNombreEmpresa.Size = new System.Drawing.Size(66, 21);
+            this.lbNombreEmpresa.TabIndex = 0;
+            this.lbNombreEmpresa.Text = "Politica";
+            this.lbNombreEmpresa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // PoliticasEmpresa
             // 
@@ -206,7 +206,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "PoliticasEmpresa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PoliticasEmpresa";
