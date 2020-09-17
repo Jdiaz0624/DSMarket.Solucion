@@ -776,7 +776,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 txtSubtotal.Text = TotalPagarMaco.ToString("N2");
                 txtTotal.Text = OperacionMaco.ToString("N2");
             }
-            if (lbTitulo.Text != "FACTURACION")
+            if (lbTitulo.Text != "FACTURACION" && lbTitulo.Text != "COTIZACION")
             {
                 cbAgregarCliente.Enabled = false;
                 btnAgregarProductos.Enabled = false;
