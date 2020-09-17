@@ -128,7 +128,8 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                Cantidadregistros = n.Cantidadregistros,
                                CantidadDiasGarantia=n.CantidadDiasGarantia,
                                IdTipoIngreso=n.IdTipoIngreso,
-                               TipoIngreso=n.TipoIngreso
+                               TipoIngreso=n.TipoIngreso,
+                               
                            }).ToList();
             return Listado;
         }
@@ -229,6 +230,7 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                 Items.DiasGarantia,
                 Items.IdTipoIngreso,
                 Items.IdTipoAnulaicon,
+                Items.TipoTiempoGarantia,
                 Accion);
             if (FacturacionCliente != null) {
                 Guardar = (from n in FacturacionCliente
@@ -251,7 +253,9 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                FechaFacturacion=n.FechaFacturacion,
                                AplicaGarantia=n.AplicaGarantia,
                                DiasGarantia=n.DiasGarantia,
-                               IdTipoAnulaicon=n.IdTipoAnulaicon
+                               IdTipoIngreso=n.IdTipoIngreso,
+                               IdTipoAnulaicon=n.IdTipoAnulaicon,
+                               TipoTiempoGarantia=n.TipoTiempoGarantia
                            }).FirstOrDefault();
             }
             return Guardar;
@@ -640,7 +644,9 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                CantidadRegistros = n.CantidadRegistros,
                                AplicaGarantia0=n.AplicaGarantia0,
                                AplicaGarantia=n.AplicaGarantia,
-                               DiasGarantia=n.DiasGarantia
+                               DiasGarantia=n.DiasGarantia,
+                               TipoTiempoGarantia0=n.TipoTiempoGarantia0,
+                               TipoTiempoGarantia=n.TipoTiempoGarantia
                            }).ToList();
             return Listado;
         }

@@ -394,7 +394,19 @@ namespace DSMarket.Logica.Logica.LogicaListas
             return Listado;
         }
         #endregion
+        #region LISTADO DE TIOEMPO DE GARANTIA
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EListaTipoTiempoGarantia> ListadoTipoTiempoGarantia() {
+            ObjDataListas.CommandTimeout = 999999999;
 
+            var Listado = (from n in ObjDataListas.SP_BUSCA_LISTA_TIEMPO_GARANTIA()
+                           select new DSMarket.Logica.Entidades.EntidadesListas.EListaTipoTiempoGarantia
+                           {
+                               IdTipoTiempoGarantia=n.IdTipoTiempoGarantia,
+                               TipoTiempoGarantia=n.TipoTiempoGarantia
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
         #region LISTADO DE CAPACIDAD
         public List<DSMarket.Logica.Entidades.EntidadesListas.ECapacidadArticulos> ListadoCapacidad() {
             ObjDataListas.CommandTimeout = 999999999;

@@ -158,6 +158,7 @@
     <Compile Include="Entidades\EntidadesListas\EListaTipoMail.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoProducto.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoSuplidor.cs" />
+    <Compile Include="Entidades\EntidadesListas\EListaTipoTiempoGarantia.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoVenta.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaUsuarios.cs" />
     <Compile Include="Entidades\EntidadesListas\EOrigenCuentaContables.cs" />

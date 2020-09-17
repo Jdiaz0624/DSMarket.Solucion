@@ -414,7 +414,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             else if (rbCotizar.Checked == true) { IdEstatusFacturacion = 2; }
 
 
-          
+            int TipoTiempoGarantia = 0;
+            if (ddlSeleccionarTiempoGarantia.Text == "DIAS") { TipoTiempoGarantia = 1; }
+            else {
+                TipoTiempoGarantia = 2;
+            }
+
+
+            if (string.IsNullOrEmpty(txtNombrePaciente.Text.Trim())) {
+                txtNombrePaciente.Text = "CLIENTE CONSUMIDOR FINAL";
+            }
 
             DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionClientes ManClientes = new Logica.Entidades.EntidadesServicio.EFacturacionClientes();
 
@@ -436,6 +445,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             ManClientes.DiasGarantia = Convert.ToInt32(txtCantidadDiasGarantia.Value);
             ManClientes.IdTipoIngreso = Convert.ToInt32(ddlSeleccionarTipoIngres.SelectedValue);
             ManClientes.IdTipoAnulaicon = 0;
+            ManClientes.TipoTiempoGarantia =TipoTiempoGarantia;
 
             var MAN = ObjDataServicio.Value.GuardarFacturacionClientes(ManClientes, Accion);
         }
@@ -1325,11 +1335,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 lbCantidadGarantia.Visible = true;
                 txtCantidadDiasGarantia.Visible = true;
                 VariablesGlobales.AplicaGanancia = true;
+            
             }
             else {
                 lbCantidadGarantia.Visible = false;
                 txtCantidadDiasGarantia.Visible = false;
                 VariablesGlobales.AplicaGanancia = false;
+            
             }
 
         }
@@ -1621,6 +1633,14 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         }
         #endregion
+        #region MOSTRAR EL LISTADO DEL TIPO DE TIEMPO DE GARANTIA
+        private void ListadoTipoTiempoGarantia() {
+            var Listado = ObjDataListas.Value.ListadoTipoTiempoGarantia();
+            ddlSeleccionarTiempoGarantia.DataSource = Listado;
+            ddlSeleccionarTiempoGarantia.DisplayMember = "TipoTiempoGarantia";
+            ddlSeleccionarTiempoGarantia.ValueMember = "IdTipoTiempoGarantia";
+        }
+        #endregion
 
 
         private void Facturacion_Load(object sender, EventArgs e)
@@ -1628,6 +1648,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             
             MostrarComprobantesFiscales();
+            ListadoTipoTiempoGarantia();
             ValidarUsoComprobantes();
             MostrarTipoIdentificacion();
             MostrarListadoTipoVenta();

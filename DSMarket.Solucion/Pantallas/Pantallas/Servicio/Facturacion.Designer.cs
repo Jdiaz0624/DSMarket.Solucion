@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Facturacion));
             this.gbGeneral = new System.Windows.Forms.GroupBox();
+            this.ddlSeleccionarTiempoGarantia = new System.Windows.Forms.ComboBox();
+            this.cbUsarComprobantes = new System.Windows.Forms.CheckBox();
             this.ddlSeleccionarTipoIngres = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
             this.txtCantidadDiasGarantia = new System.Windows.Forms.NumericUpDown();
@@ -49,7 +51,6 @@
             this.txtCantidadServicios = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.rbCotizar = new System.Windows.Forms.RadioButton();
-            this.cbAgregarCliente = new System.Windows.Forms.CheckBox();
             this.ddlCantidadDias = new System.Windows.Forms.ComboBox();
             this.rbFacturar = new System.Windows.Forms.RadioButton();
             this.lbCantidadDias = new System.Windows.Forms.Label();
@@ -109,6 +110,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.cbAgregarCliente = new System.Windows.Forms.CheckBox();
             this.lbCredito = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbNumeroConector = new System.Windows.Forms.Label();
@@ -117,9 +119,6 @@
             this.lbTitulo = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.cbUsarComprobantes = new System.Windows.Forms.CheckBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.gbGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCantidadDiasGarantia)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -134,8 +133,7 @@
             // 
             // gbGeneral
             // 
-            this.gbGeneral.Controls.Add(this.radioButton2);
-            this.gbGeneral.Controls.Add(this.radioButton1);
+            this.gbGeneral.Controls.Add(this.ddlSeleccionarTiempoGarantia);
             this.gbGeneral.Controls.Add(this.cbUsarComprobantes);
             this.gbGeneral.Controls.Add(this.ddlSeleccionarTipoIngres);
             this.gbGeneral.Controls.Add(this.label24);
@@ -186,6 +184,35 @@
             this.gbGeneral.TabStop = false;
             this.gbGeneral.Text = "Datos de Facturación";
             this.gbGeneral.Enter += new System.EventHandler(this.gbGeneral_Enter);
+            // 
+            // ddlSeleccionarTiempoGarantia
+            // 
+            this.ddlSeleccionarTiempoGarantia.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlSeleccionarTiempoGarantia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarTiempoGarantia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarTiempoGarantia.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarTiempoGarantia.FormattingEnabled = true;
+            this.ddlSeleccionarTiempoGarantia.Items.AddRange(new object[] {
+            "DIAS",
+            "MESES"});
+            this.ddlSeleccionarTiempoGarantia.Location = new System.Drawing.Point(192, 263);
+            this.ddlSeleccionarTiempoGarantia.Name = "ddlSeleccionarTiempoGarantia";
+            this.ddlSeleccionarTiempoGarantia.Size = new System.Drawing.Size(181, 28);
+            this.ddlSeleccionarTiempoGarantia.TabIndex = 58;
+            // 
+            // cbUsarComprobantes
+            // 
+            this.cbUsarComprobantes.AutoSize = true;
+            this.cbUsarComprobantes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbUsarComprobantes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbUsarComprobantes.Location = new System.Drawing.Point(252, 29);
+            this.cbUsarComprobantes.Name = "cbUsarComprobantes";
+            this.cbUsarComprobantes.Size = new System.Drawing.Size(173, 24);
+            this.cbUsarComprobantes.TabIndex = 66;
+            this.cbUsarComprobantes.Text = "Usar Comprobantes";
+            this.toolTip1.SetToolTip(this.cbUsarComprobantes, "Estatus de Comprobante");
+            this.cbUsarComprobantes.UseVisualStyleBackColor = true;
+            this.cbUsarComprobantes.CheckedChanged += new System.EventHandler(this.cbUsarComprobantes_CheckedChanged);
             // 
             // ddlSeleccionarTipoIngres
             // 
@@ -391,20 +418,6 @@
             this.toolTip1.SetToolTip(this.rbCotizar, "Cotizar");
             this.rbCotizar.UseVisualStyleBackColor = true;
             this.rbCotizar.CheckedChanged += new System.EventHandler(this.rbCotizar_CheckedChanged);
-            // 
-            // cbAgregarCliente
-            // 
-            this.cbAgregarCliente.AutoSize = true;
-            this.cbAgregarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbAgregarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbAgregarCliente.Location = new System.Drawing.Point(788, 32);
-            this.cbAgregarCliente.Name = "cbAgregarCliente";
-            this.cbAgregarCliente.Size = new System.Drawing.Size(145, 24);
-            this.cbAgregarCliente.TabIndex = 38;
-            this.cbAgregarCliente.Text = "Agregar Cliente";
-            this.toolTip1.SetToolTip(this.cbAgregarCliente, "Agregar Cliente de Manera Manual");
-            this.cbAgregarCliente.UseVisualStyleBackColor = true;
-            this.cbAgregarCliente.CheckedChanged += new System.EventHandler(this.cbAgregarCliente_CheckedChanged);
             // 
             // ddlCantidadDias
             // 
@@ -820,6 +833,7 @@
             this.rbfacturaenglish.Text = "Ingles";
             this.toolTip1.SetToolTip(this.rbfacturaenglish, "Generar la factura en ingles");
             this.rbfacturaenglish.UseVisualStyleBackColor = true;
+            this.rbfacturaenglish.Visible = false;
             this.rbfacturaenglish.CheckedChanged += new System.EventHandler(this.rbfacturaenglish_CheckedChanged);
             // 
             // rbfacturaspanish
@@ -835,6 +849,7 @@
             this.rbfacturaspanish.Text = "Español";
             this.toolTip1.SetToolTip(this.rbfacturaspanish, "Generar la factura en español");
             this.rbfacturaspanish.UseVisualStyleBackColor = true;
+            this.rbfacturaspanish.Visible = false;
             this.rbfacturaspanish.CheckedChanged += new System.EventHandler(this.rbfacturaspanish_CheckedChanged);
             // 
             // label7
@@ -1084,6 +1099,20 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "RNC Consulta";
             // 
+            // cbAgregarCliente
+            // 
+            this.cbAgregarCliente.AutoSize = true;
+            this.cbAgregarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbAgregarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbAgregarCliente.Location = new System.Drawing.Point(788, 32);
+            this.cbAgregarCliente.Name = "cbAgregarCliente";
+            this.cbAgregarCliente.Size = new System.Drawing.Size(145, 24);
+            this.cbAgregarCliente.TabIndex = 38;
+            this.cbAgregarCliente.Text = "Agregar Cliente";
+            this.toolTip1.SetToolTip(this.cbAgregarCliente, "Agregar Cliente de Manera Manual");
+            this.cbAgregarCliente.UseVisualStyleBackColor = true;
+            this.cbAgregarCliente.CheckedChanged += new System.EventHandler(this.cbAgregarCliente_CheckedChanged);
+            // 
             // lbCredito
             // 
             this.lbCredito.AutoSize = true;
@@ -1156,48 +1185,6 @@
             // 
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
-            // 
-            // cbUsarComprobantes
-            // 
-            this.cbUsarComprobantes.AutoSize = true;
-            this.cbUsarComprobantes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbUsarComprobantes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbUsarComprobantes.Location = new System.Drawing.Point(252, 29);
-            this.cbUsarComprobantes.Name = "cbUsarComprobantes";
-            this.cbUsarComprobantes.Size = new System.Drawing.Size(173, 24);
-            this.cbUsarComprobantes.TabIndex = 66;
-            this.cbUsarComprobantes.Text = "Usar Comprobantes";
-            this.toolTip1.SetToolTip(this.cbUsarComprobantes, "Estatus de Comprobante");
-            this.cbUsarComprobantes.UseVisualStyleBackColor = true;
-            this.cbUsarComprobantes.CheckedChanged += new System.EventHandler(this.cbUsarComprobantes_CheckedChanged);
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioButton1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.radioButton1.Location = new System.Drawing.Point(191, 267);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(59, 24);
-            this.radioButton1.TabIndex = 58;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Dias";
-            this.toolTip1.SetToolTip(this.radioButton1, "Generar la factura en español");
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioButton2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.radioButton2.Location = new System.Drawing.Point(254, 268);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(71, 24);
-            this.radioButton2.TabIndex = 67;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Meses";
-            this.toolTip1.SetToolTip(this.radioButton2, "Generar la factura en español");
-            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // Facturacion
             // 
@@ -1327,7 +1314,6 @@
         public System.Windows.Forms.ComboBox ddlSeleccionarTipoIngres;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.CheckBox cbUsarComprobantes;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        public System.Windows.Forms.ComboBox ddlSeleccionarTiempoGarantia;
     }
 }

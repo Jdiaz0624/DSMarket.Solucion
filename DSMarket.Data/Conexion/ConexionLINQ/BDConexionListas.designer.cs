@@ -257,6 +257,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<SP_LISTADO_CONDICIONESResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_BUSCA_LISTA_TIEMPO_GARANTIA")]
+		public ISingleResult<SP_BUSCA_LISTA_TIEMPO_GARANTIAResult> SP_BUSCA_LISTA_TIEMPO_GARANTIA()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_BUSCA_LISTA_TIEMPO_GARANTIAResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_CARGAR_LISTA_TIPO_PRODUCTOResult
@@ -1576,6 +1583,50 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._Condicion != value))
 				{
 					this._Condicion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCA_LISTA_TIEMPO_GARANTIAResult
+	{
+		
+		private int _IdTipoTiempoGarantia;
+		
+		private string _TipoTiempoGarantia;
+		
+		public SP_BUSCA_LISTA_TIEMPO_GARANTIAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoTiempoGarantia", DbType="Int NOT NULL")]
+		public int IdTipoTiempoGarantia
+		{
+			get
+			{
+				return this._IdTipoTiempoGarantia;
+			}
+			set
+			{
+				if ((this._IdTipoTiempoGarantia != value))
+				{
+					this._IdTipoTiempoGarantia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoTiempoGarantia", DbType="VarChar(100)")]
+		public string TipoTiempoGarantia
+		{
+			get
+			{
+				return this._TipoTiempoGarantia;
+			}
+			set
+			{
+				if ((this._TipoTiempoGarantia != value))
+				{
+					this._TipoTiempoGarantia = value;
 				}
 			}
 		}

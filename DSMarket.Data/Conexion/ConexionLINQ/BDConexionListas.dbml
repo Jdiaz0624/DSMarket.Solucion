@@ -180,4 +180,10 @@
       <Column Name="Condicion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Listas.SP_BUSCA_LISTA_TIEMPO_GARANTIA" Method="SP_BUSCA_LISTA_TIEMPO_GARANTIA">
+    <ElementType Name="SP_BUSCA_LISTA_TIEMPO_GARANTIAResult">
+      <Column Name="IdTipoTiempoGarantia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TipoTiempoGarantia" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

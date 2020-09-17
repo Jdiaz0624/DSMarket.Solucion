@@ -221,11 +221,18 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			return ((ISingleResult<SP_MANTENIMIENTO_FACTURACION_ESPEJOResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Historial.SP_BUSCA_HISTORIAL_FACTURACION")]
-		public ISingleResult<SP_BUSCA_HISTORIAL_FACTURACIONResult> SP_BUSCA_HISTORIAL_FACTURACION([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdFactura", DbType="Decimal(20,0)")] System.Nullable<decimal> idFactura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroConector", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroConector, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdEstatusFacturacion", DbType="Decimal(20,0)")] System.Nullable<decimal> idEstatusFacturacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoFacturacion", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoFacturacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoPago", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoPago, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cliente", DbType="VarChar(1000)")] string cliente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaDesde", DbType="Date")] System.Nullable<System.DateTime> fechaDesde, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaHasta", DbType="Date")] System.Nullable<System.DateTime> fechaHasta, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroPagina", DbType="Int")] System.Nullable<int> numeroPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroRegistros", DbType="Int")] System.Nullable<int> numeroRegistros)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_BUSCA_OBSERVACIONES")]
+		public ISingleResult<SP_BUSCA_OBSERVACIONESResult> SP_BUSCA_OBSERVACIONES([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdObservacion", DbType="Int")] System.Nullable<int> idObservacion)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idFactura, numeroConector, idEstatusFacturacion, idTipoFacturacion, idTipoPago, cliente, fechaDesde, fechaHasta, numeroPagina, numeroRegistros);
-			return ((ISingleResult<SP_BUSCA_HISTORIAL_FACTURACIONResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idObservacion);
+			return ((ISingleResult<SP_BUSCA_OBSERVACIONESResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_MODIFICAR_OBSERVACION")]
+		public ISingleResult<SP_MODIFICAR_OBSERVACIONResult> SP_MODIFICAR_OBSERVACION([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdObservacion", DbType="Int")] System.Nullable<int> idObservacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Observacion", DbType="VarChar(8000)")] string observacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idObservacion, observacion, accion);
+			return ((ISingleResult<SP_MODIFICAR_OBSERVACIONResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_GUARDAR_CLIENTE_FACTURACION")]
@@ -248,24 +255,18 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiasGarantia", DbType="Int")] System.Nullable<int> diasGarantia, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoIngreso", DbType="Int")] System.Nullable<int> idTipoIngreso, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoAnulaicon", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoAnulaicon, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TipoTiempoGarantia", DbType="Int")] System.Nullable<int> tipoTiempoGarantia, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idFactura, numeroConector, idEstatusFacturacion, idComprobante, nombre, telefono, email, idTipoIdentificacion, numeroIdentificacion, direccion, comentario, idTipoVenta, idCantidadDias, idUsuario, aplicaGarantia, diasGarantia, idTipoIngreso, idTipoAnulaicon, accion);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idFactura, numeroConector, idEstatusFacturacion, idComprobante, nombre, telefono, email, idTipoIdentificacion, numeroIdentificacion, direccion, comentario, idTipoVenta, idCantidadDias, idUsuario, aplicaGarantia, diasGarantia, idTipoIngreso, idTipoAnulaicon, tipoTiempoGarantia, accion);
 			return ((ISingleResult<SP_GUARDAR_CLIENTE_FACTURACIONResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_BUSCA_OBSERVACIONES")]
-		public ISingleResult<SP_BUSCA_OBSERVACIONESResult> SP_BUSCA_OBSERVACIONES([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdObservacion", DbType="Int")] System.Nullable<int> idObservacion)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Historial.SP_BUSCA_HISTORIAL_FACTURACION")]
+		public ISingleResult<SP_BUSCA_HISTORIAL_FACTURACIONResult> SP_BUSCA_HISTORIAL_FACTURACION([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdFactura", DbType="Decimal(20,0)")] System.Nullable<decimal> idFactura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroConector", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroConector, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdEstatusFacturacion", DbType="Decimal(20,0)")] System.Nullable<decimal> idEstatusFacturacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoFacturacion", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoFacturacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoPago", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoPago, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cliente", DbType="VarChar(1000)")] string cliente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaDesde", DbType="Date")] System.Nullable<System.DateTime> fechaDesde, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaHasta", DbType="Date")] System.Nullable<System.DateTime> fechaHasta, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroPagina", DbType="Int")] System.Nullable<int> numeroPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroRegistros", DbType="Int")] System.Nullable<int> numeroRegistros)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idObservacion);
-			return ((ISingleResult<SP_BUSCA_OBSERVACIONESResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_MODIFICAR_OBSERVACION")]
-		public ISingleResult<SP_MODIFICAR_OBSERVACIONResult> SP_MODIFICAR_OBSERVACION([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdObservacion", DbType="Int")] System.Nullable<int> idObservacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Observacion", DbType="VarChar(8000)")] string observacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idObservacion, observacion, accion);
-			return ((ISingleResult<SP_MODIFICAR_OBSERVACIONResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idFactura, numeroConector, idEstatusFacturacion, idTipoFacturacion, idTipoPago, cliente, fechaDesde, fechaHasta, numeroPagina, numeroRegistros);
+			return ((ISingleResult<SP_BUSCA_HISTORIAL_FACTURACIONResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -5041,6 +5042,462 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		}
 	}
 	
+	public partial class SP_BUSCA_OBSERVACIONESResult
+	{
+		
+		private int _IdObServacion;
+		
+		private string _Observacion;
+		
+		public SP_BUSCA_OBSERVACIONESResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdObServacion", DbType="Int NOT NULL")]
+		public int IdObServacion
+		{
+			get
+			{
+				return this._IdObServacion;
+			}
+			set
+			{
+				if ((this._IdObServacion != value))
+				{
+					this._IdObServacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Observacion", DbType="VarChar(8000)")]
+		public string Observacion
+		{
+			get
+			{
+				return this._Observacion;
+			}
+			set
+			{
+				if ((this._Observacion != value))
+				{
+					this._Observacion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_MODIFICAR_OBSERVACIONResult
+	{
+		
+		private System.Nullable<int> _IdObservacion;
+		
+		private string _Observacion;
+		
+		public SP_MODIFICAR_OBSERVACIONResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdObservacion", DbType="Int")]
+		public System.Nullable<int> IdObservacion
+		{
+			get
+			{
+				return this._IdObservacion;
+			}
+			set
+			{
+				if ((this._IdObservacion != value))
+				{
+					this._IdObservacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Observacion", DbType="VarChar(8000)")]
+		public string Observacion
+		{
+			get
+			{
+				return this._Observacion;
+			}
+			set
+			{
+				if ((this._Observacion != value))
+				{
+					this._Observacion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_GUARDAR_CLIENTE_FACTURACIONResult
+	{
+		
+		private System.Nullable<decimal> _IdFactura;
+		
+		private System.Nullable<decimal> _NumeroConector;
+		
+		private System.Nullable<int> _IdEstatusFacturacion;
+		
+		private System.Nullable<decimal> _IdComprobante;
+		
+		private string _Nombre;
+		
+		private string _Telefono;
+		
+		private string _Email;
+		
+		private System.Nullable<decimal> _IdTipoIdentificacion;
+		
+		private string _NumeroIdentificacion;
+		
+		private string _Direccion;
+		
+		private string _Comentario;
+		
+		private System.Nullable<decimal> _IdTipoVenta;
+		
+		private System.Nullable<decimal> _IdCantidadDias;
+		
+		private System.Nullable<decimal> _IdUsuario;
+		
+		private System.Nullable<System.DateTime> _FechaFacturacion;
+		
+		private System.Nullable<bool> _AplicaGarantia;
+		
+		private System.Nullable<int> _DiasGarantia;
+		
+		private System.Nullable<int> _IdTipoIngreso;
+		
+		private System.Nullable<decimal> _IdTipoAnulaicon;
+		
+		private System.Nullable<int> _TipoTiempoGarantia;
+		
+		public SP_GUARDAR_CLIENTE_FACTURACIONResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdFactura", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdFactura
+		{
+			get
+			{
+				return this._IdFactura;
+			}
+			set
+			{
+				if ((this._IdFactura != value))
+				{
+					this._IdFactura = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroConector", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> NumeroConector
+		{
+			get
+			{
+				return this._NumeroConector;
+			}
+			set
+			{
+				if ((this._NumeroConector != value))
+				{
+					this._NumeroConector = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdEstatusFacturacion", DbType="Int")]
+		public System.Nullable<int> IdEstatusFacturacion
+		{
+			get
+			{
+				return this._IdEstatusFacturacion;
+			}
+			set
+			{
+				if ((this._IdEstatusFacturacion != value))
+				{
+					this._IdEstatusFacturacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdComprobante", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdComprobante
+		{
+			get
+			{
+				return this._IdComprobante;
+			}
+			set
+			{
+				if ((this._IdComprobante != value))
+				{
+					this._IdComprobante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(200)")]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this._Nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telefono", DbType="VarChar(50)")]
+		public string Telefono
+		{
+			get
+			{
+				return this._Telefono;
+			}
+			set
+			{
+				if ((this._Telefono != value))
+				{
+					this._Telefono = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(100)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoIdentificacion", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdTipoIdentificacion
+		{
+			get
+			{
+				return this._IdTipoIdentificacion;
+			}
+			set
+			{
+				if ((this._IdTipoIdentificacion != value))
+				{
+					this._IdTipoIdentificacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroIdentificacion", DbType="VarChar(100)")]
+		public string NumeroIdentificacion
+		{
+			get
+			{
+				return this._NumeroIdentificacion;
+			}
+			set
+			{
+				if ((this._NumeroIdentificacion != value))
+				{
+					this._NumeroIdentificacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Direccion", DbType="VarChar(8000)")]
+		public string Direccion
+		{
+			get
+			{
+				return this._Direccion;
+			}
+			set
+			{
+				if ((this._Direccion != value))
+				{
+					this._Direccion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comentario", DbType="VarChar(8000)")]
+		public string Comentario
+		{
+			get
+			{
+				return this._Comentario;
+			}
+			set
+			{
+				if ((this._Comentario != value))
+				{
+					this._Comentario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoVenta", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdTipoVenta
+		{
+			get
+			{
+				return this._IdTipoVenta;
+			}
+			set
+			{
+				if ((this._IdTipoVenta != value))
+				{
+					this._IdTipoVenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCantidadDias", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdCantidadDias
+		{
+			get
+			{
+				return this._IdCantidadDias;
+			}
+			set
+			{
+				if ((this._IdCantidadDias != value))
+				{
+					this._IdCantidadDias = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdUsuario
+		{
+			get
+			{
+				return this._IdUsuario;
+			}
+			set
+			{
+				if ((this._IdUsuario != value))
+				{
+					this._IdUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaFacturacion", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaFacturacion
+		{
+			get
+			{
+				return this._FechaFacturacion;
+			}
+			set
+			{
+				if ((this._FechaFacturacion != value))
+				{
+					this._FechaFacturacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AplicaGarantia", DbType="Bit")]
+		public System.Nullable<bool> AplicaGarantia
+		{
+			get
+			{
+				return this._AplicaGarantia;
+			}
+			set
+			{
+				if ((this._AplicaGarantia != value))
+				{
+					this._AplicaGarantia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiasGarantia", DbType="Int")]
+		public System.Nullable<int> DiasGarantia
+		{
+			get
+			{
+				return this._DiasGarantia;
+			}
+			set
+			{
+				if ((this._DiasGarantia != value))
+				{
+					this._DiasGarantia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoIngreso", DbType="Int")]
+		public System.Nullable<int> IdTipoIngreso
+		{
+			get
+			{
+				return this._IdTipoIngreso;
+			}
+			set
+			{
+				if ((this._IdTipoIngreso != value))
+				{
+					this._IdTipoIngreso = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoAnulaicon", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdTipoAnulaicon
+		{
+			get
+			{
+				return this._IdTipoAnulaicon;
+			}
+			set
+			{
+				if ((this._IdTipoAnulaicon != value))
+				{
+					this._IdTipoAnulaicon = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoTiempoGarantia", DbType="Int")]
+		public System.Nullable<int> TipoTiempoGarantia
+		{
+			get
+			{
+				return this._TipoTiempoGarantia;
+			}
+			set
+			{
+				if ((this._TipoTiempoGarantia != value))
+				{
+					this._TipoTiempoGarantia = value;
+				}
+			}
+		}
+	}
+	
 	public partial class SP_BUSCA_HISTORIAL_FACTURACIONResult
 	{
 		
@@ -5125,6 +5582,10 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		private string _AplicaGarantia;
 		
 		private System.Nullable<int> _DiasGarantia;
+		
+		private System.Nullable<int> _TipoTiempoGarantia0;
+		
+		private string _TipoTiempoGarantia;
 		
 		private System.Nullable<int> _CantidadRegistros;
 		
@@ -5788,6 +6249,38 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoTiempoGarantia0", DbType="Int")]
+		public System.Nullable<int> TipoTiempoGarantia0
+		{
+			get
+			{
+				return this._TipoTiempoGarantia0;
+			}
+			set
+			{
+				if ((this._TipoTiempoGarantia0 != value))
+				{
+					this._TipoTiempoGarantia0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoTiempoGarantia", DbType="VarChar(5) NOT NULL", CanBeNull=false)]
+		public string TipoTiempoGarantia
+		{
+			get
+			{
+				return this._TipoTiempoGarantia;
+			}
+			set
+			{
+				if ((this._TipoTiempoGarantia != value))
+				{
+					this._TipoTiempoGarantia = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadRegistros", DbType="Int")]
 		public System.Nullable<int> CantidadRegistros
 		{
@@ -5800,444 +6293,6 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._CantidadRegistros != value))
 				{
 					this._CantidadRegistros = value;
-				}
-			}
-		}
-	}
-	
-	public partial class SP_GUARDAR_CLIENTE_FACTURACIONResult
-	{
-		
-		private System.Nullable<decimal> _IdFactura;
-		
-		private System.Nullable<decimal> _NumeroConector;
-		
-		private System.Nullable<int> _IdEstatusFacturacion;
-		
-		private System.Nullable<decimal> _IdComprobante;
-		
-		private string _Nombre;
-		
-		private string _Telefono;
-		
-		private string _Email;
-		
-		private System.Nullable<decimal> _IdTipoIdentificacion;
-		
-		private string _NumeroIdentificacion;
-		
-		private string _Direccion;
-		
-		private string _Comentario;
-		
-		private System.Nullable<decimal> _IdTipoVenta;
-		
-		private System.Nullable<decimal> _IdCantidadDias;
-		
-		private System.Nullable<decimal> _IdUsuario;
-		
-		private System.Nullable<System.DateTime> _FechaFacturacion;
-		
-		private System.Nullable<bool> _AplicaGarantia;
-		
-		private System.Nullable<int> _DiasGarantia;
-		
-		private System.Nullable<int> _IdTipoIngreso;
-		
-		private System.Nullable<decimal> _IdTipoAnulaicon;
-		
-		public SP_GUARDAR_CLIENTE_FACTURACIONResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdFactura", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdFactura
-		{
-			get
-			{
-				return this._IdFactura;
-			}
-			set
-			{
-				if ((this._IdFactura != value))
-				{
-					this._IdFactura = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroConector", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> NumeroConector
-		{
-			get
-			{
-				return this._NumeroConector;
-			}
-			set
-			{
-				if ((this._NumeroConector != value))
-				{
-					this._NumeroConector = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdEstatusFacturacion", DbType="Int")]
-		public System.Nullable<int> IdEstatusFacturacion
-		{
-			get
-			{
-				return this._IdEstatusFacturacion;
-			}
-			set
-			{
-				if ((this._IdEstatusFacturacion != value))
-				{
-					this._IdEstatusFacturacion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdComprobante", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdComprobante
-		{
-			get
-			{
-				return this._IdComprobante;
-			}
-			set
-			{
-				if ((this._IdComprobante != value))
-				{
-					this._IdComprobante = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(200)")]
-		public string Nombre
-		{
-			get
-			{
-				return this._Nombre;
-			}
-			set
-			{
-				if ((this._Nombre != value))
-				{
-					this._Nombre = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telefono", DbType="VarChar(50)")]
-		public string Telefono
-		{
-			get
-			{
-				return this._Telefono;
-			}
-			set
-			{
-				if ((this._Telefono != value))
-				{
-					this._Telefono = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(100)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this._Email = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoIdentificacion", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdTipoIdentificacion
-		{
-			get
-			{
-				return this._IdTipoIdentificacion;
-			}
-			set
-			{
-				if ((this._IdTipoIdentificacion != value))
-				{
-					this._IdTipoIdentificacion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroIdentificacion", DbType="VarChar(100)")]
-		public string NumeroIdentificacion
-		{
-			get
-			{
-				return this._NumeroIdentificacion;
-			}
-			set
-			{
-				if ((this._NumeroIdentificacion != value))
-				{
-					this._NumeroIdentificacion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Direccion", DbType="VarChar(8000)")]
-		public string Direccion
-		{
-			get
-			{
-				return this._Direccion;
-			}
-			set
-			{
-				if ((this._Direccion != value))
-				{
-					this._Direccion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comentario", DbType="VarChar(8000)")]
-		public string Comentario
-		{
-			get
-			{
-				return this._Comentario;
-			}
-			set
-			{
-				if ((this._Comentario != value))
-				{
-					this._Comentario = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoVenta", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdTipoVenta
-		{
-			get
-			{
-				return this._IdTipoVenta;
-			}
-			set
-			{
-				if ((this._IdTipoVenta != value))
-				{
-					this._IdTipoVenta = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCantidadDias", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdCantidadDias
-		{
-			get
-			{
-				return this._IdCantidadDias;
-			}
-			set
-			{
-				if ((this._IdCantidadDias != value))
-				{
-					this._IdCantidadDias = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdUsuario
-		{
-			get
-			{
-				return this._IdUsuario;
-			}
-			set
-			{
-				if ((this._IdUsuario != value))
-				{
-					this._IdUsuario = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaFacturacion", DbType="Date")]
-		public System.Nullable<System.DateTime> FechaFacturacion
-		{
-			get
-			{
-				return this._FechaFacturacion;
-			}
-			set
-			{
-				if ((this._FechaFacturacion != value))
-				{
-					this._FechaFacturacion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AplicaGarantia", DbType="Bit")]
-		public System.Nullable<bool> AplicaGarantia
-		{
-			get
-			{
-				return this._AplicaGarantia;
-			}
-			set
-			{
-				if ((this._AplicaGarantia != value))
-				{
-					this._AplicaGarantia = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiasGarantia", DbType="Int")]
-		public System.Nullable<int> DiasGarantia
-		{
-			get
-			{
-				return this._DiasGarantia;
-			}
-			set
-			{
-				if ((this._DiasGarantia != value))
-				{
-					this._DiasGarantia = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoIngreso", DbType="Int")]
-		public System.Nullable<int> IdTipoIngreso
-		{
-			get
-			{
-				return this._IdTipoIngreso;
-			}
-			set
-			{
-				if ((this._IdTipoIngreso != value))
-				{
-					this._IdTipoIngreso = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoAnulaicon", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdTipoAnulaicon
-		{
-			get
-			{
-				return this._IdTipoAnulaicon;
-			}
-			set
-			{
-				if ((this._IdTipoAnulaicon != value))
-				{
-					this._IdTipoAnulaicon = value;
-				}
-			}
-		}
-	}
-	
-	public partial class SP_BUSCA_OBSERVACIONESResult
-	{
-		
-		private int _IdObServacion;
-		
-		private string _Observacion;
-		
-		public SP_BUSCA_OBSERVACIONESResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdObServacion", DbType="Int NOT NULL")]
-		public int IdObServacion
-		{
-			get
-			{
-				return this._IdObServacion;
-			}
-			set
-			{
-				if ((this._IdObServacion != value))
-				{
-					this._IdObServacion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Observacion", DbType="VarChar(8000)")]
-		public string Observacion
-		{
-			get
-			{
-				return this._Observacion;
-			}
-			set
-			{
-				if ((this._Observacion != value))
-				{
-					this._Observacion = value;
-				}
-			}
-		}
-	}
-	
-	public partial class SP_MODIFICAR_OBSERVACIONResult
-	{
-		
-		private System.Nullable<int> _IdObservacion;
-		
-		private string _Observacion;
-		
-		public SP_MODIFICAR_OBSERVACIONResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdObservacion", DbType="Int")]
-		public System.Nullable<int> IdObservacion
-		{
-			get
-			{
-				return this._IdObservacion;
-			}
-			set
-			{
-				if ((this._IdObservacion != value))
-				{
-					this._IdObservacion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Observacion", DbType="VarChar(8000)")]
-		public string Observacion
-		{
-			get
-			{
-				return this._Observacion;
-			}
-			set
-			{
-				if ((this._Observacion != value))
-				{
-					this._Observacion = value;
 				}
 			}
 		}
