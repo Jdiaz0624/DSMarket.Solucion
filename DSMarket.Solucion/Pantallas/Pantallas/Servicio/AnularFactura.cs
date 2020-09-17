@@ -138,6 +138,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     VariablesGlobales.IdCantidadDiasAnularFactura = Convert.ToDecimal(n.IdCantidadDias);
                     VariablesGlobales.PorcientoDescuentoAnularFactura = Convert.ToInt32(n.PorcientoImpuesto);
                     VariablesGlobales.IdTipOpagoAnularFactura = Convert.ToDecimal(n.IdTipoPago);
+                    txtGarantia.Text = n.DiasGarantia.ToString();
+                    txtTiempoGarantia.Text = n.TipoTiempoGarantia;
                 }
 
                 var MostrarProductosAgregados = ObjDataServicio.Value.BuscapRoductosAgregados(
@@ -161,6 +163,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         #endregion
         #region ELIMINAR FACTURACION CLIENTE
         private void FacturacionCliente(decimal NumeroConector,string Accion) {
+
+            int TiempoGarantia = 0;
+
+            if (txtTiempoGarantia.Text == "DIAS")
+            {
+                TiempoGarantia = 1;
+            }
+            else {
+                TiempoGarantia = 2;
+            }
             DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionClientes Mantenimiento = new Logica.Entidades.EntidadesServicio.EFacturacionClientes();
 
             Mantenimiento.IdFactura = 0;
@@ -179,6 +191,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             Mantenimiento.IdUsuario = VariablesGlobales.IdUsuario;
             Mantenimiento.FechaFacturacion = DateTime.Now;
             Mantenimiento.IdTipoAnulaicon = Convert.ToDecimal(ddlSeleccionarTipoAnulacion.SelectedValue);
+            Mantenimiento.TipoTiempoGarantia = TiempoGarantia;
 
 
 
@@ -744,6 +757,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     }
                 }
             }
+        }
+
+        private void gbGeneral_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -45,6 +45,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtListado = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ddlSeleccionarTipoAnulacion = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtComentario = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtFaturadoPor = new System.Windows.Forms.TextBox();
@@ -85,8 +87,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label7 = new System.Windows.Forms.Label();
-            this.ddlSeleccionarTipoAnulacion = new System.Windows.Forms.ComboBox();
+            this.txtGarantia = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtTiempoGarantia = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.gbGeneral.SuspendLayout();
@@ -171,6 +175,7 @@
             this.gbGeneral.Size = new System.Drawing.Size(998, 679);
             this.gbGeneral.TabIndex = 6;
             this.gbGeneral.TabStop = false;
+            this.gbGeneral.Enter += new System.EventHandler(this.gbGeneral_Enter);
             // 
             // txtNumeroRegistros
             // 
@@ -269,9 +274,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dtListado);
-            this.groupBox1.Location = new System.Drawing.Point(8, 390);
+            this.groupBox1.Location = new System.Drawing.Point(8, 418);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(990, 193);
+            this.groupBox1.Size = new System.Drawing.Size(990, 165);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Productos";
@@ -291,11 +296,15 @@
             this.dtListado.Name = "dtListado";
             this.dtListado.ReadOnly = true;
             this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(984, 167);
+            this.dtListado.Size = new System.Drawing.Size(984, 139);
             this.dtListado.TabIndex = 0;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtTiempoGarantia);
+            this.groupBox2.Controls.Add(this.label22);
+            this.groupBox2.Controls.Add(this.txtGarantia);
+            this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.ddlSeleccionarTipoAnulacion);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.txtComentario);
@@ -338,16 +347,37 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Location = new System.Drawing.Point(5, 21);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(982, 363);
+            this.groupBox2.Size = new System.Drawing.Size(982, 391);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de Cliente";
+            // 
+            // ddlSeleccionarTipoAnulacion
+            // 
+            this.ddlSeleccionarTipoAnulacion.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlSeleccionarTipoAnulacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarTipoAnulacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarTipoAnulacion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarTipoAnulacion.FormattingEnabled = true;
+            this.ddlSeleccionarTipoAnulacion.Location = new System.Drawing.Point(290, 324);
+            this.ddlSeleccionarTipoAnulacion.Name = "ddlSeleccionarTipoAnulacion";
+            this.ddlSeleccionarTipoAnulacion.Size = new System.Drawing.Size(676, 28);
+            this.ddlSeleccionarTipoAnulacion.TabIndex = 65;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(55, 328);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(231, 20);
+            this.label7.TabIndex = 57;
+            this.label7.Text = "Seleccionar Tipo de Anulacion";
             // 
             // txtComentario
             // 
             this.txtComentario.BackColor = System.Drawing.Color.Silver;
             this.txtComentario.Enabled = false;
-            this.txtComentario.Location = new System.Drawing.Point(112, 327);
+            this.txtComentario.Location = new System.Drawing.Point(112, 356);
             this.txtComentario.Name = "txtComentario";
             this.txtComentario.Size = new System.Drawing.Size(854, 27);
             this.txtComentario.TabIndex = 56;
@@ -355,7 +385,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(10, 330);
+            this.label12.Location = new System.Drawing.Point(10, 359);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(96, 20);
             this.label12.TabIndex = 55;
@@ -691,26 +721,41 @@
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
             // 
-            // label7
+            // txtGarantia
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(55, 299);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(231, 20);
-            this.label7.TabIndex = 57;
-            this.label7.Text = "Seleccionar Tipo de Anulacion";
+            this.txtGarantia.BackColor = System.Drawing.Color.Silver;
+            this.txtGarantia.Enabled = false;
+            this.txtGarantia.Location = new System.Drawing.Point(204, 291);
+            this.txtGarantia.Name = "txtGarantia";
+            this.txtGarantia.Size = new System.Drawing.Size(279, 27);
+            this.txtGarantia.TabIndex = 67;
             // 
-            // ddlSeleccionarTipoAnulacion
+            // label13
             // 
-            this.ddlSeleccionarTipoAnulacion.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ddlSeleccionarTipoAnulacion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlSeleccionarTipoAnulacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlSeleccionarTipoAnulacion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ddlSeleccionarTipoAnulacion.FormattingEnabled = true;
-            this.ddlSeleccionarTipoAnulacion.Location = new System.Drawing.Point(290, 295);
-            this.ddlSeleccionarTipoAnulacion.Name = "ddlSeleccionarTipoAnulacion";
-            this.ddlSeleccionarTipoAnulacion.Size = new System.Drawing.Size(676, 28);
-            this.ddlSeleccionarTipoAnulacion.TabIndex = 65;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(124, 295);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(76, 20);
+            this.label13.TabIndex = 66;
+            this.label13.Text = "Garantia";
+            // 
+            // txtTiempoGarantia
+            // 
+            this.txtTiempoGarantia.BackColor = System.Drawing.Color.Silver;
+            this.txtTiempoGarantia.Enabled = false;
+            this.txtTiempoGarantia.Location = new System.Drawing.Point(687, 294);
+            this.txtTiempoGarantia.Name = "txtTiempoGarantia";
+            this.txtTiempoGarantia.Size = new System.Drawing.Size(279, 27);
+            this.txtTiempoGarantia.TabIndex = 69;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(528, 297);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(156, 20);
+            this.label22.TabIndex = 68;
+            this.label22.Text = "Tiempo de Garantia";
             // 
             // AnularFactura
             // 
@@ -803,5 +848,9 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label7;
         public System.Windows.Forms.ComboBox ddlSeleccionarTipoAnulacion;
+        private System.Windows.Forms.TextBox txtTiempoGarantia;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox txtGarantia;
+        private System.Windows.Forms.Label label13;
     }
 }
