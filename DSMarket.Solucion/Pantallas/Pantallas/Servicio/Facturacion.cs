@@ -320,6 +320,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.dtFacturasMinimizadas.Columns["TipoIngreso"].Visible = false;
             this.dtFacturasMinimizadas.Columns["Cantidadregistros" +
                 ""].Visible = false;
+            this.dtFacturasMinimizadas.Columns["IdTipoTiempoGarantia"].Visible = false;
         }
         #endregion
         #region MANTENIMIENTO DE FACTURAS MINIMIZADAS
@@ -379,6 +380,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 Mantenimiento.BloqueaControles = VariablesGlobales.BloqueaControles;
                 Mantenimiento.CantidadDiasGarantia = Convert.ToInt32(txtCantidadDiasGarantia.Value);
                 Mantenimiento.IdTipoIngreso = Convert.ToInt32(ddlSeleccionarTipoIngres.SelectedValue);
+                Mantenimiento.IdTipoTiempoGarantia = Convert.ToInt32(ddlSeleccionarTiempoGarantia.SelectedValue);
 
                 var MANFacturaMinimizada = ObjDataServicio.Value.MantenimientoFacturaMinimizado(Mantenimiento, Accion);
 
@@ -492,6 +494,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 txtNoCotizacion.Text = n.NoCotizacion.ToString();
                 txtCantidadDiasGarantia.Value = Convert.ToInt32(n.CantidadDiasGarantia);
                 ddlSeleccionarTipoIngres.Text = n.TipoIngreso;
+                ddlSeleccionarTiempoGarantia.Text = n.TipoTiempoGarantia;
                 if (string.IsNullOrEmpty(txtNoCotizacion.Text.Trim()))
                 {
                     txtNoCotizacion.Text = string.Empty;
@@ -573,6 +576,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             Mantenimiento.BloqueaControles = VariablesGlobales.BloqueaControles;
             Mantenimiento.CantidadDiasGarantia = Convert.ToInt32(txtCantidadDiasGarantia.Value);
             Mantenimiento.IdTipoIngreso = Convert.ToInt32(ddlSeleccionarTipoIngres.SelectedValue);
+            Mantenimiento.IdTiempoGarantia = Convert.ToInt32(ddlSeleccionarTiempoGarantia.SelectedValue);
 
             var MAn = ObjDataServicio.Value.ManteniientoFacturacionEspejo(Mantenimiento, Accion);
 
@@ -593,6 +597,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 txtNombrePaciente.Text = n.Nombre;
                 txtCantidadDiasGarantia.Value = Convert.ToInt32(n.CantidadDiasGarantia);
                 ddlSeleccionarTipoIngres.Text = n.TipoIngreso;
+                ddlSeleccionarTiempoGarantia.Text = n.TipoTiempoGarantia;
                
                 ddlTipoVenta.Text = n.TipoVenta;
                 ddlCantidadDias.Text = n.CantidadDias;
@@ -1975,6 +1980,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 MANFacturasMinimizadas("INSERT");
                 LimpiarControles();
                 ListadoFacturaMinimizadas();
+                ListadoTipoTiempoGarantia();
                 //GENERAMOS NUEVAMENTE UN NUEMERO DE CONECTOR
                 GenerarNumeroConector();
                 dtProductosAgregados.DataSource = null;

@@ -129,7 +129,8 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                CantidadDiasGarantia=n.CantidadDiasGarantia,
                                IdTipoIngreso=n.IdTipoIngreso,
                                TipoIngreso=n.TipoIngreso,
-                               
+                               IdTipoTiempoGarantia=n.IdTipoTiempoGarantia,
+                               TipoTiempoGarantia=n.TipoTiempoGarantia
                            }).ToList();
             return Listado;
         }
@@ -169,6 +170,7 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                 Item.BloqueaControles,
                 Item.CantidadDiasGarantia,
                 Item.IdTipoIngreso,
+                Item.IdTipoTiempoGarantia,
                 Accion);
             if (FacturasMinimizadas != null)
             {
@@ -197,7 +199,8 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                      FormatoFactura = n.FormatoFactura,
                                      BloqueaControles = n.BloqueaControles,
                                      CantidadDiasGarantia=n.CantidadDiasGarantia,
-                                     IdTipoIngreso=n.IdTipoIngreso
+                                     IdTipoIngreso=n.IdTipoIngreso,
+                                     IdTipoTiempoGarantia=n.IdTipoTiempoGarantia
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
@@ -295,7 +298,10 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                BloqueaControles = n.BloqueaControles,
                                CantidadDiasGarantia=n.CantidadDiasGarantia,
                                IdTipoIngreso=n.IdTipoIngreso,
-                               TipoIngreso=n.TipoIngreso
+                               TipoIngreso=n.TipoIngreso,
+                               FechaFacturacion=n.FechaFacturacion,
+                               IdTiempoGarantia=n.IdTiempoGarantia,
+                               TipoTiempoGarantia=n.TipoTiempoGarantia
                            }).ToList();
             return Listado;
         }
@@ -329,6 +335,7 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                 Item.BloqueaControles,
                 Item.CantidadDiasGarantia,
                 Item.IdTipoIngreso,
+                Item.IdTiempoGarantia,
                 Accion);
             if (FacturacionEspejo != null)
             {
@@ -356,7 +363,8 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                      FormatoFactura = n.FormatoFactura,
                                      BloqueaControles = n.BloqueaControles,
                                      CantidadDiasGarantia=n.CantidadDiasGarantia,
-                                     IdTipoIngreso=n.IdTipoIngreso
+                                     IdTipoIngreso=n.IdTipoIngreso,
+                                     IdTiempoGarantia=n.IdTiempoGarantia
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
