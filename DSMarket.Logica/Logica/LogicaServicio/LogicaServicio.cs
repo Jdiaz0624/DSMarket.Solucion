@@ -471,6 +471,10 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                 Item.Cambio,
                 Item.IdTipoPago,
                 Item.TotalGeneral,
+                Item.PorcientoTipoPago,
+                Item.MontoImpuestoTipoPago,
+                Item.PorcientoImpuestoComprobante,
+                Item.MontoImpuestoComprobante,
                 Accion);
             if (FacturacionCalculos != null)
             {
@@ -488,7 +492,11 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                MontoPagado = n.MontoPagado,
                                Cambio = n.Cambio,
                                IdTipoPago = n.IdTipoPago,
-                               TotalGeneral=n.TotalGeneral
+                               TotalGeneral=n.TotalGeneral,
+                               PorcientoTipoPago=n.PorcientoTipoPago,
+                               MontoImpuestoTipoPago=n.MontoImpuestoTipoPago,
+                               PorcientoImpuestoComprobante=n.PorcientoImpuestoComprobante,
+                               MontoImpuestoComprobante=n.MontoImpuestoComprobante
                            }).FirstOrDefault();
             }
             return Guardar;

@@ -31,5 +31,6 @@ namespace DSMarket.Logica.Entidades.EntidadesConfiguracion
         public System.Nullable<bool> PorDefecto { get; set; }
 
         public System.Nullable<long> Posiciones { get; set; }
+        public System.Nullable<int> CobroPorcientoAdicional { get; set; }
     }
 }

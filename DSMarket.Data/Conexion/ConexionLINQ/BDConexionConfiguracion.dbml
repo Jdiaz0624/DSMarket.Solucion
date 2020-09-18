@@ -36,54 +36,6 @@
       <Column Name="Comprobante" Type="System.String" DbType="VarChar(8000) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="Configuracion.SP_BUSCA_COMPROBANTES_FISCALES" Method="SP_BUSCA_COMPROBANTES_FISCALES">
-    <Parameter Name="IdComprobanteFiscales" Parameter="idComprobanteFiscales" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <ElementType Name="SP_BUSCA_COMPROBANTES_FISCALESResult">
-      <Column Name="IdComprobante" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
-      <Column Name="Comprobante" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Serie" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
-      <Column Name="TipoComprobante" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
-      <Column Name="Secuencia" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="SecuenciaInicial" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="SecuenciaFinal" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="Limite" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="Estatus0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Estatus" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
-      <Column Name="ValidoHasta" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="PorDefecto0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="PorDefecto" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
-      <Column Name="Posiciones" Type="System.Decimal" DbType="Decimal(2,0)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="Configuracion.SP_MANTENIMIENTO_COMPROBANTE_FISCALES" Method="SP_MANTENIMIENTO_COMPROBANTE_FISCALES">
-    <Parameter Name="IdComprobante" Parameter="idComprobante" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="Serie" Parameter="serie" Type="System.String" DbType="VarChar(1)" />
-    <Parameter Name="TipoComprobante" Parameter="tipoComprobante" Type="System.String" DbType="VarChar(2)" />
-    <Parameter Name="Secuencia" Parameter="secuencia" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="SecuenciaInicial" Parameter="secuenciaInicial" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="SecuenciaFinal" Parameter="secuenciaFinal" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Limite" Parameter="limite" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Estatus" Parameter="estatus" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="ValidoHasta" Parameter="validoHasta" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="PorDefecto" Parameter="porDefecto" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="Posiciones" Parameter="posiciones" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
-    <ElementType Name="SP_MANTENIMIENTO_COMPROBANTE_FISCALESResult">
-      <Column Name="IdComprobante" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Serie" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
-      <Column Name="TipoComprobante" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
-      <Column Name="Secuencia" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="SecuenciaInicial" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="SecuenciaFinal" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="Limite" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="Estatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="ValidoHasta" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="PorDefecto" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Posiciones" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="Configuracion.SP_BUSCA_CONFIGURACION_GENERAL" Method="SP_BUSCA_CONFIGURACION_GENERAL">
     <Parameter Name="IdConfiguracionGeneral" Parameter="idConfiguracionGeneral" Type="System.Int32" DbType="Int" />
     <ElementType Name="SP_BUSCA_CONFIGURACION_GENERALResult">
@@ -794,6 +746,57 @@
       <Column Name="ClaseCuenta" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="IdCuentaContable" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="Cuentadescargo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Configuracion.SP_BUSCA_COMPROBANTES_FISCALES" Method="SP_BUSCA_COMPROBANTES_FISCALES">
+    <Parameter Name="IdComprobanteFiscales" Parameter="idComprobanteFiscales" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <ElementType Name="SP_BUSCA_COMPROBANTES_FISCALESResult">
+      <Column Name="IdComprobante" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Comprobante" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Serie" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="TipoComprobante" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="Secuencia" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="SecuenciaInicial" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="SecuenciaFinal" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Limite" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Estatus0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Estatus" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="ValidoHasta" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PorDefecto0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PorDefecto" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="Posiciones" Type="System.Decimal" DbType="Decimal(2,0)" CanBeNull="true" />
+      <Column Name="CobroPorcientoAdicional" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Configuracion.SP_MANTENIMIENTO_COMPROBANTE_FISCALES" Method="SP_MANTENIMIENTO_COMPROBANTE_FISCALES">
+    <Parameter Name="IdComprobante" Parameter="idComprobante" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Serie" Parameter="serie" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="TipoComprobante" Parameter="tipoComprobante" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="Secuencia" Parameter="secuencia" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="SecuenciaInicial" Parameter="secuenciaInicial" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="SecuenciaFinal" Parameter="secuenciaFinal" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Limite" Parameter="limite" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Estatus" Parameter="estatus" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="ValidoHasta" Parameter="validoHasta" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="PorDefecto" Parameter="porDefecto" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Posiciones" Parameter="posiciones" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="CobroPorcientoAdicional" Parameter="cobroPorcientoAdicional" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_MANTENIMIENTO_COMPROBANTE_FISCALESResult">
+      <Column Name="IdComprobante" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Serie" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="TipoComprobante" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="Secuencia" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SecuenciaInicial" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SecuenciaFinal" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Limite" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Estatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ValidoHasta" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PorDefecto" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Posiciones" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CobroPorcientoAdicional" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

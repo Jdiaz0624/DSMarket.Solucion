@@ -90,13 +90,6 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			return ((ISingleResult<SP_SACAR_NUMERO_FACTURAResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_GUARDAR_FACTURACION_CALCULOS")]
-		public ISingleResult<SP_GUARDAR_FACTURACION_CALCULOSResult> SP_GUARDAR_FACTURACION_CALCULOS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroColector", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroColector, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CantidadProductos", DbType="Int")] System.Nullable<int> cantidadProductos, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CantidadServicios", DbType="Int")] System.Nullable<int> cantidadServicios, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CantidadArticulos", DbType="Int")] System.Nullable<int> cantidadArticulos, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TotalDescuento", DbType="Decimal(20,2)")] System.Nullable<decimal> totalDescuento, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SubTotal", DbType="Decimal(20,2)")] System.Nullable<decimal> subTotal, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Impuesto", DbType="Decimal(20,2)")] System.Nullable<decimal> impuesto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PorcientoImpuesto", DbType="Int")] System.Nullable<int> porcientoImpuesto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MontoPagado", DbType="Decimal(20,2)")] System.Nullable<decimal> montoPagado, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cambio", DbType="Decimal(20,2)")] System.Nullable<decimal> cambio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoPago", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoPago, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TotalGeneral", DbType="Decimal(20,2)")] System.Nullable<decimal> totalGeneral, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), numeroColector, cantidadProductos, cantidadServicios, cantidadArticulos, totalDescuento, subTotal, impuesto, porcientoImpuesto, montoPagado, cambio, idTipoPago, totalGeneral, accion);
-			return ((ISingleResult<SP_GUARDAR_FACTURACION_CALCULOSResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_GUARDAR_FACTURACION_PRODUCTO")]
 		public ISingleResult<SP_GUARDAR_FACTURACION_PRODUCTOResult> SP_GUARDAR_FACTURACION_PRODUCTO([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroConector", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroConector, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoProducto", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoProducto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdCategoria", DbType="Decimal(20,0)")] System.Nullable<decimal> idCategoria, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DescripcionProducto", DbType="VarChar(1000)")] string descripcionProducto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CantidadVendida", DbType="Decimal(20,0)")] System.Nullable<decimal> cantidadVendida, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Precio", DbType="Decimal(20,2)")] System.Nullable<decimal> precio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DescuentoAplicado", DbType="Decimal(20,2)")] System.Nullable<decimal> descuentoAplicado, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DescripcionTipoProducto", DbType="VarChar(100)")] string descripcionTipoProducto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PorcientoDescuento", DbType="Int")] System.Nullable<int> porcientoDescuento, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdProducto", DbType="Decimal(20,0)")] System.Nullable<decimal> idProducto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Acumulativo", DbType="VarChar(2)")] string acumulativo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ConectorProducto", DbType="Decimal(20,0)")] System.Nullable<decimal> conectorProducto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Impuesto", DbType="Decimal(20,2)")] System.Nullable<decimal> impuesto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
 		{
@@ -269,6 +262,30 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, numeroConector, secuencial, agregarCliente, buscarCliente, idTipoVenta, idCantidadDias, rncConsulta, idComprobante, nombre, telefono, email, noCotizacion, idTipoIdentificacion, numeroIdentificacion, comentario, montoCredito, facturarCotizar, facturaPuntoVenta, formatoFactura, bloqueaControles, cantidadDiasGarantia, idTipoIngreso, idTipoTiempoGarantia, accion);
 			return ((ISingleResult<SP_MANTENIMIENTO_FACTURAS_MINIMUZADASResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_GUARDAR_FACTURACION_CALCULOS")]
+		public ISingleResult<SP_GUARDAR_FACTURACION_CALCULOSResult> SP_GUARDAR_FACTURACION_CALCULOS(
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroColector", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroColector, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CantidadProductos", DbType="Int")] System.Nullable<int> cantidadProductos, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CantidadServicios", DbType="Int")] System.Nullable<int> cantidadServicios, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CantidadArticulos", DbType="Int")] System.Nullable<int> cantidadArticulos, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TotalDescuento", DbType="Decimal(20,2)")] System.Nullable<decimal> totalDescuento, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SubTotal", DbType="Decimal(20,2)")] System.Nullable<decimal> subTotal, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Impuesto", DbType="Decimal(20,2)")] System.Nullable<decimal> impuesto, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="PorcientoImpuesto", DbType="Int")] System.Nullable<int> porcientoImpuesto, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MontoPagado", DbType="Decimal(20,2)")] System.Nullable<decimal> montoPagado, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cambio", DbType="Decimal(20,2)")] System.Nullable<decimal> cambio, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoPago", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoPago, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TotalGeneral", DbType="Decimal(20,2)")] System.Nullable<decimal> totalGeneral, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="PorcientoTipoPago", DbType="Int")] System.Nullable<int> porcientoTipoPago, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MontoImpuestoTipoPago", DbType="Decimal(20,2)")] System.Nullable<decimal> montoImpuestoTipoPago, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="PorcientoImpuestoComprobante", DbType="Int")] System.Nullable<int> porcientoImpuestoComprobante, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MontoImpuestoComprobante", DbType="Decimal(20,2)")] System.Nullable<decimal> montoImpuestoComprobante, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), numeroColector, cantidadProductos, cantidadServicios, cantidadArticulos, totalDescuento, subTotal, impuesto, porcientoImpuesto, montoPagado, cambio, idTipoPago, totalGeneral, porcientoTipoPago, montoImpuestoTipoPago, porcientoImpuestoComprobante, montoImpuestoComprobante, accion);
+			return ((ISingleResult<SP_GUARDAR_FACTURACION_CALCULOSResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -659,230 +676,6 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._IdFactura != value))
 				{
 					this._IdFactura = value;
-				}
-			}
-		}
-	}
-	
-	public partial class SP_GUARDAR_FACTURACION_CALCULOSResult
-	{
-		
-		private System.Nullable<decimal> _NumeroColector;
-		
-		private System.Nullable<int> _CantidadProductos;
-		
-		private System.Nullable<int> _CantidadServicios;
-		
-		private System.Nullable<int> _CantidadArticulos;
-		
-		private System.Nullable<decimal> _TotalDescuento;
-		
-		private System.Nullable<decimal> _SubTotal;
-		
-		private System.Nullable<decimal> _Impuesto;
-		
-		private System.Nullable<int> _PorcientoImpuesto;
-		
-		private System.Nullable<decimal> _MontoPagado;
-		
-		private System.Nullable<decimal> _Cambio;
-		
-		private System.Nullable<decimal> _IdTipoPago;
-		
-		private System.Nullable<decimal> _TotalGeneral;
-		
-		public SP_GUARDAR_FACTURACION_CALCULOSResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroColector", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> NumeroColector
-		{
-			get
-			{
-				return this._NumeroColector;
-			}
-			set
-			{
-				if ((this._NumeroColector != value))
-				{
-					this._NumeroColector = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadProductos", DbType="Int")]
-		public System.Nullable<int> CantidadProductos
-		{
-			get
-			{
-				return this._CantidadProductos;
-			}
-			set
-			{
-				if ((this._CantidadProductos != value))
-				{
-					this._CantidadProductos = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadServicios", DbType="Int")]
-		public System.Nullable<int> CantidadServicios
-		{
-			get
-			{
-				return this._CantidadServicios;
-			}
-			set
-			{
-				if ((this._CantidadServicios != value))
-				{
-					this._CantidadServicios = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadArticulos", DbType="Int")]
-		public System.Nullable<int> CantidadArticulos
-		{
-			get
-			{
-				return this._CantidadArticulos;
-			}
-			set
-			{
-				if ((this._CantidadArticulos != value))
-				{
-					this._CantidadArticulos = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalDescuento", DbType="Decimal(20,2)")]
-		public System.Nullable<decimal> TotalDescuento
-		{
-			get
-			{
-				return this._TotalDescuento;
-			}
-			set
-			{
-				if ((this._TotalDescuento != value))
-				{
-					this._TotalDescuento = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubTotal", DbType="Decimal(20,2)")]
-		public System.Nullable<decimal> SubTotal
-		{
-			get
-			{
-				return this._SubTotal;
-			}
-			set
-			{
-				if ((this._SubTotal != value))
-				{
-					this._SubTotal = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Impuesto", DbType="Decimal(20,2)")]
-		public System.Nullable<decimal> Impuesto
-		{
-			get
-			{
-				return this._Impuesto;
-			}
-			set
-			{
-				if ((this._Impuesto != value))
-				{
-					this._Impuesto = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorcientoImpuesto", DbType="Int")]
-		public System.Nullable<int> PorcientoImpuesto
-		{
-			get
-			{
-				return this._PorcientoImpuesto;
-			}
-			set
-			{
-				if ((this._PorcientoImpuesto != value))
-				{
-					this._PorcientoImpuesto = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MontoPagado", DbType="Decimal(20,2)")]
-		public System.Nullable<decimal> MontoPagado
-		{
-			get
-			{
-				return this._MontoPagado;
-			}
-			set
-			{
-				if ((this._MontoPagado != value))
-				{
-					this._MontoPagado = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cambio", DbType="Decimal(20,2)")]
-		public System.Nullable<decimal> Cambio
-		{
-			get
-			{
-				return this._Cambio;
-			}
-			set
-			{
-				if ((this._Cambio != value))
-				{
-					this._Cambio = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoPago", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdTipoPago
-		{
-			get
-			{
-				return this._IdTipoPago;
-			}
-			set
-			{
-				if ((this._IdTipoPago != value))
-				{
-					this._IdTipoPago = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalGeneral", DbType="Decimal(20,2)")]
-		public System.Nullable<decimal> TotalGeneral
-		{
-			get
-			{
-				return this._TotalGeneral;
-			}
-			set
-			{
-				if ((this._TotalGeneral != value))
-				{
-					this._TotalGeneral = value;
 				}
 			}
 		}
@@ -6403,6 +6196,302 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._IdTipoTiempoGarantia != value))
 				{
 					this._IdTipoTiempoGarantia = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_GUARDAR_FACTURACION_CALCULOSResult
+	{
+		
+		private System.Nullable<decimal> _NumeroColector;
+		
+		private System.Nullable<int> _CantidadProductos;
+		
+		private System.Nullable<int> _CantidadServicios;
+		
+		private System.Nullable<int> _CantidadArticulos;
+		
+		private System.Nullable<decimal> _TotalDescuento;
+		
+		private System.Nullable<decimal> _SubTotal;
+		
+		private System.Nullable<decimal> _Impuesto;
+		
+		private System.Nullable<int> _PorcientoImpuesto;
+		
+		private System.Nullable<decimal> _MontoPagado;
+		
+		private System.Nullable<decimal> _Cambio;
+		
+		private System.Nullable<decimal> _IdTipoPago;
+		
+		private System.Nullable<decimal> _TotalGeneral;
+		
+		private System.Nullable<int> _PorcientoTipoPago;
+		
+		private System.Nullable<decimal> _MontoImpuestoTipoPago;
+		
+		private System.Nullable<int> _PorcientoImpuestoComprobante;
+		
+		private System.Nullable<decimal> _MontoImpuestoComprobante;
+		
+		public SP_GUARDAR_FACTURACION_CALCULOSResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroColector", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> NumeroColector
+		{
+			get
+			{
+				return this._NumeroColector;
+			}
+			set
+			{
+				if ((this._NumeroColector != value))
+				{
+					this._NumeroColector = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadProductos", DbType="Int")]
+		public System.Nullable<int> CantidadProductos
+		{
+			get
+			{
+				return this._CantidadProductos;
+			}
+			set
+			{
+				if ((this._CantidadProductos != value))
+				{
+					this._CantidadProductos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadServicios", DbType="Int")]
+		public System.Nullable<int> CantidadServicios
+		{
+			get
+			{
+				return this._CantidadServicios;
+			}
+			set
+			{
+				if ((this._CantidadServicios != value))
+				{
+					this._CantidadServicios = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadArticulos", DbType="Int")]
+		public System.Nullable<int> CantidadArticulos
+		{
+			get
+			{
+				return this._CantidadArticulos;
+			}
+			set
+			{
+				if ((this._CantidadArticulos != value))
+				{
+					this._CantidadArticulos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalDescuento", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> TotalDescuento
+		{
+			get
+			{
+				return this._TotalDescuento;
+			}
+			set
+			{
+				if ((this._TotalDescuento != value))
+				{
+					this._TotalDescuento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubTotal", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> SubTotal
+		{
+			get
+			{
+				return this._SubTotal;
+			}
+			set
+			{
+				if ((this._SubTotal != value))
+				{
+					this._SubTotal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Impuesto", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> Impuesto
+		{
+			get
+			{
+				return this._Impuesto;
+			}
+			set
+			{
+				if ((this._Impuesto != value))
+				{
+					this._Impuesto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorcientoImpuesto", DbType="Int")]
+		public System.Nullable<int> PorcientoImpuesto
+		{
+			get
+			{
+				return this._PorcientoImpuesto;
+			}
+			set
+			{
+				if ((this._PorcientoImpuesto != value))
+				{
+					this._PorcientoImpuesto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MontoPagado", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> MontoPagado
+		{
+			get
+			{
+				return this._MontoPagado;
+			}
+			set
+			{
+				if ((this._MontoPagado != value))
+				{
+					this._MontoPagado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cambio", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> Cambio
+		{
+			get
+			{
+				return this._Cambio;
+			}
+			set
+			{
+				if ((this._Cambio != value))
+				{
+					this._Cambio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoPago", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdTipoPago
+		{
+			get
+			{
+				return this._IdTipoPago;
+			}
+			set
+			{
+				if ((this._IdTipoPago != value))
+				{
+					this._IdTipoPago = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalGeneral", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> TotalGeneral
+		{
+			get
+			{
+				return this._TotalGeneral;
+			}
+			set
+			{
+				if ((this._TotalGeneral != value))
+				{
+					this._TotalGeneral = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorcientoTipoPago", DbType="Int")]
+		public System.Nullable<int> PorcientoTipoPago
+		{
+			get
+			{
+				return this._PorcientoTipoPago;
+			}
+			set
+			{
+				if ((this._PorcientoTipoPago != value))
+				{
+					this._PorcientoTipoPago = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MontoImpuestoTipoPago", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> MontoImpuestoTipoPago
+		{
+			get
+			{
+				return this._MontoImpuestoTipoPago;
+			}
+			set
+			{
+				if ((this._MontoImpuestoTipoPago != value))
+				{
+					this._MontoImpuestoTipoPago = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorcientoImpuestoComprobante", DbType="Int")]
+		public System.Nullable<int> PorcientoImpuestoComprobante
+		{
+			get
+			{
+				return this._PorcientoImpuestoComprobante;
+			}
+			set
+			{
+				if ((this._PorcientoImpuestoComprobante != value))
+				{
+					this._PorcientoImpuestoComprobante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MontoImpuestoComprobante", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> MontoImpuestoComprobante
+		{
+			get
+			{
+				return this._MontoImpuestoComprobante;
+			}
+			set
+			{
+				if ((this._MontoImpuestoComprobante != value))
+				{
+					this._MontoImpuestoComprobante = value;
 				}
 			}
 		}

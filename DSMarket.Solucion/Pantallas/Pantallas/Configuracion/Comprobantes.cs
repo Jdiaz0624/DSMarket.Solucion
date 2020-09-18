@@ -55,6 +55,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
                 Modificar.ValidoHasta = txtValidoHasta.Text;
                 Modificar.PorDefecto = cbPorDefecto.Checked;
                 Modificar.Posiciones = Convert.ToInt64(txtPociciones.Text);
+                Modificar.CobroPorcientoAdicional = Convert.ToInt32(txtCobroAdicional.Text);
 
                 var MAN = ObjDataConfiguracion.Value.MantenimientoComprobantes(Modificar, Accion);
             }
@@ -239,6 +240,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
                     txtPociciones.Text = n.Posiciones.ToString();
                     cbEstatus.Checked = (n.Estatus0.HasValue ? n.Estatus0.Value : false);
                     cbPorDefecto.Checked = (n.PorDefecto0.HasValue ? n.PorDefecto0.Value : false);
+                    txtCobroAdicional.Text = n.CobroPorcientoAdicional.ToString();
                 }
             }
         }

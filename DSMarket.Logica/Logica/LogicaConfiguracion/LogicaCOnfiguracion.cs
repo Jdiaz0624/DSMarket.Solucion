@@ -466,7 +466,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                                ValidoHasta = n.ValidoHasta,
                                PorDefecto0 = n.PorDefecto0,
                                PorDefecto = n.PorDefecto,
-                               Posiciones = n.Posiciones
+                               Posiciones = n.Posiciones,
+                               CobroPorcientoAdicional=n.CobroPorcientoAdicional
                            }).ToList();
             return Listado;
         }
@@ -491,6 +492,7 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                 Item.ValidoHasta,
                 Item.PorDefecto,
                 Item.Posiciones,
+                Item.CobroPorcientoAdicional,
                 Accion);
             if (Comprobante != null)
             {
@@ -508,7 +510,8 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
                                      Estatus = n.Estatus,
                                      ValidoHasta = n.ValidoHasta,
                                      PorDefecto = n.PorDefecto,
-                                     Posiciones = n.Posiciones
+                                     Posiciones = n.Posiciones,
+                                     CobroPorcientoAdicional=n.CobroPorcientoAdicional
                                  }).FirstOrDefault();
             }
             return Mantenimiento;

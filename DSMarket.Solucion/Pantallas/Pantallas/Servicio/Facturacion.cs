@@ -467,6 +467,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             Calculos.Cambio = Convert.ToDecimal(txtCambio.Text);
             Calculos.IdTipoPago = Convert.ToDecimal(ddltIPago.SelectedValue);
             Calculos.TotalGeneral = Convert.ToDecimal(txtTotal.Text);
+            Calculos.PorcientoTipoPago = Convert.ToInt32(txtImpuestoAdicional.Text);
+            Calculos.MontoImpuestoTipoPago = Convert.ToDecimal(lbMontoPorcientoTipoPagoVariable.Text);
+            Calculos.PorcientoImpuestoComprobante = Convert.ToInt32(txtImpuestoComprobante.Text);
+            Calculos.MontoImpuestoComprobante = Convert.ToDecimal(lbMontoImpuestoPorcientoComprobanteVariable.Text);
 
 
             var MAn = ObjDataServicio.Value.GuardarFacturacionCalculos(Calculos, Accion);
@@ -1612,6 +1616,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
                 var MAN = ObjDataConfiguracion.Value.MantenimientoConfiguracionGeneral(Modificar, "UPDATE");
                 MostrarComprobantesFiscales();
+                txtImpuestoComprobante.Text = SacarImpuestoComprobante(Convert.ToDecimal(ddlTipoFacturacion.SelectedValue)).ToString();
             }
             else
             {
@@ -1625,6 +1630,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
                 var MAN = ObjDataConfiguracion.Value.MantenimientoConfiguracionGeneral(Modificar, "UPDATE");
                 MostrarComprobantesFiscales();
+                txtImpuestoComprobante.Text = SacarImpuestoComprobante(Convert.ToDecimal(ddlTipoFacturacion.SelectedValue)).ToString();
 
             }
         }
@@ -1646,13 +1652,24 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             ddlSeleccionarTiempoGarantia.ValueMember = "IdTipoTiempoGarantia";
         }
         #endregion
+        #region SACAR EL IMPUSTO DEL COMPROBANTE SELECCIONADO
+        private int SacarImpuestoComprobante(decimal IdCOmprobante) {
+            int ImpuestoCOmprobante = 0;
 
+            var SacarImpuestoCOmprobante = ObjDataConfiguracion.Value.BuscaComprobantesFiscales(IdCOmprobante);
+            foreach (var n in SacarImpuestoCOmprobante) {
+                ImpuestoCOmprobante = Convert.ToInt32(n.CobroPorcientoAdicional);
+            }
+            return ImpuestoCOmprobante;
+        }
+        #endregion
 
         private void Facturacion_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             
             MostrarComprobantesFiscales();
+            txtImpuestoComprobante.Text = SacarImpuestoComprobante(Convert.ToDecimal(ddlTipoFacturacion.SelectedValue)).ToString();
             ListadoTipoTiempoGarantia();
             ValidarUsoComprobantes();
             MostrarTipoIdentificacion();
@@ -1672,6 +1689,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             lbCredito.ForeColor = Color.White;
             lbMontoCredito.Text = "0.00";
             lbMontoCredito.ForeColor = Color.White;
+            lbMontoPorcientoImpuestoTipoPagoTitulo.ForeColor = Color.White;
+            lbMontoPorcientoTipoPagoVariable.ForeColor = Color.White;
+            lbMontoImpuestoPorcientoComprobanteVariable.ForeColor = Color.White;
+            lbMontoPorcientoImpuestoComprobanteVariable.ForeColor = Color.White;
             rbFacturar.Checked = true;
             BloarControlesClientes();
             rbFacturar.ForeColor = Color.LimeGreen;
@@ -2060,15 +2081,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     txtMontoPagar.Text = "0";
                 }
 
-                if (ImpuestoAdicional == true) {
+                if (ImpuestoAdicional == true)
+                {
                     if (PorcentajeEntero == true)
                     {
                         decimal TotalPagar = Convert.ToDecimal(txtTotal.Text);
                         decimal Operacion = 0;
                         Operacion = TotalPagar + Valor;
                         txtTotal.Text = string.Empty;
-                        txtTotal.Text = Operacion.ToString("N2");
+                        txtTotal.Text = Operacion.ToString("N0");
                         txtMontoPagar.Text = txtTotal.Text;
+                        //   lbMontoPorcientoTipoPagoVariable.Text = valor
                     }
                     else if (PorcentajeEntero == false)
                     {
@@ -2078,18 +2101,23 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         Operacion = TotalPagar * Convertir;
                         Operacion2 = Operacion + TotalPagar;
                         txtTotal.Text = string.Empty;
-                        txtTotal.Text = Operacion2.ToString("N2");
+                        txtTotal.Text = Operacion2.ToString("N0");
                         txtMontoPagar.Text = txtTotal.Text;
-
+                        lbMontoPorcientoTipoPagoVariable.Text = Operacion.ToString("N2");
                     }
-                    else {
+                    else
+                    {
                         decimal TotalPagar = Convert.ToDecimal(txtTotal.Text);
                         decimal Operacion = 0;
                         Operacion = TotalPagar + Valor;
                         txtTotal.Text = string.Empty;
                         txtTotal.Text = Operacion.ToString("N2");
                         txtMontoPagar.Text = txtTotal.Text;
+                      
                     }
+                }
+                else {
+                    lbMontoPorcientoTipoPagoVariable.Text = "0";
                 }
             }
             catch (Exception) { }
@@ -2290,6 +2318,14 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         {
             ManupularUsoComprobante();
           
+        }
+
+        private void ddlTipoFacturacion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try {
+                txtImpuestoComprobante.Text = SacarImpuestoComprobante(Convert.ToDecimal(ddlTipoFacturacion.SelectedValue)).ToString();
+            }
+            catch (Exception) { }
         }
     }
 }

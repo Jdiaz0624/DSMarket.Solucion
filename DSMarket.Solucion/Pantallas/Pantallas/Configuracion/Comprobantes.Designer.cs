@@ -64,6 +64,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtListado = new System.Windows.Forms.DataGridView();
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.txtCobroAdicional = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel2.SuspendLayout();
@@ -99,7 +101,7 @@
             this.cbPorDefecto.AutoSize = true;
             this.cbPorDefecto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbPorDefecto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbPorDefecto.Location = new System.Drawing.Point(319, 190);
+            this.cbPorDefecto.Location = new System.Drawing.Point(294, 226);
             this.cbPorDefecto.Name = "cbPorDefecto";
             this.cbPorDefecto.Size = new System.Drawing.Size(119, 25);
             this.cbPorDefecto.TabIndex = 21;
@@ -113,7 +115,7 @@
             this.cbEstatus.AutoSize = true;
             this.cbEstatus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbEstatus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbEstatus.Location = new System.Drawing.Point(230, 187);
+            this.cbEstatus.Location = new System.Drawing.Point(205, 223);
             this.cbEstatus.Name = "cbEstatus";
             this.cbEstatus.Size = new System.Drawing.Size(83, 25);
             this.cbEstatus.TabIndex = 20;
@@ -205,6 +207,8 @@
             // 
             // gnConfiguracion
             // 
+            this.gnConfiguracion.Controls.Add(this.txtCobroAdicional);
+            this.gnConfiguracion.Controls.Add(this.label11);
             this.gnConfiguracion.Controls.Add(this.label10);
             this.gnConfiguracion.Controls.Add(this.cbPorDefecto);
             this.gnConfiguracion.Controls.Add(this.cbEstatus);
@@ -230,7 +234,7 @@
             this.gnConfiguracion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gnConfiguracion.Location = new System.Drawing.Point(11, 435);
             this.gnConfiguracion.Name = "gnConfiguracion";
-            this.gnConfiguracion.Size = new System.Drawing.Size(1017, 217);
+            this.gnConfiguracion.Size = new System.Drawing.Size(1017, 255);
             this.gnConfiguracion.TabIndex = 99;
             this.gnConfiguracion.TabStop = false;
             this.gnConfiguracion.Text = "Configuración De Comprobante";
@@ -452,11 +456,28 @@
             this.Select.UseColumnTextForButtonValue = true;
             this.Select.Width = 64;
             // 
+            // txtCobroAdicional
+            // 
+            this.txtCobroAdicional.BackColor = System.Drawing.Color.LightGray;
+            this.txtCobroAdicional.Location = new System.Drawing.Point(205, 190);
+            this.txtCobroAdicional.Name = "txtCobroAdicional";
+            this.txtCobroAdicional.Size = new System.Drawing.Size(318, 27);
+            this.txtCobroAdicional.TabIndex = 25;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(59, 193);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(143, 21);
+            this.label11.TabIndex = 24;
+            this.label11.Text = "Cobro Adicional*";
+            // 
             // Comprobantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1040, 663);
+            this.ClientSize = new System.Drawing.Size(1040, 698);
             this.Controls.Add(this.gnConfiguracion);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel2);
@@ -521,5 +542,7 @@
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.CheckBox cbUsarComprobantes;
+        private System.Windows.Forms.TextBox txtCobroAdicional;
+        private System.Windows.Forms.Label label11;
     }
 }

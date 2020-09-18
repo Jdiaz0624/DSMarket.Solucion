@@ -119,6 +119,12 @@
             this.lbTitulo = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.txtImpuestoComprobante = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.lbMontoPorcientoImpuestoTipoPagoTitulo = new System.Windows.Forms.Label();
+            this.lbMontoPorcientoTipoPagoVariable = new System.Windows.Forms.Label();
+            this.lbMontoPorcientoImpuestoComprobanteVariable = new System.Windows.Forms.Label();
+            this.lbMontoImpuestoPorcientoComprobanteVariable = new System.Windows.Forms.Label();
             this.gbGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCantidadDiasGarantia)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -133,6 +139,8 @@
             // 
             // gbGeneral
             // 
+            this.gbGeneral.Controls.Add(this.txtImpuestoComprobante);
+            this.gbGeneral.Controls.Add(this.label25);
             this.gbGeneral.Controls.Add(this.ddlSeleccionarTiempoGarantia);
             this.gbGeneral.Controls.Add(this.cbUsarComprobantes);
             this.gbGeneral.Controls.Add(this.ddlSeleccionarTipoIngres);
@@ -179,7 +187,7 @@
             this.gbGeneral.Margin = new System.Windows.Forms.Padding(4);
             this.gbGeneral.Name = "gbGeneral";
             this.gbGeneral.Padding = new System.Windows.Forms.Padding(4);
-            this.gbGeneral.Size = new System.Drawing.Size(1220, 645);
+            this.gbGeneral.Size = new System.Drawing.Size(1220, 674);
             this.gbGeneral.TabIndex = 3;
             this.gbGeneral.TabStop = false;
             this.gbGeneral.Text = "Datos de Facturación";
@@ -223,7 +231,7 @@
             this.ddlSeleccionarTipoIngres.FormattingEnabled = true;
             this.ddlSeleccionarTipoIngres.Location = new System.Drawing.Point(567, 265);
             this.ddlSeleccionarTipoIngres.Name = "ddlSeleccionarTipoIngres";
-            this.ddlSeleccionarTipoIngres.Size = new System.Drawing.Size(466, 28);
+            this.ddlSeleccionarTipoIngres.Size = new System.Drawing.Size(431, 28);
             this.ddlSeleccionarTipoIngres.TabIndex = 64;
             // 
             // label24
@@ -274,18 +282,18 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(1044, 165);
+            this.label21.Location = new System.Drawing.Point(1037, 164);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(152, 20);
+            this.label21.Size = new System.Drawing.Size(156, 20);
             this.label21.TabIndex = 60;
-            this.label21.Text = "Impuesto Adicional";
+            this.label21.Text = "Impuesto Tipo Pago";
             // 
             // cbEliminarfacturaMinimizada
             // 
             this.cbEliminarfacturaMinimizada.AutoSize = true;
             this.cbEliminarfacturaMinimizada.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbEliminarfacturaMinimizada.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbEliminarfacturaMinimizada.Location = new System.Drawing.Point(957, 355);
+            this.cbEliminarfacturaMinimizada.Location = new System.Drawing.Point(957, 379);
             this.cbEliminarfacturaMinimizada.Name = "cbEliminarfacturaMinimizada";
             this.cbEliminarfacturaMinimizada.Size = new System.Drawing.Size(249, 24);
             this.cbEliminarfacturaMinimizada.TabIndex = 59;
@@ -316,7 +324,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dtFacturasMinimizadas);
-            this.groupBox3.Location = new System.Drawing.Point(627, 374);
+            this.groupBox3.Location = new System.Drawing.Point(627, 400);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(586, 192);
             this.groupBox3.TabIndex = 8;
@@ -359,7 +367,7 @@
             // 
             this.lbcantidadFActuras.AutoSize = true;
             this.lbcantidadFActuras.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbcantidadFActuras.Location = new System.Drawing.Point(925, 360);
+            this.lbcantidadFActuras.Location = new System.Drawing.Point(925, 384);
             this.lbcantidadFActuras.Name = "lbcantidadFActuras";
             this.lbcantidadFActuras.Size = new System.Drawing.Size(15, 16);
             this.lbcantidadFActuras.TabIndex = 56;
@@ -368,7 +376,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(767, 330);
+            this.label8.Location = new System.Drawing.Point(767, 355);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(66, 20);
             this.label8.TabIndex = 54;
@@ -378,7 +386,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(772, 360);
+            this.label13.Location = new System.Drawing.Point(772, 384);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(147, 16);
             this.label13.TabIndex = 55;
@@ -487,7 +495,7 @@
             // 
             this.txtCambio.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtCambio.Enabled = false;
-            this.txtCambio.Location = new System.Drawing.Point(838, 327);
+            this.txtCambio.Location = new System.Drawing.Point(838, 352);
             this.txtCambio.Name = "txtCambio";
             this.txtCambio.Size = new System.Drawing.Size(165, 27);
             this.txtCambio.TabIndex = 43;
@@ -505,7 +513,7 @@
             // txtMontoPagar
             // 
             this.txtMontoPagar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtMontoPagar.Location = new System.Drawing.Point(597, 327);
+            this.txtMontoPagar.Location = new System.Drawing.Point(597, 352);
             this.txtMontoPagar.Name = "txtMontoPagar";
             this.txtMontoPagar.Size = new System.Drawing.Size(164, 27);
             this.txtMontoPagar.TabIndex = 40;
@@ -518,7 +526,7 @@
             this.ddltIPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddltIPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ddltIPago.FormattingEnabled = true;
-            this.ddltIPago.Location = new System.Drawing.Point(1012, 326);
+            this.ddltIPago.Location = new System.Drawing.Point(1012, 351);
             this.ddltIPago.Name = "ddltIPago";
             this.ddltIPago.Size = new System.Drawing.Size(207, 28);
             this.ddltIPago.TabIndex = 29;
@@ -528,7 +536,7 @@
             // 
             this.txtTotal.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtTotal.Enabled = false;
-            this.txtTotal.Location = new System.Drawing.Point(1007, 235);
+            this.txtTotal.Location = new System.Drawing.Point(1007, 293);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(209, 27);
             this.txtTotal.TabIndex = 39;
@@ -577,7 +585,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(464, 331);
+            this.label20.Location = new System.Drawing.Point(464, 356);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(130, 20);
             this.label20.TabIndex = 35;
@@ -586,7 +594,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(1074, 304);
+            this.label19.Location = new System.Drawing.Point(1074, 329);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(104, 20);
             this.label19.TabIndex = 34;
@@ -595,7 +603,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(1101, 215);
+            this.label18.Location = new System.Drawing.Point(1101, 273);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(48, 20);
             this.label18.TabIndex = 33;
@@ -640,7 +648,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dtProductosAgregados);
-            this.groupBox1.Location = new System.Drawing.Point(6, 374);
+            this.groupBox1.Location = new System.Drawing.Point(6, 400);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(615, 192);
             this.groupBox1.TabIndex = 7;
@@ -670,7 +678,7 @@
             this.groupBox4.Controls.Add(this.btnAgregarProductos);
             this.groupBox4.Controls.Add(this.btnARS);
             this.groupBox4.Controls.Add(this.btnMinimizarFactura);
-            this.groupBox4.Location = new System.Drawing.Point(9, 562);
+            this.groupBox4.Location = new System.Drawing.Point(9, 589);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(1197, 77);
             this.groupBox4.TabIndex = 6;
@@ -1036,6 +1044,7 @@
             this.ddlTipoFacturacion.Name = "ddlTipoFacturacion";
             this.ddlTipoFacturacion.Size = new System.Drawing.Size(336, 28);
             this.ddlTipoFacturacion.TabIndex = 10;
+            this.ddlTipoFacturacion.SelectedIndexChanged += new System.EventHandler(this.ddlTipoFacturacion_SelectedIndexChanged);
             // 
             // txtNoCotizacion
             // 
@@ -1126,6 +1135,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.lbMontoPorcientoImpuestoComprobanteVariable);
+            this.panel1.Controls.Add(this.lbMontoImpuestoPorcientoComprobanteVariable);
+            this.panel1.Controls.Add(this.lbMontoPorcientoTipoPagoVariable);
+            this.panel1.Controls.Add(this.lbMontoPorcientoImpuestoTipoPagoTitulo);
             this.panel1.Controls.Add(this.lbNumeroConector);
             this.panel1.Controls.Add(this.PCerrar);
             this.panel1.Controls.Add(this.lbMontoCredito);
@@ -1142,7 +1155,7 @@
             // lbNumeroConector
             // 
             this.lbNumeroConector.AutoSize = true;
-            this.lbNumeroConector.Location = new System.Drawing.Point(868, 9);
+            this.lbNumeroConector.Location = new System.Drawing.Point(1013, 15);
             this.lbNumeroConector.Name = "lbNumeroConector";
             this.lbNumeroConector.Size = new System.Drawing.Size(64, 20);
             this.lbNumeroConector.TabIndex = 32;
@@ -1186,12 +1199,68 @@
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
             // 
+            // txtImpuestoComprobante
+            // 
+            this.txtImpuestoComprobante.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtImpuestoComprobante.Enabled = false;
+            this.txtImpuestoComprobante.Location = new System.Drawing.Point(1004, 242);
+            this.txtImpuestoComprobante.Name = "txtImpuestoComprobante";
+            this.txtImpuestoComprobante.Size = new System.Drawing.Size(206, 27);
+            this.txtImpuestoComprobante.TabIndex = 68;
+            this.txtImpuestoComprobante.Text = "0";
+            this.txtImpuestoComprobante.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(1024, 218);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(182, 20);
+            this.label25.TabIndex = 67;
+            this.label25.Text = "Impuesto Comprobante";
+            // 
+            // lbMontoPorcientoImpuestoTipoPagoTitulo
+            // 
+            this.lbMontoPorcientoImpuestoTipoPagoTitulo.AutoSize = true;
+            this.lbMontoPorcientoImpuestoTipoPagoTitulo.Location = new System.Drawing.Point(627, 9);
+            this.lbMontoPorcientoImpuestoTipoPagoTitulo.Name = "lbMontoPorcientoImpuestoTipoPagoTitulo";
+            this.lbMontoPorcientoImpuestoTipoPagoTitulo.Size = new System.Drawing.Size(172, 20);
+            this.lbMontoPorcientoImpuestoTipoPagoTitulo.TabIndex = 33;
+            this.lbMontoPorcientoImpuestoTipoPagoTitulo.Text = "Monto % Tipo de Pago";
+            // 
+            // lbMontoPorcientoTipoPagoVariable
+            // 
+            this.lbMontoPorcientoTipoPagoVariable.AutoSize = true;
+            this.lbMontoPorcientoTipoPagoVariable.Location = new System.Drawing.Point(804, 9);
+            this.lbMontoPorcientoTipoPagoVariable.Name = "lbMontoPorcientoTipoPagoVariable";
+            this.lbMontoPorcientoTipoPagoVariable.Size = new System.Drawing.Size(18, 20);
+            this.lbMontoPorcientoTipoPagoVariable.TabIndex = 34;
+            this.lbMontoPorcientoTipoPagoVariable.Text = "0";
+            // 
+            // lbMontoPorcientoImpuestoComprobanteVariable
+            // 
+            this.lbMontoPorcientoImpuestoComprobanteVariable.AutoSize = true;
+            this.lbMontoPorcientoImpuestoComprobanteVariable.Location = new System.Drawing.Point(1131, 9);
+            this.lbMontoPorcientoImpuestoComprobanteVariable.Name = "lbMontoPorcientoImpuestoComprobanteVariable";
+            this.lbMontoPorcientoImpuestoComprobanteVariable.Size = new System.Drawing.Size(18, 20);
+            this.lbMontoPorcientoImpuestoComprobanteVariable.TabIndex = 36;
+            this.lbMontoPorcientoImpuestoComprobanteVariable.Text = "0";
+            // 
+            // lbMontoImpuestoPorcientoComprobanteVariable
+            // 
+            this.lbMontoImpuestoPorcientoComprobanteVariable.AutoSize = true;
+            this.lbMontoImpuestoPorcientoComprobanteVariable.Location = new System.Drawing.Point(927, 9);
+            this.lbMontoImpuestoPorcientoComprobanteVariable.Name = "lbMontoImpuestoPorcientoComprobanteVariable";
+            this.lbMontoImpuestoPorcientoComprobanteVariable.Size = new System.Drawing.Size(198, 20);
+            this.lbMontoImpuestoPorcientoComprobanteVariable.TabIndex = 35;
+            this.lbMontoImpuestoPorcientoComprobanteVariable.Text = "Monto % de Comprobante";
+            // 
             // Facturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
-            this.ClientSize = new System.Drawing.Size(1248, 706);
+            this.ClientSize = new System.Drawing.Size(1248, 742);
             this.Controls.Add(this.gbGeneral);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.cbAgregarCliente);
@@ -1315,5 +1384,11 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.CheckBox cbUsarComprobantes;
         public System.Windows.Forms.ComboBox ddlSeleccionarTiempoGarantia;
+        private System.Windows.Forms.TextBox txtImpuestoComprobante;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label lbMontoPorcientoImpuestoComprobanteVariable;
+        private System.Windows.Forms.Label lbMontoImpuestoPorcientoComprobanteVariable;
+        private System.Windows.Forms.Label lbMontoPorcientoTipoPagoVariable;
+        private System.Windows.Forms.Label lbMontoPorcientoImpuestoTipoPagoTitulo;
     }
 }
