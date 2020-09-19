@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Facturacion));
             this.gbGeneral = new System.Windows.Forms.GroupBox();
+            this.txtImpuestoComprobante = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
             this.ddlSeleccionarTiempoGarantia = new System.Windows.Forms.ComboBox();
             this.cbUsarComprobantes = new System.Windows.Forms.CheckBox();
             this.ddlSeleccionarTipoIngres = new System.Windows.Forms.ComboBox();
@@ -113,18 +115,18 @@
             this.cbAgregarCliente = new System.Windows.Forms.CheckBox();
             this.lbCredito = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbMontoPorcientoImpuestoComprobanteVariable = new System.Windows.Forms.Label();
+            this.lbMontoImpuestoPorcientoComprobanteVariable = new System.Windows.Forms.Label();
+            this.lbMontoPorcientoTipoPagoVariable = new System.Windows.Forms.Label();
+            this.lbMontoPorcientoImpuestoTipoPagoTitulo = new System.Windows.Forms.Label();
             this.lbNumeroConector = new System.Windows.Forms.Label();
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbMontoCredito = new System.Windows.Forms.Label();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.txtImpuestoComprobante = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.lbMontoPorcientoImpuestoTipoPagoTitulo = new System.Windows.Forms.Label();
-            this.lbMontoPorcientoTipoPagoVariable = new System.Windows.Forms.Label();
-            this.lbMontoPorcientoImpuestoComprobanteVariable = new System.Windows.Forms.Label();
-            this.lbMontoImpuestoPorcientoComprobanteVariable = new System.Windows.Forms.Label();
+            this.lbValorSinImpuestoVariable = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
             this.gbGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCantidadDiasGarantia)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -139,7 +141,9 @@
             // 
             // gbGeneral
             // 
+            this.gbGeneral.Controls.Add(this.lbValorSinImpuestoVariable);
             this.gbGeneral.Controls.Add(this.txtImpuestoComprobante);
+            this.gbGeneral.Controls.Add(this.label27);
             this.gbGeneral.Controls.Add(this.label25);
             this.gbGeneral.Controls.Add(this.ddlSeleccionarTiempoGarantia);
             this.gbGeneral.Controls.Add(this.cbUsarComprobantes);
@@ -192,6 +196,26 @@
             this.gbGeneral.TabStop = false;
             this.gbGeneral.Text = "Datos de Facturación";
             this.gbGeneral.Enter += new System.EventHandler(this.gbGeneral_Enter);
+            // 
+            // txtImpuestoComprobante
+            // 
+            this.txtImpuestoComprobante.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtImpuestoComprobante.Enabled = false;
+            this.txtImpuestoComprobante.Location = new System.Drawing.Point(1004, 242);
+            this.txtImpuestoComprobante.Name = "txtImpuestoComprobante";
+            this.txtImpuestoComprobante.Size = new System.Drawing.Size(206, 27);
+            this.txtImpuestoComprobante.TabIndex = 68;
+            this.txtImpuestoComprobante.Text = "0";
+            this.txtImpuestoComprobante.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(1024, 218);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(182, 20);
+            this.label25.TabIndex = 67;
+            this.label25.Text = "Impuesto Comprobante";
             // 
             // ddlSeleccionarTiempoGarantia
             // 
@@ -1125,7 +1149,7 @@
             // lbCredito
             // 
             this.lbCredito.AutoSize = true;
-            this.lbCredito.Location = new System.Drawing.Point(391, 9);
+            this.lbCredito.Location = new System.Drawing.Point(248, 42);
             this.lbCredito.Name = "lbCredito";
             this.lbCredito.Size = new System.Drawing.Size(64, 20);
             this.lbCredito.TabIndex = 30;
@@ -1141,9 +1165,7 @@
             this.panel1.Controls.Add(this.lbMontoPorcientoImpuestoTipoPagoTitulo);
             this.panel1.Controls.Add(this.lbNumeroConector);
             this.panel1.Controls.Add(this.PCerrar);
-            this.panel1.Controls.Add(this.lbMontoCredito);
             this.panel1.Controls.Add(this.lbTitulo);
-            this.panel1.Controls.Add(this.lbCredito);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
@@ -1151,6 +1173,42 @@
             this.panel1.Size = new System.Drawing.Size(1248, 38);
             this.panel1.TabIndex = 2;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // lbMontoPorcientoImpuestoComprobanteVariable
+            // 
+            this.lbMontoPorcientoImpuestoComprobanteVariable.AutoSize = true;
+            this.lbMontoPorcientoImpuestoComprobanteVariable.Location = new System.Drawing.Point(964, 9);
+            this.lbMontoPorcientoImpuestoComprobanteVariable.Name = "lbMontoPorcientoImpuestoComprobanteVariable";
+            this.lbMontoPorcientoImpuestoComprobanteVariable.Size = new System.Drawing.Size(18, 20);
+            this.lbMontoPorcientoImpuestoComprobanteVariable.TabIndex = 36;
+            this.lbMontoPorcientoImpuestoComprobanteVariable.Text = "0";
+            // 
+            // lbMontoImpuestoPorcientoComprobanteVariable
+            // 
+            this.lbMontoImpuestoPorcientoComprobanteVariable.AutoSize = true;
+            this.lbMontoImpuestoPorcientoComprobanteVariable.Location = new System.Drawing.Point(760, 9);
+            this.lbMontoImpuestoPorcientoComprobanteVariable.Name = "lbMontoImpuestoPorcientoComprobanteVariable";
+            this.lbMontoImpuestoPorcientoComprobanteVariable.Size = new System.Drawing.Size(198, 20);
+            this.lbMontoImpuestoPorcientoComprobanteVariable.TabIndex = 35;
+            this.lbMontoImpuestoPorcientoComprobanteVariable.Text = "Monto % de Comprobante";
+            // 
+            // lbMontoPorcientoTipoPagoVariable
+            // 
+            this.lbMontoPorcientoTipoPagoVariable.AutoSize = true;
+            this.lbMontoPorcientoTipoPagoVariable.Location = new System.Drawing.Point(676, 9);
+            this.lbMontoPorcientoTipoPagoVariable.Name = "lbMontoPorcientoTipoPagoVariable";
+            this.lbMontoPorcientoTipoPagoVariable.Size = new System.Drawing.Size(18, 20);
+            this.lbMontoPorcientoTipoPagoVariable.TabIndex = 34;
+            this.lbMontoPorcientoTipoPagoVariable.Text = "0";
+            // 
+            // lbMontoPorcientoImpuestoTipoPagoTitulo
+            // 
+            this.lbMontoPorcientoImpuestoTipoPagoTitulo.AutoSize = true;
+            this.lbMontoPorcientoImpuestoTipoPagoTitulo.Location = new System.Drawing.Point(499, 9);
+            this.lbMontoPorcientoImpuestoTipoPagoTitulo.Name = "lbMontoPorcientoImpuestoTipoPagoTitulo";
+            this.lbMontoPorcientoImpuestoTipoPagoTitulo.Size = new System.Drawing.Size(172, 20);
+            this.lbMontoPorcientoImpuestoTipoPagoTitulo.TabIndex = 33;
+            this.lbMontoPorcientoImpuestoTipoPagoTitulo.Text = "Monto % Tipo de Pago";
             // 
             // lbNumeroConector
             // 
@@ -1178,7 +1236,7 @@
             // lbMontoCredito
             // 
             this.lbMontoCredito.AutoSize = true;
-            this.lbMontoCredito.Location = new System.Drawing.Point(461, 9);
+            this.lbMontoCredito.Location = new System.Drawing.Point(318, 42);
             this.lbMontoCredito.Name = "lbMontoCredito";
             this.lbMontoCredito.Size = new System.Drawing.Size(64, 20);
             this.lbMontoCredito.TabIndex = 31;
@@ -1199,61 +1257,23 @@
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
             // 
-            // txtImpuestoComprobante
+            // lbValorSinImpuestoVariable
             // 
-            this.txtImpuestoComprobante.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtImpuestoComprobante.Enabled = false;
-            this.txtImpuestoComprobante.Location = new System.Drawing.Point(1004, 242);
-            this.txtImpuestoComprobante.Name = "txtImpuestoComprobante";
-            this.txtImpuestoComprobante.Size = new System.Drawing.Size(206, 27);
-            this.txtImpuestoComprobante.TabIndex = 68;
-            this.txtImpuestoComprobante.Text = "0";
-            this.txtImpuestoComprobante.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lbValorSinImpuestoVariable.AutoSize = true;
+            this.lbValorSinImpuestoVariable.Location = new System.Drawing.Point(813, 302);
+            this.lbValorSinImpuestoVariable.Name = "lbValorSinImpuestoVariable";
+            this.lbValorSinImpuestoVariable.Size = new System.Drawing.Size(18, 20);
+            this.lbValorSinImpuestoVariable.TabIndex = 38;
+            this.lbValorSinImpuestoVariable.Text = "0";
             // 
-            // label25
+            // label27
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(1024, 218);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(182, 20);
-            this.label25.TabIndex = 67;
-            this.label25.Text = "Impuesto Comprobante";
-            // 
-            // lbMontoPorcientoImpuestoTipoPagoTitulo
-            // 
-            this.lbMontoPorcientoImpuestoTipoPagoTitulo.AutoSize = true;
-            this.lbMontoPorcientoImpuestoTipoPagoTitulo.Location = new System.Drawing.Point(627, 9);
-            this.lbMontoPorcientoImpuestoTipoPagoTitulo.Name = "lbMontoPorcientoImpuestoTipoPagoTitulo";
-            this.lbMontoPorcientoImpuestoTipoPagoTitulo.Size = new System.Drawing.Size(172, 20);
-            this.lbMontoPorcientoImpuestoTipoPagoTitulo.TabIndex = 33;
-            this.lbMontoPorcientoImpuestoTipoPagoTitulo.Text = "Monto % Tipo de Pago";
-            // 
-            // lbMontoPorcientoTipoPagoVariable
-            // 
-            this.lbMontoPorcientoTipoPagoVariable.AutoSize = true;
-            this.lbMontoPorcientoTipoPagoVariable.Location = new System.Drawing.Point(804, 9);
-            this.lbMontoPorcientoTipoPagoVariable.Name = "lbMontoPorcientoTipoPagoVariable";
-            this.lbMontoPorcientoTipoPagoVariable.Size = new System.Drawing.Size(18, 20);
-            this.lbMontoPorcientoTipoPagoVariable.TabIndex = 34;
-            this.lbMontoPorcientoTipoPagoVariable.Text = "0";
-            // 
-            // lbMontoPorcientoImpuestoComprobanteVariable
-            // 
-            this.lbMontoPorcientoImpuestoComprobanteVariable.AutoSize = true;
-            this.lbMontoPorcientoImpuestoComprobanteVariable.Location = new System.Drawing.Point(1131, 9);
-            this.lbMontoPorcientoImpuestoComprobanteVariable.Name = "lbMontoPorcientoImpuestoComprobanteVariable";
-            this.lbMontoPorcientoImpuestoComprobanteVariable.Size = new System.Drawing.Size(18, 20);
-            this.lbMontoPorcientoImpuestoComprobanteVariable.TabIndex = 36;
-            this.lbMontoPorcientoImpuestoComprobanteVariable.Text = "0";
-            // 
-            // lbMontoImpuestoPorcientoComprobanteVariable
-            // 
-            this.lbMontoImpuestoPorcientoComprobanteVariable.AutoSize = true;
-            this.lbMontoImpuestoPorcientoComprobanteVariable.Location = new System.Drawing.Point(927, 9);
-            this.lbMontoImpuestoPorcientoComprobanteVariable.Name = "lbMontoImpuestoPorcientoComprobanteVariable";
-            this.lbMontoImpuestoPorcientoComprobanteVariable.Size = new System.Drawing.Size(198, 20);
-            this.lbMontoImpuestoPorcientoComprobanteVariable.TabIndex = 35;
-            this.lbMontoImpuestoPorcientoComprobanteVariable.Text = "Monto % de Comprobante";
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(658, 299);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(149, 20);
+            this.label27.TabIndex = 37;
+            this.label27.Text = "Valor sin Impuesto";
             // 
             // Facturacion
             // 
@@ -1264,6 +1284,8 @@
             this.Controls.Add(this.gbGeneral);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.cbAgregarCliente);
+            this.Controls.Add(this.lbCredito);
+            this.Controls.Add(this.lbMontoCredito);
             this.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1390,5 +1412,7 @@
         private System.Windows.Forms.Label lbMontoImpuestoPorcientoComprobanteVariable;
         private System.Windows.Forms.Label lbMontoPorcientoTipoPagoVariable;
         private System.Windows.Forms.Label lbMontoPorcientoImpuestoTipoPagoTitulo;
+        private System.Windows.Forms.Label lbValorSinImpuestoVariable;
+        private System.Windows.Forms.Label label27;
     }
 }

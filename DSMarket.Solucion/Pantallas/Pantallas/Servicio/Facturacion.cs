@@ -453,6 +453,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         }
         //GUARDAR LOS DATOS DE LOS CALCULOS
         private void GuardarDatosCalculos(string Accion) {
+            CalcularImpuestos();
             DSMarket.Logica.Entidades.EntidadesServicio.EGuardarFacturacionCalculos Calculos = new Logica.Entidades.EntidadesServicio.EGuardarFacturacionCalculos();
 
             Calculos.NumeroColector = VariablesGlobales.NumeroConector;
@@ -470,7 +471,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             Calculos.PorcientoTipoPago = Convert.ToInt32(txtImpuestoAdicional.Text);
             Calculos.MontoImpuestoTipoPago = Convert.ToDecimal(lbMontoPorcientoTipoPagoVariable.Text);
             Calculos.PorcientoImpuestoComprobante = Convert.ToInt32(txtImpuestoComprobante.Text);
-            Calculos.MontoImpuestoComprobante = Convert.ToDecimal(lbMontoImpuestoPorcientoComprobanteVariable.Text);
+            Calculos.MontoImpuestoComprobante = Convert.ToDecimal(lbMontoPorcientoImpuestoComprobanteVariable.Text);
 
 
             var MAn = ObjDataServicio.Value.GuardarFacturacionCalculos(Calculos, Accion);
@@ -1616,7 +1617,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
                 var MAN = ObjDataConfiguracion.Value.MantenimientoConfiguracionGeneral(Modificar, "UPDATE");
                 MostrarComprobantesFiscales();
-                txtImpuestoComprobante.Text = SacarImpuestoComprobante(Convert.ToDecimal(ddlTipoFacturacion.SelectedValue)).ToString();
+                CalcularImpuestos();
             }
             else
             {
@@ -1630,7 +1631,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
                 var MAN = ObjDataConfiguracion.Value.MantenimientoConfiguracionGeneral(Modificar, "UPDATE");
                 MostrarComprobantesFiscales();
-                txtImpuestoComprobante.Text = SacarImpuestoComprobante(Convert.ToDecimal(ddlTipoFacturacion.SelectedValue)).ToString();
+                CalcularImpuestos();
 
             }
         }
@@ -1663,13 +1664,62 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             return ImpuestoCOmprobante;
         }
         #endregion
+        #region CALCULAR DESCUENTOS CORRESPONDIENTES
+        private void CalcularImpuestos() {
+            try {
+                decimal ImpuestoTipoPago = 0, ImpuestoComprobante = 0, ValorAcumuladoFacturar = 0;
+                lbMontoPorcientoTipoPagoVariable.Text = "0";
+                lbMontoPorcientoImpuestoComprobanteVariable.Text = "0";
+                txtImpuestoAdicional.Text = "0";
+                txtImpuestoComprobante.Text = "0";
+
+                //SACAMOS EL IMPUESTO DEL TIPO DE PAGO
+                var SacarImpuestoTipoPago = ObjDataServicio.Value.BuscaTipoPago(Convert.ToDecimal(ddltIPago.SelectedValue), null, 1, 1);
+                foreach (var n in SacarImpuestoTipoPago) {
+                    ImpuestoTipoPago = Convert.ToDecimal(n.Valor);
+                }
+
+                //SACAMOS EL IMPUESTO DEL COMPROBANTE 
+                // ImpuestoComprobante = SacarImpuestoComprobante(Convert.ToDecimal(ddlTipoIdentificacion.SelectedValue));
+                var SacarImpuestoComprobante = ObjDataConfiguracion.Value.BuscaComprobantesFiscales(Convert.ToDecimal(ddlTipoFacturacion.SelectedValue));
+                foreach (var n in SacarImpuestoComprobante) {
+                    ImpuestoComprobante = Convert.ToDecimal(n.CobroPorcientoAdicional);
+                }
+
+                //SACAR EL VALOR ACUMULADO
+                var sacarValorAcumulado = ObjDataServicio.Value.BuscapRoductosAgregados(
+                    new Nullable<decimal>(),
+                    VariablesGlobales.NumeroConector);
+                foreach (var n in sacarValorAcumulado) {
+                    ValorAcumuladoFacturar = Convert.ToDecimal(n.TotalGeneral);
+                }
+
+                txtImpuestoAdicional.Text = ImpuestoTipoPago.ToString("N0");
+                txtImpuestoComprobante.Text = ImpuestoComprobante.ToString("N0");
+
+                decimal PorcientoImpuestoTipoPago = ImpuestoTipoPago / 100;
+                decimal PorcientoImpuestoComprobante = ImpuestoComprobante / 100;
+                decimal MontoImpuestoTipoPago = ValorAcumuladoFacturar * PorcientoImpuestoTipoPago;
+                decimal MontoImpuestoComprobante = ValorAcumuladoFacturar * PorcientoImpuestoComprobante;
+                decimal ValorTotal = ValorAcumuladoFacturar + MontoImpuestoTipoPago + MontoImpuestoComprobante;
+
+                lbMontoPorcientoTipoPagoVariable.Text = MontoImpuestoTipoPago.ToString("N2");
+                lbMontoPorcientoImpuestoComprobanteVariable.Text = MontoImpuestoComprobante.ToString("N2");
+                lbValorSinImpuestoVariable.Text = ValorAcumuladoFacturar.ToString("N2");
+                txtTotal.Text = ValorTotal.ToString("N2");
+                txtMontoPagar.Text = txtTotal.Text;
+
+            }
+            catch (Exception) { }
+        }
+        #endregion
 
         private void Facturacion_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             
             MostrarComprobantesFiscales();
-            txtImpuestoComprobante.Text = SacarImpuestoComprobante(Convert.ToDecimal(ddlTipoFacturacion.SelectedValue)).ToString();
+            
             ListadoTipoTiempoGarantia();
             ValidarUsoComprobantes();
             MostrarTipoIdentificacion();
@@ -1717,6 +1767,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             txtTotal.Text = "0";
             BuscarProductosAgregados(VariablesGlobales.NumeroConector);
             MostrarListadoTipoPagos();
+            CalcularImpuestos();
             txtMontoPagar.Text = "0";
             CalcularCambio();
             ValidarConfiguracionGeneral();
@@ -2072,53 +2123,56 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 }
                 if (BloqueaMonto == true)
                 {
+                    CalcularImpuestos();
                     txtMontoPagar.Enabled = false;
                     txtMontoPagar.Text = txtTotal.Text;
                 }
                 else {
+                    CalcularImpuestos();
                     txtMontoPagar.Enabled = true;
                     txtMontoPagar.Text = string.Empty;
                     txtMontoPagar.Text = "0";
                 }
+               
+                //if (ImpuestoAdicional == true)
+                //{
 
-                if (ImpuestoAdicional == true)
-                {
-                    if (PorcentajeEntero == true)
-                    {
-                        decimal TotalPagar = Convert.ToDecimal(txtTotal.Text);
-                        decimal Operacion = 0;
-                        Operacion = TotalPagar + Valor;
-                        txtTotal.Text = string.Empty;
-                        txtTotal.Text = Operacion.ToString("N0");
-                        txtMontoPagar.Text = txtTotal.Text;
-                        //   lbMontoPorcientoTipoPagoVariable.Text = valor
-                    }
-                    else if (PorcentajeEntero == false)
-                    {
-                        decimal TotalPagar = Convert.ToDecimal(txtTotal.Text);
-                        decimal Operacion = 0, Convertir = 0, Operacion2 = 0;
-                        Convertir = Valor / 100;
-                        Operacion = TotalPagar * Convertir;
-                        Operacion2 = Operacion + TotalPagar;
-                        txtTotal.Text = string.Empty;
-                        txtTotal.Text = Operacion2.ToString("N0");
-                        txtMontoPagar.Text = txtTotal.Text;
-                        lbMontoPorcientoTipoPagoVariable.Text = Operacion.ToString("N2");
-                    }
-                    else
-                    {
-                        decimal TotalPagar = Convert.ToDecimal(txtTotal.Text);
-                        decimal Operacion = 0;
-                        Operacion = TotalPagar + Valor;
-                        txtTotal.Text = string.Empty;
-                        txtTotal.Text = Operacion.ToString("N2");
-                        txtMontoPagar.Text = txtTotal.Text;
-                      
-                    }
-                }
-                else {
-                    lbMontoPorcientoTipoPagoVariable.Text = "0";
-                }
+                //    //if (PorcentajeEntero == true)
+                //    //{
+                //    //    decimal TotalPagar = Convert.ToDecimal(txtTotal.Text);
+                //    //    decimal Operacion = 0;
+                //    //    Operacion = TotalPagar + Valor;
+                //    //    txtTotal.Text = string.Empty;
+                //    //    txtTotal.Text = Operacion.ToString("N0");
+                //    //    txtMontoPagar.Text = txtTotal.Text;
+                //    //    //   lbMontoPorcientoTipoPagoVariable.Text = valor
+                //    //}
+                //    //else if (PorcentajeEntero == false)
+                //    //{
+                //    //    decimal TotalPagar = Convert.ToDecimal(txtTotal.Text);
+                //    //    decimal Operacion = 0, Convertir = 0, Operacion2 = 0;
+                //    //    Convertir = Valor / 100;
+                //    //    Operacion = TotalPagar * Convertir;
+                //    //    Operacion2 = Operacion + TotalPagar;
+                //    //    txtTotal.Text = string.Empty;
+                //    //    txtTotal.Text = Operacion2.ToString("N0");
+                //    //    txtMontoPagar.Text = txtTotal.Text;
+                //    //    lbMontoPorcientoTipoPagoVariable.Text = Operacion.ToString("N2");
+                //    //}
+                //    //else
+                //    //{
+                //    //    decimal TotalPagar = Convert.ToDecimal(txtTotal.Text);
+                //    //    decimal Operacion = 0;
+                //    //    Operacion = TotalPagar + Valor;
+                //    //    txtTotal.Text = string.Empty;
+                //    //    txtTotal.Text = Operacion.ToString("N2");
+                //    //    txtMontoPagar.Text = txtTotal.Text;
+
+                //    //}
+                //}
+                //else {
+                //    lbMontoPorcientoTipoPagoVariable.Text = "0";
+                //}
             }
             catch (Exception) { }
         }
@@ -2323,7 +2377,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void ddlTipoFacturacion_SelectedIndexChanged(object sender, EventArgs e)
         {
             try {
-                txtImpuestoComprobante.Text = SacarImpuestoComprobante(Convert.ToDecimal(ddlTipoFacturacion.SelectedValue)).ToString();
+                CalcularImpuestos();
             }
             catch (Exception) { }
         }
