@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbCantidadRegistrosVariable = new System.Windows.Forms.Label();
+            this.lbCodigoComprobanteVariable = new System.Windows.Forms.Label();
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
-            this.lbCantidadRegistrosTitulo = new System.Windows.Forms.Label();
+            this.lbCodigoComprobante = new System.Windows.Forms.Label();
             this.gbGeneral = new System.Windows.Forms.GroupBox();
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
@@ -45,6 +45,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtListado = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtTiempoGarantia = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtGarantia = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.ddlSeleccionarTipoAnulacion = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtComentario = new System.Windows.Forms.TextBox();
@@ -87,10 +91,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.txtGarantia = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtTiempoGarantia = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.gbGeneral.SuspendLayout();
@@ -104,10 +104,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.panel1.Controls.Add(this.lbCantidadRegistrosVariable);
+            this.panel1.Controls.Add(this.lbCodigoComprobanteVariable);
             this.panel1.Controls.Add(this.PCerrar);
             this.panel1.Controls.Add(this.lbTitulo);
-            this.panel1.Controls.Add(this.lbCantidadRegistrosTitulo);
+            this.panel1.Controls.Add(this.lbCodigoComprobante);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
@@ -115,14 +115,14 @@
             this.panel1.Size = new System.Drawing.Size(1027, 38);
             this.panel1.TabIndex = 4;
             // 
-            // lbCantidadRegistrosVariable
+            // lbCodigoComprobanteVariable
             // 
-            this.lbCantidadRegistrosVariable.AutoSize = true;
-            this.lbCantidadRegistrosVariable.Location = new System.Drawing.Point(607, 9);
-            this.lbCantidadRegistrosVariable.Name = "lbCantidadRegistrosVariable";
-            this.lbCantidadRegistrosVariable.Size = new System.Drawing.Size(13, 15);
-            this.lbCantidadRegistrosVariable.TabIndex = 31;
-            this.lbCantidadRegistrosVariable.Text = "0";
+            this.lbCodigoComprobanteVariable.AutoSize = true;
+            this.lbCodigoComprobanteVariable.Location = new System.Drawing.Point(607, 9);
+            this.lbCodigoComprobanteVariable.Name = "lbCodigoComprobanteVariable";
+            this.lbCodigoComprobanteVariable.Size = new System.Drawing.Size(13, 15);
+            this.lbCodigoComprobanteVariable.TabIndex = 31;
+            this.lbCodigoComprobanteVariable.Text = "0";
             // 
             // PCerrar
             // 
@@ -147,14 +147,14 @@
             this.lbTitulo.TabIndex = 13;
             this.lbTitulo.Text = "label6";
             // 
-            // lbCantidadRegistrosTitulo
+            // lbCodigoComprobante
             // 
-            this.lbCantidadRegistrosTitulo.AutoSize = true;
-            this.lbCantidadRegistrosTitulo.Location = new System.Drawing.Point(429, 9);
-            this.lbCantidadRegistrosTitulo.Name = "lbCantidadRegistrosTitulo";
-            this.lbCantidadRegistrosTitulo.Size = new System.Drawing.Size(119, 15);
-            this.lbCantidadRegistrosTitulo.TabIndex = 30;
-            this.lbCantidadRegistrosTitulo.Text = "Cantidad de Registros";
+            this.lbCodigoComprobante.AutoSize = true;
+            this.lbCodigoComprobante.Location = new System.Drawing.Point(429, 9);
+            this.lbCodigoComprobante.Name = "lbCodigoComprobante";
+            this.lbCodigoComprobante.Size = new System.Drawing.Size(130, 15);
+            this.lbCodigoComprobante.TabIndex = 30;
+            this.lbCodigoComprobante.Text = "Codigo de Comprobante";
             // 
             // gbGeneral
             // 
@@ -351,6 +351,42 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de Cliente";
+            // 
+            // txtTiempoGarantia
+            // 
+            this.txtTiempoGarantia.BackColor = System.Drawing.Color.Silver;
+            this.txtTiempoGarantia.Enabled = false;
+            this.txtTiempoGarantia.Location = new System.Drawing.Point(687, 294);
+            this.txtTiempoGarantia.Name = "txtTiempoGarantia";
+            this.txtTiempoGarantia.Size = new System.Drawing.Size(279, 27);
+            this.txtTiempoGarantia.TabIndex = 69;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(528, 297);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(156, 20);
+            this.label22.TabIndex = 68;
+            this.label22.Text = "Tiempo de Garantia";
+            // 
+            // txtGarantia
+            // 
+            this.txtGarantia.BackColor = System.Drawing.Color.Silver;
+            this.txtGarantia.Enabled = false;
+            this.txtGarantia.Location = new System.Drawing.Point(204, 291);
+            this.txtGarantia.Name = "txtGarantia";
+            this.txtGarantia.Size = new System.Drawing.Size(279, 27);
+            this.txtGarantia.TabIndex = 67;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(124, 295);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(76, 20);
+            this.label13.TabIndex = 66;
+            this.label13.Text = "Garantia";
             // 
             // ddlSeleccionarTipoAnulacion
             // 
@@ -721,42 +757,6 @@
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
             // 
-            // txtGarantia
-            // 
-            this.txtGarantia.BackColor = System.Drawing.Color.Silver;
-            this.txtGarantia.Enabled = false;
-            this.txtGarantia.Location = new System.Drawing.Point(204, 291);
-            this.txtGarantia.Name = "txtGarantia";
-            this.txtGarantia.Size = new System.Drawing.Size(279, 27);
-            this.txtGarantia.TabIndex = 67;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(124, 295);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(76, 20);
-            this.label13.TabIndex = 66;
-            this.label13.Text = "Garantia";
-            // 
-            // txtTiempoGarantia
-            // 
-            this.txtTiempoGarantia.BackColor = System.Drawing.Color.Silver;
-            this.txtTiempoGarantia.Enabled = false;
-            this.txtTiempoGarantia.Location = new System.Drawing.Point(687, 294);
-            this.txtTiempoGarantia.Name = "txtTiempoGarantia";
-            this.txtTiempoGarantia.Size = new System.Drawing.Size(279, 27);
-            this.txtTiempoGarantia.TabIndex = 69;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(528, 297);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(156, 20);
-            this.label22.TabIndex = 68;
-            this.label22.Text = "Tiempo de Garantia";
-            // 
             // AnularFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -791,10 +791,10 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lbCantidadRegistrosVariable;
+        private System.Windows.Forms.Label lbCodigoComprobanteVariable;
         private System.Windows.Forms.PictureBox PCerrar;
         public System.Windows.Forms.Label lbTitulo;
-        private System.Windows.Forms.Label lbCantidadRegistrosTitulo;
+        private System.Windows.Forms.Label lbCodigoComprobante;
         private System.Windows.Forms.GroupBox gbGeneral;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtClaveSeguridad;

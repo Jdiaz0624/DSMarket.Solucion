@@ -140,6 +140,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     VariablesGlobales.IdTipOpagoAnularFactura = Convert.ToDecimal(n.IdTipoPago);
                     txtGarantia.Text = n.DiasGarantia.ToString();
                     txtTiempoGarantia.Text = n.TipoTiempoGarantia;
+                    lbCodigoComprobanteVariable.Text = n.IdComprobante.ToString();
                 }
 
                 var MostrarProductosAgregados = ObjDataServicio.Value.BuscapRoductosAgregados(
@@ -173,12 +174,22 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             else {
                 TiempoGarantia = 2;
             }
+
+            decimal IdComprobanteFactura = 0;
+            if (lbCodigoComprobanteVariable.Text == "0") {
+                ManipulacionComprobantesFiscales(false);
+                IdComprobanteFactura = 4;
+            
+            }
+            else {
+                ManipulacionComprobantesFiscales(true);
+                IdComprobanteFactura = 0; }
             DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionClientes Mantenimiento = new Logica.Entidades.EntidadesServicio.EFacturacionClientes();
 
             Mantenimiento.IdFactura = 0;
             Mantenimiento.NumeroConector = NumeroConector;
             Mantenimiento.IdEstatusFacturacion = 3;
-            Mantenimiento.IdComprobante = 4;
+            Mantenimiento.IdComprobante = IdComprobanteFactura;
             Mantenimiento.Nombre = txtNombreCliente.Text;
             Mantenimiento.Telefono = txtTelefono.Text;
             Mantenimiento.Email = txtEmail.Text;
@@ -597,6 +608,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             }
         }
         #endregion
+        #region MANIPULACIO DE COMPROBANTES FISCALES
+        private void ManipulacionComprobantesFiscales(bool EstatusComprobante) {
+            DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral Modificar = new Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral();
+
+            Modificar.IdConfiguracionGeneral = 1;
+            Modificar.Descripcion = "Usar Comprobantes Fiscales";
+            Modificar.Estatus0 = EstatusComprobante;
+
+            var MAN = ObjDataConfiguracion.Value.MantenimientoConfiguracionGeneral(Modificar, "UPDATE");
+        }
+        #endregion
 
         private void PCerrar_Click(object sender, EventArgs e)
         {
@@ -613,6 +635,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void AnularFactura_Load(object sender, EventArgs e)
         {
+            lbTitulo.Text = "ANULACION DE FACTURAS / ELIMINAR COTIZACIONES";
+            lbTitulo.ForeColor = Color.White;
+            lbCodigoComprobante.ForeColor = Color.White;
+            lbCodigoComprobanteVariable.ForeColor = Color.White;
             TemaGenerico();
             txtClaveSeguridad.PasswordChar = '•';
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
