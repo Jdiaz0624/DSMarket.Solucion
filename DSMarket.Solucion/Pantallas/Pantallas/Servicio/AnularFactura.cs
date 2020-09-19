@@ -178,12 +178,12 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             decimal IdComprobanteFactura = 0;
             if (lbCodigoComprobanteVariable.Text == "0") {
                 ManipulacionComprobantesFiscales(false);
-                IdComprobanteFactura = 4;
+                IdComprobanteFactura = 0;
             
             }
             else {
                 ManipulacionComprobantesFiscales(true);
-                IdComprobanteFactura = 0; }
+                IdComprobanteFactura = 4; }
             DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionClientes Mantenimiento = new Logica.Entidades.EntidadesServicio.EFacturacionClientes();
 
             Mantenimiento.IdFactura = 0;
