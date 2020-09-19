@@ -1787,15 +1787,18 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         btnAnular.Enabled = false;
                         btnModificarDiasGarantia.Enabled = false;
                     }
-                }
 
-                var BuscarRegistro = ObhDataServicio.Value.HistorialFacturacion(
-                    new Nullable<decimal>(),
-                    VariablesGlobales.NumeroConector,
-                    null, null, null, null, null, null, 1, 1000);
-                dtListado.DataSource = BuscarRegistro;
-                OcultarColumnas();
-                VariablesGlobales.GananciaFacturaUnica = true;
+                    var BuscarRegistro = ObhDataServicio.Value.HistorialFacturacion(
+               new Nullable<decimal>(),
+               VariablesGlobales.NumeroConector,
+               null, null, null, null, null, null, 1, 1000);
+                    dtListado.DataSource = BuscarRegistro;
+                    OcultarColumnas();
+                    VariablesGlobales.GananciaFacturaUnica = true;
+                }
+               
+
+           
 
             }
             else {
