@@ -54,42 +54,77 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
                         MesActual = MesIngresado;
                     }
                     //PROCESAMOS LA INFORMACION
-                    DSMarket.Logica.Comunes.ProcesarInformacion.ProcesarInformacionReportesFinancieros Eliminar = new Logica.Comunes.ProcesarInformacion.ProcesarInformacionReportesFinancieros(
-                        VariablesGlobales.IdUsuario, 0, "", "", 0, "", 0, "", 0, 0, 0, "", "", "", 0, 0, "", "", 0, 0, "", 0, 0, "DELETE");
+                    //DSMarket.Logica.Comunes.ProcesarInformacion.ProcesarInformacionReportesFinancieros Eliminar = new Logica.Comunes.ProcesarInformacion.ProcesarInformacionReportesFinancieros(
+                    //    VariablesGlobales.IdUsuario, 0, "", "", 0, "", 0, "", 0, 0, 0, "", "", "", 0, 0, "", "", 0, 0, "", 0, 0, "DELETE");
+                    //Eliminar.ProcesarInformacion();
+                    //var SacarInformacion = ObjDataContabilidad.Value.SacarInformacionCuentasMovimientos(
+                    //    txtAño.Text,
+                    //    MesActual);
+                    //foreach (var n in SacarInformacion) {
+                    //    DSMarket.Logica.Comunes.ProcesarInformacion.ProcesarInformacionReportesFinancieros Guardar = new Logica.Comunes.ProcesarInformacion.ProcesarInformacionReportesFinancieros(
+                    //        VariablesGlobales.IdUsuario,
+                    //        Convert.ToDecimal(n.IdRegistro),
+                    //        n.Ano,
+                    //        n.Mes,
+                    //        Convert.ToInt32(n.IdTipoCuenta),
+                    //        n.TipoCuenta,
+                    //        Convert.ToInt32(n.IdModulo),
+                    //        n.Modulo,
+                    //        Convert.ToDecimal(n.Conector),
+                    //        Convert.ToInt32(n.Secuencia),
+                    //        Convert.ToInt32(n.Banco),
+                    //        n.NombreBanco,
+                    //        n.Cuenta,
+                    //        n.Auxiliar,
+                    //        Convert.ToDecimal(n.Valor),
+                    //        Convert.ToInt32(n.IdOrigen),
+                    //        n.OrigenCuenta,
+                    //        n.ConceptoCuenta,
+                    //        Convert.ToDecimal(n.NumeroRelacionado),
+                    //        Convert.ToInt32(n.IdClaseCuenta),
+                    //        n.ClaseCuenta,
+                    //        Convert.ToDecimal(n.IdCuentaContable),
+                    //        Convert.ToInt32(n.CuentaDescargo),
+                    //        "INSERT");
+                    //    Guardar.ProcesarInformacion();
+                    //}
+                    //ELIMINAMOS LOS DATOS DEL REPORTE BAJO EL USUARIO ACTUAL
+                    DSMarket.Logica.Comunes.ProcesarInformacion.ProcesarDatosReporteFinanciero Eliminar = new Logica.Comunes.ProcesarInformacion.ProcesarDatosReporteFinanciero(
+                        VariablesGlobales.IdUsuario, 0, "", "", 0, "", "", "", "", "DELETE");
                     Eliminar.ProcesarInformacion();
-                    var SacarInformacion = ObjDataContabilidad.Value.SacarInformacionCuentasMovimientos(
-                        txtAño.Text,
-                        MesActual);
-                    foreach (var n in SacarInformacion) {
-                        DSMarket.Logica.Comunes.ProcesarInformacion.ProcesarInformacionReportesFinancieros Guardar = new Logica.Comunes.ProcesarInformacion.ProcesarInformacionReportesFinancieros(
+
+                    int TipoReporte = 0;
+                    if (rbEstadoSituacion.Checked) {
+                        TipoReporte = 1;
+                    }
+                    else {
+                        TipoReporte = 2;
+                    }
+
+                    //SACAMOS LOS DATOS
+                    string _Ano = string.IsNullOrEmpty(txtAño.Text.Trim()) ? null : txtAño.Text.Trim();
+                    //string me = string.IsNullOrEmpty(txtMes.Text.Trim()) ? null : txtMes.Text.Trim();
+
+                    var SacarDatos = ObjDataContabilidad.Value.SacarDatosRepirteFinancero(
+                        _Ano,
+                        MesActual,
+                        TipoReporte);
+                    foreach (var n in SacarDatos) {
+                        DSMarket.Logica.Comunes.ProcesarInformacion.ProcesarDatosReporteFinanciero Guardar = new Logica.Comunes.ProcesarInformacion.ProcesarDatosReporteFinanciero(
                             VariablesGlobales.IdUsuario,
-                            Convert.ToDecimal(n.IdRegistro),
-                            n.Ano,
-                            n.Mes,
-                            Convert.ToInt32(n.IdTipoCuenta),
-                            n.TipoCuenta,
-                            Convert.ToInt32(n.IdModulo),
-                            n.Modulo,
-                            Convert.ToDecimal(n.Conector),
-                            Convert.ToInt32(n.Secuencia),
-                            Convert.ToInt32(n.Banco),
-                            n.NombreBanco,
-                            n.Cuenta,
-                            n.Auxiliar,
-                            Convert.ToDecimal(n.Valor),
-                            Convert.ToInt32(n.IdOrigen),
-                            n.OrigenCuenta,
+                            TipoReporte,
+                            n.CuentaAuxiliar,
                             n.ConceptoCuenta,
-                            Convert.ToDecimal(n.NumeroRelacionado),
-                            Convert.ToInt32(n.IdClaseCuenta),
-                            n.ClaseCuenta,
-                            Convert.ToDecimal(n.IdCuentaContable),
-                            Convert.ToInt32(n.CuentaDescargo),
+                            Convert.ToDecimal(n.Valor),
+                            n.Cuenta,
+                            n.CuentaDescargo,
+                            _Ano,
+                            MesActual,
                             "INSERT");
                         Guardar.ProcesarInformacion();
                     }
-                    if (rbEstadoSituacion.Checked) { }
-                    else { }
+                    //INVOCAMOS EL REPORTE
+
                 }
             }
         }
@@ -100,6 +135,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
             txtAño.Text = DateTime.Now.Year.ToString();
             txtMes.Text = DateTime.Now.Month.ToString();
             rbEstadoSituacion.Checked = true;
+            lbTitulo.Text = "GENERAR REPORTE FINANCIEROS";
+            lbTitulo.ForeColor = Color.White;
         }
 
         private void ReportesFinancieros_FormClosing(object sender, FormClosingEventArgs e)
