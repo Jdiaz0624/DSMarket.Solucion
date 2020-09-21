@@ -33,7 +33,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
     #endregion
 		
 		public BDConexionConfiguracionDataContext() : 
-				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString4, mappingSource)
+				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -491,6 +491,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idComprobante, descripcion, serie, tipoComprobante, secuencia, secuenciaInicial, secuenciaFinal, limite, estatus, validoHasta, porDefecto, posiciones, cobroPorcientoAdicional, accion);
 			return ((ISingleResult<SP_MANTENIMIENTO_COMPROBANTE_FISCALESResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Reporte.SP_PROCESAR_DATOS_REPORTE_FINANCIEROS")]
+		public ISingleResult<SP_PROCESAR_DATOS_REPORTE_FINANCIEROSResult> SP_PROCESAR_DATOS_REPORTE_FINANCIEROS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Decimal(20,0)")] System.Nullable<decimal> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TipoReporte", DbType="Int")] System.Nullable<int> tipoReporte, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CuentaAuxiliar", DbType="VarChar(100)")] string cuentaAuxiliar, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ConceptoCuenta", DbType="VarChar(8000)")] string conceptoCuenta, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Valor", DbType="Decimal(20,2)")] System.Nullable<decimal> valor, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cuenta", DbType="VarChar(8000)")] string cuenta, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CuentaDescargo", DbType="VarChar(500)")] string cuentaDescargo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ano", DbType="VarChar(4)")] string ano, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mes", DbType="VarChar(2)")] string mes, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, tipoReporte, cuentaAuxiliar, conceptoCuenta, valor, cuenta, cuentaDescargo, ano, mes, accion);
+			return ((ISingleResult<SP_PROCESAR_DATOS_REPORTE_FINANCIEROSResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -7351,6 +7358,176 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._CobroPorcientoAdicional != value))
 				{
 					this._CobroPorcientoAdicional = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_PROCESAR_DATOS_REPORTE_FINANCIEROSResult
+	{
+		
+		private System.Nullable<decimal> _IdUsuario;
+		
+		private System.Nullable<int> _TipoReporte;
+		
+		private string _CuentaAuxiliar;
+		
+		private string _ConceptoCuenta;
+		
+		private System.Nullable<decimal> _Valor;
+		
+		private string _Cuenta;
+		
+		private string _CuentaDescargo;
+		
+		private string _Ano;
+		
+		private string _Mes;
+		
+		public SP_PROCESAR_DATOS_REPORTE_FINANCIEROSResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdUsuario
+		{
+			get
+			{
+				return this._IdUsuario;
+			}
+			set
+			{
+				if ((this._IdUsuario != value))
+				{
+					this._IdUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoReporte", DbType="Int")]
+		public System.Nullable<int> TipoReporte
+		{
+			get
+			{
+				return this._TipoReporte;
+			}
+			set
+			{
+				if ((this._TipoReporte != value))
+				{
+					this._TipoReporte = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CuentaAuxiliar", DbType="VarChar(100)")]
+		public string CuentaAuxiliar
+		{
+			get
+			{
+				return this._CuentaAuxiliar;
+			}
+			set
+			{
+				if ((this._CuentaAuxiliar != value))
+				{
+					this._CuentaAuxiliar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConceptoCuenta", DbType="VarChar(8000)")]
+		public string ConceptoCuenta
+		{
+			get
+			{
+				return this._ConceptoCuenta;
+			}
+			set
+			{
+				if ((this._ConceptoCuenta != value))
+				{
+					this._ConceptoCuenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Valor", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> Valor
+		{
+			get
+			{
+				return this._Valor;
+			}
+			set
+			{
+				if ((this._Valor != value))
+				{
+					this._Valor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cuenta", DbType="VarChar(8000)")]
+		public string Cuenta
+		{
+			get
+			{
+				return this._Cuenta;
+			}
+			set
+			{
+				if ((this._Cuenta != value))
+				{
+					this._Cuenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CuentaDescargo", DbType="VarChar(500)")]
+		public string CuentaDescargo
+		{
+			get
+			{
+				return this._CuentaDescargo;
+			}
+			set
+			{
+				if ((this._CuentaDescargo != value))
+				{
+					this._CuentaDescargo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ano", DbType="VarChar(4)")]
+		public string Ano
+		{
+			get
+			{
+				return this._Ano;
+			}
+			set
+			{
+				if ((this._Ano != value))
+				{
+					this._Ano = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mes", DbType="VarChar(2)")]
+		public string Mes
+		{
+			get
+			{
+				return this._Mes;
+			}
+			set
+			{
+				if ((this._Mes != value))
+				{
+					this._Mes = value;
 				}
 			}
 		}

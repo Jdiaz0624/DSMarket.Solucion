@@ -238,6 +238,21 @@ namespace DSMarket.Logica.Logica.LogicaContabilidad
             return Listado;
         }
         #endregion
+        #region SACAR DATOS REPORTE FINANCIEROS
+        public List<DSMarket.Logica.Entidades.EntidadesContabilidad.ESacarDatosReporteFinanciero> SacarDatosRepirteFinancero(string Ano = null, string Mes = null, int? TipoReporte = null) {
+            ObjData.CommandTimeout = 999999999;
 
+            var Listado = (from n in ObjData.SP_SACAR_DATOS_REPORTES_FINANCIEROS(Ano, Mes, TipoReporte)
+                           select new DSMarket.Logica.Entidades.EntidadesContabilidad.ESacarDatosReporteFinanciero
+                           {
+                               CuentaAuxiliar=n.CuentaAuxiliar,
+                               ConceptoCuenta=n.ConceptoCuenta,
+                               Valor=n.Valor,
+                               Cuenta=n.Cuenta,
+                               CuentaDescargo=n.CuentaDescargo
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
     }
 }

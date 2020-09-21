@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DSMarket" Class="BDConexionConfiguracionDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=DSMarket;Persist Security Info=True;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString4" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=172.26.24.199;Initial Catalog=DSMarket;User ID=SA" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString2" Provider="System.Data.SqlClient" />
   <Function Name="Configuracion.SP_BUSCA_LISTAS" Method="SP_BUSCA_LISTAS">
     <Parameter Name="NombreLista" Parameter="nombreLista" Type="System.String" DbType="VarChar(150)" />
     <Parameter Name="PrimerFiltro" Parameter="primerFiltro" Type="System.String" DbType="VarChar(150)" />
@@ -797,6 +797,29 @@
       <Column Name="PorDefecto" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="Posiciones" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="CobroPorcientoAdicional" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Reporte.SP_PROCESAR_DATOS_REPORTE_FINANCIEROS" Method="SP_PROCESAR_DATOS_REPORTE_FINANCIEROS">
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="TipoReporte" Parameter="tipoReporte" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CuentaAuxiliar" Parameter="cuentaAuxiliar" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="ConceptoCuenta" Parameter="conceptoCuenta" Type="System.String" DbType="VarChar(8000)" />
+    <Parameter Name="Valor" Parameter="valor" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="Cuenta" Parameter="cuenta" Type="System.String" DbType="VarChar(8000)" />
+    <Parameter Name="CuentaDescargo" Parameter="cuentaDescargo" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="Ano" Parameter="ano" Type="System.String" DbType="VarChar(4)" />
+    <Parameter Name="Mes" Parameter="mes" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_PROCESAR_DATOS_REPORTE_FINANCIEROSResult">
+      <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="TipoReporte" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CuentaAuxiliar" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ConceptoCuenta" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="Valor" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Cuenta" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="CuentaDescargo" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Ano" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="Mes" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

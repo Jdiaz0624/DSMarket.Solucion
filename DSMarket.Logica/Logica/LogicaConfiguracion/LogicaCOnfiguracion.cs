@@ -1169,6 +1169,40 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             }
             return Procesar;
         }
+
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarDatosReporteFinanciero ProcesarDatoReporteFinanciero(DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarDatosReporteFinanciero Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarDatosReporteFinanciero Mantenimiento = null;
+
+            var ReporteFinanciero = ObjData.SP_PROCESAR_DATOS_REPORTE_FINANCIEROS(
+                Item.IdUsuario,
+                Item.TipoReporte,
+                Item.CuentaAuxiliar,
+                Item.ConceptoCuenta,
+                Item.Valor,
+                Item.Cuenta,
+                Item.CuentaDescargo,
+                Item.Ano,
+                Item.Mes,
+                Accion);
+            if (ReporteFinanciero != null) {
+                Mantenimiento = (from n in ReporteFinanciero
+                                 select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarDatosReporteFinanciero
+                                 {
+                                     IdUsuario=n.IdUsuario,
+                                     TipoReporte=n.TipoReporte,
+                                     CuentaAuxiliar=n.CuentaAuxiliar,
+                                     ConceptoCuenta=n.ConceptoCuenta,
+                                     Valor=n.Valor,
+                                     Cuenta=n.Cuenta,
+                                     CuentaDescargo=n.CuentaDescargo,
+                                     Ano=n.Ano,
+                                     Mes=n.Mes
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
         #endregion
     }
 }

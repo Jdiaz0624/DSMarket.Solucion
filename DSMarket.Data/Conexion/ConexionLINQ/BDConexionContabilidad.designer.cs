@@ -33,7 +33,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
     #endregion
 		
 		public BDConexionContabilidadDataContext() : 
-				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString4, mappingSource)
+				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -142,6 +142,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ano, mes);
 			return ((ISingleResult<SP_SACAR_INFORMACION_CUENTAS_MOVIMIENTOSResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Contabilidad.SP_SACAR_DATOS_REPORTES_FINANCIEROS")]
+		public ISingleResult<SP_SACAR_DATOS_REPORTES_FINANCIEROSResult> SP_SACAR_DATOS_REPORTES_FINANCIEROS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ano", DbType="VarChar(4)")] string ano, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mes", DbType="VarChar(2)")] string mes, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TipoReporte", DbType="Int")] System.Nullable<int> tipoReporte)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ano, mes, tipoReporte);
+			return ((ISingleResult<SP_SACAR_DATOS_REPORTES_FINANCIEROSResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -1895,6 +1902,104 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CuentaDescargo", DbType="VarChar(30)")]
+		public string CuentaDescargo
+		{
+			get
+			{
+				return this._CuentaDescargo;
+			}
+			set
+			{
+				if ((this._CuentaDescargo != value))
+				{
+					this._CuentaDescargo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_SACAR_DATOS_REPORTES_FINANCIEROSResult
+	{
+		
+		private string _CuentaAuxiliar;
+		
+		private string _ConceptoCuenta;
+		
+		private System.Nullable<decimal> _Valor;
+		
+		private string _Cuenta;
+		
+		private string _CuentaDescargo;
+		
+		public SP_SACAR_DATOS_REPORTES_FINANCIEROSResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CuentaAuxiliar", DbType="VarChar(21) NOT NULL", CanBeNull=false)]
+		public string CuentaAuxiliar
+		{
+			get
+			{
+				return this._CuentaAuxiliar;
+			}
+			set
+			{
+				if ((this._CuentaAuxiliar != value))
+				{
+					this._CuentaAuxiliar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConceptoCuenta", DbType="VarChar(8000)")]
+		public string ConceptoCuenta
+		{
+			get
+			{
+				return this._ConceptoCuenta;
+			}
+			set
+			{
+				if ((this._ConceptoCuenta != value))
+				{
+					this._ConceptoCuenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Valor", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> Valor
+		{
+			get
+			{
+				return this._Valor;
+			}
+			set
+			{
+				if ((this._Valor != value))
+				{
+					this._Valor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cuenta", DbType="VarChar(1000)")]
+		public string Cuenta
+		{
+			get
+			{
+				return this._Cuenta;
+			}
+			set
+			{
+				if ((this._Cuenta != value))
+				{
+					this._Cuenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CuentaDescargo", DbType="VarChar(8)")]
 		public string CuentaDescargo
 		{
 			get
