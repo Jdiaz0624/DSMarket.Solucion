@@ -804,74 +804,81 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         #endregion
         #region DEVOLVER PRODUCTO A INVENTARIO
         private void DevolverProductosInventario(decimal NumeroConectorProcesar) {
-            var BuscaProductosAgregados = ObjDataServicio.Value.BuscapRoductosAgregados(
-                new Nullable<decimal>(),
-                NumeroConectorProcesar);
-            decimal IdProducto = 0;
-            decimal IdTipoProducto = 0;
-            bool Acumulativo = false;
-            bool EstatusProducto = false;
-            decimal NumeroConector = 0;
-            int CantidadAgregada = 0;
-            foreach (var n in BuscaProductosAgregados) {
-                IdProducto = Convert.ToDecimal(n.IdProducto);
-
-                //BUSCAMOS EL PRODUCTO PARA DETERMINAR QUE TIPO DE PRODUCTO ES
-                var SacarDatosProducto = ObjDataInventario.Value.BuscaProductos(
-                    IdProducto,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null, null, null, null,
-                    null,
-                    null,
-                    null, 1, 1);
-                foreach (var n2 in SacarDatosProducto) {
-                    IdTipoProducto = Convert.ToDecimal(n2.IdTipoProducto);
-                    Acumulativo = Convert.ToBoolean(n2.ProductoAcumulativo0);
-                    EstatusProducto = Convert.ToBoolean(n2.EstatusProducto0);
-                    NumeroConector = Convert.ToDecimal(n2.NumeroConector);
-                    CantidadAgregada = Convert.ToInt32(n.Cantidad);
-                }
-
-                //VALIDAMOS LOS DATOS
-                if (IdTipoProducto == 1)
+            if (lbTitulo.Text == "FACTURACION" || lbTitulo.Text == "COTIZACION") {
+                var BuscaProductosAgregados = ObjDataServicio.Value.BuscapRoductosAgregados(
+               new Nullable<decimal>(),
+               NumeroConectorProcesar);
+                decimal IdProducto = 0;
+                decimal IdTipoProducto = 0;
+                bool Acumulativo = false;
+                bool EstatusProducto = false;
+                decimal NumeroConector = 0;
+                int CantidadAgregada = 0;
+                foreach (var n in BuscaProductosAgregados)
                 {
-                    //ESTE BLOQUE ESTA RESERVADO PARA LOS PRODUCTOS
-                    if (Acumulativo == true) {
-                        //ESTE BLOQUE ESTA RESERVADO PARA LOS PRODUCTOS QUE SON ACUMULATIVO
-                        //DEVOLVEMOS EL ESTATUS DEL PRODUCTO
+                    IdProducto = Convert.ToDecimal(n.IdProducto);
 
-
-                        ModificarStockproducto(IdProducto,NumeroConector, CantidadAgregada, "ADDPRODUCT");
-
-                      //  EliminarListadoProductosAgregados();
+                    //BUSCAMOS EL PRODUCTO PARA DETERMINAR QUE TIPO DE PRODUCTO ES
+                    var SacarDatosProducto = ObjDataInventario.Value.BuscaProductos(
+                        IdProducto,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null, null, null, null,
+                        null,
+                        null,
+                        null, 1, 1);
+                    foreach (var n2 in SacarDatosProducto)
+                    {
+                        IdTipoProducto = Convert.ToDecimal(n2.IdTipoProducto);
+                        Acumulativo = Convert.ToBoolean(n2.ProductoAcumulativo0);
+                        EstatusProducto = Convert.ToBoolean(n2.EstatusProducto0);
+                        NumeroConector = Convert.ToDecimal(n2.NumeroConector);
+                        CantidadAgregada = Convert.ToInt32(n.Cantidad);
                     }
-                    else {
-                        //ESTE BLOQUE ESTA RESERVADO PARA LOS PRODUCTOS QUE NO SON ACUMULATIVO
-                        //ACTUAMIZAMOS EL ESTATUS DEL PRODUCTO
 
-                        DSMarket.Logica.Entidades.EntidadesInventario.EProducto Devolver = new Logica.Entidades.EntidadesInventario.EProducto();
+                    //VALIDAMOS LOS DATOS
+                    if (IdTipoProducto == 1)
+                    {
+                        //ESTE BLOQUE ESTA RESERVADO PARA LOS PRODUCTOS
+                        if (Acumulativo == true)
+                        {
+                            //ESTE BLOQUE ESTA RESERVADO PARA LOS PRODUCTOS QUE SON ACUMULATIVO
+                            //DEVOLVEMOS EL ESTATUS DEL PRODUCTO
 
-                        Devolver.IdProducto = IdProducto;
-                        Devolver.IdTipoProducto = IdTipoProducto;
-                        Devolver.ProductoAcumulativo0 = Acumulativo;
-                        Devolver.EstatusProducto0 = EstatusProducto;
 
-                        var Add = ObjDataInventario.Value.MantenimientoProducto(Devolver, "CHANGESTATUS");
-                        EliminarListadoProductosAgregados();
+                            ModificarStockproducto(IdProducto, NumeroConector, CantidadAgregada, "ADDPRODUCT");
+
+                            //  EliminarListadoProductosAgregados();
+                        }
+                        else
+                        {
+                            //ESTE BLOQUE ESTA RESERVADO PARA LOS PRODUCTOS QUE NO SON ACUMULATIVO
+                            //ACTUAMIZAMOS EL ESTATUS DEL PRODUCTO
+
+                            DSMarket.Logica.Entidades.EntidadesInventario.EProducto Devolver = new Logica.Entidades.EntidadesInventario.EProducto();
+
+                            Devolver.IdProducto = IdProducto;
+                            Devolver.IdTipoProducto = IdTipoProducto;
+                            Devolver.ProductoAcumulativo0 = Acumulativo;
+                            Devolver.EstatusProducto0 = EstatusProducto;
+
+                            var Add = ObjDataInventario.Value.MantenimientoProducto(Devolver, "CHANGESTATUS");
+                            EliminarListadoProductosAgregados();
+                        }
                     }
-                }
-                else {
-                    //ESTE BLOQUE ESTA RESERVADO PARA LOS SERVICIOS
-                 //   EliminarListadoProductosAgregados();
+                    else
+                    {
+                        //ESTE BLOQUE ESTA RESERVADO PARA LOS SERVICIOS
+                        //   EliminarListadoProductosAgregados();
+                    }
                 }
             }
         }
@@ -1208,7 +1215,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     }
                     BuscarProductosAgregados(VariablesGlobales.NumeroConector);
                     VariablesGlobales.ConvertirCotizacionFactura = true;
-                    rbCotizar.Checked = true;
+                    rbFacturar.Checked = true;
                     cbAgregarCliente.Enabled = false;
                     txtNoCotizacion.Enabled = false;
                 }
@@ -1236,8 +1243,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             ModificarCalculos.MontoPagado = Convert.ToDecimal(txtMontoPagar.Text);
             ModificarCalculos.Cambio = Convert.ToDecimal(txtCambio.Text);
             ModificarCalculos.IdTipoPago = Convert.ToDecimal(ddltIPago.SelectedValue);
+            ModificarCalculos.TotalGeneral = Convert.ToDecimal(txtTotal.Text);
 
             var MANModificarCalculos = ObjDataServicio.Value.GuardarFacturacionCalculos(ModificarCalculos, "CHANGESTATUS");
+
+            ProcesarInformacionCuentasContables();
+            AfectarCuentasContablesCreditos();
+            AfectarCuentasContableOtrosImpuestos();
 
             //AFECTAMOS EL INVENTARIO
             var BuscarProductosAgregados = ObjDataServicio.Value.BuscapRoductosAgregados(
@@ -1298,11 +1310,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
                 }
 
-                AfectarComprobanteFiscal();
-                AfectarCaja();
-                IngresarSacarDinero("ADDMONEY");
+             
 
             }
+            AfectarComprobanteFiscal();
+            AfectarCaja();
+            IngresarSacarDinero("ADDMONEY");
+            //ProcesarInformacionCuentasContables();
+            //AfectarCuentasContablesCreditos();
+            //AfectarCuentasContableOtrosImpuestos();
             MessageBox.Show("Operación realizada exitosamente", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
             GenerarFacturaVenta();
             this.Dispose();
@@ -2337,7 +2353,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             else {
                 //CONVERTIMOS LA COTIZACION A FACTURA
                 //CAMBIAMOS EL ESTATUS DE LA COTIZACION
-               
+             
                 decimal TipoPago = Convert.ToDecimal(ddltIPago.SelectedValue);
                 bool BloqueaMonto = false;
 
