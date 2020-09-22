@@ -767,6 +767,8 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                               ProductosAgostados = n.ProductosAgostados,
                               TotalProductos=n.TotalProductos,
                               Comentario = n.Comentario,
+
+
                           }).ToList();
             return Buscar;
         }

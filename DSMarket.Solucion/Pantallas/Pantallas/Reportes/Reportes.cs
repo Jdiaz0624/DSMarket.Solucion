@@ -12,6 +12,7 @@ using CrystalDecisions.ReportSource;
 using CrystalDecisions.Shared;
 using CrystalDecisions.Windows.Forms;
 using System.Data.SqlClient;
+using System.Net;
 
 namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
 {
@@ -374,6 +375,51 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
             catch (Exception ex)
             {
                 MessageBox.Show("Error al generar el reporte de los productos defectuosos, codigo de error: " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
+
+        #region GENERAR REPORTE FINANCIERO (ESTADO DE SITUACION Y ESTADO DE RESULTADO)
+        public void GenerarReporteFinanciero(decimal IdUsuario) {
+            try {
+                string RutaReporte = "";
+                string UsuarioBD = "";
+                string ClaveBD = "";
+
+                //SACAMOS LA RUTA DEL REPORTE
+                var SacarRutaReporte = ObjDataConfiguracion.Value.BuscaRutaReporte(18);
+                foreach (var n in SacarRutaReporte)
+                {
+                    RutaReporte = n.RutaReporte;
+                }
+
+                //SACAMOS LAS CREDENCIALES DE BASE DE DATOS
+                var SacarCredenciales = ObjDataSeguridad.Value.SacarCredencialBD(1);
+                foreach (var nCredneciales in SacarCredenciales)
+                {
+                    UsuarioBD = nCredneciales.Usuario;
+                    ClaveBD = DSMarket.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(nCredneciales.Clave);
+                }
+
+                //GENERAMOS EL REPORTE
+
+                ReportDocument ReporteFinanciero = new ReportDocument();
+
+                SqlCommand comando = new SqlCommand();
+                comando.CommandText = "[Reporte].[SP_GENERAR_REPORTE_FINANCIERO] @IdUsuario";
+                comando.Connection = DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion();
+
+                comando.Parameters.Add("@IdUsuario", SqlDbType.Decimal);
+                comando.Parameters["@IdUsuario"].Value = IdUsuario;
+
+                ReporteFinanciero.Load(@"" + RutaReporte);
+                ReporteFinanciero.Refresh();
+                ReporteFinanciero.SetParameterValue("@IdUsuario", IdUsuario);
+                ReporteFinanciero.SetDatabaseLogon(UsuarioBD, ClaveBD);
+                crystalReportViewer1.ReportSource = ReporteFinanciero;
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al generar el reporte financierom favor de verificar, codigo de error: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         #endregion

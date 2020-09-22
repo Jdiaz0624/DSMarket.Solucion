@@ -53,41 +53,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
                     else {
                         MesActual = MesIngresado;
                     }
-                    //PROCESAMOS LA INFORMACION
-                    //DSMarket.Logica.Comunes.ProcesarInformacion.ProcesarInformacionReportesFinancieros Eliminar = new Logica.Comunes.ProcesarInformacion.ProcesarInformacionReportesFinancieros(
-                    //    VariablesGlobales.IdUsuario, 0, "", "", 0, "", 0, "", 0, 0, 0, "", "", "", 0, 0, "", "", 0, 0, "", 0, 0, "DELETE");
-                    //Eliminar.ProcesarInformacion();
-                    //var SacarInformacion = ObjDataContabilidad.Value.SacarInformacionCuentasMovimientos(
-                    //    txtAño.Text,
-                    //    MesActual);
-                    //foreach (var n in SacarInformacion) {
-                    //    DSMarket.Logica.Comunes.ProcesarInformacion.ProcesarInformacionReportesFinancieros Guardar = new Logica.Comunes.ProcesarInformacion.ProcesarInformacionReportesFinancieros(
-                    //        VariablesGlobales.IdUsuario,
-                    //        Convert.ToDecimal(n.IdRegistro),
-                    //        n.Ano,
-                    //        n.Mes,
-                    //        Convert.ToInt32(n.IdTipoCuenta),
-                    //        n.TipoCuenta,
-                    //        Convert.ToInt32(n.IdModulo),
-                    //        n.Modulo,
-                    //        Convert.ToDecimal(n.Conector),
-                    //        Convert.ToInt32(n.Secuencia),
-                    //        Convert.ToInt32(n.Banco),
-                    //        n.NombreBanco,
-                    //        n.Cuenta,
-                    //        n.Auxiliar,
-                    //        Convert.ToDecimal(n.Valor),
-                    //        Convert.ToInt32(n.IdOrigen),
-                    //        n.OrigenCuenta,
-                    //        n.ConceptoCuenta,
-                    //        Convert.ToDecimal(n.NumeroRelacionado),
-                    //        Convert.ToInt32(n.IdClaseCuenta),
-                    //        n.ClaseCuenta,
-                    //        Convert.ToDecimal(n.IdCuentaContable),
-                    //        Convert.ToInt32(n.CuentaDescargo),
-                    //        "INSERT");
-                    //    Guardar.ProcesarInformacion();
-                    //}
+
                     //ELIMINAMOS LOS DATOS DEL REPORTE BAJO EL USUARIO ACTUAL
                     DSMarket.Logica.Comunes.ProcesarInformacion.ProcesarDatosReporteFinanciero Eliminar = new Logica.Comunes.ProcesarInformacion.ProcesarDatosReporteFinanciero(
                         VariablesGlobales.IdUsuario, 0, "", "", 0, "", "", "", "", "DELETE");
@@ -124,7 +90,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
                         Guardar.ProcesarInformacion();
                     }
                     //INVOCAMOS EL REPORTE
-
+                    DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes Reporte = new Reportes();
+                    Reporte.GenerarReporteFinanciero(VariablesGlobales.IdUsuario);
+                    Reporte.ShowDialog();
                 }
             }
         }

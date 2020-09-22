@@ -1566,8 +1566,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                         AfectarCuentas(Ano, MesActual, IdBanco, CuentaContableITBIS, AuxiliarITBIS, ImpuestoProducto, ConceptoCuentaITBIS, NumeroRelacionado, IdClaseCuentaITBIS, IdTipoCuentaITBIS, IdOrigenCuentaITBIS, 10);
 
-                       
 
+                      
                     }
                     else {
                         //GUARDAMLS LA INFORMACION CUANDO EL PRODUCTO NO APLICA PARA IMPUSTO
@@ -1597,8 +1597,79 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             NumeroRelacionado = Convert.ToDecimal(nFactura.IdFactura);
                         }
                         AfectarCuentas(Ano, MesActual, IdBanco, CuentaContable, Auxiliar, ValorProducto, ConceptoCuentaCredito, NumeroRelacionado, IdClaseCuenta, IdTipoCuenta, IdOrigenCuenta,9);
+
+
+                 
+
+                    
                     }
+                    
                 }
+            }
+
+           
+
+
+        }
+
+        private void AfectarCuentasContableOtrosImpuestos() {
+            //SACAMOS EL AÑO ACTUAL
+            string Ano = DateTime.Now.Year.ToString();
+            //SACAMOS EL MES ACTUAL
+            string Mes = DateTime.Now.Month.ToString();
+            int CantidadCaracteresMes = Mes.Length;
+            string MesActual = "";
+            if (CantidadCaracteresMes == 1)
+            {
+                MesActual = "0" + Mes;
+            }
+            else
+            {
+                MesActual = Mes;
+            }
+            //SACAMOS EL BANCO POR DEFECTO
+            decimal IdBanco = 0;
+            var SacarCodigoBanco = ObjdataContabilidad.Value.BuscaBancos(
+                new Nullable<decimal>(), null, true, 1, 1);
+            foreach (var nBanco in SacarCodigoBanco)
+            {
+                IdBanco = Convert.ToDecimal(nBanco.IdBanco);
+            }
+
+            //GUARDAR OTROS IMPUESTOS
+            decimal MontoImpuestosComprobante = 0, MontoImpuestoTipoPago = 0, TotalMontoOtrosIpuestos = 0;
+
+            MontoImpuestosComprobante = Convert.ToDecimal(lbMontoPorcientoImpuestoComprobanteVariable.Text);
+            MontoImpuestoTipoPago = Convert.ToDecimal(lbMontoPorcientoTipoPagoVariable.Text);
+            TotalMontoOtrosIpuestos = MontoImpuestosComprobante + MontoImpuestoTipoPago;
+
+            if (TotalMontoOtrosIpuestos > 0)
+            {
+                string CuentaContableOtrosImpuestos = "";
+                string AuxiliarOtrosImpuestos = "";
+                int IdClaseCuentaOtrosImpuestos = 0;
+                int IdTipoCuentaOtrosImpuestos = 0;
+                int IdOrigenCuentaOtrosImpuestos = 0;
+
+                var SacarDatosCuentaOtrosImpuesto = ObjdataContabilidad.Value.BuscaCatalogoCuentas(15, null, null, null, null, 1, 1);
+                foreach (var nOtroImpuestos in SacarDatosCuentaOtrosImpuesto)
+                {
+                    CuentaContableOtrosImpuestos = nOtroImpuestos.Cuenta;
+                    AuxiliarOtrosImpuestos = nOtroImpuestos.Auxiliar;
+                    IdClaseCuentaOtrosImpuestos = Convert.ToInt32(nOtroImpuestos.IdClaseCuenta);
+                    IdTipoCuentaOtrosImpuestos = Convert.ToInt32(nOtroImpuestos.IdTipoCuenta);
+                    IdOrigenCuentaOtrosImpuestos = Convert.ToInt32(nOtroImpuestos.IdOrigenCuenta);
+                }
+
+                string ConceptoCuentaCreditoOtroImpuestos = DSMarket.Logica.Comunes.ObtenerValores.SacarConceptoCuenta(11);
+
+                decimal NumeroRelacionadoOtroImpuestos = 0;
+                var SacarNumeroFacturaOtrosImpuestos = ObjDataServicio.Value.SacarNumeroFactura(VariablesGlobales.NumeroConector);
+                foreach (var nFActuraOtrosImpuestos in SacarNumeroFacturaOtrosImpuestos)
+                {
+                    NumeroRelacionadoOtroImpuestos = Convert.ToDecimal(nFActuraOtrosImpuestos.IdFactura);
+                }
+                AfectarCuentas(Ano, MesActual, IdBanco, CuentaContableOtrosImpuestos, AuxiliarOtrosImpuestos, TotalMontoOtrosIpuestos, ConceptoCuentaCreditoOtroImpuestos, NumeroRelacionadoOtroImpuestos, IdClaseCuentaOtrosImpuestos, IdTipoCuentaOtrosImpuestos, IdOrigenCuentaOtrosImpuestos, 15);
             }
         }
         #endregion
@@ -2134,45 +2205,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     txtMontoPagar.Text = "0";
                 }
                
-                //if (ImpuestoAdicional == true)
-                //{
 
-                //    //if (PorcentajeEntero == true)
-                //    //{
-                //    //    decimal TotalPagar = Convert.ToDecimal(txtTotal.Text);
-                //    //    decimal Operacion = 0;
-                //    //    Operacion = TotalPagar + Valor;
-                //    //    txtTotal.Text = string.Empty;
-                //    //    txtTotal.Text = Operacion.ToString("N0");
-                //    //    txtMontoPagar.Text = txtTotal.Text;
-                //    //    //   lbMontoPorcientoTipoPagoVariable.Text = valor
-                //    //}
-                //    //else if (PorcentajeEntero == false)
-                //    //{
-                //    //    decimal TotalPagar = Convert.ToDecimal(txtTotal.Text);
-                //    //    decimal Operacion = 0, Convertir = 0, Operacion2 = 0;
-                //    //    Convertir = Valor / 100;
-                //    //    Operacion = TotalPagar * Convertir;
-                //    //    Operacion2 = Operacion + TotalPagar;
-                //    //    txtTotal.Text = string.Empty;
-                //    //    txtTotal.Text = Operacion2.ToString("N0");
-                //    //    txtMontoPagar.Text = txtTotal.Text;
-                //    //    lbMontoPorcientoTipoPagoVariable.Text = Operacion.ToString("N2");
-                //    //}
-                //    //else
-                //    //{
-                //    //    decimal TotalPagar = Convert.ToDecimal(txtTotal.Text);
-                //    //    decimal Operacion = 0;
-                //    //    Operacion = TotalPagar + Valor;
-                //    //    txtTotal.Text = string.Empty;
-                //    //    txtTotal.Text = Operacion.ToString("N2");
-                //    //    txtMontoPagar.Text = txtTotal.Text;
-
-                //    //}
-                //}
-                //else {
-                //    lbMontoPorcientoTipoPagoVariable.Text = "0";
-                //}
             }
             catch (Exception) { }
         }
@@ -2225,8 +2258,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                                 IngresarSacarDinero("ADDMONEY");
                                 ProcesarInformacionCuentasContables();
                                 AfectarCuentasContablesCreditos();
+                                AfectarCuentasContableOtrosImpuestos();
 
-                                
+
+
 
 
                                 MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -2258,6 +2293,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                                         IngresarSacarDinero("ADDMONEY");
                                         ProcesarInformacionCuentasContables();
                                         AfectarCuentasContablesCreditos();
+                                        AfectarCuentasContableOtrosImpuestos();
                                         MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         GenerarFacturaVenta();
                                         this.Dispose();
