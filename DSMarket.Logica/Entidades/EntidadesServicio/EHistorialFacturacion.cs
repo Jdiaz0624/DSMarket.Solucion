@@ -82,6 +82,14 @@ namespace DSMarket.Logica.Entidades.EntidadesServicio
 
 		public string TipoPago {get;set;}
 
+		public System.Nullable<int> PorcientoTipoPago {get;set;}
+
+		public System.Nullable<decimal> MontoImpuestoTipoPago {get;set;}
+
+		public System.Nullable<int> PorcientoImpuestoComprobante {get;set;}
+
+		public System.Nullable<decimal> MontoImpuestoComprobante {get;set;}
+
 		public System.Nullable<decimal> TotalGeneral {get;set;}
 
 		public System.Nullable<bool> AplicaGarantia0 {get;set;}

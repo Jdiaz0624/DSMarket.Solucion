@@ -91,6 +91,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.lbMontoPorcientoImpuestoComprobanteVariable = new System.Windows.Forms.Label();
+            this.lbMontoImpuestoPorcientoComprobanteVariable = new System.Windows.Forms.Label();
+            this.lbMontoPorcientoTipoPagoVariable = new System.Windows.Forms.Label();
+            this.lbMontoPorcientoImpuestoTipoPagoTitulo = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.gbGeneral.SuspendLayout();
@@ -158,6 +162,10 @@
             // 
             // gbGeneral
             // 
+            this.gbGeneral.Controls.Add(this.lbMontoPorcientoImpuestoComprobanteVariable);
+            this.gbGeneral.Controls.Add(this.lbMontoImpuestoPorcientoComprobanteVariable);
+            this.gbGeneral.Controls.Add(this.lbMontoPorcientoTipoPagoVariable);
+            this.gbGeneral.Controls.Add(this.lbMontoPorcientoImpuestoTipoPagoTitulo);
             this.gbGeneral.Controls.Add(this.txtNumeroRegistros);
             this.gbGeneral.Controls.Add(this.lbNumeroRegistros);
             this.gbGeneral.Controls.Add(this.txtNumeroPagina);
@@ -757,6 +765,42 @@
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
             // 
+            // lbMontoPorcientoImpuestoComprobanteVariable
+            // 
+            this.lbMontoPorcientoImpuestoComprobanteVariable.AutoSize = true;
+            this.lbMontoPorcientoImpuestoComprobanteVariable.Location = new System.Drawing.Point(861, 589);
+            this.lbMontoPorcientoImpuestoComprobanteVariable.Name = "lbMontoPorcientoImpuestoComprobanteVariable";
+            this.lbMontoPorcientoImpuestoComprobanteVariable.Size = new System.Drawing.Size(18, 20);
+            this.lbMontoPorcientoImpuestoComprobanteVariable.TabIndex = 78;
+            this.lbMontoPorcientoImpuestoComprobanteVariable.Text = "0";
+            // 
+            // lbMontoImpuestoPorcientoComprobanteVariable
+            // 
+            this.lbMontoImpuestoPorcientoComprobanteVariable.AutoSize = true;
+            this.lbMontoImpuestoPorcientoComprobanteVariable.Location = new System.Drawing.Point(657, 589);
+            this.lbMontoImpuestoPorcientoComprobanteVariable.Name = "lbMontoImpuestoPorcientoComprobanteVariable";
+            this.lbMontoImpuestoPorcientoComprobanteVariable.Size = new System.Drawing.Size(198, 20);
+            this.lbMontoImpuestoPorcientoComprobanteVariable.TabIndex = 77;
+            this.lbMontoImpuestoPorcientoComprobanteVariable.Text = "Monto % de Comprobante";
+            // 
+            // lbMontoPorcientoTipoPagoVariable
+            // 
+            this.lbMontoPorcientoTipoPagoVariable.AutoSize = true;
+            this.lbMontoPorcientoTipoPagoVariable.Location = new System.Drawing.Point(573, 589);
+            this.lbMontoPorcientoTipoPagoVariable.Name = "lbMontoPorcientoTipoPagoVariable";
+            this.lbMontoPorcientoTipoPagoVariable.Size = new System.Drawing.Size(18, 20);
+            this.lbMontoPorcientoTipoPagoVariable.TabIndex = 76;
+            this.lbMontoPorcientoTipoPagoVariable.Text = "0";
+            // 
+            // lbMontoPorcientoImpuestoTipoPagoTitulo
+            // 
+            this.lbMontoPorcientoImpuestoTipoPagoTitulo.AutoSize = true;
+            this.lbMontoPorcientoImpuestoTipoPagoTitulo.Location = new System.Drawing.Point(396, 589);
+            this.lbMontoPorcientoImpuestoTipoPagoTitulo.Name = "lbMontoPorcientoImpuestoTipoPagoTitulo";
+            this.lbMontoPorcientoImpuestoTipoPagoTitulo.Size = new System.Drawing.Size(172, 20);
+            this.lbMontoPorcientoImpuestoTipoPagoTitulo.TabIndex = 75;
+            this.lbMontoPorcientoImpuestoTipoPagoTitulo.Text = "Monto % Tipo de Pago";
+            // 
             // AnularFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -852,5 +896,9 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox txtGarantia;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lbMontoPorcientoImpuestoComprobanteVariable;
+        private System.Windows.Forms.Label lbMontoImpuestoPorcientoComprobanteVariable;
+        private System.Windows.Forms.Label lbMontoPorcientoTipoPagoVariable;
+        private System.Windows.Forms.Label lbMontoPorcientoImpuestoTipoPagoTitulo;
     }
 }
