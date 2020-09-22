@@ -1213,9 +1213,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         VariablesGlobales.NumeroConector = Convert.ToDecimal(n.NumeroConector);
 
                     }
+                    rbCotizar.Checked = false;
+                    rbFacturar.Checked = true;
+                    ProcesarInformacionCuentasContables();
+                    AfectarCuentasContablesCreditos();
+                    AfectarCuentasContableOtrosImpuestos();
+                    rbFacturar.Checked = false;
                     BuscarProductosAgregados(VariablesGlobales.NumeroConector);
                     VariablesGlobales.ConvertirCotizacionFactura = true;
-                    rbFacturar.Checked = true;
+                    rbCotizar.Checked = true;
                     cbAgregarCliente.Enabled = false;
                     txtNoCotizacion.Enabled = false;
                 }
@@ -1247,9 +1253,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
             var MANModificarCalculos = ObjDataServicio.Value.GuardarFacturacionCalculos(ModificarCalculos, "CHANGESTATUS");
 
-            ProcesarInformacionCuentasContables();
-            AfectarCuentasContablesCreditos();
-            AfectarCuentasContableOtrosImpuestos();
+         
 
             //AFECTAMOS EL INVENTARIO
             var BuscarProductosAgregados = ObjDataServicio.Value.BuscapRoductosAgregados(
@@ -1801,6 +1805,116 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         }
         #endregion
 
+
+
+
+
+
+        #region ELIMINAR FACTURACION CLIENTE
+        private void FacturacionClienteCotizacion(decimal NumeroConector, string Accion)
+        {
+
+         
+            DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionClientes Mantenimiento = new Logica.Entidades.EntidadesServicio.EFacturacionClientes();
+
+            Mantenimiento.IdFactura = 0;
+            Mantenimiento.NumeroConector = NumeroConector;
+            Mantenimiento.IdEstatusFacturacion = 3;
+          //  Mantenimiento.IdComprobante = IdComprobanteFactura;
+           // Mantenimiento.Nombre = txtNombreCliente.Text;
+            Mantenimiento.Telefono = txtTelefono.Text;
+            Mantenimiento.Email = txtEmail.Text;
+            Mantenimiento.IdTipoIdentificacion = VariablesGlobales.IdTipoIdentificacionAnularFactura;
+            Mantenimiento.NumeroIdentificacion = VariablesGlobales.NumeroIdentificacionAnularFactura;
+            Mantenimiento.Direccion = txtDireccion.Text;
+            Mantenimiento.Comentario = txtComentario.Text + "Anulación de la factura " + VariablesGlobales.IdMantenimeinto.ToString();
+            Mantenimiento.IdTipoVenta = VariablesGlobales.IdTipoVentaAnularFactura;
+            Mantenimiento.IdCantidadDias = VariablesGlobales.IdCantidadDiasAnularFactura;
+            Mantenimiento.IdUsuario = VariablesGlobales.IdUsuario;
+            Mantenimiento.FechaFacturacion = DateTime.Now;
+          //  Mantenimiento.IdTipoAnulaicon = Convert.ToDecimal(ddlSeleccionarTipoAnulacion.SelectedValue);
+         //   Mantenimiento.TipoTiempoGarantia = TiempoGarantia;
+
+
+
+            var MAN = ObjDataServicio.Value.GuardarFacturacionClientes(Mantenimiento, Accion);
+        }
+        #endregion
+        #region ELIMINAR FACTURACION CALCULOS
+        private void FacturacionCalculosCotizacion(decimal NumeroConector, string Accion)
+        {
+
+            int CantidadProductos = Convert.ToInt32(txtCantidadArtiuclos.Text);
+            int CantidadServicios = Convert.ToInt32(txtCantidadServicios.Text);
+            int CantidadTotal = CantidadProductos + CantidadServicios;
+            decimal TotalDescuento = Convert.ToDecimal(txtTotalDescuento.Text);
+            decimal SubTotal = Convert.ToDecimal(txtSubtotal.Text);
+            decimal Impuesto = Convert.ToDecimal(txtImpuesto.Text);
+            decimal MontoPagar = Convert.ToDecimal(txtMontoPagar.Text);
+           // decimal Cambio = Convert.ToDecimal(txtcambio.Text);
+            decimal Total = Convert.ToDecimal(txtTotal.Text);
+
+            TotalDescuento = TotalDescuento * -1;
+            SubTotal = SubTotal * -1;
+            Impuesto = Impuesto * -1;
+            MontoPagar = MontoPagar * -1;
+           // Cambio = Cambio * -1;
+            Total = Total * -1;
+
+
+            DSMarket.Logica.Entidades.EntidadesServicio.EGuardarFacturacionCalculos Mantenimiento = new Logica.Entidades.EntidadesServicio.EGuardarFacturacionCalculos();
+
+            Mantenimiento.NumeroColector = NumeroConector;
+            Mantenimiento.CantidadProductos = Convert.ToInt32(txtCantidadArtiuclos.Text);
+            Mantenimiento.CantidadServicios = Convert.ToInt32(txtCantidadServicios.Text);
+            Mantenimiento.CantidadArticulos = CantidadTotal;
+            Mantenimiento.TotalDescuento = TotalDescuento;
+            Mantenimiento.SubTotal = SubTotal;
+            Mantenimiento.Impuesto = Impuesto;
+            Mantenimiento.PorcientoImpuesto = VariablesGlobales.PorcientoDescuentoAnularFactura;
+            Mantenimiento.MontoPagado = MontoPagar;
+            //Mantenimiento.Cambio = Cambio;
+            Mantenimiento.IdTipoPago = VariablesGlobales.IdTipOpagoAnularFactura;
+            Mantenimiento.TotalGeneral = Total;
+
+            var MAn = ObjDataServicio.Value.GuardarFacturacionCalculos(Mantenimiento, Accion);
+        }
+
+
+        #endregion
+        #region MANTENIMIENTO DE FACTURACION DE PRODUCTOS
+        private void ProductosCotizacion(decimal NumeroConector, string Accion)
+        {
+            var BuscarProductos = ObjDataServicio.Value.BuscapRoductosAgregados(
+                new Nullable<decimal>(),
+                NumeroConector);
+            foreach (var n in BuscarProductos)
+            {
+                DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionProducto MantenimientoProducto = new Logica.Entidades.EntidadesServicio.EFacturacionProducto();
+
+                MantenimientoProducto.NumeroConector = NumeroConector;
+                MantenimientoProducto.IdTipoProducto = Convert.ToDecimal(n.IdTipoProducto);
+                MantenimientoProducto.IdCategoria = Convert.ToDecimal(n.IdCategoria);
+                MantenimientoProducto.DescripcionProducto = n.DescripcionProducto;
+                MantenimientoProducto.CantidadVendida = Convert.ToInt32(n.Cantidad);
+                MantenimientoProducto.Precio = Convert.ToDecimal(n.Precio);
+                MantenimientoProducto.DescuentoAplicado = Convert.ToDecimal(n.DescuentoAplicado);
+                MantenimientoProducto.DescripcionTipoProducto = n.DescripcionTipoProducto;
+                MantenimientoProducto.PorcientoDescuento = Convert.ToInt32(n.PorcientoDescuento);
+                MantenimientoProducto.IdProducto = Convert.ToDecimal(n.IdProducto);
+                MantenimientoProducto.Acumulativo = n.Acumulativo;
+                MantenimientoProducto.ConectorProducto = Convert.ToDecimal(n.ConectorProducto);
+                MantenimientoProducto.Impuesto = Convert.ToDecimal(n.Impuesto);
+
+
+                var MAN = ObjDataServicio.Value.GuardarFacturacionProductos(MantenimientoProducto, Accion);
+            }
+
+
+
+        }
+        #endregion
+
         private void Facturacion_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
@@ -2341,6 +2455,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
                         MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         GenerarFacturaVenta();
+                        FacturacionClienteCotizacion(VariablesGlobales.NumeroConector, "DELETE");
+                        ProductosCotizacion(VariablesGlobales.NumeroConector, "DELETE");
+                        FacturacionCalculosCotizacion(VariablesGlobales.NumeroConector, "DELETEALL");
                         this.Dispose();
                     }
                     else

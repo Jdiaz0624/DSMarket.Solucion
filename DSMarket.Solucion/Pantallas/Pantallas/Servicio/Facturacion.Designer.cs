@@ -31,7 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Facturacion));
             this.gbGeneral = new System.Windows.Forms.GroupBox();
+            this.lbValorSinImpuestoVariable = new System.Windows.Forms.Label();
             this.txtImpuestoComprobante = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.ddlSeleccionarTiempoGarantia = new System.Windows.Forms.ComboBox();
             this.cbUsarComprobantes = new System.Windows.Forms.CheckBox();
@@ -121,12 +123,10 @@
             this.lbMontoPorcientoImpuestoTipoPagoTitulo = new System.Windows.Forms.Label();
             this.lbNumeroConector = new System.Windows.Forms.Label();
             this.PCerrar = new System.Windows.Forms.PictureBox();
-            this.lbMontoCredito = new System.Windows.Forms.Label();
             this.lbTitulo = new System.Windows.Forms.Label();
+            this.lbMontoCredito = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.lbValorSinImpuestoVariable = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
             this.gbGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCantidadDiasGarantia)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -197,6 +197,15 @@
             this.gbGeneral.Text = "Datos de Facturación";
             this.gbGeneral.Enter += new System.EventHandler(this.gbGeneral_Enter);
             // 
+            // lbValorSinImpuestoVariable
+            // 
+            this.lbValorSinImpuestoVariable.AutoSize = true;
+            this.lbValorSinImpuestoVariable.Location = new System.Drawing.Point(813, 302);
+            this.lbValorSinImpuestoVariable.Name = "lbValorSinImpuestoVariable";
+            this.lbValorSinImpuestoVariable.Size = new System.Drawing.Size(18, 20);
+            this.lbValorSinImpuestoVariable.TabIndex = 38;
+            this.lbValorSinImpuestoVariable.Text = "0";
+            // 
             // txtImpuestoComprobante
             // 
             this.txtImpuestoComprobante.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -207,6 +216,15 @@
             this.txtImpuestoComprobante.TabIndex = 68;
             this.txtImpuestoComprobante.Text = "0";
             this.txtImpuestoComprobante.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(658, 299);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(149, 20);
+            this.label27.TabIndex = 37;
+            this.label27.Text = "Valor sin Impuesto";
             // 
             // label25
             // 
@@ -1026,6 +1044,7 @@
             this.btnBuscarCotizacion.TabIndex = 17;
             this.toolTip1.SetToolTip(this.btnBuscarCotizacion, "Buscar Cotización mediante el numero de la miama");
             this.btnBuscarCotizacion.UseVisualStyleBackColor = true;
+            this.btnBuscarCotizacion.Visible = false;
             this.btnBuscarCotizacion.Click += new System.EventHandler(this.btnBuscarCotizacion_Click);
             // 
             // btnAgregarAlmacen
@@ -1077,6 +1096,7 @@
             this.txtNoCotizacion.Name = "txtNoCotizacion";
             this.txtNoCotizacion.Size = new System.Drawing.Size(282, 27);
             this.txtNoCotizacion.TabIndex = 9;
+            this.txtNoCotizacion.Visible = false;
             // 
             // txtCodigoCliente
             // 
@@ -1122,6 +1142,7 @@
             this.label2.Size = new System.Drawing.Size(116, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "No. Cotización";
+            this.label2.Visible = false;
             // 
             // label1
             // 
@@ -1233,6 +1254,15 @@
             this.PCerrar.TabStop = false;
             this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click_1);
             // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(15, 9);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(54, 20);
+            this.lbTitulo.TabIndex = 13;
+            this.lbTitulo.Text = "label6";
+            // 
             // lbMontoCredito
             // 
             this.lbMontoCredito.AutoSize = true;
@@ -1243,37 +1273,10 @@
             this.lbMontoCredito.Text = "Credito";
             this.lbMontoCredito.Visible = false;
             // 
-            // lbTitulo
-            // 
-            this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Location = new System.Drawing.Point(15, 9);
-            this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(54, 20);
-            this.lbTitulo.TabIndex = 13;
-            this.lbTitulo.Text = "label6";
-            // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
-            // 
-            // lbValorSinImpuestoVariable
-            // 
-            this.lbValorSinImpuestoVariable.AutoSize = true;
-            this.lbValorSinImpuestoVariable.Location = new System.Drawing.Point(813, 302);
-            this.lbValorSinImpuestoVariable.Name = "lbValorSinImpuestoVariable";
-            this.lbValorSinImpuestoVariable.Size = new System.Drawing.Size(18, 20);
-            this.lbValorSinImpuestoVariable.TabIndex = 38;
-            this.lbValorSinImpuestoVariable.Text = "0";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(658, 299);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(149, 20);
-            this.label27.TabIndex = 37;
-            this.label27.Text = "Valor sin Impuesto";
             // 
             // Facturacion
             // 

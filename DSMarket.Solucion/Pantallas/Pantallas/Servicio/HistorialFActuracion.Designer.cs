@@ -57,6 +57,7 @@
             this.rbfacturaenglish = new System.Windows.Forms.RadioButton();
             this.rbfacturaspanish = new System.Windows.Forms.RadioButton();
             this.cbFacturaPuntoVenta = new System.Windows.Forms.CheckBox();
+            this.btnModificarDiasGarantia = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
@@ -88,7 +89,6 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.lbCantidadDisponible = new System.Windows.Forms.Label();
             this.txtCantidadDisponible = new System.Windows.Forms.TextBox();
-            this.btnModificarDiasGarantia = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel2.SuspendLayout();
@@ -299,6 +299,7 @@
             this.btnFacturar.Text = "      Facturar";
             this.toolTip1.SetToolTip(this.btnFacturar, "Facturar cotización seleccionada");
             this.btnFacturar.UseVisualStyleBackColor = true;
+            this.btnFacturar.Visible = false;
             this.btnFacturar.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnBuscar
@@ -511,6 +512,24 @@
             this.cbFacturaPuntoVenta.Text = "Punto de Venta";
             this.toolTip1.SetToolTip(this.cbFacturaPuntoVenta, "Generar la factura en formato de punto de venta.");
             this.cbFacturaPuntoVenta.UseVisualStyleBackColor = true;
+            // 
+            // btnModificarDiasGarantia
+            // 
+            this.btnModificarDiasGarantia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificarDiasGarantia.Enabled = false;
+            this.btnModificarDiasGarantia.FlatAppearance.BorderSize = 0;
+            this.btnModificarDiasGarantia.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnModificarDiasGarantia.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarDiasGarantia.Image = global::DSMarket.Solucion.Properties.Resources.Editar;
+            this.btnModificarDiasGarantia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificarDiasGarantia.Location = new System.Drawing.Point(1056, 142);
+            this.btnModificarDiasGarantia.Name = "btnModificarDiasGarantia";
+            this.btnModificarDiasGarantia.Size = new System.Drawing.Size(210, 35);
+            this.btnModificarDiasGarantia.TabIndex = 88;
+            this.btnModificarDiasGarantia.Text = "      Dias de Garantia";
+            this.toolTip1.SetToolTip(this.btnModificarDiasGarantia, "Modificar los dias de garantia de la factura");
+            this.btnModificarDiasGarantia.UseVisualStyleBackColor = true;
+            this.btnModificarDiasGarantia.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox1
             // 
@@ -831,24 +850,6 @@
             this.txtCantidadDisponible.TabIndex = 87;
             this.txtCantidadDisponible.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCantidadDisponible.Visible = false;
-            // 
-            // btnModificarDiasGarantia
-            // 
-            this.btnModificarDiasGarantia.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificarDiasGarantia.Enabled = false;
-            this.btnModificarDiasGarantia.FlatAppearance.BorderSize = 0;
-            this.btnModificarDiasGarantia.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnModificarDiasGarantia.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificarDiasGarantia.Image = global::DSMarket.Solucion.Properties.Resources.Editar;
-            this.btnModificarDiasGarantia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificarDiasGarantia.Location = new System.Drawing.Point(1056, 142);
-            this.btnModificarDiasGarantia.Name = "btnModificarDiasGarantia";
-            this.btnModificarDiasGarantia.Size = new System.Drawing.Size(210, 35);
-            this.btnModificarDiasGarantia.TabIndex = 88;
-            this.btnModificarDiasGarantia.Text = "      Dias de Garantia";
-            this.toolTip1.SetToolTip(this.btnModificarDiasGarantia, "Modificar los dias de garantia de la factura");
-            this.btnModificarDiasGarantia.UseVisualStyleBackColor = true;
-            this.btnModificarDiasGarantia.Click += new System.EventHandler(this.button1_Click);
             // 
             // HistorialFActuracion
             // 
