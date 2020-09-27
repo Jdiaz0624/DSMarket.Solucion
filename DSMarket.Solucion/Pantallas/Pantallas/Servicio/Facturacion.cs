@@ -1805,7 +1805,22 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         }
         #endregion
 
+        #region SACAR EL TIEMPO DE LA GARANTIA SELECCIONADA
+        private void SacarTiempoGarantia() {
+            try {
+                var SacarRegistro = ObjDataServicio.Value.BuscaTipoTiempoGarantia(
+                    Convert.ToInt32(ddlSeleccionarTiempoGarantia.SelectedValue));
+                foreach (var n in SacarRegistro) {
+                    txtCantidadDiasGarantia.Value = Convert.ToDecimal(n.TiempoGarantia);
+                }
 
+
+            }
+            catch (Exception ex) {
+               // MessageBox.Show("Error al sacar el tiempo de la garantia seleccionada, codigo de error--> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
 
 
 
@@ -1922,6 +1937,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             MostrarComprobantesFiscales();
             
             ListadoTipoTiempoGarantia();
+            SacarTiempoGarantia();
             ValidarUsoComprobantes();
             MostrarTipoIdentificacion();
             MostrarListadoTipoVenta();
@@ -2549,6 +2565,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 CalcularImpuestos();
             }
             catch (Exception) { }
+        }
+
+        private void ddlSeleccionarTiempoGarantia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SacarTiempoGarantia();
         }
     }
 }

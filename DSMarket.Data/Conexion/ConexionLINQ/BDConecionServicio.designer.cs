@@ -287,6 +287,20 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idFactura, numeroConector, idEstatusFacturacion, idTipoFacturacion, idTipoPago, cliente, fechaDesde, fechaHasta, numeroPagina, numeroRegistros);
 			return ((ISingleResult<SP_BUSCA_HISTORIAL_FACTURACIONResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_BUSCA_TIPO_TIEMPO_GARANTIA")]
+		public ISingleResult<SP_BUSCA_TIPO_TIEMPO_GARANTIAResult> SP_BUSCA_TIPO_TIEMPO_GARANTIA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoTiempoGarantia", DbType="Int")] System.Nullable<int> idTipoTiempoGarantia)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idTipoTiempoGarantia);
+			return ((ISingleResult<SP_BUSCA_TIPO_TIEMPO_GARANTIAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_MODIFICAR_TIPO_TIEMPO_GARANTIA")]
+		public ISingleResult<SP_MODIFICAR_TIPO_TIEMPO_GARANTIAResult> SP_MODIFICAR_TIPO_TIEMPO_GARANTIA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoTiempoGarantia", DbType="Int")] System.Nullable<int> idTipoTiempoGarantia, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TipoTiempoGarantia", DbType="VarChar(100)")] string tipoTiempoGarantia, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TiempoGarantia", DbType="Int")] System.Nullable<int> tiempoGarantia, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idTipoTiempoGarantia, tipoTiempoGarantia, tiempoGarantia, accion);
+			return ((ISingleResult<SP_MODIFICAR_TIPO_TIEMPO_GARANTIAResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_GUARDAR_CLIENTE_FACTURACION_ESPEJOResult
@@ -6564,6 +6578,130 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._CantidadRegistros != value))
 				{
 					this._CantidadRegistros = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCA_TIPO_TIEMPO_GARANTIAResult
+	{
+		
+		private int _IdTipoTiempoGarantia;
+		
+		private string _TipoTiempoGarantia;
+		
+		private System.Nullable<int> _TiempoGarantia;
+		
+		public SP_BUSCA_TIPO_TIEMPO_GARANTIAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoTiempoGarantia", DbType="Int NOT NULL")]
+		public int IdTipoTiempoGarantia
+		{
+			get
+			{
+				return this._IdTipoTiempoGarantia;
+			}
+			set
+			{
+				if ((this._IdTipoTiempoGarantia != value))
+				{
+					this._IdTipoTiempoGarantia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoTiempoGarantia", DbType="VarChar(100)")]
+		public string TipoTiempoGarantia
+		{
+			get
+			{
+				return this._TipoTiempoGarantia;
+			}
+			set
+			{
+				if ((this._TipoTiempoGarantia != value))
+				{
+					this._TipoTiempoGarantia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TiempoGarantia", DbType="Int")]
+		public System.Nullable<int> TiempoGarantia
+		{
+			get
+			{
+				return this._TiempoGarantia;
+			}
+			set
+			{
+				if ((this._TiempoGarantia != value))
+				{
+					this._TiempoGarantia = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_MODIFICAR_TIPO_TIEMPO_GARANTIAResult
+	{
+		
+		private System.Nullable<int> _IdTipoTiempoGarantia;
+		
+		private string _TipoTiempoGarantia;
+		
+		private System.Nullable<int> _TiempoGarantia;
+		
+		public SP_MODIFICAR_TIPO_TIEMPO_GARANTIAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoTiempoGarantia", DbType="Int")]
+		public System.Nullable<int> IdTipoTiempoGarantia
+		{
+			get
+			{
+				return this._IdTipoTiempoGarantia;
+			}
+			set
+			{
+				if ((this._IdTipoTiempoGarantia != value))
+				{
+					this._IdTipoTiempoGarantia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoTiempoGarantia", DbType="VarChar(100)")]
+		public string TipoTiempoGarantia
+		{
+			get
+			{
+				return this._TipoTiempoGarantia;
+			}
+			set
+			{
+				if ((this._TipoTiempoGarantia != value))
+				{
+					this._TipoTiempoGarantia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TiempoGarantia", DbType="Int")]
+		public System.Nullable<int> TiempoGarantia
+		{
+			get
+			{
+				return this._TiempoGarantia;
+			}
+			set
+			{
+				if ((this._TiempoGarantia != value))
+				{
+					this._TiempoGarantia = value;
 				}
 			}
 		}

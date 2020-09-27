@@ -34,6 +34,8 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.lbCredito = new System.Windows.Forms.Label();
+            this.lbCantidadProductosAgregadosTitulo = new System.Windows.Forms.Label();
+            this.lbCantidadRegistrosAgregados = new System.Windows.Forms.Label();
             this.cbAgregarCategoria = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtImpuesto = new System.Windows.Forms.TextBox();
@@ -48,8 +50,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.btnfoto = new System.Windows.Forms.Button();
             this.cbAgregarCategorias = new System.Windows.Forms.CheckBox();
-            this.lbCantidadRegistrosAgregados = new System.Windows.Forms.Label();
-            this.lbCantidadProductosAgregadosTitulo = new System.Windows.Forms.Label();
             this.gbProductosAgregados = new System.Windows.Forms.GroupBox();
             this.dtProductosAgregados = new System.Windows.Forms.DataGridView();
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -94,6 +94,11 @@
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.ddlSeleccionarMarca = new System.Windows.Forms.ComboBox();
+            this.lbMarca = new System.Windows.Forms.Label();
+            this.ddlSeleccionarModelo = new System.Windows.Forms.ComboBox();
+            this.lbModelo = new System.Windows.Forms.Label();
+            this.cbAgregarMArcaModelos = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.cbAgregarCategoria.SuspendLayout();
@@ -164,10 +169,38 @@
             this.lbCredito.Text = "Credito";
             this.lbCredito.Visible = false;
             // 
+            // lbCantidadProductosAgregadosTitulo
+            // 
+            this.lbCantidadProductosAgregadosTitulo.AutoSize = true;
+            this.lbCantidadProductosAgregadosTitulo.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCantidadProductosAgregadosTitulo.Location = new System.Drawing.Point(608, 9);
+            this.lbCantidadProductosAgregadosTitulo.Name = "lbCantidadProductosAgregadosTitulo";
+            this.lbCantidadProductosAgregadosTitulo.Size = new System.Drawing.Size(289, 20);
+            this.lbCantidadProductosAgregadosTitulo.TabIndex = 73;
+            this.lbCantidadProductosAgregadosTitulo.Text = "Cantidad de Productos Agregados";
+            // 
+            // lbCantidadRegistrosAgregados
+            // 
+            this.lbCantidadRegistrosAgregados.AutoSize = true;
+            this.lbCantidadRegistrosAgregados.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCantidadRegistrosAgregados.Location = new System.Drawing.Point(903, 11);
+            this.lbCantidadRegistrosAgregados.Name = "lbCantidadRegistrosAgregados";
+            this.lbCantidadRegistrosAgregados.Size = new System.Drawing.Size(39, 20);
+            this.lbCantidadRegistrosAgregados.TabIndex = 74;
+            this.lbCantidadRegistrosAgregados.Text = "000";
+            this.toolTip1.SetToolTip(this.lbCantidadRegistrosAgregados, "Cantidad de Productos agregados");
+            // 
             // cbAgregarCategoria
             // 
+            this.cbAgregarCategoria.Controls.Add(this.cbAgregarMArcaModelos);
+            this.cbAgregarCategoria.Controls.Add(this.ddlSeleccionarModelo);
+            this.cbAgregarCategoria.Controls.Add(this.lbModelo);
+            this.cbAgregarCategoria.Controls.Add(this.ddlSeleccionarMarca);
+            this.cbAgregarCategoria.Controls.Add(this.lbMarca);
             this.cbAgregarCategoria.Controls.Add(this.label6);
+            this.cbAgregarCategoria.Controls.Add(this.label9);
             this.cbAgregarCategoria.Controls.Add(this.txtImpuesto);
+            this.cbAgregarCategoria.Controls.Add(this.lbCantidadMostradaVariable);
             this.cbAgregarCategoria.Controls.Add(this.btnRestablcer);
             this.cbAgregarCategoria.Controls.Add(this.lbDescuentoColectivoVariable);
             this.cbAgregarCategoria.Controls.Add(this.lbDescuentoColectivoTitulo);
@@ -175,8 +208,6 @@
             this.cbAgregarCategoria.Controls.Add(this.label10);
             this.cbAgregarCategoria.Controls.Add(this.label4);
             this.cbAgregarCategoria.Controls.Add(this.txtAcumulativo);
-            this.cbAgregarCategoria.Controls.Add(this.lbCantidadMostradaVariable);
-            this.cbAgregarCategoria.Controls.Add(this.label9);
             this.cbAgregarCategoria.Controls.Add(this.btnfoto);
             this.cbAgregarCategoria.Controls.Add(this.cbAgregarCategorias);
             this.cbAgregarCategoria.Controls.Add(this.gbProductosAgregados);
@@ -325,7 +356,7 @@
             // 
             this.lbCantidadMostradaVariable.AutoSize = true;
             this.lbCantidadMostradaVariable.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCantidadMostradaVariable.Location = new System.Drawing.Point(678, 64);
+            this.lbCantidadMostradaVariable.Location = new System.Drawing.Point(655, 146);
             this.lbCantidadMostradaVariable.Name = "lbCantidadMostradaVariable";
             this.lbCantidadMostradaVariable.Size = new System.Drawing.Size(39, 20);
             this.lbCantidadMostradaVariable.TabIndex = 78;
@@ -335,7 +366,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(501, 64);
+            this.label9.Location = new System.Drawing.Point(478, 146);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(169, 20);
             this.label9.TabIndex = 77;
@@ -370,27 +401,7 @@
             this.cbAgregarCategorias.Text = "Agregar Categoria";
             this.toolTip1.SetToolTip(this.cbAgregarCategorias, "Agregar el filtro por categoria");
             this.cbAgregarCategorias.UseVisualStyleBackColor = true;
-            // 
-            // lbCantidadRegistrosAgregados
-            // 
-            this.lbCantidadRegistrosAgregados.AutoSize = true;
-            this.lbCantidadRegistrosAgregados.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCantidadRegistrosAgregados.Location = new System.Drawing.Point(903, 11);
-            this.lbCantidadRegistrosAgregados.Name = "lbCantidadRegistrosAgregados";
-            this.lbCantidadRegistrosAgregados.Size = new System.Drawing.Size(39, 20);
-            this.lbCantidadRegistrosAgregados.TabIndex = 74;
-            this.lbCantidadRegistrosAgregados.Text = "000";
-            this.toolTip1.SetToolTip(this.lbCantidadRegistrosAgregados, "Cantidad de Productos agregados");
-            // 
-            // lbCantidadProductosAgregadosTitulo
-            // 
-            this.lbCantidadProductosAgregadosTitulo.AutoSize = true;
-            this.lbCantidadProductosAgregadosTitulo.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCantidadProductosAgregadosTitulo.Location = new System.Drawing.Point(608, 9);
-            this.lbCantidadProductosAgregadosTitulo.Name = "lbCantidadProductosAgregadosTitulo";
-            this.lbCantidadProductosAgregadosTitulo.Size = new System.Drawing.Size(289, 20);
-            this.lbCantidadProductosAgregadosTitulo.TabIndex = 73;
-            this.lbCantidadProductosAgregadosTitulo.Text = "Cantidad de Productos Agregados";
+            this.cbAgregarCategorias.CheckedChanged += new System.EventHandler(this.cbAgregarCategorias_CheckedChanged);
             // 
             // gbProductosAgregados
             // 
@@ -710,6 +721,7 @@
             this.ddlCategoria.Name = "ddlCategoria";
             this.ddlCategoria.Size = new System.Drawing.Size(296, 28);
             this.ddlCategoria.TabIndex = 41;
+            this.ddlCategoria.SelectedIndexChanged += new System.EventHandler(this.ddlCategoria_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -786,7 +798,7 @@
             this.button2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(1016, 53);
+            this.button2.Location = new System.Drawing.Point(1016, 74);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(142, 41);
             this.button2.TabIndex = 4;
@@ -837,9 +849,9 @@
             // gbListadoProductos
             // 
             this.gbListadoProductos.Controls.Add(this.dtSeleccionarproducto);
-            this.gbListadoProductos.Location = new System.Drawing.Point(18, 144);
+            this.gbListadoProductos.Location = new System.Drawing.Point(18, 173);
             this.gbListadoProductos.Name = "gbListadoProductos";
-            this.gbListadoProductos.Size = new System.Drawing.Size(1146, 235);
+            this.gbListadoProductos.Size = new System.Drawing.Size(1146, 206);
             this.gbListadoProductos.TabIndex = 0;
             this.gbListadoProductos.TabStop = false;
             this.gbListadoProductos.Text = "Listado de Productos";
@@ -861,7 +873,7 @@
             this.dtSeleccionarproducto.Name = "dtSeleccionarproducto";
             this.dtSeleccionarproducto.ReadOnly = true;
             this.dtSeleccionarproducto.RowTemplate.Height = 24;
-            this.dtSeleccionarproducto.Size = new System.Drawing.Size(1140, 209);
+            this.dtSeleccionarproducto.Size = new System.Drawing.Size(1140, 180);
             this.dtSeleccionarproducto.TabIndex = 0;
             this.dtSeleccionarproducto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtSeleccionarproducto_CellContentClick);
             // 
@@ -880,6 +892,67 @@
             // 
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
+            // 
+            // ddlSeleccionarMarca
+            // 
+            this.ddlSeleccionarMarca.BackColor = System.Drawing.Color.Silver;
+            this.ddlSeleccionarMarca.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarMarca.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarMarca.FormattingEnabled = true;
+            this.ddlSeleccionarMarca.Location = new System.Drawing.Point(567, 53);
+            this.ddlSeleccionarMarca.Name = "ddlSeleccionarMarca";
+            this.ddlSeleccionarMarca.Size = new System.Drawing.Size(296, 28);
+            this.ddlSeleccionarMarca.TabIndex = 89;
+            this.ddlSeleccionarMarca.Visible = false;
+            this.ddlSeleccionarMarca.SelectedIndexChanged += new System.EventHandler(this.ddlSeleccionarMarca_SelectedIndexChanged);
+            // 
+            // lbMarca
+            // 
+            this.lbMarca.AutoSize = true;
+            this.lbMarca.Location = new System.Drawing.Point(509, 58);
+            this.lbMarca.Name = "lbMarca";
+            this.lbMarca.Size = new System.Drawing.Size(56, 20);
+            this.lbMarca.TabIndex = 88;
+            this.lbMarca.Text = "Marca";
+            this.lbMarca.Visible = false;
+            // 
+            // ddlSeleccionarModelo
+            // 
+            this.ddlSeleccionarModelo.BackColor = System.Drawing.Color.Silver;
+            this.ddlSeleccionarModelo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarModelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarModelo.FormattingEnabled = true;
+            this.ddlSeleccionarModelo.Location = new System.Drawing.Point(567, 83);
+            this.ddlSeleccionarModelo.Name = "ddlSeleccionarModelo";
+            this.ddlSeleccionarModelo.Size = new System.Drawing.Size(296, 28);
+            this.ddlSeleccionarModelo.TabIndex = 91;
+            this.ddlSeleccionarModelo.Visible = false;
+            this.ddlSeleccionarModelo.SelectedIndexChanged += new System.EventHandler(this.ddlSeleccionarModelo_SelectedIndexChanged);
+            // 
+            // lbModelo
+            // 
+            this.lbModelo.AutoSize = true;
+            this.lbModelo.Location = new System.Drawing.Point(503, 87);
+            this.lbModelo.Name = "lbModelo";
+            this.lbModelo.Size = new System.Drawing.Size(62, 20);
+            this.lbModelo.TabIndex = 90;
+            this.lbModelo.Text = "Modelo";
+            this.lbModelo.Visible = false;
+            // 
+            // cbAgregarMArcaModelos
+            // 
+            this.cbAgregarMArcaModelos.AutoSize = true;
+            this.cbAgregarMArcaModelos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbAgregarMArcaModelos.Location = new System.Drawing.Point(867, 46);
+            this.cbAgregarMArcaModelos.Name = "cbAgregarMArcaModelos";
+            this.cbAgregarMArcaModelos.Size = new System.Drawing.Size(234, 24);
+            this.cbAgregarMArcaModelos.TabIndex = 92;
+            this.cbAgregarMArcaModelos.Text = "Buscar por Marca y Modelos";
+            this.toolTip1.SetToolTip(this.cbAgregarMArcaModelos, "Agregar el filtro por categoria");
+            this.cbAgregarMArcaModelos.UseVisualStyleBackColor = true;
+            this.cbAgregarMArcaModelos.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // AgregarProductos
             // 
@@ -981,5 +1054,10 @@
         private System.Windows.Forms.Button btnRestablcer;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtImpuesto;
+        private System.Windows.Forms.CheckBox cbAgregarMArcaModelos;
+        private System.Windows.Forms.ComboBox ddlSeleccionarModelo;
+        private System.Windows.Forms.Label lbModelo;
+        private System.Windows.Forms.ComboBox ddlSeleccionarMarca;
+        private System.Windows.Forms.Label lbMarca;
     }
 }

@@ -590,4 +590,23 @@
       <Column Name="CantidadRegistros" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Servicio.SP_BUSCA_TIPO_TIEMPO_GARANTIA" Method="SP_BUSCA_TIPO_TIEMPO_GARANTIA">
+    <Parameter Name="IdTipoTiempoGarantia" Parameter="idTipoTiempoGarantia" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_BUSCA_TIPO_TIEMPO_GARANTIAResult">
+      <Column Name="IdTipoTiempoGarantia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TipoTiempoGarantia" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="TiempoGarantia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Servicio.SP_MODIFICAR_TIPO_TIEMPO_GARANTIA" Method="SP_MODIFICAR_TIPO_TIEMPO_GARANTIA">
+    <Parameter Name="IdTipoTiempoGarantia" Parameter="idTipoTiempoGarantia" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TipoTiempoGarantia" Parameter="tipoTiempoGarantia" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="TiempoGarantia" Parameter="tiempoGarantia" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_MODIFICAR_TIPO_TIEMPO_GARANTIAResult">
+      <Column Name="IdTipoTiempoGarantia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TipoTiempoGarantia" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="TiempoGarantia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

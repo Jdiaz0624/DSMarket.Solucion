@@ -44,6 +44,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             txtPorcientoDescyento.BackColor = Color.WhiteSmoke;
             txtDescuento.BackColor = Color.WhiteSmoke;
             txtAcumulativo.BackColor = Color.WhiteSmoke;
+            ddlSeleccionarMarca.BackColor = Color.WhiteSmoke;
+            ddlSeleccionarModelo.BackColor = Color.WhiteSmoke;
 
             ddlTipoProducto.ForeColor = Color.Black;
       //    txtCodigo.ForeColor = Color.Black;
@@ -62,6 +64,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             txtPorcientoDescyento.ForeColor = Color.Black;
             txtDescuento.ForeColor = Color.Black;
             txtAcumulativo.ForeColor = Color.Black;
+            ddlSeleccionarMarca.ForeColor = Color.Black;
+            ddlSeleccionarModelo.ForeColor = Color.Black;
 
 
             dtSeleccionarproducto.BackgroundColor = SystemColors.Control;
@@ -89,6 +93,26 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             }
             catch (Exception) { }
         }
+        private void MostrarListadoMarcas() {
+            try {
+                var CargarMarcas = ObjDataListas.Value.BucaLisaMarcas(
+                    Convert.ToDecimal(ddlCategoria.SelectedValue));
+                ddlSeleccionarMarca.DataSource = CargarMarcas;
+                ddlSeleccionarMarca.DisplayMember = "Descripcion";
+                ddlSeleccionarMarca.ValueMember = "IdMarca";
+            }
+            catch (Exception) { }
+        }
+        private void MostrarModelos() {
+            try {
+                var CargarModelos = ObjDataListas.Value.BuscaListaModelos(
+                    Convert.ToDecimal(ddlSeleccionarMarca.SelectedValue));
+                ddlSeleccionarModelo.DataSource = CargarModelos;
+                ddlSeleccionarModelo.DisplayMember = "Descripcion";
+                ddlSeleccionarModelo.ValueMember = "IdModelo";
+            }
+            catch (Exception) { }
+        }
         #endregion
         #region MOSTRAR EL LISTADO DE LOS PRODUCTOS
         private void MostrarListadoProductos() {
@@ -97,9 +121,29 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 string _CodigoBarra = string.IsNullOrEmpty(txtCodigoBarras.Text.Trim()) ? null : txtCodigoBarras.Text.Trim();
                 string _Referencia = string.IsNullOrEmpty(txtReferencia.Text.Trim()) ? null : txtReferencia.Text.Trim();
 
-                if (cbAgregarCategorias.Checked == true)
+                if (cbAgregarCategorias.Checked == true && cbAgregarMArcaModelos.Checked == true)
                 {
-                    var BuscaRegistros = ObjDataLogicaInventario.Value.BuscaProductos(
+                    //BUSCAMOS UTILIZANDO LA CATEGORIA, LA MARCA Y EL MODELO COMO FILTRO PRECISO
+                    var BuscarRegistros = ObjDataLogicaInventario.Value.BuscaProductos(
+                        new Nullable<decimal>(),
+                        null,
+                        _Descripcion,
+                        _CodigoBarra,
+                        _Referencia,
+                        null,
+                        null,
+                        Convert.ToDecimal(ddlTipoProducto.SelectedValue),
+                        Convert.ToDecimal(ddlCategoria.SelectedValue),
+                        null,
+                        Convert.ToDecimal(ddlSeleccionarMarca.SelectedValue),
+                        Convert.ToDecimal(ddlSeleccionarModelo.SelectedValue),
+                        null, null, null, null, false, null, 1, 999999999);
+                    dtSeleccionarproducto.DataSource = BuscarRegistros;
+                }
+                else if (cbAgregarCategorias.Checked == true && cbAgregarMArcaModelos.Checked == false)
+                {
+                    //BUSCAMOS SOLAMENTE UTILIZANDO LA CATEGORIA COMO FILTRO PRECISO
+                    var BuscarRegistros = ObjDataLogicaInventario.Value.BuscaProductos(
                         new Nullable<decimal>(),
                         null,
                         _Descripcion,
@@ -112,56 +156,49 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         null,
                         null,
                         null,
-                        null, null, null, null, false,null,
-                        Convert.ToInt32(txtNumeroPagina.Value),
-                        Convert.ToInt32(txtNumeroRegistros.Value));
-                    dtSeleccionarproducto.DataSource = BuscaRegistros;
-                    if (BuscaRegistros.Count() < 1)
-                    {
-                        lbCantidadMostradaVariable.Text = "000";
-                    }
-                    else {
-                        foreach (var n in BuscaRegistros) {
-                            int CantidadExistenteSeleccionada = Convert.ToInt32(n.CantidadRegistros);
-                            lbCantidadMostradaVariable.Text = CantidadExistenteSeleccionada.ToString("N0");
-                        }
-                    }
-                    OcultarColumnas();
+                        null, null, null, null, false, null, 1, 999999999);
+                    dtSeleccionarproducto.DataSource = BuscarRegistros;
                 }
-                else
+                else if (cbAgregarCategorias.Checked == false && cbAgregarMArcaModelos.Checked == true)
                 {
-                    var BuscaRegistros = ObjDataLogicaInventario.Value.BuscaProductos(
-                          new Nullable<decimal>(),
-                          null,
-                          _Descripcion,
-                          _CodigoBarra,
-                          _Referencia,
-                          null,
-                          null,
-                          Convert.ToDecimal(ddlTipoProducto.SelectedValue),
-                          null,
-                          null,
-                          null,
-                          null,
-                          null, null, null, null, false,null,
-                          Convert.ToInt32(txtNumeroPagina.Value),
-                          Convert.ToInt32(txtNumeroRegistros.Value));
-                    dtSeleccionarproducto.DataSource = BuscaRegistros;
-                    if (BuscaRegistros.Count() < 1)
-                    {
-                        lbCantidadMostradaVariable.Text = "000";
-                    }
-                    else
-                    {
-                        foreach (var n in BuscaRegistros)
-                        {
-                            int CantidadExistenteSeleccionada = Convert.ToInt32(n.CantidadRegistros);
-                            lbCantidadMostradaVariable.Text = CantidadExistenteSeleccionada.ToString("N0");
-                        }
-                    }
-                    OcultarColumnas();
-
+                    //BUSCAMOS SOLAMENTE USANDO LA MARCA Y EL MODELO COMO FILTRO PRECISO
+                    var BuscarRegistros = ObjDataLogicaInventario.Value.BuscaProductos(
+                      new Nullable<decimal>(),
+                      null,
+                      _Descripcion,
+                      _CodigoBarra,
+                      _Referencia,
+                      null,
+                      null,
+                      Convert.ToDecimal(ddlTipoProducto.SelectedValue),
+                      null,
+                      null,
+                      Convert.ToDecimal(ddlSeleccionarMarca.SelectedValue),
+                      Convert.ToDecimal(ddlSeleccionarModelo.SelectedValue),
+                      null, null, null, null, false, null, 1, 999999999);
+                    dtSeleccionarproducto.DataSource = BuscarRegistros;
                 }
+                else if (cbAgregarCategorias.Checked == false && cbAgregarMArcaModelos.Checked == false) {
+                    //BUSCAMOS SIN UTILIZAR LOS FILTROS PRECISO
+                    var BuscarRegistros = ObjDataLogicaInventario.Value.BuscaProductos(
+                         new Nullable<decimal>(),
+                         null,
+                         _Descripcion,
+                         _CodigoBarra,
+                         _Referencia,
+                         null,
+                         null,
+                         Convert.ToDecimal(ddlTipoProducto.SelectedValue),
+                         null,
+                         null,
+                         null,
+                         null,
+                         null, null, null, null, false, null, 1, 999999999);
+                    dtSeleccionarproducto.DataSource = BuscarRegistros;
+                }
+                OcultarColumnas();
+
+
             }
             catch (Exception ex) {
                 MessageBox.Show("Error al mostrar el listado de los productos, codigo de error--> " + ex.Message, VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -391,6 +428,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             VariablesGlbales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             CargarTipoPrductos();
             CargarCategorias();
+            MostrarListadoMarcas();
+            MostrarModelos();
             BuscarProductosAgregados(VariablesGlbales.NumeroConector);
             lbCantidadProductosAgregadosTitulo.ForeColor = Color.White;
             lbCantidadRegistrosAgregados.ForeColor = Color.White;
@@ -399,6 +438,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void ddlTipoProducto_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarCategorias();
+            MostrarListadoMarcas();
+            MostrarModelos();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -940,6 +981,44 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 MostrarListadoProductos();
             }
             catch (Exception) { }
+        }
+
+        private void cbAgregarCategorias_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbAgregarMArcaModelos.Checked) {
+
+                lbMarca.Visible = true;
+                ddlSeleccionarMarca.Visible = true;
+                lbModelo.Visible = true;
+                ddlSeleccionarModelo.Visible = true;
+            }
+            else {
+                lbMarca.Visible = false;
+                ddlSeleccionarMarca.Visible = false;
+                lbModelo.Visible = false;
+                ddlSeleccionarModelo.Visible = false;
+            }
+        }
+
+        private void ddlCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MostrarListadoMarcas();
+            MostrarModelos();
+        }
+
+        private void ddlSeleccionarModelo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ddlSeleccionarMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MostrarModelos();
         }
     }
 }

@@ -73,6 +73,7 @@
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionProductos.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionProductosDefectuosos.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionReportesFinancieros.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionTipoTiempoGarantia.cs" />
     <Compile Include="Comunes\ProcesarMontoInicialCaja.cs" />
     <Compile Include="Comunes\ProcesarProductosDefectuosos.cs" />
     <Compile Include="Comunes\ProcesarRegistrosReporteProductosDefectuosos.cs" />
@@ -188,6 +189,7 @@
     <Compile Include="Entidades\EntidadesServicio\ESacarGananciaFacturacion.cs" />
     <Compile Include="Entidades\EntidadesServicio\ESacarNumeroFactura.cs" />
     <Compile Include="Entidades\EntidadesServicio\ETipoPago.cs" />
+    <Compile Include="Entidades\EntidadesServicio\ETipoTiempoGarantia.cs" />
     <Compile Include="Entidades\EntidadesServicio\EValidarFacturaAnulada.cs" />
     <Compile Include="Logica\LogicaCaja\LogicaCaja.cs" />
     <Compile Include="Logica\LogicaConfiguracion\LogicaCOnfiguracion.cs" />

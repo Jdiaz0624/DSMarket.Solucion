@@ -249,6 +249,7 @@
             this.ddlSeleccionarTiempoGarantia.Name = "ddlSeleccionarTiempoGarantia";
             this.ddlSeleccionarTiempoGarantia.Size = new System.Drawing.Size(181, 28);
             this.ddlSeleccionarTiempoGarantia.TabIndex = 58;
+            this.ddlSeleccionarTiempoGarantia.SelectedIndexChanged += new System.EventHandler(this.ddlSeleccionarTiempoGarantia_SelectedIndexChanged);
             // 
             // cbUsarComprobantes
             // 

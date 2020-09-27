@@ -745,7 +745,43 @@ namespace DSMarket.Logica.Logica.LogicaServicio
             return Mantenimiento;
         }
         #endregion
+        #region MANTENIMIENTO DE TIPO DE TIEMPO DE GARANTIA
+        //LISTADO DE TIPO DE TIEMPO DE GARANTIA
+        public List<DSMarket.Logica.Entidades.EntidadesServicio.ETipoTiempoGarantia> BuscaTipoTiempoGarantia(int? IdTipoTiempoGarantia = null) {
+            ObjData.CommandTimeout = 999999999;
 
+            var Listado = (from n in ObjData.SP_BUSCA_TIPO_TIEMPO_GARANTIA(IdTipoTiempoGarantia)
+                           select new DSMarket.Logica.Entidades.EntidadesServicio.ETipoTiempoGarantia
+                           {
+                               IdTipoTiempoGarantia=n.IdTipoTiempoGarantia,
+                               TipoTiempoGarantia=n.TipoTiempoGarantia,
+                               TiempoGarantia=n.TiempoGarantia
+                           }).ToList();
+            return Listado;
+        }
+
+        public DSMarket.Logica.Entidades.EntidadesServicio.ETipoTiempoGarantia ModificarTipoTiempoGaranta(DSMarket.Logica.Entidades.EntidadesServicio.ETipoTiempoGarantia Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesServicio.ETipoTiempoGarantia Modificar = null;
+
+            var TipoTiempoGarantia = ObjData.SP_MODIFICAR_TIPO_TIEMPO_GARANTIA(
+                Item.IdTipoTiempoGarantia,
+                Item.TipoTiempoGarantia,
+                Item.TiempoGarantia,
+                Accion);
+            if (TipoTiempoGarantia != null) {
+                Modificar = (from n in TipoTiempoGarantia
+                             select new DSMarket.Logica.Entidades.EntidadesServicio.ETipoTiempoGarantia
+                             {
+                                 IdTipoTiempoGarantia=n.IdTipoTiempoGarantia,
+                                 TipoTiempoGarantia=n.TipoTiempoGarantia,
+                                 TiempoGarantia=n.TiempoGarantia
+                             }).FirstOrDefault();
+            }
+            return Modificar;
+        }
+        #endregion
 
     }
 }
