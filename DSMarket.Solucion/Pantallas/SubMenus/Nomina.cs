@@ -39,12 +39,14 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         private void button1_Click(object sender, EventArgs e)
         {
             DSMarket.Solucion.Pantallas.Pantallas.Empresa.NominaConsulta Nomina = new Pantallas.Empresa.NominaConsulta();
+           
             Nomina.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             DSMarket.Solucion.Pantallas.Pantallas.Empresa.DepartamentosConsulta Departamentos = new Pantallas.Empresa.DepartamentosConsulta();
+            Departamentos.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
             Departamentos.ShowDialog();
         }
 
