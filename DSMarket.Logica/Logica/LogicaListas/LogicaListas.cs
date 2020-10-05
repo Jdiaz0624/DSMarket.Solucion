@@ -420,5 +420,18 @@ namespace DSMarket.Logica.Logica.LogicaListas
             return Listado;
         }
         #endregion
+        #region LISTADO DE DEPARTAMENTOS
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EListadoDepartamentos> ListadoDepartamentos() {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjDataListas.SP_LISTADO_DEPARTAMENTOS()
+                           select new DSMarket.Logica.Entidades.EntidadesListas.EListadoDepartamentos
+                           {
+                               IdDepartamento=n.IdDepartamento,
+                               Departamento=n.Departamento
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
     }
 }

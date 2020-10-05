@@ -68,6 +68,7 @@
             this.btnGuardar.Text = "Accion";
             this.toolTip1.SetToolTip(this.btnGuardar, "Completar Operación");
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // cbEstatus
             // 
@@ -104,6 +105,7 @@
             this.lbclaveSeguridad.Size = new System.Drawing.Size(153, 20);
             this.lbclaveSeguridad.TabIndex = 33;
             this.lbclaveSeguridad.Text = "Clave de Seguridad";
+            this.lbclaveSeguridad.Visible = false;
             // 
             // txtClaveSeguridad
             // 
@@ -111,8 +113,10 @@
             this.txtClaveSeguridad.Location = new System.Drawing.Point(178, 171);
             this.txtClaveSeguridad.MaxLength = 20;
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
+            this.txtClaveSeguridad.PasswordChar = '•';
             this.txtClaveSeguridad.Size = new System.Drawing.Size(225, 27);
             this.txtClaveSeguridad.TabIndex = 32;
+            this.txtClaveSeguridad.Visible = false;
             // 
             // groupBox1
             // 

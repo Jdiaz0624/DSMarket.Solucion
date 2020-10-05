@@ -264,6 +264,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<SP_BUSCA_LISTA_TIEMPO_GARANTIAResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTADO_DEPARTAMENTOS")]
+		public ISingleResult<SP_LISTADO_DEPARTAMENTOSResult> SP_LISTADO_DEPARTAMENTOS()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_LISTADO_DEPARTAMENTOSResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_CARGAR_LISTA_TIPO_PRODUCTOResult
@@ -1627,6 +1634,50 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._TipoTiempoGarantia != value))
 				{
 					this._TipoTiempoGarantia = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_LISTADO_DEPARTAMENTOSResult
+	{
+		
+		private decimal _IdDepartamento;
+		
+		private string _Departamento;
+		
+		public SP_LISTADO_DEPARTAMENTOSResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdDepartamento", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdDepartamento
+		{
+			get
+			{
+				return this._IdDepartamento;
+			}
+			set
+			{
+				if ((this._IdDepartamento != value))
+				{
+					this._IdDepartamento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Departamento", DbType="VarChar(100)")]
+		public string Departamento
+		{
+			get
+			{
+				return this._Departamento;
+			}
+			set
+			{
+				if ((this._Departamento != value))
+				{
+					this._Departamento = value;
 				}
 			}
 		}

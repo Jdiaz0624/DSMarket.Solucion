@@ -295,5 +295,63 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
             return Mantenimiento;
         }
         #endregion
+
+        #region MANTENIMIENTO DE CARGOS
+        //LISTADO DE LOS CARGOS
+        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.ECargos> BuscaCargos(decimal? IdCargo = null, decimal? IdDepartamento = null, string Descripcion = null, int? NumeroPagina = 1, int? NumeroRegistro = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_BUSCA_CARGOS(IdCargo, IdDepartamento, Descripcion, NumeroPagina, NumeroRegistro)
+                           select new DSMarket.Logica.Entidades.EntidadesEmpresa.ECargos
+                           {
+                               IdCargo=n.IdCargo,
+                               IdDepartamento=n.IdDepartamento,
+                               Departamento=n.Departamento,
+                               Cargo=n.Cargo,
+                               Estatus0=n.Estatus0,
+                               Estatus=n.Estatus,
+                               UsuarioAdiciona=n.UsuarioAdiciona,
+                               CreadoPor=n.CreadoPor,
+                               FechaAdiciona=n.FechaAdiciona,
+                               FechaCreado=n.FechaCreado,
+                               UsuarioModifica=n.UsuarioModifica,
+                               ModificadoPor=n.ModificadoPor,
+                               FechaModifica=n.FechaModifica,
+                               FechaModificado=n.FechaModificado,
+                               CantidadRegistros=n.CantidadRegistros
+                           }).ToList();
+            return Listado;
+        }
+
+        //MANTENIMIENTO DE CARGOS
+        public DSMarket.Logica.Entidades.EntidadesEmpresa.ECargos MantenimientoCargos(DSMarket.Logica.Entidades.EntidadesEmpresa.ECargos Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesEmpresa.ECargos Mantenimiento = null;
+
+            var Cargos = ObjData.SP_MANTENIMIENTO_CARGOS(
+                Item.IdCargo,
+                Item.IdDepartamento,
+                Item.Cargo,
+                Item.Estatus0,
+                Item.UsuarioAdiciona,
+                Accion);
+            if (Cargos != null) {
+                Mantenimiento = (from n in Cargos
+                                 select new DSMarket.Logica.Entidades.EntidadesEmpresa.ECargos
+                                 {
+                                     IdCargo=n.IdCargo,
+                                     IdDepartamento=n.IdDepartamento,
+                                     Cargo=n.Descripcion,
+                                     Estatus0=n.Estatus,
+                                     UsuarioAdiciona=n.UsuarioAdiciona,
+                                     FechaAdiciona=n.FechaAdiciona,
+                                     UsuarioModifica=n.UsuarioModifica,
+                                     FechaModifica=n.FechaModifica
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
+        #endregion
     }
 }

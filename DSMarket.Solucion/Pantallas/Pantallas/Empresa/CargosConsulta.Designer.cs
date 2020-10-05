@@ -34,7 +34,6 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.cbAgregarDepartamentos = new System.Windows.Forms.CheckBox();
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtListado = new System.Windows.Forms.DataGridView();
@@ -53,6 +52,7 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.lbCantidadRegistrosTitulo = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
@@ -71,6 +71,7 @@
             // btnEditar
             // 
             this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditar.Enabled = false;
             this.btnEditar.FlatAppearance.BorderSize = 0;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -117,19 +118,7 @@
             this.btnBuscar.Text = "      Buscar";
             this.toolTip1.SetToolTip(this.btnBuscar, "Consultar registros");
             this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // cbAgregarDepartamentos
-            // 
-            this.cbAgregarDepartamentos.AutoSize = true;
-            this.cbAgregarDepartamentos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbAgregarDepartamentos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbAgregarDepartamentos.Location = new System.Drawing.Point(424, 27);
-            this.cbAgregarDepartamentos.Name = "cbAgregarDepartamentos";
-            this.cbAgregarDepartamentos.Size = new System.Drawing.Size(87, 24);
-            this.cbAgregarDepartamentos.TabIndex = 103;
-            this.cbAgregarDepartamentos.Text = "Agregar";
-            this.toolTip1.SetToolTip(this.cbAgregarDepartamentos, "Agregar los departamentos a la consulta");
-            this.cbAgregarDepartamentos.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtNumeroRegistros
             // 
@@ -149,6 +138,7 @@
             0,
             0,
             0});
+            this.txtNumeroRegistros.ValueChanged += new System.EventHandler(this.txtNumeroRegistros_ValueChanged);
             // 
             // groupBox2
             // 
@@ -179,6 +169,7 @@
             this.dtListado.RowTemplate.Height = 24;
             this.dtListado.Size = new System.Drawing.Size(1053, 256);
             this.dtListado.TabIndex = 0;
+            this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
             // Select
             // 
@@ -218,6 +209,7 @@
             0,
             0,
             0});
+            this.txtNumeroPagina.ValueChanged += new System.EventHandler(this.txtNumeroPagina_ValueChanged);
             // 
             // lbNumeroPagina
             // 
@@ -230,14 +222,13 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cbAgregarDepartamentos);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtCargo);
             this.groupBox1.Controls.Add(this.ddlSeleccionarDepartamento);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(3, 103);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(539, 98);
+            this.groupBox1.Size = new System.Drawing.Size(436, 98);
             this.groupBox1.TabIndex = 95;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cargo - Filtro";
@@ -283,6 +274,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Linen;
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.btnEditar);
             this.panel2.Controls.Add(this.btnNuevo);
             this.panel2.Controls.Add(this.btnBuscar);
@@ -347,6 +339,23 @@
             this.lbCantidadRegistrosTitulo.TabIndex = 30;
             this.lbCantidadRegistrosTitulo.Text = "Cantidad de Registros";
             // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(531, 7);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(170, 41);
+            this.button1.TabIndex = 67;
+            this.button1.Text = "      Restablecer";
+            this.toolTip1.SetToolTip(this.button1, "Restablecer Pantalla");
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // CargosConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -410,6 +419,6 @@
         private System.Windows.Forms.Label lbCantidadRegistrosTitulo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox ddlSeleccionarDepartamento;
-        private System.Windows.Forms.CheckBox cbAgregarDepartamentos;
+        private System.Windows.Forms.Button button1;
     }
 }

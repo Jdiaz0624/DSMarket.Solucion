@@ -53,6 +53,7 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
         private void button3_Click(object sender, EventArgs e)
         {
             DSMarket.Solucion.Pantallas.Pantallas.Empresa.CargosConsulta Cargos = new Pantallas.Empresa.CargosConsulta();
+            Cargos.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
             Cargos.ShowDialog();
         }
 

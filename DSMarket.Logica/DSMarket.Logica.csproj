@@ -65,6 +65,7 @@
     <Compile Include="Comunes\ProcesarInformacionReporte608.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarDatosReporteFinanciero.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionCapacidadArticulos.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionCargos.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionCatalogoCuentas.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionColoresArticulos.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacioNCondicionArticulos.cs" />
@@ -125,6 +126,7 @@
     <Compile Include="Entidades\EntidadesContabilidad\EGuardarCuentasMovimientos.cs" />
     <Compile Include="Entidades\EntidadesContabilidad\ESacarDatosReporteFinanciero.cs" />
     <Compile Include="Entidades\EntidadesContabilidad\ESacarInformacionCuentasMovimientos.cs" />
+    <Compile Include="Entidades\EntidadesEmpresa\ECargos.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\EClientes.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\ECompraSuplidores.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\EDepartamentos.cs" />
@@ -152,6 +154,7 @@
     <Compile Include="Entidades\EntidadesListas\ECondicion.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaCategorias.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaComprobantesFiscales.cs" />
+    <Compile Include="Entidades\EntidadesListas\EListadoDepartamentos.cs" />
     <Compile Include="Entidades\EntidadesListas\EListadoTipoAnulaicon.cs" />
     <Compile Include="Entidades\EntidadesListas\EListadoTipoPago.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaEstatusFacturacion.cs" />

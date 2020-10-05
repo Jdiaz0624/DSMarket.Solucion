@@ -186,4 +186,10 @@
       <Column Name="TipoTiempoGarantia" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Listas.SP_LISTADO_DEPARTAMENTOS" Method="SP_LISTADO_DEPARTAMENTOS">
+    <ElementType Name="SP_LISTADO_DEPARTAMENTOSResult">
+      <Column Name="IdDepartamento" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Departamento" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>
