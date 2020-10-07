@@ -34,6 +34,19 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.ddlSeleccionarCondicion = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.ddlSeleccionarCapacidad = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ddlSeleccionarColor = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtNumeroSeguimiento = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbAplicaDescuento = new System.Windows.Forms.CheckBox();
@@ -93,20 +106,7 @@
             this.lbTipoProducto = new System.Windows.Forms.Label();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnGuardar = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ddlSeleccionarColor = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.ddlSeleccionarCapacidad = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.ddlSeleccionarCondicion = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -234,6 +234,164 @@
             this.groupBox1.Text = "Datos del Producto";
             this.toolTip1.SetToolTip(this.groupBox1, "Buscar Foto del Articulo");
             this.groupBox1.Enter += new System.EventHandler(this.GroupBox1_Enter);
+            // 
+            // button5
+            // 
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button5.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
+            this.button5.Location = new System.Drawing.Point(995, 249);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(41, 29);
+            this.button5.TabIndex = 71;
+            this.toolTip1.SetToolTip(this.button5, "Refrescar Listado de Suplidores");
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Visible = false;
+            // 
+            // button6
+            // 
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button6.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
+            this.button6.Location = new System.Drawing.Point(952, 249);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(41, 29);
+            this.button6.TabIndex = 70;
+            this.toolTip1.SetToolTip(this.button6, "Agregar Suplidores");
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Visible = false;
+            // 
+            // button3
+            // 
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button3.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
+            this.button3.Location = new System.Drawing.Point(453, 285);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(41, 29);
+            this.button3.TabIndex = 69;
+            this.toolTip1.SetToolTip(this.button3, "Refrescar Listado de Suplidores");
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Visible = false;
+            // 
+            // button4
+            // 
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button4.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
+            this.button4.Location = new System.Drawing.Point(410, 285);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(41, 29);
+            this.button4.TabIndex = 68;
+            this.toolTip1.SetToolTip(this.button4, "Agregar Suplidores");
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
+            this.button1.Location = new System.Drawing.Point(453, 253);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(41, 29);
+            this.button1.TabIndex = 67;
+            this.toolTip1.SetToolTip(this.button1, "Refrescar Listado de Suplidores");
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            // 
+            // button2
+            // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
+            this.button2.Location = new System.Drawing.Point(410, 253);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(41, 29);
+            this.button2.TabIndex = 66;
+            this.toolTip1.SetToolTip(this.button2, "Agregar Suplidores");
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardar.FlatAppearance.BorderSize = 10;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Image = global::DSMarket.Solucion.Properties.Resources.Guardar;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardar.Location = new System.Drawing.Point(499, 438);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(406, 41);
+            this.btnGuardar.TabIndex = 7;
+            this.btnGuardar.Text = "Accion";
+            this.toolTip1.SetToolTip(this.btnGuardar, "Completar Operación");
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // ddlSeleccionarCondicion
+            // 
+            this.ddlSeleccionarCondicion.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlSeleccionarCondicion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarCondicion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarCondicion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarCondicion.FormattingEnabled = true;
+            this.ddlSeleccionarCondicion.Location = new System.Drawing.Point(696, 248);
+            this.ddlSeleccionarCondicion.Name = "ddlSeleccionarCondicion";
+            this.ddlSeleccionarCondicion.Size = new System.Drawing.Size(250, 29);
+            this.ddlSeleccionarCondicion.TabIndex = 65;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(592, 252);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(100, 21);
+            this.label4.TabIndex = 64;
+            this.label4.Text = "Condición *";
+            // 
+            // ddlSeleccionarCapacidad
+            // 
+            this.ddlSeleccionarCapacidad.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlSeleccionarCapacidad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarCapacidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarCapacidad.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarCapacidad.FormattingEnabled = true;
+            this.ddlSeleccionarCapacidad.Location = new System.Drawing.Point(169, 285);
+            this.ddlSeleccionarCapacidad.Name = "ddlSeleccionarCapacidad";
+            this.ddlSeleccionarCapacidad.Size = new System.Drawing.Size(235, 29);
+            this.ddlSeleccionarCapacidad.TabIndex = 63;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(52, 290);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(112, 21);
+            this.label3.TabIndex = 62;
+            this.label3.Text = "Capacidad *";
+            // 
+            // ddlSeleccionarColor
+            // 
+            this.ddlSeleccionarColor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlSeleccionarColor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarColor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarColor.FormattingEnabled = true;
+            this.ddlSeleccionarColor.Location = new System.Drawing.Point(169, 252);
+            this.ddlSeleccionarColor.Name = "ddlSeleccionarColor";
+            this.ddlSeleccionarColor.Size = new System.Drawing.Size(235, 29);
+            this.ddlSeleccionarColor.TabIndex = 61;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(103, 257);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 21);
+            this.label2.TabIndex = 60;
+            this.label2.Text = "Color *";
             // 
             // txtNumeroSeguimiento
             // 
@@ -630,6 +788,7 @@
             // txtdescripcion
             // 
             this.txtdescripcion.BackColor = System.Drawing.Color.Silver;
+            this.txtdescripcion.Enabled = false;
             this.txtdescripcion.Location = new System.Drawing.Point(154, 320);
             this.txtdescripcion.Name = "txtdescripcion";
             this.txtdescripcion.Size = new System.Drawing.Size(792, 27);
@@ -872,168 +1031,10 @@
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
             // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardar.FlatAppearance.BorderSize = 10;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Image = global::DSMarket.Solucion.Properties.Resources.Guardar;
-            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(499, 438);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(406, 41);
-            this.btnGuardar.TabIndex = 7;
-            this.btnGuardar.Text = "Accion";
-            this.toolTip1.SetToolTip(this.btnGuardar, "Completar Operación");
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
-            // 
-            // ddlSeleccionarColor
-            // 
-            this.ddlSeleccionarColor.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ddlSeleccionarColor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlSeleccionarColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlSeleccionarColor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ddlSeleccionarColor.FormattingEnabled = true;
-            this.ddlSeleccionarColor.Location = new System.Drawing.Point(169, 252);
-            this.ddlSeleccionarColor.Name = "ddlSeleccionarColor";
-            this.ddlSeleccionarColor.Size = new System.Drawing.Size(235, 29);
-            this.ddlSeleccionarColor.TabIndex = 61;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(103, 257);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 21);
-            this.label2.TabIndex = 60;
-            this.label2.Text = "Color *";
-            // 
-            // ddlSeleccionarCapacidad
-            // 
-            this.ddlSeleccionarCapacidad.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ddlSeleccionarCapacidad.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlSeleccionarCapacidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlSeleccionarCapacidad.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ddlSeleccionarCapacidad.FormattingEnabled = true;
-            this.ddlSeleccionarCapacidad.Location = new System.Drawing.Point(169, 285);
-            this.ddlSeleccionarCapacidad.Name = "ddlSeleccionarCapacidad";
-            this.ddlSeleccionarCapacidad.Size = new System.Drawing.Size(235, 29);
-            this.ddlSeleccionarCapacidad.TabIndex = 63;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(52, 290);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(112, 21);
-            this.label3.TabIndex = 62;
-            this.label3.Text = "Capacidad *";
-            // 
-            // ddlSeleccionarCondicion
-            // 
-            this.ddlSeleccionarCondicion.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ddlSeleccionarCondicion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlSeleccionarCondicion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlSeleccionarCondicion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ddlSeleccionarCondicion.FormattingEnabled = true;
-            this.ddlSeleccionarCondicion.Location = new System.Drawing.Point(696, 248);
-            this.ddlSeleccionarCondicion.Name = "ddlSeleccionarCondicion";
-            this.ddlSeleccionarCondicion.Size = new System.Drawing.Size(250, 29);
-            this.ddlSeleccionarCondicion.TabIndex = 65;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(592, 252);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 21);
-            this.label4.TabIndex = 64;
-            this.label4.Text = "Condición *";
-            // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
-            this.button1.Location = new System.Drawing.Point(453, 253);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(41, 29);
-            this.button1.TabIndex = 67;
-            this.toolTip1.SetToolTip(this.button1, "Refrescar Listado de Suplidores");
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            // 
-            // button2
-            // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
-            this.button2.Location = new System.Drawing.Point(410, 253);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(41, 29);
-            this.button2.TabIndex = 66;
-            this.toolTip1.SetToolTip(this.button2, "Agregar Suplidores");
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
-            // 
-            // button3
-            // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
-            this.button3.Location = new System.Drawing.Point(453, 285);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(41, 29);
-            this.button3.TabIndex = 69;
-            this.toolTip1.SetToolTip(this.button3, "Refrescar Listado de Suplidores");
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Visible = false;
-            // 
-            // button4
-            // 
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
-            this.button4.Location = new System.Drawing.Point(410, 285);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(41, 29);
-            this.button4.TabIndex = 68;
-            this.toolTip1.SetToolTip(this.button4, "Agregar Suplidores");
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Visible = false;
-            // 
-            // button5
-            // 
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button5.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
-            this.button5.Location = new System.Drawing.Point(995, 249);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(41, 29);
-            this.button5.TabIndex = 71;
-            this.toolTip1.SetToolTip(this.button5, "Refrescar Listado de Suplidores");
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Visible = false;
-            // 
-            // button6
-            // 
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button6.Image = global::DSMarket.Solucion.Properties.Resources.Agregar;
-            this.button6.Location = new System.Drawing.Point(952, 249);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(41, 29);
-            this.button6.TabIndex = 70;
-            this.toolTip1.SetToolTip(this.button6, "Agregar Suplidores");
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Visible = false;
             // 
             // MantenimientoProducto
             // 

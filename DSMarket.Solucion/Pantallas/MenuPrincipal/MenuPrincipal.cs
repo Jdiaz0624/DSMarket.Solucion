@@ -93,24 +93,24 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
         {
             SacarInformacionEmpresa();
             TemaGenerico();
-            btnServicio.Visible = false;
-            EfectoBotones.Show(btnServicio);
-            btnInventario.Visible = false;
-            EfectoBotones.Show(btnInventario);
-            btnCaja.Visible = false;
-            EfectoBotones.Show(btnCaja);
-            btneEmpresa.Visible = false;
-            EfectoBotones.Show(btneEmpresa);
-            btnContabilidad.Visible = false;
-            EfectoBotones.Show(btnContabilidad);
-            btnReportesSistema.Visible = false;
-            EfectoBotones.Show(btnReportesSistema);
-            btnConfiguracion.Visible = false;
-            EfectoBotones.Show(btnConfiguracion);
-            btnSeguridad.Visible = false;
-            EfectoBotones.Show(btnSeguridad);
-            btnCerrarSesion.Visible = false;
-            EfectoBotones.Show(btnCerrarSesion);
+            //btnServicio.Visible = false;
+            //EfectoBotones.Show(btnServicio);
+            //btnInventario.Visible = false;
+            //EfectoBotones.Show(btnInventario);
+            //btnCaja.Visible = false;
+            //EfectoBotones.Show(btnCaja);
+            //btneEmpresa.Visible = false;
+            //EfectoBotones.Show(btneEmpresa);
+            //btnContabilidad.Visible = false;
+            //EfectoBotones.Show(btnContabilidad);
+            //btnReportesSistema.Visible = false;
+            //EfectoBotones.Show(btnReportesSistema);
+            //btnConfiguracion.Visible = false;
+            //EfectoBotones.Show(btnConfiguracion);
+            //btnSeguridad.Visible = false;
+            //EfectoBotones.Show(btnSeguridad);
+            //btnCerrarSesion.Visible = false;
+            //EfectoBotones.Show(btnCerrarSesion);
 
             //SACAMOS LOS DATOS DEL USUARIO
             var SacarDatosUsuario = ObjdataSeguridad.Value.BuscaUsuarios(VariablesGlobales.IdUsuario, null, null, null, null, 1, 1);
