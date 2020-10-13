@@ -482,7 +482,6 @@
             this.ddlCantidadDias.Name = "ddlCantidadDias";
             this.ddlCantidadDias.Size = new System.Drawing.Size(139, 28);
             this.ddlCantidadDias.TabIndex = 50;
-            this.ddlCantidadDias.Visible = false;
             // 
             // rbFacturar
             // 
@@ -508,21 +507,18 @@
             this.lbCantidadDias.Size = new System.Drawing.Size(87, 20);
             this.lbCantidadDias.TabIndex = 51;
             this.lbCantidadDias.Text = "Cant. Dias";
-            this.lbCantidadDias.Visible = false;
             // 
             // ddlTipoVenta
             // 
             this.ddlTipoVenta.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ddlTipoVenta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ddlTipoVenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlTipoVenta.Enabled = false;
             this.ddlTipoVenta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ddlTipoVenta.FormattingEnabled = true;
             this.ddlTipoVenta.Location = new System.Drawing.Point(610, 18);
             this.ddlTipoVenta.Name = "ddlTipoVenta";
             this.ddlTipoVenta.Size = new System.Drawing.Size(127, 28);
             this.ddlTipoVenta.TabIndex = 29;
-            this.ddlTipoVenta.Visible = false;
             this.ddlTipoVenta.SelectedIndexChanged += new System.EventHandler(this.ddlTipoVenta_SelectedIndexChanged);
             // 
             // label22
@@ -533,7 +529,6 @@
             this.label22.Size = new System.Drawing.Size(112, 20);
             this.label22.TabIndex = 49;
             this.label22.Text = "Tipo de Venta";
-            this.label22.Visible = false;
             // 
             // txtCambio
             // 

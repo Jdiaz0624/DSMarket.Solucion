@@ -137,7 +137,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         null,
                         Convert.ToDecimal(ddlSeleccionarMarca.SelectedValue),
                         Convert.ToDecimal(ddlSeleccionarModelo.SelectedValue),
-                        null, null, null, null, false, null, 1, 999999999);
+                        null, null, null, null, false, null, (int)txtNumeroPagina.Value, (int)txtNumeroRegistros.Value);
                     dtSeleccionarproducto.DataSource = BuscarRegistros;
                 }
                 else if (cbAgregarCategorias.Checked == true && cbAgregarMArcaModelos.Checked == false)
@@ -156,7 +156,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         null,
                         null,
                         null,
-                        null, null, null, null, false, null, 1, 999999999);
+                        null, null, null, null, false, null, (int)txtNumeroPagina.Value, (int)txtNumeroRegistros.Value);
                     dtSeleccionarproducto.DataSource = BuscarRegistros;
                 }
                 else if (cbAgregarCategorias.Checked == false && cbAgregarMArcaModelos.Checked == true)
@@ -175,7 +175,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                       null,
                       Convert.ToDecimal(ddlSeleccionarMarca.SelectedValue),
                       Convert.ToDecimal(ddlSeleccionarModelo.SelectedValue),
-                      null, null, null, null, false, null, 1, 999999999);
+                      null, null, null, null, false, null, (int)txtNumeroPagina.Value, (int)txtNumeroRegistros.Value);
                     dtSeleccionarproducto.DataSource = BuscarRegistros;
                 }
                 else if (cbAgregarCategorias.Checked == false && cbAgregarMArcaModelos.Checked == false) {
@@ -193,7 +193,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                          null,
                          null,
                          null,
-                         null, null, null, null, false, null, 1, 999999999);
+                         null, null, null, null, false, null, (int)txtNumeroPagina.Value, (int)txtNumeroRegistros.Value);
                     dtSeleccionarproducto.DataSource = BuscarRegistros;
                 }
                 OcultarColumnas();
@@ -235,6 +235,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.dtSeleccionarproducto.Columns["FechaCreado"].Visible = false;
             this.dtSeleccionarproducto.Columns["EstatusProducto0"].Visible = false;
             this.dtSeleccionarproducto.Columns["EstatusProducto"].Visible = false;
+            this.dtSeleccionarproducto.Columns["IdColor"].Visible = false;
+            this.dtSeleccionarproducto.Columns["IdCapacidad"].Visible = false;
+            this.dtSeleccionarproducto.Columns["IdCondicion"].Visible = false;
+            this.dtSeleccionarproducto.Columns["AceptaOferta"].Visible = false;
+            this.dtSeleccionarproducto.Columns["AplicaParaImpuesto0"].Visible = false;
 
         }
         #endregion
@@ -424,6 +429,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void AgregarProductos_Load(object sender, EventArgs e)
         {
+            lbTitulo.Text = "AGREGAR PRODUCTOS A FACTURA";
+            lbTitulo.ForeColor = Color.White;
             TemaGenerico();
             VariablesGlbales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             CargarTipoPrductos();

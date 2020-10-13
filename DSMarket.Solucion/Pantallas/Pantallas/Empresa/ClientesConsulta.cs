@@ -47,7 +47,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             }
         }
         private void OcultarColumnas() {
-            this.dtListado.Columns["IdCliente"].Visible = false;
+           // this.dtListado.Columns["IdCliente"].Visible = false;
             this.dtListado.Columns["IdComprobante"].Visible = false;
             this.dtListado.Columns["IdTipoIdentificacion"].Visible = false;
             this.dtListado.Columns["Estatus0"].Visible = false;

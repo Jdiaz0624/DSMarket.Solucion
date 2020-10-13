@@ -63,6 +63,7 @@
     <Compile Include="Comunes\ProcesarInformacionDataReporte606.cs" />
     <Compile Include="Comunes\ProcesarInformacionModificarConfiguracionGeneral.cs" />
     <Compile Include="Comunes\ProcesarInformacionReporte608.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionTipoEmpleados.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarDatosReporteFinanciero.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionCapacidadArticulos.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionCargos.cs" />
@@ -130,6 +131,7 @@
     <Compile Include="Entidades\EntidadesEmpresa\EClientes.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\ECompraSuplidores.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\EDepartamentos.cs" />
+    <Compile Include="Entidades\EntidadesEmpresa\ETipoEmpleado.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECantidadProductosDefectuosos.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECapacidadArticulos.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECategorias.cs" />

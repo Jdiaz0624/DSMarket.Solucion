@@ -2456,6 +2456,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         else if (TipoVenta == 2)
                         {
                             //venta a credito
+                            MessageBox.Show("La Facturación a Credito a un esta en desarrollo", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else { MessageBox.Show("Error al Facturar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error); }
                     }

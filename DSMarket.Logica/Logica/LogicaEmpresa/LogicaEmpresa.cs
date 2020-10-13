@@ -353,5 +353,59 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
             return Mantenimiento;
         }
         #endregion
+
+        #region MANTENIMIENTO DE TIPO DE EMPLEADOS
+        //LISTADO DE TIPO DE EMPLEADOS
+        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoEmpleado> BuscaTipoEmpleado(decimal? IdTipoEmpleado = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_BUSCA_TIPO_EMPLEADO(IdTipoEmpleado, Descripcion, NumeroPagina, NumeroRegistros)
+                           select new DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoEmpleado
+                           {
+                               IdTipoEmpleado=n.IdTipoEmpleado,
+                               TipoEmpleado=n.TipoEmpleado,
+                               Estatus0=n.Estatus0,
+                               Estatus=n.Estatus,
+                               UsuarioAdiciona=n.UsuarioAdiciona,
+                               CreadoPor=n.CreadoPor,
+                               FechaAdiciona=n.FechaAdiciona,
+                               FechaCreado=n.FechaCreado,
+                               UsuarioModifica=n.UsuarioModifica,
+                               ModificadoPor=n.ModificadoPor,
+                               FechaModifica=n.FechaModifica,
+                               FechaModificado=n.FechaModificado,
+                              CantidadRegistros=n.CantidadRegistros
+                           }).ToList();
+            return Listado;
+        }
+
+        //MANTENIMIENTO DE TIPO DE EMPLEADOS
+        public DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoEmpleado MantenimientoTipoEmpleado(DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoEmpleado Item, string Accion){
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoEmpleado Mantenimiento = null;
+
+            var TipoEmpleado = ObjData.SP_MANTENIMIENTO_TIPO_EMPLEADO(
+                Item.IdTipoEmpleado,
+                Item.TipoEmpleado,
+                Item.Estatus0,
+                Item.UsuarioAdiciona,
+                Accion);
+            if (TipoEmpleado != null) {
+                Mantenimiento = (from n in TipoEmpleado
+                                 select new DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoEmpleado
+                                 {
+                                     IdTipoEmpleado=n.IdTipoEmpleado,
+                                     TipoEmpleado=n.Descripcion,
+                                     Estatus0=n.Estatus,
+                                     UsuarioAdiciona=n.UsuarioAdiciona,
+                                     FechaAdiciona=n.FechaAdiciona,
+                                     UsuarioModifica=n.UsuarioModifica,
+                                     FechaModifica=n.FechaModifica
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
+        #endregion
     }
 }
