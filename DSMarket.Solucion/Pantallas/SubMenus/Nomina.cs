@@ -63,5 +63,19 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
             CompraSuplidoresConsulta.Variableslobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
             CompraSuplidoresConsulta.ShowDialog();
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Empresa.TipoEmpleadoConsulta TipoEmpleado = new Pantallas.Empresa.TipoEmpleadoConsulta();
+            TipoEmpleado.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
+            TipoEmpleado.ShowDialog();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Empresa.TipoNominaConsulta TipoNomina = new Pantallas.Empresa.TipoNominaConsulta();
+            TipoNomina.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
+            TipoNomina.ShowDialog();
+        }
     }
 }

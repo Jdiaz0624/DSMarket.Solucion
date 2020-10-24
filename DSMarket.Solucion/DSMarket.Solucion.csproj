@@ -337,6 +337,30 @@
     <Compile Include="Pantallas\Pantallas\Empresa\NominaMantenimiento.Designer.cs">
       <DependentUpon>NominaMantenimiento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\TipoEmpleadoConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\TipoEmpleadoConsulta.Designer.cs">
+      <DependentUpon>TipoEmpleadoConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\TipoEmpleadoMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\TipoEmpleadoMantenimiento.Designer.cs">
+      <DependentUpon>TipoEmpleadoMantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\TipoNominaConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\TipoNominaConsulta.Designer.cs">
+      <DependentUpon>TipoNominaConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\TipoNominaMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\TipoNominaMantenimiento.Designer.cs">
+      <DependentUpon>TipoNominaMantenimiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\AgregarOferta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -761,6 +785,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\NominaMantenimiento.resx">
       <DependentUpon>NominaMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\TipoEmpleadoConsulta.resx">
+      <DependentUpon>TipoEmpleadoConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\TipoEmpleadoMantenimiento.resx">
+      <DependentUpon>TipoEmpleadoMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\TipoNominaConsulta.resx">
+      <DependentUpon>TipoNominaConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\TipoNominaMantenimiento.resx">
+      <DependentUpon>TipoNominaMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\AgregarOferta.resx">
       <DependentUpon>AgregarOferta.cs</DependentUpon>

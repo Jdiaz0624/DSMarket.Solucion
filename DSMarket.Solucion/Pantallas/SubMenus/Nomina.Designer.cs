@@ -263,7 +263,6 @@
             // button10
             // 
             this.button10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button10.Enabled = false;
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.Location = new System.Drawing.Point(389, 153);
@@ -273,6 +272,7 @@
             this.button10.Text = "Tipo de Empleado";
             this.toolTip1.SetToolTip(this.button10, "Tipo de Empleado");
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button9
             // 
@@ -319,7 +319,6 @@
             // button6
             // 
             this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.Enabled = false;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.Location = new System.Drawing.Point(5, 91);
@@ -329,6 +328,7 @@
             this.button6.Text = "Tipo de Nomina";
             this.toolTip1.SetToolTip(this.button6, "Tipo de Nomina");
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 

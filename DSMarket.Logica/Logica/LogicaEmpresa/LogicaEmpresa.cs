@@ -407,5 +407,60 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
             return Mantenimiento;
         }
         #endregion
+
+        #region MANTENIMIENTO DE TIPO DE NOMINA
+        //LISTADO DE MANTENIMIENTO DE TIPO NOMINA
+        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoNomina> BuscaTipoNomina(decimal? IdTipoNomina = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistro = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Buscar = (from n in ObjData.SP_BUSCA_TIPO_NOMINA(IdTipoNomina, Descripcion, NumeroPagina, NumeroRegistro)
+                          select new DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoNomina
+                          {
+                              IdTipoNomina=n.IdTipoNomina,
+                              TipoNomina=n.TipoNomina,
+                              Estatus0=n.Estatus0,
+                              Estatus=n.Estatus,
+                              UsuarioAdiciona=n.UsuarioAdiciona,
+                              CreadoPor=n.CreadoPor,
+                              FechaAdiciona=n.FechaAdiciona,
+                              FechaCreado=n.FechaCreado,
+                              UsuairoModifica=n.UsuairoModifica,
+                              ModificadoPor=n.ModificadoPor,
+                              FechaModifica=n.FechaModifica,
+                              FechaModificado=n.FechaModificado,
+                              CantidadRegistros=n.CantidadRegistros
+                          }).ToList();
+            return Buscar;
+        }
+
+        public DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoNomina MantenimientoTipoNomina(DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoNomina Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoNomina Mantenimiento = null;
+
+            var TipoNomina = ObjData.SP_MANTENIMIENTO_TIPO_NOMINA(
+                Item.IdTipoNomina,
+                Item.TipoNomina,
+                Item.Estatus0,
+                (int)Item.UsuarioAdiciona,
+                Accion);
+            if (TipoNomina != null) {
+                Mantenimiento = (from n in TipoNomina
+                                 select new DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoNomina
+                                 {
+                                     IdTipoNomina=n.IdTipoNomina,
+                                     TipoNomina=n.Descripcion,
+                                     Estatus0=n.Estatus,
+                                     UsuarioAdiciona=n.UsuarioAdiciona,
+                                     FechaAdiciona=n.FechaAdiciona,
+                                     UsuairoModifica=n.UsuairoModifica,
+                                     FechaModifica=n.FechaModifica
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+
+
+        }
+        #endregion
     }
 }

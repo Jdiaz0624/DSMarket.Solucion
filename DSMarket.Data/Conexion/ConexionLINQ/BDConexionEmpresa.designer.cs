@@ -160,6 +160,20 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idTipoEmpleado, descripcion, estatus, idusuario, accion);
 			return ((ISingleResult<SP_MANTENIMIENTO_TIPO_EMPLEADOResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Empresa.SP_BUSCA_TIPO_NOMINA")]
+		public ISingleResult<SP_BUSCA_TIPO_NOMINAResult> SP_BUSCA_TIPO_NOMINA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoNomina", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoNomina, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Descripcion", DbType="VarChar(100)")] string descripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroPagina", DbType="Int")] System.Nullable<int> numeroPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroRegistros", DbType="Int")] System.Nullable<int> numeroRegistros)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idTipoNomina, descripcion, numeroPagina, numeroRegistros);
+			return ((ISingleResult<SP_BUSCA_TIPO_NOMINAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Empresa.SP_MANTENIMIENTO_TIPO_NOMINA")]
+		public ISingleResult<SP_MANTENIMIENTO_TIPO_NOMINAResult> SP_MANTENIMIENTO_TIPO_NOMINA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoNomina", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoNomina, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Descripcion", DbType="VarChar(100)")] string descripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Estatus", DbType="Bit")] System.Nullable<bool> estatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Int")] System.Nullable<int> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idTipoNomina, descripcion, estatus, idUsuario, accion);
+			return ((ISingleResult<SP_MANTENIMIENTO_TIPO_NOMINAResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_MANTENIMIENTO_CLIENTESResult
@@ -3358,6 +3372,382 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaModifica", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaModifica
+		{
+			get
+			{
+				return this._FechaModifica;
+			}
+			set
+			{
+				if ((this._FechaModifica != value))
+				{
+					this._FechaModifica = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCA_TIPO_NOMINAResult
+	{
+		
+		private decimal _IdTipoNomina;
+		
+		private string _TipoNomina;
+		
+		private System.Nullable<bool> _Estatus0;
+		
+		private string _Estatus;
+		
+		private System.Nullable<decimal> _UsuairoModifica;
+		
+		private string _CreadoPor;
+		
+		private System.Nullable<System.DateTime> _FechaAdiciona;
+		
+		private string _FechaCreado;
+		
+		private System.Nullable<decimal> _UsuarioAdiciona;
+		
+		private string _ModificadoPor;
+		
+		private System.Nullable<System.DateTime> _FechaModifica;
+		
+		private string _FechaModificado;
+		
+		private System.Nullable<int> _CantidadRegistros;
+		
+		public SP_BUSCA_TIPO_NOMINAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoNomina", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdTipoNomina
+		{
+			get
+			{
+				return this._IdTipoNomina;
+			}
+			set
+			{
+				if ((this._IdTipoNomina != value))
+				{
+					this._IdTipoNomina = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoNomina", DbType="VarChar(100)")]
+		public string TipoNomina
+		{
+			get
+			{
+				return this._TipoNomina;
+			}
+			set
+			{
+				if ((this._TipoNomina != value))
+				{
+					this._TipoNomina = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus0", DbType="Bit")]
+		public System.Nullable<bool> Estatus0
+		{
+			get
+			{
+				return this._Estatus0;
+			}
+			set
+			{
+				if ((this._Estatus0 != value))
+				{
+					this._Estatus0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="VarChar(8) NOT NULL", CanBeNull=false)]
+		public string Estatus
+		{
+			get
+			{
+				return this._Estatus;
+			}
+			set
+			{
+				if ((this._Estatus != value))
+				{
+					this._Estatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsuairoModifica", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> UsuairoModifica
+		{
+			get
+			{
+				return this._UsuairoModifica;
+			}
+			set
+			{
+				if ((this._UsuairoModifica != value))
+				{
+					this._UsuairoModifica = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreadoPor", DbType="VarChar(100)")]
+		public string CreadoPor
+		{
+			get
+			{
+				return this._CreadoPor;
+			}
+			set
+			{
+				if ((this._CreadoPor != value))
+				{
+					this._CreadoPor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaAdiciona", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FechaAdiciona
+		{
+			get
+			{
+				return this._FechaAdiciona;
+			}
+			set
+			{
+				if ((this._FechaAdiciona != value))
+				{
+					this._FechaAdiciona = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaCreado", DbType="NVarChar(4000)")]
+		public string FechaCreado
+		{
+			get
+			{
+				return this._FechaCreado;
+			}
+			set
+			{
+				if ((this._FechaCreado != value))
+				{
+					this._FechaCreado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsuarioAdiciona", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> UsuarioAdiciona
+		{
+			get
+			{
+				return this._UsuarioAdiciona;
+			}
+			set
+			{
+				if ((this._UsuarioAdiciona != value))
+				{
+					this._UsuarioAdiciona = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModificadoPor", DbType="VarChar(100)")]
+		public string ModificadoPor
+		{
+			get
+			{
+				return this._ModificadoPor;
+			}
+			set
+			{
+				if ((this._ModificadoPor != value))
+				{
+					this._ModificadoPor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaModifica", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FechaModifica
+		{
+			get
+			{
+				return this._FechaModifica;
+			}
+			set
+			{
+				if ((this._FechaModifica != value))
+				{
+					this._FechaModifica = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaModificado", DbType="NVarChar(4000)")]
+		public string FechaModificado
+		{
+			get
+			{
+				return this._FechaModificado;
+			}
+			set
+			{
+				if ((this._FechaModificado != value))
+				{
+					this._FechaModificado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadRegistros", DbType="Int")]
+		public System.Nullable<int> CantidadRegistros
+		{
+			get
+			{
+				return this._CantidadRegistros;
+			}
+			set
+			{
+				if ((this._CantidadRegistros != value))
+				{
+					this._CantidadRegistros = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_MANTENIMIENTO_TIPO_NOMINAResult
+	{
+		
+		private System.Nullable<decimal> _IdTipoNomina;
+		
+		private string _Descripcion;
+		
+		private System.Nullable<bool> _Estatus;
+		
+		private System.Nullable<decimal> _UsuarioAdiciona;
+		
+		private System.Nullable<System.DateTime> _FechaAdiciona;
+		
+		private System.Nullable<decimal> _UsuairoModifica;
+		
+		private System.Nullable<System.DateTime> _FechaModifica;
+		
+		public SP_MANTENIMIENTO_TIPO_NOMINAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoNomina", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdTipoNomina
+		{
+			get
+			{
+				return this._IdTipoNomina;
+			}
+			set
+			{
+				if ((this._IdTipoNomina != value))
+				{
+					this._IdTipoNomina = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(100)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="Bit")]
+		public System.Nullable<bool> Estatus
+		{
+			get
+			{
+				return this._Estatus;
+			}
+			set
+			{
+				if ((this._Estatus != value))
+				{
+					this._Estatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsuarioAdiciona", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> UsuarioAdiciona
+		{
+			get
+			{
+				return this._UsuarioAdiciona;
+			}
+			set
+			{
+				if ((this._UsuarioAdiciona != value))
+				{
+					this._UsuarioAdiciona = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaAdiciona", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FechaAdiciona
+		{
+			get
+			{
+				return this._FechaAdiciona;
+			}
+			set
+			{
+				if ((this._FechaAdiciona != value))
+				{
+					this._FechaAdiciona = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsuairoModifica", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> UsuairoModifica
+		{
+			get
+			{
+				return this._UsuairoModifica;
+			}
+			set
+			{
+				if ((this._UsuairoModifica != value))
+				{
+					this._UsuairoModifica = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaModifica", DbType="DateTime")]
 		public System.Nullable<System.DateTime> FechaModifica
 		{
 			get
