@@ -277,6 +277,12 @@
     <Compile Include="Pantallas\Pantallas\Contabilidad\CatalogoCuentasMantenimiento.Designer.cs">
       <DependentUpon>CatalogoCuentasMantenimiento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\BancoConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\BancoConsulta.Designer.cs">
+      <DependentUpon>BancoConsulta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Empresa\CargosConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -318,6 +324,12 @@
     </Compile>
     <Compile Include="Pantallas\Pantallas\Empresa\DepartamentosMantenimiento.Designer.cs">
       <DependentUpon>DepartamentosMantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\MantenimientoBancos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\MantenimientoBancos.Designer.cs">
+      <DependentUpon>MantenimientoBancos.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Pantallas\Empresa\MantenimientoCompraSuplidores.cs">
       <SubType>Form</SubType>
@@ -756,6 +768,9 @@
     <EmbeddedResource Include="Pantallas\Pantallas\Contabilidad\CatalogoCuentasMantenimiento.resx">
       <DependentUpon>CatalogoCuentasMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\BancoConsulta.resx">
+      <DependentUpon>BancoConsulta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\CargosConsulta.resx">
       <DependentUpon>CargosConsulta.cs</DependentUpon>
     </EmbeddedResource>
@@ -776,6 +791,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\DepartamentosMantenimiento.resx">
       <DependentUpon>DepartamentosMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\MantenimientoBancos.resx">
+      <DependentUpon>MantenimientoBancos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\MantenimientoCompraSuplidores.resx">
       <DependentUpon>MantenimientoCompraSuplidores.cs</DependentUpon>

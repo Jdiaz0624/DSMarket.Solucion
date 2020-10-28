@@ -77,5 +77,12 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
             TipoNomina.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
             TipoNomina.ShowDialog();
         }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Empresa.BancoConsulta ConsultaBancos = new Pantallas.Empresa.BancoConsulta();
+            ConsultaBancos.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
+            ConsultaBancos.ShowDialog();
+        }
     }
 }

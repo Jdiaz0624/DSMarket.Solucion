@@ -462,5 +462,67 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
 
         }
         #endregion
+
+        #region MANTENIMIENTO DE BANCO
+        //LISTAD DE BANCOS
+        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.EBancos> ListadoBancos(decimal? IdBancos = null, string NombreBanco = null, int? NumeroPagina = null, int? NumeroRegistros = null) 
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_BUSCA_LISTADO_BANCOS(IdBancos, NombreBanco, NumeroPagina, NumeroRegistros)
+                           select new DSMarket.Logica.Entidades.EntidadesEmpresa.EBancos
+                           {
+                               IdBanco=n.IdBanco,
+                               CuentaContable=n.CuentaContable,
+                               Auxiliar=n.Auxiliar,
+                               Banco=n.Banco,
+                               Estatus0=n.Estatus0,
+                               Estatus=n.Estatus,
+                               UsuarioAdiciona=n.UsuarioAdiciona,
+                               CreadoPor=n.CreadoPor,
+                               FechaAdiciona=n.FechaAdiciona,
+                               FechaCreado=n.FechaCreado,
+                               UsuarioModifica=n.UsuarioModifica,
+                               ModificadoPor=n.ModificadoPor,
+                               FechaModifica=n.FechaModifica,
+                               FechaModificado=n.FechaModificado,
+                               CantidadRegistros=n.CantidadRegistros
+                           }).ToList();
+            return Listado;
+        }
+
+        //MANTENIMIENTO DE BANCOS
+        public DSMarket.Logica.Entidades.EntidadesEmpresa.EBancos MantenimientoBancos(DSMarket.Logica.Entidades.EntidadesEmpresa.EBancos Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesEmpresa.EBancos Mantenimiento = null;
+
+
+            var BAncos = ObjData.SP_MANTENIMIENTO_DE_BANCOS(
+                Item.IdBanco,
+                Item.CuentaContable,
+                Item.Auxiliar,
+                Item.Banco,
+                Item.Estatus0,
+                Item.UsuarioAdiciona,
+                Accion);
+            if (BAncos != null) {
+                Mantenimiento = (from n in BAncos
+                                 select new DSMarket.Logica.Entidades.EntidadesEmpresa.EBancos
+                                 {
+                                     IdBanco=n.IdBanco,
+                                     CuentaContable=n.CuentaContable,
+                                     Auxiliar=n.Auxiliar,
+                                     Banco=n.Nombre,
+                                     Estatus0=n.Estatus,
+                                     UsuarioAdiciona=n.UsuarioAdiciona,
+                                     FechaAdiciona=n.FechaAdiciona,
+                                     UsuarioModifica=n.UsuarioModifica,
+                                     FechaModifica=n.FechaModifica
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
+        #endregion
     }
 }
