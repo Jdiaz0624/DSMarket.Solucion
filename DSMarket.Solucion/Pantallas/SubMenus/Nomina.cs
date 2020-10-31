@@ -84,5 +84,12 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
             ConsultaBancos.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
             ConsultaBancos.ShowDialog();
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Empresa.TipoMovimientoConsulta ConsultaTipoMovimiento = new Pantallas.Empresa.TipoMovimientoConsulta();
+            ConsultaTipoMovimiento.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
+            ConsultaTipoMovimiento.ShowDialog();
+        }
     }
 }

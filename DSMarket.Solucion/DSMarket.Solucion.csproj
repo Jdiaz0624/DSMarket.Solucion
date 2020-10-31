@@ -361,6 +361,18 @@
     <Compile Include="Pantallas\Pantallas\Empresa\TipoEmpleadoMantenimiento.Designer.cs">
       <DependentUpon>TipoEmpleadoMantenimiento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\TipoMovimientoConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\TipoMovimientoConsulta.Designer.cs">
+      <DependentUpon>TipoMovimientoConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\TipoMovimientoMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\TipoMovimientoMantenimiento.Designer.cs">
+      <DependentUpon>TipoMovimientoMantenimiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Empresa\TipoNominaConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -809,6 +821,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\TipoEmpleadoMantenimiento.resx">
       <DependentUpon>TipoEmpleadoMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\TipoMovimientoConsulta.resx">
+      <DependentUpon>TipoMovimientoConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\TipoMovimientoMantenimiento.resx">
+      <DependentUpon>TipoMovimientoMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\TipoNominaConsulta.resx">
       <DependentUpon>TipoNominaConsulta.cs</DependentUpon>

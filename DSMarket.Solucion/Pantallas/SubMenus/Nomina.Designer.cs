@@ -48,6 +48,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnPorcientoRetenciones = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.gbOpciones.SuspendLayout();
@@ -100,6 +101,7 @@
             // 
             // gbOpciones
             // 
+            this.gbOpciones.Controls.Add(this.btnPorcientoRetenciones);
             this.gbOpciones.Controls.Add(this.button18);
             this.gbOpciones.Controls.Add(this.button17);
             this.gbOpciones.Controls.Add(this.button15);
@@ -207,7 +209,6 @@
             // button9
             // 
             this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button9.Enabled = false;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.Location = new System.Drawing.Point(389, 91);
@@ -217,6 +218,7 @@
             this.button9.Text = "Tipo de Movimiento";
             this.toolTip1.SetToolTip(this.button9, "Tipo de Movimiento");
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button6
             // 
@@ -303,6 +305,20 @@
             this.btnClientes.UseVisualStyleBackColor = true;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
+            // btnPorcientoRetenciones
+            // 
+            this.btnPorcientoRetenciones.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPorcientoRetenciones.Enabled = false;
+            this.btnPorcientoRetenciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPorcientoRetenciones.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPorcientoRetenciones.Location = new System.Drawing.Point(198, 215);
+            this.btnPorcientoRetenciones.Name = "btnPorcientoRetenciones";
+            this.btnPorcientoRetenciones.Size = new System.Drawing.Size(186, 56);
+            this.btnPorcientoRetenciones.TabIndex = 19;
+            this.btnPorcientoRetenciones.Text = "% Retenciones";
+            this.toolTip1.SetToolTip(this.btnPorcientoRetenciones, "Retenciones");
+            this.btnPorcientoRetenciones.UseVisualStyleBackColor = true;
+            // 
             // Nomina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -346,5 +362,6 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnPorcientoRetenciones;
     }
 }
