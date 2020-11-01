@@ -263,7 +263,6 @@
             this.cbUsarComprobantes.Text = "Usar Comprobantes";
             this.toolTip1.SetToolTip(this.cbUsarComprobantes, "Estatus de Comprobante");
             this.cbUsarComprobantes.UseVisualStyleBackColor = true;
-            this.cbUsarComprobantes.Visible = false;
             this.cbUsarComprobantes.CheckedChanged += new System.EventHandler(this.cbUsarComprobantes_CheckedChanged);
             // 
             // ddlSeleccionarTipoIngres
@@ -482,6 +481,7 @@
             this.ddlCantidadDias.Name = "ddlCantidadDias";
             this.ddlCantidadDias.Size = new System.Drawing.Size(139, 28);
             this.ddlCantidadDias.TabIndex = 50;
+            this.ddlCantidadDias.Visible = false;
             // 
             // rbFacturar
             // 
@@ -507,6 +507,7 @@
             this.lbCantidadDias.Size = new System.Drawing.Size(87, 20);
             this.lbCantidadDias.TabIndex = 51;
             this.lbCantidadDias.Text = "Cant. Dias";
+            this.lbCantidadDias.Visible = false;
             // 
             // ddlTipoVenta
             // 
@@ -519,6 +520,7 @@
             this.ddlTipoVenta.Name = "ddlTipoVenta";
             this.ddlTipoVenta.Size = new System.Drawing.Size(127, 28);
             this.ddlTipoVenta.TabIndex = 29;
+            this.ddlTipoVenta.Visible = false;
             this.ddlTipoVenta.SelectedIndexChanged += new System.EventHandler(this.ddlTipoVenta_SelectedIndexChanged);
             // 
             // label22
@@ -529,6 +531,7 @@
             this.label22.Size = new System.Drawing.Size(112, 20);
             this.label22.TabIndex = 49;
             this.label22.Text = "Tipo de Venta";
+            this.label22.Visible = false;
             // 
             // txtCambio
             // 
@@ -865,6 +868,7 @@
             this.cbFacturaPuntoVenta.Text = "Punto de Venta";
             this.toolTip1.SetToolTip(this.cbFacturaPuntoVenta, "Generar la factura en formato de punto de venta.");
             this.cbFacturaPuntoVenta.UseVisualStyleBackColor = true;
+            this.cbFacturaPuntoVenta.Visible = false;
             this.cbFacturaPuntoVenta.CheckedChanged += new System.EventHandler(this.cbFacturaPuntoVenta_CheckedChanged);
             // 
             // rbfacturaenglish
@@ -907,6 +911,7 @@
             this.label7.Size = new System.Drawing.Size(160, 20);
             this.label7.TabIndex = 40;
             this.label7.Text = "Formato de Factura:";
+            this.label7.Visible = false;
             // 
             // btnRefresarCotizacion
             // 
