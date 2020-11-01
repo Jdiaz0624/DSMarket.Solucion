@@ -64,6 +64,9 @@
     <Compile Include="Comunes\ProcesarInformacionModificarConfiguracionGeneral.cs" />
     <Compile Include="Comunes\ProcesarInformacionReporte608.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionBancos.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionPorcientoComision.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionPorcientoRetencion.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionRetenciones.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionTipoEmpleados.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionTipoMovimiento.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionTipoNomina.cs" />
@@ -135,6 +138,8 @@
     <Compile Include="Entidades\EntidadesEmpresa\EClientes.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\ECompraSuplidores.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\EDepartamentos.cs" />
+    <Compile Include="Entidades\EntidadesEmpresa\EPorcientoRetenciones.cs" />
+    <Compile Include="Entidades\EntidadesEmpresa\ERetenciones.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\ETipoEmpleado.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\ETipoMovimiento.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\ETipoNomina.cs" />
@@ -169,6 +174,7 @@
     <Compile Include="Entidades\EntidadesListas\EListaMarcas.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaModeos.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaNivelAcceso.cs" />
+    <Compile Include="Entidades\EntidadesListas\EListaRetenciones.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaSuplidor.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoIdentificacion.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoIngresos.cs" />

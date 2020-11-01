@@ -577,5 +577,131 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
             return Mantenimiento;
         }
         #endregion
+
+        #region MANTENIMIENTO DE RETENCIONES
+        //LISTADO DE RETENCIONES
+        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.ERetenciones> BuscaRetenciones(decimal? IdRetencio = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_BUSCA_RETENCIONES(IdRetencio, Descripcion, NumeroPagina, NumeroRegistros)
+                           select new DSMarket.Logica.Entidades.EntidadesEmpresa.ERetenciones
+                           {
+                               IdRetencion=n.IdRetencion,
+                               Retencion=n.Retencion,
+                               Estatus0=n.Estatus0,
+                               Estatus=n.Estatus,
+                               UsuarioAdiciona=n.UsuarioAdiciona,
+                               CreadoPor=n.CreadoPor,
+                               FechaAdiciona=n.FechaAdiciona,
+                               FechaCreado=n.FechaCreado,
+                               UsuarioModifica=n.UsuarioModifica,
+                               ModificadoPor=n.ModificadoPor,
+                               FechaModifica=n.FechaModifica,
+                               FechaModificado=n.FechaModificado,
+                               CantidadRegistros=n.CantidadRegistros
+                           }).ToList();
+            return Listado;
+        }
+
+        //MANTENIMIENTO DE RETENCIONES
+        public DSMarket.Logica.Entidades.EntidadesEmpresa.ERetenciones MantenimientoRetenciones(DSMarket.Logica.Entidades.EntidadesEmpresa.ERetenciones Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesEmpresa.ERetenciones Mantenimiento = null;
+
+            var Retenciones = ObjData.SP_MANTENIMIENTO_RETENCIONES(
+                Item.IdRetencion,
+                Item.Retencion,
+                Item.Estatus0,
+                Item.UsuarioAdiciona,
+                Accion);
+            if (Retenciones != null) {
+                Mantenimiento = (from n in Retenciones
+                                 select new DSMarket.Logica.Entidades.EntidadesEmpresa.ERetenciones
+                                 {
+                                     IdRetencion=n.IdRetencion,
+                                     Retencion=n.Descripcion,
+                                     Estatus0=n.Estatus,
+                                     UsuarioAdiciona=n.UsuarioAdiciona,
+                                     FechaAdiciona=n.FechaAdiciona,
+                                     UsuarioModifica=n.UsuarioModifica,
+                                     FechaModifica=n.FechaModifica
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
+        #endregion
+
+        #region MANTENIMIENTO DE PORCIENTO DE RETENCIONES
+        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.EPorcientoRetenciones> BuscaPorCientoretenciones(decimal? IdPorcientoRetencion = null, decimal? Idretencion = null, int? Secuencia = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_BUSCA_PORCIENTO_RETENCIONES(IdPorcientoRetencion, Idretencion, Secuencia, NumeroPagina, NumeroRegistros)
+                           select new DSMarket.Logica.Entidades.EntidadesEmpresa.EPorcientoRetenciones
+                           {
+                               IdPorcientoRetencion=n.IdPorcientoRetencion,
+                               IdRetencion=n.IdRetencion,
+                               Retencion=n.Retencion,
+                               Secuencia=n.Secuencia,
+                               MontoInicial=n.MontoInicial,
+                               MontoFinal=n.MontoFinal,
+                               MontoSumar=n.MontoSumar,
+                               PorcientoCia=n.PorcientoCia,
+                               PorcientoEmpleado=n.PorcientoEmpleado,
+                               Estatus0=n.Estatus0,
+                               Estatus=n.Estatus,
+                               UsuarioAdiciona=n.UsuarioAdiciona,
+                               CreadoPor=n.CreadoPor,
+                               FechaAdiciona=n.FechaAdiciona,
+                               FechaCreado=n.FechaCreado,
+                               UsuarioModifica=n.UsuarioModifica,
+                               ModificadoPor=n.ModificadoPor,
+                               FechaModifica=n.FechaModifica,
+                               FechaModificado=n.FechaModificado,
+                               CantidadRegistros=n.CantidadRegistros
+                           }).ToList();
+            return Listado;
+        
+        }
+        public DSMarket.Logica.Entidades.EntidadesEmpresa.EPorcientoRetenciones MantenimientoPorcientoretencion(DSMarket.Logica.Entidades.EntidadesEmpresa.EPorcientoRetenciones Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesEmpresa.EPorcientoRetenciones Mantenimiento = null;
+
+            var PorcientoRetenciones = ObjData.SP_MANTENIMIENTO_PORCIENTO_RETENCIONES(
+                Item.IdPorcientoRetencion,
+                Item.IdRetencion,
+                Item.Secuencia,
+                Item.MontoInicial,
+                Item.MontoFinal,
+                Item.MontoSumar,
+                Item.PorcientoCia,
+                Item.PorcientoEmpleado,
+                Item.Estatus0,
+                Item.UsuarioAdiciona,
+                Accion);
+            if (PorcientoRetenciones != null) {
+                Mantenimiento = (from n in PorcientoRetenciones
+                                 select new DSMarket.Logica.Entidades.EntidadesEmpresa.EPorcientoRetenciones
+                                 {
+                                     IdPorcientoRetencion=n.IdPorcientoRetencion,
+                                     IdRetencion=n.IdRetencion,
+                                     Secuencia=n.Secuencia,
+                                     MontoInicial=n.MontoInicial,
+                                     MontoFinal=n.MontoFinal,
+                                     MontoSumar=n.MontoSumar,
+                                     PorcientoCia=n.PorcientoCia,
+                                     PorcientoEmpleado=n.PorcientoEmpleado,
+                                     Estatus0=n.Estatus,
+                                     UsuarioAdiciona=n.UsuarioAdiciona,
+                                     FechaAdiciona=n.FechaAdiciona,
+                                     UsuarioModifica=n.UsuarioModifica,
+                                     FechaModifica=n.FechaModifica
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
+        #endregion
+
     }
 }

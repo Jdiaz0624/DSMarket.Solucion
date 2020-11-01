@@ -433,5 +433,18 @@ namespace DSMarket.Logica.Logica.LogicaListas
             return Listado;
         }
         #endregion
+        #region LISTADO DE RETENCIONES
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EListaRetenciones> ListadoRetenciones() {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjDataListas.SP_LISTADO_RETENCIONES()
+                           select new DSMarket.Logica.Entidades.EntidadesListas.EListaRetenciones
+                           {
+                               IdRetencion=n.IdRetencion,
+                               Retencion=n.Retencion
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
     }
 }

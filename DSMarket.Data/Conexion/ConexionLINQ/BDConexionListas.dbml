@@ -192,4 +192,10 @@
       <Column Name="Departamento" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Listas.SP_LISTADO_RETENCIONES" Method="SP_LISTADO_RETENCIONES">
+    <ElementType Name="SP_LISTADO_RETENCIONESResult">
+      <Column Name="IdRetencion" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Retencion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

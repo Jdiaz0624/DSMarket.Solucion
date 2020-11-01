@@ -337,6 +337,12 @@
     <Compile Include="Pantallas\Pantallas\Empresa\MantenimientoCompraSuplidores.Designer.cs">
       <DependentUpon>MantenimientoCompraSuplidores.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\MantenimientoPorcientoretencion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\MantenimientoPorcientoretencion.Designer.cs">
+      <DependentUpon>MantenimientoPorcientoretencion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Empresa\NominaConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -348,6 +354,24 @@
     </Compile>
     <Compile Include="Pantallas\Pantallas\Empresa\NominaMantenimiento.Designer.cs">
       <DependentUpon>NominaMantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\PorcientoRetencionConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\PorcientoRetencionConsulta.Designer.cs">
+      <DependentUpon>PorcientoRetencionConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\RetencionesConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\RetencionesConsulta.Designer.cs">
+      <DependentUpon>RetencionesConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\RetencionesMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\RetencionesMantenimiento.Designer.cs">
+      <DependentUpon>RetencionesMantenimiento.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Pantallas\Empresa\TipoEmpleadoConsulta.cs">
       <SubType>Form</SubType>
@@ -810,11 +834,23 @@
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\MantenimientoCompraSuplidores.resx">
       <DependentUpon>MantenimientoCompraSuplidores.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\MantenimientoPorcientoretencion.resx">
+      <DependentUpon>MantenimientoPorcientoretencion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\NominaConsulta.resx">
       <DependentUpon>NominaConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\NominaMantenimiento.resx">
       <DependentUpon>NominaMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\PorcientoRetencionConsulta.resx">
+      <DependentUpon>PorcientoRetencionConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\RetencionesConsulta.resx">
+      <DependentUpon>RetencionesConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\RetencionesMantenimiento.resx">
+      <DependentUpon>RetencionesMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\TipoEmpleadoConsulta.resx">
       <DependentUpon>TipoEmpleadoConsulta.cs</DependentUpon>

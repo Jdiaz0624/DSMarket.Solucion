@@ -91,5 +91,19 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
             ConsultaTipoMovimiento.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
             ConsultaTipoMovimiento.ShowDialog();
         }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Empresa.RetencionesConsulta ConsultaRetenciones = new Pantallas.Empresa.RetencionesConsulta();
+            ConsultaRetenciones.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
+            ConsultaRetenciones.ShowDialog();
+        }
+
+        private void btnPorcientoRetenciones_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Empresa.PorcientoRetencionConsulta ConsultaPorcientoRetencion = new Pantallas.Empresa.PorcientoRetencionConsulta();
+            ConsultaPorcientoRetencion.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
+            ConsultaPorcientoRetencion.ShowDialog();
+        }
     }
 }

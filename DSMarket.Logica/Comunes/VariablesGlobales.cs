@@ -14,6 +14,7 @@ namespace DSMarket.Logica.Comunes
         public bool LlevaDescuentoPregunta { get; set; }
         public string Accion { get; set; }
         public decimal IdMantenimeinto { get; set; }
+        public decimal SecuenciaRegistro { get; set; }
         public decimal Conector { get; set; }
         public string RutaImagen { get; set; }
         public decimal NumeroConector { get; set; }

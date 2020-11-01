@@ -271,6 +271,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<SP_LISTADO_DEPARTAMENTOSResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTADO_RETENCIONES")]
+		public ISingleResult<SP_LISTADO_RETENCIONESResult> SP_LISTADO_RETENCIONES()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_LISTADO_RETENCIONESResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_CARGAR_LISTA_TIPO_PRODUCTOResult
@@ -1678,6 +1685,50 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._Departamento != value))
 				{
 					this._Departamento = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_LISTADO_RETENCIONESResult
+	{
+		
+		private decimal _IdRetencion;
+		
+		private string _Retencion;
+		
+		public SP_LISTADO_RETENCIONESResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdRetencion", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdRetencion
+		{
+			get
+			{
+				return this._IdRetencion;
+			}
+			set
+			{
+				if ((this._IdRetencion != value))
+				{
+					this._IdRetencion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Retencion", DbType="VarChar(100)")]
+		public string Retencion
+		{
+			get
+			{
+				return this._Retencion;
+			}
+			set
+			{
+				if ((this._Retencion != value))
+				{
+					this._Retencion = value;
 				}
 			}
 		}
