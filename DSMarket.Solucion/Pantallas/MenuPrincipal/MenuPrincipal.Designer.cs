@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation22 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation21 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
-            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
             this.PanelTop = new System.Windows.Forms.Panel();
             this.lbIdNivel = new System.Windows.Forms.Label();
             this.lbNivelAcceso = new System.Windows.Forms.Label();
@@ -64,6 +64,7 @@
             this.CurvaForms = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.EfectoIda = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.EfectoBotones = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.PanelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PRestaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PMinimizar)).BeginInit();
@@ -74,20 +75,18 @@
             this.PanelOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lbLogoCorto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogolargo)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelTop
             // 
             this.PanelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.PanelTop.Controls.Add(this.groupBox1);
             this.PanelTop.Controls.Add(this.lbIdNivel);
             this.PanelTop.Controls.Add(this.lbNivelAcceso);
             this.PanelTop.Controls.Add(this.lbIdUsuario);
             this.PanelTop.Controls.Add(this.lbusuarioConectado);
-            this.PanelTop.Controls.Add(this.PRestaurar);
             this.PanelTop.Controls.Add(this.lbNombreEmpresa);
-            this.PanelTop.Controls.Add(this.PMinimizar);
-            this.PanelTop.Controls.Add(this.PMaximizar);
-            this.PanelTop.Controls.Add(this.PCerrar);
             this.PanelTop.Controls.Add(this.pictureBox1);
             this.EfectoBotones.SetDecoration(this.PanelTop, BunifuAnimatorNS.DecorationType.None);
             this.EfectoIda.SetDecoration(this.PanelTop, BunifuAnimatorNS.DecorationType.None);
@@ -163,7 +162,7 @@
             this.EfectoIda.SetDecoration(this.PRestaurar, BunifuAnimatorNS.DecorationType.None);
             this.EfectoBotones.SetDecoration(this.PRestaurar, BunifuAnimatorNS.DecorationType.None);
             this.PRestaurar.Image = global::DSMarket.Solucion.Properties.Resources.Restore_Window_2_48px;
-            this.PRestaurar.Location = new System.Drawing.Point(1126, 29);
+            this.PRestaurar.Location = new System.Drawing.Point(45, 15);
             this.PRestaurar.Name = "PRestaurar";
             this.PRestaurar.Size = new System.Drawing.Size(30, 30);
             this.PRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -193,7 +192,7 @@
             this.EfectoIda.SetDecoration(this.PMinimizar, BunifuAnimatorNS.DecorationType.None);
             this.EfectoBotones.SetDecoration(this.PMinimizar, BunifuAnimatorNS.DecorationType.None);
             this.PMinimizar.Image = global::DSMarket.Solucion.Properties.Resources.Minimize_Window_2_48px;
-            this.PMinimizar.Location = new System.Drawing.Point(1094, 29);
+            this.PMinimizar.Location = new System.Drawing.Point(9, 16);
             this.PMinimizar.Name = "PMinimizar";
             this.PMinimizar.Size = new System.Drawing.Size(30, 30);
             this.PMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -209,7 +208,7 @@
             this.EfectoIda.SetDecoration(this.PMaximizar, BunifuAnimatorNS.DecorationType.None);
             this.EfectoBotones.SetDecoration(this.PMaximizar, BunifuAnimatorNS.DecorationType.None);
             this.PMaximizar.Image = global::DSMarket.Solucion.Properties.Resources.Maximize_Window_2_48px;
-            this.PMaximizar.Location = new System.Drawing.Point(1126, 29);
+            this.PMaximizar.Location = new System.Drawing.Point(45, 16);
             this.PMaximizar.Name = "PMaximizar";
             this.PMaximizar.Size = new System.Drawing.Size(30, 30);
             this.PMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -225,7 +224,7 @@
             this.EfectoIda.SetDecoration(this.PCerrar, BunifuAnimatorNS.DecorationType.None);
             this.EfectoBotones.SetDecoration(this.PCerrar, BunifuAnimatorNS.DecorationType.None);
             this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(1158, 29);
+            this.PCerrar.Location = new System.Drawing.Point(81, 15);
             this.PCerrar.Name = "PCerrar";
             this.PCerrar.Size = new System.Drawing.Size(30, 30);
             this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -740,43 +739,58 @@
             // 
             this.EfectoIda.AnimationType = BunifuAnimatorNS.AnimationType.Mosaic;
             this.EfectoIda.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 20;
-            animation1.Padding = new System.Windows.Forms.Padding(30);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 0F;
-            this.EfectoIda.DefaultAnimation = animation1;
+            animation22.AnimateOnlyDifferences = true;
+            animation22.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation22.BlindCoeff")));
+            animation22.LeafCoeff = 0F;
+            animation22.MaxTime = 1F;
+            animation22.MinTime = 0F;
+            animation22.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation22.MosaicCoeff")));
+            animation22.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation22.MosaicShift")));
+            animation22.MosaicSize = 20;
+            animation22.Padding = new System.Windows.Forms.Padding(30);
+            animation22.RotateCoeff = 0F;
+            animation22.RotateLimit = 0F;
+            animation22.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation22.ScaleCoeff")));
+            animation22.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation22.SlideCoeff")));
+            animation22.TimeCoeff = 0F;
+            animation22.TransparencyCoeff = 0F;
+            this.EfectoIda.DefaultAnimation = animation22;
             // 
             // EfectoBotones
             // 
             this.EfectoBotones.AnimationType = BunifuAnimatorNS.AnimationType.HorizSlide;
             this.EfectoBotones.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(0);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 0F;
-            animation2.TransparencyCoeff = 0F;
-            this.EfectoBotones.DefaultAnimation = animation2;
+            animation21.AnimateOnlyDifferences = true;
+            animation21.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation21.BlindCoeff")));
+            animation21.LeafCoeff = 0F;
+            animation21.MaxTime = 1F;
+            animation21.MinTime = 0F;
+            animation21.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation21.MosaicCoeff")));
+            animation21.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation21.MosaicShift")));
+            animation21.MosaicSize = 0;
+            animation21.Padding = new System.Windows.Forms.Padding(0);
+            animation21.RotateCoeff = 0F;
+            animation21.RotateLimit = 0F;
+            animation21.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation21.ScaleCoeff")));
+            animation21.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation21.SlideCoeff")));
+            animation21.TimeCoeff = 0F;
+            animation21.TransparencyCoeff = 0F;
+            this.EfectoBotones.DefaultAnimation = animation21;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.PMinimizar);
+            this.groupBox1.Controls.Add(this.PRestaurar);
+            this.groupBox1.Controls.Add(this.PMaximizar);
+            this.groupBox1.Controls.Add(this.PCerrar);
+            this.EfectoBotones.SetDecoration(this.groupBox1, BunifuAnimatorNS.DecorationType.None);
+            this.EfectoIda.SetDecoration(this.groupBox1, BunifuAnimatorNS.DecorationType.None);
+            this.groupBox1.Location = new System.Drawing.Point(1071, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(117, 58);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
             // 
             // MenuPrincipal
             // 
@@ -805,6 +819,7 @@
             this.PanelOpciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lbLogoCorto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogolargo)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -843,5 +858,6 @@
         private System.Windows.Forms.Label lbIdNivel;
         private Bunifu.Framework.UI.BunifuFlatButton btnReportesSistema;
         private Bunifu.Framework.UI.BunifuFlatButton btnContabilidad;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

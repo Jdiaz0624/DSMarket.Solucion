@@ -69,7 +69,12 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
         private void PMinimizar_Click(object sender, EventArgs e)
         {
             try {
+                PanelCuerpo.Visible = false;
+                PanelMenu.Visible = false;
+                PanelOpciones.Visible = false;
+                PanelTop.Visible = false;
                 this.WindowState = FormWindowState.Minimized;
+           
             }
             catch (Exception) { }
         }
@@ -79,6 +84,8 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
             WindowState = FormWindowState.Maximized;
             PMaximizar.Visible = false;
             PRestaurar.Visible = true;
+            groupBox1.Width = 117;
+           // groupBox1.Height = 100;
 
         }
 
@@ -87,6 +94,8 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
             WindowState = FormWindowState.Normal;
             PMaximizar.Visible = true;
             PRestaurar.Visible = false;
+            groupBox1.Width = 117;
+           // groupBox1.Height = 100;
         }
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
@@ -234,6 +243,11 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
         {
             IdUsuarioMantenimientos = Convert.ToDecimal(lbIdUsuario.Text);
             AbrirPantallasEnPanel(new DSMarket.Solucion.Pantallas.SubMenus.Contabilidad());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+          
         }
     }
 }
