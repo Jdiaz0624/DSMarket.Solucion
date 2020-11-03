@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DSMarket" Class="BDConecionServicioDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=DSMarket;Persist Security Info=True;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString4" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=172.26.24.199;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString1" Provider="System.Data.SqlClient" />
   <Function Name="Servicio.SP_GUARDAR_CLIENTE_FACTURACION_ESPEJO" Method="SP_GUARDAR_CLIENTE_FACTURACION_ESPEJO">
     <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
@@ -528,6 +528,25 @@
       <Column Name="MontoImpuestoComprobante" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Servicio.SP_BUSCA_TIPO_TIEMPO_GARANTIA" Method="SP_BUSCA_TIPO_TIEMPO_GARANTIA">
+    <Parameter Name="IdTipoTiempoGarantia" Parameter="idTipoTiempoGarantia" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_BUSCA_TIPO_TIEMPO_GARANTIAResult">
+      <Column Name="IdTipoTiempoGarantia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TipoTiempoGarantia" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="TiempoGarantia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Servicio.SP_MODIFICAR_TIPO_TIEMPO_GARANTIA" Method="SP_MODIFICAR_TIPO_TIEMPO_GARANTIA">
+    <Parameter Name="IdTipoTiempoGarantia" Parameter="idTipoTiempoGarantia" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TipoTiempoGarantia" Parameter="tipoTiempoGarantia" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="TiempoGarantia" Parameter="tiempoGarantia" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_MODIFICAR_TIPO_TIEMPO_GARANTIAResult">
+      <Column Name="IdTipoTiempoGarantia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TipoTiempoGarantia" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="TiempoGarantia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="Historial.SP_BUSCA_HISTORIAL_FACTURACION" Method="SP_BUSCA_HISTORIAL_FACTURACION">
     <Parameter Name="IdFactura" Parameter="idFactura" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
@@ -535,6 +554,7 @@
     <Parameter Name="IdTipoFacturacion" Parameter="idTipoFacturacion" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="IdTipoPago" Parameter="idTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="Cliente" Parameter="cliente" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="NumeroIdentificacion" Parameter="numeroIdentificacion" Type="System.String" DbType="VarChar(100)" />
     <Parameter Name="FechaDesde" Parameter="fechaDesde" Type="System.DateTime" DbType="Date" />
     <Parameter Name="FechaHasta" Parameter="fechaHasta" Type="System.DateTime" DbType="Date" />
     <Parameter Name="NumeroPagina" Parameter="numeroPagina" Type="System.Int32" DbType="Int" />
@@ -588,25 +608,6 @@
       <Column Name="TipoTiempoGarantia0" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TipoTiempoGarantia" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
       <Column Name="CantidadRegistros" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="Servicio.SP_BUSCA_TIPO_TIEMPO_GARANTIA" Method="SP_BUSCA_TIPO_TIEMPO_GARANTIA">
-    <Parameter Name="IdTipoTiempoGarantia" Parameter="idTipoTiempoGarantia" Type="System.Int32" DbType="Int" />
-    <ElementType Name="SP_BUSCA_TIPO_TIEMPO_GARANTIAResult">
-      <Column Name="IdTipoTiempoGarantia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="TipoTiempoGarantia" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="TiempoGarantia" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="Servicio.SP_MODIFICAR_TIPO_TIEMPO_GARANTIA" Method="SP_MODIFICAR_TIPO_TIEMPO_GARANTIA">
-    <Parameter Name="IdTipoTiempoGarantia" Parameter="idTipoTiempoGarantia" Type="System.Int32" DbType="Int" />
-    <Parameter Name="TipoTiempoGarantia" Parameter="tipoTiempoGarantia" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="TiempoGarantia" Parameter="tiempoGarantia" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
-    <ElementType Name="SP_MODIFICAR_TIPO_TIEMPO_GARANTIAResult">
-      <Column Name="IdTipoTiempoGarantia" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TipoTiempoGarantia" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="TiempoGarantia" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

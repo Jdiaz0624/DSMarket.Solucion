@@ -1191,6 +1191,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     null,
                     null,
                     null,
+                    null,
                     1, 1);
                 if (BuscarCotizacion.Count() < 1)
                 {

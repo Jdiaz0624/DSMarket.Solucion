@@ -74,7 +74,10 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
                 PanelOpciones.Visible = false;
                 PanelTop.Visible = false;
                 this.WindowState = FormWindowState.Minimized;
-           
+                PanelCuerpo.Visible = true;
+                btnrestaurar.Visible = true;
+                btnrestaurar.Width = 1200;
+                btnrestaurar.Height = 661;
             }
             catch (Exception) { }
         }
@@ -230,7 +233,7 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
 
         private void PanelCuerpo_Paint(object sender, PaintEventArgs e)
         {
-
+           
         }
 
         private void BtnReportesSistema_Click(object sender, EventArgs e)
@@ -248,6 +251,15 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
         private void button1_Click(object sender, EventArgs e)
         {
           
+        }
+
+        private void Button1_Click_1(object sender, EventArgs e)
+        {
+            PanelCuerpo.Visible = true;
+            PanelMenu.Visible = true;
+            PanelOpciones.Visible = true;
+            PanelTop.Visible = true;
+            btnrestaurar.Visible = false;
         }
     }
 }

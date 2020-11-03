@@ -613,10 +613,10 @@ namespace DSMarket.Logica.Logica.LogicaServicio
 
         #endregion
         #region HISTORIAL DE FACTURACION
-        public List<DSMarket.Logica.Entidades.EntidadesServicio.EHistorialFacturacion> HistorialFacturacion(decimal? IdFactura = null, decimal? NumeroConector=null, decimal? IdEstatusFacturacion = null, decimal? IdTipoFacturacion = null, decimal? IdTipoPago = null, string Cliente = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
+        public List<DSMarket.Logica.Entidades.EntidadesServicio.EHistorialFacturacion> HistorialFacturacion(decimal? IdFactura = null, decimal? NumeroConector=null, decimal? IdEstatusFacturacion = null, decimal? IdTipoFacturacion = null, decimal? IdTipoPago = null, string Cliente = null, string NumeroIdentificacion = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
             ObjData.CommandTimeout = 999999999;
 
-            var Listado = (from n in ObjData.SP_BUSCA_HISTORIAL_FACTURACION(IdFactura,NumeroConector, IdEstatusFacturacion, IdTipoFacturacion, IdTipoPago, Cliente, FechaDesde, FechaHasta, NumeroPagina, NumeroRegistros)
+            var Listado = (from n in ObjData.SP_BUSCA_HISTORIAL_FACTURACION(IdFactura,NumeroConector, IdEstatusFacturacion, IdTipoFacturacion, IdTipoPago, Cliente, NumeroIdentificacion, FechaDesde, FechaHasta, NumeroPagina, NumeroRegistros)
                            select new DSMarket.Logica.Entidades.EntidadesServicio.EHistorialFacturacion
                            {
                                Cliente=n.Cliente,

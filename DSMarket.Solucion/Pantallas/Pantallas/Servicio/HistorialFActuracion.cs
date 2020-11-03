@@ -36,7 +36,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 if (cbNoagregarRangofecha.Checked == true) {
                     //HACEMOS LA CONSULTA AGREGANDO RANGO DE FECHA
                     if (rbGenerar.Checked == true) {
-                        string _NombrreCliente = string.IsNullOrEmpty(txtParametro.Text.Trim()) ? null : txtParametro.Text.Trim();
+                        string _NombrreCliente = string.IsNullOrEmpty(txtCliente.Text.Trim()) ? null : txtCliente.Text.Trim();
+                        string _NumeroIdentificacion = string.IsNullOrEmpty(txtNumeroIdentificacion.Text.Trim()) ? null : txtNumeroIdentificacion.Text.Trim();
 
                         var BuscarRegistro = ObhDataServicio.Value.HistorialFacturacion(
                             new Nullable<decimal>(),
@@ -45,6 +46,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             null,
                             null,
                             _NombrreCliente,
+                            _NumeroIdentificacion,
                             Convert.ToDateTime(txtFechaDesde.Text),
                             Convert.ToDateTime(txtFechaHasta.Text),
                             Convert.ToInt32(txtNumeroPagina.Value),
@@ -70,13 +72,14 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         }
                     }
                     else if (rbNumero.Checked == true) {
-                        if (string.IsNullOrEmpty(txtParametro.Text.Trim()))
+                        if (string.IsNullOrEmpty(txtNumeroFactura.Text.Trim()))
                         {
-                            MessageBox.Show("El campo parametro no puede estar vacio para buscar por el numero de factura, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("El campo Numero de Factura no puede estar vacio para buscar por el numero de factura, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         else {
                             var BuscarRegistro = ObhDataServicio.Value.HistorialFacturacion(
-                          Convert.ToDecimal(txtParametro.Text),
+                          Convert.ToDecimal(txtNumeroFactura.Text),
+                          null,
                           null,
                           null,
                           null,
@@ -105,13 +108,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     }
                     else if (rbEstatus.Checked == true) {
                         try {
+                            string _Cliente = string.IsNullOrEmpty(txtCliente.Text.Trim()) ? null : txtCliente.Text.Trim();
+                            string _NumeroIdentificacion = string.IsNullOrEmpty(txtNumeroIdentificacion.Text.Trim()) ? null : txtNumeroIdentificacion.Text.Trim();
                             var BuscarPorEstatus = ObhDataServicio.Value.HistorialFacturacion(
                           new Nullable<decimal>(),
                           null,
                           Convert.ToDecimal(ddlSeleccionar.SelectedValue),
                           null,
                           null,
-                          null,
+                          _Cliente,
+                          _NumeroIdentificacion,
                           Convert.ToDateTime(txtFechaDesde.Text),
                           Convert.ToDateTime(txtFechaHasta.Text),
                           Convert.ToInt32(txtNumeroPagina.Value),
@@ -136,13 +142,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     else if (rbTipoFacturacion.Checked == true) {
                         try
                         {
+                            string _Cliente = string.IsNullOrEmpty(txtCliente.Text.Trim()) ? null : txtCliente.Text.Trim();
+                            string _NumeroIdentificacion = string.IsNullOrEmpty(txtNumeroIdentificacion.Text.Trim()) ? null : txtNumeroIdentificacion.Text.Trim();
                             var Listado = ObhDataServicio.Value.HistorialFacturacion(
                           new Nullable<decimal>(),
                           null,
                           null,
                           Convert.ToDecimal(ddlSeleccionar.SelectedValue),
                           null,
-                          null,
+                          _Cliente,
+                          _NumeroIdentificacion,
                           Convert.ToDateTime(txtFechaDesde.Text),
                           Convert.ToDateTime(txtFechaHasta.Text),
                           Convert.ToInt32(txtNumeroPagina.Value),
@@ -167,13 +176,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     else if (rbTipoPago.Checked == true) {
                         try
                         {
+                            string _Cliente = string.IsNullOrEmpty(txtCliente.Text.Trim()) ? null : txtCliente.Text.Trim();
+                            string _NumeroIdentificacion = string.IsNullOrEmpty(txtNumeroIdentificacion.Text.Trim()) ? null : txtNumeroIdentificacion.Text.Trim();
                             var Listado = ObhDataServicio.Value.HistorialFacturacion(
                           new Nullable<decimal>(),
                           null,
                           null,
                           null,
                           Convert.ToDecimal(ddlSeleccionar.SelectedValue),
-                          null,
+                          _Cliente,
+                          _NumeroIdentificacion,
                           Convert.ToDateTime(txtFechaDesde.Text),
                           Convert.ToDateTime(txtFechaHasta.Text),
                           Convert.ToInt32(txtNumeroPagina.Value),
@@ -195,6 +207,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         }
                         catch (Exception) { }
                     }
+                    else if (rbReferencia.Checked == true)
+                    {
+                        MessageBox.Show("Buscar Por Imei Con rango de fecha");
+                    }
                     else {
                         MessageBox.Show("Favor de seleccionar una opción para consultar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -203,7 +219,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     //HACEMOS LA CONSULTA SIN AGREGAR RANGO DE FECHA
                     if (rbGenerar.Checked == true)
                     {
-                        string _NombrreCliente = string.IsNullOrEmpty(txtParametro.Text.Trim()) ? null : txtParametro.Text.Trim();
+                        string _NombrreCliente = string.IsNullOrEmpty(txtCliente.Text.Trim()) ? null : txtCliente.Text.Trim();
+                        string _Numeroidentificacion = string.IsNullOrEmpty(txtNumeroIdentificacion.Text.Trim()) ? null : txtNumeroIdentificacion.Text.Trim();
 
                         var BuscarRegistro = ObhDataServicio.Value.HistorialFacturacion(
                             new Nullable<decimal>(),
@@ -212,6 +229,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             null,
                             null,
                             _NombrreCliente,
+                            _Numeroidentificacion,
                             null,
                             null,
                             Convert.ToInt32(txtNumeroPagina.Value),
@@ -233,14 +251,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     }
                     else if (rbNumero.Checked == true)
                     {
-                        if (string.IsNullOrEmpty(txtParametro.Text.Trim()))
+                        if (string.IsNullOrEmpty(txtNumeroFactura.Text.Trim()))
                         {
-                            MessageBox.Show("El campo parametro no puede estar vacio para buscar por el numero de factura, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("El campo Numero de Factura no puede estar vacio para buscar por el numero de factura, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         else
                         {
                             var BuscarRegistro = ObhDataServicio.Value.HistorialFacturacion(
-                          Convert.ToDecimal(txtParametro.Text),
+                          Convert.ToDecimal(txtNumeroFactura.Text),
+                          null,
                           null,
                           null,
                           null,
@@ -268,14 +287,18 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     }
                     else if (rbEstatus.Checked == true)
                     {
-                        try {
+                        try
+                        {
+                            string _Cliente = string.IsNullOrEmpty(txtCliente.Text.Trim()) ? null : txtCliente.Text.Trim();
+                            string _NumeroIdentificacion = string.IsNullOrEmpty(txtNumeroIdentificacion.Text.Trim()) ? null : txtNumeroIdentificacion.Text.Trim();
                             var BuscarPorEstatus = ObhDataServicio.Value.HistorialFacturacion(
                         new Nullable<decimal>(),
                         null,
                         Convert.ToDecimal(ddlSeleccionar.SelectedValue),
                         null,
                         null,
-                        null,
+                        _Cliente,
+                        _NumeroIdentificacion,
                         null,
                         null,
                         Convert.ToInt32(txtNumeroPagina.Value),
@@ -301,13 +324,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     {
                         try
                         {
+                            string _Cliente = string.IsNullOrEmpty(txtCliente.Text.Trim()) ? null : txtCliente.Text.Trim();
+                            string _NumeroIdentificacion = string.IsNullOrEmpty(txtNumeroIdentificacion.Text.Trim()) ? null : txtNumeroIdentificacion.Text.Trim();
+
                             var Listado = ObhDataServicio.Value.HistorialFacturacion(
                           new Nullable<decimal>(),
                           null,
                           null,
                           Convert.ToDecimal(ddlSeleccionar.SelectedValue),
                           null,
-                          null,
+                         _Cliente,
+                        _NumeroIdentificacion,
                           null,
                           null,
                           Convert.ToInt32(txtNumeroPagina.Value),
@@ -333,13 +360,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     {
                         try
                         {
+                            string _Cliente = string.IsNullOrEmpty(txtCliente.Text.Trim()) ? null : txtCliente.Text.Trim();
+                            string _NumeroIdentificacion = string.IsNullOrEmpty(txtNumeroIdentificacion.Text.Trim()) ? null : txtNumeroIdentificacion.Text.Trim();
                             var Listado = ObhDataServicio.Value.HistorialFacturacion(
                           new Nullable<decimal>(),
                           null,
                           null,
                           null,
                           Convert.ToDecimal(ddlSeleccionar.SelectedValue),
-                          null,
+                          _Cliente,
+                          _NumeroIdentificacion,
                           null,
                           null,
                           Convert.ToInt32(txtNumeroPagina.Value),
@@ -360,6 +390,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             }
                         }
                         catch (Exception) { }
+                    }
+                    else if (rbReferencia.Checked == true) {
+                        MessageBox.Show("Buscar Por Imei Sin rango de fecha");
                     }
                     else
                     {
@@ -386,7 +419,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     {
                         
 
-                        string _NombrreCliente = string.IsNullOrEmpty(txtParametro.Text.Trim()) ? null : txtParametro.Text.Trim();
+                        string _NombrreCliente = string.IsNullOrEmpty(txtCliente.Text.Trim()) ? null : txtCliente.Text.Trim();
+                        string _NumeroIdentificacion = string.IsNullOrEmpty(txtNumeroIdentificacion.Text.Trim()) ? null : txtNumeroIdentificacion.Text.Trim();
 
                         var BuscarRegistro = ObhDataServicio.Value.HistorialFacturacion(
                             new Nullable<decimal>(),
@@ -395,6 +429,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             null,
                             null,
                             _NombrreCliente,
+                            _NumeroIdentificacion,
                             Convert.ToDateTime(txtFechaDesde.Text),
                             Convert.ToDateTime(txtFechaHasta.Text),
                             Convert.ToInt32(txtNumeroPagina.Value),
@@ -443,14 +478,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     }
                     else if (rbNumero.Checked == true)
                     {
-                        if (string.IsNullOrEmpty(txtParametro.Text.Trim()))
+                        if (string.IsNullOrEmpty(txtCliente.Text.Trim()))
                         {
                             MessageBox.Show("El campo parametro no puede estar vacio para buscar por el numero de factura, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         else
                         {
                             var BuscarRegistro = ObhDataServicio.Value.HistorialFacturacion(
-                          Convert.ToDecimal(txtParametro.Text),
+                          Convert.ToDecimal(txtNumeroFactura.Text),
+                          null,
                           null,
                           null,
                           null,
@@ -509,13 +545,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     {
                         try
                         {
+                            string _NombrreCliente = string.IsNullOrEmpty(txtCliente.Text.Trim()) ? null : txtCliente.Text.Trim();
+                            string _NumeroIdentificacion = string.IsNullOrEmpty(txtNumeroIdentificacion.Text.Trim()) ? null : txtNumeroIdentificacion.Text.Trim();
+
                             var BuscarPorEstatus = ObhDataServicio.Value.HistorialFacturacion(
                           new Nullable<decimal>(),
                           null,
                           Convert.ToDecimal(ddlSeleccionar.SelectedValue),
                           null,
                           null,
-                          null,
+                          _NombrreCliente,
+                          _NumeroIdentificacion,
                           Convert.ToDateTime(txtFechaDesde.Text),
                           Convert.ToDateTime(txtFechaHasta.Text),
                           Convert.ToInt32(txtNumeroPagina.Value),
@@ -569,13 +609,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     {
                         try
                         {
+                            string _NombrreCliente = string.IsNullOrEmpty(txtCliente.Text.Trim()) ? null : txtCliente.Text.Trim();
+                            string _NumeroIdentificacion = string.IsNullOrEmpty(txtNumeroIdentificacion.Text.Trim()) ? null : txtNumeroIdentificacion.Text.Trim();
+
                             var Listado = ObhDataServicio.Value.HistorialFacturacion(
                           new Nullable<decimal>(),
                           null,
                           null,
                           Convert.ToDecimal(ddlSeleccionar.SelectedValue),
                           null,
-                          null,
+                          _NombrreCliente,
+                          _NumeroIdentificacion,
                           Convert.ToDateTime(txtFechaDesde.Text),
                           Convert.ToDateTime(txtFechaHasta.Text),
                           Convert.ToInt32(txtNumeroPagina.Value),
@@ -629,13 +673,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     {
                         try
                         {
+                            string _NombrreCliente = string.IsNullOrEmpty(txtCliente.Text.Trim()) ? null : txtCliente.Text.Trim();
+                            string _NumeroIdentificacion = string.IsNullOrEmpty(txtNumeroIdentificacion.Text.Trim()) ? null : txtNumeroIdentificacion.Text.Trim();
+
                             var Listado = ObhDataServicio.Value.HistorialFacturacion(
                           new Nullable<decimal>(),
                           null,
                           null,
                           null,
                           Convert.ToDecimal(ddlSeleccionar.SelectedValue),
-                          null,
+                          _NombrreCliente,
+                          _NumeroIdentificacion,
                           Convert.ToDateTime(txtFechaDesde.Text),
                           Convert.ToDateTime(txtFechaHasta.Text),
                           Convert.ToInt32(txtNumeroPagina.Value),
@@ -695,7 +743,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     //HACEMOS LA CONSULTA SIN AGREGAR RANGO DE FECHA
                     if (rbGenerar.Checked == true)
                     {
-                        string _NombrreCliente = string.IsNullOrEmpty(txtParametro.Text.Trim()) ? null : txtParametro.Text.Trim();
+                        string _NombrreCliente = string.IsNullOrEmpty(txtCliente.Text.Trim()) ? null : txtCliente.Text.Trim();
+                        string _NumeroIdentificacion = string.IsNullOrEmpty(txtNumeroIdentificacion.Text.Trim()) ? null : txtNumeroIdentificacion.Text.Trim();
 
                         var BuscarRegistro = ObhDataServicio.Value.HistorialFacturacion(
                             new Nullable<decimal>(),
@@ -704,6 +753,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             null,
                             null,
                             _NombrreCliente,
+                            _NumeroIdentificacion,
                             null,
                             null,
                             Convert.ToInt32(txtNumeroPagina.Value),
@@ -753,14 +803,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     }
                     else if (rbNumero.Checked == true)
                     {
-                        if (string.IsNullOrEmpty(txtParametro.Text.Trim()))
+                        if (string.IsNullOrEmpty(txtCliente.Text.Trim()))
                         {
                             MessageBox.Show("El campo parametro no puede estar vacio para buscar por el numero de factura, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         else
                         {
                             var BuscarRegistro = ObhDataServicio.Value.HistorialFacturacion(
-                          Convert.ToDecimal(txtParametro.Text),
+                          Convert.ToDecimal(txtNumeroFactura.Text),
+                          null,
                           null,
                           null,
                           null,
@@ -818,15 +869,18 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     {
                         try
                         {
+                            string _NombrreCliente = string.IsNullOrEmpty(txtCliente.Text.Trim()) ? null : txtCliente.Text.Trim();
+                            string _NumeroIdentificacion = string.IsNullOrEmpty(txtNumeroIdentificacion.Text.Trim()) ? null : txtNumeroIdentificacion.Text.Trim();
+
                             var BuscarPorEstatus = ObhDataServicio.Value.HistorialFacturacion(
                         new Nullable<decimal>(),
                         null,
                         Convert.ToDecimal(ddlSeleccionar.SelectedValue),
                         null,
                         null,
-                        null,
-                        null,
-                        null,
+                        _NombrreCliente,
+                        _NumeroIdentificacion,
+                        null, null,
                         Convert.ToInt32(txtNumeroPagina.Value),
                         Convert.ToInt32(txtNumeroRegistros.Value));
                             foreach (var n in BuscarPorEstatus)
@@ -878,13 +932,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     {
                         try
                         {
+                            string _NombrreCliente = string.IsNullOrEmpty(txtCliente.Text.Trim()) ? null : txtCliente.Text.Trim();
+                            string _NumeroIdentificacion = string.IsNullOrEmpty(txtNumeroIdentificacion.Text.Trim()) ? null : txtNumeroIdentificacion.Text.Trim();
+
                             var Listado = ObhDataServicio.Value.HistorialFacturacion(
                           new Nullable<decimal>(),
                           null,
                           null,
                           Convert.ToDecimal(ddlSeleccionar.SelectedValue),
                           null,
-                          null,
+                          _NombrreCliente,
+                          _NumeroIdentificacion,
                           null,
                           null,
                           Convert.ToInt32(txtNumeroPagina.Value),
@@ -938,13 +996,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     {
                         try
                         {
+                            string _NombrreCliente = string.IsNullOrEmpty(txtCliente.Text.Trim()) ? null : txtCliente.Text.Trim();
+                            string _NumeroIdentificacion = string.IsNullOrEmpty(txtNumeroIdentificacion.Text.Trim()) ? null : txtNumeroIdentificacion.Text.Trim();
+
                             var Listado = ObhDataServicio.Value.HistorialFacturacion(
                           new Nullable<decimal>(),
                           null,
                           null,
                           null,
                           Convert.ToDecimal(ddlSeleccionar.SelectedValue),
-                          null,
+                          _NombrreCliente,
+                          _NumeroIdentificacion,
                           null,
                           null,
                           Convert.ToInt32(txtNumeroPagina.Value),
@@ -1107,7 +1169,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 if (cbNoagregarRangofecha.Checked)
                 {
                     if (rbGenerar.Checked) {
-                        string _NombreCliente = string.IsNullOrEmpty(txtParametro.Text.Trim()) ? null : txtParametro.Text.Trim();
+                        string _NombreCliente = string.IsNullOrEmpty(txtCliente.Text.Trim()) ? null : txtCliente.Text.Trim();
 
                         var BuscarRegistros = ObhDataServicio.Value.GenerarGananciaVenta(
                             new Nullable<decimal>(),
@@ -1139,14 +1201,14 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
                     }
                     else if (rbNumero.Checked) {
-                        if (string.IsNullOrEmpty(txtParametro.Text.Trim()))
+                        if (string.IsNullOrEmpty(txtCliente.Text.Trim()))
                         {
                             MessageBox.Show("Favr de ingresar el numero de Factura / Cotización para buscar registros", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         else {
 
                             var BuscarRegistros = ObhDataServicio.Value.GenerarGananciaVenta(
-                          Convert.ToDecimal(txtParametro.Text),
+                          Convert.ToDecimal(txtCliente.Text),
                           null, null, null, null, null,
                           Convert.ToDateTime(txtFechaDesde.Text),
                           Convert.ToDateTime(txtFechaHasta.Text));
@@ -1275,7 +1337,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 else {
                     if (rbGenerar.Checked)
                     {
-                        string _NombreCliente = string.IsNullOrEmpty(txtParametro.Text.Trim()) ? null : txtParametro.Text.Trim();
+                        string _NombreCliente = string.IsNullOrEmpty(txtCliente.Text.Trim()) ? null : txtCliente.Text.Trim();
 
                         var BuscarRegistros = ObhDataServicio.Value.GenerarGananciaVenta(
                             new Nullable<decimal>(), null,
@@ -1308,7 +1370,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     }
                     else if (rbNumero.Checked)
                     {
-                        if (string.IsNullOrEmpty(txtParametro.Text.Trim()))
+                        if (string.IsNullOrEmpty(txtCliente.Text.Trim()))
                         {
                             MessageBox.Show("Favr de ingresar el numero de Factura / Cotización para buscar registros", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
@@ -1316,7 +1378,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         {
 
                             var BuscarRegistros = ObhDataServicio.Value.GenerarGananciaVenta(
-                          Convert.ToDecimal(txtParametro.Text),
+                          Convert.ToDecimal(txtCliente.Text),
                           null, null, null, null,
                          null,
                           null);
@@ -1486,14 +1548,14 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             lbCantidadRegistrosTitulo.ForeColor = Color.White;
             lbCantidadRegistros.ForeColor = Color.White;
             lbCantidadRegistrosVariable.ForeColor = Color.White;
-            lbFechaDesde.Visible = false;
-            txtFechaDesde.Visible = false;
-            lbFechaHAsta.Visible = false;
-            txtFechaHasta.Visible = false;
-           // lbParametro.Visible = false;
-          //  txtParametro.Visible = false;
-            lbSeleccionar.Visible = false;
-            ddlSeleccionar.Visible = false;
+          //  lbFechaDesde.Visible = false;
+          //  txtFechaDesde.Visible = false;
+          //  lbFechaHAsta.Visible = false;
+          //  txtFechaHasta.Visible = false;
+          // // lbParametro.Visible = false;
+          ////  txtParametro.Visible = false;
+          //  lbSeleccionar.Visible = false;
+          //  ddlSeleccionar.Visible = false;
 
             decimal IdNivelAcceso = DSMarket.Logica.Comunes.ValidarNivelUsuario.ValidarNivelAccesoUsuario(VariablesGlobales.IdUsuario);
             if (IdNivelAcceso == 3) {
@@ -1507,202 +1569,202 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void rbGenerar_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbGenerar.Checked == true)
-            {
-                rbGenerar.ForeColor = Color.LimeGreen;
-                rbNumero.ForeColor = Color.DarkRed;
-                rbEstatus.ForeColor = Color.DarkRed;
-                rbTipoFacturacion.ForeColor = Color.DarkRed;
-                rbTipoPago.ForeColor = Color.DarkRed;
-                // cbNoagregarRangofecha.ForeColor = Color.DarkRed;
+            //if (rbGenerar.Checked == true)
+            //{
+            //    rbGenerar.ForeColor = Color.LimeGreen;
+            //    rbNumero.ForeColor = Color.DarkRed;
+            //    rbEstatus.ForeColor = Color.DarkRed;
+            //    rbTipoFacturacion.ForeColor = Color.DarkRed;
+            //    rbTipoPago.ForeColor = Color.DarkRed;
+            //    // cbNoagregarRangofecha.ForeColor = Color.DarkRed;
 
-                txtParametro.Text = string.Empty;
-                lbParametro.Visible = true;
-                txtParametro.Visible = true;
-                lbSeleccionar.Visible = false;
-                ddlSeleccionar.Visible = false;
-            }
-            else
-            {
-                rbGenerar.ForeColor = Color.DarkRed;
-                rbNumero.ForeColor = Color.DarkRed;
-                rbEstatus.ForeColor = Color.DarkRed;
-                rbTipoFacturacion.ForeColor = Color.DarkRed;
-                rbTipoPago.ForeColor = Color.DarkRed;
-               // cbNoagregarRangofecha.ForeColor = Color.DarkRed;
+            //    txtCliente.Text = string.Empty;
+            //    Cliente.Visible = true;
+            //    txtCliente.Visible = true;
+            //    lbSeleccionar.Visible = false;
+            //    ddlSeleccionar.Visible = false;
+            //}
+            //else
+            //{
+            //    rbGenerar.ForeColor = Color.DarkRed;
+            //    rbNumero.ForeColor = Color.DarkRed;
+            //    rbEstatus.ForeColor = Color.DarkRed;
+            //    rbTipoFacturacion.ForeColor = Color.DarkRed;
+            //    rbTipoPago.ForeColor = Color.DarkRed;
+            //   // cbNoagregarRangofecha.ForeColor = Color.DarkRed;
 
-                lbParametro.Visible = false;
-                txtParametro.Visible = false;
-                lbSeleccionar.Visible = false;
-                ddlSeleccionar.Visible = false;
-            }
+            //    Cliente.Visible = false;
+            //    txtCliente.Visible = false;
+            //    lbSeleccionar.Visible = false;
+            //    ddlSeleccionar.Visible = false;
+            //}
         }
 
         private void rbNumero_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbNumero.Checked == true)
-            {
-                rbGenerar.ForeColor = Color.DarkRed;
-                rbNumero.ForeColor = Color.LimeGreen;
-                rbEstatus.ForeColor = Color.DarkRed;
-                rbTipoFacturacion.ForeColor = Color.DarkRed;
-                rbTipoPago.ForeColor = Color.DarkRed;
-                //  cbNoagregarRangofecha.ForeColor = Color.DarkRed;
+            //if (rbNumero.Checked == true)
+            //{
+            //    rbGenerar.ForeColor = Color.DarkRed;
+            //    rbNumero.ForeColor = Color.LimeGreen;
+            //    rbEstatus.ForeColor = Color.DarkRed;
+            //    rbTipoFacturacion.ForeColor = Color.DarkRed;
+            //    rbTipoPago.ForeColor = Color.DarkRed;
+            //    //  cbNoagregarRangofecha.ForeColor = Color.DarkRed;
 
-                txtParametro.Text = string.Empty;
-                lbParametro.Visible = true;
-                txtParametro.Visible = true;
-                lbSeleccionar.Visible = false;
-                ddlSeleccionar.Visible = false;
-            }
-            else
-            {
-                rbGenerar.ForeColor = Color.DarkRed;
-                rbNumero.ForeColor = Color.DarkRed;
-                rbEstatus.ForeColor = Color.DarkRed;
-                rbTipoFacturacion.ForeColor = Color.DarkRed;
-                rbTipoPago.ForeColor = Color.DarkRed;
-             //   cbNoagregarRangofecha.ForeColor = Color.DarkRed;
+            //    txtCliente.Text = string.Empty;
+            //    Cliente.Visible = true;
+            //    txtCliente.Visible = true;
+            //    lbSeleccionar.Visible = false;
+            //    ddlSeleccionar.Visible = false;
+            //}
+            //else
+            //{
+            //    rbGenerar.ForeColor = Color.DarkRed;
+            //    rbNumero.ForeColor = Color.DarkRed;
+            //    rbEstatus.ForeColor = Color.DarkRed;
+            //    rbTipoFacturacion.ForeColor = Color.DarkRed;
+            //    rbTipoPago.ForeColor = Color.DarkRed;
+            // //   cbNoagregarRangofecha.ForeColor = Color.DarkRed;
 
-                lbParametro.Visible = false;
-                txtParametro.Visible = false;
-                lbSeleccionar.Visible = false;
-                ddlSeleccionar.Visible = false;
-            }
+            //    Cliente.Visible = false;
+            //    txtCliente.Visible = false;
+            //    lbSeleccionar.Visible = false;
+            //    ddlSeleccionar.Visible = false;
+            //}
         }
 
         private void rbEstatus_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbEstatus.Checked == true)
-            {
-                rbGenerar.ForeColor = Color.DarkRed;
-                rbNumero.ForeColor = Color.DarkRed;
-                rbEstatus.ForeColor = Color.LimeGreen;
-                rbTipoFacturacion.ForeColor = Color.DarkRed;
-                rbTipoPago.ForeColor = Color.DarkRed;
-              //  cbNoagregarRangofecha.ForeColor = Color.DarkRed;
+            //if (rbEstatus.Checked == true)
+            //{
+            //    rbGenerar.ForeColor = Color.DarkRed;
+            //    rbNumero.ForeColor = Color.DarkRed;
+            //    rbEstatus.ForeColor = Color.LimeGreen;
+            //    rbTipoFacturacion.ForeColor = Color.DarkRed;
+            //    rbTipoPago.ForeColor = Color.DarkRed;
+            //  //  cbNoagregarRangofecha.ForeColor = Color.DarkRed;
 
-                lbParametro.Visible = false;
-                txtParametro.Visible = false;
-                lbSeleccionar.Visible = true;
-                ddlSeleccionar.Visible = true;
-                MostrarListadoEstatusFacturacion();
-            }
-            else
-            {
-                rbGenerar.ForeColor = Color.DarkRed;
-                rbNumero.ForeColor = Color.DarkRed;
-                rbEstatus.ForeColor = Color.DarkRed;
-                rbTipoFacturacion.ForeColor = Color.DarkRed;
-                rbTipoPago.ForeColor = Color.DarkRed;
-            //    cbNoagregarRangofecha.ForeColor = Color.DarkRed;
+            //    Cliente.Visible = false;
+            //    txtCliente.Visible = false;
+            //    lbSeleccionar.Visible = true;
+            //    ddlSeleccionar.Visible = true;
+            //    MostrarListadoEstatusFacturacion();
+            //}
+            //else
+            //{
+            //    rbGenerar.ForeColor = Color.DarkRed;
+            //    rbNumero.ForeColor = Color.DarkRed;
+            //    rbEstatus.ForeColor = Color.DarkRed;
+            //    rbTipoFacturacion.ForeColor = Color.DarkRed;
+            //    rbTipoPago.ForeColor = Color.DarkRed;
+            ////    cbNoagregarRangofecha.ForeColor = Color.DarkRed;
 
-                lbParametro.Visible = false;
-                txtParametro.Visible = false;
-                lbSeleccionar.Visible = false;
-                ddlSeleccionar.Visible = false;
-                ddlSeleccionar.DataSource = null;
-            }
+            //    Cliente.Visible = false;
+            //    txtCliente.Visible = false;
+            //    lbSeleccionar.Visible = false;
+            //    ddlSeleccionar.Visible = false;
+            //    ddlSeleccionar.DataSource = null;
+            //}
         }
 
         private void rbTipoFacturacion_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbTipoFacturacion.Checked == true)
-            {
-                rbGenerar.ForeColor = Color.DarkRed;
-                rbNumero.ForeColor = Color.DarkRed;
-                rbEstatus.ForeColor = Color.DarkRed;
-                rbTipoFacturacion.ForeColor = Color.LimeGreen;
-                rbTipoPago.ForeColor = Color.DarkRed;
-              //  cbNoagregarRangofecha.ForeColor = Color.DarkRed;
+            //if (rbTipoFacturacion.Checked == true)
+            //{
+            //    rbGenerar.ForeColor = Color.DarkRed;
+            //    rbNumero.ForeColor = Color.DarkRed;
+            //    rbEstatus.ForeColor = Color.DarkRed;
+            //    rbTipoFacturacion.ForeColor = Color.LimeGreen;
+            //    rbTipoPago.ForeColor = Color.DarkRed;
+            //  //  cbNoagregarRangofecha.ForeColor = Color.DarkRed;
 
-                lbParametro.Visible = false;
-                txtParametro.Visible = false;
-                lbSeleccionar.Visible = true;
-                ddlSeleccionar.Visible = true;
-                MostrarListadoTipoFacturacion();
-            }
-            else
-            {
-                rbGenerar.ForeColor = Color.DarkRed;
-                rbNumero.ForeColor = Color.DarkRed;
-                rbEstatus.ForeColor = Color.DarkRed;
-                rbTipoFacturacion.ForeColor = Color.DarkRed;
-                rbTipoPago.ForeColor = Color.DarkRed;
-            //    cbNoagregarRangofecha.ForeColor = Color.DarkRed;
+            //    Cliente.Visible = false;
+            //    txtCliente.Visible = false;
+            //    lbSeleccionar.Visible = true;
+            //    ddlSeleccionar.Visible = true;
+            //    MostrarListadoTipoFacturacion();
+            //}
+            //else
+            //{
+            //    rbGenerar.ForeColor = Color.DarkRed;
+            //    rbNumero.ForeColor = Color.DarkRed;
+            //    rbEstatus.ForeColor = Color.DarkRed;
+            //    rbTipoFacturacion.ForeColor = Color.DarkRed;
+            //    rbTipoPago.ForeColor = Color.DarkRed;
+            ////    cbNoagregarRangofecha.ForeColor = Color.DarkRed;
 
-                lbParametro.Visible = false;
-                txtParametro.Visible = false;
-                lbSeleccionar.Visible = false;
-                ddlSeleccionar.Visible = false;
-                ddlSeleccionar.DataSource = null;
-            }
+            //    Cliente.Visible = false;
+            //    txtCliente.Visible = false;
+            //    lbSeleccionar.Visible = false;
+            //    ddlSeleccionar.Visible = false;
+            //    ddlSeleccionar.DataSource = null;
+            //}
         }
 
         private void rbTipoPago_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbTipoPago.Checked == true)
-            {
-                rbGenerar.ForeColor = Color.DarkRed;
-                rbNumero.ForeColor = Color.DarkRed;
-                rbEstatus.ForeColor = Color.DarkRed;
-                rbTipoFacturacion.ForeColor = Color.DarkRed;
-                rbTipoPago.ForeColor = Color.LimeGreen;
+            //if (rbTipoPago.Checked == true)
+            //{
+            //    rbGenerar.ForeColor = Color.DarkRed;
+            //    rbNumero.ForeColor = Color.DarkRed;
+            //    rbEstatus.ForeColor = Color.DarkRed;
+            //    rbTipoFacturacion.ForeColor = Color.DarkRed;
+            //    rbTipoPago.ForeColor = Color.LimeGreen;
+            ////    cbNoagregarRangofecha.ForeColor = Color.DarkRed;
+
+            //    Cliente.Visible = false;
+            //    txtCliente.Visible = false;
+            //    lbSeleccionar.Visible = true;
+            //    ddlSeleccionar.Visible = true;
+            //    MostrarTipoPagos();
+            //}
+            //else
+            //{
+            //    rbGenerar.ForeColor = Color.DarkRed;
+            //    rbNumero.ForeColor = Color.DarkRed;
+            //    rbEstatus.ForeColor = Color.DarkRed;
+            //    rbTipoFacturacion.ForeColor = Color.DarkRed;
+            //    rbTipoPago.ForeColor = Color.DarkRed;
             //    cbNoagregarRangofecha.ForeColor = Color.DarkRed;
 
-                lbParametro.Visible = false;
-                txtParametro.Visible = false;
-                lbSeleccionar.Visible = true;
-                ddlSeleccionar.Visible = true;
-                MostrarTipoPagos();
-            }
-            else
-            {
-                rbGenerar.ForeColor = Color.DarkRed;
-                rbNumero.ForeColor = Color.DarkRed;
-                rbEstatus.ForeColor = Color.DarkRed;
-                rbTipoFacturacion.ForeColor = Color.DarkRed;
-                rbTipoPago.ForeColor = Color.DarkRed;
-                cbNoagregarRangofecha.ForeColor = Color.DarkRed;
-
-                lbParametro.Visible = false;
-                txtParametro.Visible = false;
-                lbSeleccionar.Visible = false;
-                ddlSeleccionar.Visible = false;
-                ddlSeleccionar.DataSource = null;
-            }
+            //    Cliente.Visible = false;
+            //    txtCliente.Visible = false;
+            //    lbSeleccionar.Visible = false;
+            //    ddlSeleccionar.Visible = false;
+            //    ddlSeleccionar.DataSource = null;
+            //}
         }
 
         private void cbNoagregarRangofecha_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbNoagregarRangofecha.Checked == true)
-            {
-                //rbGenerar.ForeColor = Color.DarkRed;
-                //rbNumero.ForeColor = Color.DarkRed;
-                //rbEstatus.ForeColor = Color.DarkRed;
-                //rbTipoFacturacion.ForeColor = Color.DarkRed;
-                //rbTipoPago.ForeColor = Color.DarkRed;
-                cbNoagregarRangofecha.ForeColor = Color.LimeGreen;
+            //if (cbNoagregarRangofecha.Checked == true)
+            //{
+            //    //rbGenerar.ForeColor = Color.DarkRed;
+            //    //rbNumero.ForeColor = Color.DarkRed;
+            //    //rbEstatus.ForeColor = Color.DarkRed;
+            //    //rbTipoFacturacion.ForeColor = Color.DarkRed;
+            //    //rbTipoPago.ForeColor = Color.DarkRed;
+            //    cbNoagregarRangofecha.ForeColor = Color.LimeGreen;
 
-                lbFechaDesde.Visible = true;
-                txtFechaDesde.Visible = true;
-                lbFechaHAsta.Visible = true;
-                txtFechaHasta.Visible = true;
-            }
-            else
-            {
-                //rbGenerar.ForeColor = Color.DarkRed;
-                //rbNumero.ForeColor = Color.DarkRed;
-                //rbEstatus.ForeColor = Color.DarkRed;
-                //rbTipoFacturacion.ForeColor = Color.DarkRed;
-                //rbTipoPago.ForeColor = Color.DarkRed;
-                cbNoagregarRangofecha.ForeColor = Color.DarkRed;
+            //    lbFechaDesde.Visible = true;
+            //    txtFechaDesde.Visible = true;
+            //    lbFechaHAsta.Visible = true;
+            //    txtFechaHasta.Visible = true;
+            //}
+            //else
+            //{
+            //    //rbGenerar.ForeColor = Color.DarkRed;
+            //    //rbNumero.ForeColor = Color.DarkRed;
+            //    //rbEstatus.ForeColor = Color.DarkRed;
+            //    //rbTipoFacturacion.ForeColor = Color.DarkRed;
+            //    //rbTipoPago.ForeColor = Color.DarkRed;
+            //    cbNoagregarRangofecha.ForeColor = Color.DarkRed;
 
-                lbFechaDesde.Visible = false;
-                txtFechaDesde.Visible = false;
-                lbFechaHAsta.Visible = false;
-                txtFechaHasta.Visible = false;
-            }
+            //    lbFechaDesde.Visible = false;
+            //    txtFechaDesde.Visible = false;
+            //    lbFechaHAsta.Visible = false;
+            //    txtFechaHasta.Visible = false;
+            //}
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -1742,9 +1804,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void txtParametro_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (rbNumero.Checked == true) {
-                DSMarket.Logica.Comunes.ValidarControles.SoloNumeros(e);
-            }
+            
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -1791,7 +1851,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     var BuscarRegistro = ObhDataServicio.Value.HistorialFacturacion(
                new Nullable<decimal>(),
                VariablesGlobales.NumeroConector,
-               null, null, null, null, null, null, 1, 1000);
+               null, null, null, null, null, null, null, 1, 1000);
                     dtListado.DataSource = BuscarRegistro;
                     OcultarColumnas();
                     VariablesGlobales.GananciaFacturaUnica = true;
@@ -2142,6 +2202,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             GarantiaEdtt.VariablesGlobales.NumeroConector = VariablesGlobales.NumeroConector;
             GarantiaEdtt.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
             GarantiaEdtt.ShowDialog();
+        }
+
+        private void RadioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            DSMarket.Logica.Comunes.ValidarControles.SoloNumeros(e);
         }
     }
 }

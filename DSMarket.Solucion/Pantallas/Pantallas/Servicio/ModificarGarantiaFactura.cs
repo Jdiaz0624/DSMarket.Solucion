@@ -24,7 +24,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             var BuscarDatosFactura = ObjdataServicio.Value.HistorialFacturacion(
                 NoFactura,
                 NumeroCOnector,
-                null, null, null, null, null, null, 1, 1);
+                null, null, null, null, null, null, null, 1, 1);
             foreach (var n in BuscarDatosFactura) {
                 txtTipoFacturacion.Text = n.TipoVenta;
                 txtNombreCliente.Text = n.Cliente;

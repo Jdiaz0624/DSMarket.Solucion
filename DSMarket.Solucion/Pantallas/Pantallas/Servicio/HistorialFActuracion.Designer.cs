@@ -66,13 +66,13 @@
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ddlSeleccionar = new System.Windows.Forms.ComboBox();
-            this.txtParametro = new System.Windows.Forms.TextBox();
+            this.txtCliente = new System.Windows.Forms.TextBox();
             this.txtFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.txtFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.lbFechaHAsta = new System.Windows.Forms.Label();
             this.lbFechaDesde = new System.Windows.Forms.Label();
             this.lbSeleccionar = new System.Windows.Forms.Label();
-            this.lbParametro = new System.Windows.Forms.Label();
+            this.Cliente = new System.Windows.Forms.Label();
             this.lbFormatoFactura = new System.Windows.Forms.Label();
             this.txtCantidadProductos = new System.Windows.Forms.TextBox();
             this.txtCantidadServicios = new System.Windows.Forms.TextBox();
@@ -89,6 +89,12 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.lbCantidadDisponible = new System.Windows.Forms.Label();
             this.txtCantidadDisponible = new System.Windows.Forms.TextBox();
+            this.txtNumeroIdentificacion = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.rbReferencia = new System.Windows.Forms.RadioButton();
+            this.txtimeiReferencia = new System.Windows.Forms.TextBox();
+            this.txtNumeroFactura = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel2.SuspendLayout();
@@ -475,7 +481,7 @@
             this.rbfacturaenglish.AutoSize = true;
             this.rbfacturaenglish.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbfacturaenglish.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbfacturaenglish.Location = new System.Drawing.Point(880, 183);
+            this.rbfacturaenglish.Location = new System.Drawing.Point(880, 227);
             this.rbfacturaenglish.Name = "rbfacturaenglish";
             this.rbfacturaenglish.Size = new System.Drawing.Size(72, 24);
             this.rbfacturaenglish.TabIndex = 74;
@@ -490,7 +496,7 @@
             this.rbfacturaspanish.AutoSize = true;
             this.rbfacturaspanish.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbfacturaspanish.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbfacturaspanish.Location = new System.Drawing.Point(787, 183);
+            this.rbfacturaspanish.Location = new System.Drawing.Point(787, 227);
             this.rbfacturaspanish.Name = "rbfacturaspanish";
             this.rbfacturaspanish.Size = new System.Drawing.Size(86, 24);
             this.rbfacturaspanish.TabIndex = 73;
@@ -505,7 +511,7 @@
             this.cbFacturaPuntoVenta.AutoSize = true;
             this.cbFacturaPuntoVenta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbFacturaPuntoVenta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbFacturaPuntoVenta.Location = new System.Drawing.Point(958, 183);
+            this.cbFacturaPuntoVenta.Location = new System.Drawing.Point(958, 227);
             this.cbFacturaPuntoVenta.Name = "cbFacturaPuntoVenta";
             this.cbFacturaPuntoVenta.Size = new System.Drawing.Size(141, 24);
             this.cbFacturaPuntoVenta.TabIndex = 79;
@@ -533,6 +539,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtNumeroFactura);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtimeiReferencia);
+            this.groupBox1.Controls.Add(this.rbReferencia);
             this.groupBox1.Controls.Add(this.cbNoagregarRangofecha);
             this.groupBox1.Controls.Add(this.rbTipoPago);
             this.groupBox1.Controls.Add(this.rbTipoFacturacion);
@@ -542,7 +552,7 @@
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBox1.Location = new System.Drawing.Point(12, 103);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1041, 72);
+            this.groupBox1.Size = new System.Drawing.Size(1041, 104);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Seleccionar Tipo de Filtros";
@@ -570,9 +580,9 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.dtListado);
-            this.groupBox5.Location = new System.Drawing.Point(16, 322);
+            this.groupBox5.Location = new System.Drawing.Point(16, 363);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1253, 275);
+            this.groupBox5.Size = new System.Drawing.Size(1253, 234);
             this.groupBox5.TabIndex = 20;
             this.groupBox5.TabStop = false;
             // 
@@ -594,7 +604,7 @@
             this.dtListado.Name = "dtListado";
             this.dtListado.ReadOnly = true;
             this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(1247, 249);
+            this.dtListado.Size = new System.Drawing.Size(1247, 208);
             this.dtListado.TabIndex = 0;
             this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
@@ -611,17 +621,19 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtNumeroIdentificacion);
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.ddlSeleccionar);
-            this.groupBox2.Controls.Add(this.txtParametro);
+            this.groupBox2.Controls.Add(this.txtCliente);
             this.groupBox2.Controls.Add(this.txtFechaHasta);
             this.groupBox2.Controls.Add(this.txtFechaDesde);
             this.groupBox2.Controls.Add(this.lbFechaHAsta);
             this.groupBox2.Controls.Add(this.lbFechaDesde);
             this.groupBox2.Controls.Add(this.lbSeleccionar);
-            this.groupBox2.Controls.Add(this.lbParametro);
-            this.groupBox2.Location = new System.Drawing.Point(12, 181);
+            this.groupBox2.Controls.Add(this.Cliente);
+            this.groupBox2.Location = new System.Drawing.Point(12, 213);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(595, 135);
+            this.groupBox2.Size = new System.Drawing.Size(595, 152);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             // 
@@ -631,18 +643,18 @@
             this.ddlSeleccionar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ddlSeleccionar.FormattingEnabled = true;
-            this.ddlSeleccionar.Location = new System.Drawing.Point(113, 87);
+            this.ddlSeleccionar.Location = new System.Drawing.Point(160, 115);
             this.ddlSeleccionar.Name = "ddlSeleccionar";
-            this.ddlSeleccionar.Size = new System.Drawing.Size(471, 28);
+            this.ddlSeleccionar.Size = new System.Drawing.Size(426, 28);
             this.ddlSeleccionar.TabIndex = 7;
             // 
-            // txtParametro
+            // txtCliente
             // 
-            this.txtParametro.Location = new System.Drawing.Point(113, 56);
-            this.txtParametro.Name = "txtParametro";
-            this.txtParametro.Size = new System.Drawing.Size(471, 27);
-            this.txtParametro.TabIndex = 6;
-            this.txtParametro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtParametro_KeyPress);
+            this.txtCliente.Location = new System.Drawing.Point(160, 56);
+            this.txtCliente.Name = "txtCliente";
+            this.txtCliente.Size = new System.Drawing.Size(424, 27);
+            this.txtCliente.TabIndex = 6;
+            this.txtCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtParametro_KeyPress);
             // 
             // txtFechaHasta
             // 
@@ -681,25 +693,25 @@
             // lbSeleccionar
             // 
             this.lbSeleccionar.AutoSize = true;
-            this.lbSeleccionar.Location = new System.Drawing.Point(16, 90);
+            this.lbSeleccionar.Location = new System.Drawing.Point(62, 119);
             this.lbSeleccionar.Name = "lbSeleccionar";
             this.lbSeleccionar.Size = new System.Drawing.Size(93, 20);
             this.lbSeleccionar.TabIndex = 1;
             this.lbSeleccionar.Text = "Seleccionar";
             // 
-            // lbParametro
+            // Cliente
             // 
-            this.lbParametro.AutoSize = true;
-            this.lbParametro.Location = new System.Drawing.Point(21, 59);
-            this.lbParametro.Name = "lbParametro";
-            this.lbParametro.Size = new System.Drawing.Size(88, 20);
-            this.lbParametro.TabIndex = 0;
-            this.lbParametro.Text = "Parametro";
+            this.Cliente.AutoSize = true;
+            this.Cliente.Location = new System.Drawing.Point(91, 59);
+            this.Cliente.Name = "Cliente";
+            this.Cliente.Size = new System.Drawing.Size(63, 20);
+            this.Cliente.TabIndex = 0;
+            this.Cliente.Text = "Cliente";
             // 
             // lbFormatoFactura
             // 
             this.lbFormatoFactura.AutoSize = true;
-            this.lbFormatoFactura.Location = new System.Drawing.Point(621, 185);
+            this.lbFormatoFactura.Location = new System.Drawing.Point(621, 229);
             this.lbFormatoFactura.Name = "lbFormatoFactura";
             this.lbFormatoFactura.Size = new System.Drawing.Size(160, 20);
             this.lbFormatoFactura.TabIndex = 72;
@@ -709,7 +721,7 @@
             // txtCantidadProductos
             // 
             this.txtCantidadProductos.Enabled = false;
-            this.txtCantidadProductos.Location = new System.Drawing.Point(787, 210);
+            this.txtCantidadProductos.Location = new System.Drawing.Point(787, 254);
             this.txtCantidadProductos.Name = "txtCantidadProductos";
             this.txtCantidadProductos.Size = new System.Drawing.Size(139, 27);
             this.txtCantidadProductos.TabIndex = 8;
@@ -719,7 +731,7 @@
             // txtCantidadServicios
             // 
             this.txtCantidadServicios.Enabled = false;
-            this.txtCantidadServicios.Location = new System.Drawing.Point(787, 239);
+            this.txtCantidadServicios.Location = new System.Drawing.Point(787, 283);
             this.txtCantidadServicios.Name = "txtCantidadServicios";
             this.txtCantidadServicios.Size = new System.Drawing.Size(139, 27);
             this.txtCantidadServicios.TabIndex = 75;
@@ -729,7 +741,7 @@
             // txtCantidadTotal
             // 
             this.txtCantidadTotal.Enabled = false;
-            this.txtCantidadTotal.Location = new System.Drawing.Point(787, 268);
+            this.txtCantidadTotal.Location = new System.Drawing.Point(787, 312);
             this.txtCantidadTotal.Name = "txtCantidadTotal";
             this.txtCantidadTotal.Size = new System.Drawing.Size(139, 27);
             this.txtCantidadTotal.TabIndex = 76;
@@ -739,7 +751,7 @@
             // lbCantidadProductos
             // 
             this.lbCantidadProductos.AutoSize = true;
-            this.lbCantidadProductos.Location = new System.Drawing.Point(616, 214);
+            this.lbCantidadProductos.Location = new System.Drawing.Point(616, 258);
             this.lbCantidadProductos.Name = "lbCantidadProductos";
             this.lbCantidadProductos.Size = new System.Drawing.Size(168, 20);
             this.lbCantidadProductos.TabIndex = 8;
@@ -749,7 +761,7 @@
             // lbCantidadServicios
             // 
             this.lbCantidadServicios.AutoSize = true;
-            this.lbCantidadServicios.Location = new System.Drawing.Point(615, 243);
+            this.lbCantidadServicios.Location = new System.Drawing.Point(615, 287);
             this.lbCantidadServicios.Name = "lbCantidadServicios";
             this.lbCantidadServicios.Size = new System.Drawing.Size(169, 20);
             this.lbCantidadServicios.TabIndex = 77;
@@ -759,7 +771,7 @@
             // lbCantidadTotal
             // 
             this.lbCantidadTotal.AutoSize = true;
-            this.lbCantidadTotal.Location = new System.Drawing.Point(662, 272);
+            this.lbCantidadTotal.Location = new System.Drawing.Point(662, 316);
             this.lbCantidadTotal.Name = "lbCantidadTotal";
             this.lbCantidadTotal.Size = new System.Drawing.Size(121, 20);
             this.lbCantidadTotal.TabIndex = 78;
@@ -769,7 +781,7 @@
             // lbCantidadProcesar
             // 
             this.lbCantidadProcesar.AutoSize = true;
-            this.lbCantidadProcesar.Location = new System.Drawing.Point(993, 271);
+            this.lbCantidadProcesar.Location = new System.Drawing.Point(993, 315);
             this.lbCantidadProcesar.Name = "lbCantidadProcesar";
             this.lbCantidadProcesar.Size = new System.Drawing.Size(146, 20);
             this.lbCantidadProcesar.TabIndex = 84;
@@ -779,7 +791,7 @@
             // lbCantidadFacturada
             // 
             this.lbCantidadFacturada.AutoSize = true;
-            this.lbCantidadFacturada.Location = new System.Drawing.Point(958, 213);
+            this.lbCantidadFacturada.Location = new System.Drawing.Point(958, 257);
             this.lbCantidadFacturada.Name = "lbCantidadFacturada";
             this.lbCantidadFacturada.Size = new System.Drawing.Size(180, 20);
             this.lbCantidadFacturada.TabIndex = 80;
@@ -789,7 +801,7 @@
             // txtCantidadProcesar
             // 
             this.txtCantidadProcesar.Enabled = false;
-            this.txtCantidadProcesar.Location = new System.Drawing.Point(1142, 267);
+            this.txtCantidadProcesar.Location = new System.Drawing.Point(1142, 311);
             this.txtCantidadProcesar.Name = "txtCantidadProcesar";
             this.txtCantidadProcesar.Size = new System.Drawing.Size(124, 27);
             this.txtCantidadProcesar.TabIndex = 82;
@@ -799,7 +811,7 @@
             // 
             // txtCantidadFacturada
             // 
-            this.txtCantidadFacturada.Location = new System.Drawing.Point(1142, 209);
+            this.txtCantidadFacturada.Location = new System.Drawing.Point(1142, 253);
             this.txtCantidadFacturada.Name = "txtCantidadFacturada";
             this.txtCantidadFacturada.Size = new System.Drawing.Size(124, 27);
             this.txtCantidadFacturada.TabIndex = 81;
@@ -809,7 +821,7 @@
             // 
             // txtClaveSeguridad
             // 
-            this.txtClaveSeguridad.Location = new System.Drawing.Point(1142, 296);
+            this.txtClaveSeguridad.Location = new System.Drawing.Point(1142, 340);
             this.txtClaveSeguridad.MaxLength = 20;
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
             this.txtClaveSeguridad.PasswordChar = '•';
@@ -821,7 +833,7 @@
             // lbClaveSeguridad
             // 
             this.lbClaveSeguridad.AutoSize = true;
-            this.lbClaveSeguridad.Location = new System.Drawing.Point(1007, 300);
+            this.lbClaveSeguridad.Location = new System.Drawing.Point(1007, 344);
             this.lbClaveSeguridad.Name = "lbClaveSeguridad";
             this.lbClaveSeguridad.Size = new System.Drawing.Size(132, 20);
             this.lbClaveSeguridad.TabIndex = 85;
@@ -835,7 +847,7 @@
             // lbCantidadDisponible
             // 
             this.lbCantidadDisponible.AutoSize = true;
-            this.lbCantidadDisponible.Location = new System.Drawing.Point(980, 242);
+            this.lbCantidadDisponible.Location = new System.Drawing.Point(980, 286);
             this.lbCantidadDisponible.Name = "lbCantidadDisponible";
             this.lbCantidadDisponible.Size = new System.Drawing.Size(159, 20);
             this.lbCantidadDisponible.TabIndex = 86;
@@ -844,12 +856,67 @@
             // 
             // txtCantidadDisponible
             // 
-            this.txtCantidadDisponible.Location = new System.Drawing.Point(1142, 238);
+            this.txtCantidadDisponible.Location = new System.Drawing.Point(1142, 282);
             this.txtCantidadDisponible.Name = "txtCantidadDisponible";
             this.txtCantidadDisponible.Size = new System.Drawing.Size(124, 27);
             this.txtCantidadDisponible.TabIndex = 87;
             this.txtCantidadDisponible.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCantidadDisponible.Visible = false;
+            // 
+            // txtNumeroIdentificacion
+            // 
+            this.txtNumeroIdentificacion.Location = new System.Drawing.Point(160, 84);
+            this.txtNumeroIdentificacion.Name = "txtNumeroIdentificacion";
+            this.txtNumeroIdentificacion.Size = new System.Drawing.Size(424, 27);
+            this.txtNumeroIdentificacion.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(21, 87);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(135, 20);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "No.Identificación";
+            // 
+            // rbReferencia
+            // 
+            this.rbReferencia.AutoSize = true;
+            this.rbReferencia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbReferencia.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbReferencia.Location = new System.Drawing.Point(22, 62);
+            this.rbReferencia.Name = "rbReferencia";
+            this.rbReferencia.Size = new System.Drawing.Size(149, 24);
+            this.rbReferencia.TabIndex = 8;
+            this.rbReferencia.TabStop = true;
+            this.rbReferencia.Text = "imei / Referencia";
+            this.toolTip1.SetToolTip(this.rbReferencia, "Imei / Referencia");
+            this.rbReferencia.UseVisualStyleBackColor = true;
+            this.rbReferencia.CheckedChanged += new System.EventHandler(this.RadioButton1_CheckedChanged);
+            // 
+            // txtimeiReferencia
+            // 
+            this.txtimeiReferencia.Location = new System.Drawing.Point(177, 61);
+            this.txtimeiReferencia.Name = "txtimeiReferencia";
+            this.txtimeiReferencia.Size = new System.Drawing.Size(347, 27);
+            this.txtimeiReferencia.TabIndex = 10;
+            // 
+            // txtNumeroFactura
+            // 
+            this.txtNumeroFactura.Location = new System.Drawing.Point(645, 59);
+            this.txtNumeroFactura.Name = "txtNumeroFactura";
+            this.txtNumeroFactura.Size = new System.Drawing.Size(142, 27);
+            this.txtNumeroFactura.TabIndex = 11;
+            this.txtNumeroFactura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox1_KeyPress);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(538, 62);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(101, 20);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "No. Factura ";
             // 
             // HistorialFActuracion
             // 
@@ -937,13 +1004,13 @@
         private System.Windows.Forms.RadioButton rbGenerar;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox ddlSeleccionar;
-        private System.Windows.Forms.TextBox txtParametro;
+        private System.Windows.Forms.TextBox txtCliente;
         private System.Windows.Forms.DateTimePicker txtFechaHasta;
         private System.Windows.Forms.DateTimePicker txtFechaDesde;
         private System.Windows.Forms.Label lbFechaHAsta;
         private System.Windows.Forms.Label lbFechaDesde;
         private System.Windows.Forms.Label lbSeleccionar;
-        private System.Windows.Forms.Label lbParametro;
+        private System.Windows.Forms.Label Cliente;
         private System.Windows.Forms.NumericUpDown txtNumeroRegistros;
         private System.Windows.Forms.Label lbNumeroRegistros;
         private System.Windows.Forms.NumericUpDown txtNumeroPagina;
@@ -977,5 +1044,11 @@
         private System.Windows.Forms.Label lbCantidadDisponible;
         private System.Windows.Forms.TextBox txtCantidadDisponible;
         private System.Windows.Forms.Button btnModificarDiasGarantia;
+        private System.Windows.Forms.TextBox txtNumeroIdentificacion;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtimeiReferencia;
+        private System.Windows.Forms.RadioButton rbReferencia;
+        private System.Windows.Forms.TextBox txtNumeroFactura;
+        private System.Windows.Forms.Label label2;
     }
 }

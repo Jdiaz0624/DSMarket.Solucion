@@ -29,19 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation22 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation21 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation3 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
+            BunifuAnimatorNS.Animation animation4 = new BunifuAnimatorNS.Animation();
             this.PanelTop = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.PMinimizar = new System.Windows.Forms.PictureBox();
+            this.PRestaurar = new System.Windows.Forms.PictureBox();
+            this.PMaximizar = new System.Windows.Forms.PictureBox();
+            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbIdNivel = new System.Windows.Forms.Label();
             this.lbNivelAcceso = new System.Windows.Forms.Label();
             this.lbIdUsuario = new System.Windows.Forms.Label();
             this.lbusuarioConectado = new System.Windows.Forms.Label();
-            this.PRestaurar = new System.Windows.Forms.PictureBox();
             this.lbNombreEmpresa = new System.Windows.Forms.Label();
-            this.PMinimizar = new System.Windows.Forms.PictureBox();
-            this.PMaximizar = new System.Windows.Forms.PictureBox();
-            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PanelMenu = new System.Windows.Forms.Panel();
             this.PanelOpciones = new Bunifu.Framework.UI.BunifuGradientPanel();
@@ -64,10 +65,11 @@
             this.CurvaForms = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.EfectoIda = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.EfectoBotones = new BunifuAnimatorNS.BunifuTransition(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnrestaurar = new System.Windows.Forms.Button();
             this.PanelTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PRestaurar)).BeginInit();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PMinimizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PRestaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -75,7 +77,7 @@
             this.PanelOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lbLogoCorto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogolargo)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.PanelCuerpo.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelTop
@@ -96,6 +98,86 @@
             this.PanelTop.Name = "PanelTop";
             this.PanelTop.Size = new System.Drawing.Size(1200, 80);
             this.PanelTop.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.PMinimizar);
+            this.groupBox1.Controls.Add(this.PRestaurar);
+            this.groupBox1.Controls.Add(this.PMaximizar);
+            this.groupBox1.Controls.Add(this.PCerrar);
+            this.EfectoBotones.SetDecoration(this.groupBox1, BunifuAnimatorNS.DecorationType.None);
+            this.EfectoIda.SetDecoration(this.groupBox1, BunifuAnimatorNS.DecorationType.None);
+            this.groupBox1.Location = new System.Drawing.Point(1071, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(117, 58);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            // 
+            // PMinimizar
+            // 
+            this.PMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EfectoIda.SetDecoration(this.PMinimizar, BunifuAnimatorNS.DecorationType.None);
+            this.EfectoBotones.SetDecoration(this.PMinimizar, BunifuAnimatorNS.DecorationType.None);
+            this.PMinimizar.Image = global::DSMarket.Solucion.Properties.Resources.Minimize_Window_2_48px;
+            this.PMinimizar.Location = new System.Drawing.Point(9, 16);
+            this.PMinimizar.Name = "PMinimizar";
+            this.PMinimizar.Size = new System.Drawing.Size(30, 30);
+            this.PMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PMinimizar.TabIndex = 3;
+            this.PMinimizar.TabStop = false;
+            this.toolTip1.SetToolTip(this.PMinimizar, "Minimizar");
+            this.PMinimizar.Click += new System.EventHandler(this.PMinimizar_Click);
+            // 
+            // PRestaurar
+            // 
+            this.PRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EfectoIda.SetDecoration(this.PRestaurar, BunifuAnimatorNS.DecorationType.None);
+            this.EfectoBotones.SetDecoration(this.PRestaurar, BunifuAnimatorNS.DecorationType.None);
+            this.PRestaurar.Image = global::DSMarket.Solucion.Properties.Resources.Restore_Window_2_48px;
+            this.PRestaurar.Location = new System.Drawing.Point(45, 15);
+            this.PRestaurar.Name = "PRestaurar";
+            this.PRestaurar.Size = new System.Drawing.Size(30, 30);
+            this.PRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PRestaurar.TabIndex = 4;
+            this.PRestaurar.TabStop = false;
+            this.toolTip1.SetToolTip(this.PRestaurar, "Restaurar");
+            this.PRestaurar.Visible = false;
+            this.PRestaurar.Click += new System.EventHandler(this.PRestaurar_Click);
+            // 
+            // PMaximizar
+            // 
+            this.PMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EfectoIda.SetDecoration(this.PMaximizar, BunifuAnimatorNS.DecorationType.None);
+            this.EfectoBotones.SetDecoration(this.PMaximizar, BunifuAnimatorNS.DecorationType.None);
+            this.PMaximizar.Image = global::DSMarket.Solucion.Properties.Resources.Maximize_Window_2_48px;
+            this.PMaximizar.Location = new System.Drawing.Point(45, 16);
+            this.PMaximizar.Name = "PMaximizar";
+            this.PMaximizar.Size = new System.Drawing.Size(30, 30);
+            this.PMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PMaximizar.TabIndex = 2;
+            this.PMaximizar.TabStop = false;
+            this.toolTip1.SetToolTip(this.PMaximizar, "Maximizar");
+            this.PMaximizar.Click += new System.EventHandler(this.PMaximizar_Click);
+            // 
+            // PCerrar
+            // 
+            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EfectoIda.SetDecoration(this.PCerrar, BunifuAnimatorNS.DecorationType.None);
+            this.EfectoBotones.SetDecoration(this.PCerrar, BunifuAnimatorNS.DecorationType.None);
+            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
+            this.PCerrar.Location = new System.Drawing.Point(81, 15);
+            this.PCerrar.Name = "PCerrar";
+            this.PCerrar.Size = new System.Drawing.Size(30, 30);
+            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PCerrar.TabIndex = 1;
+            this.PCerrar.TabStop = false;
+            this.toolTip1.SetToolTip(this.PCerrar, "Salir del Sistema");
+            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
             // 
             // lbIdNivel
             // 
@@ -155,23 +237,6 @@
             this.lbusuarioConectado.TabIndex = 5;
             this.lbusuarioConectado.Text = "Usuario Conectado";
             // 
-            // PRestaurar
-            // 
-            this.PRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EfectoIda.SetDecoration(this.PRestaurar, BunifuAnimatorNS.DecorationType.None);
-            this.EfectoBotones.SetDecoration(this.PRestaurar, BunifuAnimatorNS.DecorationType.None);
-            this.PRestaurar.Image = global::DSMarket.Solucion.Properties.Resources.Restore_Window_2_48px;
-            this.PRestaurar.Location = new System.Drawing.Point(45, 15);
-            this.PRestaurar.Name = "PRestaurar";
-            this.PRestaurar.Size = new System.Drawing.Size(30, 30);
-            this.PRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PRestaurar.TabIndex = 4;
-            this.PRestaurar.TabStop = false;
-            this.toolTip1.SetToolTip(this.PRestaurar, "Restaurar");
-            this.PRestaurar.Visible = false;
-            this.PRestaurar.Click += new System.EventHandler(this.PRestaurar_Click);
-            // 
             // lbNombreEmpresa
             // 
             this.lbNombreEmpresa.AutoSize = true;
@@ -184,54 +249,6 @@
             this.lbNombreEmpresa.Size = new System.Drawing.Size(219, 30);
             this.lbNombreEmpresa.TabIndex = 0;
             this.lbNombreEmpresa.Text = "Nombre Empresa";
-            // 
-            // PMinimizar
-            // 
-            this.PMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EfectoIda.SetDecoration(this.PMinimizar, BunifuAnimatorNS.DecorationType.None);
-            this.EfectoBotones.SetDecoration(this.PMinimizar, BunifuAnimatorNS.DecorationType.None);
-            this.PMinimizar.Image = global::DSMarket.Solucion.Properties.Resources.Minimize_Window_2_48px;
-            this.PMinimizar.Location = new System.Drawing.Point(9, 16);
-            this.PMinimizar.Name = "PMinimizar";
-            this.PMinimizar.Size = new System.Drawing.Size(30, 30);
-            this.PMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PMinimizar.TabIndex = 3;
-            this.PMinimizar.TabStop = false;
-            this.toolTip1.SetToolTip(this.PMinimizar, "Minimizar");
-            this.PMinimizar.Click += new System.EventHandler(this.PMinimizar_Click);
-            // 
-            // PMaximizar
-            // 
-            this.PMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EfectoIda.SetDecoration(this.PMaximizar, BunifuAnimatorNS.DecorationType.None);
-            this.EfectoBotones.SetDecoration(this.PMaximizar, BunifuAnimatorNS.DecorationType.None);
-            this.PMaximizar.Image = global::DSMarket.Solucion.Properties.Resources.Maximize_Window_2_48px;
-            this.PMaximizar.Location = new System.Drawing.Point(45, 16);
-            this.PMaximizar.Name = "PMaximizar";
-            this.PMaximizar.Size = new System.Drawing.Size(30, 30);
-            this.PMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PMaximizar.TabIndex = 2;
-            this.PMaximizar.TabStop = false;
-            this.toolTip1.SetToolTip(this.PMaximizar, "Maximizar");
-            this.PMaximizar.Click += new System.EventHandler(this.PMaximizar_Click);
-            // 
-            // PCerrar
-            // 
-            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EfectoIda.SetDecoration(this.PCerrar, BunifuAnimatorNS.DecorationType.None);
-            this.EfectoBotones.SetDecoration(this.PCerrar, BunifuAnimatorNS.DecorationType.None);
-            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(81, 15);
-            this.PCerrar.Name = "PCerrar";
-            this.PCerrar.Size = new System.Drawing.Size(30, 30);
-            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PCerrar.TabIndex = 1;
-            this.PCerrar.TabStop = false;
-            this.toolTip1.SetToolTip(this.PCerrar, "Salir del Sistema");
-            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
             // 
             // pictureBox1
             // 
@@ -716,6 +733,7 @@
             // 
             // PanelCuerpo
             // 
+            this.PanelCuerpo.Controls.Add(this.btnrestaurar);
             this.EfectoBotones.SetDecoration(this.PanelCuerpo, BunifuAnimatorNS.DecorationType.None);
             this.EfectoIda.SetDecoration(this.PanelCuerpo, BunifuAnimatorNS.DecorationType.None);
             this.PanelCuerpo.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -739,58 +757,59 @@
             // 
             this.EfectoIda.AnimationType = BunifuAnimatorNS.AnimationType.Mosaic;
             this.EfectoIda.Cursor = null;
-            animation22.AnimateOnlyDifferences = true;
-            animation22.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation22.BlindCoeff")));
-            animation22.LeafCoeff = 0F;
-            animation22.MaxTime = 1F;
-            animation22.MinTime = 0F;
-            animation22.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation22.MosaicCoeff")));
-            animation22.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation22.MosaicShift")));
-            animation22.MosaicSize = 20;
-            animation22.Padding = new System.Windows.Forms.Padding(30);
-            animation22.RotateCoeff = 0F;
-            animation22.RotateLimit = 0F;
-            animation22.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation22.ScaleCoeff")));
-            animation22.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation22.SlideCoeff")));
-            animation22.TimeCoeff = 0F;
-            animation22.TransparencyCoeff = 0F;
-            this.EfectoIda.DefaultAnimation = animation22;
+            animation3.AnimateOnlyDifferences = true;
+            animation3.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.BlindCoeff")));
+            animation3.LeafCoeff = 0F;
+            animation3.MaxTime = 1F;
+            animation3.MinTime = 0F;
+            animation3.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicCoeff")));
+            animation3.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicShift")));
+            animation3.MosaicSize = 20;
+            animation3.Padding = new System.Windows.Forms.Padding(30);
+            animation3.RotateCoeff = 0F;
+            animation3.RotateLimit = 0F;
+            animation3.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.ScaleCoeff")));
+            animation3.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.SlideCoeff")));
+            animation3.TimeCoeff = 0F;
+            animation3.TransparencyCoeff = 0F;
+            this.EfectoIda.DefaultAnimation = animation3;
             // 
             // EfectoBotones
             // 
             this.EfectoBotones.AnimationType = BunifuAnimatorNS.AnimationType.HorizSlide;
             this.EfectoBotones.Cursor = null;
-            animation21.AnimateOnlyDifferences = true;
-            animation21.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation21.BlindCoeff")));
-            animation21.LeafCoeff = 0F;
-            animation21.MaxTime = 1F;
-            animation21.MinTime = 0F;
-            animation21.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation21.MosaicCoeff")));
-            animation21.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation21.MosaicShift")));
-            animation21.MosaicSize = 0;
-            animation21.Padding = new System.Windows.Forms.Padding(0);
-            animation21.RotateCoeff = 0F;
-            animation21.RotateLimit = 0F;
-            animation21.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation21.ScaleCoeff")));
-            animation21.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation21.SlideCoeff")));
-            animation21.TimeCoeff = 0F;
-            animation21.TransparencyCoeff = 0F;
-            this.EfectoBotones.DefaultAnimation = animation21;
+            animation4.AnimateOnlyDifferences = true;
+            animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
+            animation4.LeafCoeff = 0F;
+            animation4.MaxTime = 1F;
+            animation4.MinTime = 0F;
+            animation4.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicCoeff")));
+            animation4.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicShift")));
+            animation4.MosaicSize = 0;
+            animation4.Padding = new System.Windows.Forms.Padding(0);
+            animation4.RotateCoeff = 0F;
+            animation4.RotateLimit = 0F;
+            animation4.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.ScaleCoeff")));
+            animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
+            animation4.TimeCoeff = 0F;
+            animation4.TransparencyCoeff = 0F;
+            this.EfectoBotones.DefaultAnimation = animation4;
             // 
-            // groupBox1
+            // btnrestaurar
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.PMinimizar);
-            this.groupBox1.Controls.Add(this.PRestaurar);
-            this.groupBox1.Controls.Add(this.PMaximizar);
-            this.groupBox1.Controls.Add(this.PCerrar);
-            this.EfectoBotones.SetDecoration(this.groupBox1, BunifuAnimatorNS.DecorationType.None);
-            this.EfectoIda.SetDecoration(this.groupBox1, BunifuAnimatorNS.DecorationType.None);
-            this.groupBox1.Location = new System.Drawing.Point(1071, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(117, 58);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
+            this.btnrestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EfectoIda.SetDecoration(this.btnrestaurar, BunifuAnimatorNS.DecorationType.None);
+            this.EfectoBotones.SetDecoration(this.btnrestaurar, BunifuAnimatorNS.DecorationType.None);
+            this.btnrestaurar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnrestaurar.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnrestaurar.Location = new System.Drawing.Point(6, 0);
+            this.btnrestaurar.Name = "btnrestaurar";
+            this.btnrestaurar.Size = new System.Drawing.Size(891, 521);
+            this.btnrestaurar.TabIndex = 0;
+            this.btnrestaurar.Text = "FAVOR DE DAR CLICK PARA RESTAURAR";
+            this.btnrestaurar.UseVisualStyleBackColor = true;
+            this.btnrestaurar.Visible = false;
+            this.btnrestaurar.Click += new System.EventHandler(this.Button1_Click_1);
             // 
             // MenuPrincipal
             // 
@@ -810,8 +829,9 @@
             this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             this.PanelTop.ResumeLayout(false);
             this.PanelTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PRestaurar)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PMinimizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PRestaurar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PMaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -819,7 +839,7 @@
             this.PanelOpciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lbLogoCorto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogolargo)).EndInit();
-            this.groupBox1.ResumeLayout(false);
+            this.PanelCuerpo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -859,5 +879,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnReportesSistema;
         private Bunifu.Framework.UI.BunifuFlatButton btnContabilidad;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnrestaurar;
     }
 }
