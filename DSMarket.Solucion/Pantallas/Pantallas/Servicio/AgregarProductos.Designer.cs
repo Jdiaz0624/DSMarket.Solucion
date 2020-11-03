@@ -37,8 +37,15 @@
             this.lbCantidadProductosAgregadosTitulo = new System.Windows.Forms.Label();
             this.lbCantidadRegistrosAgregados = new System.Windows.Forms.Label();
             this.cbAgregarCategoria = new System.Windows.Forms.GroupBox();
+            this.cbAgregarMArcaModelos = new System.Windows.Forms.CheckBox();
+            this.ddlSeleccionarModelo = new System.Windows.Forms.ComboBox();
+            this.lbModelo = new System.Windows.Forms.Label();
+            this.ddlSeleccionarMarca = new System.Windows.Forms.ComboBox();
+            this.lbMarca = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.txtImpuesto = new System.Windows.Forms.TextBox();
+            this.lbCantidadMostradaVariable = new System.Windows.Forms.Label();
             this.btnRestablcer = new System.Windows.Forms.Button();
             this.lbDescuentoColectivoVariable = new System.Windows.Forms.Label();
             this.lbDescuentoColectivoTitulo = new System.Windows.Forms.Label();
@@ -46,8 +53,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtAcumulativo = new System.Windows.Forms.TextBox();
-            this.lbCantidadMostradaVariable = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.btnfoto = new System.Windows.Forms.Button();
             this.cbAgregarCategorias = new System.Windows.Forms.CheckBox();
             this.gbProductosAgregados = new System.Windows.Forms.GroupBox();
@@ -94,11 +99,6 @@
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.ddlSeleccionarMarca = new System.Windows.Forms.ComboBox();
-            this.lbMarca = new System.Windows.Forms.Label();
-            this.ddlSeleccionarModelo = new System.Windows.Forms.ComboBox();
-            this.lbModelo = new System.Windows.Forms.Label();
-            this.cbAgregarMArcaModelos = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.cbAgregarCategoria.SuspendLayout();
@@ -254,6 +254,68 @@
             this.cbAgregarCategoria.TabIndex = 9;
             this.cbAgregarCategoria.TabStop = false;
             this.cbAgregarCategoria.Text = "Buscar Productos";
+            this.cbAgregarCategoria.Enter += new System.EventHandler(this.CbAgregarCategoria_Enter);
+            // 
+            // cbAgregarMArcaModelos
+            // 
+            this.cbAgregarMArcaModelos.AutoSize = true;
+            this.cbAgregarMArcaModelos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbAgregarMArcaModelos.Location = new System.Drawing.Point(867, 46);
+            this.cbAgregarMArcaModelos.Name = "cbAgregarMArcaModelos";
+            this.cbAgregarMArcaModelos.Size = new System.Drawing.Size(234, 24);
+            this.cbAgregarMArcaModelos.TabIndex = 92;
+            this.cbAgregarMArcaModelos.Text = "Buscar por Marca y Modelos";
+            this.toolTip1.SetToolTip(this.cbAgregarMArcaModelos, "Agregar el filtro por categoria");
+            this.cbAgregarMArcaModelos.UseVisualStyleBackColor = true;
+            this.cbAgregarMArcaModelos.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // ddlSeleccionarModelo
+            // 
+            this.ddlSeleccionarModelo.BackColor = System.Drawing.Color.Silver;
+            this.ddlSeleccionarModelo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarModelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarModelo.FormattingEnabled = true;
+            this.ddlSeleccionarModelo.Location = new System.Drawing.Point(567, 83);
+            this.ddlSeleccionarModelo.Name = "ddlSeleccionarModelo";
+            this.ddlSeleccionarModelo.Size = new System.Drawing.Size(296, 28);
+            this.ddlSeleccionarModelo.TabIndex = 91;
+            this.ddlSeleccionarModelo.Visible = false;
+            this.ddlSeleccionarModelo.SelectedIndexChanged += new System.EventHandler(this.ddlSeleccionarModelo_SelectedIndexChanged);
+            // 
+            // lbModelo
+            // 
+            this.lbModelo.AutoSize = true;
+            this.lbModelo.Location = new System.Drawing.Point(503, 87);
+            this.lbModelo.Name = "lbModelo";
+            this.lbModelo.Size = new System.Drawing.Size(62, 20);
+            this.lbModelo.TabIndex = 90;
+            this.lbModelo.Text = "Modelo";
+            this.lbModelo.Visible = false;
+            // 
+            // ddlSeleccionarMarca
+            // 
+            this.ddlSeleccionarMarca.BackColor = System.Drawing.Color.Silver;
+            this.ddlSeleccionarMarca.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarMarca.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarMarca.FormattingEnabled = true;
+            this.ddlSeleccionarMarca.Location = new System.Drawing.Point(567, 53);
+            this.ddlSeleccionarMarca.Name = "ddlSeleccionarMarca";
+            this.ddlSeleccionarMarca.Size = new System.Drawing.Size(296, 28);
+            this.ddlSeleccionarMarca.TabIndex = 89;
+            this.ddlSeleccionarMarca.Visible = false;
+            this.ddlSeleccionarMarca.SelectedIndexChanged += new System.EventHandler(this.ddlSeleccionarMarca_SelectedIndexChanged);
+            // 
+            // lbMarca
+            // 
+            this.lbMarca.AutoSize = true;
+            this.lbMarca.Location = new System.Drawing.Point(509, 58);
+            this.lbMarca.Name = "lbMarca";
+            this.lbMarca.Size = new System.Drawing.Size(56, 20);
+            this.lbMarca.TabIndex = 88;
+            this.lbMarca.Text = "Marca";
+            this.lbMarca.Visible = false;
             // 
             // label6
             // 
@@ -264,6 +326,16 @@
             this.label6.TabIndex = 87;
             this.label6.Text = "Impuesto";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(478, 146);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(169, 20);
+            this.label9.TabIndex = 77;
+            this.label9.Text = "Cantidad Mostrada";
+            // 
             // txtImpuesto
             // 
             this.txtImpuesto.BackColor = System.Drawing.Color.Silver;
@@ -272,6 +344,16 @@
             this.txtImpuesto.Name = "txtImpuesto";
             this.txtImpuesto.Size = new System.Drawing.Size(193, 27);
             this.txtImpuesto.TabIndex = 86;
+            // 
+            // lbCantidadMostradaVariable
+            // 
+            this.lbCantidadMostradaVariable.AutoSize = true;
+            this.lbCantidadMostradaVariable.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCantidadMostradaVariable.Location = new System.Drawing.Point(655, 146);
+            this.lbCantidadMostradaVariable.Name = "lbCantidadMostradaVariable";
+            this.lbCantidadMostradaVariable.Size = new System.Drawing.Size(39, 20);
+            this.lbCantidadMostradaVariable.TabIndex = 78;
+            this.lbCantidadMostradaVariable.Text = "000";
             // 
             // btnRestablcer
             // 
@@ -351,26 +433,6 @@
             this.txtAcumulativo.Name = "txtAcumulativo";
             this.txtAcumulativo.Size = new System.Drawing.Size(193, 27);
             this.txtAcumulativo.TabIndex = 79;
-            // 
-            // lbCantidadMostradaVariable
-            // 
-            this.lbCantidadMostradaVariable.AutoSize = true;
-            this.lbCantidadMostradaVariable.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCantidadMostradaVariable.Location = new System.Drawing.Point(655, 146);
-            this.lbCantidadMostradaVariable.Name = "lbCantidadMostradaVariable";
-            this.lbCantidadMostradaVariable.Size = new System.Drawing.Size(39, 20);
-            this.lbCantidadMostradaVariable.TabIndex = 78;
-            this.lbCantidadMostradaVariable.Text = "000";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(478, 146);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(169, 20);
-            this.label9.TabIndex = 77;
-            this.label9.Text = "Cantidad Mostrada";
             // 
             // btnfoto
             // 
@@ -892,67 +954,6 @@
             // 
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
-            // 
-            // ddlSeleccionarMarca
-            // 
-            this.ddlSeleccionarMarca.BackColor = System.Drawing.Color.Silver;
-            this.ddlSeleccionarMarca.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlSeleccionarMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlSeleccionarMarca.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ddlSeleccionarMarca.FormattingEnabled = true;
-            this.ddlSeleccionarMarca.Location = new System.Drawing.Point(567, 53);
-            this.ddlSeleccionarMarca.Name = "ddlSeleccionarMarca";
-            this.ddlSeleccionarMarca.Size = new System.Drawing.Size(296, 28);
-            this.ddlSeleccionarMarca.TabIndex = 89;
-            this.ddlSeleccionarMarca.Visible = false;
-            this.ddlSeleccionarMarca.SelectedIndexChanged += new System.EventHandler(this.ddlSeleccionarMarca_SelectedIndexChanged);
-            // 
-            // lbMarca
-            // 
-            this.lbMarca.AutoSize = true;
-            this.lbMarca.Location = new System.Drawing.Point(509, 58);
-            this.lbMarca.Name = "lbMarca";
-            this.lbMarca.Size = new System.Drawing.Size(56, 20);
-            this.lbMarca.TabIndex = 88;
-            this.lbMarca.Text = "Marca";
-            this.lbMarca.Visible = false;
-            // 
-            // ddlSeleccionarModelo
-            // 
-            this.ddlSeleccionarModelo.BackColor = System.Drawing.Color.Silver;
-            this.ddlSeleccionarModelo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlSeleccionarModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlSeleccionarModelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ddlSeleccionarModelo.FormattingEnabled = true;
-            this.ddlSeleccionarModelo.Location = new System.Drawing.Point(567, 83);
-            this.ddlSeleccionarModelo.Name = "ddlSeleccionarModelo";
-            this.ddlSeleccionarModelo.Size = new System.Drawing.Size(296, 28);
-            this.ddlSeleccionarModelo.TabIndex = 91;
-            this.ddlSeleccionarModelo.Visible = false;
-            this.ddlSeleccionarModelo.SelectedIndexChanged += new System.EventHandler(this.ddlSeleccionarModelo_SelectedIndexChanged);
-            // 
-            // lbModelo
-            // 
-            this.lbModelo.AutoSize = true;
-            this.lbModelo.Location = new System.Drawing.Point(503, 87);
-            this.lbModelo.Name = "lbModelo";
-            this.lbModelo.Size = new System.Drawing.Size(62, 20);
-            this.lbModelo.TabIndex = 90;
-            this.lbModelo.Text = "Modelo";
-            this.lbModelo.Visible = false;
-            // 
-            // cbAgregarMArcaModelos
-            // 
-            this.cbAgregarMArcaModelos.AutoSize = true;
-            this.cbAgregarMArcaModelos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbAgregarMArcaModelos.Location = new System.Drawing.Point(867, 46);
-            this.cbAgregarMArcaModelos.Name = "cbAgregarMArcaModelos";
-            this.cbAgregarMArcaModelos.Size = new System.Drawing.Size(234, 24);
-            this.cbAgregarMArcaModelos.TabIndex = 92;
-            this.cbAgregarMArcaModelos.Text = "Buscar por Marca y Modelos";
-            this.toolTip1.SetToolTip(this.cbAgregarMArcaModelos, "Agregar el filtro por categoria");
-            this.cbAgregarMArcaModelos.UseVisualStyleBackColor = true;
-            this.cbAgregarMArcaModelos.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // AgregarProductos
             // 

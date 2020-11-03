@@ -1027,5 +1027,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         {
             MostrarModelos();
         }
+
+        private void CbAgregarCategoria_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

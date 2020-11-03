@@ -390,6 +390,7 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                 Item.Acumulativo,
                 Item.ConectorProducto,
                 Item.Impuesto,
+                Item.Referencia,
                 Accion);
             if (FacturacionProducto != null) {
                 Guardar = (from n in FacturacionProducto
@@ -408,6 +409,7 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                Acumulativo = n.Acumulativo,
                                ConectorProducto = n.ConectorProducto,
                                Impuesto=n.Impuesto,
+                               Referencia=n.Referencia
                            }).FirstOrDefault();
             }
             return Guardar;

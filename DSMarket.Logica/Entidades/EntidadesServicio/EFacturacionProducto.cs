@@ -32,5 +32,6 @@ namespace DSMarket.Logica.Entidades.EntidadesServicio
 
         public System.Nullable<decimal> ConectorProducto {get;set;}
         public System.Nullable<decimal> Impuesto { get; set; }
+        public string Referencia { get; set; }
     }
 }
