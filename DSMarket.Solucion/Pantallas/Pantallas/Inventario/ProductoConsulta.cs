@@ -1288,7 +1288,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.dtListado.Columns["IdModelo"].Visible = false;
             this.dtListado.Columns["IdTipoSuplidor"].Visible = false;
             this.dtListado.Columns["IdSuplidor"].Visible = false;
-            this.dtListado.Columns["PrecioCompra"].Visible = false;
+            //this.dtListado.Columns["PrecioCompra"].Visible = false;
             this.dtListado.Columns["AfectaOferta0"].Visible = false;
             this.dtListado.Columns["ProductoAcumulativo0"].Visible = false;
             this.dtListado.Columns["LlevaImagen0"].Visible = false;
