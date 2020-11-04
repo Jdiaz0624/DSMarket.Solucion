@@ -40,22 +40,29 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
 
         private void btnFacturacion_Click(object sender, EventArgs e)
         {
-            bool EstatusCaja = false;
-            var CalidarCaja = ObjDataCaja.Value.BuscaEstatusCaja();
-            foreach (var n in CalidarCaja) {
-                EstatusCaja = Convert.ToBoolean(n.Estatus0);
-            }
-            if (EstatusCaja == true)
-            {
-                DSMarket.Solucion.Pantallas.Pantallas.Servicio.Facturacion FActuracion = new Pantallas.Servicio.Facturacion();
-                FActuracion.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbUsuario.Text);
-                FActuracion.VariablesGlobales.GenerarConector = true;
-                FActuracion.VariablesGlobales.SacarDataEspejo = false;
-                FActuracion.ShowDialog();
-            }
+            DSMarket.Solucion.Pantallas.MenuPrincipal.MenuPrincipal menu = new MenuPrincipal.MenuPrincipal();
+            if (menu.btnrestaurar.Visible == true) { }
             else {
-                MessageBox.Show("No se puede acceder a esta pantalla por que la caja esta actualmente cerrada, favor de abrir la caja para poder facturar", VariablsGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                bool EstatusCaja = false;
+                var CalidarCaja = ObjDataCaja.Value.BuscaEstatusCaja();
+                foreach (var n in CalidarCaja)
+                {
+                    EstatusCaja = Convert.ToBoolean(n.Estatus0);
+                }
+                if (EstatusCaja == true)
+                {
+                    DSMarket.Solucion.Pantallas.Pantallas.Servicio.Facturacion FActuracion = new Pantallas.Servicio.Facturacion();
+                    FActuracion.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbUsuario.Text);
+                    FActuracion.VariablesGlobales.GenerarConector = true;
+                    FActuracion.VariablesGlobales.SacarDataEspejo = false;
+                    FActuracion.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("No se puede acceder a esta pantalla por que la caja esta actualmente cerrada, favor de abrir la caja para poder facturar", VariablsGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
+           
          
         }
 
