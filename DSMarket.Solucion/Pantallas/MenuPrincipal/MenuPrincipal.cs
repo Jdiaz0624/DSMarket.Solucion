@@ -76,8 +76,8 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
                 this.WindowState = FormWindowState.Minimized;
                 PanelCuerpo.Visible = true;
                 btnrestaurar.Visible = true;
-                btnrestaurar.Width = 1200;
-                btnrestaurar.Height = 661;
+                btnrestaurar.Width = 1049;
+                btnrestaurar.Height = 53;
             }
             catch (Exception) { }
         }

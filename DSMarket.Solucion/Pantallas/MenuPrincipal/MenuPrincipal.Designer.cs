@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation9 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
-            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation10 = new BunifuAnimatorNS.Animation();
             this.PanelTop = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.PMinimizar = new System.Windows.Forms.PictureBox();
@@ -44,6 +44,7 @@
             this.lbusuarioConectado = new System.Windows.Forms.Label();
             this.lbNombreEmpresa = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnrestaurar = new System.Windows.Forms.Button();
             this.PanelMenu = new System.Windows.Forms.Panel();
             this.PanelOpciones = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.btnContabilidad = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -60,7 +61,6 @@
             this.btnServicio = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnInventario = new Bunifu.Framework.UI.BunifuFlatButton();
             this.PanelCuerpo = new System.Windows.Forms.Panel();
-            this.btnrestaurar = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.Curva = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.CurvaForms = new Bunifu.Framework.UI.BunifuElipse(this.components);
@@ -200,11 +200,11 @@
             this.lbNivelAcceso.AutoSize = true;
             this.EfectoIda.SetDecoration(this.lbNivelAcceso, BunifuAnimatorNS.DecorationType.None);
             this.EfectoBotones.SetDecoration(this.lbNivelAcceso, BunifuAnimatorNS.DecorationType.None);
-            this.lbNivelAcceso.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNivelAcceso.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNivelAcceso.ForeColor = System.Drawing.Color.Black;
-            this.lbNivelAcceso.Location = new System.Drawing.Point(473, 45);
+            this.lbNivelAcceso.Location = new System.Drawing.Point(614, 45);
             this.lbNivelAcceso.Name = "lbNivelAcceso";
-            this.lbNivelAcceso.Size = new System.Drawing.Size(211, 30);
+            this.lbNivelAcceso.Size = new System.Drawing.Size(160, 22);
             this.lbNivelAcceso.TabIndex = 6;
             this.lbNivelAcceso.Text = "Nivel de Acceso";
             // 
@@ -229,11 +229,11 @@
             this.lbusuarioConectado.AutoSize = true;
             this.EfectoIda.SetDecoration(this.lbusuarioConectado, BunifuAnimatorNS.DecorationType.None);
             this.EfectoBotones.SetDecoration(this.lbusuarioConectado, BunifuAnimatorNS.DecorationType.None);
-            this.lbusuarioConectado.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbusuarioConectado.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbusuarioConectado.ForeColor = System.Drawing.Color.Black;
-            this.lbusuarioConectado.Location = new System.Drawing.Point(473, 9);
+            this.lbusuarioConectado.Location = new System.Drawing.Point(614, 9);
             this.lbusuarioConectado.Name = "lbusuarioConectado";
-            this.lbusuarioConectado.Size = new System.Drawing.Size(245, 30);
+            this.lbusuarioConectado.Size = new System.Drawing.Size(188, 22);
             this.lbusuarioConectado.TabIndex = 5;
             this.lbusuarioConectado.Text = "Usuario Conectado";
             // 
@@ -263,6 +263,24 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // btnrestaurar
+            // 
+            this.btnrestaurar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnrestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EfectoIda.SetDecoration(this.btnrestaurar, BunifuAnimatorNS.DecorationType.None);
+            this.EfectoBotones.SetDecoration(this.btnrestaurar, BunifuAnimatorNS.DecorationType.None);
+            this.btnrestaurar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnrestaurar.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnrestaurar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnrestaurar.Location = new System.Drawing.Point(12, 17);
+            this.btnrestaurar.Name = "btnrestaurar";
+            this.btnrestaurar.Size = new System.Drawing.Size(1049, 53);
+            this.btnrestaurar.TabIndex = 0;
+            this.btnrestaurar.Text = "FAVOR DE DAR CLICK PARA RESTAURAR";
+            this.btnrestaurar.UseVisualStyleBackColor = true;
+            this.btnrestaurar.Visible = false;
+            this.btnrestaurar.Click += new System.EventHandler(this.Button1_Click_1);
             // 
             // PanelMenu
             // 
@@ -742,22 +760,6 @@
             this.PanelCuerpo.TabIndex = 1;
             this.PanelCuerpo.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelCuerpo_Paint);
             // 
-            // btnrestaurar
-            // 
-            this.btnrestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EfectoIda.SetDecoration(this.btnrestaurar, BunifuAnimatorNS.DecorationType.None);
-            this.EfectoBotones.SetDecoration(this.btnrestaurar, BunifuAnimatorNS.DecorationType.None);
-            this.btnrestaurar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnrestaurar.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnrestaurar.Location = new System.Drawing.Point(993, 17);
-            this.btnrestaurar.Name = "btnrestaurar";
-            this.btnrestaurar.Size = new System.Drawing.Size(72, 53);
-            this.btnrestaurar.TabIndex = 0;
-            this.btnrestaurar.Text = "FAVOR DE DAR CLICK PARA RESTAURAR";
-            this.btnrestaurar.UseVisualStyleBackColor = true;
-            this.btnrestaurar.Visible = false;
-            this.btnrestaurar.Click += new System.EventHandler(this.Button1_Click_1);
-            // 
             // Curva
             // 
             this.Curva.ElipseRadius = 10;
@@ -772,43 +774,43 @@
             // 
             this.EfectoIda.AnimationType = BunifuAnimatorNS.AnimationType.Mosaic;
             this.EfectoIda.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 20;
-            animation1.Padding = new System.Windows.Forms.Padding(30);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 0F;
-            this.EfectoIda.DefaultAnimation = animation1;
+            animation9.AnimateOnlyDifferences = true;
+            animation9.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation9.BlindCoeff")));
+            animation9.LeafCoeff = 0F;
+            animation9.MaxTime = 1F;
+            animation9.MinTime = 0F;
+            animation9.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation9.MosaicCoeff")));
+            animation9.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation9.MosaicShift")));
+            animation9.MosaicSize = 20;
+            animation9.Padding = new System.Windows.Forms.Padding(30);
+            animation9.RotateCoeff = 0F;
+            animation9.RotateLimit = 0F;
+            animation9.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation9.ScaleCoeff")));
+            animation9.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation9.SlideCoeff")));
+            animation9.TimeCoeff = 0F;
+            animation9.TransparencyCoeff = 0F;
+            this.EfectoIda.DefaultAnimation = animation9;
             // 
             // EfectoBotones
             // 
             this.EfectoBotones.AnimationType = BunifuAnimatorNS.AnimationType.HorizSlide;
             this.EfectoBotones.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(0);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 0F;
-            animation2.TransparencyCoeff = 0F;
-            this.EfectoBotones.DefaultAnimation = animation2;
+            animation10.AnimateOnlyDifferences = true;
+            animation10.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation10.BlindCoeff")));
+            animation10.LeafCoeff = 0F;
+            animation10.MaxTime = 1F;
+            animation10.MinTime = 0F;
+            animation10.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation10.MosaicCoeff")));
+            animation10.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation10.MosaicShift")));
+            animation10.MosaicSize = 0;
+            animation10.Padding = new System.Windows.Forms.Padding(0);
+            animation10.RotateCoeff = 0F;
+            animation10.RotateLimit = 0F;
+            animation10.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation10.ScaleCoeff")));
+            animation10.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation10.SlideCoeff")));
+            animation10.TimeCoeff = 0F;
+            animation10.TransparencyCoeff = 0F;
+            this.EfectoBotones.DefaultAnimation = animation10;
             // 
             // MenuPrincipal
             // 
@@ -877,6 +879,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnReportesSistema;
         private Bunifu.Framework.UI.BunifuFlatButton btnContabilidad;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnrestaurar;
+        public System.Windows.Forms.Button btnrestaurar;
     }
 }

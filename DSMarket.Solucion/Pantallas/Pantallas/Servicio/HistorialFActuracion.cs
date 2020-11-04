@@ -209,7 +209,27 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     }
                     else if (rbReferencia.Checked == true)
                     {
-                        MessageBox.Show("Buscar Por Imei Con rango de fecha");
+                        string _Referencia = string.IsNullOrEmpty(txtimeiReferencia.Text.Trim()) ? null : txtimeiReferencia.Text.Trim();
+
+                        var BuscarPorImel = ObhDataServicio.Value.BuscaRegistrosReferencia(
+                            new Nullable<decimal>(),
+                            null,
+                            _Referencia,
+                            null,
+                            Convert.ToDateTime(txtFechaDesde.Text),
+                            Convert.ToDateTime(txtFechaHasta.Text),
+                            Convert.ToInt32(txtNumeroPagina.Value),
+                            Convert.ToInt32(txtNumeroRegistros.Value));
+                        dtListado.DataSource = BuscarPorImel;
+                        dtListado.Columns["NumeroConector"].Visible = false;
+                        dtListado.Columns["IdFactura"].Visible = false;
+                        dtListado.Columns["DescripcionTipoProducto"].Visible = false;
+                        dtListado.Columns["IdTipoProducto"].Visible = false;
+                        dtListado.Columns["IdCategoria"].Visible = false;
+                        dtListado.Columns["CantidadRegistros"].Visible = false;
+                        dtListado.Columns["IdProducto"].Visible = false;
+
+
                     }
                     else {
                         MessageBox.Show("Favor de seleccionar una opción para consultar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -392,7 +412,25 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         catch (Exception) { }
                     }
                     else if (rbReferencia.Checked == true) {
-                        MessageBox.Show("Buscar Por Imei Sin rango de fecha");
+                        string _Referencia = string.IsNullOrEmpty(txtimeiReferencia.Text.Trim()) ? null : txtimeiReferencia.Text.Trim();
+
+                        var BuscarPorImel = ObhDataServicio.Value.BuscaRegistrosReferencia(
+                            new Nullable<decimal>(),
+                            null,
+                            _Referencia,
+                            null,
+                            null,
+                            null,
+                            Convert.ToInt32(txtNumeroPagina.Value),
+                            Convert.ToInt32(txtNumeroRegistros.Value));
+                        dtListado.DataSource = BuscarPorImel;
+                        dtListado.Columns["NumeroConector"].Visible = false;
+                        dtListado.Columns["IdFactura"].Visible = false;
+                        dtListado.Columns["DescripcionTipoProducto"].Visible = false;
+                        dtListado.Columns["IdTipoProducto"].Visible = false;
+                        dtListado.Columns["IdCategoria"].Visible = false;
+                        dtListado.Columns["CantidadRegistros"].Visible = false;
+                        dtListado.Columns["IdProducto"].Visible = false;
                     }
                     else
                     {
@@ -1814,103 +1852,130 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (VariablesGlobales.ProductoHistorial == false)
-            {
-                if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    lbFormatoFactura.Visible = true;
-                    rbfacturaspanish.Visible = true;
-                    rbfacturaenglish.Visible = true;
-                    btnImprimir.Enabled = true;
-                    btnProductos.Enabled = true;
-                    rbfacturaspanish.Checked = true;
-                    btnBuscar.Enabled = false;
-                    txtNumeroPagina.Enabled = false;
-                    txtNumeroRegistros.Enabled = false;
-                    this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdFactura"].Value.ToString());
-                    this.VariablesGlobales.NumeroConector = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["NumeroConector"].Value.ToString());
-                    this.VariablesGlobales.IdEstatusFacturacionHistorial = Convert.ToDecimal(dtListado.CurrentRow.Cells["IdEstatusFacturacion"].Value.ToString());
+            if (rbReferencia.Checked == true) {
+                decimal NumeroFacturaSeleccionado = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdFactura"].Value.ToString());
 
-                    if (VariablesGlobales.IdEstatusFacturacionHistorial == 2)
-                    {
-                        btnFacturar.Enabled = true;
-                    }
-
-                    var ValidarFacturaAnulada = ObhDataServicio.Value.ValidarFacturaAnulada(VariablesGlobales.NumeroConector);
-                    if (ValidarFacturaAnulada.Count() < 1)
-                    {
-                        btnAnular.Enabled = true;
-                        btnModificarDiasGarantia.Enabled = true;
-                    }
-                    else
-                    {
-                        btnAnular.Enabled = false;
-                        btnModificarDiasGarantia.Enabled = false;
-                    }
-
-                    var BuscarRegistro = ObhDataServicio.Value.HistorialFacturacion(
-               new Nullable<decimal>(),
-               VariablesGlobales.NumeroConector,
-               null, null, null, null, null, null, null, 1, 1000);
-                    dtListado.DataSource = BuscarRegistro;
-                    OcultarColumnas();
-                    VariablesGlobales.GananciaFacturaUnica = true;
-                }
-               
-
-           
-
+                var BuscarRegistro = ObhDataServicio.Value.HistorialFacturacion(
+                    NumeroFacturaSeleccionado,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    1, 1);
+                dtListado.DataSource = BuscarRegistro;
+                OcultarColumnas();
+                rbGenerar.Checked = true;
+            
             }
             else {
-                //ESTE BLOQUE ES PARA CUANDO SE NECESITE 
-                if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
-                    this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdTipoProducto"].Value.ToString());
-                    this.VariablesGlobales.NumeroConector = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["NumeroConector"].Value.ToString());
+                if (VariablesGlobales.ProductoHistorial == false)
+                {
+                    if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        lbFormatoFactura.Visible = true;
+                        rbfacturaspanish.Visible = true;
+                        rbfacturaenglish.Visible = true;
+                        btnImprimir.Enabled = true;
+                        btnProductos.Enabled = true;
+                        rbfacturaspanish.Checked = true;
+                        btnBuscar.Enabled = false;
+                        txtNumeroPagina.Enabled = false;
+                        txtNumeroRegistros.Enabled = false;
+                        this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdFactura"].Value.ToString());
+                        this.VariablesGlobales.NumeroConector = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["NumeroConector"].Value.ToString());
+                        this.VariablesGlobales.IdEstatusFacturacionHistorial = Convert.ToDecimal(dtListado.CurrentRow.Cells["IdEstatusFacturacion"].Value.ToString());
 
-                    var BuscarRegistro = ObhDataServicio.Value.BuscapRoductosAgregados(
-                        VariablesGlobales.IdMantenimeinto,
-                        VariablesGlobales.NumeroConector);
-                    dtListado.DataSource = BuscarRegistro;
-                    dtListado.Columns["IdTipoProducto"].Visible = false;
-                    dtListado.Columns["IdCategoria"].Visible = false;
-                    dtListado.Columns["DescripcionTipoProducto1"].Visible = false;
-                    dtListado.Columns["IdProducto"].Visible = false;
-                    dtListado.Columns["ConectorProducto"].Visible = false;
-                    dtListado.Columns["PorcientoImpuesto"].Visible = false;
-                    lbCantidadFacturada.Visible = true;
-                    txtCantidadFacturada.Visible = true;
-                    lbCantidadProcesar.Visible = true;
-                    txtCantidadProcesar.Visible = true;
-                    lbClaveSeguridad.Visible = true;
-                    txtClaveSeguridad.Visible = true;
-                    btnDescartarProducto.Enabled = true;
-                    lbCantidadDisponible.Visible = true;
-                    txtCantidadDisponible.Visible = true;
-                    txtCantidadFacturada.Enabled = false;
-                    txtCantidadDisponible.Enabled = false;
-                    string ProductoAcumulativo = "";
+                        if (VariablesGlobales.IdEstatusFacturacionHistorial == 2)
+                        {
+                            btnFacturar.Enabled = true;
+                        }
 
-                    foreach (var n in BuscarRegistro) {
-                        txtCantidadFacturada.Text = n.Cantidad.ToString();
-                        txtCantidadProcesar.Text = "1";
-                        ProductoAcumulativo = n.Acumulativo;
+                        var ValidarFacturaAnulada = ObhDataServicio.Value.ValidarFacturaAnulada(VariablesGlobales.NumeroConector);
+                        if (ValidarFacturaAnulada.Count() < 1)
+                        {
+                            btnAnular.Enabled = true;
+                            btnModificarDiasGarantia.Enabled = true;
+                        }
+                        else
+                        {
+                            btnAnular.Enabled = false;
+                            btnModificarDiasGarantia.Enabled = false;
+                        }
+
+                        var BuscarRegistro = ObhDataServicio.Value.HistorialFacturacion(
+                   new Nullable<decimal>(),
+                   VariablesGlobales.NumeroConector,
+                   null, null, null, null, null, null, null, 1, 1000);
+                        dtListado.DataSource = BuscarRegistro;
+                        OcultarColumnas();
+                        VariablesGlobales.GananciaFacturaUnica = true;
                     }
-                    if (ProductoAcumulativo == "SI") {
-                        txtCantidadProcesar.Enabled = true;
-                    }
-                    else {
-                        txtCantidadProcesar.Enabled = false;
-                    }
+
+
+
+
                 }
+                else
+                {
+                    //ESTE BLOQUE ES PARA CUANDO SE NECESITE 
+                    if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdTipoProducto"].Value.ToString());
+                        this.VariablesGlobales.NumeroConector = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["NumeroConector"].Value.ToString());
 
-                int CantidadDIsponibleAlmacen = 0;
-                var SacarCantidadDisponible = ObjDataInventario.Value.BuscaProductos(
-                    VariablesGlobales.IdMantenimeinto,
-                    null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
-                foreach (var n in SacarCantidadDisponible) {
-                    CantidadDIsponibleAlmacen = Convert.ToInt32(n.Stock);
-                    txtCantidadDisponible.Text = CantidadDIsponibleAlmacen.ToString("N0");
-                    VariablesGlobales.NumeroConectorSeleccionadoAgregarPorpductos = Convert.ToDecimal(n.NumeroConector);
+                        var BuscarRegistro = ObhDataServicio.Value.BuscapRoductosAgregados(
+                            VariablesGlobales.IdMantenimeinto,
+                            VariablesGlobales.NumeroConector);
+                        dtListado.DataSource = BuscarRegistro;
+                        dtListado.Columns["IdTipoProducto"].Visible = false;
+                        dtListado.Columns["IdCategoria"].Visible = false;
+                        dtListado.Columns["DescripcionTipoProducto1"].Visible = false;
+                        dtListado.Columns["IdProducto"].Visible = false;
+                        dtListado.Columns["ConectorProducto"].Visible = false;
+                        dtListado.Columns["PorcientoImpuesto"].Visible = false;
+                        lbCantidadFacturada.Visible = true;
+                        txtCantidadFacturada.Visible = true;
+                        lbCantidadProcesar.Visible = true;
+                        txtCantidadProcesar.Visible = true;
+                        lbClaveSeguridad.Visible = true;
+                        txtClaveSeguridad.Visible = true;
+                        btnDescartarProducto.Enabled = true;
+                        lbCantidadDisponible.Visible = true;
+                        txtCantidadDisponible.Visible = true;
+                        txtCantidadFacturada.Enabled = false;
+                        txtCantidadDisponible.Enabled = false;
+                        string ProductoAcumulativo = "";
+
+                        foreach (var n in BuscarRegistro)
+                        {
+                            txtCantidadFacturada.Text = n.Cantidad.ToString();
+                            txtCantidadProcesar.Text = "1";
+                            ProductoAcumulativo = n.Acumulativo;
+                        }
+                        if (ProductoAcumulativo == "SI")
+                        {
+                            txtCantidadProcesar.Enabled = true;
+                        }
+                        else
+                        {
+                            txtCantidadProcesar.Enabled = false;
+                        }
+                    }
+
+                    int CantidadDIsponibleAlmacen = 0;
+                    var SacarCantidadDisponible = ObjDataInventario.Value.BuscaProductos(
+                        VariablesGlobales.IdMantenimeinto,
+                        null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                    foreach (var n in SacarCantidadDisponible)
+                    {
+                        CantidadDIsponibleAlmacen = Convert.ToInt32(n.Stock);
+                        txtCantidadDisponible.Text = CantidadDIsponibleAlmacen.ToString("N0");
+                        VariablesGlobales.NumeroConectorSeleccionadoAgregarPorpductos = Convert.ToDecimal(n.NumeroConector);
+                    }
                 }
             }
         }
