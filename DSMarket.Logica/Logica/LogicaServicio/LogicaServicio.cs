@@ -784,6 +784,38 @@ namespace DSMarket.Logica.Logica.LogicaServicio
             return Modificar;
         }
         #endregion
+        #region BUSCAR LOS REGISTROS POR REFERENCIA
+        public List<DSMarket.Logica.Entidades.EntidadesServicio.EBuscaRegistroReferencia> BuscaRegistrosReferencia(decimal? NumeroConector = null,decimal? IdFactura = null, string Referencia = null, string DescripcionProducto = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
+            ObjData.CommandTimeout = 999999999;
 
+            var Listado = (from n in ObjData.SP_BUSCA_REGISTRO_PRODUCTO_REFERENCIA(NumeroConector, IdFactura, Referencia, DescripcionProducto, FechaDesde, FechaHasta, NumeroPagina, NumeroRegistros)
+                           select new DSMarket.Logica.Entidades.EntidadesServicio.EBuscaRegistroReferencia
+                           {
+                               NumeroConector=n.NumeroConector,
+                               IdFactura=n.IdFactura,
+                               Referencia=n.Referencia,
+                               Producto=n.Producto,
+                               Estatus=n.Estatus,
+                               IdTipoProducto=n.IdTipoProducto,
+                               TipoProducto=n.TipoProducto,
+                               DescripcionTipoProducto=n.DescripcionTipoProducto,
+                               IdCategoria=n.IdCategoria,
+                               Categoria=n.Categoria,
+                               FechaFacturacion=n.FechaFacturacion,
+                               CantidadVendida=n.CantidadVendida,
+                               Precio=n.Precio,
+                               PorcientoDescuento=n.PorcientoDescuento,
+                               Acumulativo=n.Acumulativo,
+                               DescuentoAplicado=n.DescuentoAplicado,
+                               Impuesto=n.Impuesto,
+                               Total=n.Total,
+                               IdProducto=n.IdProducto,
+                               ProductoInventario=n.ProductoInventario,
+                               CantidadRegistros=n.CantidadRegistros,
+
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
     }
 }

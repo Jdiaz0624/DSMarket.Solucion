@@ -72,7 +72,7 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
                 PanelCuerpo.Visible = false;
                 PanelMenu.Visible = false;
                 PanelOpciones.Visible = false;
-                PanelTop.Visible = false;
+               // PanelTop.Visible = false;
                 this.WindowState = FormWindowState.Minimized;
                 PanelCuerpo.Visible = true;
                 btnrestaurar.Visible = true;

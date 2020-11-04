@@ -77,12 +77,12 @@
             this.PanelOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lbLogoCorto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogolargo)).BeginInit();
-            this.PanelCuerpo.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelTop
             // 
             this.PanelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.PanelTop.Controls.Add(this.btnrestaurar);
             this.PanelTop.Controls.Add(this.groupBox1);
             this.PanelTop.Controls.Add(this.lbIdNivel);
             this.PanelTop.Controls.Add(this.lbNivelAcceso);
@@ -733,7 +733,6 @@
             // 
             // PanelCuerpo
             // 
-            this.PanelCuerpo.Controls.Add(this.btnrestaurar);
             this.EfectoBotones.SetDecoration(this.PanelCuerpo, BunifuAnimatorNS.DecorationType.None);
             this.EfectoIda.SetDecoration(this.PanelCuerpo, BunifuAnimatorNS.DecorationType.None);
             this.PanelCuerpo.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -750,9 +749,9 @@
             this.EfectoBotones.SetDecoration(this.btnrestaurar, BunifuAnimatorNS.DecorationType.None);
             this.btnrestaurar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnrestaurar.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnrestaurar.Location = new System.Drawing.Point(6, 0);
+            this.btnrestaurar.Location = new System.Drawing.Point(993, 17);
             this.btnrestaurar.Name = "btnrestaurar";
-            this.btnrestaurar.Size = new System.Drawing.Size(891, 521);
+            this.btnrestaurar.Size = new System.Drawing.Size(72, 53);
             this.btnrestaurar.TabIndex = 0;
             this.btnrestaurar.Text = "FAVOR DE DAR CLICK PARA RESTAURAR";
             this.btnrestaurar.UseVisualStyleBackColor = true;
@@ -839,7 +838,6 @@
             this.PanelOpciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lbLogoCorto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogolargo)).EndInit();
-            this.PanelCuerpo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
