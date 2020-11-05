@@ -89,6 +89,7 @@
             this.gbOpciones.Controls.Add(this.btnClaveSeguridad);
             this.gbOpciones.Controls.Add(this.btnUsuarios);
             this.gbOpciones.Controls.Add(this.btnPerfilesUsuarios);
+            this.gbOpciones.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbOpciones.Location = new System.Drawing.Point(12, 50);
             this.gbOpciones.Name = "gbOpciones";
             this.gbOpciones.Size = new System.Drawing.Size(586, 217);
@@ -101,7 +102,7 @@
             this.lbusuario.AutoSize = true;
             this.lbusuario.Location = new System.Drawing.Point(350, 209);
             this.lbusuario.Name = "lbusuario";
-            this.lbusuario.Size = new System.Drawing.Size(54, 20);
+            this.lbusuario.Size = new System.Drawing.Size(69, 23);
             this.lbusuario.TabIndex = 7;
             this.lbusuario.Text = "label1";
             this.lbusuario.Visible = false;

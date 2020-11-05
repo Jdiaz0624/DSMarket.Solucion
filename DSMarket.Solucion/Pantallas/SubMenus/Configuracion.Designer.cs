@@ -92,6 +92,7 @@
             this.gbOpciones.Controls.Add(this.btnReportes);
             this.gbOpciones.Controls.Add(this.btnInformacionEmpresa);
             this.gbOpciones.Controls.Add(this.btnComprobantes);
+            this.gbOpciones.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbOpciones.Location = new System.Drawing.Point(12, 60);
             this.gbOpciones.Name = "gbOpciones";
             this.gbOpciones.Size = new System.Drawing.Size(584, 218);

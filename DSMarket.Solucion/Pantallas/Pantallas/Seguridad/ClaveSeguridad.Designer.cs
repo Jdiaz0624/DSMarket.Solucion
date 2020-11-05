@@ -29,7 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnRestablecer = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -42,8 +45,6 @@
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
             this.gbListado = new System.Windows.Forms.GroupBox();
-            this.dtListado = new System.Windows.Forms.DataGridView();
-            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.gbMantenimiento = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
@@ -56,15 +57,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnRestablecer = new System.Windows.Forms.Button();
+            this.dtListado = new System.Windows.Forms.DataGridView();
+            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).BeginInit();
             this.gbListado.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
             this.gbMantenimiento.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -79,6 +81,24 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1057, 58);
             this.panel2.TabIndex = 96;
+            // 
+            // btnRestablecer
+            // 
+            this.btnRestablecer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestablecer.Enabled = false;
+            this.btnRestablecer.FlatAppearance.BorderSize = 0;
+            this.btnRestablecer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRestablecer.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestablecer.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
+            this.btnRestablecer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRestablecer.Location = new System.Drawing.Point(358, 7);
+            this.btnRestablecer.Name = "btnRestablecer";
+            this.btnRestablecer.Size = new System.Drawing.Size(170, 41);
+            this.btnRestablecer.TabIndex = 68;
+            this.btnRestablecer.Text = "      Restablecer";
+            this.toolTip1.SetToolTip(this.btnRestablecer, "Restablecer Pantalla");
+            this.btnRestablecer.UseVisualStyleBackColor = true;
+            this.btnRestablecer.Click += new System.EventHandler(this.btnRestablecer_Click);
             // 
             // btnEditar
             // 
@@ -240,40 +260,6 @@
             this.gbListado.TabStop = false;
             this.gbListado.Text = "Listado de Claves";
             // 
-            // dtListado
-            // 
-            this.dtListado.AllowUserToAddRows = false;
-            this.dtListado.AllowUserToDeleteRows = false;
-            this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dtListado.BackgroundColor = System.Drawing.Color.LightGray;
-            this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtListado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Select});
-            this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtListado.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
-            this.dtListado.Location = new System.Drawing.Point(3, 23);
-            this.dtListado.Name = "dtListado";
-            this.dtListado.ReadOnly = true;
-            this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(1026, 272);
-            this.dtListado.TabIndex = 0;
-            this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
-            // 
-            // Select
-            // 
-            this.Select.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Select.HeaderText = "Select";
-            this.Select.Name = "Select";
-            this.Select.ReadOnly = true;
-            this.Select.Text = "Select";
-            this.Select.ToolTipText = "Select";
-            this.Select.UseColumnTextForButtonValue = true;
-            this.Select.Width = 59;
-            // 
             // gbMantenimiento
             // 
             this.gbMantenimiento.Controls.Add(this.label4);
@@ -381,23 +367,49 @@
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
             // 
-            // btnRestablecer
+            // dtListado
             // 
-            this.btnRestablecer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestablecer.Enabled = false;
-            this.btnRestablecer.FlatAppearance.BorderSize = 0;
-            this.btnRestablecer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRestablecer.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRestablecer.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
-            this.btnRestablecer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRestablecer.Location = new System.Drawing.Point(358, 7);
-            this.btnRestablecer.Name = "btnRestablecer";
-            this.btnRestablecer.Size = new System.Drawing.Size(170, 41);
-            this.btnRestablecer.TabIndex = 68;
-            this.btnRestablecer.Text = "      Restablecer";
-            this.toolTip1.SetToolTip(this.btnRestablecer, "Restablecer Pantalla");
-            this.btnRestablecer.UseVisualStyleBackColor = true;
-            this.btnRestablecer.Click += new System.EventHandler(this.btnRestablecer_Click);
+            this.dtListado.AllowUserToAddRows = false;
+            this.dtListado.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtListado.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Select});
+            this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtListado.EnableHeadersVisualStyles = false;
+            this.dtListado.Location = new System.Drawing.Point(3, 23);
+            this.dtListado.Name = "dtListado";
+            this.dtListado.ReadOnly = true;
+            this.dtListado.RowTemplate.Height = 24;
+            this.dtListado.Size = new System.Drawing.Size(1026, 272);
+            this.dtListado.TabIndex = 2;
+            this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
+            // 
+            // Select
+            // 
+            this.Select.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Select.HeaderText = "Select";
+            this.Select.Name = "Select";
+            this.Select.ReadOnly = true;
+            this.Select.Text = "Select";
+            this.Select.ToolTipText = "Select";
+            this.Select.UseColumnTextForButtonValue = true;
+            this.Select.Width = 59;
             // 
             // ClaveSeguridad
             // 
@@ -429,9 +441,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).EndInit();
             this.gbListado.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).EndInit();
             this.gbMantenimiento.ResumeLayout(false);
             this.gbMantenimiento.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -452,8 +464,6 @@
         private System.Windows.Forms.NumericUpDown txtNumeroPagina;
         private System.Windows.Forms.Label lbNumeroPagina;
         private System.Windows.Forms.GroupBox gbListado;
-        private System.Windows.Forms.DataGridView dtListado;
-        private new System.Windows.Forms.DataGridViewButtonColumn Select;
         private System.Windows.Forms.GroupBox gbMantenimiento;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtConfirmarClave;
@@ -467,5 +477,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtClaveSeguridad;
         private System.Windows.Forms.Button btnRestablecer;
+        private System.Windows.Forms.DataGridView dtListado;
+        private System.Windows.Forms.DataGridViewButtonColumn Select;
     }
 }
