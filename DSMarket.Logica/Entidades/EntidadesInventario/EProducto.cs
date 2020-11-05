@@ -115,6 +115,9 @@ namespace DSMarket.Logica.Entidades.EntidadesInventario
         public System.Nullable<int> ProductoProximoAgotarse {get;set;}
 
         public System.Nullable<int> ProductosAgostados {get;set;}
+        public System.Nullable<decimal> CapilalInvertido { get; set; }
+
+        public System.Nullable<decimal> GananciaAproximada { get; set; }
 
         public string Comentario {get;set;}
     }

@@ -509,6 +509,8 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                               ProductosConOferta=n.ProductosConOferta,
                               ProductoProximoAgotarse=n.ProductoProximoAgotarse,
                               ProductosAgostados=n.ProductosAgostados,
+                              CapilalInvertido=n.CapilalInvertido,
+                              GananciaAproximada=n.GananciaAproximada,
                               Comentario=n.Comentario,
                           }).ToList();
             return Buscar;

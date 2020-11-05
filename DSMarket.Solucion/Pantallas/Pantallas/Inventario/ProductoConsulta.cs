@@ -107,7 +107,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
             dtListado.BackgroundColor = SystemColors.Control;
 
-
+            lbGananciaAproximadaTitulo.ForeColor = Color.White;
+            lbGananciaAproximadaVariable.ForeColor = Color.White;
+            lbCapitalInvertidoTitulo.ForeColor = Color.White;
+            lbCapitalInvertidoVariable.ForeColor = Color.White;
 
         }
         #endregion
@@ -167,7 +170,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                     int ProductoConOferta = Convert.ToInt32(n.ProductosConOferta);
                                     int ProductoAgotarse = Convert.ToInt32(n.ProductoProximoAgotarse);
                                     int ProductoAgoado = Convert.ToInt32(n.ProductosAgostados);
+                                    decimal CapitalInvertido = Convert.ToDecimal(n.CapilalInvertido);
+                                    decimal GananciaAproximada = Convert.ToDecimal(n.GananciaAproximada);
 
+                                    lbCapitalInvertidoVariable.Text = CapitalInvertido.ToString("N2");
+                                    lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
                                     lbCantidadProductos.Text = Cantidadproductos.ToString("N0");
                                     lbCantidadProductosConOferta.Text = ProductoConOferta.ToString("N0");
                                     lbCantidadPoductosAgotarse.Text = ProductoAgotarse.ToString("N0");
@@ -213,6 +220,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                     int ProductoConOferta = Convert.ToInt32(n.ProductosConOferta);
                                     int ProductoAgotarse = Convert.ToInt32(n.ProductoProximoAgotarse);
                                     int ProductoAgoado = Convert.ToInt32(n.ProductosAgostados);
+                                    decimal CapitalInvertido = Convert.ToDecimal(n.CapilalInvertido);
+                                    decimal GananciaAproximada = Convert.ToDecimal(n.GananciaAproximada);
+
+                                    lbCapitalInvertidoVariable.Text = CapitalInvertido.ToString("N2");
+                                    lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
 
                                     lbCantidadProductos.Text = Cantidadproductos.ToString("N0");
                                     lbCantidadProductosConOferta.Text = ProductoConOferta.ToString("N0");
@@ -260,6 +272,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                     int ProductoConOferta = Convert.ToInt32(n.ProductosConOferta);
                                     int ProductoAgotarse = Convert.ToInt32(n.ProductoProximoAgotarse);
                                     int ProductoAgoado = Convert.ToInt32(n.ProductosAgostados);
+                                    decimal CapitalInvertido = Convert.ToDecimal(n.CapilalInvertido);
+                                    decimal GananciaAproximada = Convert.ToDecimal(n.GananciaAproximada);
+
+                                    lbCapitalInvertidoVariable.Text = CapitalInvertido.ToString("N2");
+                                    lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
 
                                     lbCantidadProductos.Text = Cantidadproductos.ToString("N0");
                                     lbCantidadProductosConOferta.Text = ProductoConOferta.ToString("N0");
@@ -303,6 +320,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                     int ProductoConOferta = Convert.ToInt32(n.ProductosConOferta);
                                     int ProductoAgotarse = Convert.ToInt32(n.ProductoProximoAgotarse);
                                     int ProductoAgoado = Convert.ToInt32(n.ProductosAgostados);
+                                    decimal CapitalInvertido = Convert.ToDecimal(n.CapilalInvertido);
+                                    decimal GananciaAproximada = Convert.ToDecimal(n.GananciaAproximada);
+
+                                    lbCapitalInvertidoVariable.Text = CapitalInvertido.ToString("N2");
+                                    lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
 
                                     lbCantidadProductos.Text = Cantidadproductos.ToString("N0");
                                     lbCantidadProductosConOferta.Text = ProductoConOferta.ToString("N0");
@@ -356,6 +378,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                     int ProductoConOferta = Convert.ToInt32(n.ProductosConOferta);
                                     int ProductoAgotarse = Convert.ToInt32(n.ProductoProximoAgotarse);
                                     int ProductoAgoado = Convert.ToInt32(n.ProductosAgostados);
+                                    decimal CapitalInvertido = Convert.ToDecimal(n.CapilalInvertido);
+                                    decimal GananciaAproximada = Convert.ToDecimal(n.GananciaAproximada);
+
+                                    lbCapitalInvertidoVariable.Text = CapitalInvertido.ToString("N2");
+                                    lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
 
                                     lbCantidadProductos.Text = Cantidadproductos.ToString("N0");
                                     lbCantidadProductosConOferta.Text = ProductoConOferta.ToString("N0");
@@ -399,6 +426,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                     int ProductoConOferta = Convert.ToInt32(n.ProductosConOferta);
                                     int ProductoAgotarse = Convert.ToInt32(n.ProductoProximoAgotarse);
                                     int ProductoAgoado = Convert.ToInt32(n.ProductosAgostados);
+                                    decimal CapitalInvertido = Convert.ToDecimal(n.CapilalInvertido);
+                                    decimal GananciaAproximada = Convert.ToDecimal(n.GananciaAproximada);
+
+                                    lbCapitalInvertidoVariable.Text = CapitalInvertido.ToString("N2");
+                                    lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
 
                                     lbCantidadProductos.Text = Cantidadproductos.ToString("N0");
                                     lbCantidadProductosConOferta.Text = ProductoConOferta.ToString("N0");
@@ -446,6 +478,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                     int ProductoConOferta = Convert.ToInt32(n.ProductosConOferta);
                                     int ProductoAgotarse = Convert.ToInt32(n.ProductoProximoAgotarse);
                                     int ProductoAgoado = Convert.ToInt32(n.ProductosAgostados);
+                                    decimal CapitalInvertido = Convert.ToDecimal(n.CapilalInvertido);
+                                    decimal GananciaAproximada = Convert.ToDecimal(n.GananciaAproximada);
+
+                                    lbCapitalInvertidoVariable.Text = CapitalInvertido.ToString("N2");
+                                    lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
 
                                     lbCantidadProductos.Text = Cantidadproductos.ToString("N0");
                                     lbCantidadProductosConOferta.Text = ProductoConOferta.ToString("N0");
@@ -490,6 +527,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                     int ProductoConOferta = Convert.ToInt32(n.ProductosConOferta);
                                     int ProductoAgotarse = Convert.ToInt32(n.ProductoProximoAgotarse);
                                     int ProductoAgoado = Convert.ToInt32(n.ProductosAgostados);
+                                    decimal CapitalInvertido = Convert.ToDecimal(n.CapilalInvertido);
+                                    decimal GananciaAproximada = Convert.ToDecimal(n.GananciaAproximada);
+
+                                    lbCapitalInvertidoVariable.Text = CapitalInvertido.ToString("N2");
+                                    lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
 
                                     lbCantidadProductos.Text = Cantidadproductos.ToString("N0");
                                     lbCantidadProductosConOferta.Text = ProductoConOferta.ToString("N0");
@@ -543,7 +585,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                     int ProductoConOferta = Convert.ToInt32(n.ProductosConOferta);
                                     int ProductoAgotarse = Convert.ToInt32(n.ProductoProximoAgotarse);
                                     int ProductoAgoado = Convert.ToInt32(n.ProductosAgostados);
+                                    decimal CapitalInvertido = Convert.ToDecimal(n.CapilalInvertido);
+                                    decimal GananciaAproximada = Convert.ToDecimal(n.GananciaAproximada);
 
+                                    lbCapitalInvertidoVariable.Text = CapitalInvertido.ToString("N2");
+                                    lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
                                     lbCantidadProductos.Text = Cantidadproductos.ToString("N0");
                                     lbCantidadProductosConOferta.Text = ProductoConOferta.ToString("N0");
                                     lbCantidadPoductosAgotarse.Text = ProductoAgotarse.ToString("N0");
@@ -587,7 +633,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                     int ProductoConOferta = Convert.ToInt32(n.ProductosConOferta);
                                     int ProductoAgotarse = Convert.ToInt32(n.ProductoProximoAgotarse);
                                     int ProductoAgoado = Convert.ToInt32(n.ProductosAgostados);
+                                    decimal CapitalInvertido = Convert.ToDecimal(n.CapilalInvertido);
+                                    decimal GananciaAproximada = Convert.ToDecimal(n.GananciaAproximada);
 
+                                    lbCapitalInvertidoVariable.Text = CapitalInvertido.ToString("N2");
+                                    lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
                                     lbCantidadProductos.Text = Cantidadproductos.ToString("N0");
                                     lbCantidadProductosConOferta.Text = ProductoConOferta.ToString("N0");
                                     lbCantidadPoductosAgotarse.Text = ProductoAgotarse.ToString("N0");
@@ -634,7 +684,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                     int ProductoConOferta = Convert.ToInt32(n.ProductosConOferta);
                                     int ProductoAgotarse = Convert.ToInt32(n.ProductoProximoAgotarse);
                                     int ProductoAgoado = Convert.ToInt32(n.ProductosAgostados);
+                                    decimal CapitalInvertido = Convert.ToDecimal(n.CapilalInvertido);
+                                    decimal GananciaAproximada = Convert.ToDecimal(n.GananciaAproximada);
 
+                                    lbCapitalInvertidoVariable.Text = CapitalInvertido.ToString("N2");
+                                    lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
                                     lbCantidadProductos.Text = Cantidadproductos.ToString("N0");
                                     lbCantidadProductosConOferta.Text = ProductoConOferta.ToString("N0");
                                     lbCantidadPoductosAgotarse.Text = ProductoAgotarse.ToString("N0");
@@ -678,7 +732,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                     int ProductoConOferta = Convert.ToInt32(n.ProductosConOferta);
                                     int ProductoAgotarse = Convert.ToInt32(n.ProductoProximoAgotarse);
                                     int ProductoAgoado = Convert.ToInt32(n.ProductosAgostados);
+                                    decimal CapitalInvertido = Convert.ToDecimal(n.CapilalInvertido);
+                                    decimal GananciaAproximada = Convert.ToDecimal(n.GananciaAproximada);
 
+                                    lbCapitalInvertidoVariable.Text = CapitalInvertido.ToString("N2");
+                                    lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
                                     lbCantidadProductos.Text = Cantidadproductos.ToString("N0");
                                     lbCantidadProductosConOferta.Text = ProductoConOferta.ToString("N0");
                                     lbCantidadPoductosAgotarse.Text = ProductoAgotarse.ToString("N0");
@@ -748,7 +806,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                     int ProductoConOferta = Convert.ToInt32(n.ProductosConOferta);
                                     int ProductoAgotarse = Convert.ToInt32(n.ProductoProximoAgotarse);
                                     int ProductoAgoado = Convert.ToInt32(n.ProductosAgostados);
+                                    decimal CapitalInvertido = Convert.ToDecimal(n.CapilalInvertido);
+                                    decimal GananciaAproximada = Convert.ToDecimal(n.GananciaAproximada);
 
+                                    lbCapitalInvertidoVariable.Text = CapitalInvertido.ToString("N2");
+                                    lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
                                     lbCantidadProductos.Text = Cantidadproductos.ToString("N0");
                                     lbCantidadProductosConOferta.Text = ProductoConOferta.ToString("N0");
                                     lbCantidadPoductosAgotarse.Text = ProductoAgotarse.ToString("N0");
@@ -791,7 +853,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                     int ProductoConOferta = Convert.ToInt32(n.ProductosConOferta);
                                     int ProductoAgotarse = Convert.ToInt32(n.ProductoProximoAgotarse);
                                     int ProductoAgoado = Convert.ToInt32(n.ProductosAgostados);
+                                    decimal CapitalInvertido = Convert.ToDecimal(n.CapilalInvertido);
+                                    decimal GananciaAproximada = Convert.ToDecimal(n.GananciaAproximada);
 
+                                    lbCapitalInvertidoVariable.Text = CapitalInvertido.ToString("N2");
+                                    lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
                                     lbCantidadProductos.Text = Cantidadproductos.ToString("N0");
                                     lbCantidadProductosConOferta.Text = ProductoConOferta.ToString("N0");
                                     lbCantidadPoductosAgotarse.Text = ProductoAgotarse.ToString("N0");
@@ -838,7 +904,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                     int ProductoConOferta = Convert.ToInt32(n.ProductosConOferta);
                                     int ProductoAgotarse = Convert.ToInt32(n.ProductoProximoAgotarse);
                                     int ProductoAgoado = Convert.ToInt32(n.ProductosAgostados);
+                                    decimal CapitalInvertido = Convert.ToDecimal(n.CapilalInvertido);
+                                    decimal GananciaAproximada = Convert.ToDecimal(n.GananciaAproximada);
 
+                                    lbCapitalInvertidoVariable.Text = CapitalInvertido.ToString("N2");
+                                    lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
                                     lbCantidadProductos.Text = Cantidadproductos.ToString("N0");
                                     lbCantidadProductosConOferta.Text = ProductoConOferta.ToString("N0");
                                     lbCantidadPoductosAgotarse.Text = ProductoAgotarse.ToString("N0");
@@ -881,7 +951,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                     int ProductoConOferta = Convert.ToInt32(n.ProductosConOferta);
                                     int ProductoAgotarse = Convert.ToInt32(n.ProductoProximoAgotarse);
                                     int ProductoAgoado = Convert.ToInt32(n.ProductosAgostados);
+                                    decimal CapitalInvertido = Convert.ToDecimal(n.CapilalInvertido);
+                                    decimal GananciaAproximada = Convert.ToDecimal(n.GananciaAproximada);
 
+                                    lbCapitalInvertidoVariable.Text = CapitalInvertido.ToString("N2");
+                                    lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
                                     lbCantidadProductos.Text = Cantidadproductos.ToString("N0");
                                     lbCantidadProductosConOferta.Text = ProductoConOferta.ToString("N0");
                                     lbCantidadPoductosAgotarse.Text = ProductoAgotarse.ToString("N0");
@@ -934,7 +1008,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                     int ProductoConOferta = Convert.ToInt32(n.ProductosConOferta);
                                     int ProductoAgotarse = Convert.ToInt32(n.ProductoProximoAgotarse);
                                     int ProductoAgoado = Convert.ToInt32(n.ProductosAgostados);
+                                    decimal CapitalInvertido = Convert.ToDecimal(n.CapilalInvertido);
+                                    decimal GananciaAproximada = Convert.ToDecimal(n.GananciaAproximada);
 
+                                    lbCapitalInvertidoVariable.Text = CapitalInvertido.ToString("N2");
+                                    lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
                                     lbCantidadProductos.Text = Cantidadproductos.ToString("N0");
                                     lbCantidadProductosConOferta.Text = ProductoConOferta.ToString("N0");
                                     lbCantidadPoductosAgotarse.Text = ProductoAgotarse.ToString("N0");
@@ -978,7 +1056,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                     int ProductoConOferta = Convert.ToInt32(n.ProductosConOferta);
                                     int ProductoAgotarse = Convert.ToInt32(n.ProductoProximoAgotarse);
                                     int ProductoAgoado = Convert.ToInt32(n.ProductosAgostados);
+                                    decimal CapitalInvertido = Convert.ToDecimal(n.CapilalInvertido);
+                                    decimal GananciaAproximada = Convert.ToDecimal(n.GananciaAproximada);
 
+                                    lbCapitalInvertidoVariable.Text = CapitalInvertido.ToString("N2");
+                                    lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
                                     lbCantidadProductos.Text = Cantidadproductos.ToString("N0");
                                     lbCantidadProductosConOferta.Text = ProductoConOferta.ToString("N0");
                                     lbCantidadPoductosAgotarse.Text = ProductoAgotarse.ToString("N0");
@@ -1025,7 +1107,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                     int ProductoConOferta = Convert.ToInt32(n.ProductosConOferta);
                                     int ProductoAgotarse = Convert.ToInt32(n.ProductoProximoAgotarse);
                                     int ProductoAgoado = Convert.ToInt32(n.ProductosAgostados);
+                                    decimal CapitalInvertido = Convert.ToDecimal(n.CapilalInvertido);
+                                    decimal GananciaAproximada = Convert.ToDecimal(n.GananciaAproximada);
 
+                                    lbCapitalInvertidoVariable.Text = CapitalInvertido.ToString("N2");
+                                    lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
                                     lbCantidadProductos.Text = Cantidadproductos.ToString("N0");
                                     lbCantidadProductosConOferta.Text = ProductoConOferta.ToString("N0");
                                     lbCantidadPoductosAgotarse.Text = ProductoAgotarse.ToString("N0");
@@ -1069,7 +1155,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                     int ProductoConOferta = Convert.ToInt32(n.ProductosConOferta);
                                     int ProductoAgotarse = Convert.ToInt32(n.ProductoProximoAgotarse);
                                     int ProductoAgoado = Convert.ToInt32(n.ProductosAgostados);
+                                    decimal CapitalInvertido = Convert.ToDecimal(n.CapilalInvertido);
+                                    decimal GananciaAproximada = Convert.ToDecimal(n.GananciaAproximada);
 
+                                    lbCapitalInvertidoVariable.Text = CapitalInvertido.ToString("N2");
+                                    lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
                                     lbCantidadProductos.Text = Cantidadproductos.ToString("N0");
                                     lbCantidadProductosConOferta.Text = ProductoConOferta.ToString("N0");
                                     lbCantidadPoductosAgotarse.Text = ProductoAgotarse.ToString("N0");
@@ -1123,7 +1213,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                     int ProductoConOferta = Convert.ToInt32(n.ProductosConOferta);
                                     int ProductoAgotarse = Convert.ToInt32(n.ProductoProximoAgotarse);
                                     int ProductoAgoado = Convert.ToInt32(n.ProductosAgostados);
+                                    decimal CapitalInvertido = Convert.ToDecimal(n.CapilalInvertido);
+                                    decimal GananciaAproximada = Convert.ToDecimal(n.GananciaAproximada);
 
+                                    lbCapitalInvertidoVariable.Text = CapitalInvertido.ToString("N2");
+                                    lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
                                     lbCantidadProductos.Text = Cantidadproductos.ToString("N0");
                                     lbCantidadProductosConOferta.Text = ProductoConOferta.ToString("N0");
                                     lbCantidadPoductosAgotarse.Text = ProductoAgotarse.ToString("N0");
@@ -1167,7 +1261,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                     int ProductoConOferta = Convert.ToInt32(n.ProductosConOferta);
                                     int ProductoAgotarse = Convert.ToInt32(n.ProductoProximoAgotarse);
                                     int ProductoAgoado = Convert.ToInt32(n.ProductosAgostados);
+                                    decimal CapitalInvertido = Convert.ToDecimal(n.CapilalInvertido);
+                                    decimal GananciaAproximada = Convert.ToDecimal(n.GananciaAproximada);
 
+                                    lbCapitalInvertidoVariable.Text = CapitalInvertido.ToString("N2");
+                                    lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
                                     lbCantidadProductos.Text = Cantidadproductos.ToString("N0");
                                     lbCantidadProductosConOferta.Text = ProductoConOferta.ToString("N0");
                                     lbCantidadPoductosAgotarse.Text = ProductoAgotarse.ToString("N0");
@@ -1214,7 +1312,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                     int ProductoConOferta = Convert.ToInt32(n.ProductosConOferta);
                                     int ProductoAgotarse = Convert.ToInt32(n.ProductoProximoAgotarse);
                                     int ProductoAgoado = Convert.ToInt32(n.ProductosAgostados);
+                                    decimal CapitalInvertido = Convert.ToDecimal(n.CapilalInvertido);
+                                    decimal GananciaAproximada = Convert.ToDecimal(n.GananciaAproximada);
 
+                                    lbCapitalInvertidoVariable.Text = CapitalInvertido.ToString("N2");
+                                    lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
                                     lbCantidadProductos.Text = Cantidadproductos.ToString("N0");
                                     lbCantidadProductosConOferta.Text = ProductoConOferta.ToString("N0");
                                     lbCantidadPoductosAgotarse.Text = ProductoAgotarse.ToString("N0");
@@ -1258,7 +1360,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                                     int ProductoConOferta = Convert.ToInt32(n.ProductosConOferta);
                                     int ProductoAgotarse = Convert.ToInt32(n.ProductoProximoAgotarse);
                                     int ProductoAgoado = Convert.ToInt32(n.ProductosAgostados);
+                                    decimal CapitalInvertido = Convert.ToDecimal(n.CapilalInvertido);
+                                    decimal GananciaAproximada = Convert.ToDecimal(n.GananciaAproximada);
 
+                                    lbCapitalInvertidoVariable.Text = CapitalInvertido.ToString("N2");
+                                    lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
                                     lbCantidadProductos.Text = Cantidadproductos.ToString("N0");
                                     lbCantidadProductosConOferta.Text = ProductoConOferta.ToString("N0");
                                     lbCantidadPoductosAgotarse.Text = ProductoAgotarse.ToString("N0");
@@ -1309,6 +1415,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.dtListado.Columns["IdColor"].Visible = false;
             this.dtListado.Columns["IdCapacidad"].Visible = false;
             this.dtListado.Columns["IdCondicion"].Visible = false;
+            this.dtListado.Columns["CapilalInvertido"].Visible = false;
+            this.dtListado.Columns["GananciaAproximada"].Visible = false;
         }
         #endregion
         #region MOSTRAR LA IMAGEN POR DEFECTO
@@ -1698,6 +1806,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                             foreach (var n in BuscarProducto)
                             {
                                 EstatusProducto = Convert.ToBoolean(n.EstatusProducto0);
+                                
                             }
                             DSMarket.Logica.Entidades.EntidadesInventario.EProducto Procesar = new Logica.Entidades.EntidadesInventario.EProducto();
                             Procesar.IdProducto = variablesGlobales.IdMantenimeinto;
@@ -1719,6 +1828,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
                     var SeleccionarRegistro = ObjDataInventario.Value.BuscaProductos(variablesGlobales.IdMantenimeinto, variablesGlobales.NumeroConector, null, null, null, null, null, null, null, null, null, null, null, null, null, null, false, null, 1, 1);
                     dtListado.DataSource = SeleccionarRegistro;
+                    foreach (var n in SeleccionarRegistro) {
+                        decimal CapitalInvertido = Convert.ToDecimal(n.CapilalInvertido);
+                        decimal GananciaAproximada = Convert.ToDecimal(n.GananciaAproximada);
+
+                        lbCapitalInvertidoVariable.Text = CapitalInvertido.ToString("N2");
+                        lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
+                    }
                     OcultarColumnas();
                     txtNumeroPagina.Enabled = false;
                     txtNumeroRegistros.Enabled = false;
