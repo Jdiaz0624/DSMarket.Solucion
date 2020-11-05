@@ -857,5 +857,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         {
 
         }
+
+        private void DtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

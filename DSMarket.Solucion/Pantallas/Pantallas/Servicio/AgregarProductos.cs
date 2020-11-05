@@ -480,143 +480,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void dtSeleccionarproducto_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlbales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                int TipoProducto = 0;
-                bool AplicaImpuesto = false;
-                txtDescuento.Text = "0";
-                decimal IdProductoSeleccionado = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["IdProducto"].Value.ToString());
-                this.VariablesGlbales.IdProductoSeleccionadoAgregarPorpductos = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["IdProducto"].Value.ToString());
-                this.VariablesGlbales.IdTipoProductoNuevo = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["IdTipoProducto"].Value.ToString());
-                var SacarNumeroConectorProducto = ObjDataLogicaInventario.Value.BuscaProductos(
-                    VariablesGlbales.IdProductoSeleccionadoAgregarEditar,
-                    null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, false, null, 1, 1);
-                foreach (var n in SacarNumeroConectorProducto) {
-                    VariablesGlbales.IdNumeroConectorProductoAgregarEditar = Convert.ToDecimal(n.NumeroConector);
-                }
-                this.VariablesGlbales.NumeroConectorSeleccionadoAgregarPorpductos = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["NumeroConector"].Value.ToString());
-                this.VariablesGlbales.DescripcionTipoProductoAgregarProductos = this.dtSeleccionarproducto.CurrentRow.Cells["TipoProducto"].Value.ToString();
-                int CantidadAlmcen = Convert.ToInt32(this.dtSeleccionarproducto.CurrentRow.Cells["Stock"].Value.ToString());
-                bool LlevaImagen = Convert.ToBoolean(this.dtSeleccionarproducto.CurrentRow.Cells["LlevaImagen0"].Value.ToString());
-
-                if (CantidadAlmcen <= 0 && VariablesGlbales.IdTipoProductoNuevo==1)
-                {
-                    MessageBox.Show("Este producto esta agotado, favor de suplir mas", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else {
-                    {
-                        var Buscar = ObjDataLogicaInventario.Value.BuscaProductos(
-                     IdProductoSeleccionado,
-                     null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, false, null, 1, 1);
-
-                        foreach (var n in Buscar)
-                        {
-                            VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar = Convert.ToDecimal(n.IdTipoProducto);
-                            VariablesGlbales.IdCategoriaSeleccionadoAgregarEditar = Convert.ToDecimal(n.IdCategoria);
-                            VariablesGlbales.IdProductoSeleccionadoAgregarEditar = Convert.ToDecimal(n.IdProducto);
-                            VariablesGlbales.NumeroConectorSeleccionadoAgregarPorpductos = Convert.ToDecimal(n.NumeroConector);
-                            VariablesGlbales.AplicaImpuesto = Convert.ToBoolean(n.AplicaParaImpuesto0);
-                            TipoProducto = Convert.ToInt32(n.IdTipoProducto);
-                            txtTipoProducto.Text = n.TipoProducto;
-                            AplicaImpuesto = Convert.ToBoolean(n.AplicaParaImpuesto0);
-                            txtCategoria.Text = n.Categoria;
-                            txtProducto.Text = n.Producto;
-                            int CantidadDisponible = Convert.ToInt32(n.Stock);
-                            txtCantidadDisponible.Text = CantidadDisponible.ToString("N0");
-                            if (TipoProducto == 1)
-                            {
-
-                                decimal Precio = Convert.ToDecimal(n.PrecioVenta);
-                                txtPrecio.Text = Precio.ToString("N2");
-
-                                cbEditarPrecio.Checked = false;
-                                cbEditarPrecio.Enabled = true;
-                                txtPrecio.Enabled = false;
-                            }
-                            else if (TipoProducto == 2)
-                            {
-
-                                decimal Precio = Convert.ToDecimal(n.PrecioVenta);
-                                txtPrecio.Text = Precio.ToString("N0");
-                                cbEditarPrecio.Checked = true;
-                                cbEditarPrecio.Enabled = false;
-                                txtPrecio.Enabled = true;
-
-                            }
-                            txtPorcientoDescyento.Text = n.PorcientoDescuento.ToString();
-                            txtAcumulativo.Text = n.ProductoAcumulativo;
-
-                            if (txtAcumulativo.Text == "SI")
-                            {
-                                int CantidadMinima = Convert.ToInt32(n.StockMinimo);
-                                int Stock = Convert.ToInt32(n.Stock);
-                                if (Stock <= CantidadMinima)
-                                {
-                                    lbAlerta.Visible = true;
-                                }
-                                txtCantidadUsar.Text = "1";
-                                txtCantidadUsar.Enabled = true;
-                                txtCantidadUsar.Focus();
-                                lbDescuentoColectivoVariable.Text = "0";
-                                lbDescuentoColectivoTitulo.Visible = true;
-                                lbDescuentoColectivoVariable.Visible = true;
-                                lbDescuentoColectivoVariable.Text = lbDescuentoMaximo.Text;
-
-                            }
-                            else
-                            {
-                                txtCantidadUsar.Text = "1";
-                                txtCantidadUsar.Enabled = false;
-                                lbDescuentoColectivoTitulo.Visible = false;
-                                lbDescuentoColectivoVariable.Visible = false;
-                                lbDescuentoColectivoVariable.Text = "0";
-                            }
-
-                            if (LlevaImagen == true)
-                            {
-                                btnfoto.Enabled = true;
-                            }
-                            else
-                            {
-                                btnfoto.Enabled = false;
-                            }
-
-                            if (AplicaImpuesto == true)
-                            {
-                                decimal PorcientoImpuesto = 0;
-                                decimal PrecioProducto = 0, Operacion;
-                                var SacarPorcientoImpuesto = ObjdataConfiguracion.Value.BuscaImpuestos(1);
-                                foreach (var Sacar in SacarPorcientoImpuesto) {
-                                    PorcientoImpuesto = Convert.ToDecimal(Sacar.PorcientoImpuesto);
-
-                                }
-                                PrecioProducto = Convert.ToDecimal(txtPrecio.Text);
-                                Operacion = PrecioProducto * (PorcientoImpuesto / 100);
-                                txtImpuesto.Text = Operacion.ToString("N2");
-                            }
-                            else {
-                                txtImpuesto.Text = "0";
-                            }
-                            btnAgregar.Enabled = true;
-                            btnRestablcer.Enabled = true;
-                        }
-                    }
-                    decimal DescuentoMaximo = CalcularDescuentoMaximo(Convert.ToDecimal(txtPrecio.Text), Convert.ToDecimal(txtPorcientoDescyento.Text));
-                    if (DescuentoMaximo < 1)
-                    {
-                        lbDescuentoMaximo.Text = DescuentoMaximo.ToString("N2");
-                        txtDescuento.Enabled = false;
-                    }
-                    else
-                    {
-                        lbDescuentoMaximo.Text = DescuentoMaximo.ToString("N2");
-                        txtDescuento.Enabled = true;
-                    }
-                }
-
-            }
-
-            CalcularColectivo();
+            
         }
 
         private void txtDescuento_KeyPress(object sender, KeyPressEventArgs e)
@@ -782,72 +646,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void dtProductosAgregados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres Seleccionar este registro?", VariablesGlbales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
-
-                this.VariablesGlbales.IdProductoModificarRegistro = Convert.ToDecimal(this.dtProductosAgregados.CurrentRow.Cells["IdProducto"].Value.ToString());
-                this.VariablesGlbales.IdProductoSeleccionadoAgregarEditar = Convert.ToDecimal(this.dtProductosAgregados.CurrentRow.Cells["IdProducto"].Value.ToString());
-                var Buscar = ObjDataServicio.Value.BuscapRoductosAgregados(VariablesGlbales.IdProductoModificarRegistro, VariablesGlbales.NumeroConector);
-                foreach (var n in Buscar) {
-                    txtTipoProducto.Text = n.DescripcionTipoProducto;
-                    txtCategoria.Text = n.Categoria;
-                    txtProducto.Text = n.DescripcionProducto;
-                    //txtCantidadDisponible.Text =
-                    txtCantidadUsar.Text = n.Cantidad.ToString();
-                    txtPrecio.Text = n.Precio.ToString();
-                    txtPorcientoDescyento.Text = n.PorcientoDescuento.ToString();
-                    txtDescuento.Text = n.DescuentoAplicado.ToString();
-                    txtAcumulativo.Text = n.Acumulativo;
-                    VariablesGlbales.CantidadUsadaModificarRegistro = Convert.ToInt32(n.Cantidad);
-                    VariablesGlbales.IdTipoProductoModificarRegistro = Convert.ToDecimal(n.IdTipoProducto);
-                    VariablesGlbales.IdCategoriaModificarRegistro = Convert.ToDecimal(n.IdCategoria);
-                    VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar = Convert.ToDecimal(n.IdTipoProducto);
-                    VariablesGlbales.IdCategoriaSeleccionadoAgregarEditar = Convert.ToDecimal(n.IdCategoria);
-                    VariablesGlbales.CantidadRegistrosIngresadaEliminarRegistro = Convert.ToInt32(n.Cantidad);
-                    string Acumulativo = txtAcumulativo.Text;
-
-                    if (Acumulativo == "SI")
-                    {
-                        var BuscarCantidadDispobible = ObjDataLogicaInventario.Value.BuscaProductos(
-                            VariablesGlbales.IdProductoModificarRegistro,
-                            null,
-                            null,
-                            null,
-                            null,
-                            null,
-                            null,
-                            null,
-                            null,
-                            null,
-                            null,
-                            null,
-                            null, null, null, null, false,null,
-                            1, 1);
-                        foreach (var n2 in BuscarCantidadDispobible)
-                        {
-                            int CantidadSacada = Convert.ToInt32(n2.Stock);
-                            txtCantidadDisponible.Text = CantidadSacada.ToString("N0");
-                            txtCantidadUsar.Enabled = true;
-                        }
-                       
-                    }
-                    else {
-                        txtCantidadDisponible.Text = "1";
-                        txtCantidadUsar.Enabled = false;
-                    }
-
-                    VariablesGlbales.CantidadDispobible = Convert.ToInt32(txtCantidadDisponible.Text);
-                    VariablesGlbales.CantidadUsar = Convert.ToInt32(txtCantidadUsar.Text);
-                    // VariablesGlbales.Diferencia = Convert.ToInt32(txtCantidadUsar.Text);
-                 
-
-                }
-
-
-                btnRestablcer.Enabled = true;
-                btnAgregar.Enabled = false;
-                btnQuitar.Enabled = true;
-                btnEditar.Enabled = true;
-            }
+           
         }
 
         private void btnQuitar_Click(object sender, EventArgs e)
@@ -1031,6 +830,224 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void CbAgregarCategoria_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void DtSeleccionarproducto_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlbales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                int TipoProducto = 0;
+                bool AplicaImpuesto = false;
+                txtDescuento.Text = "0";
+                decimal IdProductoSeleccionado = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["IdProducto"].Value.ToString());
+                this.VariablesGlbales.IdProductoSeleccionadoAgregarPorpductos = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["IdProducto"].Value.ToString());
+                this.VariablesGlbales.IdTipoProductoNuevo = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["IdTipoProducto"].Value.ToString());
+                var SacarNumeroConectorProducto = ObjDataLogicaInventario.Value.BuscaProductos(
+                    VariablesGlbales.IdProductoSeleccionadoAgregarEditar,
+                    null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, false, null, 1, 1);
+                foreach (var n in SacarNumeroConectorProducto)
+                {
+                    VariablesGlbales.IdNumeroConectorProductoAgregarEditar = Convert.ToDecimal(n.NumeroConector);
+                }
+                this.VariablesGlbales.NumeroConectorSeleccionadoAgregarPorpductos = Convert.ToDecimal(this.dtSeleccionarproducto.CurrentRow.Cells["NumeroConector"].Value.ToString());
+                this.VariablesGlbales.DescripcionTipoProductoAgregarProductos = this.dtSeleccionarproducto.CurrentRow.Cells["TipoProducto"].Value.ToString();
+                int CantidadAlmcen = Convert.ToInt32(this.dtSeleccionarproducto.CurrentRow.Cells["Stock"].Value.ToString());
+                bool LlevaImagen = Convert.ToBoolean(this.dtSeleccionarproducto.CurrentRow.Cells["LlevaImagen0"].Value.ToString());
+
+                if (CantidadAlmcen <= 0 && VariablesGlbales.IdTipoProductoNuevo == 1)
+                {
+                    MessageBox.Show("Este producto esta agotado, favor de suplir mas", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    {
+                        var Buscar = ObjDataLogicaInventario.Value.BuscaProductos(
+                     IdProductoSeleccionado,
+                     null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, false, null, 1, 1);
+
+                        foreach (var n in Buscar)
+                        {
+                            VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar = Convert.ToDecimal(n.IdTipoProducto);
+                            VariablesGlbales.IdCategoriaSeleccionadoAgregarEditar = Convert.ToDecimal(n.IdCategoria);
+                            VariablesGlbales.IdProductoSeleccionadoAgregarEditar = Convert.ToDecimal(n.IdProducto);
+                            VariablesGlbales.NumeroConectorSeleccionadoAgregarPorpductos = Convert.ToDecimal(n.NumeroConector);
+                            VariablesGlbales.AplicaImpuesto = Convert.ToBoolean(n.AplicaParaImpuesto0);
+                            TipoProducto = Convert.ToInt32(n.IdTipoProducto);
+                            txtTipoProducto.Text = n.TipoProducto;
+                            AplicaImpuesto = Convert.ToBoolean(n.AplicaParaImpuesto0);
+                            txtCategoria.Text = n.Categoria;
+                            txtProducto.Text = n.Producto;
+                            int CantidadDisponible = Convert.ToInt32(n.Stock);
+                            txtCantidadDisponible.Text = CantidadDisponible.ToString("N0");
+                            if (TipoProducto == 1)
+                            {
+
+                                decimal Precio = Convert.ToDecimal(n.PrecioVenta);
+                                txtPrecio.Text = Precio.ToString("N2");
+
+                                cbEditarPrecio.Checked = false;
+                                cbEditarPrecio.Enabled = true;
+                                txtPrecio.Enabled = false;
+                            }
+                            else if (TipoProducto == 2)
+                            {
+
+                                decimal Precio = Convert.ToDecimal(n.PrecioVenta);
+                                txtPrecio.Text = Precio.ToString("N0");
+                                cbEditarPrecio.Checked = true;
+                                cbEditarPrecio.Enabled = false;
+                                txtPrecio.Enabled = true;
+
+                            }
+                            txtPorcientoDescyento.Text = n.PorcientoDescuento.ToString();
+                            txtAcumulativo.Text = n.ProductoAcumulativo;
+
+                            if (txtAcumulativo.Text == "SI")
+                            {
+                                int CantidadMinima = Convert.ToInt32(n.StockMinimo);
+                                int Stock = Convert.ToInt32(n.Stock);
+                                if (Stock <= CantidadMinima)
+                                {
+                                    lbAlerta.Visible = true;
+                                }
+                                txtCantidadUsar.Text = "1";
+                                txtCantidadUsar.Enabled = true;
+                                txtCantidadUsar.Focus();
+                                lbDescuentoColectivoVariable.Text = "0";
+                                lbDescuentoColectivoTitulo.Visible = true;
+                                lbDescuentoColectivoVariable.Visible = true;
+                                lbDescuentoColectivoVariable.Text = lbDescuentoMaximo.Text;
+
+                            }
+                            else
+                            {
+                                txtCantidadUsar.Text = "1";
+                                txtCantidadUsar.Enabled = false;
+                                lbDescuentoColectivoTitulo.Visible = false;
+                                lbDescuentoColectivoVariable.Visible = false;
+                                lbDescuentoColectivoVariable.Text = "0";
+                            }
+
+                            if (LlevaImagen == true)
+                            {
+                                btnfoto.Enabled = true;
+                            }
+                            else
+                            {
+                                btnfoto.Enabled = false;
+                            }
+
+                            if (AplicaImpuesto == true)
+                            {
+                                decimal PorcientoImpuesto = 0;
+                                decimal PrecioProducto = 0, Operacion;
+                                var SacarPorcientoImpuesto = ObjdataConfiguracion.Value.BuscaImpuestos(1);
+                                foreach (var Sacar in SacarPorcientoImpuesto)
+                                {
+                                    PorcientoImpuesto = Convert.ToDecimal(Sacar.PorcientoImpuesto);
+
+                                }
+                                PrecioProducto = Convert.ToDecimal(txtPrecio.Text);
+                                Operacion = PrecioProducto * (PorcientoImpuesto / 100);
+                                txtImpuesto.Text = Operacion.ToString("N2");
+                            }
+                            else
+                            {
+                                txtImpuesto.Text = "0";
+                            }
+                            btnAgregar.Enabled = true;
+                            btnRestablcer.Enabled = true;
+                        }
+                    }
+                    decimal DescuentoMaximo = CalcularDescuentoMaximo(Convert.ToDecimal(txtPrecio.Text), Convert.ToDecimal(txtPorcientoDescyento.Text));
+                    if (DescuentoMaximo < 1)
+                    {
+                        lbDescuentoMaximo.Text = DescuentoMaximo.ToString("N2");
+                        txtDescuento.Enabled = false;
+                    }
+                    else
+                    {
+                        lbDescuentoMaximo.Text = DescuentoMaximo.ToString("N2");
+                        txtDescuento.Enabled = true;
+                    }
+                }
+
+            }
+
+            CalcularColectivo();
+        }
+
+        private void DtProductosAgregados_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (MessageBox.Show("¿Quieres Seleccionar este registro?", VariablesGlbales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                this.VariablesGlbales.IdProductoModificarRegistro = Convert.ToDecimal(this.dtProductosAgregados.CurrentRow.Cells["IdProducto"].Value.ToString());
+                this.VariablesGlbales.IdProductoSeleccionadoAgregarEditar = Convert.ToDecimal(this.dtProductosAgregados.CurrentRow.Cells["IdProducto"].Value.ToString());
+                var Buscar = ObjDataServicio.Value.BuscapRoductosAgregados(VariablesGlbales.IdProductoModificarRegistro, VariablesGlbales.NumeroConector);
+                foreach (var n in Buscar)
+                {
+                    txtTipoProducto.Text = n.DescripcionTipoProducto;
+                    txtCategoria.Text = n.Categoria;
+                    txtProducto.Text = n.DescripcionProducto;
+                    //txtCantidadDisponible.Text =
+                    txtCantidadUsar.Text = n.Cantidad.ToString();
+                    txtPrecio.Text = n.Precio.ToString();
+                    txtPorcientoDescyento.Text = n.PorcientoDescuento.ToString();
+                    txtDescuento.Text = n.DescuentoAplicado.ToString();
+                    txtAcumulativo.Text = n.Acumulativo;
+                    VariablesGlbales.CantidadUsadaModificarRegistro = Convert.ToInt32(n.Cantidad);
+                    VariablesGlbales.IdTipoProductoModificarRegistro = Convert.ToDecimal(n.IdTipoProducto);
+                    VariablesGlbales.IdCategoriaModificarRegistro = Convert.ToDecimal(n.IdCategoria);
+                    VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar = Convert.ToDecimal(n.IdTipoProducto);
+                    VariablesGlbales.IdCategoriaSeleccionadoAgregarEditar = Convert.ToDecimal(n.IdCategoria);
+                    VariablesGlbales.CantidadRegistrosIngresadaEliminarRegistro = Convert.ToInt32(n.Cantidad);
+                    string Acumulativo = txtAcumulativo.Text;
+
+                    if (Acumulativo == "SI")
+                    {
+                        var BuscarCantidadDispobible = ObjDataLogicaInventario.Value.BuscaProductos(
+                            VariablesGlbales.IdProductoModificarRegistro,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null, null, null, null, false, null,
+                            1, 1);
+                        foreach (var n2 in BuscarCantidadDispobible)
+                        {
+                            int CantidadSacada = Convert.ToInt32(n2.Stock);
+                            txtCantidadDisponible.Text = CantidadSacada.ToString("N0");
+                            txtCantidadUsar.Enabled = true;
+                        }
+
+                    }
+                    else
+                    {
+                        txtCantidadDisponible.Text = "1";
+                        txtCantidadUsar.Enabled = false;
+                    }
+
+                    VariablesGlbales.CantidadDispobible = Convert.ToInt32(txtCantidadDisponible.Text);
+                    VariablesGlbales.CantidadUsar = Convert.ToInt32(txtCantidadUsar.Text);
+                    // VariablesGlbales.Diferencia = Convert.ToInt32(txtCantidadUsar.Text);
+
+
+                }
+
+
+                btnRestablcer.Enabled = true;
+                btnAgregar.Enabled = false;
+                btnQuitar.Enabled = true;
+                btnEditar.Enabled = true;
+            }
         }
     }
 }

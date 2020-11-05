@@ -2288,30 +2288,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void dtFacturasMinimizadas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            decimal NumeroConector = Convert.ToDecimal(dtFacturasMinimizadas.CurrentRow.Cells["NumeroConector"].Value.ToString());
-            VariablesGlobales.NumeroConector = Convert.ToDecimal(dtFacturasMinimizadas.CurrentRow.Cells["NumeroConector"].Value.ToString());
-            VariablesGlobales.SecuencialFActuraMinimizada = Convert.ToDecimal(dtFacturasMinimizadas.CurrentRow.Cells["Secuencia"].Value.ToString());
-
-            if (cbEliminarfacturaMinimizada.Checked == true)
-            {
-                if (MessageBox.Show("¿Quieres elimianr esta factura?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    //SACAMOS LOS DATOS A VALIDAR
-                    DevolverProductosInventario(NumeroConector);
-                    MANFacturasMinimizadas("DELETE");
-                    ListadoFacturaMinimizadas();
-                    VariablesGlobales.NumeroConector = Convert.ToDecimal(lbNumeroConector.Text);
-                }
-            }
-            else {
-                if (MessageBox.Show("¿Quieres restaurar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    SacarDataFacturaMinimizadas();
-                    MANFacturasMinimizadas("DELETE");
-                    ListadoFacturaMinimizadas();
-                    BuscarProductosAgregados(VariablesGlobales.NumeroConector);
-                }
-            }
+          
         }
 
         private void txtCodigoCliente_KeyPress(object sender, KeyPressEventArgs e)
@@ -2572,6 +2549,45 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void ddlSeleccionarTiempoGarantia_SelectedIndexChanged(object sender, EventArgs e)
         {
             SacarTiempoGarantia();
+        }
+
+        private void DtProductosAgregados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void DataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            decimal NumeroConector = Convert.ToDecimal(dtFacturasMinimizadas.CurrentRow.Cells["NumeroConector"].Value.ToString());
+            VariablesGlobales.NumeroConector = Convert.ToDecimal(dtFacturasMinimizadas.CurrentRow.Cells["NumeroConector"].Value.ToString());
+            VariablesGlobales.SecuencialFActuraMinimizada = Convert.ToDecimal(dtFacturasMinimizadas.CurrentRow.Cells["Secuencia"].Value.ToString());
+
+            if (cbEliminarfacturaMinimizada.Checked == true)
+            {
+                if (MessageBox.Show("¿Quieres elimianr esta factura?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    //SACAMOS LOS DATOS A VALIDAR
+                    DevolverProductosInventario(NumeroConector);
+                    MANFacturasMinimizadas("DELETE");
+                    ListadoFacturaMinimizadas();
+                    VariablesGlobales.NumeroConector = Convert.ToDecimal(lbNumeroConector.Text);
+                }
+            }
+            else
+            {
+                if (MessageBox.Show("¿Quieres restaurar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    SacarDataFacturaMinimizadas();
+                    MANFacturasMinimizadas("DELETE");
+                    ListadoFacturaMinimizadas();
+                    BuscarProductosAgregados(VariablesGlobales.NumeroConector);
+                }
+            }
         }
     }
 }

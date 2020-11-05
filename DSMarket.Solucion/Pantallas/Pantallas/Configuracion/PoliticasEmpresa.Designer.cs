@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnModificar = new System.Windows.Forms.Button();
@@ -37,16 +39,16 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dtProductosAgregados = new System.Windows.Forms.DataGridView();
-            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtPolitica = new System.Windows.Forms.TextBox();
             this.lbNombreEmpresa = new System.Windows.Forms.Label();
+            this.dtProductosAgregados = new System.Windows.Forms.DataGridView();
+            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtProductosAgregados)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtProductosAgregados)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -131,38 +133,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Productos agregados";
             // 
-            // dtProductosAgregados
-            // 
-            this.dtProductosAgregados.AllowUserToAddRows = false;
-            this.dtProductosAgregados.AllowUserToDeleteRows = false;
-            this.dtProductosAgregados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dtProductosAgregados.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dtProductosAgregados.BackgroundColor = System.Drawing.Color.Linen;
-            this.dtProductosAgregados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dtProductosAgregados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtProductosAgregados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Select});
-            this.dtProductosAgregados.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtProductosAgregados.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtProductosAgregados.Location = new System.Drawing.Point(3, 23);
-            this.dtProductosAgregados.Name = "dtProductosAgregados";
-            this.dtProductosAgregados.ReadOnly = true;
-            this.dtProductosAgregados.RowTemplate.Height = 24;
-            this.dtProductosAgregados.Size = new System.Drawing.Size(1303, 439);
-            this.dtProductosAgregados.TabIndex = 0;
-            this.dtProductosAgregados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtProductosAgregados_CellContentClick);
-            // 
-            // Select
-            // 
-            this.Select.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Select.HeaderText = "Select";
-            this.Select.Name = "Select";
-            this.Select.ReadOnly = true;
-            this.Select.Text = "Select";
-            this.Select.ToolTipText = "Select";
-            this.Select.UseColumnTextForButtonValue = true;
-            this.Select.Width = 64;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txtPolitica);
@@ -194,6 +164,50 @@
             this.lbNombreEmpresa.Text = "Politica";
             this.lbNombreEmpresa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // dtProductosAgregados
+            // 
+            this.dtProductosAgregados.AllowUserToAddRows = false;
+            this.dtProductosAgregados.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtProductosAgregados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtProductosAgregados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtProductosAgregados.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtProductosAgregados.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dtProductosAgregados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtProductosAgregados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dtProductosAgregados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtProductosAgregados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Select});
+            this.dtProductosAgregados.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtProductosAgregados.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtProductosAgregados.EnableHeadersVisualStyles = false;
+            this.dtProductosAgregados.Location = new System.Drawing.Point(3, 23);
+            this.dtProductosAgregados.Name = "dtProductosAgregados";
+            this.dtProductosAgregados.ReadOnly = true;
+            this.dtProductosAgregados.RowTemplate.Height = 24;
+            this.dtProductosAgregados.Size = new System.Drawing.Size(1303, 439);
+            this.dtProductosAgregados.TabIndex = 5;
+            this.dtProductosAgregados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtProductosAgregados_CellContentClick);
+            // 
+            // Select
+            // 
+            this.Select.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Select.HeaderText = "Select";
+            this.Select.Name = "Select";
+            this.Select.ReadOnly = true;
+            this.Select.Text = "Select";
+            this.Select.ToolTipText = "Select";
+            this.Select.UseColumnTextForButtonValue = true;
+            this.Select.Width = 64;
+            // 
             // PoliticasEmpresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -216,9 +230,9 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtProductosAgregados)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtProductosAgregados)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -231,12 +245,12 @@
         private System.Windows.Forms.PictureBox PCerrar;
         public System.Windows.Forms.Label lbTitulo;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dtProductosAgregados;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtPolitica;
         private System.Windows.Forms.Label lbNombreEmpresa;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dtProductosAgregados;
         private System.Windows.Forms.DataGridViewButtonColumn Select;
     }
 }

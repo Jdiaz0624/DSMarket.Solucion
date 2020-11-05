@@ -164,7 +164,18 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+           
+        }
+
+        private void btnRestablecer_Click(object sender, EventArgs e)
+        {
+            RestablecerPantalla();
+        }
+
+        private void DtListado_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
                 this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdTipoPago"].Value.ToString());
                 var Buscar = ObjDataServicio.Value.BuscaTipoPago(
                     VariablesGlobales.IdMantenimeinto,
@@ -177,11 +188,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 txtNumeroPagina.Enabled = false;
                 txtNumeroRegistros.Enabled = false;
             }
-        }
-
-        private void btnRestablecer_Click(object sender, EventArgs e)
-        {
-            RestablecerPantalla();
         }
     }
 }

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbCantidadRegistrosVariable = new System.Windows.Forms.Label();
@@ -58,13 +60,17 @@
             this.rbfacturaspanish = new System.Windows.Forms.RadioButton();
             this.cbFacturaPuntoVenta = new System.Windows.Forms.CheckBox();
             this.btnModificarDiasGarantia = new System.Windows.Forms.Button();
+            this.rbReferencia = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtNumeroFactura = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtimeiReferencia = new System.Windows.Forms.TextBox();
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.dtListado = new System.Windows.Forms.DataGridView();
-            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtNumeroIdentificacion = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.ddlSeleccionar = new System.Windows.Forms.ComboBox();
             this.txtCliente = new System.Windows.Forms.TextBox();
             this.txtFechaHasta = new System.Windows.Forms.DateTimePicker();
@@ -89,12 +95,8 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.lbCantidadDisponible = new System.Windows.Forms.Label();
             this.txtCantidadDisponible = new System.Windows.Forms.TextBox();
-            this.txtNumeroIdentificacion = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.rbReferencia = new System.Windows.Forms.RadioButton();
-            this.txtimeiReferencia = new System.Windows.Forms.TextBox();
-            this.txtNumeroFactura = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.dtListado = new System.Windows.Forms.DataGridView();
+            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel2.SuspendLayout();
@@ -102,9 +104,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -537,6 +539,21 @@
             this.btnModificarDiasGarantia.UseVisualStyleBackColor = true;
             this.btnModificarDiasGarantia.Click += new System.EventHandler(this.button1_Click);
             // 
+            // rbReferencia
+            // 
+            this.rbReferencia.AutoSize = true;
+            this.rbReferencia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbReferencia.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbReferencia.Location = new System.Drawing.Point(22, 62);
+            this.rbReferencia.Name = "rbReferencia";
+            this.rbReferencia.Size = new System.Drawing.Size(149, 24);
+            this.rbReferencia.TabIndex = 8;
+            this.rbReferencia.TabStop = true;
+            this.rbReferencia.Text = "imei / Referencia";
+            this.toolTip1.SetToolTip(this.rbReferencia, "Imei / Referencia");
+            this.rbReferencia.UseVisualStyleBackColor = true;
+            this.rbReferencia.CheckedChanged += new System.EventHandler(this.RadioButton1_CheckedChanged);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtNumeroFactura);
@@ -556,6 +573,30 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Seleccionar Tipo de Filtros";
+            // 
+            // txtNumeroFactura
+            // 
+            this.txtNumeroFactura.Location = new System.Drawing.Point(645, 59);
+            this.txtNumeroFactura.Name = "txtNumeroFactura";
+            this.txtNumeroFactura.Size = new System.Drawing.Size(142, 27);
+            this.txtNumeroFactura.TabIndex = 11;
+            this.txtNumeroFactura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox1_KeyPress);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(538, 62);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(101, 20);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "No. Factura ";
+            // 
+            // txtimeiReferencia
+            // 
+            this.txtimeiReferencia.Location = new System.Drawing.Point(177, 61);
+            this.txtimeiReferencia.Name = "txtimeiReferencia";
+            this.txtimeiReferencia.Size = new System.Drawing.Size(347, 27);
+            this.txtimeiReferencia.TabIndex = 10;
             // 
             // lbNumeroRegistros
             // 
@@ -586,39 +627,6 @@
             this.groupBox5.TabIndex = 20;
             this.groupBox5.TabStop = false;
             // 
-            // dtListado
-            // 
-            this.dtListado.AllowUserToAddRows = false;
-            this.dtListado.AllowUserToDeleteRows = false;
-            this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dtListado.BackgroundColor = System.Drawing.Color.LightGray;
-            this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dtListado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Select});
-            this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtListado.Location = new System.Drawing.Point(3, 23);
-            this.dtListado.Name = "dtListado";
-            this.dtListado.ReadOnly = true;
-            this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(1247, 208);
-            this.dtListado.TabIndex = 0;
-            this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
-            // 
-            // Select
-            // 
-            this.Select.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Select.HeaderText = "Select";
-            this.Select.Name = "Select";
-            this.Select.ReadOnly = true;
-            this.Select.Text = "Select";
-            this.Select.ToolTipText = "Select";
-            this.Select.UseColumnTextForButtonValue = true;
-            this.Select.Width = 59;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txtNumeroIdentificacion);
@@ -636,6 +644,22 @@
             this.groupBox2.Size = new System.Drawing.Size(595, 152);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
+            // 
+            // txtNumeroIdentificacion
+            // 
+            this.txtNumeroIdentificacion.Location = new System.Drawing.Point(160, 84);
+            this.txtNumeroIdentificacion.Name = "txtNumeroIdentificacion";
+            this.txtNumeroIdentificacion.Size = new System.Drawing.Size(424, 27);
+            this.txtNumeroIdentificacion.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(21, 87);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(135, 20);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "No.Identificación";
             // 
             // ddlSeleccionar
             // 
@@ -863,60 +887,49 @@
             this.txtCantidadDisponible.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCantidadDisponible.Visible = false;
             // 
-            // txtNumeroIdentificacion
+            // dtListado
             // 
-            this.txtNumeroIdentificacion.Location = new System.Drawing.Point(160, 84);
-            this.txtNumeroIdentificacion.Name = "txtNumeroIdentificacion";
-            this.txtNumeroIdentificacion.Size = new System.Drawing.Size(424, 27);
-            this.txtNumeroIdentificacion.TabIndex = 9;
+            this.dtListado.AllowUserToAddRows = false;
+            this.dtListado.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtListado.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Select});
+            this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtListado.EnableHeadersVisualStyles = false;
+            this.dtListado.Location = new System.Drawing.Point(3, 23);
+            this.dtListado.Name = "dtListado";
+            this.dtListado.ReadOnly = true;
+            this.dtListado.RowTemplate.Height = 24;
+            this.dtListado.Size = new System.Drawing.Size(1247, 208);
+            this.dtListado.TabIndex = 4;
+            this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
-            // label1
+            // Select
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 87);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 20);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "No.Identificación";
-            // 
-            // rbReferencia
-            // 
-            this.rbReferencia.AutoSize = true;
-            this.rbReferencia.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbReferencia.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbReferencia.Location = new System.Drawing.Point(22, 62);
-            this.rbReferencia.Name = "rbReferencia";
-            this.rbReferencia.Size = new System.Drawing.Size(149, 24);
-            this.rbReferencia.TabIndex = 8;
-            this.rbReferencia.TabStop = true;
-            this.rbReferencia.Text = "imei / Referencia";
-            this.toolTip1.SetToolTip(this.rbReferencia, "Imei / Referencia");
-            this.rbReferencia.UseVisualStyleBackColor = true;
-            this.rbReferencia.CheckedChanged += new System.EventHandler(this.RadioButton1_CheckedChanged);
-            // 
-            // txtimeiReferencia
-            // 
-            this.txtimeiReferencia.Location = new System.Drawing.Point(177, 61);
-            this.txtimeiReferencia.Name = "txtimeiReferencia";
-            this.txtimeiReferencia.Size = new System.Drawing.Size(347, 27);
-            this.txtimeiReferencia.TabIndex = 10;
-            // 
-            // txtNumeroFactura
-            // 
-            this.txtNumeroFactura.Location = new System.Drawing.Point(645, 59);
-            this.txtNumeroFactura.Name = "txtNumeroFactura";
-            this.txtNumeroFactura.Size = new System.Drawing.Size(142, 27);
-            this.txtNumeroFactura.TabIndex = 11;
-            this.txtNumeroFactura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox1_KeyPress);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(538, 62);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 20);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "No. Factura ";
+            this.Select.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Select.HeaderText = "Select";
+            this.Select.Name = "Select";
+            this.Select.ReadOnly = true;
+            this.Select.Text = "Select";
+            this.Select.ToolTipText = "Select";
+            this.Select.UseColumnTextForButtonValue = true;
+            this.Select.Width = 59;
             // 
             // HistorialFActuracion
             // 
@@ -973,10 +986,10 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1016,8 +1029,6 @@
         private System.Windows.Forms.NumericUpDown txtNumeroPagina;
         private System.Windows.Forms.Label lbNumeroPagina;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.DataGridView dtListado;
-        private new System.Windows.Forms.DataGridViewButtonColumn Select;
         private System.Windows.Forms.Button btnEstadistica;
         private System.Windows.Forms.Label lbCantidadRegistrosTitulo;
         private System.Windows.Forms.Label lbCantidadRegistrosVariable;
@@ -1050,5 +1061,7 @@
         private System.Windows.Forms.RadioButton rbReferencia;
         private System.Windows.Forms.TextBox txtNumeroFactura;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dtListado;
+        private System.Windows.Forms.DataGridViewButtonColumn Select;
     }
 }
