@@ -488,6 +488,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             }
         }
         #endregion
+
         private void PCerrar_Click(object sender, EventArgs e)
         {
             CerrarPantalla();
