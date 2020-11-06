@@ -33,7 +33,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
     #endregion
 		
 		public BDConexionConfiguracionDataContext() : 
-				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString2, mappingSource)
+				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString4, mappingSource)
 		{
 			OnCreated();
 		}
@@ -499,6 +499,20 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, tipoReporte, cuentaAuxiliar, conceptoCuenta, valor, cuenta, cuentaDescargo, ano, mes, accion);
 			return ((ISingleResult<SP_PROCESAR_DATOS_REPORTE_FINANCIEROSResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Configuracion.SP_BUSCA_CAMPOS_ESPECIALES")]
+		public ISingleResult<SP_BUSCA_CAMPOS_ESPECIALESResult> SP_BUSCA_CAMPOS_ESPECIALES([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdCampoEspecial", DbType="Decimal(20,0)")] System.Nullable<decimal> idCampoEspecial)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idCampoEspecial);
+			return ((ISingleResult<SP_BUSCA_CAMPOS_ESPECIALESResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Configuracion.[SP_MODIFICAR_CAMPOS ESPECIALES]")]
+		public ISingleResult<SP_MODIFICAR_CAMPOS_ESPECIALESResult> SP_MODIFICAR_CAMPOS_ESPECIALES([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdCampoEspecial", DbType="Decimal(20,0)")] System.Nullable<decimal> idCampoEspecial, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nombre", DbType="VarChar(100)")] string nombre, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LongitudCampo", DbType="Int")] System.Nullable<int> longitudCampo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Estatus", DbType="Bit")] System.Nullable<bool> estatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idCampoEspecial, nombre, longitudCampo, estatus, accion);
+			return ((ISingleResult<SP_MODIFICAR_CAMPOS_ESPECIALESResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_BUSCA_LISTASResult
@@ -770,7 +784,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LogoEmpresa", DbType="Image", CanBeNull=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LogoEmpresa", DbType="Image")]
 		public System.Data.Linq.Binary LogoEmpresa
 		{
 			get
@@ -7528,6 +7542,184 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._Mes != value))
 				{
 					this._Mes = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCA_CAMPOS_ESPECIALESResult
+	{
+		
+		private System.Nullable<decimal> _IdCampoEspecial;
+		
+		private string _Nombre;
+		
+		private System.Nullable<int> _LongitudCampo;
+		
+		private System.Nullable<bool> _Estatus0;
+		
+		private string _Estatus;
+		
+		public SP_BUSCA_CAMPOS_ESPECIALESResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCampoEspecial", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdCampoEspecial
+		{
+			get
+			{
+				return this._IdCampoEspecial;
+			}
+			set
+			{
+				if ((this._IdCampoEspecial != value))
+				{
+					this._IdCampoEspecial = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(100)")]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this._Nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LongitudCampo", DbType="Int")]
+		public System.Nullable<int> LongitudCampo
+		{
+			get
+			{
+				return this._LongitudCampo;
+			}
+			set
+			{
+				if ((this._LongitudCampo != value))
+				{
+					this._LongitudCampo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus0", DbType="Bit")]
+		public System.Nullable<bool> Estatus0
+		{
+			get
+			{
+				return this._Estatus0;
+			}
+			set
+			{
+				if ((this._Estatus0 != value))
+				{
+					this._Estatus0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="VarChar(8) NOT NULL", CanBeNull=false)]
+		public string Estatus
+		{
+			get
+			{
+				return this._Estatus;
+			}
+			set
+			{
+				if ((this._Estatus != value))
+				{
+					this._Estatus = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_MODIFICAR_CAMPOS_ESPECIALESResult
+	{
+		
+		private System.Nullable<decimal> _IdCampoEspecial;
+		
+		private string _Nombre;
+		
+		private System.Nullable<int> _Longitud;
+		
+		private System.Nullable<bool> _Estatus;
+		
+		public SP_MODIFICAR_CAMPOS_ESPECIALESResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCampoEspecial", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdCampoEspecial
+		{
+			get
+			{
+				return this._IdCampoEspecial;
+			}
+			set
+			{
+				if ((this._IdCampoEspecial != value))
+				{
+					this._IdCampoEspecial = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(100)")]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this._Nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Longitud", DbType="Int")]
+		public System.Nullable<int> Longitud
+		{
+			get
+			{
+				return this._Longitud;
+			}
+			set
+			{
+				if ((this._Longitud != value))
+				{
+					this._Longitud = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="Bit")]
+		public System.Nullable<bool> Estatus
+		{
+			get
+			{
+				return this._Estatus;
+			}
+			set
+			{
+				if ((this._Estatus != value))
+				{
+					this._Estatus = value;
 				}
 			}
 		}

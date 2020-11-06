@@ -21,6 +21,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         Lazy<DSMarket.Logica.Logica.LogicaListas.LogicaListas> ObjDataListas = new Lazy<Logica.Logica.LogicaListas.LogicaListas>();
         Lazy<DSMarket.Logica.Logica.LogicaInventario.LogicaInventario> ObjDataInventario = new Lazy<Logica.Logica.LogicaInventario.LogicaInventario>();
         Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
+        Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region CARGAR LAS LISTAS DESPLEGABLES
@@ -378,6 +379,52 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             catch (Exception) { }
         }
         #endregion
+        #region VALIDACIONES DE PANTALLA
+        private void RealizarValidaciones() {
+            //MOSTRAR EL CONTROL CHECK EN LA PANTALLA DE MANTENIMIENTO DE INVENTARIO
+            VariablesGlobales.ValidarMostrarCheckLimpiarPantalla = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(8);
+            VariablesGlobales.ValidarValidarCheckLimpiarPantalla = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(9);
+            VariablesGlobales.ValidarCampoEspeciaProductolNumerico = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(11);
+            VariablesGlobales.ValidarCampoEspecialProductoUnico = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(12);
+
+            //CAMPOS ESPECIALES
+            int LongigutCampoEspecial = 0;
+            var CampoEspecial = ObjDataConfiguracion.Value.BuscaCaposEspeciales(1);
+            foreach (var n in CampoEspecial) {
+                lbReferencia.Text = n.Nombre;
+                LongigutCampoEspecial = Convert.ToInt32(n.LongitudCampo);
+                txtReferencia.MaxLength = LongigutCampoEspecial;
+            }
+
+            if (VariablesGlobales.ValidarMostrarCheckLimpiarPantalla == true) {
+                cbLimpiarPantalla.Visible = true;
+            }
+            else {
+                cbLimpiarPantalla.Visible = false;
+            }
+
+            if (VariablesGlobales.ValidarValidarCheckLimpiarPantalla == true) {
+                cbLimpiarPantalla.Checked = true;
+            }
+            else {
+                cbLimpiarPantalla.Checked = false;
+            }
+
+            //VALIDAR SI EL CAMPO REFERENCIA 
+            if (VariablesGlobales.ValidarCampoEspecialProductoUnico == true) {
+                panelReferencia.Visible = true;
+                lbValidarreferencia.Visible = true;
+                btnMostrarRegistro.Visible = true;
+            }
+            else {
+                panelReferencia.Visible = false;
+                lbValidarreferencia.Visible = false;
+                btnMostrarRegistro.Visible = false;
+
+            }
+
+        }
+        #endregion
         private void PCerrar_Click(object sender, EventArgs e)
         {
             CerrarPantalla();
@@ -386,6 +433,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         private void MantenimientoProducto_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+            RealizarValidaciones();
+            
             MostrarImagenPorDefecto(pbFoto);
             AplicarTema();
             CargarTipoProducto();
@@ -700,6 +749,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         private void GroupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtReferencia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (VariablesGlobales.ValidarCampoEspeciaProductolNumerico == true) {
+                DSMarket.Logica.Comunes.ValidarControles.SoloNumeros(e);
+            }
         }
     }
 }

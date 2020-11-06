@@ -1204,5 +1204,44 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             return Mantenimiento;
         }
         #endregion
+        #region MANTENIMIENTO DE CAMPOS ESPECIALES
+        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.ECamposEspeciales> BuscaCaposEspeciales(decimal? IdCampoEspecial = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Buscar = (from n in ObjData.SP_BUSCA_CAMPOS_ESPECIALES(IdCampoEspecial)
+                          select new DSMarket.Logica.Entidades.EntidadesConfiguracion.ECamposEspeciales
+                          {
+                              IdCampoEspecial=n.IdCampoEspecial,
+                              Nombre=n.Nombre,
+                              LongitudCampo=n.LongitudCampo,
+                              Estatus0=n.Estatus0,
+                              Estatus=n.Estatus
+                          }).ToList();
+            return Buscar;
+        }
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.ECamposEspeciales ModificarCamposEspeciales(DSMarket.Logica.Entidades.EntidadesConfiguracion.ECamposEspeciales Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesConfiguracion.ECamposEspeciales Mantenimiento = null;
+
+            var Buscar = ObjData.SP_MODIFICAR_CAMPOS_ESPECIALES(
+                Item.IdCampoEspecial,
+                Item.Nombre,
+                Item.LongitudCampo,
+                Item.Estatus0,
+                Accion);
+            if (Buscar != null) {
+                Mantenimiento = (from n in Buscar
+                                 select new DSMarket.Logica.Entidades.EntidadesConfiguracion.ECamposEspeciales
+                                 {
+                                     IdCampoEspecial=n.IdCampoEspecial,
+                                     Nombre=n.Nombre,
+                                     LongitudCampo=n.Longitud,
+                                     Estatus0=n.Estatus
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
+        #endregion
     }
 }

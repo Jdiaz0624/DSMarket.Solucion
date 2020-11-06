@@ -101,6 +101,7 @@
     <Compile Include="Entidades\EntidadesCaja\EMontoInicialCaja.cs" />
     <Compile Include="Entidades\EntidadesCaja\EReporteCuadreCaja.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EBuscaTipoMail.cs" />
+    <Compile Include="Entidades\EntidadesConfiguracion\ECamposEspeciales.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EComprobantes.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EConfiguracionGeneral.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EGenerarArchivo607.cs" />

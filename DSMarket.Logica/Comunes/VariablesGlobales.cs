@@ -100,5 +100,13 @@ namespace DSMarket.Logica.Comunes
 
         public decimal TotalPagarFacturacion { get; set; }
         public bool AplicaGanancia { get; set; }
+
+        #region VALIDACIONES DE PANTELLAS
+        public bool ValidarMostrarCheckLimpiarPantalla { get; set; }
+        public bool ValidarValidarCheckLimpiarPantalla { get; set; }
+        public bool ValidarCampoEspeciaProductolNumerico { get; set; }
+        public bool ValidarCampoEspecialProductoUnico { get; set; }
+
+        #endregion
     }
 }
