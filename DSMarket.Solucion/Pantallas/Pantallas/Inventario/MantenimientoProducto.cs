@@ -361,7 +361,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             VariablesGlobales.NumeroConector = Numero;
         }
         #endregion
-
         #region MOSTRAR LA IMAGEN DEL PRODUCTO SELECCIONADO
         private void MostrarImagenSeleccionado(PictureBox Imaen)
         {
@@ -386,6 +385,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             VariablesGlobales.ValidarValidarCheckLimpiarPantalla = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(9);
             VariablesGlobales.ValidarCampoEspeciaProductolNumerico = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(11);
             VariablesGlobales.ValidarCampoEspecialProductoUnico = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(12);
+            VariablesGlobales.ValidarCampoEspecialProductoObligatorio = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(13);
 
             //CAMPOS ESPECIALES
             int LongigutCampoEspecial = 0;
@@ -420,9 +420,72 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 panelReferencia.Visible = false;
                 lbValidarreferencia.Visible = false;
                 btnMostrarRegistro.Visible = false;
-
             }
 
+            
+
+
+        }
+        #endregion
+        #region PROCESAR INFORMACION
+        private void ProcesarInformacionProducto() {
+            if (VariablesGlobales.Accion == "INSERT")
+            {
+                MANProductos();
+
+                MessageBox.Show("Registro guardado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (MessageBox.Show("¿Quieres guardar otro registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (cbLimpiarPantalla.Checked == true) {
+                        txtReferencia.Text = string.Empty;
+                        txtCodigoBarra.Text = string.Empty;
+                    }
+                    else {
+                        RestablecerPantalla();
+                    }
+                }
+                else
+                {
+                    CerrarPantalla();
+                }
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()))
+                {
+                    MessageBox.Show("La clave de seguridad no puede estar vacia, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //txtClaveSeguridad.Text = string.Empty;
+                    txtClaveSeguridad.Focus();
+                }
+                else
+                {
+                    string _ClaveSeguridad = string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()) ? null : txtClaveSeguridad.Text.Trim();
+
+                    var Validar = ObjDataSeguridad.Value.BuscaClaveSeguridad(
+                        new Nullable<decimal>(),
+                        null,
+                        DSMarket.Logica.Comunes.SeguridadEncriptacion.Encriptar(_ClaveSeguridad), 1, 1);
+                    if (Validar.Count() < 1)
+                    {
+                        MessageBox.Show("La clave de seguridad ingresada no es valida, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtClaveSeguridad.Text = string.Empty;
+                        txtClaveSeguridad.Focus();
+                    }
+                    else
+                    {
+                        MANProductos();
+                        if (VariablesGlobales.Accion == "UPDATE")
+                        {
+                            MessageBox.Show("Registro modificado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else if (VariablesGlobales.Accion == "DELETE")
+                        {
+                            MessageBox.Show("Registro eliminado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        CerrarPantalla();
+                    }
+                }
+            }
         }
         #endregion
         private void PCerrar_Click(object sender, EventArgs e)
@@ -462,7 +525,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             {
                 lbTitulo.Text = "MODIFICAR PRODUCTO SELECCIONADO";
                 btnGuardar.Text = "Modificar";
-
+              // txtReferencia.Enabled = false;
+                cbLimpiarPantalla.Visible = false;
+                panelReferencia.Visible = false;
+                lbValidarreferencia.Visible = false;
+                btnMostrarRegistro.Visible = false;
                 lbCLaveSeguridad.Visible = true;
                 txtClaveSeguridad.Visible = true;
                 txtStock.Enabled = false;
@@ -665,56 +732,25 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             }
             else
             {
-                if (VariablesGlobales.Accion == "INSERT")
-                {
-                    MANProductos();
-                   
-                    MessageBox.Show("Registro guardado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (MessageBox.Show("¿Quieres guardar otro registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (VariablesGlobales.ValidarCampoEspecialProductoObligatorio == true) {
+                    if (string.IsNullOrEmpty(txtReferencia.Text.Trim()))
                     {
-                        RestablecerPantalla();
+                        MessageBox.Show("El campo " + lbReferencia.Text + " no puede estar vacio, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    else
-                    {
-                        CerrarPantalla();
-                    }
-                }
-                else
-                {
-                    if (string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()))
-                    {
-                        MessageBox.Show("La clave de seguridad no puede estar vacia, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        //txtClaveSeguridad.Text = string.Empty;
-                        txtClaveSeguridad.Focus();
-                    }
-                    else
-                    {
-                        string _ClaveSeguridad = string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()) ? null : txtClaveSeguridad.Text.Trim();
-
-                        var Validar = ObjDataSeguridad.Value.BuscaClaveSeguridad(
-                            new Nullable<decimal>(),
-                            null,
-                            DSMarket.Logica.Comunes.SeguridadEncriptacion.Encriptar(_ClaveSeguridad), 1, 1);
-                        if (Validar.Count() < 1)
+                    else {
+                        if (panelReferencia.BackColor == Color.DarkRed && VariablesGlobales.Accion=="INSERT")
                         {
-                            MessageBox.Show("La clave de seguridad ingresada no es valida, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtClaveSeguridad.Text = string.Empty;
-                            txtClaveSeguridad.Focus();
+                            MessageBox.Show("El campo " + lbReferencia.Text + " ya esta registrado, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
-                        else
-                        {
-                            MANProductos();
-                            if (VariablesGlobales.Accion == "UPDATE")
-                            {
-                                MessageBox.Show("Registro modificado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            else if (VariablesGlobales.Accion == "DELETE") {
-                                MessageBox.Show("Registro eliminado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            CerrarPantalla();
+                        else {
+                            ProcesarInformacionProducto();
                         }
                     }
                 }
+                else {
+                    ProcesarInformacionProducto();
+                }
+                
             }
         }
 
@@ -755,6 +791,50 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         {
             if (VariablesGlobales.ValidarCampoEspeciaProductolNumerico == true) {
                 DSMarket.Logica.Comunes.ValidarControles.SoloNumeros(e);
+            }
+        }
+
+        private void TxtReferencia_TextChanged(object sender, EventArgs e)
+        {
+            int Validacion = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.ValidarReferenciaProducto(txtReferencia.Text);
+            if (Validacion > 0)
+            {
+                panelReferencia.BackColor = Color.DarkRed;
+                lbValidarreferencia.Text = lbReferencia.Text + " No Disponible";
+                btnMostrarRegistro.Enabled = true;
+            }
+            else {
+                panelReferencia.BackColor = Color.DarkGreen;
+                lbValidarreferencia.Text = lbReferencia.Text + " Disponible";
+                btnMostrarRegistro.Enabled = false;
+            }
+        }
+
+        private void BtnMostrarRegistro_Click(object sender, EventArgs e)
+        {
+            string _Referencia = string.IsNullOrEmpty(txtReferencia.Text.Trim()) ? null : txtReferencia.Text.Trim();
+
+            var BuscarReferencia = ObjDataInventario.Value.BuscaProductos(
+                new Nullable<decimal>(),
+                null,
+                null,
+                null,
+                _Referencia,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null, 1, 1);
+            foreach (var n in BuscarReferencia) {
+                MessageBox.Show("El registro pertenece al producto " + n.Producto + " " + "Codigo de Barra: " + n.CodigoBarra + " ", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

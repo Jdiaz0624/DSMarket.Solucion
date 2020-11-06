@@ -106,6 +106,7 @@ namespace DSMarket.Logica.Comunes
         public bool ValidarValidarCheckLimpiarPantalla { get; set; }
         public bool ValidarCampoEspeciaProductolNumerico { get; set; }
         public bool ValidarCampoEspecialProductoUnico { get; set; }
+        public bool ValidarCampoEspecialProductoObligatorio { get; set; }
 
         #endregion
     }

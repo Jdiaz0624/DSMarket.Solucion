@@ -1031,5 +1031,17 @@ namespace DSMarket.Logica.Logica.LogicaInventario
             return Mantenimiento;
         }
         #endregion
+        #region VALIDAR REFERENCIA DE PRODUCTO
+        public List<DSMarket.Logica.Entidades.EntidadesInventario.EValidaReferenciaProducto> ValidarReferenciaProducto(string Referencia = null) {
+            Objdata.CommandTimeout = 999999999;
+
+            var Listado = (from n in Objdata.SP_VALIDAR_REFERENCIA_PRODUCTO(Referencia)
+                           select new DSMarket.Logica.Entidades.EntidadesInventario.EValidaReferenciaProducto
+                           {
+                               Total=n.Total
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
     }
 }

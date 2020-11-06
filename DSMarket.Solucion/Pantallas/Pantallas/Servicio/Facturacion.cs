@@ -1997,6 +1997,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             cbBuscarPorCodigo.Visible = false;
             txtCodigoConsulta.Visible = false;
             btnBuscarCodigoCliente.Visible = false;
+            txtNombrePaciente.Focus();
         }
 
         private void PCerrar_Click(object sender, EventArgs e)

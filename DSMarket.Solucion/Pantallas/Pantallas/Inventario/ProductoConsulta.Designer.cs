@@ -32,6 +32,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbGananciaAproximadaVariable = new System.Windows.Forms.Label();
+            this.lbGananciaAproximadaTitulo = new System.Windows.Forms.Label();
+            this.lbCapitalInvertidoVariable = new System.Windows.Forms.Label();
+            this.lbCapitalInvertidoTitulo = new System.Windows.Forms.Label();
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -100,10 +104,6 @@
             this.lbProductosAgotados = new System.Windows.Forms.Label();
             this.lbClaveSeguridad = new System.Windows.Forms.Label();
             this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
-            this.lbCapitalInvertidoTitulo = new System.Windows.Forms.Label();
-            this.lbCapitalInvertidoVariable = new System.Windows.Forms.Label();
-            this.lbGananciaAproximadaTitulo = new System.Windows.Forms.Label();
-            this.lbGananciaAproximadaVariable = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel2.SuspendLayout();
@@ -132,6 +132,50 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1242, 38);
             this.panel1.TabIndex = 4;
+            // 
+            // lbGananciaAproximadaVariable
+            // 
+            this.lbGananciaAproximadaVariable.AutoSize = true;
+            this.lbGananciaAproximadaVariable.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbGananciaAproximadaVariable.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbGananciaAproximadaVariable.Location = new System.Drawing.Point(985, 9);
+            this.lbGananciaAproximadaVariable.Name = "lbGananciaAproximadaVariable";
+            this.lbGananciaAproximadaVariable.Size = new System.Drawing.Size(18, 20);
+            this.lbGananciaAproximadaVariable.TabIndex = 19;
+            this.lbGananciaAproximadaVariable.Text = "0";
+            // 
+            // lbGananciaAproximadaTitulo
+            // 
+            this.lbGananciaAproximadaTitulo.AutoSize = true;
+            this.lbGananciaAproximadaTitulo.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbGananciaAproximadaTitulo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbGananciaAproximadaTitulo.Location = new System.Drawing.Point(800, 9);
+            this.lbGananciaAproximadaTitulo.Name = "lbGananciaAproximadaTitulo";
+            this.lbGananciaAproximadaTitulo.Size = new System.Drawing.Size(179, 20);
+            this.lbGananciaAproximadaTitulo.TabIndex = 18;
+            this.lbGananciaAproximadaTitulo.Text = "Ganancia Aproximada:";
+            // 
+            // lbCapitalInvertidoVariable
+            // 
+            this.lbCapitalInvertidoVariable.AutoSize = true;
+            this.lbCapitalInvertidoVariable.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCapitalInvertidoVariable.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbCapitalInvertidoVariable.Location = new System.Drawing.Point(573, 9);
+            this.lbCapitalInvertidoVariable.Name = "lbCapitalInvertidoVariable";
+            this.lbCapitalInvertidoVariable.Size = new System.Drawing.Size(18, 20);
+            this.lbCapitalInvertidoVariable.TabIndex = 17;
+            this.lbCapitalInvertidoVariable.Text = "0";
+            // 
+            // lbCapitalInvertidoTitulo
+            // 
+            this.lbCapitalInvertidoTitulo.AutoSize = true;
+            this.lbCapitalInvertidoTitulo.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCapitalInvertidoTitulo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbCapitalInvertidoTitulo.Location = new System.Drawing.Point(426, 9);
+            this.lbCapitalInvertidoTitulo.Name = "lbCapitalInvertidoTitulo";
+            this.lbCapitalInvertidoTitulo.Size = new System.Drawing.Size(141, 20);
+            this.lbCapitalInvertidoTitulo.TabIndex = 16;
+            this.lbCapitalInvertidoTitulo.Text = "Capital Invertido:";
             // 
             // PCerrar
             // 
@@ -908,6 +952,7 @@
             this.label6.Size = new System.Drawing.Size(166, 20);
             this.label6.TabIndex = 60;
             this.label6.Text = "Productos con Oferta:";
+            this.label6.Visible = false;
             // 
             // label7
             // 
@@ -992,50 +1037,6 @@
             this.txtClaveSeguridad.Size = new System.Drawing.Size(226, 27);
             this.txtClaveSeguridad.TabIndex = 73;
             this.txtClaveSeguridad.Visible = false;
-            // 
-            // lbCapitalInvertidoTitulo
-            // 
-            this.lbCapitalInvertidoTitulo.AutoSize = true;
-            this.lbCapitalInvertidoTitulo.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCapitalInvertidoTitulo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbCapitalInvertidoTitulo.Location = new System.Drawing.Point(426, 9);
-            this.lbCapitalInvertidoTitulo.Name = "lbCapitalInvertidoTitulo";
-            this.lbCapitalInvertidoTitulo.Size = new System.Drawing.Size(141, 20);
-            this.lbCapitalInvertidoTitulo.TabIndex = 16;
-            this.lbCapitalInvertidoTitulo.Text = "Capital Invertido:";
-            // 
-            // lbCapitalInvertidoVariable
-            // 
-            this.lbCapitalInvertidoVariable.AutoSize = true;
-            this.lbCapitalInvertidoVariable.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCapitalInvertidoVariable.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbCapitalInvertidoVariable.Location = new System.Drawing.Point(573, 9);
-            this.lbCapitalInvertidoVariable.Name = "lbCapitalInvertidoVariable";
-            this.lbCapitalInvertidoVariable.Size = new System.Drawing.Size(18, 20);
-            this.lbCapitalInvertidoVariable.TabIndex = 17;
-            this.lbCapitalInvertidoVariable.Text = "0";
-            // 
-            // lbGananciaAproximadaTitulo
-            // 
-            this.lbGananciaAproximadaTitulo.AutoSize = true;
-            this.lbGananciaAproximadaTitulo.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbGananciaAproximadaTitulo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbGananciaAproximadaTitulo.Location = new System.Drawing.Point(800, 9);
-            this.lbGananciaAproximadaTitulo.Name = "lbGananciaAproximadaTitulo";
-            this.lbGananciaAproximadaTitulo.Size = new System.Drawing.Size(179, 20);
-            this.lbGananciaAproximadaTitulo.TabIndex = 18;
-            this.lbGananciaAproximadaTitulo.Text = "Ganancia Aproximada:";
-            // 
-            // lbGananciaAproximadaVariable
-            // 
-            this.lbGananciaAproximadaVariable.AutoSize = true;
-            this.lbGananciaAproximadaVariable.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbGananciaAproximadaVariable.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbGananciaAproximadaVariable.Location = new System.Drawing.Point(985, 9);
-            this.lbGananciaAproximadaVariable.Name = "lbGananciaAproximadaVariable";
-            this.lbGananciaAproximadaVariable.Size = new System.Drawing.Size(18, 20);
-            this.lbGananciaAproximadaVariable.TabIndex = 19;
-            this.lbGananciaAproximadaVariable.Text = "0";
             // 
             // ProductoConsulta
             // 

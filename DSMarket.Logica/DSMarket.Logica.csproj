@@ -63,6 +63,7 @@
     <Compile Include="Comunes\ProcesarInformacionDataReporte606.cs" />
     <Compile Include="Comunes\ProcesarInformacionModificarConfiguracionGeneral.cs" />
     <Compile Include="Comunes\ProcesarInformacionReporte608.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\Configuracion\ProcesarInformacionCamposEspeciales.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionBancos.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionPorcientoComision.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionPorcientoRetencion.cs" />
@@ -159,6 +160,7 @@
     <Compile Include="Entidades\EntidadesInventario\ETipoProducto.cs" />
     <Compile Include="Entidades\EntidadesInventario\ETipoSuplidores.cs" />
     <Compile Include="Entidades\EntidadesInventario\EUnidadMedida.cs" />
+    <Compile Include="Entidades\EntidadesInventario\EValidaReferenciaProducto.cs" />
     <Compile Include="Entidades\EntidadesListas\EAceptaMovimientoCuentasCOntables.cs" />
     <Compile Include="Entidades\EntidadesListas\ECantidadDias.cs" />
     <Compile Include="Entidades\EntidadesListas\ECapacidadArticulos.cs" />

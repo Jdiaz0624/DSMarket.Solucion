@@ -1118,7 +1118,7 @@
             this.txtNombrePaciente.Location = new System.Drawing.Point(129, 108);
             this.txtNombrePaciente.Name = "txtNombrePaciente";
             this.txtNombrePaciente.Size = new System.Drawing.Size(335, 27);
-            this.txtNombrePaciente.TabIndex = 11;
+            this.txtNombrePaciente.TabIndex = 0;
             // 
             // ddlTipoFacturacion
             // 

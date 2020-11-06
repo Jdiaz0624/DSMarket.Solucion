@@ -33,7 +33,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
     #endregion
 		
 		public BDConexionInventarioDataContext() : 
-				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString4, mappingSource)
+				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -345,6 +345,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idProducto, numeroConector, descripcion, codigoBarra, referencia, fechaDesde, fechaHasta, idTipoProducto, idCategoria, idUnidadMedida, idMarca, idModelo, idColor, idCapacidad, idCondicion, tieneOferta, estatusProducto, numeroSeguimiento, numeroPagina, numeroRegistros);
 			return ((ISingleResult<SP_BUSCA_PRODUCTOResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Inventario.SP_VALIDAR_REFERENCIA_PRODUCTO")]
+		public ISingleResult<SP_VALIDAR_REFERENCIA_PRODUCTOResult> SP_VALIDAR_REFERENCIA_PRODUCTO([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Referencia", DbType="VarChar(100)")] string referencia)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), referencia);
+			return ((ISingleResult<SP_VALIDAR_REFERENCIA_PRODUCTOResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -9451,6 +9458,32 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._Comentario != value))
 				{
 					this._Comentario = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_VALIDAR_REFERENCIA_PRODUCTOResult
+	{
+		
+		private System.Nullable<int> _Total;
+		
+		public SP_VALIDAR_REFERENCIA_PRODUCTOResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total", DbType="Int")]
+		public System.Nullable<int> Total
+		{
+			get
+			{
+				return this._Total;
+			}
+			set
+			{
+				if ((this._Total != value))
+				{
+					this._Total = value;
 				}
 			}
 		}

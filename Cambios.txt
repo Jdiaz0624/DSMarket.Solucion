@@ -65,3 +65,15 @@ IF(@Accion='UPDATE')
 							WHERE IdCampoEspecial = @IdCampoEspecial
 END
 SELECT * FROM @ITEMS
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+CREATE PROCEDURE [Inventario].[SP_VALIDAR_REFERENCIA_PRODUCTO]
+@Referencia VARCHAR(100) = NULL
+
+AS
+
+SELECT COUNT(*) as Total FROM [Inventario].[Producto] PRO
+WHERE PRO.Referencia = ISNULL(@Referencia,PRO.Referencia)
+AND PRO.EstatusProducto = 0

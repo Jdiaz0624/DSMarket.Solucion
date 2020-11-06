@@ -34,6 +34,10 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnMostrarRegistro = new System.Windows.Forms.Button();
+            this.panelReferencia = new System.Windows.Forms.Panel();
+            this.lbValidarreferencia = new System.Windows.Forms.Label();
+            this.cbLimpiarPantalla = new System.Windows.Forms.CheckBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -107,18 +111,14 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.cbLimpiarPantalla = new System.Windows.Forms.CheckBox();
-            this.panelReferencia = new System.Windows.Forms.Panel();
-            this.lbValidarreferencia = new System.Windows.Forms.Label();
-            this.btnMostrarRegistro = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.panelReferencia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPorcientoDescuento)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.panelReferencia.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -242,6 +242,54 @@
             this.groupBox1.Text = "Datos del Producto";
             this.toolTip1.SetToolTip(this.groupBox1, "Buscar Foto del Articulo");
             this.groupBox1.Enter += new System.EventHandler(this.GroupBox1_Enter);
+            // 
+            // btnMostrarRegistro
+            // 
+            this.btnMostrarRegistro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMostrarRegistro.Enabled = false;
+            this.btnMostrarRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMostrarRegistro.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
+            this.btnMostrarRegistro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMostrarRegistro.Location = new System.Drawing.Point(1042, 438);
+            this.btnMostrarRegistro.Name = "btnMostrarRegistro";
+            this.btnMostrarRegistro.Size = new System.Drawing.Size(247, 29);
+            this.btnMostrarRegistro.TabIndex = 74;
+            this.btnMostrarRegistro.Text = "Mostrar Registro";
+            this.toolTip1.SetToolTip(this.btnMostrarRegistro, "Buscar Cliente mediante el codigo");
+            this.btnMostrarRegistro.UseVisualStyleBackColor = true;
+            this.btnMostrarRegistro.Click += new System.EventHandler(this.BtnMostrarRegistro_Click);
+            // 
+            // panelReferencia
+            // 
+            this.panelReferencia.BackColor = System.Drawing.Color.DarkGreen;
+            this.panelReferencia.Controls.Add(this.lbValidarreferencia);
+            this.panelReferencia.Location = new System.Drawing.Point(1042, 379);
+            this.panelReferencia.Name = "panelReferencia";
+            this.panelReferencia.Size = new System.Drawing.Size(247, 53);
+            this.panelReferencia.TabIndex = 73;
+            // 
+            // lbValidarreferencia
+            // 
+            this.lbValidarreferencia.AutoSize = true;
+            this.lbValidarreferencia.ForeColor = System.Drawing.SystemColors.Control;
+            this.lbValidarreferencia.Location = new System.Drawing.Point(29, 17);
+            this.lbValidarreferencia.Name = "lbValidarreferencia";
+            this.lbValidarreferencia.Size = new System.Drawing.Size(193, 21);
+            this.lbValidarreferencia.TabIndex = 74;
+            this.lbValidarreferencia.Text = "Registro no Encontrado";
+            // 
+            // cbLimpiarPantalla
+            // 
+            this.cbLimpiarPantalla.AutoSize = true;
+            this.cbLimpiarPantalla.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbLimpiarPantalla.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbLimpiarPantalla.Location = new System.Drawing.Point(151, 431);
+            this.cbLimpiarPantalla.Name = "cbLimpiarPantalla";
+            this.cbLimpiarPantalla.Size = new System.Drawing.Size(177, 25);
+            this.cbLimpiarPantalla.TabIndex = 72;
+            this.cbLimpiarPantalla.Text = "No Limpiar Pantalla";
+            this.toolTip1.SetToolTip(this.cbLimpiarPantalla, "No Limpiar Pantalla ");
+            this.cbLimpiarPantalla.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
@@ -784,6 +832,7 @@
             this.txtReferencia.Name = "txtReferencia";
             this.txtReferencia.Size = new System.Drawing.Size(250, 27);
             this.txtReferencia.TabIndex = 27;
+            this.txtReferencia.TextChanged += new System.EventHandler(this.TxtReferencia_TextChanged);
             this.txtReferencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtReferencia_KeyPress);
             // 
             // txtCodigoBarra
@@ -1046,53 +1095,6 @@
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
             // 
-            // cbLimpiarPantalla
-            // 
-            this.cbLimpiarPantalla.AutoSize = true;
-            this.cbLimpiarPantalla.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbLimpiarPantalla.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbLimpiarPantalla.Location = new System.Drawing.Point(151, 431);
-            this.cbLimpiarPantalla.Name = "cbLimpiarPantalla";
-            this.cbLimpiarPantalla.Size = new System.Drawing.Size(177, 25);
-            this.cbLimpiarPantalla.TabIndex = 72;
-            this.cbLimpiarPantalla.Text = "No Limpiar Pantalla";
-            this.toolTip1.SetToolTip(this.cbLimpiarPantalla, "No Limpiar Pantalla ");
-            this.cbLimpiarPantalla.UseVisualStyleBackColor = true;
-            // 
-            // panelReferencia
-            // 
-            this.panelReferencia.BackColor = System.Drawing.Color.DarkGreen;
-            this.panelReferencia.Controls.Add(this.lbValidarreferencia);
-            this.panelReferencia.Location = new System.Drawing.Point(1042, 379);
-            this.panelReferencia.Name = "panelReferencia";
-            this.panelReferencia.Size = new System.Drawing.Size(247, 53);
-            this.panelReferencia.TabIndex = 73;
-            // 
-            // lbValidarreferencia
-            // 
-            this.lbValidarreferencia.AutoSize = true;
-            this.lbValidarreferencia.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbValidarreferencia.Location = new System.Drawing.Point(29, 17);
-            this.lbValidarreferencia.Name = "lbValidarreferencia";
-            this.lbValidarreferencia.Size = new System.Drawing.Size(193, 21);
-            this.lbValidarreferencia.TabIndex = 74;
-            this.lbValidarreferencia.Text = "Registro no Encontrado";
-            // 
-            // btnMostrarRegistro
-            // 
-            this.btnMostrarRegistro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMostrarRegistro.Enabled = false;
-            this.btnMostrarRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMostrarRegistro.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
-            this.btnMostrarRegistro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMostrarRegistro.Location = new System.Drawing.Point(1042, 438);
-            this.btnMostrarRegistro.Name = "btnMostrarRegistro";
-            this.btnMostrarRegistro.Size = new System.Drawing.Size(247, 29);
-            this.btnMostrarRegistro.TabIndex = 74;
-            this.btnMostrarRegistro.Text = "Mostrar Registro";
-            this.toolTip1.SetToolTip(this.btnMostrarRegistro, "Buscar Cliente mediante el codigo");
-            this.btnMostrarRegistro.UseVisualStyleBackColor = true;
-            // 
             // MantenimientoProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1113,12 +1115,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panelReferencia.ResumeLayout(false);
+            this.panelReferencia.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPorcientoDescuento)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.panelReferencia.ResumeLayout(false);
-            this.panelReferencia.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
