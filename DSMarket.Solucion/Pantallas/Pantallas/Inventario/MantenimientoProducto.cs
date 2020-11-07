@@ -800,7 +800,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             }
             else
             {
-                if (VariablesGlobales.ValidarCampoEspecialProductoObligatorio == true) {
+                int TipoProducto = Convert.ToInt32(ddlSeleccionarTipoProducto.SelectedValue);
+                if (VariablesGlobales.ValidarCampoEspecialProductoObligatorio == true && TipoProducto == 1) {
                     if (string.IsNullOrEmpty(txtReferencia.Text.Trim()))
                     {
                         MessageBox.Show("El campo " + lbReferencia.Text + " no puede estar vacio, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
