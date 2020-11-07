@@ -1934,6 +1934,19 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void Facturacion_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+            VariablesGlobales.ValidarVentasCredito = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(7);
+            if (VariablesGlobales.ValidarVentasCredito == true) {
+                label22.Visible = true;
+                ddlTipoVenta.Visible = true;
+                lbCantidadDias.Visible = false;
+                ddlCantidadDias.Visible = false;
+            }
+            else {
+                label22.Visible = false;
+                ddlTipoVenta.Visible = false;
+                lbCantidadDias.Visible = false;
+                ddlCantidadDias.Visible = false;
+            }
             
             MostrarComprobantesFiscales();
             
@@ -2154,6 +2167,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             btnRegresar.Visible = false;
             DesbloquearControles();
             LimpiarControles();
+            txtCodigoCliente.Enabled = true;
+            btnAgregarAlmacen.Enabled = true;
+            ddlTipoFacturacion.Enabled = true;
+            txtNombrePaciente.Enabled = true;
+            txtTelefono.Enabled = true;
+            txtEmail.Enabled = true;
+            txtNoCotizacion.Enabled = true;
+            ddlTipoIdentificacion.Enabled = true;
+            txtIdentificacion.Enabled = true;
+            txtDireccion.Enabled = true;
+            txtComentario.Enabled = true;
         }
 
         private void btnAgregarAlmacen_Click(object sender, EventArgs e)

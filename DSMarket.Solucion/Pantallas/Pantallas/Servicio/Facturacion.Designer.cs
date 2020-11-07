@@ -498,7 +498,6 @@
             this.ddlCantidadDias.Name = "ddlCantidadDias";
             this.ddlCantidadDias.Size = new System.Drawing.Size(139, 28);
             this.ddlCantidadDias.TabIndex = 50;
-            this.ddlCantidadDias.Visible = false;
             // 
             // rbFacturar
             // 
@@ -524,7 +523,6 @@
             this.lbCantidadDias.Size = new System.Drawing.Size(87, 20);
             this.lbCantidadDias.TabIndex = 51;
             this.lbCantidadDias.Text = "Cant. Dias";
-            this.lbCantidadDias.Visible = false;
             // 
             // ddlTipoVenta
             // 
@@ -537,7 +535,6 @@
             this.ddlTipoVenta.Name = "ddlTipoVenta";
             this.ddlTipoVenta.Size = new System.Drawing.Size(127, 28);
             this.ddlTipoVenta.TabIndex = 29;
-            this.ddlTipoVenta.Visible = false;
             this.ddlTipoVenta.SelectedIndexChanged += new System.EventHandler(this.ddlTipoVenta_SelectedIndexChanged);
             // 
             // label22
@@ -548,7 +545,6 @@
             this.label22.Size = new System.Drawing.Size(112, 20);
             this.label22.TabIndex = 49;
             this.label22.Text = "Tipo de Venta";
-            this.label22.Visible = false;
             // 
             // txtCambio
             // 
@@ -1096,7 +1092,7 @@
             this.btnAgregarAlmacen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregarAlmacen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAgregarAlmacen.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
-            this.btnAgregarAlmacen.Location = new System.Drawing.Point(470, 54);
+            this.btnAgregarAlmacen.Location = new System.Drawing.Point(468, 48);
             this.btnAgregarAlmacen.Name = "btnAgregarAlmacen";
             this.btnAgregarAlmacen.Size = new System.Drawing.Size(41, 29);
             this.btnAgregarAlmacen.TabIndex = 16;

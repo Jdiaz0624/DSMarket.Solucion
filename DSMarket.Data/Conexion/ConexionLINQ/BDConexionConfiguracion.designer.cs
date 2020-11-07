@@ -513,6 +513,20 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idCampoEspecial, nombre, longitudCampo, estatus, accion);
 			return ((ISingleResult<SP_MODIFICAR_CAMPOS_ESPECIALESResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Configuracion.SP_BUSCA_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTO")]
+		public ISingleResult<SP_BUSCA_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTOResult> SP_BUSCA_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTO([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdPorcientoDescuento", DbType="Int")] System.Nullable<int> idPorcientoDescuento)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idPorcientoDescuento);
+			return ((ISingleResult<SP_BUSCA_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTOResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Configuracion.SP_MODIFICAR_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTO")]
+		public ISingleResult<SP_MODIFICAR_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTOResult> SP_MODIFICAR_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTO([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdPorcientoDescuento", DbType="Int")] System.Nullable<int> idPorcientoDescuento, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PorcientoDescuento", DbType="Decimal(20,2)")] System.Nullable<decimal> porcientoDescuento, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idPorcientoDescuento, porcientoDescuento, accion);
+			return ((ISingleResult<SP_MODIFICAR_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTOResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_BUSCA_LISTASResult
@@ -7720,6 +7734,94 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._Estatus != value))
 				{
 					this._Estatus = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCA_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTOResult
+	{
+		
+		private int _IdPorcientoDescuento;
+		
+		private System.Nullable<decimal> _PorcientoDescuento;
+		
+		public SP_BUSCA_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTOResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdPorcientoDescuento", DbType="Int NOT NULL")]
+		public int IdPorcientoDescuento
+		{
+			get
+			{
+				return this._IdPorcientoDescuento;
+			}
+			set
+			{
+				if ((this._IdPorcientoDescuento != value))
+				{
+					this._IdPorcientoDescuento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorcientoDescuento", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> PorcientoDescuento
+		{
+			get
+			{
+				return this._PorcientoDescuento;
+			}
+			set
+			{
+				if ((this._PorcientoDescuento != value))
+				{
+					this._PorcientoDescuento = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_MODIFICAR_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTOResult
+	{
+		
+		private System.Nullable<int> _IdPorcientoDescuento;
+		
+		private System.Nullable<decimal> _PorcientoDescuento;
+		
+		public SP_MODIFICAR_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTOResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdPorcientoDescuento", DbType="Int")]
+		public System.Nullable<int> IdPorcientoDescuento
+		{
+			get
+			{
+				return this._IdPorcientoDescuento;
+			}
+			set
+			{
+				if ((this._IdPorcientoDescuento != value))
+				{
+					this._IdPorcientoDescuento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorcientoDescuento", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> PorcientoDescuento
+		{
+			get
+			{
+				return this._PorcientoDescuento;
+			}
+			set
+			{
+				if ((this._PorcientoDescuento != value))
+				{
+					this._PorcientoDescuento = value;
 				}
 			}
 		}

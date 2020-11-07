@@ -259,6 +259,12 @@
     <Compile Include="Pantallas\Pantallas\Configuracion\PoliticasEmpresa.Designer.cs">
       <DependentUpon>PoliticasEmpresa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\PorcientoDescuentoProductoPorDefecto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\PorcientoDescuentoProductoPorDefecto.Designer.cs">
+      <DependentUpon>PorcientoDescuentoProductoPorDefecto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Configuracion\Reportes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -794,6 +800,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\PoliticasEmpresa.resx">
       <DependentUpon>PoliticasEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\PorcientoDescuentoProductoPorDefecto.resx">
+      <DependentUpon>PorcientoDescuentoProductoPorDefecto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\Reportes.resx">
       <DependentUpon>Reportes.cs</DependentUpon>

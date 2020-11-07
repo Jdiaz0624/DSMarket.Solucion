@@ -92,5 +92,11 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
             DSMarket.Solucion.Pantallas.Pantallas.Configuracion.ModificarConfiguracionGeneral ConfiguracionGeneral = new Pantallas.Configuracion.ModificarConfiguracionGeneral();
             ConfiguracionGeneral.ShowDialog();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Configuracion.PorcientoDescuentoProductoPorDefecto Porciento = new Pantallas.Configuracion.PorcientoDescuentoProductoPorDefecto();
+            Porciento.ShowDialog();
+        }
     }
 }

@@ -29,5 +29,15 @@ namespace DSMarket.Logica.Comunes
             }
             return Resultado;
         }
+
+        public static decimal SacarPorcientoDescuentoProducto(int IdPorcientoDescuentoProducto) {
+            decimal PorcientoDescuento = 0;
+
+            var Buscar = ObjDataConfiguracion.Value.BuscaPorcientoDescuentoPorDefecto(IdPorcientoDescuentoProducto);
+            foreach (var n in Buscar) {
+                PorcientoDescuento = Convert.ToDecimal(n.PorcientoDescuento);
+            }
+            return PorcientoDescuento;
+        }
     }
 }

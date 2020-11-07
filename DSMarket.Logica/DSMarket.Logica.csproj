@@ -64,6 +64,7 @@
     <Compile Include="Comunes\ProcesarInformacionModificarConfiguracionGeneral.cs" />
     <Compile Include="Comunes\ProcesarInformacionReporte608.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Configuracion\ProcesarInformacionCamposEspeciales.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\Configuracion\ProcesarInformacionDescuentoPorDefecto.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionBancos.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionPorcientoComision.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionPorcientoRetencion.cs" />
@@ -119,6 +120,7 @@
     <Compile Include="Entidades\EntidadesConfiguracion\EModificarConfiguracionGeneral.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EModificarImpuestoVenta.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EObtenerPrimerDiaMes.cs" />
+    <Compile Include="Entidades\EntidadesConfiguracion\EPorcientoDescuentoPorDefecto.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EProcesarDatosReporteFinanciero.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EProcesarDatosReportesFinancieros.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EProcesarInformacion607.cs" />

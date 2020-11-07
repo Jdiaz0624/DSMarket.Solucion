@@ -43,6 +43,7 @@
             this.btnComprobantes = new System.Windows.Forms.Button();
             this.lbUsuario = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.gbOpciones.SuspendLayout();
@@ -84,6 +85,7 @@
             // 
             // gbOpciones
             // 
+            this.gbOpciones.Controls.Add(this.button4);
             this.gbOpciones.Controls.Add(this.btnRutaArchivotxt);
             this.gbOpciones.Controls.Add(this.btnComfiguracionGeneral);
             this.gbOpciones.Controls.Add(this.button3);
@@ -223,6 +225,20 @@
             this.lbUsuario.Text = "label1";
             this.lbUsuario.Visible = false;
             // 
+            // button4
+            // 
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(390, 153);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(186, 56);
+            this.button4.TabIndex = 15;
+            this.button4.Text = "% Descuento Productos";
+            this.toolTip1.SetToolTip(this.button4, "Moificar el % de Descuento por defecto de los productos");
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Configuracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -263,5 +279,6 @@
         private System.Windows.Forms.Button btnComfiguracionGeneral;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnRutaArchivotxt;
+        private System.Windows.Forms.Button button4;
     }
 }

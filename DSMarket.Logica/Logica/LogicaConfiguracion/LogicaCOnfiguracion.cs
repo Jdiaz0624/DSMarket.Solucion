@@ -1243,5 +1243,37 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             return Mantenimiento;
         }
         #endregion
+        #region MANTENIMIENTO DE PORCIENTO DE DESCUENTO POR DEFECTO
+        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EPorcientoDescuentoPorDefecto> BuscaPorcientoDescuentoPorDefecto(int? IdPorcientoDescuentoPorDefecto = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Buscar = (from n in ObjData.SP_BUSCA_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTO(IdPorcientoDescuentoPorDefecto)
+                          select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EPorcientoDescuentoPorDefecto
+                          {
+                              IdPorcientoDescuento=n.IdPorcientoDescuento,
+                              PorcientoDescuento=n.PorcientoDescuento
+                          }).ToList();
+            return Buscar;
+        }
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EPorcientoDescuentoPorDefecto ModificarPorcientoDefecto(DSMarket.Logica.Entidades.EntidadesConfiguracion.EPorcientoDescuentoPorDefecto Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesConfiguracion.EPorcientoDescuentoPorDefecto Modificar = null;
+
+            var PorcientoDescuento = ObjData.SP_MODIFICAR_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTO(
+                Item.IdPorcientoDescuento,
+                Item.PorcientoDescuento,
+                Accion);
+            if (PorcientoDescuento != null) {
+                Modificar = (from n in PorcientoDescuento
+                             select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EPorcientoDescuentoPorDefecto
+                             {
+                                 IdPorcientoDescuento=n.IdPorcientoDescuento,
+                                 PorcientoDescuento=n.PorcientoDescuento
+                             }).FirstOrDefault();
+            }
+            return Modificar;
+        }
+        #endregion
     }
 }

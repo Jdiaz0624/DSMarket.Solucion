@@ -497,6 +497,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         private void MantenimientoProducto_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+            txtPorcientoDescuento.Value = Convert.ToDecimal(DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.SacarPorcientoDescuentoProducto(1));
             RealizarValidaciones();
             
             MostrarImagenPorDefecto(pbFoto);

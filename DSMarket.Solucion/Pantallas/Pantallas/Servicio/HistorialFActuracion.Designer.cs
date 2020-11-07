@@ -68,6 +68,8 @@
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.dtListado = new System.Windows.Forms.DataGridView();
+            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtNumeroIdentificacion = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -95,8 +97,6 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.lbCantidadDisponible = new System.Windows.Forms.Label();
             this.txtCantidadDisponible = new System.Windows.Forms.TextBox();
-            this.dtListado = new System.Windows.Forms.DataGridView();
-            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel2.SuspendLayout();
@@ -104,9 +104,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -469,7 +469,7 @@
             this.btnProductos.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProductos.Image = global::DSMarket.Solucion.Properties.Resources.ojo;
             this.btnProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProductos.Location = new System.Drawing.Point(1056, 103);
+            this.btnProductos.Location = new System.Drawing.Point(1056, 123);
             this.btnProductos.Name = "btnProductos";
             this.btnProductos.Size = new System.Drawing.Size(210, 35);
             this.btnProductos.TabIndex = 71;
@@ -520,6 +520,7 @@
             this.cbFacturaPuntoVenta.Text = "Punto de Venta";
             this.toolTip1.SetToolTip(this.cbFacturaPuntoVenta, "Generar la factura en formato de punto de venta.");
             this.cbFacturaPuntoVenta.UseVisualStyleBackColor = true;
+            this.cbFacturaPuntoVenta.Visible = false;
             // 
             // btnModificarDiasGarantia
             // 
@@ -530,7 +531,7 @@
             this.btnModificarDiasGarantia.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificarDiasGarantia.Image = global::DSMarket.Solucion.Properties.Resources.Editar;
             this.btnModificarDiasGarantia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificarDiasGarantia.Location = new System.Drawing.Point(1056, 142);
+            this.btnModificarDiasGarantia.Location = new System.Drawing.Point(1056, 162);
             this.btnModificarDiasGarantia.Name = "btnModificarDiasGarantia";
             this.btnModificarDiasGarantia.Size = new System.Drawing.Size(210, 35);
             this.btnModificarDiasGarantia.TabIndex = 88;
@@ -626,6 +627,50 @@
             this.groupBox5.Size = new System.Drawing.Size(1253, 234);
             this.groupBox5.TabIndex = 20;
             this.groupBox5.TabStop = false;
+            // 
+            // dtListado
+            // 
+            this.dtListado.AllowUserToAddRows = false;
+            this.dtListado.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtListado.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Select});
+            this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtListado.EnableHeadersVisualStyles = false;
+            this.dtListado.Location = new System.Drawing.Point(3, 23);
+            this.dtListado.Name = "dtListado";
+            this.dtListado.ReadOnly = true;
+            this.dtListado.RowTemplate.Height = 24;
+            this.dtListado.Size = new System.Drawing.Size(1247, 208);
+            this.dtListado.TabIndex = 4;
+            this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
+            // 
+            // Select
+            // 
+            this.Select.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Select.HeaderText = "Select";
+            this.Select.Name = "Select";
+            this.Select.ReadOnly = true;
+            this.Select.Text = "Select";
+            this.Select.ToolTipText = "Select";
+            this.Select.UseColumnTextForButtonValue = true;
+            this.Select.Width = 59;
             // 
             // groupBox2
             // 
@@ -887,50 +932,6 @@
             this.txtCantidadDisponible.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCantidadDisponible.Visible = false;
             // 
-            // dtListado
-            // 
-            this.dtListado.AllowUserToAddRows = false;
-            this.dtListado.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dtListado.BackgroundColor = System.Drawing.Color.LightGray;
-            this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Select});
-            this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtListado.EnableHeadersVisualStyles = false;
-            this.dtListado.Location = new System.Drawing.Point(3, 23);
-            this.dtListado.Name = "dtListado";
-            this.dtListado.ReadOnly = true;
-            this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(1247, 208);
-            this.dtListado.TabIndex = 4;
-            this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
-            // 
-            // Select
-            // 
-            this.Select.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Select.HeaderText = "Select";
-            this.Select.Name = "Select";
-            this.Select.ReadOnly = true;
-            this.Select.Text = "Select";
-            this.Select.ToolTipText = "Select";
-            this.Select.UseColumnTextForButtonValue = true;
-            this.Select.Width = 59;
-            // 
             // HistorialFActuracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -986,10 +987,10 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
