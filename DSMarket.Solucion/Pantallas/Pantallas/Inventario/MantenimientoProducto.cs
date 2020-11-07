@@ -613,7 +613,40 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                     txtPrecioCompra.Text = "0";
                     txtPrecioVenta.Text = "0";
                     txtPrecioVenta.Enabled = true;
-                  
+
+                    lbUnidadMedida.Visible = false;
+                    ddlSeleccionarUnidadMedida.Visible = false;
+                    lbMarca.Visible = false;
+                    ddlSeleccionarMarca.Visible = false;
+                    lbModelo.Visible = false;
+                    ddlSeleccionarModelo.Visible = false;
+                    lbTipoSuplidor.Visible = false;
+                    ddlSeleccionarTipoSuplidor.Visible = false;
+                    lbSuplidor.Visible = false;
+                    ddlSeleccionarSuplidor.Visible = false;
+                    label2.Visible = false;
+                    ddlSeleccionarColor.Visible = false;
+                    label3.Visible = false;
+                    ddlSeleccionarCapacidad.Visible = false;
+                    lbCodigoBarra.Visible = false;
+                    txtCodigoBarra.Visible = false;
+                    lbReferencia.Visible = false;
+                    txtReferencia.Visible = false;
+                    lbPrecioCOmpra.Visible = false;
+                    txtPrecioCompra.Visible = false;
+                    lbStock.Visible = false;
+                    txtStock.Visible = false;
+                    lbStockMinimo.Visible = false;
+                    txtStockMinimo.Visible = false;
+                    label4.Visible = false;
+                    ddlSeleccionarCondicion.Visible = false;
+                    label1.Visible = false;
+                    txtNumeroSeguimiento.Visible = false;
+                    cbAplicaDescuento.Visible = false;
+                    cbacumulativo.Visible = false;
+                    txtdescripcion.Enabled = true;
+
+
                 }
                 else
                 {
@@ -628,6 +661,39 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                     txtPrecioCompra.Text = string.Empty;
                     txtPrecioVenta.Text = string.Empty;
                     txtPrecioVenta.Enabled = true;
+
+
+                    lbUnidadMedida.Visible = true;
+                    ddlSeleccionarUnidadMedida.Visible = true;
+                    lbMarca.Visible = true;
+                    ddlSeleccionarMarca.Visible = true;
+                    lbModelo.Visible = true;
+                    ddlSeleccionarModelo.Visible = true;
+                    lbTipoSuplidor.Visible = true;
+                    ddlSeleccionarTipoSuplidor.Visible = true;
+                    lbSuplidor.Visible = true;
+                    ddlSeleccionarSuplidor.Visible = true;
+                    label2.Visible = true;
+                    ddlSeleccionarColor.Visible = true;
+                    label3.Visible = true;
+                    ddlSeleccionarCapacidad.Visible = true;
+                    lbCodigoBarra.Visible = true;
+                    txtCodigoBarra.Visible = true;
+                    lbReferencia.Visible = true;
+                    txtReferencia.Visible = true;
+                    lbPrecioCOmpra.Visible = true;
+                    txtPrecioCompra.Visible = true;
+                    lbStock.Visible = true;
+                    txtStock.Visible = true;
+                    lbStockMinimo.Visible = true;
+                    txtStockMinimo.Visible = true;
+                    label4.Visible = true;
+                    ddlSeleccionarCondicion.Visible = true;
+                    label1.Visible = true;
+                    txtNumeroSeguimiento.Visible = true;
+                    cbAplicaDescuento.Visible = true;
+                    cbacumulativo.Visible = true;
+                    txtdescripcion.Enabled = false;
                 }
             }
             catch (Exception) { }

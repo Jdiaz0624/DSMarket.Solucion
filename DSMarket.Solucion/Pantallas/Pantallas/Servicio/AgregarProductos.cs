@@ -240,6 +240,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.dtSeleccionarproducto.Columns["IdCondicion"].Visible = false;
             this.dtSeleccionarproducto.Columns["AceptaOferta"].Visible = false;
             this.dtSeleccionarproducto.Columns["AplicaParaImpuesto0"].Visible = false;
+            this.dtSeleccionarproducto.Columns["Marca"].Visible = false;
+            this.dtSeleccionarproducto.Columns["Modelo"].Visible = false;
+            this.dtSeleccionarproducto.Columns["Color"].Visible = false;
+            this.dtSeleccionarproducto.Columns["Capacidad"].Visible = false;
+            this.dtSeleccionarproducto.Columns["Condicion"].Visible = false;
 
         }
         #endregion

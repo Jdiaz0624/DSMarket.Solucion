@@ -31,28 +31,74 @@
             this.components = new System.ComponentModel.Container();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnRestablecer = new System.Windows.Forms.Button();
+            this.btnValidar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.txtPorciento = new System.Windows.Forms.TextBox();
             this.PorcientoDescuento = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnRestablecer = new System.Windows.Forms.Button();
             this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
-            this.btnValidar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtPorciento = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPorciento)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Image = global::DSMarket.Solucion.Properties.Resources.Guardar;
+            this.btnGuardar.Location = new System.Drawing.Point(75, 59);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(399, 41);
+            this.btnGuardar.TabIndex = 111;
+            this.toolTip1.SetToolTip(this.btnGuardar, "Guardar");
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // btnRestablecer
+            // 
+            this.btnRestablecer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestablecer.FlatAppearance.BorderSize = 0;
+            this.btnRestablecer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRestablecer.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestablecer.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
+            this.btnRestablecer.Location = new System.Drawing.Point(480, 26);
+            this.btnRestablecer.Name = "btnRestablecer";
+            this.btnRestablecer.Size = new System.Drawing.Size(42, 41);
+            this.btnRestablecer.TabIndex = 110;
+            this.toolTip1.SetToolTip(this.btnRestablecer, "Restablecer Pantalla");
+            this.btnRestablecer.UseVisualStyleBackColor = true;
+            this.btnRestablecer.Visible = false;
+            // 
+            // btnValidar
+            // 
+            this.btnValidar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnValidar.FlatAppearance.BorderSize = 0;
+            this.btnValidar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnValidar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnValidar.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
+            this.btnValidar.Location = new System.Drawing.Point(432, 26);
+            this.btnValidar.Name = "btnValidar";
+            this.btnValidar.Size = new System.Drawing.Size(42, 41);
+            this.btnValidar.TabIndex = 109;
+            this.toolTip1.SetToolTip(this.btnValidar, "Validar Clave de Seguridad");
+            this.btnValidar.UseVisualStyleBackColor = true;
+            this.btnValidar.Click += new System.EventHandler(this.btnValidar_Click);
             // 
             // panel1
             // 
@@ -91,8 +137,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnGuardar);
             this.groupBox2.Controls.Add(this.txtPorciento);
+            this.groupBox2.Controls.Add(this.btnGuardar);
             this.groupBox2.Controls.Add(this.PorcientoDescuento);
             this.groupBox2.Enabled = false;
             this.groupBox2.Location = new System.Drawing.Point(12, 133);
@@ -101,30 +147,6 @@
             this.groupBox2.TabIndex = 102;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos del Correo";
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardar.FlatAppearance.BorderSize = 0;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Image = global::DSMarket.Solucion.Properties.Resources.Guardar;
-            this.btnGuardar.Location = new System.Drawing.Point(75, 59);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(399, 41);
-            this.btnGuardar.TabIndex = 111;
-            this.toolTip1.SetToolTip(this.btnGuardar, "Guardar");
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // txtPorciento
-            // 
-            this.txtPorciento.Location = new System.Drawing.Point(116, 27);
-            this.txtPorciento.MaxLength = 100;
-            this.txtPorciento.Name = "txtPorciento";
-            this.txtPorciento.Size = new System.Drawing.Size(353, 26);
-            this.txtPorciento.TabIndex = 111;
-            this.txtPorciento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPorciento_KeyPress);
             // 
             // PorcientoDescuento
             // 
@@ -149,21 +171,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Clave de Seguridad";
             // 
-            // btnRestablecer
-            // 
-            this.btnRestablecer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestablecer.FlatAppearance.BorderSize = 0;
-            this.btnRestablecer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRestablecer.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRestablecer.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
-            this.btnRestablecer.Location = new System.Drawing.Point(480, 26);
-            this.btnRestablecer.Name = "btnRestablecer";
-            this.btnRestablecer.Size = new System.Drawing.Size(42, 41);
-            this.btnRestablecer.TabIndex = 110;
-            this.toolTip1.SetToolTip(this.btnRestablecer, "Restablecer Pantalla");
-            this.btnRestablecer.UseVisualStyleBackColor = true;
-            this.btnRestablecer.Visible = false;
-            // 
             // txtClaveSeguridad
             // 
             this.txtClaveSeguridad.Location = new System.Drawing.Point(157, 33);
@@ -172,21 +179,6 @@
             this.txtClaveSeguridad.PasswordChar = '•';
             this.txtClaveSeguridad.Size = new System.Drawing.Size(269, 26);
             this.txtClaveSeguridad.TabIndex = 107;
-            // 
-            // btnValidar
-            // 
-            this.btnValidar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnValidar.FlatAppearance.BorderSize = 0;
-            this.btnValidar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnValidar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnValidar.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
-            this.btnValidar.Location = new System.Drawing.Point(432, 26);
-            this.btnValidar.Name = "btnValidar";
-            this.btnValidar.Size = new System.Drawing.Size(42, 41);
-            this.btnValidar.TabIndex = 109;
-            this.toolTip1.SetToolTip(this.btnValidar, "Validar Clave de Seguridad");
-            this.btnValidar.UseVisualStyleBackColor = true;
-            this.btnValidar.Click += new System.EventHandler(this.btnValidar_Click);
             // 
             // label1
             // 
@@ -197,6 +189,16 @@
             this.label1.Size = new System.Drawing.Size(125, 20);
             this.label1.TabIndex = 108;
             this.label1.Text = "Clave Seguridad";
+            // 
+            // txtPorciento
+            // 
+            this.txtPorciento.BackColor = System.Drawing.Color.LightGray;
+            this.txtPorciento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtPorciento.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPorciento.Location = new System.Drawing.Point(102, 28);
+            this.txtPorciento.Name = "txtPorciento";
+            this.txtPorciento.Size = new System.Drawing.Size(372, 27);
+            this.txtPorciento.TabIndex = 113;
             // 
             // PorcientoDescuentoProductoPorDefecto
             // 
@@ -221,6 +223,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPorciento)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -234,12 +237,12 @@
         public System.Windows.Forms.Label lbTitulo;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.TextBox txtPorciento;
         private System.Windows.Forms.Label PorcientoDescuento;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnRestablecer;
         private System.Windows.Forms.TextBox txtClaveSeguridad;
         private System.Windows.Forms.Button btnValidar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown txtPorciento;
     }
 }

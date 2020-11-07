@@ -522,7 +522,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Configuracion.SP_MODIFICAR_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTO")]
-		public ISingleResult<SP_MODIFICAR_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTOResult> SP_MODIFICAR_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTO([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdPorcientoDescuento", DbType="Int")] System.Nullable<int> idPorcientoDescuento, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PorcientoDescuento", DbType="Decimal(20,2)")] System.Nullable<decimal> porcientoDescuento, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		public ISingleResult<SP_MODIFICAR_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTOResult> SP_MODIFICAR_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTO([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdPorcientoDescuento", DbType="Int")] System.Nullable<int> idPorcientoDescuento, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PorcientoDescuento", DbType="Int")] System.Nullable<int> porcientoDescuento, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idPorcientoDescuento, porcientoDescuento, accion);
 			return ((ISingleResult<SP_MODIFICAR_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTOResult>)(result.ReturnValue));
@@ -7744,7 +7744,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		
 		private int _IdPorcientoDescuento;
 		
-		private System.Nullable<decimal> _PorcientoDescuento;
+		private System.Nullable<int> _PorcientoDescuento;
 		
 		public SP_BUSCA_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTOResult()
 		{
@@ -7766,8 +7766,8 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorcientoDescuento", DbType="Decimal(20,2)")]
-		public System.Nullable<decimal> PorcientoDescuento
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorcientoDescuento", DbType="Int")]
+		public System.Nullable<int> PorcientoDescuento
 		{
 			get
 			{
@@ -7788,7 +7788,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		
 		private System.Nullable<int> _IdPorcientoDescuento;
 		
-		private System.Nullable<decimal> _PorcientoDescuento;
+		private System.Nullable<int> _PorcientoDescuento;
 		
 		public SP_MODIFICAR_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTOResult()
 		{
@@ -7810,8 +7810,8 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorcientoDescuento", DbType="Decimal(20,2)")]
-		public System.Nullable<decimal> PorcientoDescuento
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorcientoDescuento", DbType="Int")]
+		public System.Nullable<int> PorcientoDescuento
 		{
 			get
 			{

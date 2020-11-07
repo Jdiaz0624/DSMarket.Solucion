@@ -38,7 +38,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
                 MessageBox.Show("Favor ingresar el porciento de descuento", variablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else {
-                decimal PorcientoDescuento = Convert.ToDecimal(txtPorciento.Text);
+                int PorcientoDescuento = Convert.ToInt32(txtPorciento.Text);
                 if (PorcientoDescuento < 0 || PorcientoDescuento > 100)
                 {
                     MessageBox.Show("Parametro no valido, el porciento de descuento tiene que estar entre 0 y 100", variablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);

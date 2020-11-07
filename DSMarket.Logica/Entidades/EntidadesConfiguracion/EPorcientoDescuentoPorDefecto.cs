@@ -10,6 +10,6 @@ namespace DSMarket.Logica.Entidades.EntidadesConfiguracion
     {
         public int? IdPorcientoDescuento { get; set; }
 
-        public System.Nullable<decimal> PorcientoDescuento { get; set; }
+        public System.Nullable<int> PorcientoDescuento { get; set; }
     }
 }

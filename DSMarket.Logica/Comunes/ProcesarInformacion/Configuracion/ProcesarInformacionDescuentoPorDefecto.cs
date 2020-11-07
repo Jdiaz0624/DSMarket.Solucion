@@ -11,12 +11,12 @@ namespace DSMarket.Logica.Comunes.ProcesarInformacion.Configuracion
         readonly DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion ObjData = new Logica.LogicaConfiguracion.LogicaCOnfiguracion();
 
         private int IdPorcientoDescuentoProducto = 0;
-        private decimal PorcientoDescuentoProducto = 0;
+        private int PorcientoDescuentoProducto = 0;
         private string Accion = "";
 
         public ProcesarInformacionDescuentoPorDefecto(
             int IdPorcientoDescuentoProductoCON,
-        decimal PorcientoDescuentoProductoCON,
+        int PorcientoDescuentoProductoCON,
         string AccionCON)
         {
             IdPorcientoDescuentoProducto = IdPorcientoDescuentoProductoCON;

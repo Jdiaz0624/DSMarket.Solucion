@@ -1417,6 +1417,12 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.dtListado.Columns["IdCondicion"].Visible = false;
             this.dtListado.Columns["CapilalInvertido"].Visible = false;
             this.dtListado.Columns["GananciaAproximada"].Visible = false;
+            this.dtListado.Columns["Marca"].Visible = false;
+            this.dtListado.Columns["Modelo"].Visible = false;
+            this.dtListado.Columns["Color"].Visible = false;
+            this.dtListado.Columns["Capacidad"].Visible = false;
+            this.dtListado.Columns["Condicion"].Visible = false;
+
         }
         #endregion
         #region MOSTRAR LA IMAGEN POR DEFECTO

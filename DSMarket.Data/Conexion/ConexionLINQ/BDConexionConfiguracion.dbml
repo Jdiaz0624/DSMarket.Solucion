@@ -849,16 +849,16 @@
     <Parameter Name="IdPorcientoDescuento" Parameter="idPorcientoDescuento" Type="System.Int32" DbType="Int" />
     <ElementType Name="SP_BUSCA_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTOResult">
       <Column Name="IdPorcientoDescuento" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PorcientoDescuento" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="PorcientoDescuento" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="Configuracion.SP_MODIFICAR_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTO" Method="SP_MODIFICAR_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTO">
     <Parameter Name="IdPorcientoDescuento" Parameter="idPorcientoDescuento" Type="System.Int32" DbType="Int" />
-    <Parameter Name="PorcientoDescuento" Parameter="porcientoDescuento" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="PorcientoDescuento" Parameter="porcientoDescuento" Type="System.Int32" DbType="Int" />
     <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
     <ElementType Name="SP_MODIFICAR_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTOResult">
       <Column Name="IdPorcientoDescuento" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PorcientoDescuento" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="PorcientoDescuento" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
