@@ -414,38 +414,45 @@ namespace DSMarket.Logica.Logica.LogicaServicio
             }
             return Guardar;
         }
+        /// <summary>
+        /// Este metodo es para mostrar los productos agregados a la factura
+        /// </summary>
+        /// <param name="IdProducto"></param>
+        /// <param name="NumeroConector"></param>
+        /// <returns></returns>
         public List<DSMarket.Logica.Entidades.EntidadesServicio.EProductosAgregados> BuscapRoductosAgregados(decimal? IdProducto = null, decimal? NumeroConector = null) {
             ObjData.CommandTimeout = 999999999;
 
             var Listado = (from n in ObjData.SP_BUSCA_PRODUCTOS_AGREGADOS(IdProducto, NumeroConector)
                            select new DSMarket.Logica.Entidades.EntidadesServicio.EProductosAgregados
                            {
-                               NumeroConector = n.NumeroConector,
-                               IdTipoProducto = n.IdTipoProducto,
-                               DescripcionTipoProducto = n.DescripcionTipoProducto,
-                               IdCategoria = n.IdCategoria,
-                               Categoria = n.Categoria,
-                               DescripcionProducto = n.DescripcionProducto,
-                               Precio = n.Precio,
-                               Cantidad = n.Cantidad,
-                               DescuentoAplicado = n.DescuentoAplicado,
-                               Total = n.Total,
-                               DescripcionTipoProducto1 = n.DescripcionTipoProducto1,
-                               PorcientoDescuento = n.PorcientoDescuento,
-                               Acumulativo = n.Acumulativo,
-                               IdProducto = n.IdProducto,
-                               ConectorProducto = n.ConectorProducto,
-                               AplicaImpuesto = n.AplicaImpuesto,
-                               Impuesto = n.Impuesto,
-                               CantidadProductos = n.CantidadProductos,
-                               CantidadServicios = n.CantidadServicios,
-                               CantidadRegistros = n.CantidadRegistros,
-                               TotalDescuento = n.TotalDescuento,
-                               PorcientoImpuesto = n.PorcientoImpuesto,
-                               SubTotal = n.SubTotal,
-                               TotalImpuesto = n.TotalImpuesto,
-                               TotalGeneral = n.TotalGeneral,
-                               
+                              DescripcionProducto=n.DescripcionProducto,
+                               Referencia=n.Referencia,
+                               NumeroConector=n.NumeroConector,
+                               IdTipoProducto=n.IdTipoProducto,
+                               IdCategoria=n.IdCategoria,
+                               Categoria=n.Categoria,
+                               DescripcionTipoProducto=n.DescripcionTipoProducto,
+                               Precio=n.Precio,
+                               Cantidad=n.Cantidad,
+                               DescuentoAplicado=n.DescuentoAplicado,
+                               Total=n.Total,
+                               DescripcionTipoProducto1=n.DescripcionTipoProducto1,
+                               PorcientoDescuento=n.PorcientoDescuento,
+                               Acumulativo=n.Acumulativo,
+                               IdProducto=n.IdProducto,
+                               ConectorProducto=n.ConectorProducto,
+                               AplicaImpuesto=n.AplicaImpuesto,
+                               Impuesto=n.Impuesto,
+                               CantidadProductos=n.CantidadProductos,
+                               CantidadServicios=n.CantidadServicios,
+                               CantidadRegistros=n.CantidadRegistros,
+                               TotalDescuento=n.TotalDescuento,
+                               PorcientoImpuesto=n.PorcientoImpuesto,
+                               SubTotal=n.SubTotal,
+                               TotalImpuesto=n.TotalImpuesto,
+                               TotalGeneral=n.TotalGeneral
+
                            }).ToList();
             return Listado;
         }
