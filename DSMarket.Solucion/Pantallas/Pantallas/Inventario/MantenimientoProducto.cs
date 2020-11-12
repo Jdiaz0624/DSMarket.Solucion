@@ -439,6 +439,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                     if (cbLimpiarPantalla.Checked == true) {
                         txtReferencia.Text = string.Empty;
                         txtCodigoBarra.Text = string.Empty;
+                        GenerarConector();
                     }
                     else {
                         RestablecerPantalla();
