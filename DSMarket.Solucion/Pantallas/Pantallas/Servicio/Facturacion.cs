@@ -1931,10 +1931,51 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         }
         #endregion
 
+        #region FUNCION PARA EL DROP DEL TIPO DE PAGO
+        private void FuncionTipoPago() {
+            try
+            {
+                txtTotal.Text = VariablesGlobales.TotalPagarFacturacion.ToString("N2");
+                bool BloqueaMonto = false;
+                bool ImpuestoAdicional = false;
+                bool PorcentajeEntero = false;
+                decimal Valor = 0;
+                var TipoPago = ObjDataListas.Value.BuscaTipoPago(
+                Convert.ToDecimal(ddltIPago.SelectedValue));
+                foreach (var n in TipoPago)
+                {
+                    BloqueaMonto = Convert.ToBoolean(n.BloqueaMonto);
+                    ImpuestoAdicional = Convert.ToBoolean(n.ImpuestoAdicional);
+                    PorcentajeEntero = Convert.ToBoolean(n.PorcentajeEntero);
+                    Valor = Convert.ToDecimal(n.Valor);
+
+                    txtImpuestoAdicional.Text = Valor.ToString("N2");
+                }
+                if (BloqueaMonto == true)
+                {
+                    CalcularImpuestos();
+                    txtMontoPagar.Enabled = false;
+                    txtMontoPagar.Text = txtTotal.Text;
+                }
+                else
+                {
+                    CalcularImpuestos();
+                    txtMontoPagar.Enabled = true;
+                    txtMontoPagar.Text = string.Empty;
+                    txtMontoPagar.Text = "0";
+                }
+
+
+            }
+            catch (Exception) { }
+        }
+        #endregion
+
         private void Facturacion_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             VariablesGlobales.ValidarVentasCredito = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(7);
+            
             if (VariablesGlobales.ValidarVentasCredito == true) {
                 label22.Visible = true;
                 ddlTipoVenta.Visible = true;
@@ -2002,7 +2043,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             txtMontoPagar.Text = "0";
             CalcularCambio();
             ValidarConfiguracionGeneral();
-
+            FuncionTipoPago();
 
 
             cbAgregarCliente.Visible = false;
@@ -2325,38 +2366,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void ddltIPago_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try {
-                txtTotal.Text = VariablesGlobales.TotalPagarFacturacion.ToString("N2");
-                bool BloqueaMonto = false;
-                bool ImpuestoAdicional = false;
-                bool PorcentajeEntero = false;
-                decimal Valor = 0;
-                var TipoPago = ObjDataListas.Value.BuscaTipoPago(
-                Convert.ToDecimal(ddltIPago.SelectedValue));
-                foreach (var n in TipoPago) {
-                    BloqueaMonto = Convert.ToBoolean(n.BloqueaMonto);
-                    ImpuestoAdicional = Convert.ToBoolean(n.ImpuestoAdicional);
-                    PorcentajeEntero = Convert.ToBoolean(n.PorcentajeEntero);
-                    Valor = Convert.ToDecimal(n.Valor);
-
-                    txtImpuestoAdicional.Text = Valor.ToString("N2");
-                }
-                if (BloqueaMonto == true)
-                {
-                    CalcularImpuestos();
-                    txtMontoPagar.Enabled = false;
-                    txtMontoPagar.Text = txtTotal.Text;
-                }
-                else {
-                    CalcularImpuestos();
-                    txtMontoPagar.Enabled = true;
-                    txtMontoPagar.Text = string.Empty;
-                    txtMontoPagar.Text = "0";
-                }
-               
-
-            }
-            catch (Exception) { }
+            FuncionTipoPago();
         }
 
         private void cbEliminarfacturaMinimizada_CheckedChanged(object sender, EventArgs e)
