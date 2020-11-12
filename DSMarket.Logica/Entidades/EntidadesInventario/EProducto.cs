@@ -36,7 +36,9 @@ namespace DSMarket.Logica.Entidades.EntidadesInventario
 
         public string Producto {get;set;}
 
+        public string Referencia { get; set; }
         public string TipoProducto {get;set;}
+        
 
         public System.Nullable<decimal> IdCategoria {get;set;}
 
@@ -55,8 +57,6 @@ namespace DSMarket.Logica.Entidades.EntidadesInventario
         public string Suplidor {get;set;}
 
         public string CodigoBarra {get;set;}
-
-        public string Referencia {get;set;}
 
         public System.Nullable<decimal> PrecioCompra {get;set;}
 

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DSMarket" Class="BDConexionInventarioDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=172.26.24.199;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=DSMarket;Persist Security Info=True;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString4" Provider="System.Data.SqlClient" />
   <Function Name="Inventario.SP_BUSCA_TIPO_PRODUCTOS" Method="SP_BUSCA_TIPO_PRODUCTOS">
     <Parameter Name="IdTipoProducto" Parameter="idTipoProducto" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(100)" />
@@ -756,6 +756,12 @@
       <Column Name="Comentario" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Inventario.SP_VALIDAR_REFERENCIA_PRODUCTO" Method="SP_VALIDAR_REFERENCIA_PRODUCTO">
+    <Parameter Name="Referencia" Parameter="referencia" Type="System.String" DbType="VarChar(100)" />
+    <ElementType Name="SP_VALIDAR_REFERENCIA_PRODUCTOResult">
+      <Column Name="Total" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="Inventario.SP_BUSCA_PRODUCTO" Method="SP_BUSCA_PRODUCTO">
     <Parameter Name="IdProducto" Parameter="idProducto" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
@@ -792,6 +798,7 @@
       <Column Name="NumeroConector" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="IdTipoProducto" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="Producto" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Referencia" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="TipoProducto" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="IdCategoria" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="Categoria" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
@@ -802,7 +809,6 @@
       <Column Name="IdSuplidor" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="Suplidor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="CodigoBarra" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Referencia" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="PrecioCompra" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
       <Column Name="PrecioVenta" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
       <Column Name="Stock" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
@@ -835,12 +841,6 @@
       <Column Name="CapilalInvertido" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
       <Column Name="GananciaAproximada" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
       <Column Name="Comentario" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="Inventario.SP_VALIDAR_REFERENCIA_PRODUCTO" Method="SP_VALIDAR_REFERENCIA_PRODUCTO">
-    <Parameter Name="Referencia" Parameter="referencia" Type="System.String" DbType="VarChar(100)" />
-    <ElementType Name="SP_VALIDAR_REFERENCIA_PRODUCTOResult">
-      <Column Name="Total" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
