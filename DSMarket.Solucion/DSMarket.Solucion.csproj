@@ -149,9 +149,11 @@
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -414,6 +416,12 @@
     </Compile>
     <Compile Include="Pantallas\Pantallas\Empresa\TipoNominaMantenimiento.Designer.cs">
       <DependentUpon>TipoNominaMantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Graficos\CantidadMArcas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Graficos\CantidadMArcas.Designer.cs">
+      <DependentUpon>CantidadMArcas.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\AgregarOferta.cs">
       <SubType>Form</SubType>
@@ -878,6 +886,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\TipoNominaMantenimiento.resx">
       <DependentUpon>TipoNominaMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Graficos\CantidadMArcas.resx">
+      <DependentUpon>CantidadMArcas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\AgregarOferta.resx">
       <DependentUpon>AgregarOferta.cs</DependentUpon>
