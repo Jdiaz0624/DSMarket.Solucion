@@ -17,7 +17,7 @@ namespace DSMarket.Solucion
             try {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new Pantallas.Pantallas.Graficos.CantidadMArcas());
+                Application.Run(new Pantallas.Pantallas.Seguridad.Login());
             }
             catch (Exception) { } 
         }
