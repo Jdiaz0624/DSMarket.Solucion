@@ -34,6 +34,7 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.gbOpciones = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnPorcientoRetenciones = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
@@ -48,7 +49,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.gbOpciones.SuspendLayout();
@@ -101,6 +104,9 @@
             // 
             // gbOpciones
             // 
+            this.gbOpciones.Controls.Add(this.button8);
+            this.gbOpciones.Controls.Add(this.button7);
+            this.gbOpciones.Controls.Add(this.button5);
             this.gbOpciones.Controls.Add(this.button1);
             this.gbOpciones.Controls.Add(this.btnPorcientoRetenciones);
             this.gbOpciones.Controls.Add(this.button18);
@@ -118,10 +124,23 @@
             this.gbOpciones.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbOpciones.Location = new System.Drawing.Point(12, 50);
             this.gbOpciones.Name = "gbOpciones";
-            this.gbOpciones.Size = new System.Drawing.Size(776, 282);
+            this.gbOpciones.Size = new System.Drawing.Size(776, 339);
             this.gbOpciones.TabIndex = 14;
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Empresa - Seleccionar Opcion";
+            // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(198, 215);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(186, 56);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Citas";
+            this.toolTip1.SetToolTip(this.button1, "Citas");
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // btnPorcientoRetenciones
             // 
@@ -305,24 +324,53 @@
             this.btnClientes.UseVisualStyleBackColor = true;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
-            // button1
+            // button5
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(198, 215);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(186, 56);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Citas";
-            this.toolTip1.SetToolTip(this.button1, "Retenciones");
-            this.button1.UseVisualStyleBackColor = true;
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(390, 215);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(186, 56);
+            this.button5.TabIndex = 21;
+            this.button5.Text = "Nacionalidad";
+            this.toolTip1.SetToolTip(this.button5, "Mantenimiento de Nacionalidad");
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.Button5_Click);
+            // 
+            // button7
+            // 
+            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Location = new System.Drawing.Point(581, 215);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(186, 56);
+            this.button7.TabIndex = 22;
+            this.button7.Text = "Estado Civil";
+            this.toolTip1.SetToolTip(this.button7, "Mantenimiento de Estado Civil");
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.Button7_Click);
+            // 
+            // button8
+            // 
+            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.Location = new System.Drawing.Point(6, 277);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(186, 56);
+            this.button8.TabIndex = 23;
+            this.button8.Text = "Forma de Pago";
+            this.toolTip1.SetToolTip(this.button8, "Mantenimiento de Forma de Pagos");
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.Button8_Click);
             // 
             // Nomina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(795, 343);
+            this.ClientSize = new System.Drawing.Size(795, 394);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gbOpciones);
             this.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -362,5 +410,8 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btnPorcientoRetenciones;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button5;
     }
 }

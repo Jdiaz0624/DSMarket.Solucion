@@ -333,6 +333,30 @@
     <Compile Include="Pantallas\Pantallas\Empresa\DepartamentosMantenimiento.Designer.cs">
       <DependentUpon>DepartamentosMantenimiento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\EstadoCivilConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\EstadoCivilConsulta.Designer.cs">
+      <DependentUpon>EstadoCivilConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\EstadoCivilMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\EstadoCivilMantenimiento.Designer.cs">
+      <DependentUpon>EstadoCivilMantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\FormaPagoEmpleadoConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\FormaPagoEmpleadoConsulta.Designer.cs">
+      <DependentUpon>FormaPagoEmpleadoConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\FormaPagoEmpleadoMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\FormaPagoEmpleadoMantenimiento.Designer.cs">
+      <DependentUpon>FormaPagoEmpleadoMantenimiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Empresa\MantenimientoBancos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -350,6 +374,18 @@
     </Compile>
     <Compile Include="Pantallas\Pantallas\Empresa\MantenimientoPorcientoretencion.Designer.cs">
       <DependentUpon>MantenimientoPorcientoretencion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\NacionalidadConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\NacionalidadConsulta.Designer.cs">
+      <DependentUpon>NacionalidadConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\NacionalidadMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\NacionalidadMantenimiento.Designer.cs">
+      <DependentUpon>NacionalidadMantenimiento.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Pantallas\Empresa\NominaConsulta.cs">
       <SubType>Form</SubType>
@@ -845,6 +881,18 @@
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\DepartamentosMantenimiento.resx">
       <DependentUpon>DepartamentosMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\EstadoCivilConsulta.resx">
+      <DependentUpon>EstadoCivilConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\EstadoCivilMantenimiento.resx">
+      <DependentUpon>EstadoCivilMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\FormaPagoEmpleadoConsulta.resx">
+      <DependentUpon>FormaPagoEmpleadoConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\FormaPagoEmpleadoMantenimiento.resx">
+      <DependentUpon>FormaPagoEmpleadoMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\MantenimientoBancos.resx">
       <DependentUpon>MantenimientoBancos.cs</DependentUpon>
     </EmbeddedResource>
@@ -853,6 +901,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\MantenimientoPorcientoretencion.resx">
       <DependentUpon>MantenimientoPorcientoretencion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\NacionalidadConsulta.resx">
+      <DependentUpon>NacionalidadConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\NacionalidadMantenimiento.resx">
+      <DependentUpon>NacionalidadMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\NominaConsulta.resx">
       <DependentUpon>NominaConsulta.cs</DependentUpon>

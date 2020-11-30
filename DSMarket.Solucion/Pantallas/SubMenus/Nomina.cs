@@ -105,5 +105,26 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
             ConsultaPorcientoRetencion.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
             ConsultaPorcientoRetencion.ShowDialog();
         }
+
+        private void Button5_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Empresa.NacionalidadConsulta ConsultaNacionalidad = new Pantallas.Empresa.NacionalidadConsulta();
+            ConsultaNacionalidad.VariablesGlobales.IdUsuario = Convert.ToInt32(lbIdUsuario.Text);
+            ConsultaNacionalidad.ShowDialog();
+        }
+
+        private void Button7_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Empresa.EstadoCivilConsulta ConsultaEstadoCivil = new Pantallas.Empresa.EstadoCivilConsulta();
+            ConsultaEstadoCivil.VariablesGlobales.IdUsuario = Convert.ToInt32(lbIdUsuario.Text);
+            ConsultaEstadoCivil.ShowDialog();
+        }
+
+        private void Button8_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Empresa.FormaPagoEmpleadoConsulta ConsultaFormaPago = new Pantallas.Empresa.FormaPagoEmpleadoConsulta();
+            ConsultaFormaPago.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
+            ConsultaFormaPago.ShowDialog();
+        }
     }
 }
