@@ -57,6 +57,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             lbCantidadRegistrosVariable.ForeColor = Color.White;
             lbCantidadRegistrosTitulo.ForeColor = Color.White;
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+            lbTitulo.Text = "Nacionalidad Consulta";
         }
 
         private void BtnBuscar_Click(object sender, EventArgs e)
@@ -97,6 +98,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             btnBuscar.Enabled = true;
             btnEditar.Enabled = false;
             txtNumeroPagina.Enabled = true;
+            btnNuevo.Enabled = true;
             txtNumeroRegistros.Enabled = true;
         }
 
@@ -143,6 +145,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
                 dtListado.DataSource = Buscar;
                 OcultarColumnas();
                 btnBuscar.Enabled = false;
+                btnNuevo.Enabled = false;
                 btnEditar.Enabled = true;
                 txtNumeroPagina.Enabled = false;
                 txtNumeroRegistros.Enabled = false;

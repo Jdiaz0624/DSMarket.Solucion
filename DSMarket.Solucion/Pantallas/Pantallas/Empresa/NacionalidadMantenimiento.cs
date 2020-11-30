@@ -60,7 +60,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
 
         private void NacionalidadMantenimiento_Load(object sender, EventArgs e)
         {
+            lbTitulo.ForeColor = Color.White;
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+            lbTitulo.Text = "Mantenimiento de Nacionalidad";
+            txtClaveSeguridad.PasswordChar = '•';
+            cbEstatus.Checked = true;
             if (VariablesGlobales.Accion != "INSERT")
             {
                 lbclaveSeguridad.Visible = true;
