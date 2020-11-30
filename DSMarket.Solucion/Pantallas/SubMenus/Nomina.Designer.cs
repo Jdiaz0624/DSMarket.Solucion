@@ -48,6 +48,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.gbOpciones.SuspendLayout();
@@ -100,6 +101,7 @@
             // 
             // gbOpciones
             // 
+            this.gbOpciones.Controls.Add(this.button1);
             this.gbOpciones.Controls.Add(this.btnPorcientoRetenciones);
             this.gbOpciones.Controls.Add(this.button18);
             this.gbOpciones.Controls.Add(this.button17);
@@ -303,6 +305,19 @@
             this.btnClientes.UseVisualStyleBackColor = true;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(198, 215);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(186, 56);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Citas";
+            this.toolTip1.SetToolTip(this.button1, "Retenciones");
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Nomina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -346,5 +361,6 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btnPorcientoRetenciones;
+        private System.Windows.Forms.Button button1;
     }
 }

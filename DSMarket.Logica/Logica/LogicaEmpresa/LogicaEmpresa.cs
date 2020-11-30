@@ -29,36 +29,37 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
             var Listado = (from n in ObjData.SP_BUSCA_CLIENTES(IdCliente, IdComprobante, Nombre, RNC, Estatus, EnvioEmail, NumeroPagina, NumeroRegistros)
                            select new DSMarket.Logica.Entidades.EntidadesEmpresa.EClientes
                            {
-                               IdCliente=n.IdCliente,
-                               IdComprobante=n.IdComprobante,
-                               Comprobante=n.Comprobante,
-                               Nombre=n.Nombre,
-                               Telefono=n.Telefono,
-                               IdTipoIdentificacion=n.IdTipoIdentificacion,
-                               TipoIdentificacion=n.TipoIdentificacion,
-                               RNC=n.RNC,
-                               Direccion=n.Direccion,
-                               Email=n.Email,
-                               Comentario=n.Comentario,
-                               Estatus0=n.Estatus0,
-                               Estatus=n.Estatus,
-                               EnvioEmail0=n.EnvioEmail0,
-                               EnvioEmail=n.EnvioEmail,
-                               UsuarioAdiciona =n.UsuarioAdiciona,
-                               CreadoPor=n.CreadoPor,
-                               FechaAdiciona=n.FechaAdiciona,
-                               FechaCreado=n.FechaCreado,
-                               UsuarioModifica=n.UsuarioModifica,
-                               ModificadoPor=n.ModificadoPor,
-                               FechaModifica=n.FechaModifica,
-                               FechaModificado=n.FechaModificado,
-                               MontoCredito=n.MontoCredito,
-                               CantidadClientes=n.CantidadClientes
+                               IdCliente = n.IdCliente,
+                               IdComprobante = n.IdComprobante,
+                               Comprobante = n.Comprobante,
+                               Nombre = n.Nombre,
+                               Telefono = n.Telefono,
+                               IdTipoIdentificacion = n.IdTipoIdentificacion,
+                               TipoIdentificacion = n.TipoIdentificacion,
+                               RNC = n.RNC,
+                               Direccion = n.Direccion,
+                               Email = n.Email,
+                               Comentario = n.Comentario,
+                               Estatus0 = n.Estatus0,
+                               Estatus = n.Estatus,
+                               EnvioEmail0 = n.EnvioEmail0,
+                               EnvioEmail = n.EnvioEmail,
+                               UsuarioAdiciona = n.UsuarioAdiciona,
+                               CreadoPor = n.CreadoPor,
+                               FechaAdiciona = n.FechaAdiciona,
+                               FechaCreado = n.FechaCreado,
+                               UsuarioModifica = n.UsuarioModifica,
+                               ModificadoPor = n.ModificadoPor,
+                               FechaModifica = n.FechaModifica,
+                               FechaModificado = n.FechaModificado,
+                               MontoCredito = n.MontoCredito,
+                               CantidadClientes = n.CantidadClientes
                            }).ToList();
             return Listado;
         }
 
-        public DSMarket.Logica.Entidades.EntidadesEmpresa.EClientes MantenimientoClientes(DSMarket.Logica.Entidades.EntidadesEmpresa.EClientes Item, string Accion) {
+        public DSMarket.Logica.Entidades.EntidadesEmpresa.EClientes MantenimientoClientes(DSMarket.Logica.Entidades.EntidadesEmpresa.EClientes Item, string Accion)
+        {
             ObjData.CommandTimeout = 999999999;
 
             DSMarket.Logica.Entidades.EntidadesEmpresa.EClientes Mantenimeinto = null;
@@ -78,26 +79,27 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
                 Item.MontoCredito,
                 Item.EnvioEmail0,
                 Accion);
-            if (Clientes != null) {
+            if (Clientes != null)
+            {
                 Mantenimeinto = (from n in Clientes
                                  select new DSMarket.Logica.Entidades.EntidadesEmpresa.EClientes
                                  {
-                                     IdCliente=n.IdCliente,
-                                     IdComprobante=n.IdComprobante,
-                                     Nombre=n.Nombre,
-                                     Telefono=n.Telefono,
-                                     IdTipoIdentificacion=n.IdTipoIdentificacion,
-                                     RNC=n.RNC,
-                                     Direccion=n.Direccion,
-                                     Email=n.Email,
-                                     Comentario=n.Comentario,
-                                     Estatus0=n.Estatus,
-                                     UsuarioAdiciona=n.UsuarioAdiciona,
-                                     FechaAdiciona=n.FechaAdiciona,
-                                     UsuarioModifica=n.UsuarioModifica,
-                                     FechaModifica=n.FechaModifica,
-                                     MontoCredito=n.MontoCredito,
-                                     EnvioEmail0=n.EnvioEmail
+                                     IdCliente = n.IdCliente,
+                                     IdComprobante = n.IdComprobante,
+                                     Nombre = n.Nombre,
+                                     Telefono = n.Telefono,
+                                     IdTipoIdentificacion = n.IdTipoIdentificacion,
+                                     RNC = n.RNC,
+                                     Direccion = n.Direccion,
+                                     Email = n.Email,
+                                     Comentario = n.Comentario,
+                                     Estatus0 = n.Estatus,
+                                     UsuarioAdiciona = n.UsuarioAdiciona,
+                                     FechaAdiciona = n.FechaAdiciona,
+                                     UsuarioModifica = n.UsuarioModifica,
+                                     FechaModifica = n.FechaModifica,
+                                     MontoCredito = n.MontoCredito,
+                                     EnvioEmail0 = n.EnvioEmail
                                  }).FirstOrDefault();
             }
             return Mantenimeinto;
@@ -106,7 +108,8 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
 
         #region MANTENIMIENTO DE COMPRA DE SUPLIDORES
         //LISTADO DE COMPRA A SUPLIDORES
-        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.ECompraSuplidores> BuscaCompraSuplidores(decimal? IdCompraSuplidor = null, decimal? IdTipoSuplidor = null, decimal? IdSuplidor = null, string RNCCedula = null, DateTime? FechaCreadoDesde = null, DateTime? FechaCreadoHasta = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
+        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.ECompraSuplidores> BuscaCompraSuplidores(decimal? IdCompraSuplidor = null, decimal? IdTipoSuplidor = null, decimal? IdSuplidor = null, string RNCCedula = null, DateTime? FechaCreadoDesde = null, DateTime? FechaCreadoHasta = null, int? NumeroPagina = null, int? NumeroRegistros = null)
+        {
             ObjData.CommandTimeout = 999999999;
 
             var Listado = (from n in ObjData.SP_BUSCA_REGISTROS_COMPRA_SUPLIDORES(
@@ -120,54 +123,55 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
                 NumeroRegistros)
                            select new DSMarket.Logica.Entidades.EntidadesEmpresa.ECompraSuplidores
                            {
-                               IdCompraSuplidor=n.IdCompraSuplidor,
-                               IdTipoSuplidor=n.IdTipoSuplidor,
-                               TipoSuplidor=n.TipoSuplidor,
-                               IdSuplidor=n.IdSuplidor,
-                               Suplidor=n.Suplidor,
-                               RNCCedula=n.RNCCedula,
-                               IdTipoIdentificacion=n.IdTipoIdentificacion,
-                               TipoIdentificacion=n.TipoIdentificacion,
-                               IdTipoBienesServicios=n.IdTipoBienesServicios,
-                               TipoBienesServicios=n.TipoBienesServicios,
-                               CodigoTipoBienesServicio=n.CodigoTipoBienesServicio,
-                               NCF =n.NCF,
-                               NCFModificado=n.NCFModificado,
-                               FechaComprobante0=n.FechaComprobante0,
-                               FechaComprobante=n.FechaComprobante,
-                               FechaPago0=n.FechaPago0,
-                               FechaPago=n.FechaPago,
-                               MontoFacturadoServicios=n.MontoFacturadoServicios,
-                               MontoFacturadoBienes=n.MontoFacturadoBienes,
-                               TotalMontoFacturado=n.TotalMontoFacturado,
-                               ITBISFacturado=n.ITBISFacturado,
-                               ITBISRetenido=n.ITBISRetenido,
-                               ITBISSujetoProporcionalidad=n.ITBISSujetoProporcionalidad,
-                               ITBISLlevadoCosto=n.ITBISLlevadoCosto,
-                               ITBISPorAdelantar=n.ITBISPorAdelantar,
-                               ITBISPercibidoCompras=n.ITBISPercibidoCompras,
-                               IdTipoRetencionISR=n.IdTipoRetencionISR,
-                               TipoRetencionISR=n.TipoRetencionISR,
-                               CodigoTipoRetencionISR=n.CodigoTipoRetencionISR,
-                               MontoRetencionRenta=n.MontoRetencionRenta,
-                               ISRPercibidoCompras=n.ISRPercibidoCompras,
-                               ImpuestoSelectivoConsumo=n.ImpuestoSelectivoConsumo,
-                               OtrosImpuestosTasa=n.OtrosImpuestosTasa,
-                               MontoPropinaLegal=n.MontoPropinaLegal,
-                               IdFormaPago=n.IdFormaPago,
-                               FormaPago=n.FormaPago,
-                               CodigoTipoPago=n.CodigoTipoPago,
-                               UsuarioAdiciona=n.UsuarioAdiciona,
-                               CreadoPor=n.CreadoPor,
-                               FechaCreado0=n.FechaCreado0,
-                               FechaCreado=n.FechaCreado,
-                               CantidadRegistros=n.CantidadRegistros
+                               IdCompraSuplidor = n.IdCompraSuplidor,
+                               IdTipoSuplidor = n.IdTipoSuplidor,
+                               TipoSuplidor = n.TipoSuplidor,
+                               IdSuplidor = n.IdSuplidor,
+                               Suplidor = n.Suplidor,
+                               RNCCedula = n.RNCCedula,
+                               IdTipoIdentificacion = n.IdTipoIdentificacion,
+                               TipoIdentificacion = n.TipoIdentificacion,
+                               IdTipoBienesServicios = n.IdTipoBienesServicios,
+                               TipoBienesServicios = n.TipoBienesServicios,
+                               CodigoTipoBienesServicio = n.CodigoTipoBienesServicio,
+                               NCF = n.NCF,
+                               NCFModificado = n.NCFModificado,
+                               FechaComprobante0 = n.FechaComprobante0,
+                               FechaComprobante = n.FechaComprobante,
+                               FechaPago0 = n.FechaPago0,
+                               FechaPago = n.FechaPago,
+                               MontoFacturadoServicios = n.MontoFacturadoServicios,
+                               MontoFacturadoBienes = n.MontoFacturadoBienes,
+                               TotalMontoFacturado = n.TotalMontoFacturado,
+                               ITBISFacturado = n.ITBISFacturado,
+                               ITBISRetenido = n.ITBISRetenido,
+                               ITBISSujetoProporcionalidad = n.ITBISSujetoProporcionalidad,
+                               ITBISLlevadoCosto = n.ITBISLlevadoCosto,
+                               ITBISPorAdelantar = n.ITBISPorAdelantar,
+                               ITBISPercibidoCompras = n.ITBISPercibidoCompras,
+                               IdTipoRetencionISR = n.IdTipoRetencionISR,
+                               TipoRetencionISR = n.TipoRetencionISR,
+                               CodigoTipoRetencionISR = n.CodigoTipoRetencionISR,
+                               MontoRetencionRenta = n.MontoRetencionRenta,
+                               ISRPercibidoCompras = n.ISRPercibidoCompras,
+                               ImpuestoSelectivoConsumo = n.ImpuestoSelectivoConsumo,
+                               OtrosImpuestosTasa = n.OtrosImpuestosTasa,
+                               MontoPropinaLegal = n.MontoPropinaLegal,
+                               IdFormaPago = n.IdFormaPago,
+                               FormaPago = n.FormaPago,
+                               CodigoTipoPago = n.CodigoTipoPago,
+                               UsuarioAdiciona = n.UsuarioAdiciona,
+                               CreadoPor = n.CreadoPor,
+                               FechaCreado0 = n.FechaCreado0,
+                               FechaCreado = n.FechaCreado,
+                               CantidadRegistros = n.CantidadRegistros
                            }).ToList();
             return Listado;
         }
 
         //MANTENIMIENTO DE COMPRA DE SUPLIDORES
-        public DSMarket.Logica.Entidades.EntidadesEmpresa.ECompraSuplidores MantenimientoCompraSuplidores(DSMarket.Logica.Entidades.EntidadesEmpresa.ECompraSuplidores Item, string Accion) {
+        public DSMarket.Logica.Entidades.EntidadesEmpresa.ECompraSuplidores MantenimientoCompraSuplidores(DSMarket.Logica.Entidades.EntidadesEmpresa.ECompraSuplidores Item, string Accion)
+        {
             ObjData.CommandTimeout = 999999999;
 
             DSMarket.Logica.Entidades.EntidadesEmpresa.ECompraSuplidores Mantenimiento = null;
@@ -202,7 +206,8 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
                 Item.UsuarioAdiciona,
                 Item.FechaCreado0,
                 Accion);
-            if (CompraSuplidores != null) {
+            if (CompraSuplidores != null)
+            {
                 Mantenimiento = (from n in CompraSuplidores
                                  select new DSMarket.Logica.Entidades.EntidadesEmpresa.ECompraSuplidores
                                  {
@@ -242,32 +247,34 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
 
         #region MANTENIMIENTO DE DEPARTAMENTOS
         //listado de los departamentos
-        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.EDepartamentos> BuscaDepartamentos(decimal? IdDepartamento = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
+        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.EDepartamentos> BuscaDepartamentos(decimal? IdDepartamento = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistros = null)
+        {
 
             ObjData.CommandTimeout = 999999999;
 
             var Buscar = (from n in ObjData.SP_BUSCA_DEPARTAMENTOS(IdDepartamento, Descripcion, NumeroPagina, NumeroRegistros)
                           select new DSMarket.Logica.Entidades.EntidadesEmpresa.EDepartamentos
                           {
-                              IdDepartamento=n.IdDepartamento,
-                              Departamento=n.Departamento,
-                              Estatus0=n.Estatus0,
-                              Estatus=n.Estatus,
-                              UsuarioAdiciona=n.UsuarioAdiciona,
-                              CreadoPor=n.CreadoPor,
-                              FechaAdiciona=n.FechaAdiciona,
-                              FechaCreado=n.FechaCreado,
-                              UsuarioModifica=n.UsuarioModifica,
-                              ModificadoPor=n.ModificadoPor,
-                              FechaModifica=n.FechaModifica,
-                              FechaModificado=n.FechaModificado,
-                              CantidadRegistros=n.CantidadRegistros
-                             
+                              IdDepartamento = n.IdDepartamento,
+                              Departamento = n.Departamento,
+                              Estatus0 = n.Estatus0,
+                              Estatus = n.Estatus,
+                              UsuarioAdiciona = n.UsuarioAdiciona,
+                              CreadoPor = n.CreadoPor,
+                              FechaAdiciona = n.FechaAdiciona,
+                              FechaCreado = n.FechaCreado,
+                              UsuarioModifica = n.UsuarioModifica,
+                              ModificadoPor = n.ModificadoPor,
+                              FechaModifica = n.FechaModifica,
+                              FechaModificado = n.FechaModificado,
+                              CantidadRegistros = n.CantidadRegistros
+
                           }).ToList();
             return Buscar;
         }
         //MANTENIMIENTO DE DEPARTAMENTOS
-        public DSMarket.Logica.Entidades.EntidadesEmpresa.EDepartamentos MantenimientoDepartamentos(DSMarket.Logica.Entidades.EntidadesEmpresa.EDepartamentos Item, string Accion) {
+        public DSMarket.Logica.Entidades.EntidadesEmpresa.EDepartamentos MantenimientoDepartamentos(DSMarket.Logica.Entidades.EntidadesEmpresa.EDepartamentos Item, string Accion)
+        {
             ObjData.CommandTimeout = 999999999;
 
             DSMarket.Logica.Entidades.EntidadesEmpresa.EDepartamentos Mantenimiento = null;
@@ -279,17 +286,18 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
                 , Item.UsuarioAdiciona,
                 Accion);
 
-            if (Departamento != null) {
+            if (Departamento != null)
+            {
                 Mantenimiento = (from n in Departamento
                                  select new DSMarket.Logica.Entidades.EntidadesEmpresa.EDepartamentos
                                  {
-                                     IdDepartamento=n.IdDepartamento,
-                                     Departamento=n.Descripcion,
-                                     Estatus0=n.Estatus,
-                                     UsuarioAdiciona=n.UsuarioAdiciona,
-                                     FechaAdiciona=n.FechaAdiciona,
-                                     UsuarioModifica=n.UsuarioModifica,
-                                     FechaModifica=n.FechaModifica
+                                     IdDepartamento = n.IdDepartamento,
+                                     Departamento = n.Descripcion,
+                                     Estatus0 = n.Estatus,
+                                     UsuarioAdiciona = n.UsuarioAdiciona,
+                                     FechaAdiciona = n.FechaAdiciona,
+                                     UsuarioModifica = n.UsuarioModifica,
+                                     FechaModifica = n.FechaModifica
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
@@ -298,33 +306,35 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
 
         #region MANTENIMIENTO DE CARGOS
         //LISTADO DE LOS CARGOS
-        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.ECargos> BuscaCargos(decimal? IdCargo = null, decimal? IdDepartamento = null, string Descripcion = null, int? NumeroPagina = 1, int? NumeroRegistro = null) {
+        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.ECargos> BuscaCargos(decimal? IdCargo = null, decimal? IdDepartamento = null, string Descripcion = null, int? NumeroPagina = 1, int? NumeroRegistro = null)
+        {
             ObjData.CommandTimeout = 999999999;
 
             var Listado = (from n in ObjData.SP_BUSCA_CARGOS(IdCargo, IdDepartamento, Descripcion, NumeroPagina, NumeroRegistro)
                            select new DSMarket.Logica.Entidades.EntidadesEmpresa.ECargos
                            {
-                               IdCargo=n.IdCargo,
-                               IdDepartamento=n.IdDepartamento,
-                               Departamento=n.Departamento,
-                               Cargo=n.Cargo,
-                               Estatus0=n.Estatus0,
-                               Estatus=n.Estatus,
-                               UsuarioAdiciona=n.UsuarioAdiciona,
-                               CreadoPor=n.CreadoPor,
-                               FechaAdiciona=n.FechaAdiciona,
-                               FechaCreado=n.FechaCreado,
-                               UsuarioModifica=n.UsuarioModifica,
-                               ModificadoPor=n.ModificadoPor,
-                               FechaModifica=n.FechaModifica,
-                               FechaModificado=n.FechaModificado,
-                               CantidadRegistros=n.CantidadRegistros
+                               IdCargo = n.IdCargo,
+                               IdDepartamento = n.IdDepartamento,
+                               Departamento = n.Departamento,
+                               Cargo = n.Cargo,
+                               Estatus0 = n.Estatus0,
+                               Estatus = n.Estatus,
+                               UsuarioAdiciona = n.UsuarioAdiciona,
+                               CreadoPor = n.CreadoPor,
+                               FechaAdiciona = n.FechaAdiciona,
+                               FechaCreado = n.FechaCreado,
+                               UsuarioModifica = n.UsuarioModifica,
+                               ModificadoPor = n.ModificadoPor,
+                               FechaModifica = n.FechaModifica,
+                               FechaModificado = n.FechaModificado,
+                               CantidadRegistros = n.CantidadRegistros
                            }).ToList();
             return Listado;
         }
 
         //MANTENIMIENTO DE CARGOS
-        public DSMarket.Logica.Entidades.EntidadesEmpresa.ECargos MantenimientoCargos(DSMarket.Logica.Entidades.EntidadesEmpresa.ECargos Item, string Accion) {
+        public DSMarket.Logica.Entidades.EntidadesEmpresa.ECargos MantenimientoCargos(DSMarket.Logica.Entidades.EntidadesEmpresa.ECargos Item, string Accion)
+        {
             ObjData.CommandTimeout = 999999999;
 
             DSMarket.Logica.Entidades.EntidadesEmpresa.ECargos Mantenimiento = null;
@@ -336,18 +346,19 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
                 Item.Estatus0,
                 Item.UsuarioAdiciona,
                 Accion);
-            if (Cargos != null) {
+            if (Cargos != null)
+            {
                 Mantenimiento = (from n in Cargos
                                  select new DSMarket.Logica.Entidades.EntidadesEmpresa.ECargos
                                  {
-                                     IdCargo=n.IdCargo,
-                                     IdDepartamento=n.IdDepartamento,
-                                     Cargo=n.Descripcion,
-                                     Estatus0=n.Estatus,
-                                     UsuarioAdiciona=n.UsuarioAdiciona,
-                                     FechaAdiciona=n.FechaAdiciona,
-                                     UsuarioModifica=n.UsuarioModifica,
-                                     FechaModifica=n.FechaModifica
+                                     IdCargo = n.IdCargo,
+                                     IdDepartamento = n.IdDepartamento,
+                                     Cargo = n.Descripcion,
+                                     Estatus0 = n.Estatus,
+                                     UsuarioAdiciona = n.UsuarioAdiciona,
+                                     FechaAdiciona = n.FechaAdiciona,
+                                     UsuarioModifica = n.UsuarioModifica,
+                                     FechaModifica = n.FechaModifica
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
@@ -356,31 +367,33 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
 
         #region MANTENIMIENTO DE TIPO DE EMPLEADOS
         //LISTADO DE TIPO DE EMPLEADOS
-        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoEmpleado> BuscaTipoEmpleado(decimal? IdTipoEmpleado = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
+        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoEmpleado> BuscaTipoEmpleado(decimal? IdTipoEmpleado = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistros = null)
+        {
             ObjData.CommandTimeout = 999999999;
 
             var Listado = (from n in ObjData.SP_BUSCA_TIPO_EMPLEADO(IdTipoEmpleado, Descripcion, NumeroPagina, NumeroRegistros)
                            select new DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoEmpleado
                            {
-                               IdTipoEmpleado=n.IdTipoEmpleado,
-                               TipoEmpleado=n.TipoEmpleado,
-                               Estatus0=n.Estatus0,
-                               Estatus=n.Estatus,
-                               UsuarioAdiciona=n.UsuarioAdiciona,
-                               CreadoPor=n.CreadoPor,
-                               FechaAdiciona=n.FechaAdiciona,
-                               FechaCreado=n.FechaCreado,
-                               UsuarioModifica=n.UsuarioModifica,
-                               ModificadoPor=n.ModificadoPor,
-                               FechaModifica=n.FechaModifica,
-                               FechaModificado=n.FechaModificado,
-                              CantidadRegistros=n.CantidadRegistros
+                               IdTipoEmpleado = n.IdTipoEmpleado,
+                               TipoEmpleado = n.TipoEmpleado,
+                               Estatus0 = n.Estatus0,
+                               Estatus = n.Estatus,
+                               UsuarioAdiciona = n.UsuarioAdiciona,
+                               CreadoPor = n.CreadoPor,
+                               FechaAdiciona = n.FechaAdiciona,
+                               FechaCreado = n.FechaCreado,
+                               UsuarioModifica = n.UsuarioModifica,
+                               ModificadoPor = n.ModificadoPor,
+                               FechaModifica = n.FechaModifica,
+                               FechaModificado = n.FechaModificado,
+                               CantidadRegistros = n.CantidadRegistros
                            }).ToList();
             return Listado;
         }
 
         //MANTENIMIENTO DE TIPO DE EMPLEADOS
-        public DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoEmpleado MantenimientoTipoEmpleado(DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoEmpleado Item, string Accion){
+        public DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoEmpleado MantenimientoTipoEmpleado(DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoEmpleado Item, string Accion)
+        {
             ObjData.CommandTimeout = 999999999;
 
             DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoEmpleado Mantenimiento = null;
@@ -391,17 +404,18 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
                 Item.Estatus0,
                 Item.UsuarioAdiciona,
                 Accion);
-            if (TipoEmpleado != null) {
+            if (TipoEmpleado != null)
+            {
                 Mantenimiento = (from n in TipoEmpleado
                                  select new DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoEmpleado
                                  {
-                                     IdTipoEmpleado=n.IdTipoEmpleado,
-                                     TipoEmpleado=n.Descripcion,
-                                     Estatus0=n.Estatus,
-                                     UsuarioAdiciona=n.UsuarioAdiciona,
-                                     FechaAdiciona=n.FechaAdiciona,
-                                     UsuarioModifica=n.UsuarioModifica,
-                                     FechaModifica=n.FechaModifica
+                                     IdTipoEmpleado = n.IdTipoEmpleado,
+                                     TipoEmpleado = n.Descripcion,
+                                     Estatus0 = n.Estatus,
+                                     UsuarioAdiciona = n.UsuarioAdiciona,
+                                     FechaAdiciona = n.FechaAdiciona,
+                                     UsuarioModifica = n.UsuarioModifica,
+                                     FechaModifica = n.FechaModifica
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
@@ -410,30 +424,32 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
 
         #region MANTENIMIENTO DE TIPO DE NOMINA
         //LISTADO DE MANTENIMIENTO DE TIPO NOMINA
-        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoNomina> BuscaTipoNomina(decimal? IdTipoNomina = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistro = null) {
+        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoNomina> BuscaTipoNomina(decimal? IdTipoNomina = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistro = null)
+        {
             ObjData.CommandTimeout = 999999999;
 
             var Buscar = (from n in ObjData.SP_BUSCA_TIPO_NOMINA(IdTipoNomina, Descripcion, NumeroPagina, NumeroRegistro)
                           select new DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoNomina
                           {
-                              IdTipoNomina=n.IdTipoNomina,
-                              TipoNomina=n.TipoNomina,
-                              Estatus0=n.Estatus0,
-                              Estatus=n.Estatus,
-                              UsuarioAdiciona=n.UsuarioAdiciona,
-                              CreadoPor=n.CreadoPor,
-                              FechaAdiciona=n.FechaAdiciona,
-                              FechaCreado=n.FechaCreado,
-                              UsuairoModifica=n.UsuairoModifica,
-                              ModificadoPor=n.ModificadoPor,
-                              FechaModifica=n.FechaModifica,
-                              FechaModificado=n.FechaModificado,
-                              CantidadRegistros=n.CantidadRegistros
+                              IdTipoNomina = n.IdTipoNomina,
+                              TipoNomina = n.TipoNomina,
+                              Estatus0 = n.Estatus0,
+                              Estatus = n.Estatus,
+                              UsuarioAdiciona = n.UsuarioAdiciona,
+                              CreadoPor = n.CreadoPor,
+                              FechaAdiciona = n.FechaAdiciona,
+                              FechaCreado = n.FechaCreado,
+                              UsuairoModifica = n.UsuairoModifica,
+                              ModificadoPor = n.ModificadoPor,
+                              FechaModifica = n.FechaModifica,
+                              FechaModificado = n.FechaModificado,
+                              CantidadRegistros = n.CantidadRegistros
                           }).ToList();
             return Buscar;
         }
 
-        public DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoNomina MantenimientoTipoNomina(DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoNomina Item, string Accion) {
+        public DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoNomina MantenimientoTipoNomina(DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoNomina Item, string Accion)
+        {
             ObjData.CommandTimeout = 999999999;
 
             DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoNomina Mantenimiento = null;
@@ -444,17 +460,18 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
                 Item.Estatus0,
                 (int)Item.UsuarioAdiciona,
                 Accion);
-            if (TipoNomina != null) {
+            if (TipoNomina != null)
+            {
                 Mantenimiento = (from n in TipoNomina
                                  select new DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoNomina
                                  {
-                                     IdTipoNomina=n.IdTipoNomina,
-                                     TipoNomina=n.Descripcion,
-                                     Estatus0=n.Estatus,
-                                     UsuarioAdiciona=n.UsuarioAdiciona,
-                                     FechaAdiciona=n.FechaAdiciona,
-                                     UsuairoModifica=n.UsuairoModifica,
-                                     FechaModifica=n.FechaModifica
+                                     IdTipoNomina = n.IdTipoNomina,
+                                     TipoNomina = n.Descripcion,
+                                     Estatus0 = n.Estatus,
+                                     UsuarioAdiciona = n.UsuarioAdiciona,
+                                     FechaAdiciona = n.FechaAdiciona,
+                                     UsuairoModifica = n.UsuairoModifica,
+                                     FechaModifica = n.FechaModifica
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
@@ -465,34 +482,35 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
 
         #region MANTENIMIENTO DE BANCO
         //LISTAD DE BANCOS
-        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.EBancos> ListadoBancos(decimal? IdBancos = null, string NombreBanco = null, int? NumeroPagina = null, int? NumeroRegistros = null) 
+        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.EBancos> ListadoBancos(decimal? IdBancos = null, string NombreBanco = null, int? NumeroPagina = null, int? NumeroRegistros = null)
         {
             ObjData.CommandTimeout = 999999999;
 
             var Listado = (from n in ObjData.SP_BUSCA_LISTADO_BANCOS(IdBancos, NombreBanco, NumeroPagina, NumeroRegistros)
                            select new DSMarket.Logica.Entidades.EntidadesEmpresa.EBancos
                            {
-                               IdBanco=n.IdBanco,
-                               CuentaContable=n.CuentaContable,
-                               Auxiliar=n.Auxiliar,
-                               Banco=n.Banco,
-                               Estatus0=n.Estatus0,
-                               Estatus=n.Estatus,
-                               UsuarioAdiciona=n.UsuarioAdiciona,
-                               CreadoPor=n.CreadoPor,
-                               FechaAdiciona=n.FechaAdiciona,
-                               FechaCreado=n.FechaCreado,
-                               UsuarioModifica=n.UsuarioModifica,
-                               ModificadoPor=n.ModificadoPor,
-                               FechaModifica=n.FechaModifica,
-                               FechaModificado=n.FechaModificado,
-                               CantidadRegistros=n.CantidadRegistros
+                               IdBanco = n.IdBanco,
+                               CuentaContable = n.CuentaContable,
+                               Auxiliar = n.Auxiliar,
+                               Banco = n.Banco,
+                               Estatus0 = n.Estatus0,
+                               Estatus = n.Estatus,
+                               UsuarioAdiciona = n.UsuarioAdiciona,
+                               CreadoPor = n.CreadoPor,
+                               FechaAdiciona = n.FechaAdiciona,
+                               FechaCreado = n.FechaCreado,
+                               UsuarioModifica = n.UsuarioModifica,
+                               ModificadoPor = n.ModificadoPor,
+                               FechaModifica = n.FechaModifica,
+                               FechaModificado = n.FechaModificado,
+                               CantidadRegistros = n.CantidadRegistros
                            }).ToList();
             return Listado;
         }
 
         //MANTENIMIENTO DE BANCOS
-        public DSMarket.Logica.Entidades.EntidadesEmpresa.EBancos MantenimientoBancos(DSMarket.Logica.Entidades.EntidadesEmpresa.EBancos Item, string Accion) {
+        public DSMarket.Logica.Entidades.EntidadesEmpresa.EBancos MantenimientoBancos(DSMarket.Logica.Entidades.EntidadesEmpresa.EBancos Item, string Accion)
+        {
             ObjData.CommandTimeout = 999999999;
 
             DSMarket.Logica.Entidades.EntidadesEmpresa.EBancos Mantenimiento = null;
@@ -506,19 +524,20 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
                 Item.Estatus0,
                 Item.UsuarioAdiciona,
                 Accion);
-            if (BAncos != null) {
+            if (BAncos != null)
+            {
                 Mantenimiento = (from n in BAncos
                                  select new DSMarket.Logica.Entidades.EntidadesEmpresa.EBancos
                                  {
-                                     IdBanco=n.IdBanco,
-                                     CuentaContable=n.CuentaContable,
-                                     Auxiliar=n.Auxiliar,
-                                     Banco=n.Nombre,
-                                     Estatus0=n.Estatus,
-                                     UsuarioAdiciona=n.UsuarioAdiciona,
-                                     FechaAdiciona=n.FechaAdiciona,
-                                     UsuarioModifica=n.UsuarioModifica,
-                                     FechaModifica=n.FechaModifica
+                                     IdBanco = n.IdBanco,
+                                     CuentaContable = n.CuentaContable,
+                                     Auxiliar = n.Auxiliar,
+                                     Banco = n.Nombre,
+                                     Estatus0 = n.Estatus,
+                                     UsuarioAdiciona = n.UsuarioAdiciona,
+                                     FechaAdiciona = n.FechaAdiciona,
+                                     UsuarioModifica = n.UsuarioModifica,
+                                     FechaModifica = n.FechaModifica
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
@@ -527,30 +546,32 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
 
         #region MANTENIMIENTO DE TIPO DE MOVIMIENTO
         //LISTADO DE TIPO DE MOVIMIENTO
-        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoMovimiento> ListadoTipoMovimiento(decimal? IdTipoMovimiento = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
+        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoMovimiento> ListadoTipoMovimiento(decimal? IdTipoMovimiento = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistros = null)
+        {
             ObjData.CommandTimeout = 999999999;
 
             var Listado = (from n in ObjData.SP_BUSCA_TIPO_MOVIMIENTO(IdTipoMovimiento, Descripcion, NumeroPagina, NumeroRegistros)
                            select new DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoMovimiento
                            {
-                               IdTipoMovimiento=n.IdTipoMovimiento,
-                               TipoMovimiento=n.TipoMovimiento,
-                               Estatus0=n.Estatus0,
-                               Estatus=n.Estatus,
-                               UsuarioAdiciona=n.UsuarioAdiciona,
-                               CreadoPor=n.CreadoPor,
-                               FechaAdiciona=n.FechaAdiciona,
-                               FechaCreado=n.FechaCreado,
-                               UsuarioModifica=n.UsuarioModifica,
-                               ModificadoPor=n.ModificadoPor,
-                               FechaModifica=n.FechaModifica,
-                               FechaModificado=n.FechaModificado,
-                               CantidadRegistros=n.CantidadRegistros
+                               IdTipoMovimiento = n.IdTipoMovimiento,
+                               TipoMovimiento = n.TipoMovimiento,
+                               Estatus0 = n.Estatus0,
+                               Estatus = n.Estatus,
+                               UsuarioAdiciona = n.UsuarioAdiciona,
+                               CreadoPor = n.CreadoPor,
+                               FechaAdiciona = n.FechaAdiciona,
+                               FechaCreado = n.FechaCreado,
+                               UsuarioModifica = n.UsuarioModifica,
+                               ModificadoPor = n.ModificadoPor,
+                               FechaModifica = n.FechaModifica,
+                               FechaModificado = n.FechaModificado,
+                               CantidadRegistros = n.CantidadRegistros
                            }).ToList();
             return Listado;
         }
         //MANTENIMIENTO DE TIPO DE MOVIMIENTO
-        public DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoMovimiento MantenimientoTipoMovimiento(DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoMovimiento Item, string Accion) {
+        public DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoMovimiento MantenimientoTipoMovimiento(DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoMovimiento Item, string Accion)
+        {
             ObjData.CommandTimeout = 999999999;
 
             DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoMovimiento Mantenimiento = null;
@@ -561,17 +582,18 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
                 Item.Estatus0,
                 Item.UsuarioAdiciona,
                 Accion);
-            if (TipoMovimiento != null) {
+            if (TipoMovimiento != null)
+            {
                 Mantenimiento = (from n in TipoMovimiento
                                  select new DSMarket.Logica.Entidades.EntidadesEmpresa.ETipoMovimiento
                                  {
-                                     IdTipoMovimiento=n.IdTipoMovimiento,
-                                     TipoMovimiento=n.Descripcion,
-                                     Estatus0=n.Estatus,
-                                     UsuarioAdiciona=n.UsuarioAdiciona,
-                                     FechaAdiciona=n.FechaAdiciona,
-                                     UsuarioModifica=n.UsuarioModifica,
-                                     FechaModifica=n.FechaModifica
+                                     IdTipoMovimiento = n.IdTipoMovimiento,
+                                     TipoMovimiento = n.Descripcion,
+                                     Estatus0 = n.Estatus,
+                                     UsuarioAdiciona = n.UsuarioAdiciona,
+                                     FechaAdiciona = n.FechaAdiciona,
+                                     UsuarioModifica = n.UsuarioModifica,
+                                     FechaModifica = n.FechaModifica
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
@@ -580,31 +602,33 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
 
         #region MANTENIMIENTO DE RETENCIONES
         //LISTADO DE RETENCIONES
-        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.ERetenciones> BuscaRetenciones(decimal? IdRetencio = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
+        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.ERetenciones> BuscaRetenciones(decimal? IdRetencio = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistros = null)
+        {
             ObjData.CommandTimeout = 999999999;
 
             var Listado = (from n in ObjData.SP_BUSCA_RETENCIONES(IdRetencio, Descripcion, NumeroPagina, NumeroRegistros)
                            select new DSMarket.Logica.Entidades.EntidadesEmpresa.ERetenciones
                            {
-                               IdRetencion=n.IdRetencion,
-                               Retencion=n.Retencion,
-                               Estatus0=n.Estatus0,
-                               Estatus=n.Estatus,
-                               UsuarioAdiciona=n.UsuarioAdiciona,
-                               CreadoPor=n.CreadoPor,
-                               FechaAdiciona=n.FechaAdiciona,
-                               FechaCreado=n.FechaCreado,
-                               UsuarioModifica=n.UsuarioModifica,
-                               ModificadoPor=n.ModificadoPor,
-                               FechaModifica=n.FechaModifica,
-                               FechaModificado=n.FechaModificado,
-                               CantidadRegistros=n.CantidadRegistros
+                               IdRetencion = n.IdRetencion,
+                               Retencion = n.Retencion,
+                               Estatus0 = n.Estatus0,
+                               Estatus = n.Estatus,
+                               UsuarioAdiciona = n.UsuarioAdiciona,
+                               CreadoPor = n.CreadoPor,
+                               FechaAdiciona = n.FechaAdiciona,
+                               FechaCreado = n.FechaCreado,
+                               UsuarioModifica = n.UsuarioModifica,
+                               ModificadoPor = n.ModificadoPor,
+                               FechaModifica = n.FechaModifica,
+                               FechaModificado = n.FechaModificado,
+                               CantidadRegistros = n.CantidadRegistros
                            }).ToList();
             return Listado;
         }
 
         //MANTENIMIENTO DE RETENCIONES
-        public DSMarket.Logica.Entidades.EntidadesEmpresa.ERetenciones MantenimientoRetenciones(DSMarket.Logica.Entidades.EntidadesEmpresa.ERetenciones Item, string Accion) {
+        public DSMarket.Logica.Entidades.EntidadesEmpresa.ERetenciones MantenimientoRetenciones(DSMarket.Logica.Entidades.EntidadesEmpresa.ERetenciones Item, string Accion)
+        {
             ObjData.CommandTimeout = 999999999;
 
             DSMarket.Logica.Entidades.EntidadesEmpresa.ERetenciones Mantenimiento = null;
@@ -615,17 +639,18 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
                 Item.Estatus0,
                 Item.UsuarioAdiciona,
                 Accion);
-            if (Retenciones != null) {
+            if (Retenciones != null)
+            {
                 Mantenimiento = (from n in Retenciones
                                  select new DSMarket.Logica.Entidades.EntidadesEmpresa.ERetenciones
                                  {
-                                     IdRetencion=n.IdRetencion,
-                                     Retencion=n.Descripcion,
-                                     Estatus0=n.Estatus,
-                                     UsuarioAdiciona=n.UsuarioAdiciona,
-                                     FechaAdiciona=n.FechaAdiciona,
-                                     UsuarioModifica=n.UsuarioModifica,
-                                     FechaModifica=n.FechaModifica
+                                     IdRetencion = n.IdRetencion,
+                                     Retencion = n.Descripcion,
+                                     Estatus0 = n.Estatus,
+                                     UsuarioAdiciona = n.UsuarioAdiciona,
+                                     FechaAdiciona = n.FechaAdiciona,
+                                     UsuarioModifica = n.UsuarioModifica,
+                                     FechaModifica = n.FechaModifica
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
@@ -633,37 +658,39 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
         #endregion
 
         #region MANTENIMIENTO DE PORCIENTO DE RETENCIONES
-        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.EPorcientoRetenciones> BuscaPorCientoretenciones(decimal? IdPorcientoRetencion = null, decimal? Idretencion = null, int? Secuencia = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
+        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.EPorcientoRetenciones> BuscaPorCientoretenciones(decimal? IdPorcientoRetencion = null, decimal? Idretencion = null, int? Secuencia = null, int? NumeroPagina = null, int? NumeroRegistros = null)
+        {
             ObjData.CommandTimeout = 999999999;
 
             var Listado = (from n in ObjData.SP_BUSCA_PORCIENTO_RETENCIONES(IdPorcientoRetencion, Idretencion, Secuencia, NumeroPagina, NumeroRegistros)
                            select new DSMarket.Logica.Entidades.EntidadesEmpresa.EPorcientoRetenciones
                            {
-                               IdPorcientoRetencion=n.IdPorcientoRetencion,
-                               IdRetencion=n.IdRetencion,
-                               Retencion=n.Retencion,
-                               Secuencia=n.Secuencia,
-                               MontoInicial=n.MontoInicial,
-                               MontoFinal=n.MontoFinal,
-                               MontoSumar=n.MontoSumar,
-                               PorcientoCia=n.PorcientoCia,
-                               PorcientoEmpleado=n.PorcientoEmpleado,
-                               Estatus0=n.Estatus0,
-                               Estatus=n.Estatus,
-                               UsuarioAdiciona=n.UsuarioAdiciona,
-                               CreadoPor=n.CreadoPor,
-                               FechaAdiciona=n.FechaAdiciona,
-                               FechaCreado=n.FechaCreado,
-                               UsuarioModifica=n.UsuarioModifica,
-                               ModificadoPor=n.ModificadoPor,
-                               FechaModifica=n.FechaModifica,
-                               FechaModificado=n.FechaModificado,
-                               CantidadRegistros=n.CantidadRegistros
+                               IdPorcientoRetencion = n.IdPorcientoRetencion,
+                               IdRetencion = n.IdRetencion,
+                               Retencion = n.Retencion,
+                               Secuencia = n.Secuencia,
+                               MontoInicial = n.MontoInicial,
+                               MontoFinal = n.MontoFinal,
+                               MontoSumar = n.MontoSumar,
+                               PorcientoCia = n.PorcientoCia,
+                               PorcientoEmpleado = n.PorcientoEmpleado,
+                               Estatus0 = n.Estatus0,
+                               Estatus = n.Estatus,
+                               UsuarioAdiciona = n.UsuarioAdiciona,
+                               CreadoPor = n.CreadoPor,
+                               FechaAdiciona = n.FechaAdiciona,
+                               FechaCreado = n.FechaCreado,
+                               UsuarioModifica = n.UsuarioModifica,
+                               ModificadoPor = n.ModificadoPor,
+                               FechaModifica = n.FechaModifica,
+                               FechaModificado = n.FechaModificado,
+                               CantidadRegistros = n.CantidadRegistros
                            }).ToList();
             return Listado;
-        
+
         }
-        public DSMarket.Logica.Entidades.EntidadesEmpresa.EPorcientoRetenciones MantenimientoPorcientoretencion(DSMarket.Logica.Entidades.EntidadesEmpresa.EPorcientoRetenciones Item, string Accion) {
+        public DSMarket.Logica.Entidades.EntidadesEmpresa.EPorcientoRetenciones MantenimientoPorcientoretencion(DSMarket.Logica.Entidades.EntidadesEmpresa.EPorcientoRetenciones Item, string Accion)
+        {
             ObjData.CommandTimeout = 999999999;
 
             DSMarket.Logica.Entidades.EntidadesEmpresa.EPorcientoRetenciones Mantenimiento = null;
@@ -680,28 +707,201 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
                 Item.Estatus0,
                 Item.UsuarioAdiciona,
                 Accion);
-            if (PorcientoRetenciones != null) {
+            if (PorcientoRetenciones != null)
+            {
                 Mantenimiento = (from n in PorcientoRetenciones
                                  select new DSMarket.Logica.Entidades.EntidadesEmpresa.EPorcientoRetenciones
                                  {
-                                     IdPorcientoRetencion=n.IdPorcientoRetencion,
-                                     IdRetencion=n.IdRetencion,
-                                     Secuencia=n.Secuencia,
-                                     MontoInicial=n.MontoInicial,
-                                     MontoFinal=n.MontoFinal,
-                                     MontoSumar=n.MontoSumar,
-                                     PorcientoCia=n.PorcientoCia,
-                                     PorcientoEmpleado=n.PorcientoEmpleado,
-                                     Estatus0=n.Estatus,
-                                     UsuarioAdiciona=n.UsuarioAdiciona,
-                                     FechaAdiciona=n.FechaAdiciona,
-                                     UsuarioModifica=n.UsuarioModifica,
-                                     FechaModifica=n.FechaModifica
+                                     IdPorcientoRetencion = n.IdPorcientoRetencion,
+                                     IdRetencion = n.IdRetencion,
+                                     Secuencia = n.Secuencia,
+                                     MontoInicial = n.MontoInicial,
+                                     MontoFinal = n.MontoFinal,
+                                     MontoSumar = n.MontoSumar,
+                                     PorcientoCia = n.PorcientoCia,
+                                     PorcientoEmpleado = n.PorcientoEmpleado,
+                                     Estatus0 = n.Estatus,
+                                     UsuarioAdiciona = n.UsuarioAdiciona,
+                                     FechaAdiciona = n.FechaAdiciona,
+                                     UsuarioModifica = n.UsuarioModifica,
+                                     FechaModifica = n.FechaModifica
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
         }
         #endregion
 
+        #region MANTENIMIENTO DE NACIONALIDAD
+        //LISTADO DE NACIONALIDAD
+        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.ENacionalidad> BuscaNacionalidad(decimal? IdNacionalidad = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistros = null)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            var Buscar = (from n in ObjData.SP_BUSCA_NACIONALIDAD(IdNacionalidad, Descripcion, NumeroPagina, NumeroRegistros)
+                          select new DSMarket.Logica.Entidades.EntidadesEmpresa.ENacionalidad
+                          {
+                              IdNacionalidad = n.IdNacionalidad,
+                              Nacionalidad = n.Nacionalidad,
+                              Estatus0 = n.Estatus0,
+                              Estatus = n.Estatus,
+                              UsuarioAdiciona = n.UsuarioAdiciona,
+                              CreadoPor = n.CreadoPor,
+                              FechaAdiciona = n.FechaAdiciona,
+                              FechaCreado = n.FechaCreado,
+                              UsuarioModifica = n.UsuarioModifica,
+                              ModificadoPor = n.ModificadoPor,
+                              FechaModifica = n.FechaModifica,
+                              FechaModificado = n.FechaModificado,
+                              CantidadRegistros = n.CantidadRegistros
+                          }).ToList();
+            return Buscar;
+        }
+
+        //MANTENIMIENTO DE NACIONALIDAD
+        public DSMarket.Logica.Entidades.EntidadesEmpresa.ENacionalidad MantenimientoNacionalidad(DSMarket.Logica.Entidades.EntidadesEmpresa.ENacionalidad Item, string Accion)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesEmpresa.ENacionalidad Mantenimiento = null;
+
+            var Nacionalidad = ObjData.SP_MANTENIMIENTO_NACIONALIDAD(
+                Item.IdNacionalidad,
+                Item.Nacionalidad,
+                Item.Estatus0,
+                Item.UsuarioAdiciona,
+                Accion);
+            if (Nacionalidad != null)
+            {
+                Mantenimiento = (from n in Nacionalidad
+                                 select new DSMarket.Logica.Entidades.EntidadesEmpresa.ENacionalidad
+                                 {
+                                     IdNacionalidad = n.IdNacionalidad,
+                                     Nacionalidad = n.Descripcion,
+                                     Estatus0 = n.Estatus,
+                                     UsuarioAdiciona = n.UsuarioAdiciona,
+                                     FechaAdiciona = n.FechaAdiciona,
+                                     UsuarioModifica = n.UsuarioModifica,
+                                     FechaModifica = n.FechaModifica
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
+        #endregion
+
+        #region MANTENIMIENTO DE ESTADO CIVIL
+        //BUSCA ESTADO CIVIL
+        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.EEstadoCivil> BuscaEstadiCivil(decimal? IdEstadoCivil = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistros = 10)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_BUSCA_ESTADO_CIVIL(IdEstadoCivil, Descripcion, NumeroPagina, NumeroRegistros)
+                           select new DSMarket.Logica.Entidades.EntidadesEmpresa.EEstadoCivil
+                           {
+                               IdEstadoCivil = n.IdEstadoCivil,
+                               EstadoCivil = n.EstadoCivil,
+                               Estatus0 = n.Estatus0,
+                               Estatus = n.Estatus,
+                               UsuarioAdiciona = n.UsuarioAdiciona,
+                               CreadoPor = n.CreadoPor,
+                               FechaAdiciona = n.FechaAdiciona,
+                               FechaCreado = n.FechaCreado,
+                               UsuarioModifica = n.UsuarioModifica,
+                               ModificadoPor = n.ModificadoPor,
+                               FechaModifica = n.FechaModifica,
+                               FechaModificado = n.FechaModificado,
+                               CantidadRegistros = n.CantidadRegistros
+                           }).ToList();
+            return Listado;
+        }
+
+        //MANTENIMIENTO DE ESTADO CIVIL
+        public DSMarket.Logica.Entidades.EntidadesEmpresa.EEstadoCivil MantenimientoEstadoCivil(DSMarket.Logica.Entidades.EntidadesEmpresa.EEstadoCivil Item, string Accion)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesEmpresa.EEstadoCivil Mantenimiento = null;
+
+            var EstadoCivil = ObjData.SP_MANTENIMIENTO_ESTADO_CIVIL(
+                Item.IdEstadoCivil,
+                Item.EstadoCivil,
+                Item.Estatus0,
+                Item.UsuarioAdiciona,
+                Accion);
+            if (EstadoCivil != null)
+            {
+                Mantenimiento = (from n in EstadoCivil
+                                 select new DSMarket.Logica.Entidades.EntidadesEmpresa.EEstadoCivil
+                                 {
+                                     IdEstadoCivil = n.IdEstadoCivil,
+                                     EstadoCivil = n.Descripcion,
+                                     Estatus0 = n.Estatus,
+                                     UsuarioAdiciona = n.UsuarioAdiciona,
+                                     FechaAdiciona = n.FechaAdiciona,
+                                     UsuarioModifica = n.UsuarioModifica,
+                                     FechaModifica = n.FechaModifica
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+            
+        }
+        #endregion
+
+        #region MANTENIMIENTO DE FORMA DE PAGO DE EMPLEADO
+        //BUSCA ESTADO CIVIL
+        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.EFormaPagoEmpleado> BuscaFormaPagoEmpleado(decimal? IdFormaPago = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistros = 10)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_BUSCA_FORMA_PAGO_EMPLEADO(IdFormaPago, Descripcion, NumeroPagina, NumeroRegistros)
+                           select new DSMarket.Logica.Entidades.EntidadesEmpresa.EFormaPagoEmpleado
+                           {
+                               IdFormaPagoEmpleado = n.IdFormaPagoEmpleado,
+                               FormaPago = n.FormaPago,
+                               Estatus0 = n.Estatus0,
+                               Estatus = n.Estatus,
+                               UsuarioAdiciona = n.UsuarioAdiciona,
+                               CreadoPor = n.CreadoPor,
+                               FechaAdiciona = n.FechaAdiciona,
+                               FechaCreado = n.FechaCreado,
+                               UsuarioModifica = n.UsuarioModifica,
+                               ModificadoPor = n.ModificadoPor,
+                               FechaModifica = n.FechaModifica,
+                               FechaModificado = n.FechaModificado,
+                               CantidadRegistros = n.CantidadRegistros
+                           }).ToList();
+            return Listado;
+        }
+
+        //MANTENIMIENTO DE ESTADO CIVIL
+        public DSMarket.Logica.Entidades.EntidadesEmpresa.EFormaPagoEmpleado MantenimientoFormaPago(DSMarket.Logica.Entidades.EntidadesEmpresa.EFormaPagoEmpleado Item, string Accion)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesEmpresa.EFormaPagoEmpleado Mantenimiento = null;
+
+            var FormaPago = ObjData.SP_MANTENIMIENTO_FORMA_PAGO_EMPLEADO(
+                Item.IdFormaPagoEmpleado,
+                Item.FormaPago,
+                Item.Estatus0,
+                Item.UsuarioAdiciona,
+                Accion);
+            if (FormaPago != null)
+            {
+                Mantenimiento = (from n in FormaPago
+                                 select new DSMarket.Logica.Entidades.EntidadesEmpresa.EFormaPagoEmpleado
+                                 {
+                                     IdFormaPagoEmpleado = n.IdFormaPagoEmpleado,
+                                     FormaPago = n.Descripcion,
+                                     Estatus0 = n.Estatus,
+                                     UsuarioAdiciona = n.UsuarioAdiciona,
+                                     FechaAdiciona = n.FechaAdiciona,
+                                     UsuarioModifica = n.UsuarioModifica,
+                                     FechaModifica = n.FechaModifica
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+
+        }
+        #endregion
     }
 }
