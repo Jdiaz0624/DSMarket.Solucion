@@ -126,5 +126,12 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
             ConsultaFormaPago.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
             ConsultaFormaPago.ShowDialog();
         }
+
+        private void Button11_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Empresa.EmpleadosConsulta ConsultarEmpleados = new Pantallas.Empresa.EmpleadosConsulta();
+            ConsultarEmpleados.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
+            ConsultarEmpleados.ShowDialog();
+        }
     }
 }
