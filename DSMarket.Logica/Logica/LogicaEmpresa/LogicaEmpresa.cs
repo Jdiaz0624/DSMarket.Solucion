@@ -903,5 +903,126 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
 
         }
         #endregion
+
+        #region MANTENIMIENTO DE EMPLEADOS
+        //LISTADO DE EMPLEADOS
+        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.EEmpleados> BuscaEmpleados(decimal? IdEmpleado = null, string NombreEmpleado = null, string NumeroIdentificacion = null, string NSS = null, DateTime? FechaIngresoDesde = null, DateTime? FechaIngresoHasta = null, bool? Estatus = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_BUSCA_EMPLEADO(IdEmpleado, NombreEmpleado, NumeroIdentificacion, NSS, FechaIngresoDesde, FechaIngresoHasta, Estatus, NumeroPagina, NumeroRegistros)
+                           select new DSMarket.Logica.Entidades.EntidadesEmpresa.EEmpleados
+                           {
+                               IdEmpleado=n.IdEmpleado,
+                               Nombre=n.Nombre,
+                               Apellido=n.Apellido,
+                               NombreEmpleado=n.NombreEmpleado,
+                               IdTipoIdentificacion=n.IdTipoIdentificacion,
+                               TipoIdentificacion=n.TipoIdentificacion,
+                               NumeroIdentificacion=n.NumeroIdentificacion,
+                               IdNacionalidad=n.IdNacionalidad,
+                               Nacionalidad=n.Nacionalidad,
+                               NSS=n.NSS,
+                               Direccion=n.Direccion,
+                               IdTipoEmpleado=n.IdTipoEmpleado,
+                               TipoEmpleado=n.TipoEmpleado,
+                               IdTioNomina=n.IdTioNomina,
+                               TipoNomina=n.TipoNomina,
+                               IdDepartamento=n.IdDepartamento,
+                               Departamento=n.Departamento,
+                               IdCargo=n.IdCargo,
+                               Cargo=n.Cargo,
+                               Telefono1=n.Telefono1,
+                               Telefono2=n.Telefono2,
+                               Email=n.Email,
+                               IdEstadoCivil=n.IdEstadoCivil,
+                               EstadoCivil=n.EstadoCivil,
+                               Sueldo=n.Sueldo,
+                               OtrosIngresos=n.OtrosIngresos,
+                               IdFormaPago=n.IdFormaPago,
+                               FormaPago=n.FormaPago,
+                               FechaIngreso0=n.FechaIngreso0,
+                               FechaIngreso=n.FechaIngreso,
+                               FechaNacimiento0=n.FechaNacimiento0,
+                               FechaNacimiento=n.FechaNacimiento,
+                               Estatus0=n.Estatus0,
+                               Estatus=n.Estatus,
+                               AplicaParaComision0=n.AplicaParaComision0,
+                               AplicaParaComision=n.AplicaParaComision,
+                               PorcientoCOmisionVentas=n.PorcientoCOmisionVentas,
+                               PorcientoComsiionServicio=n.PorcientoComsiionServicio,
+                               CantidadRegistros=n.CantidadRegistros,
+                               CantidadActivos=n.CantidadActivos,
+                               CantidadInactivos=n.CantidadInactivos
+                           }).ToList();
+            return Listado;
+        }
+
+        //MANTENIMIENTO DE EMPLEADOS
+        public DSMarket.Logica.Entidades.EntidadesEmpresa.EEmpleados MantenimientoEmpleados(DSMarket.Logica.Entidades.EntidadesEmpresa.EEmpleados Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesEmpresa.EEmpleados Mantenimiento = null;
+
+            var Empleado = ObjData.SP_MANTENIMIENTO_EMPLEADOS(
+                Item.IdEmpleado,
+                Item.Nombre,
+                Item.Apellido,
+                Item.IdTipoIdentificacion,
+                Item.NumeroIdentificacion,
+                Item.IdNacionalidad,
+                Item.NSS,
+                Item.Direccion,
+                Item.IdTipoEmpleado,
+                Item.IdTioNomina,
+                Item.IdDepartamento,
+                Item.IdCargo,
+                Item.Telefono1,
+                Item.Telefono2,
+                Item.Email,
+                Item.IdEstadoCivil,
+                Item.Sueldo,
+                Item.OtrosIngresos,
+                Item.IdFormaPago,
+                Item.FechaIngreso0,
+                Item.FechaNacimiento0,
+                Item.Estatus0,
+                Item.AplicaParaComision0,
+                Item.PorcientoCOmisionVentas,
+                Item.PorcientoComsiionServicio,
+                Accion);
+            if (Empleado != null) {
+                Mantenimiento = (from n in Empleado
+                                 select new DSMarket.Logica.Entidades.EntidadesEmpresa.EEmpleados
+                                 {
+                                     IdEmpleado=n.IdEmpleado,
+                                     Nombre=n.Nombre,
+                                     Apellido=n.Apellido,
+                                     IdTipoIdentificacion=n.IdTipoIdentificacion,
+                                     NumeroIdentificacion=n.NumeroIdentificacion,
+                                     IdNacionalidad=n.IdNacionalidad,
+                                     NSS=n.NSS,
+                                     Direccion=n.Direccion,
+                                     IdTipoEmpleado=n.IdTipoEmpleado,
+                                     IdTioNomina=n.IdTioNomina,
+                                     IdDepartamento=n.IdDepartamento,
+                                     IdCargo=n.IdCargo,
+                                     Telefono1=n.Telefono1,
+                                     Telefono2=n.Telefono2,
+                                     Email=n.Email,
+                                     IdEstadoCivil=n.IdEstadoCivil,
+                                     Sueldo=n.Sueldo,
+                                     OtrosIngresos=n.OtrosIngresos,
+                                     IdFormaPago=n.IdFormaPago,
+                                     FechaIngreso0=n.FechaIngreso,
+                                     FechaNacimiento0=n.FechaNacimiento,
+                                     Estatus0=n.Estatus,
+                                     AplicaParaComision0=n.AplicaParaComision,
+                                     PorcientoCOmisionVentas=n.PorcientoCOmisionVentas,
+                                     PorcientoComsiionServicio=n.PorcientoComsiionServicio
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
+        #endregion
     }
 }

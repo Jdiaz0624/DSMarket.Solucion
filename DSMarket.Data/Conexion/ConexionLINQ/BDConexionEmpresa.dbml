@@ -624,4 +624,113 @@
       <Column Name="CantidadRegistros" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Empresa.SP_MANTENIMIENTO_EMPLEADOS" Method="SP_MANTENIMIENTO_EMPLEADOS">
+    <Parameter Name="IdEmpleado" Parameter="idEmpleado" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Apellido" Parameter="apellido" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="IdTipoIdentificacion" Parameter="idTipoIdentificacion" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NumeroIdentificacion" Parameter="numeroIdentificacion" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="IdNacionalidad" Parameter="idNacionalidad" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NSS" Parameter="nSS" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Direccion" Parameter="direccion" Type="System.String" DbType="VarChar(8000)" />
+    <Parameter Name="IdTipoEmpleado" Parameter="idTipoEmpleado" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdTioNomina" Parameter="idTioNomina" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdDepartamento" Parameter="idDepartamento" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdCargo" Parameter="idCargo" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Telefono1" Parameter="telefono1" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Telefono2" Parameter="telefono2" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="IdEstadoCivil" Parameter="idEstadoCivil" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Sueldo" Parameter="sueldo" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="OtrosIngresos" Parameter="otrosIngresos" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="IdFormaPago" Parameter="idFormaPago" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="FechaIngreso" Parameter="fechaIngreso" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FechaNacimiento" Parameter="fechaNacimiento" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Estatus" Parameter="estatus" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="AplicaParaComision" Parameter="aplicaParaComision" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="PorcientoCOmisionVentas" Parameter="porcientoCOmisionVentas" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="PorcientoComsiionServicio" Parameter="porcientoComsiionServicio" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_MANTENIMIENTO_EMPLEADOSResult">
+      <Column Name="IdEmpleado" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Apellido" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdTipoIdentificacion" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NumeroIdentificacion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IdNacionalidad" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NSS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Direccion" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="IdTipoEmpleado" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdTioNomina" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdDepartamento" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdCargo" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Telefono1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Telefono2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdEstadoCivil" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Sueldo" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="OtrosIngresos" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="IdFormaPago" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="FechaIngreso" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaNacimiento" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Estatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AplicaParaComision" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PorcientoCOmisionVentas" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="PorcientoComsiionServicio" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Empresa.SP_BUSCA_EMPLEADO" Method="SP_BUSCA_EMPLEADO">
+    <Parameter Name="IdEmpleado" Parameter="idEmpleado" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NombreEmpleado" Parameter="nombreEmpleado" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="NumeroIdentificacion" Parameter="numeroIdentificacion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="NSS" Parameter="nSS" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="FechaIngresoDesde" Parameter="fechaIngresoDesde" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FechaIngresoHasta" Parameter="fechaIngresoHasta" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Estatus" Parameter="estatus" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="NumeroPagina" Parameter="numeroPagina" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NumeroRegistros" Parameter="numeroRegistros" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_BUSCA_EMPLEADOResult">
+      <Column Name="IdEmpleado" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Apellido" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="NombreEmpleado" Type="System.String" DbType="VarChar(201) NOT NULL" CanBeNull="false" />
+      <Column Name="IdTipoIdentificacion" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="TipoIdentificacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="NumeroIdentificacion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IdNacionalidad" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Nacionalidad" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="NSS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Direccion" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="IdTipoEmpleado" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="TipoEmpleado" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdTioNomina" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="TipoNomina" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdDepartamento" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Departamento" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdCargo" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Cargo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Telefono1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Telefono2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdEstadoCivil" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="EstadoCivil" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Sueldo" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="OtrosIngresos" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdFormaPago" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="FormaPago" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FechaIngreso0" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaIngreso" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="FechaNacimiento0" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaNacimiento" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="Estatus0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Estatus" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="AplicaParaComision0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AplicaParaComision" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="PorcientoCOmisionVentas" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="PorcientoComsiionServicio" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="CantidadRegistros" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CantidadActivos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CantidadInactivos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>
