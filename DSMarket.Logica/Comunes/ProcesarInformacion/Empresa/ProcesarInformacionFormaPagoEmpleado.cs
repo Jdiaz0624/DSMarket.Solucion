@@ -31,7 +31,7 @@ namespace DSMarket.Logica.Comunes.ProcesarInformacion.Empresa
             Accion = AccionCON;
         }
 
-        public void ProcesarNacionalidad()
+        public void ProcesarFormaPago()
         {
             DSMarket.Logica.Entidades.EntidadesEmpresa.EFormaPagoEmpleado Procesar = new Entidades.EntidadesEmpresa.EFormaPagoEmpleado();
 
