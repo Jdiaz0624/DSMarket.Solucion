@@ -33,34 +33,34 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.panel2 = new System.Windows.Forms.Panel();
             this.btnRestabelcer = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbInactivoVariable = new System.Windows.Forms.Label();
+            this.lbInactivosTitulo = new System.Windows.Forms.Label();
+            this.lbActivosVariables = new System.Windows.Forms.Label();
+            this.lbActivosTitulos = new System.Windows.Forms.Label();
             this.lbCantidadRegistrosVariable = new System.Windows.Forms.Label();
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.lbCantidadRegistrosTitulo = new System.Windows.Forms.Label();
-            this.lbActivosVariables = new System.Windows.Forms.Label();
-            this.lbActivosTitulos = new System.Windows.Forms.Label();
-            this.lbInactivoVariable = new System.Windows.Forms.Label();
-            this.lbInactivosTitulo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbAgregarRangoFecha = new System.Windows.Forms.CheckBox();
-            this.rbActivos = new System.Windows.Forms.RadioButton();
-            this.rbInactivos = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtNombreEmpleado = new System.Windows.Forms.TextBox();
-            this.txtNumeroIdentificacion = new System.Windows.Forms.TextBox();
-            this.txtNSS = new System.Windows.Forms.TextBox();
-            this.txtFechaIngresoDesde = new System.Windows.Forms.DateTimePicker();
             this.txtFechaIngresoHasta = new System.Windows.Forms.DateTimePicker();
+            this.txtFechaIngresoDesde = new System.Windows.Forms.DateTimePicker();
+            this.txtNSS = new System.Windows.Forms.TextBox();
+            this.txtNumeroIdentificacion = new System.Windows.Forms.TextBox();
+            this.txtNombreEmpleado = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.rbInactivos = new System.Windows.Forms.RadioButton();
+            this.rbActivos = new System.Windows.Forms.RadioButton();
+            this.cbAgregarRangoFecha = new System.Windows.Forms.CheckBox();
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtListado = new System.Windows.Forms.DataGridView();
@@ -83,20 +83,6 @@
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Linen;
-            this.panel2.Controls.Add(this.btnRestabelcer);
-            this.panel2.Controls.Add(this.btnEditar);
-            this.panel2.Controls.Add(this.btnNuevo);
-            this.panel2.Controls.Add(this.btnBuscar);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 38);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1200, 58);
-            this.panel2.TabIndex = 80;
-            // 
             // btnRestabelcer
             // 
             this.btnRestabelcer.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -112,6 +98,7 @@
             this.btnRestabelcer.Text = "      Restablecer";
             this.toolTip1.SetToolTip(this.btnRestabelcer, "Deshabilitar registro seleccionado");
             this.btnRestabelcer.UseVisualStyleBackColor = true;
+            this.btnRestabelcer.Click += new System.EventHandler(this.BtnRestabelcer_Click);
             // 
             // btnEditar
             // 
@@ -129,6 +116,7 @@
             this.btnEditar.Text = "      Editar";
             this.toolTip1.SetToolTip(this.btnEditar, "Modificar registro seleccionado");
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
             // 
             // btnNuevo
             // 
@@ -145,6 +133,7 @@
             this.btnNuevo.Text = "      Nuevo";
             this.toolTip1.SetToolTip(this.btnNuevo, "Crear registro nuevo");
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
             // 
             // btnBuscar
             // 
@@ -161,6 +150,21 @@
             this.btnBuscar.Text = "      Buscar";
             this.toolTip1.SetToolTip(this.btnBuscar, "Consultar registros");
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Linen;
+            this.panel2.Controls.Add(this.btnRestabelcer);
+            this.panel2.Controls.Add(this.btnEditar);
+            this.panel2.Controls.Add(this.btnNuevo);
+            this.panel2.Controls.Add(this.btnBuscar);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 38);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1163, 58);
+            this.panel2.TabIndex = 80;
             // 
             // panel1
             // 
@@ -177,47 +181,26 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1200, 38);
+            this.panel1.Size = new System.Drawing.Size(1163, 38);
             this.panel1.TabIndex = 79;
             // 
-            // lbCantidadRegistrosVariable
+            // lbInactivoVariable
             // 
-            this.lbCantidadRegistrosVariable.AutoSize = true;
-            this.lbCantidadRegistrosVariable.Location = new System.Drawing.Point(577, 9);
-            this.lbCantidadRegistrosVariable.Name = "lbCantidadRegistrosVariable";
-            this.lbCantidadRegistrosVariable.Size = new System.Drawing.Size(18, 20);
-            this.lbCantidadRegistrosVariable.TabIndex = 31;
-            this.lbCantidadRegistrosVariable.Text = "0";
+            this.lbInactivoVariable.AutoSize = true;
+            this.lbInactivoVariable.Location = new System.Drawing.Point(989, 9);
+            this.lbInactivoVariable.Name = "lbInactivoVariable";
+            this.lbInactivoVariable.Size = new System.Drawing.Size(18, 20);
+            this.lbInactivoVariable.TabIndex = 35;
+            this.lbInactivoVariable.Text = "0";
             // 
-            // PCerrar
+            // lbInactivosTitulo
             // 
-            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(1158, 5);
-            this.PCerrar.Name = "PCerrar";
-            this.PCerrar.Size = new System.Drawing.Size(30, 30);
-            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PCerrar.TabIndex = 15;
-            this.PCerrar.TabStop = false;
-            // 
-            // lbTitulo
-            // 
-            this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Location = new System.Drawing.Point(15, 9);
-            this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
-            this.lbTitulo.TabIndex = 13;
-            this.lbTitulo.Text = "label6";
-            // 
-            // lbCantidadRegistrosTitulo
-            // 
-            this.lbCantidadRegistrosTitulo.AutoSize = true;
-            this.lbCantidadRegistrosTitulo.Location = new System.Drawing.Point(399, 9);
-            this.lbCantidadRegistrosTitulo.Name = "lbCantidadRegistrosTitulo";
-            this.lbCantidadRegistrosTitulo.Size = new System.Drawing.Size(167, 20);
-            this.lbCantidadRegistrosTitulo.TabIndex = 30;
-            this.lbCantidadRegistrosTitulo.Text = "Cantidad de Registros";
+            this.lbInactivosTitulo.AutoSize = true;
+            this.lbInactivosTitulo.Location = new System.Drawing.Point(911, 9);
+            this.lbInactivosTitulo.Name = "lbInactivosTitulo";
+            this.lbInactivosTitulo.Size = new System.Drawing.Size(72, 20);
+            this.lbInactivosTitulo.TabIndex = 34;
+            this.lbInactivosTitulo.Text = "Inactivos";
             // 
             // lbActivosVariables
             // 
@@ -237,23 +220,45 @@
             this.lbActivosTitulos.TabIndex = 32;
             this.lbActivosTitulos.Text = "Activos";
             // 
-            // lbInactivoVariable
+            // lbCantidadRegistrosVariable
             // 
-            this.lbInactivoVariable.AutoSize = true;
-            this.lbInactivoVariable.Location = new System.Drawing.Point(989, 9);
-            this.lbInactivoVariable.Name = "lbInactivoVariable";
-            this.lbInactivoVariable.Size = new System.Drawing.Size(18, 20);
-            this.lbInactivoVariable.TabIndex = 35;
-            this.lbInactivoVariable.Text = "0";
+            this.lbCantidadRegistrosVariable.AutoSize = true;
+            this.lbCantidadRegistrosVariable.Location = new System.Drawing.Point(577, 9);
+            this.lbCantidadRegistrosVariable.Name = "lbCantidadRegistrosVariable";
+            this.lbCantidadRegistrosVariable.Size = new System.Drawing.Size(18, 20);
+            this.lbCantidadRegistrosVariable.TabIndex = 31;
+            this.lbCantidadRegistrosVariable.Text = "0";
             // 
-            // lbInactivosTitulo
+            // PCerrar
             // 
-            this.lbInactivosTitulo.AutoSize = true;
-            this.lbInactivosTitulo.Location = new System.Drawing.Point(911, 9);
-            this.lbInactivosTitulo.Name = "lbInactivosTitulo";
-            this.lbInactivosTitulo.Size = new System.Drawing.Size(72, 20);
-            this.lbInactivosTitulo.TabIndex = 34;
-            this.lbInactivosTitulo.Text = "Inactivos";
+            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
+            this.PCerrar.Location = new System.Drawing.Point(1121, 5);
+            this.PCerrar.Name = "PCerrar";
+            this.PCerrar.Size = new System.Drawing.Size(30, 30);
+            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PCerrar.TabIndex = 15;
+            this.PCerrar.TabStop = false;
+            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
+            // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(15, 9);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
+            this.lbTitulo.TabIndex = 13;
+            this.lbTitulo.Text = "label6";
+            // 
+            // lbCantidadRegistrosTitulo
+            // 
+            this.lbCantidadRegistrosTitulo.AutoSize = true;
+            this.lbCantidadRegistrosTitulo.Location = new System.Drawing.Point(399, 9);
+            this.lbCantidadRegistrosTitulo.Name = "lbCantidadRegistrosTitulo";
+            this.lbCantidadRegistrosTitulo.Size = new System.Drawing.Size(167, 20);
+            this.lbCantidadRegistrosTitulo.TabIndex = 30;
+            this.lbCantidadRegistrosTitulo.Text = "Cantidad de Registros";
             // 
             // groupBox1
             // 
@@ -277,26 +282,87 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Empleados - Filtros";
             // 
-            // cbAgregarRangoFecha
+            // txtFechaIngresoHasta
             // 
-            this.cbAgregarRangoFecha.AutoSize = true;
-            this.cbAgregarRangoFecha.Location = new System.Drawing.Point(9, 25);
-            this.cbAgregarRangoFecha.Name = "cbAgregarRangoFecha";
-            this.cbAgregarRangoFecha.Size = new System.Drawing.Size(208, 24);
-            this.cbAgregarRangoFecha.TabIndex = 0;
-            this.cbAgregarRangoFecha.Text = "Agregar Rango de Fecha";
-            this.cbAgregarRangoFecha.UseVisualStyleBackColor = true;
+            this.txtFechaIngresoHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFechaIngresoHasta.Location = new System.Drawing.Point(197, 169);
+            this.txtFechaIngresoHasta.Name = "txtFechaIngresoHasta";
+            this.txtFechaIngresoHasta.Size = new System.Drawing.Size(139, 26);
+            this.txtFechaIngresoHasta.TabIndex = 12;
             // 
-            // rbActivos
+            // txtFechaIngresoDesde
             // 
-            this.rbActivos.AutoSize = true;
-            this.rbActivos.Location = new System.Drawing.Point(233, 24);
-            this.rbActivos.Name = "rbActivos";
-            this.rbActivos.Size = new System.Drawing.Size(78, 24);
-            this.rbActivos.TabIndex = 1;
-            this.rbActivos.TabStop = true;
-            this.rbActivos.Text = "Activos";
-            this.rbActivos.UseVisualStyleBackColor = true;
+            this.txtFechaIngresoDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFechaIngresoDesde.Location = new System.Drawing.Point(197, 141);
+            this.txtFechaIngresoDesde.Name = "txtFechaIngresoDesde";
+            this.txtFechaIngresoDesde.Size = new System.Drawing.Size(139, 26);
+            this.txtFechaIngresoDesde.TabIndex = 11;
+            // 
+            // txtNSS
+            // 
+            this.txtNSS.Location = new System.Drawing.Point(197, 113);
+            this.txtNSS.Name = "txtNSS";
+            this.txtNSS.Size = new System.Drawing.Size(279, 26);
+            this.txtNSS.TabIndex = 10;
+            // 
+            // txtNumeroIdentificacion
+            // 
+            this.txtNumeroIdentificacion.Location = new System.Drawing.Point(197, 85);
+            this.txtNumeroIdentificacion.Name = "txtNumeroIdentificacion";
+            this.txtNumeroIdentificacion.Size = new System.Drawing.Size(279, 26);
+            this.txtNumeroIdentificacion.TabIndex = 9;
+            // 
+            // txtNombreEmpleado
+            // 
+            this.txtNombreEmpleado.Location = new System.Drawing.Point(197, 57);
+            this.txtNombreEmpleado.Name = "txtNombreEmpleado";
+            this.txtNombreEmpleado.Size = new System.Drawing.Size(279, 26);
+            this.txtNombreEmpleado.TabIndex = 8;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(31, 172);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(163, 20);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Fecha Ingreso Hasta:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(27, 144);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(167, 20);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Fecha Ingreso Desde:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(148, 116);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 20);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "NSS:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 87);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(187, 20);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Numero de identificación:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(27, 60);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(167, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Nombre de Empleado:";
             // 
             // rbInactivos
             // 
@@ -309,87 +375,26 @@
             this.rbInactivos.Text = "Inactivos";
             this.rbInactivos.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // rbActivos
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 60);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(167, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Nombre de Empleado:";
+            this.rbActivos.AutoSize = true;
+            this.rbActivos.Location = new System.Drawing.Point(233, 24);
+            this.rbActivos.Name = "rbActivos";
+            this.rbActivos.Size = new System.Drawing.Size(78, 24);
+            this.rbActivos.TabIndex = 1;
+            this.rbActivos.TabStop = true;
+            this.rbActivos.Text = "Activos";
+            this.rbActivos.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // cbAgregarRangoFecha
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 87);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(187, 20);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Numero de identificación:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(148, 116);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 20);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "NSS:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 144);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(167, 20);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Fecha Ingreso Desde:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(31, 172);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(163, 20);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Fecha Ingreso Hasta:";
-            // 
-            // txtNombreEmpleado
-            // 
-            this.txtNombreEmpleado.Location = new System.Drawing.Point(197, 57);
-            this.txtNombreEmpleado.Name = "txtNombreEmpleado";
-            this.txtNombreEmpleado.Size = new System.Drawing.Size(279, 26);
-            this.txtNombreEmpleado.TabIndex = 8;
-            // 
-            // txtNumeroIdentificacion
-            // 
-            this.txtNumeroIdentificacion.Location = new System.Drawing.Point(197, 85);
-            this.txtNumeroIdentificacion.Name = "txtNumeroIdentificacion";
-            this.txtNumeroIdentificacion.Size = new System.Drawing.Size(279, 26);
-            this.txtNumeroIdentificacion.TabIndex = 9;
-            // 
-            // txtNSS
-            // 
-            this.txtNSS.Location = new System.Drawing.Point(197, 113);
-            this.txtNSS.Name = "txtNSS";
-            this.txtNSS.Size = new System.Drawing.Size(279, 26);
-            this.txtNSS.TabIndex = 10;
-            // 
-            // txtFechaIngresoDesde
-            // 
-            this.txtFechaIngresoDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtFechaIngresoDesde.Location = new System.Drawing.Point(197, 141);
-            this.txtFechaIngresoDesde.Name = "txtFechaIngresoDesde";
-            this.txtFechaIngresoDesde.Size = new System.Drawing.Size(139, 26);
-            this.txtFechaIngresoDesde.TabIndex = 11;
-            // 
-            // txtFechaIngresoHasta
-            // 
-            this.txtFechaIngresoHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtFechaIngresoHasta.Location = new System.Drawing.Point(197, 169);
-            this.txtFechaIngresoHasta.Name = "txtFechaIngresoHasta";
-            this.txtFechaIngresoHasta.Size = new System.Drawing.Size(139, 26);
-            this.txtFechaIngresoHasta.TabIndex = 12;
+            this.cbAgregarRangoFecha.AutoSize = true;
+            this.cbAgregarRangoFecha.Location = new System.Drawing.Point(9, 25);
+            this.cbAgregarRangoFecha.Name = "cbAgregarRangoFecha";
+            this.cbAgregarRangoFecha.Size = new System.Drawing.Size(208, 24);
+            this.cbAgregarRangoFecha.TabIndex = 0;
+            this.cbAgregarRangoFecha.Text = "Agregar Rango de Fecha";
+            this.cbAgregarRangoFecha.UseVisualStyleBackColor = true;
             // 
             // txtNumeroRegistros
             // 
@@ -451,6 +456,7 @@
             this.dtListado.RowTemplate.Height = 24;
             this.dtListado.Size = new System.Drawing.Size(1144, 241);
             this.dtListado.TabIndex = 3;
+            this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtListado_CellContentClick);
             // 
             // Select
             // 
@@ -504,7 +510,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 617);
+            this.ClientSize = new System.Drawing.Size(1163, 617);
             this.Controls.Add(this.txtNumeroRegistros);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.lbNumeroRegistros);
@@ -519,6 +525,7 @@
             this.Name = "EmpleadosConsulta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EmpleadosConsulta";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EmpleadosConsulta_FormClosing);
             this.Load += new System.EventHandler(this.EmpleadosConsulta_Load);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DSMarket" Class="BDConexionListasDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=DSMarket;Persist Security Info=True;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString4" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=172.26.24.199;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString1" Provider="System.Data.SqlClient" />
   <Function Name="Listas.SP_CARGAR_LISTA_TIPO_PRODUCTO" Method="SP_CARGAR_LISTA_TIPO_PRODUCTO">
     <Parameter Name="IdTipoproducto" Parameter="idTipoproducto" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(100)" />
@@ -196,6 +196,43 @@
     <ElementType Name="SP_LISTADO_RETENCIONESResult">
       <Column Name="IdRetencion" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
       <Column Name="Retencion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_LISTADO_NACIONALIDAD" Method="SP_LISTADO_NACIONALIDAD">
+    <ElementType Name="SP_LISTADO_NACIONALIDADResult">
+      <Column Name="IdNacionalidad" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="TipoIdentificacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_LISTADO_TIPO_EMPLEADO" Method="SP_LISTADO_TIPO_EMPLEADO">
+    <ElementType Name="SP_LISTADO_TIPO_EMPLEADOResult">
+      <Column Name="IdTipoEmpleado" Type="System.Decimal" DbType="Decimal(20,2) NOT NULL" CanBeNull="false" />
+      <Column Name="TipoEmpleado" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_LISTADO_TIPO_NOMINA" Method="SP_LISTADO_TIPO_NOMINA">
+    <ElementType Name="SP_LISTADO_TIPO_NOMINAResult">
+      <Column Name="IdTipoNomina" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="TipoEmpleado" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_LISTADO_CARGOS" Method="SP_LISTADO_CARGOS">
+    <Parameter Name="IdDepartamento" Parameter="idDepartamento" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <ElementType Name="SP_LISTADO_CARGOSResult">
+      <Column Name="IdCargo" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Cargo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_LISTADO_ESTADO_CIVIL" Method="SP_LISTADO_ESTADO_CIVIL">
+    <ElementType Name="SP_LISTADO_ESTADO_CIVILResult">
+      <Column Name="IdEstadoCivil" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="EstadoCivil" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_LISTADO_FORMA_PAGO" Method="SP_LISTADO_FORMA_PAGO">
+    <ElementType Name="SP_LISTADO_FORMA_PAGOResult">
+      <Column Name="IdFormaPagoEmpleado" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="FormaPago" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

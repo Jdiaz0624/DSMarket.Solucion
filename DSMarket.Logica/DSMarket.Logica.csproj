@@ -178,6 +178,9 @@
     <Compile Include="Entidades\EntidadesListas\EColor.cs" />
     <Compile Include="Entidades\EntidadesListas\EComprobantesNulos.cs" />
     <Compile Include="Entidades\EntidadesListas\ECondicion.cs" />
+    <Compile Include="Entidades\EntidadesListas\EEstadoCivil.cs" />
+    <Compile Include="Entidades\EntidadesListas\EFormaPago.cs" />
+    <Compile Include="Entidades\EntidadesListas\EListaCargos.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaCategorias.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaComprobantesFiscales.cs" />
     <Compile Include="Entidades\EntidadesListas\EListadoDepartamentos.cs" />
@@ -186,12 +189,15 @@
     <Compile Include="Entidades\EntidadesListas\EListaEstatusFacturacion.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaMarcas.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaModeos.cs" />
+    <Compile Include="Entidades\EntidadesListas\EListaNacionalidad.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaNivelAcceso.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaRetenciones.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaSuplidor.cs" />
+    <Compile Include="Entidades\EntidadesListas\EListaTipoEmpleado.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoIdentificacion.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoIngresos.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoMail.cs" />
+    <Compile Include="Entidades\EntidadesListas\ElistaTipoNomina.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoProducto.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoSuplidor.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaTipoTiempoGarantia.cs" />

@@ -433,6 +433,19 @@ namespace DSMarket.Logica.Logica.LogicaListas
             return Listado;
         }
         #endregion
+        #region LISTADO CARGOS
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EListaCargos> ListadoCargos(decimal? IdDepartamento = null) {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Buscar = (from n in ObjDataListas.SP_LISTADO_CARGOS(IdDepartamento)
+                          select new DSMarket.Logica.Entidades.EntidadesListas.EListaCargos
+                          {
+                              IdCargo=n.IdCargo,
+                              Cargo=n.Cargo
+                          }).ToList();
+            return Buscar;
+        }
+        #endregion
         #region LISTADO DE RETENCIONES
         public List<DSMarket.Logica.Entidades.EntidadesListas.EListaRetenciones> ListadoRetenciones() {
             ObjDataListas.CommandTimeout = 999999999;
@@ -444,6 +457,78 @@ namespace DSMarket.Logica.Logica.LogicaListas
                                Retencion=n.Retencion
                            }).ToList();
             return Listado;
+        }
+        #endregion
+        #region LISTADO NACIONALIDAD
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EListaNacionalidad> ListadoNacionalidad() {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjDataListas.SP_LISTADO_NACIONALIDAD()
+                           select new DSMarket.Logica.Entidades.EntidadesListas.EListaNacionalidad
+                           {
+                               IdNacionalidad=n.IdNacionalidad,
+                               TipoIdentificacion=n.TipoIdentificacion
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
+        #region LISTADO TIPO EMPLEADO
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EListaTipoEmpleado> ListadoTipoEmpleado() {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjDataListas.SP_LISTADO_TIPO_EMPLEADO()
+                           select new DSMarket.Logica.Entidades.EntidadesListas.EListaTipoEmpleado
+                           {
+                               IdTipoEmpleado=n.IdTipoEmpleado,
+                               TipoEmpleado=n.TipoEmpleado
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
+        #region LISTADO DE TIPO DE NOMINA
+        public List<DSMarket.Logica.Entidades.EntidadesListas.ElistaTipoNomina> ListadoTipoNomina()
+        {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjDataListas.SP_LISTADO_TIPO_NOMINA()
+                           select new DSMarket.Logica.Entidades.EntidadesListas.ElistaTipoNomina
+                           {
+                               IdTipoNomina = n.IdTipoNomina,
+                               TipoEmpleado = n.TipoEmpleado
+                           }).ToList();
+            return Listado;
+
+        }
+        #endregion
+        #region LISTADO ESTADO CIVIL
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EEstadoCivil> ListadoEstadoCivil()
+        {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjDataListas.SP_LISTADO_ESTADO_CIVIL()
+                           select new DSMarket.Logica.Entidades.EntidadesListas.EEstadoCivil
+                           {
+                               IdEstadoCivil = n.IdEstadoCivil,
+                               EstadoCivil = n.EstadoCivil
+                           }).ToList();
+            return Listado;
+
+        }
+        #endregion
+
+        #region LISTADO FORMA DE PAGO
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EFormaPago> ListadoFormaPago()
+        {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjDataListas.SP_LISTADO_FORMA_PAGO()
+                           select new DSMarket.Logica.Entidades.EntidadesListas.EFormaPago
+                           {
+                               IdFormaPagoEmpleado = n.IdFormaPagoEmpleado,
+                               FormaPago = n.FormaPago
+                           }).ToList();
+            return Listado;
+
         }
         #endregion
     }

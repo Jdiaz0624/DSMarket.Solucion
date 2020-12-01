@@ -33,7 +33,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
     #endregion
 		
 		public BDConexionListasDataContext() : 
-				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString4, mappingSource)
+				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -277,6 +277,48 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<SP_LISTADO_RETENCIONESResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTADO_NACIONALIDAD")]
+		public ISingleResult<SP_LISTADO_NACIONALIDADResult> SP_LISTADO_NACIONALIDAD()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_LISTADO_NACIONALIDADResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTADO_TIPO_EMPLEADO")]
+		public ISingleResult<SP_LISTADO_TIPO_EMPLEADOResult> SP_LISTADO_TIPO_EMPLEADO()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_LISTADO_TIPO_EMPLEADOResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTADO_TIPO_NOMINA")]
+		public ISingleResult<SP_LISTADO_TIPO_NOMINAResult> SP_LISTADO_TIPO_NOMINA()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_LISTADO_TIPO_NOMINAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTADO_CARGOS")]
+		public ISingleResult<SP_LISTADO_CARGOSResult> SP_LISTADO_CARGOS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdDepartamento", DbType="Decimal(20,0)")] System.Nullable<decimal> idDepartamento)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idDepartamento);
+			return ((ISingleResult<SP_LISTADO_CARGOSResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTADO_ESTADO_CIVIL")]
+		public ISingleResult<SP_LISTADO_ESTADO_CIVILResult> SP_LISTADO_ESTADO_CIVIL()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_LISTADO_ESTADO_CIVILResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTADO_FORMA_PAGO")]
+		public ISingleResult<SP_LISTADO_FORMA_PAGOResult> SP_LISTADO_FORMA_PAGO()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_LISTADO_FORMA_PAGOResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -1729,6 +1771,270 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._Retencion != value))
 				{
 					this._Retencion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_LISTADO_NACIONALIDADResult
+	{
+		
+		private decimal _IdNacionalidad;
+		
+		private string _TipoIdentificacion;
+		
+		public SP_LISTADO_NACIONALIDADResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdNacionalidad", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdNacionalidad
+		{
+			get
+			{
+				return this._IdNacionalidad;
+			}
+			set
+			{
+				if ((this._IdNacionalidad != value))
+				{
+					this._IdNacionalidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoIdentificacion", DbType="VarChar(100)")]
+		public string TipoIdentificacion
+		{
+			get
+			{
+				return this._TipoIdentificacion;
+			}
+			set
+			{
+				if ((this._TipoIdentificacion != value))
+				{
+					this._TipoIdentificacion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_LISTADO_TIPO_EMPLEADOResult
+	{
+		
+		private decimal _IdTipoEmpleado;
+		
+		private string _TipoEmpleado;
+		
+		public SP_LISTADO_TIPO_EMPLEADOResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoEmpleado", DbType="Decimal(20,2) NOT NULL")]
+		public decimal IdTipoEmpleado
+		{
+			get
+			{
+				return this._IdTipoEmpleado;
+			}
+			set
+			{
+				if ((this._IdTipoEmpleado != value))
+				{
+					this._IdTipoEmpleado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoEmpleado", DbType="VarChar(100)")]
+		public string TipoEmpleado
+		{
+			get
+			{
+				return this._TipoEmpleado;
+			}
+			set
+			{
+				if ((this._TipoEmpleado != value))
+				{
+					this._TipoEmpleado = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_LISTADO_TIPO_NOMINAResult
+	{
+		
+		private decimal _IdTipoNomina;
+		
+		private string _TipoEmpleado;
+		
+		public SP_LISTADO_TIPO_NOMINAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoNomina", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdTipoNomina
+		{
+			get
+			{
+				return this._IdTipoNomina;
+			}
+			set
+			{
+				if ((this._IdTipoNomina != value))
+				{
+					this._IdTipoNomina = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoEmpleado", DbType="VarChar(100)")]
+		public string TipoEmpleado
+		{
+			get
+			{
+				return this._TipoEmpleado;
+			}
+			set
+			{
+				if ((this._TipoEmpleado != value))
+				{
+					this._TipoEmpleado = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_LISTADO_CARGOSResult
+	{
+		
+		private decimal _IdCargo;
+		
+		private string _Cargo;
+		
+		public SP_LISTADO_CARGOSResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCargo", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdCargo
+		{
+			get
+			{
+				return this._IdCargo;
+			}
+			set
+			{
+				if ((this._IdCargo != value))
+				{
+					this._IdCargo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cargo", DbType="VarChar(100)")]
+		public string Cargo
+		{
+			get
+			{
+				return this._Cargo;
+			}
+			set
+			{
+				if ((this._Cargo != value))
+				{
+					this._Cargo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_LISTADO_ESTADO_CIVILResult
+	{
+		
+		private decimal _IdEstadoCivil;
+		
+		private string _EstadoCivil;
+		
+		public SP_LISTADO_ESTADO_CIVILResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdEstadoCivil", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdEstadoCivil
+		{
+			get
+			{
+				return this._IdEstadoCivil;
+			}
+			set
+			{
+				if ((this._IdEstadoCivil != value))
+				{
+					this._IdEstadoCivil = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EstadoCivil", DbType="VarChar(100)")]
+		public string EstadoCivil
+		{
+			get
+			{
+				return this._EstadoCivil;
+			}
+			set
+			{
+				if ((this._EstadoCivil != value))
+				{
+					this._EstadoCivil = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_LISTADO_FORMA_PAGOResult
+	{
+		
+		private decimal _IdFormaPagoEmpleado;
+		
+		private string _FormaPago;
+		
+		public SP_LISTADO_FORMA_PAGOResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdFormaPagoEmpleado", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdFormaPagoEmpleado
+		{
+			get
+			{
+				return this._IdFormaPagoEmpleado;
+			}
+			set
+			{
+				if ((this._IdFormaPagoEmpleado != value))
+				{
+					this._IdFormaPagoEmpleado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FormaPago", DbType="VarChar(100)")]
+		public string FormaPago
+		{
+			get
+			{
+				return this._FormaPago;
+			}
+			set
+			{
+				if ((this._FormaPago != value))
+				{
+					this._FormaPago = value;
 				}
 			}
 		}
