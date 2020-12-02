@@ -130,7 +130,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
                    "UPDATE");
                 Modificar.ModificarInformacionGeneral();
                 MessageBox.Show("Registro modificado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                RestablecerPantalla();
+              //  RestablecerPantalla();
             }
         }
 

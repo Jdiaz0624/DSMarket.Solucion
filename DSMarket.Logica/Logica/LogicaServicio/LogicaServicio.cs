@@ -824,5 +824,69 @@ namespace DSMarket.Logica.Logica.LogicaServicio
             return Listado;
         }
         #endregion
+        #region COMISIONES DE EMPLEADOS
+        public List<DSMarket.Logica.Entidades.EntidadesServicio.EComisionesEmpleados> BuscaComisionesEmpleado(decimal? IdRegistro = null, decimal? IdEmpleado = null, decimal? IdTipoProducto = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null, int? Numeropagina = null, int? NumeroRegistros = null)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            var Buscar = (from n in ObjData.SP_BUSCA_COMISIONES_EMPLEADOS(IdRegistro, IdEmpleado, IdTipoProducto, FechaDesde, FechaHasta, Numeropagina, NumeroRegistros)
+                          select new DSMarket.Logica.Entidades.EntidadesServicio.EComisionesEmpleados
+                          {
+                              IdRegistro=n.IdRegistro,
+                              IdEmpleado=n.IdEmpleado,
+                              Empleado=n.Empleado,
+                              IdTipoProducto=n.IdTipoProducto,
+                              TipoProducto=n.TipoProducto,
+                              PrecioProducto=n.PrecioProducto,
+                              DescuentoAplicado=n.DescuentoAplicado,
+                              ComisionEmpleado=n.ComisionEmpleado,
+                              ComisionPagar=n.ComisionPagar,
+                              NumeroConectorOperacion=n.NumeroConectorOperacion,
+                              IdProducto=n.IdProducto,
+                              ConectorProducto=n.ConectorProducto,
+                              Fecha=n.Fecha,
+                              FechaProceso=n.FechaProceso,
+                              CantidadRegistros=n.CantidadRegistros,
+                              CantidadVentas=n.CantidadVentas,
+                              CantidadServicios=n.CantidadServicios
+                          }).ToList();
+            return Buscar;
+
+        }
+        public DSMarket.Logica.Entidades.EntidadesServicio.EComisionesEmpleados ProcesarComsionEmpleados(DSMarket.Logica.Entidades.EntidadesServicio.EComisionesEmpleados Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesServicio.EComisionesEmpleados Procesar = null;
+
+            var ComisionEmpleado = ObjData.SP_PROCESAR_COMISION_EMPLEADOS(
+                Item.IdRegistro,
+                Item.IdEmpleado,
+                Item.IdTipoProducto,
+                Item.PrecioProducto,
+                Item.DescuentoAplicado,
+                Item.ComisionEmpleado,
+                Item.NumeroConectorOperacion,
+                Item.IdProducto,
+                Item.ConectorProducto,
+                Accion);
+            if (ComisionEmpleado != null) {
+                Procesar = (from n in ComisionEmpleado
+                            select new DSMarket.Logica.Entidades.EntidadesServicio.EComisionesEmpleados
+                            {
+                                IdRegistro=n.IdRegistro,
+                                IdEmpleado=n.IdEmpleado,
+                                IdTipoProducto=n.IdTipoProducto,
+                                PrecioProducto=n.PrecioProducto,
+                                DescuentoAplicado=n.DescuentoAplicado,
+                                ComisionEmpleado=n.ComisionEmpleado,
+                                NumeroConectorOperacion=n.NumeroConectorOperacion,
+                                IdProducto=n.IdProducto,
+                                ConectorProducto=n.ConectorProducto,
+                                Fecha=n.Fecha
+                            }).FirstOrDefault();
+            }
+            return Procesar;
+        }
+        #endregion
     }
 }

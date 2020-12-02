@@ -188,7 +188,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
 
         private void DtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Question) == DialogResult.Yes) {
+            if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
                 this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdEmpleado"].Value.ToString());
 
                 var Buscar = ObjDataEmpresa.Value.BuscaEmpleados(

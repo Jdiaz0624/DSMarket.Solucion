@@ -435,6 +435,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void AgregarProductos_Load(object sender, EventArgs e)
         {
             lbTitulo.Text = "AGREGAR PRODUCTOS A FACTURA";
+            DSMarket.Logica.Comunes.AutoCompletarControles.AutoCOmpletarEmpleados(txtRealizadoPor);
             lbTitulo.ForeColor = Color.White;
             TemaGenerico();
             VariablesGlbales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();

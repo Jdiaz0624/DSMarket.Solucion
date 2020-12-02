@@ -139,7 +139,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             Procesar.ProcesarEmpleado();
 
             if (VariablesGlobales.Accion == "INSERT") {
-                MessageBox.Show("Registro guardado con exito", VariablesGlobales.Accion, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Registro guardado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (MessageBox.Show("¿Quieres guardar otro registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     LimpiarPantalla();
@@ -149,7 +149,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
                 }
             }
             else {
-                MessageBox.Show("Registro modificado con exito", VariablesGlobales.Accion, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Registro modificado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CerrarPantalla();
             }
         }
@@ -197,8 +197,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
                     txtComisionServicios.Text = n.PorcientoComsiionServicio.ToString();
                     cbEstatus.Checked = (n.Estatus0.HasValue ? n.Estatus0.Value : false);
                     cbAplicaComision.Checked = (n.AplicaParaComision0.HasValue ? n.AplicaParaComision0.Value : false);
-                    lbClaveSeguridad.Visible = false;
-                    txtClaveSeguridad.Visible = false;
+                    lbClaveSeguridad.Visible = true;
+                    txtClaveSeguridad.Visible = true;
                     txtClaveSeguridad.PasswordChar = '•';
                 }
             }

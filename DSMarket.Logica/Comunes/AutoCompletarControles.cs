@@ -19,5 +19,21 @@ namespace DSMarket.Logica.Comunes
             }
             readr.Close();
         }
+
+
+        public static void AutoCOmpletarEmpleados(TextBox Usuarios)
+        {   //AUTOCOMPLETAR USUARIOS
+            SqlCommand comando = new SqlCommand("select  CONCAT(Nombre,' ',Apellido) as Nombre from Empresa.Empleado where AplicaParaComision = 1", DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion());
+            SqlDataReader readr = comando.ExecuteReader();
+            while (readr.Read() == true)
+            {
+                Usuarios.AutoCompleteCustomSource.Add(readr["Nombre"].ToString());
+            }
+            readr.Close();
+        }
     }
 }
+
+
+
+
