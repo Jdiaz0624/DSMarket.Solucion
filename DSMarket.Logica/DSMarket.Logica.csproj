@@ -143,6 +143,7 @@
     <Compile Include="Entidades\EntidadesContabilidad\ESacarDatosReporteFinanciero.cs" />
     <Compile Include="Entidades\EntidadesContabilidad\ESacarInformacionCuentasMovimientos.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\EBancos.cs" />
+    <Compile Include="Entidades\EntidadesEmpresa\EBuscaDatosEmpleadosComision.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\ECargos.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\EClientes.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\ECompraSuplidores.cs" />

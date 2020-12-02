@@ -312,6 +312,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idEmpleado, nombreEmpleado, numeroIdentificacion, nSS, fechaIngresoDesde, fechaIngresoHasta, estatus, numeroPagina, numeroRegistros);
 			return ((ISingleResult<SP_BUSCA_EMPLEADOResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Empresa.SP_BUSCA_DATOS_EMPLEADOS_COMISION")]
+		public ISingleResult<SP_BUSCA_DATOS_EMPLEADOS_COMISIONResult> SP_BUSCA_DATOS_EMPLEADOS_COMISION([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NombreEmpleado", DbType="VarChar(200)")] string nombreEmpleado)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nombreEmpleado);
+			return ((ISingleResult<SP_BUSCA_DATOS_EMPLEADOS_COMISIONResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_MANTENIMIENTO_CLIENTESResult
@@ -8039,6 +8046,86 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._CantidadInactivos != value))
 				{
 					this._CantidadInactivos = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCA_DATOS_EMPLEADOS_COMISIONResult
+	{
+		
+		private decimal _IdEmpleado;
+		
+		private string _Nombre;
+		
+		private System.Nullable<decimal> _PorcientoCOmisionVentas;
+		
+		private System.Nullable<decimal> _PorcientoComsiionServicio;
+		
+		public SP_BUSCA_DATOS_EMPLEADOS_COMISIONResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdEmpleado", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdEmpleado
+		{
+			get
+			{
+				return this._IdEmpleado;
+			}
+			set
+			{
+				if ((this._IdEmpleado != value))
+				{
+					this._IdEmpleado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(201) NOT NULL", CanBeNull=false)]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this._Nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorcientoCOmisionVentas", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> PorcientoCOmisionVentas
+		{
+			get
+			{
+				return this._PorcientoCOmisionVentas;
+			}
+			set
+			{
+				if ((this._PorcientoCOmisionVentas != value))
+				{
+					this._PorcientoCOmisionVentas = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorcientoComsiionServicio", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> PorcientoComsiionServicio
+		{
+			get
+			{
+				return this._PorcientoComsiionServicio;
+			}
+			set
+			{
+				if ((this._PorcientoComsiionServicio != value))
+				{
+					this._PorcientoComsiionServicio = value;
 				}
 			}
 		}

@@ -20,6 +20,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         Lazy<DSMarket.Logica.Logica.LogicaServicio.LogicaServicio> ObjDataServicio = new Lazy<Logica.Logica.LogicaServicio.LogicaServicio>();
         Lazy<DSMarket.Logica.Logica.LogicaInventario.LogicaInventario> ObjDataLogicaInventario = new Lazy<Logica.Logica.LogicaInventario.LogicaInventario>();
         Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjdataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
+        Lazy<DSMarket.Logica.Logica.LogicaEmpresa.LogicaEmpresa> ObjDataEmpresa = new Lazy<Logica.Logica.LogicaEmpresa.LogicaEmpresa>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlbales = new Logica.Comunes.VariablesGlobales();
 
         #region APLICAR TEMA
@@ -410,6 +411,142 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             }
         }
         #endregion
+        #region AGREGAR PRODUCTOS
+        private void AgregarproductosFacturar() {
+            if (string.IsNullOrEmpty(txtPrecio.Text.Trim()))
+            {
+                MessageBox.Show("El campo precio no puede estar vacio para realizar esta operación", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+
+
+                decimal Precio = Convert.ToDecimal(txtPrecio.Text);
+                if (Precio < 1)
+                {
+                    MessageBox.Show("El precio ingresado no es valido, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    //VALIDAMOS EL TIPO DE PRODUCTO SELECCIONADO
+                    if (VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar == 1)
+                    {
+                        //VALIDAMOS SI EL PRODUCTO ES ACUMULATIVO
+                        string ProductoAcumulativo = txtAcumulativo.Text;
+
+                        if (ProductoAcumulativo == "SI")
+                        {
+                            //VERIFICAMOS SI LA CANTIDAD A USAR NO ESTA VACIA
+                            int Valor = Convert.ToInt32(txtCantidadUsar.Text);
+                            if (string.IsNullOrEmpty(txtCantidadUsar.Text.Trim()) || Valor < 1)
+                            {
+                                txtCantidadUsar.Text = "1";
+                            }
+                            //VALIDAMOS LA CANTIDAD EN ALMACEN Y VERIFICAMOS QUE LA CANTIDAD A VENDER ES VALIDA.
+                            int CantidadVender = Convert.ToInt32(txtCantidadUsar.Text);
+                            int CantidadDisponible = 0;
+
+                            var ValidarCantidadDisponible = ObjDataLogicaInventario.Value.BuscaProductos(
+                                VariablesGlbales.IdProductoSeleccionadoAgregarEditar,
+                                VariablesGlbales.NumeroConectorSeleccionadoAgregarPorpductos,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null, null, null, null, false, null,
+                                1, 1);
+                            foreach (var n in ValidarCantidadDisponible)
+                            {
+                                CantidadDisponible = Convert.ToInt32(n.Stock);
+                            }
+
+                            if (CantidadVender > CantidadDisponible)
+                            {
+                                MessageBox.Show("La cantidad que intentas agregar a factura, supera la cantidad que tienes en inventario, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                            else
+                            {
+
+                                decimal DescuentoMaximo = Convert.ToDecimal(lbDescuentoColectivoVariable.Text);
+                                decimal DescuentoAplicar = Convert.ToDecimal(txtDescuento.Text);
+                                if (DescuentoAplicar > DescuentoMaximo)
+                                {
+                                    MessageBox.Show("El descuento ingresado supera la cantidad permitida para descontar en este articulo, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                                else
+                                {
+                                    AgregarEditarProductos("INSERT");
+                                    BuscarProductosAgregados(VariablesGlbales.NumeroConector);
+                                }
+
+                            }
+                        }
+                        else if (ProductoAcumulativo == "NO")
+                        {
+
+                            decimal DescuentoMaximo = Convert.ToDecimal(lbDescuentoColectivoVariable.Text);
+                            decimal DescuentoAplicar = Convert.ToDecimal(txtDescuento.Text);
+                            if (DescuentoAplicar > DescuentoMaximo)
+                            {
+                                MessageBox.Show("El descuento ingresado supera la cantidad permitida para descontar en este articulo, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                            else
+                            {
+                                //AGREGAR PRODUCTO Y ELIMINAR
+                                AgregarEditarProductos("INSERT");
+                                BuscarProductosAgregados(VariablesGlbales.NumeroConector);
+                            }
+                        }
+                    }
+                    else if (VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar == 2)
+                    {
+
+
+                        decimal DescuentoMaximo = Convert.ToDecimal(lbDescuentoColectivoVariable.Text);
+                        decimal DescuentoAplicar = Convert.ToDecimal(txtDescuento.Text);
+                        if (DescuentoAplicar > DescuentoMaximo)
+                        {
+                            MessageBox.Show("El descuento ingresado supera la cantidad permitida para descontar en este articulo, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            //AGREGAR PRODUCTO
+                            AgregarEditarProductos("INSERT");
+                            BuscarProductosAgregados(VariablesGlbales.NumeroConector);
+                        }
+                    }
+                }
+
+
+
+
+            }
+        }
+        #endregion
+        #region PROCESAR COMISIONES EMPLEADOS
+        private void ProcesarComisionEmpleado(decimal IdRegistro, decimal IdEmpleado, decimal IdTipoproducto, decimal PrecioProducto, decimal DescuentoAplicado, decimal ComisionEmpleado, decimal NumeroConectorOperacion, decimal Idproducto, decimal ConectorProducto, string Accion) {
+
+            DSMarket.Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionComisionesEmpleados Procesar = new Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionComisionesEmpleados(
+                IdRegistro,
+                IdEmpleado,
+                IdTipoproducto,
+                PrecioProducto,
+                DescuentoAplicado,
+                ComisionEmpleado,
+                NumeroConectorOperacion,
+                Idproducto,
+                ConectorProducto,
+                DateTime.Now,
+                Accion);
+            Procesar.ProcesarComisiones();
+        }
+        #endregion
         private void PCerrar_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -436,6 +573,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         {
             lbTitulo.Text = "AGREGAR PRODUCTOS A FACTURA";
             DSMarket.Logica.Comunes.AutoCompletarControles.AutoCOmpletarEmpleados(txtRealizadoPor);
+            bool CalcularComisiones = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(14);
+            if (CalcularComisiones == true) {
+                lbRealizadoPor.Visible = true;
+                txtRealizadoPor.Visible = true;
+            }
+            else {
+                lbRealizadoPor.Visible = false;
+                txtRealizadoPor.Visible = false;
+            }
             lbTitulo.ForeColor = Color.White;
             TemaGenerico();
             VariablesGlbales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
@@ -520,120 +666,63 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            bool CalculoColisiones = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(14);
 
-            if (string.IsNullOrEmpty(txtPrecio.Text.Trim()))
-            {
-                MessageBox.Show("El campo precio no puede estar vacio para realizar esta operación", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (CalculoColisiones == true) {
+                if (string.IsNullOrEmpty(txtRealizadoPor.Text.Trim())) { }
+                else {
+                    decimal IdEmpleado = 0, IdTipoProducto = 0,PrecioProducto=0, DescuentoEmpleado = 0, ComisionEmpleado = 0,ComisionVentas=0,ComisionServicios=0, IdProducto = 0, ConectorProducto = 0;
+
+
+
+                    //SACAMOS LOS DATOS PARA CARGAR ALS VARIABLES
+
+                    string _NombreEmpleado = string.IsNullOrEmpty(txtRealizadoPor.Text.Trim()) ? null : txtRealizadoPor.Text.Trim();
+
+                    var ValidarNombreEmpleado = ObjDataEmpresa.Value.BuscaDatosEmpleadosComision(_NombreEmpleado);
+                    if (ValidarNombreEmpleado.Count() < 1) {
+                        MessageBox.Show("El nombre de empleado ingresado no es valido, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else {
+                        foreach (var n in ValidarNombreEmpleado) {
+                            IdEmpleado = Convert.ToDecimal(n.IdEmpleado);
+                            ComisionServicios = Convert.ToDecimal(n.PorcientoCOmisionVentas);
+                            ComisionVentas = Convert.ToDecimal(n.PorcientoComsiionServicio);
+
+                        }
+
+                        IdTipoProducto = VariablesGlbales.IdTipoProductoNuevo;
+                        PrecioProducto = Convert.ToDecimal(txtPrecio.Text);
+                        DescuentoEmpleado = Convert.ToDecimal(txtDescuento.Text);
+
+                        if (IdTipoProducto == 1) {
+                            ComisionEmpleado = ComisionVentas;
+                        }
+                        else if (IdTipoProducto == 2) {
+                            ComisionEmpleado = ComisionServicios;
+                        }
+                        IdProducto = VariablesGlbales.IdProductoSeleccionadoAgregarPorpductos;
+                        ConectorProducto = VariablesGlbales.NumeroConectorSeleccionadoAgregarPorpductos;
+                        ProcesarComisionEmpleado(
+          0,
+          IdEmpleado,
+          IdTipoProducto,
+          PrecioProducto,
+          DescuentoEmpleado,
+          ComisionEmpleado,
+          VariablesGlbales.NumeroConector,
+          IdProducto,
+          ConectorProducto,
+          "INSERT");
+                    }
+
+      
+                }
             }
             else {
-          
-
-                    decimal Precio = Convert.ToDecimal(txtPrecio.Text);
-                    if (Precio < 1)
-                    {
-                        MessageBox.Show("El precio ingresado no es valido, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    else
-                    {
-                        //VALIDAMOS EL TIPO DE PRODUCTO SELECCIONADO
-                        if (VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar == 1)
-                        {
-                            //VALIDAMOS SI EL PRODUCTO ES ACUMULATIVO
-                            string ProductoAcumulativo = txtAcumulativo.Text;
-
-                            if (ProductoAcumulativo == "SI")
-                            {
-                                //VERIFICAMOS SI LA CANTIDAD A USAR NO ESTA VACIA
-                                int Valor = Convert.ToInt32(txtCantidadUsar.Text);
-                                if (string.IsNullOrEmpty(txtCantidadUsar.Text.Trim()) || Valor < 1)
-                                {
-                                    txtCantidadUsar.Text = "1";
-                                }
-                                //VALIDAMOS LA CANTIDAD EN ALMACEN Y VERIFICAMOS QUE LA CANTIDAD A VENDER ES VALIDA.
-                                int CantidadVender = Convert.ToInt32(txtCantidadUsar.Text);
-                                int CantidadDisponible = 0;
-
-                                var ValidarCantidadDisponible = ObjDataLogicaInventario.Value.BuscaProductos(
-                                    VariablesGlbales.IdProductoSeleccionadoAgregarEditar,
-                                    VariablesGlbales.NumeroConectorSeleccionadoAgregarPorpductos,
-                                    null,
-                                    null,
-                                    null,
-                                    null,
-                                    null,
-                                    null,
-                                    null,
-                                    null,
-                                    null,
-                                    null,
-                                    null, null, null, null, false,null,
-                                    1, 1);
-                                foreach (var n in ValidarCantidadDisponible)
-                                {
-                                    CantidadDisponible = Convert.ToInt32(n.Stock);
-                                }
-
-                                if (CantidadVender > CantidadDisponible)
-                                {
-                                    MessageBox.Show("La cantidad que intentas agregar a factura, supera la cantidad que tienes en inventario, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                }
-                                else
-                                {
-
-                                    decimal DescuentoMaximo = Convert.ToDecimal(lbDescuentoColectivoVariable.Text);
-                                    decimal DescuentoAplicar = Convert.ToDecimal(txtDescuento.Text);
-                                    if (DescuentoAplicar > DescuentoMaximo)
-                                    {
-                                        MessageBox.Show("El descuento ingresado supera la cantidad permitida para descontar en este articulo, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                    }
-                                    else
-                                    {
-                                        AgregarEditarProductos("INSERT");
-                                        BuscarProductosAgregados(VariablesGlbales.NumeroConector);
-                                    }
-
-                                }
-                            }
-                            else if (ProductoAcumulativo == "NO")
-                            {
-
-                                decimal DescuentoMaximo = Convert.ToDecimal(lbDescuentoColectivoVariable.Text);
-                                decimal DescuentoAplicar = Convert.ToDecimal(txtDescuento.Text);
-                                if (DescuentoAplicar > DescuentoMaximo)
-                                {
-                                    MessageBox.Show("El descuento ingresado supera la cantidad permitida para descontar en este articulo, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                }
-                                else
-                                {
-                                    //AGREGAR PRODUCTO Y ELIMINAR
-                                    AgregarEditarProductos("INSERT");
-                                    BuscarProductosAgregados(VariablesGlbales.NumeroConector);
-                                }
-                            }
-                        }
-                        else if (VariablesGlbales.IdTipoProductoSeleccionadoAgregarEditar == 2)
-                        {
-
-
-                            decimal DescuentoMaximo = Convert.ToDecimal(lbDescuentoColectivoVariable.Text);
-                            decimal DescuentoAplicar = Convert.ToDecimal(txtDescuento.Text);
-                            if (DescuentoAplicar > DescuentoMaximo)
-                            {
-                                MessageBox.Show("El descuento ingresado supera la cantidad permitida para descontar en este articulo, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
-                            else
-                            {
-                                //AGREGAR PRODUCTO
-                                AgregarEditarProductos("INSERT");
-                                BuscarProductosAgregados(VariablesGlbales.NumeroConector);
-                            }
-                        }
-                    }
-                
-                
-
-               
+                AgregarproductosFacturar();
             }
+            
         }
 
         private void txtCantidadUsar_TextChanged(object sender, EventArgs e)

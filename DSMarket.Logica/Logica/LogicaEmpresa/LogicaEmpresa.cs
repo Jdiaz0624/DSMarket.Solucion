@@ -1024,5 +1024,21 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
             return Mantenimiento;
         }
         #endregion
+
+        #region BUSCA INFORMACION DATOS EMPLEADOS COMISION
+        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.EBuscaDatosEmpleadosComision> BuscaDatosEmpleadosComision(string NombreEmpleado = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Buscar = (from n in ObjData.SP_BUSCA_DATOS_EMPLEADOS_COMISION(NombreEmpleado)
+                          select new DSMarket.Logica.Entidades.EntidadesEmpresa.EBuscaDatosEmpleadosComision
+                          {
+                              IdEmpleado=n.IdEmpleado,
+                              Nombre=n.Nombre,
+                              PorcientoCOmisionVentas=n.PorcientoCOmisionVentas,
+                              PorcientoComsiionServicio=n.PorcientoComsiionServicio
+                          }).ToList();
+            return Buscar;
+        }
+        #endregion
     }
 }

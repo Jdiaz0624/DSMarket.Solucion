@@ -733,4 +733,13 @@
       <Column Name="CantidadInactivos" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Empresa.SP_BUSCA_DATOS_EMPLEADOS_COMISION" Method="SP_BUSCA_DATOS_EMPLEADOS_COMISION">
+    <Parameter Name="NombreEmpleado" Parameter="nombreEmpleado" Type="System.String" DbType="VarChar(200)" />
+    <ElementType Name="SP_BUSCA_DATOS_EMPLEADOS_COMISIONResult">
+      <Column Name="IdEmpleado" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(201) NOT NULL" CanBeNull="false" />
+      <Column Name="PorcientoCOmisionVentas" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="PorcientoComsiionServicio" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>
