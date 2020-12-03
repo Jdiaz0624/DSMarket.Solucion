@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmpleadosMantenimiento));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.PCerrar = new System.Windows.Forms.PictureBox();
@@ -100,7 +101,7 @@
             // 
             this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
+            this.PCerrar.Image = ((System.Drawing.Image)(resources.GetObject("PCerrar.Image")));
             this.PCerrar.Location = new System.Drawing.Point(1016, 5);
             this.PCerrar.Name = "PCerrar";
             this.PCerrar.Size = new System.Drawing.Size(30, 30);
@@ -268,6 +269,7 @@
             // 
             // txtFechaNacimiento
             // 
+            this.txtFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtFechaNacimiento.Location = new System.Drawing.Point(705, 281);
             this.txtFechaNacimiento.Name = "txtFechaNacimiento";
             this.txtFechaNacimiento.Size = new System.Drawing.Size(200, 26);
@@ -275,6 +277,7 @@
             // 
             // txtFechaIngreso
             // 
+            this.txtFechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtFechaIngreso.Location = new System.Drawing.Point(193, 283);
             this.txtFechaIngreso.Name = "txtFechaIngreso";
             this.txtFechaIngreso.Size = new System.Drawing.Size(200, 26);

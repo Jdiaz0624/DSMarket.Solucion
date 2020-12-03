@@ -228,57 +228,63 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtNombre.Text.Trim()) ||
-                string.IsNullOrEmpty(txtApellido.Text.Trim()) ||
-                string.IsNullOrEmpty(ddlTipoidentificacion.Text.Trim()) ||
-                string.IsNullOrEmpty(txtNumeroidentificacion.Text.Trim()) ||
-                string.IsNullOrEmpty(ddlNacionalidad.Text.Trim()) ||
-                string.IsNullOrEmpty(ddlTipoEmpleado.Text.Trim()) ||
-                string.IsNullOrEmpty(ddlDepartamento.Text.Trim()) ||
-                string.IsNullOrEmpty(ddlCargo.Text.Trim()) ||
-                string.IsNullOrEmpty(txtTelefono1.Text.Trim()) ||
-                string.IsNullOrEmpty(ddlEstadoCivil.Text.Trim()) ||
-                string.IsNullOrEmpty(ddlFormaPago.Text.Trim()) ||
-                string.IsNullOrEmpty(txtSueldo.Text.Trim()) ||
-                string.IsNullOrEmpty(ddlFormaPago.Text.Trim()) ||
-                string.IsNullOrEmpty(txtFechaIngreso.Text.Trim()) ||
-                string.IsNullOrEmpty(txtFechaNacimiento.Text.Trim()))
-            {
-                MessageBox.Show("Has dejado campos vacios que son encesarios para realizar esta operación, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else {
-                if (VariablesGlobales.Accion == "INSERT")
+            try {
+                if (string.IsNullOrEmpty(txtNombre.Text.Trim()) ||
+               string.IsNullOrEmpty(txtApellido.Text.Trim()) ||
+               string.IsNullOrEmpty(ddlTipoidentificacion.Text.Trim()) ||
+               string.IsNullOrEmpty(txtNumeroidentificacion.Text.Trim()) ||
+               string.IsNullOrEmpty(ddlNacionalidad.Text.Trim()) ||
+               string.IsNullOrEmpty(ddlTipoEmpleado.Text.Trim()) ||
+               string.IsNullOrEmpty(ddlDepartamento.Text.Trim()) ||
+               string.IsNullOrEmpty(ddlCargo.Text.Trim()) ||
+               string.IsNullOrEmpty(txtTelefono1.Text.Trim()) ||
+               string.IsNullOrEmpty(ddlEstadoCivil.Text.Trim()) ||
+               string.IsNullOrEmpty(ddlFormaPago.Text.Trim()) ||
+               string.IsNullOrEmpty(txtSueldo.Text.Trim()) ||
+               string.IsNullOrEmpty(ddlFormaPago.Text.Trim()) ||
+               string.IsNullOrEmpty(txtFechaIngreso.Text.Trim()) ||
+               string.IsNullOrEmpty(txtFechaNacimiento.Text.Trim()))
                 {
-                    MANEmpleados();
+                    MessageBox.Show("Has dejado campos vacios que son encesarios para realizar esta operación, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    if (string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()))
+                    if (VariablesGlobales.Accion == "INSERT")
                     {
-                        MessageBox.Show("El campo clave de seguridad no puede estar vacio, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        txtClaveSeguridad.Focus();
+                        MANEmpleados();
                     }
                     else
                     {
-                        string _ClaveSeguridad = string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()) ? null : txtClaveSeguridad.Text.Trim();
-
-                        var Validar = ObjDataSeguridad.Value.BuscaClaveSeguridad(
-                            new Nullable<decimal>(),
-                            null,
-                            DSMarket.Logica.Comunes.SeguridadEncriptacion.Encriptar(_ClaveSeguridad),
-                            1, 1);
-                        if (Validar.Count() < 1)
+                        if (string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()))
                         {
-                            MessageBox.Show("La clave de seguridad ingresada no es valida, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            txtClaveSeguridad.Text = string.Empty;
+                            MessageBox.Show("El campo clave de seguridad no puede estar vacio, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             txtClaveSeguridad.Focus();
                         }
                         else
                         {
-                            MANEmpleados();
+                            string _ClaveSeguridad = string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()) ? null : txtClaveSeguridad.Text.Trim();
+
+                            var Validar = ObjDataSeguridad.Value.BuscaClaveSeguridad(
+                                new Nullable<decimal>(),
+                                null,
+                                DSMarket.Logica.Comunes.SeguridadEncriptacion.Encriptar(_ClaveSeguridad),
+                                1, 1);
+                            if (Validar.Count() < 1)
+                            {
+                                MessageBox.Show("La clave de seguridad ingresada no es valida, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                txtClaveSeguridad.Text = string.Empty;
+                                txtClaveSeguridad.Focus();
+                            }
+                            else
+                            {
+                                MANEmpleados();
+                            }
                         }
                     }
                 }
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al realizar el mantenimiento por la siguiente razon: "+ ex.Message,VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
