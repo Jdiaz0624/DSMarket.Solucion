@@ -20,10 +20,10 @@ namespace DSMarket.Logica.Comunes
         public decimal NumeroConector { get; set; }
         public int EstadisticaProducto { get; set; }
         public bool SacarDataEspejo { get; set; }
-      // public bool Bloquear
+        // public bool Bloquear
 
         public bool BloqueaControles = false;
-        public bool GenerarConector  { get; set; }
+        public bool GenerarConector { get; set; }
         public decimal SecuencialFActuraMinimizada { get; set; }
 
         public decimal IdProductoSeleccionadoAgregarPorpductos { get; set; }
@@ -58,7 +58,7 @@ namespace DSMarket.Logica.Comunes
         public string PorcientoDescuentoModificarRegistro { get; set; }
         public string DescuentoAplicadoModificarRegistro { get; set; }
         public string AcumulativoModificarRegistro { get; set; }
-       public int CantidadUsadaModificarRegistro { get; set; }
+        public int CantidadUsadaModificarRegistro { get; set; }
         public int DiferenciaCantidadUsada { get; set; }
         public decimal IdTipoProductoModificarRegistro { get; set; }
         public decimal IdCategoriaModificarRegistro { get; set; }
@@ -108,6 +108,22 @@ namespace DSMarket.Logica.Comunes
         public bool ValidarCampoEspecialProductoUnico { get; set; }
         public bool ValidarCampoEspecialProductoObligatorio { get; set; }
         public bool ValidarVentasCredito { get; set; }
+
+        #endregion
+
+
+        #region COMISIONES
+        public decimal IdRegistroComisiones { get; set; }
+        public decimal IdEmpleadoComisiones { get; set; }
+        public decimal IdTipoProductoComsion { get; set; }
+        public decimal ComisionEmpleadoComision { get; set; }
+        public decimal NumeroConectorOperacionComisiones { get; set; }
+        public decimal IdProductoComisiones { get; set; }
+        public decimal ConectorProductoComisiones { get; set; }
+        
+        public bool ValidarComisiones { get; set; }
+        
+        
 
         #endregion
     }

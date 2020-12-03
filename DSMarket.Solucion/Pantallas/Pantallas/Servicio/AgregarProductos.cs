@@ -574,8 +574,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         {
             lbTitulo.Text = "AGREGAR PRODUCTOS A FACTURA";
             DSMarket.Logica.Comunes.AutoCompletarControles.AutoCOmpletarEmpleados(txtRealizadoPor);
-            bool CalcularComisiones = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(14);
-            if (CalcularComisiones == true) {
+            VariablesGlbales.ValidarComisiones = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(14);
+            if (VariablesGlbales.ValidarComisiones == true) {
                 lbRealizadoPor.Visible = true;
                 txtRealizadoPor.Visible = true;
             }
@@ -597,9 +597,12 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void ddlTipoProducto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CargarCategorias();
-            MostrarListadoMarcas();
-            MostrarModelos();
+       
+                CargarCategorias();
+                MostrarListadoMarcas();
+                MostrarModelos();
+          
+        
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -768,6 +771,25 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 {
                     //ACTUALIZAMOS EN MONTO EN STOCK
                     ModificarStockproducto(NumeroConectorProducto, VariablesGlbales.CantidadRegistrosIngresadaEliminarRegistro, "ADDPRODUCT");
+                    if (VariablesGlbales.ValidarComisiones == true)
+                    {
+
+                        ProcesarComisionEmpleado(
+                            VariablesGlbales.IdRegistroComisiones,
+                            VariablesGlbales.IdEmpleadoComisiones,
+                            VariablesGlbales.IdTipoProductoComsion,
+                            Convert.ToDecimal(txtPrecio.Text),
+                            Convert.ToDecimal(txtDescuento.Text),
+                            VariablesGlbales.ComisionEmpleadoComision,
+                            VariablesGlbales.NumeroConectorOperacionComisiones,
+                            VariablesGlbales.IdProductoComisiones,
+                            VariablesGlbales.ConectorProductoComisiones,
+                            false,
+                            "DELETE");
+
+                    }
+                    dtSeleccionarproducto.Enabled = true;
+                    txtRealizadoPor.Enabled = true;
                     AgregarEditarProductos("DELETE");
                     BuscarProductosAgregados(VariablesGlbales.NumeroConector);
                 }
@@ -790,13 +812,50 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         EstatusProductoChange = Convert.ToBoolean(n.EstatusProducto0);
                     }
                     MAnCambiarEstatus(IdProductoChange, IdTipoProductoChange, ProductoAcumulativoChange, EstatusProductoChange, "CHANGESTATUS");
+                    if (VariablesGlbales.ValidarComisiones == true)
+                    {
 
+                        ProcesarComisionEmpleado(
+                            VariablesGlbales.IdRegistroComisiones,
+                            VariablesGlbales.IdEmpleadoComisiones,
+                            VariablesGlbales.IdTipoProductoComsion,
+                            Convert.ToDecimal(txtPrecio.Text),
+                            Convert.ToDecimal(txtDescuento.Text),
+                            VariablesGlbales.ComisionEmpleadoComision,
+                            VariablesGlbales.NumeroConectorOperacionComisiones,
+                            VariablesGlbales.IdProductoComisiones,
+                            VariablesGlbales.ConectorProductoComisiones,
+                            false,
+                            "DELETE");
+
+                    }
+                    dtSeleccionarproducto.Enabled = true;
+                    txtRealizadoPor.Enabled = true;
                     AgregarEditarProductos("DELETE");
                     BuscarProductosAgregados(VariablesGlbales.NumeroConector);
                 }
 
             }
             else {
+                if (VariablesGlbales.ValidarComisiones == true)
+                {
+
+                    ProcesarComisionEmpleado(
+                        VariablesGlbales.IdRegistroComisiones,
+                        VariablesGlbales.IdEmpleadoComisiones,
+                        VariablesGlbales.IdTipoProductoComsion,
+                        Convert.ToDecimal(txtPrecio.Text),
+                        Convert.ToDecimal(txtDescuento.Text),
+                        VariablesGlbales.ComisionEmpleadoComision,
+                        VariablesGlbales.NumeroConectorOperacionComisiones,
+                        VariablesGlbales.IdProductoComisiones,
+                        VariablesGlbales.ConectorProductoComisiones,
+                        false,
+                        "DELETE");
+
+                }
+                dtSeleccionarproducto.Enabled = true;
+                txtRealizadoPor.Enabled = true;
                 AgregarEditarProductos("DELETE");
                 BuscarProductosAgregados(VariablesGlbales.NumeroConector);
             }
@@ -805,50 +864,141 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            //EDITAR REGISTRO
-            if (string.IsNullOrEmpty(txtCantidadUsar.Text.Trim()))
-            {
-                MessageBox.Show("No puedes dejar la cantidad a usar para modificar este registro", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            try {
+                //EDITAR REGISTRO
+                if (string.IsNullOrEmpty(txtCantidadUsar.Text.Trim()))
+                {
+                    MessageBox.Show("No puedes dejar la cantidad a usar para modificar este registro", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    VariablesGlbales.Diferencia = Convert.ToInt32(txtCantidadUsar.Text);
+                    int Resultado, CantidadAlmacen = 0;
+                    decimal NumeroConectorProducto = 0;
+                    decimal IdTipoProducto = 0;
+
+                    var SacarNumeroConector = ObjDataLogicaInventario.Value.BuscaProductos(
+                        VariablesGlbales.IdProductoModificarRegistro,
+                        null,
+                        null, null, null, null, null, null, null, null, null, null, null, null, null, null, false, null, 1, 1);
+                    foreach (var n in SacarNumeroConector)
+                    {
+                        NumeroConectorProducto = Convert.ToDecimal(n.NumeroConector);
+                        CantidadAlmacen = Convert.ToInt32(n.Stock);
+                        IdTipoProducto = Convert.ToDecimal(n.IdTipoProducto);
+                    }
+
+                    if (IdTipoProducto == 1)
+                    {
+                        //CUANDO ES PRODUCTO
+                        if (VariablesGlbales.Diferencia > VariablesGlbales.CantidadUsar)
+                        {
+                            Resultado = VariablesGlbales.Diferencia - VariablesGlbales.CantidadUsar;
+                            if (Resultado > CantidadAlmacen)
+                            {
+                                MessageBox.Show("La cantidad que intentas procesar supera la cantidad en almacen, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                            else
+                            {
+                                ModificarStockproducto(NumeroConectorProducto, Resultado, "LESSPRODUCT");
+                                if (VariablesGlbales.ValidarComisiones == true)
+                                {
+
+                                    ProcesarComisionEmpleado(
+                                        VariablesGlbales.IdRegistroComisiones,
+                                        VariablesGlbales.IdEmpleadoComisiones,
+                                        VariablesGlbales.IdTipoProductoComsion,
+                                        Convert.ToDecimal(txtPrecio.Text),
+                                        Convert.ToDecimal(txtDescuento.Text),
+                                        VariablesGlbales.ComisionEmpleadoComision,
+                                        VariablesGlbales.NumeroConectorOperacionComisiones,
+                                        VariablesGlbales.IdProductoComisiones,
+                                        VariablesGlbales.ConectorProductoComisiones,
+                                        false,
+                                        "UPDATE");
+
+                                }
+       
+                                AgregarEditarProductos("UPDATE");
+                                dtSeleccionarproducto.Enabled = true;
+                                txtRealizadoPor.Enabled = true;
+                                BuscarProductosAgregados(VariablesGlbales.NumeroConector);
+                               
+                                
+                            }
+                        }
+                        else
+                        {
+                            Resultado = VariablesGlbales.CantidadUsar - VariablesGlbales.Diferencia;
+                            if (Resultado > CantidadAlmacen)
+                            {
+                                MessageBox.Show("La cantidad que intentas procesar supera la cantidad en almacen, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                            else
+                            {
+                                ModificarStockproducto(NumeroConectorProducto, Resultado, "ADDPRODUCT");
+                                if (VariablesGlbales.ValidarComisiones == true)
+                                {
+                                    ProcesarComisionEmpleado(
+                                        VariablesGlbales.IdRegistroComisiones,
+                                        VariablesGlbales.IdEmpleadoComisiones,
+                                        VariablesGlbales.IdTipoProductoComsion,
+                                        Convert.ToDecimal(txtPrecio.Text),
+                                        Convert.ToDecimal(txtDescuento.Text),
+                                        VariablesGlbales.ComisionEmpleadoComision,
+                                        VariablesGlbales.NumeroConectorOperacionComisiones,
+                                        VariablesGlbales.IdProductoComisiones,
+                                        VariablesGlbales.ConectorProductoComisiones,
+                                        false,
+                                        "UPDATE");
+
+
+
+                                }
+                                AgregarEditarProductos("UPDATE");
+                                dtSeleccionarproducto.Enabled = true;
+                                txtRealizadoPor.Enabled = true;
+                                BuscarProductosAgregados(VariablesGlbales.NumeroConector);
+                              
+                               
+                            }
+                        }
+                    }
+                    else if (IdTipoProducto == 2)
+                    {
+                        //CUANDO ES SERVICIO
+                        if (VariablesGlbales.ValidarComisiones == true)
+                        {
+                            ProcesarComisionEmpleado(
+                                                VariablesGlbales.IdRegistroComisiones,
+                                                VariablesGlbales.IdEmpleadoComisiones,
+                                                VariablesGlbales.IdTipoProductoComsion,
+                                                Convert.ToDecimal(txtPrecio.Text),
+                                                Convert.ToDecimal(txtDescuento.Text),
+                                                VariablesGlbales.ComisionEmpleadoComision,
+                                                VariablesGlbales.NumeroConectorOperacionComisiones,
+                                                VariablesGlbales.IdProductoComisiones,
+                                                VariablesGlbales.ConectorProductoComisiones,
+                                                false,
+                                                "UPDATE");
+
+                        }
+                        AgregarEditarProductos("UPDATE");
+                        dtSeleccionarproducto.Enabled = true;
+                        txtRealizadoPor.Enabled = true;
+                        BuscarProductosAgregados(VariablesGlbales.NumeroConector);
+                       
+                     
+                    }
+
+
+
+
+
+                }
             }
-            else {
-                VariablesGlbales.Diferencia = Convert.ToInt32(txtCantidadUsar.Text);
-                int Resultado, CantidadAlmacen = 0;
-                decimal NumeroConectorProducto = 0;
-                
-                var SacarNumeroConector = ObjDataLogicaInventario.Value.BuscaProductos(
-                    VariablesGlbales.IdProductoModificarRegistro,
-                    null,
-                    null, null, null, null, null, null, null, null, null, null, null, null, null, null, false,null, 1, 1);
-                foreach (var n in SacarNumeroConector) {
-                    NumeroConectorProducto = Convert.ToDecimal(n.NumeroConector);
-                    CantidadAlmacen = Convert.ToInt32(n.Stock);
-                }
-
-                if (VariablesGlbales.Diferencia > VariablesGlbales.CantidadUsar) {
-                    Resultado = VariablesGlbales.Diferencia - VariablesGlbales.CantidadUsar;
-                    if (Resultado > CantidadAlmacen) {
-                        MessageBox.Show("La cantidad que intentas procesar supera la cantidad en almacen, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    else {
-                        ModificarStockproducto(NumeroConectorProducto, Resultado, "LESSPRODUCT");
-                        AgregarEditarProductos("UPDATE");
-                        BuscarProductosAgregados(VariablesGlbales.NumeroConector);
-                    }
-                }
-                else {
-                    Resultado = VariablesGlbales.CantidadUsar - VariablesGlbales.Diferencia;
-                    if (Resultado > CantidadAlmacen) {
-                        MessageBox.Show("La cantidad que intentas procesar supera la cantidad en almacen, favor de verificar", VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    else {
-                        ModificarStockproducto(NumeroConectorProducto, Resultado, "ADDPRODUCT");
-                        AgregarEditarProductos("UPDATE");
-                        BuscarProductosAgregados(VariablesGlbales.NumeroConector);
-                    }
-                }
-
-               
-
+            catch (Exception ex) {
+                MessageBox.Show("Error al editar este registro, codigo de error" + ex.Message, VariablesGlbales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -1079,7 +1229,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         {
             if (MessageBox.Show("¿Quieres Seleccionar este registro?", VariablesGlbales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-
+                dtSeleccionarproducto.Enabled = false;
+                txtRealizadoPor.Enabled = false;
                 this.VariablesGlbales.IdProductoModificarRegistro = Convert.ToDecimal(this.dtProductosAgregados.CurrentRow.Cells["IdProducto"].Value.ToString());
                 this.VariablesGlbales.IdProductoSeleccionadoAgregarEditar = Convert.ToDecimal(this.dtProductosAgregados.CurrentRow.Cells["IdProducto"].Value.ToString());
                 var Buscar = ObjDataServicio.Value.BuscapRoductosAgregados(VariablesGlbales.IdProductoModificarRegistro, VariablesGlbales.NumeroConector);
@@ -1145,6 +1296,44 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 btnAgregar.Enabled = false;
                 btnQuitar.Enabled = true;
                 btnEditar.Enabled = true;
+
+
+                if (VariablesGlbales.ValidarComisiones == true) {
+                    //SACAMOS LOS DATOS DE LAS COMISIONES PARA SELECCIONAR O ELIMINAR REGISTRO
+                    decimal IdProductoComisiones = 0, NumeroConectorComisiones = 0, ConectorProductoComisiones = 0, IdRegistroComisiones = 0;
+                    foreach (var nComisiones in Buscar)
+                    {
+                        IdProductoComisiones = Convert.ToDecimal(nComisiones.IdProducto);
+                        NumeroConectorComisiones = Convert.ToDecimal(nComisiones.NumeroConector); 
+                         ConectorProductoComisiones = Convert.ToDecimal(nComisiones.ConectorProducto);
+                    }
+
+                    var SacarIdRegistroComisiones = ObjDataServicio.Value.BuscaComisionesEmpleado(
+                        new Nullable<decimal>(),
+                        null,
+                        null,
+                        null,
+                        null,
+                        false,
+                        IdProductoComisiones,
+                        ConectorProductoComisiones,
+                        NumeroConectorComisiones,
+                        1, 1);
+                    foreach (var NID in SacarIdRegistroComisiones)
+                    {
+                        IdRegistroComisiones = Convert.ToDecimal(NID.IdRegistro);
+                     //   VariablesGlbales.IdRegistroComisiones = Convert.ToDecimal(NID.IdRegistro);
+                        VariablesGlbales.IdEmpleadoComisiones = Convert.ToDecimal(NID.IdEmpleado);
+                        VariablesGlbales.ComisionEmpleadoComision = Convert.ToDecimal(NID.ComisionEmpleado);
+                        VariablesGlbales.IdTipoProductoComsion = Convert.ToDecimal(NID.IdTipoProducto);
+                    }
+                    VariablesGlbales.IdRegistroComisiones = IdRegistroComisiones;
+                    VariablesGlbales.NumeroConectorOperacionComisiones = NumeroConectorComisiones;
+                    VariablesGlbales.IdProductoComisiones = IdProductoComisiones;
+                    VariablesGlbales.ConectorProductoComisiones = ConectorProductoComisiones;
+
+                }
+              
             }
         }
     }

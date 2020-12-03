@@ -825,11 +825,11 @@ namespace DSMarket.Logica.Logica.LogicaServicio
         }
         #endregion
         #region COMISIONES DE EMPLEADOS
-        public List<DSMarket.Logica.Entidades.EntidadesServicio.EComisionesEmpleados> BuscaComisionesEmpleado(decimal? IdRegistro = null, decimal? IdEmpleado = null, decimal? IdTipoProducto = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null,bool? Estatus =null, int? Numeropagina = null, int? NumeroRegistros = null)
+        public List<DSMarket.Logica.Entidades.EntidadesServicio.EComisionesEmpleados> BuscaComisionesEmpleado(decimal? IdRegistro = null, decimal? IdEmpleado = null, decimal? IdTipoProducto = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null,bool? Estatus =null, decimal? IdProducto = null,decimal? NumeroConectorProducto = null,decimal? NumeroConectorOperacion = null, int? Numeropagina = null, int? NumeroRegistros = null)
         {
             ObjData.CommandTimeout = 999999999;
 
-            var Buscar = (from n in ObjData.SP_BUSCA_COMISIONES_EMPLEADOS(IdRegistro, IdEmpleado, IdTipoProducto, FechaDesde, FechaHasta, Estatus,Numeropagina, NumeroRegistros)
+            var Buscar = (from n in ObjData.SP_BUSCA_COMISIONES_EMPLEADOS(IdRegistro, IdEmpleado, IdTipoProducto, FechaDesde, FechaHasta, Estatus,IdProducto,NumeroConectorProducto,NumeroConectorOperacion, Numeropagina, NumeroRegistros)
                           select new DSMarket.Logica.Entidades.EntidadesServicio.EComisionesEmpleados
                           {
                               IdRegistro=n.IdRegistro,
