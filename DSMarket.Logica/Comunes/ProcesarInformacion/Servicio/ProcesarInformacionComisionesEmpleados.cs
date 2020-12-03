@@ -20,6 +20,7 @@ namespace DSMarket.Logica.Comunes.ProcesarInformacion.Servicio
         private decimal IdProducto = 0;
         private decimal ConectorProducto = 0;
         private DateTime Fecha = DateTime.Now;
+        private bool Estatus = false;
         private string Accion = "";
 
         public ProcesarInformacionComisionesEmpleados(
@@ -33,6 +34,7 @@ namespace DSMarket.Logica.Comunes.ProcesarInformacion.Servicio
             decimal IdProductoCON,
             decimal ConectorProductoCON,
             DateTime FechaCON,
+            bool EstatusCON,
             string AccionCON)
         {
             IdRegistro = IdRegistroCON;
@@ -45,6 +47,7 @@ namespace DSMarket.Logica.Comunes.ProcesarInformacion.Servicio
             IdProducto = IdProductoCON;
             ConectorProducto = ConectorProductoCON;
             Fecha = FechaCON;
+            Estatus = EstatusCON;
             Accion = AccionCON;
         }
         public void ProcesarComisiones() {
@@ -59,6 +62,8 @@ namespace DSMarket.Logica.Comunes.ProcesarInformacion.Servicio
             Procesar.NumeroConectorOperacion = NumeroConectorOperacion;
             Procesar.IdProducto = IdProducto;
             Procesar.ConectorProducto = ConectorProducto;
+            Procesar.Fecha = Fecha;
+            Procesar.Estatus0 = Estatus;
 
             var MAN = ObjData.ProcesarComsionEmpleados(Procesar, Accion);
         }

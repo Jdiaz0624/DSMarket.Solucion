@@ -530,7 +530,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         }
         #endregion
         #region PROCESAR COMISIONES EMPLEADOS
-        private void ProcesarComisionEmpleado(decimal IdRegistro, decimal IdEmpleado, decimal IdTipoproducto, decimal PrecioProducto, decimal DescuentoAplicado, decimal ComisionEmpleado, decimal NumeroConectorOperacion, decimal Idproducto, decimal ConectorProducto, string Accion) {
+        private void ProcesarComisionEmpleado(decimal IdRegistro, decimal IdEmpleado, decimal IdTipoproducto, decimal PrecioProducto, decimal DescuentoAplicado, decimal ComisionEmpleado, decimal NumeroConectorOperacion, decimal Idproducto, decimal ConectorProducto,bool Estatus, string Accion) {
 
             DSMarket.Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionComisionesEmpleados Procesar = new Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionComisionesEmpleados(
                 IdRegistro,
@@ -543,6 +543,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 Idproducto,
                 ConectorProducto,
                 DateTime.Now,
+                Estatus,
                 Accion);
             Procesar.ProcesarComisiones();
         }
@@ -669,7 +670,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             bool CalculoColisiones = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(14);
 
             if (CalculoColisiones == true) {
-                if (string.IsNullOrEmpty(txtRealizadoPor.Text.Trim())) { }
+                if (string.IsNullOrEmpty(txtRealizadoPor.Text.Trim())) { AgregarproductosFacturar(); }
                 else {
                     decimal IdEmpleado = 0, IdTipoProducto = 0,PrecioProducto=0, DescuentoEmpleado = 0, ComisionEmpleado = 0,ComisionVentas=0,ComisionServicios=0, IdProducto = 0, ConectorProducto = 0;
 
@@ -686,8 +687,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     else {
                         foreach (var n in ValidarNombreEmpleado) {
                             IdEmpleado = Convert.ToDecimal(n.IdEmpleado);
-                            ComisionServicios = Convert.ToDecimal(n.PorcientoCOmisionVentas);
-                            ComisionVentas = Convert.ToDecimal(n.PorcientoComsiionServicio);
+                            ComisionServicios = Convert.ToDecimal(n.PorcientoComsiionServicio);
+                            ComisionVentas = Convert.ToDecimal(n.PorcientoCOmisionVentas);
 
                         }
 
@@ -713,7 +714,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
           VariablesGlbales.NumeroConector,
           IdProducto,
           ConectorProducto,
+          false,
           "INSERT");
+                        AgregarproductosFacturar();
                     }
 
       

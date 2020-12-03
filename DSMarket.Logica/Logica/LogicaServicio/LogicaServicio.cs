@@ -825,11 +825,11 @@ namespace DSMarket.Logica.Logica.LogicaServicio
         }
         #endregion
         #region COMISIONES DE EMPLEADOS
-        public List<DSMarket.Logica.Entidades.EntidadesServicio.EComisionesEmpleados> BuscaComisionesEmpleado(decimal? IdRegistro = null, decimal? IdEmpleado = null, decimal? IdTipoProducto = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null, int? Numeropagina = null, int? NumeroRegistros = null)
+        public List<DSMarket.Logica.Entidades.EntidadesServicio.EComisionesEmpleados> BuscaComisionesEmpleado(decimal? IdRegistro = null, decimal? IdEmpleado = null, decimal? IdTipoProducto = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null,bool? Estatus =null, int? Numeropagina = null, int? NumeroRegistros = null)
         {
             ObjData.CommandTimeout = 999999999;
 
-            var Buscar = (from n in ObjData.SP_BUSCA_COMISIONES_EMPLEADOS(IdRegistro, IdEmpleado, IdTipoProducto, FechaDesde, FechaHasta, Numeropagina, NumeroRegistros)
+            var Buscar = (from n in ObjData.SP_BUSCA_COMISIONES_EMPLEADOS(IdRegistro, IdEmpleado, IdTipoProducto, FechaDesde, FechaHasta, Estatus,Numeropagina, NumeroRegistros)
                           select new DSMarket.Logica.Entidades.EntidadesServicio.EComisionesEmpleados
                           {
                               IdRegistro=n.IdRegistro,
@@ -846,6 +846,8 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                               ConectorProducto=n.ConectorProducto,
                               Fecha=n.Fecha,
                               FechaProceso=n.FechaProceso,
+                              Estatus0=n.Estatus0,
+                              Estatus=n.Estatus,
                               CantidadRegistros=n.CantidadRegistros,
                               CantidadVentas=n.CantidadVentas,
                               CantidadServicios=n.CantidadServicios
@@ -868,6 +870,7 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                 Item.NumeroConectorOperacion,
                 Item.IdProducto,
                 Item.ConectorProducto,
+                Item.Estatus0,
                 Accion);
             if (ComisionEmpleado != null) {
                 Procesar = (from n in ComisionEmpleado
