@@ -423,7 +423,7 @@
             this.groupBox2.Size = new System.Drawing.Size(1150, 266);
             this.groupBox2.TabIndex = 85;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Listado de clientes registrados";
+            this.groupBox2.Text = "Listado de Empleados";
             // 
             // dtListado
             // 

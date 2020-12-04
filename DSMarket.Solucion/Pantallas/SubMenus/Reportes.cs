@@ -121,5 +121,12 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
             Invocar.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
             Invocar.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Reportes.ReporteComisionEmpleados Comision = new Pantallas.Reportes.ReporteComisionEmpleados();
+            Comision.VariablesGlbales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
+            Comision.ShowDialog();
+        }
     }
 }

@@ -645,6 +645,12 @@
     <Compile Include="Pantallas\Pantallas\PRUEBAS\PRUEBAS.Designer.cs">
       <DependentUpon>PRUEBAS.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Reportes\ReporteComisionEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Reportes\ReporteComisionEmpleados.Designer.cs">
+      <DependentUpon>ReporteComisionEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Reportes\Reportes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1048,6 +1054,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\PRUEBAS\PRUEBAS.resx">
       <DependentUpon>PRUEBAS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Reportes\ReporteComisionEmpleados.resx">
+      <DependentUpon>ReporteComisionEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Reportes\Reportes.resx">
       <DependentUpon>Reportes.cs</DependentUpon>
