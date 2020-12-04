@@ -236,6 +236,7 @@
             this.cbAplicaComision.TabIndex = 45;
             this.cbAplicaComision.Text = "Aplica para Comisión";
             this.cbAplicaComision.UseVisualStyleBackColor = true;
+            this.cbAplicaComision.CheckedChanged += new System.EventHandler(this.cbAplicaComision_CheckedChanged);
             // 
             // cbEstatus
             // 
@@ -251,20 +252,24 @@
             // 
             // txtComisionServicios
             // 
+            this.txtComisionServicios.Enabled = false;
             this.txtComisionServicios.Location = new System.Drawing.Point(703, 309);
             this.txtComisionServicios.MaxLength = 20;
             this.txtComisionServicios.Name = "txtComisionServicios";
             this.txtComisionServicios.Size = new System.Drawing.Size(303, 26);
             this.txtComisionServicios.TabIndex = 43;
+            this.txtComisionServicios.Text = "0";
             this.txtComisionServicios.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtComisionServicios_KeyPress);
             // 
             // txtComisionVentas
             // 
+            this.txtComisionVentas.Enabled = false;
             this.txtComisionVentas.Location = new System.Drawing.Point(193, 311);
             this.txtComisionVentas.MaxLength = 20;
             this.txtComisionVentas.Name = "txtComisionVentas";
             this.txtComisionVentas.Size = new System.Drawing.Size(303, 26);
             this.txtComisionVentas.TabIndex = 42;
+            this.txtComisionVentas.Text = "0";
             this.txtComisionVentas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtComisionServicios_KeyPress);
             // 
             // txtFechaNacimiento
@@ -290,6 +295,7 @@
             this.txtOtrosIngresos.Name = "txtOtrosIngresos";
             this.txtOtrosIngresos.Size = new System.Drawing.Size(303, 26);
             this.txtOtrosIngresos.TabIndex = 39;
+            this.txtOtrosIngresos.Text = "0";
             this.txtOtrosIngresos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtComisionServicios_KeyPress);
             // 
             // txtSueldo
@@ -299,6 +305,7 @@
             this.txtSueldo.Name = "txtSueldo";
             this.txtSueldo.Size = new System.Drawing.Size(303, 26);
             this.txtSueldo.TabIndex = 38;
+            this.txtSueldo.Text = "0";
             this.txtSueldo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtComisionServicios_KeyPress);
             // 
             // ddlFormaPago

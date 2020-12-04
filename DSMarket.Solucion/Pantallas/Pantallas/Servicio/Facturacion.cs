@@ -2193,6 +2193,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void PCerrar_Click_1(object sender, EventArgs e)
         {
             DevolverProductosInventario(VariablesGlobales.NumeroConector);
+            //ELIMINAMOS LA COMISIONES
+            DSMarket.Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionComisionesEmpleados Procesar = new Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionComisionesEmpleados(
+                0, 0, 0, 0, 0, 0, VariablesGlobales.NumeroConector, 0, 0, DateTime.Now, false, "cANCELARPROCESO");
+            Procesar.ProcesarComisiones();
+
             this.Dispose();
         }
 
@@ -2424,6 +2429,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
 
                                 MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                DSMarket.Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionComisionesEmpleados Procesar = new Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionComisionesEmpleados(
+                                0, 0, 0, 0, 0, 0, VariablesGlobales.NumeroConector, 0, 0, DateTime.Now, false, "CAMBIARESTATUS");
+                                Procesar.ProcesarComisiones();
                                 GenerarFacturaVenta();
                                 this.Dispose();
 
@@ -2454,6 +2462,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                                         AfectarCuentasContablesCreditos();
                                         AfectarCuentasContableOtrosImpuestos();
                                         MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        DSMarket.Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionComisionesEmpleados Procesar = new Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionComisionesEmpleados(
+                                0, 0, 0, 0, 0, 0, VariablesGlobales.NumeroConector, 0, 0, DateTime.Now, false, "CAMBIARESTATUS");
+                                        Procesar.ProcesarComisiones();
                                         GenerarFacturaVenta();
                                         this.Dispose();
 
@@ -2484,6 +2495,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         GuardarDatosCalculos("INSERT");
 
                         MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DSMarket.Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionComisionesEmpleados Procesar = new Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionComisionesEmpleados(
+                                0, 0, 0, 0, 0, 0, VariablesGlobales.NumeroConector, 0, 0, DateTime.Now, false, "cANCELARPROCESO");
+                        Procesar.ProcesarComisiones();
                         GenerarFacturaVenta();
                         FacturacionClienteCotizacion(VariablesGlobales.NumeroConector, "DELETE");
                         ProductosCotizacion(VariablesGlobales.NumeroConector, "DELETE");

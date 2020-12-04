@@ -154,6 +154,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             }
         }
         #endregion
+        #region VALIDAR CAMPOS NUMERICOS
+        /// <summary>
+        /// Este me metodo es agregar un cero en los campos otros ingresos,
+        /// Comision por venta y Comision por servicio en caso de que estan vacios.
+        /// </summary>
+        private void ValidarCmaposNumericos() {
+            if (string.IsNullOrEmpty(txtOtrosIngresos.Text.Trim())) { txtOtrosIngresos.Text = "0"; }
+            if (string.IsNullOrEmpty(txtComisionVentas.Text.Trim())) { txtComisionVentas.Text = "0"; }
+            if (string.IsNullOrEmpty(txtComisionServicios.Text.Trim())) { txtComisionServicios.Text = "0"; }
+        }
+        #endregion
         public EmpleadosMantenimiento()
         {
             InitializeComponent();
@@ -162,6 +173,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
         private void EmpleadosMantenimiento_Load(object sender, EventArgs e)
         {
             CargarListas();
+            cbAplicaComision.Checked = false;
             lbTitulo.ForeColor = Color.White;
             lbTitulo.Text = "Empleados Mantenimiento";
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
@@ -251,6 +263,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
                 {
                     if (VariablesGlobales.Accion == "INSERT")
                     {
+
+                        ValidarCmaposNumericos();
                         MANEmpleados();
                     }
                     else
@@ -277,6 +291,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
                             }
                             else
                             {
+                                ValidarCmaposNumericos();
                                 MANEmpleados();
                             }
                         }
@@ -291,6 +306,22 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
         private void DdlDepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarListasCargos();
+        }
+
+        private void cbAplicaComision_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbAplicaComision.Checked == true) {
+                txtComisionVentas.Enabled = true;
+                txtComisionServicios.Enabled = true;
+                txtComisionVentas.Text = "0";
+                txtComisionServicios.Text = "0";
+            }
+            else {
+                txtComisionVentas.Enabled = false;
+                txtComisionServicios.Enabled = false;
+                txtComisionVentas.Text = "0";
+                txtComisionServicios.Text = "0";
+            }
         }
     }
 }
