@@ -1275,5 +1275,51 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             return Modificar;
         }
         #endregion
+        #region PROCESAR INFORMACION REPORTE COMISIONES EMPLEADO
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarDatosComisionEmpleado ProcesarInformacionDatosReporteEmpleado(DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarDatosComisionEmpleado Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarDatosComisionEmpleado Procesar = null;
+
+            var ComisionEmpleado = ObjData.SP_PROCESAR_DATOS_REPORTE_COMISION_EMPLEADO(
+                Item.IdUsuario,
+                Item.IdRegistro,
+                Item.IdEmpleado,
+                Item.IdTipoProducto,
+                Item.PrecioProducto,
+                Item.DescuentoAplicado,
+                Item.ComisionEmpleado,
+                Item.NumeroConectorOperacion,
+                Item.IdProducto,
+                Item.ConectorProducto,
+                Item.Fecha,
+                Item.Estatus,
+                Item.ValidadoDesde,
+                Item.ValidadoHasta,
+                Accion);
+            if (ComisionEmpleado != null) {
+                Procesar = (from n in ComisionEmpleado
+                            select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EProcesarDatosComisionEmpleado
+                            {
+                                IdUsuario=n.IdUsuario,
+                                IdRegistro=n.IdRegistro,
+                                IdEmpleado=n.IdEmpleado,
+                                IdTipoProducto=n.IdTipoProducto,
+                                PrecioProducto=n.PrecioProducto,
+                                DescuentoAplicado=n.DescuentoAplicado,
+                                ComisionEmpleado=n.ComisionEmpleado,
+                                NumeroConectorOperacion=n.NumeroConectorOperacion,
+                                IdProducto=n.IdProducto,
+                                ConectorProducto=n.ConectorProducto,
+                                Fecha=n.Fecha,
+                                Estatus=n.Estatus,
+                                ValidadoDesde=n.ValidadoDesde,
+                                ValidadoHasta=n.ValidadoHasta
+                            }).FirstOrDefault();
+            }
+            return Procesar;
+
+        }
+        #endregion
     }
 }

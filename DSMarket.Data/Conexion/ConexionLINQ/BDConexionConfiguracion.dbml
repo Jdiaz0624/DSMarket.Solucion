@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DSMarket" Class="BDConexionConfiguracionDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=DSMarket;Persist Security Info=True;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString4" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=172.26.24.199;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString1" Provider="System.Data.SqlClient" />
   <Function Name="Configuracion.SP_BUSCA_LISTAS" Method="SP_BUSCA_LISTAS">
     <Parameter Name="NombreLista" Parameter="nombreLista" Type="System.String" DbType="VarChar(150)" />
     <Parameter Name="PrimerFiltro" Parameter="primerFiltro" Type="System.String" DbType="VarChar(150)" />
@@ -859,6 +859,39 @@
     <ElementType Name="SP_MODIFICAR_PORCIENTO_DESCUENTO_PRODUCTO_POR_DEFECTOResult">
       <Column Name="IdPorcientoDescuento" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="PorcientoDescuento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Reporte.SP_PROCESAR_DATOS_REPORTE_COMISION_EMPLEADO" Method="SP_PROCESAR_DATOS_REPORTE_COMISION_EMPLEADO">
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdRegistro" Parameter="idRegistro" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdEmpleado" Parameter="idEmpleado" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdTipoProducto" Parameter="idTipoProducto" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="PrecioProducto" Parameter="precioProducto" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="DescuentoAplicado" Parameter="descuentoAplicado" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="ComisionEmpleado" Parameter="comisionEmpleado" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="NumeroConectorOperacion" Parameter="numeroConectorOperacion" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdProducto" Parameter="idProducto" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="ConectorProducto" Parameter="conectorProducto" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Fecha" Parameter="fecha" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Estatus" Parameter="estatus" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="ValidadoDesde" Parameter="validadoDesde" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="ValidadoHasta" Parameter="validadoHasta" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_PROCESAR_DATOS_REPORTE_COMISION_EMPLEADOResult">
+      <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdRegistro" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdEmpleado" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdTipoProducto" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="PrecioProducto" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="DescuentoAplicado" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="ComisionEmpleado" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="NumeroConectorOperacion" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdProducto" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="ConectorProducto" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Estatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ValidadoDesde" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ValidadoHasta" Type="System.DateTime" DbType="Date" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
