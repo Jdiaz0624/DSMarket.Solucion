@@ -185,6 +185,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
                     VariablesGlobales.IdMantenimeinto,
                     null, null, null, null, null, null, 1, 1);
                 foreach (var n in SacarInformacion) {
+                    cbEstatus.Checked = (n.Estatus0.HasValue ? n.Estatus0.Value : false);
+                    cbAplicaComision.Checked = (n.AplicaParaComision0.HasValue ? n.AplicaParaComision0.Value : false);
                     txtNombre.Text = n.Nombre;
                     txtApellido.Text = n.Apellido;
                     ddlTipoidentificacion.Text = n.TipoIdentificacion;
@@ -207,8 +209,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
                     txtFechaNacimiento.Text = n.FechaNacimiento0.ToString();
                     txtComisionVentas.Text = n.PorcientoCOmisionVentas.ToString();
                     txtComisionServicios.Text = n.PorcientoComsiionServicio.ToString();
-                    cbEstatus.Checked = (n.Estatus0.HasValue ? n.Estatus0.Value : false);
-                    cbAplicaComision.Checked = (n.AplicaParaComision0.HasValue ? n.AplicaParaComision0.Value : false);
+                    
                     lbClaveSeguridad.Visible = true;
                     txtClaveSeguridad.Visible = true;
                     txtClaveSeguridad.PasswordChar = '•';

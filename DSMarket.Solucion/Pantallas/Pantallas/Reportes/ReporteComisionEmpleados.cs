@@ -47,6 +47,29 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
             this.dtListado.Columns["CantidadRegistros"].Visible = false;
             this.dtListado.Columns["CantidadActivos"].Visible = false;
             this.dtListado.Columns["CantidadInactivos"].Visible = false;
+
+            this.dtListado.Columns["TipoIdentificacion"].Visible = false;
+            this.dtListado.Columns["NumeroIdentificacion"].Visible = false;
+            this.dtListado.Columns["NAcionalidad"].Visible = false;
+            this.dtListado.Columns["NSS"].Visible = false;
+            this.dtListado.Columns["Direccion"].Visible = false;
+            this.dtListado.Columns["TipoEmpleado"].Visible = false;
+            this.dtListado.Columns["TipoNomina"].Visible = false;
+            this.dtListado.Columns["Departamento"].Visible = false;
+            this.dtListado.Columns["Cargo"].Visible = false;
+            this.dtListado.Columns["Telefono1"].Visible = false;
+            this.dtListado.Columns["Telefono2"].Visible = false;
+            this.dtListado.Columns["Email"].Visible = false;
+            this.dtListado.Columns["EstadoCivil"].Visible = false;
+            this.dtListado.Columns["Sueldo"].Visible = false;
+            this.dtListado.Columns["OtrosIngresos"].Visible = false;
+            this.dtListado.Columns["FormaPago"].Visible = false;
+            this.dtListado.Columns["FechaIngreso"].Visible = false;
+            this.dtListado.Columns["FechaNacimiento"].Visible = false;
+            this.dtListado.Columns["Estatus"].Visible = false;
+            this.dtListado.Columns["AplicaParaComision"].Visible = false;
+            this.dtListado.Columns["PorcientoCOmisionVentas"].Visible = false;
+            this.dtListado.Columns["PorcientoComsiionServicio"].Visible = false;
         }
         #endregion
         public ReporteComisionEmpleados()
@@ -97,7 +120,42 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
 
         private void DtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            this.VariablesGlbales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdEmpleado"].Value.ToString());
+            //ELIMINAMOS LOS DATOS DEL USUARIO EN LA COMISIONES
+            DSMarket.Logica.Comunes.ProcesarInformacion.Configuracion.ProcesarInformacionDatosreporteEmpleados Eliminar = new Logica.Comunes.ProcesarInformacion.Configuracion.ProcesarInformacionDatosreporteEmpleados(
+                VariablesGlbales.IdUsuario, 0, 0, 0, 0, 0, 0, 0, 0, 0, DateTime.Now, false, DateTime.Now, DateTime.Now, "DELETE");
+            Eliminar.ProcesarInformacionDatosComisiones();
 
+            //BUSCMAOS LOS DATOS DE LAS COMISIONE SY GENERAMOS EL REPORTE
+            var BuscarRegistros = ObjDataServicio.Value.BuscaComisionesEmpleado(
+                new Nullable<decimal>(),
+                VariablesGlbales.IdMantenimeinto, null,
+                Convert.ToDateTime(txtFechaDesde.Text),
+                Convert.ToDateTime(txtFechaHasta.Text),
+                true, null, null, null, 1, 999999999);
+            foreach (var n in BuscarRegistros)
+            {
+                DSMarket.Logica.Comunes.ProcesarInformacion.Configuracion.ProcesarInformacionDatosreporteEmpleados Guardar = new Logica.Comunes.ProcesarInformacion.Configuracion.ProcesarInformacionDatosreporteEmpleados(
+                    VariablesGlbales.IdUsuario,
+                    Convert.ToDecimal(n.IdRegistro),
+                    Convert.ToDecimal(n.IdEmpleado),
+                    Convert.ToDecimal(n.IdTipoProducto),
+                    Convert.ToDecimal(n.PrecioProducto),
+                    Convert.ToDecimal(n.DescuentoAplicado),
+                    Convert.ToDecimal(n.ComisionEmpleado),
+                    Convert.ToDecimal(n.NumeroConectorOperacion),
+                    Convert.ToDecimal(n.IdProducto),
+                    Convert.ToDecimal(n.ConectorProducto),
+                    Convert.ToDateTime(n.Fecha),
+                    Convert.ToBoolean(n.Estatus0),
+                    Convert.ToDateTime(txtFechaDesde.Text),
+                    Convert.ToDateTime(txtFechaHasta.Text),
+                    "INSERT");
+                Guardar.ProcesarInformacionDatosComisiones();
+            }
+            DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes reporte = new Reportes();
+            reporte.GenerarReporteComisionEmpleados(VariablesGlbales.IdUsuario);
+            reporte.ShowDialog();
         }
 
         private void BtnEditar_Click(object sender, EventArgs e)
