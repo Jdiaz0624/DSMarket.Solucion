@@ -891,5 +891,26 @@ namespace DSMarket.Logica.Logica.LogicaServicio
             return Procesar;
         }
         #endregion
+        #region ASIGNAR LA FECHA MANUAL 
+        public DSMarket.Logica.Entidades.EntidadesServicio.EAsignaFechaManualFActuracion AsignarFechaManual(DSMarket.Logica.Entidades.EntidadesServicio.EAsignaFechaManualFActuracion Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesServicio.EAsignaFechaManualFActuracion Asignar = null;
+
+            var FechaMAnualFacturacion = ObjData.SP_ASIGNA_FECHA_MANUAL_FACTURACION(
+                Item.NumeroConector,
+                Item.FechaFactura,
+                Accion);
+            if (FechaMAnualFacturacion != null) {
+                Asignar = (from n in FechaMAnualFacturacion
+                           select new DSMarket.Logica.Entidades.EntidadesServicio.EAsignaFechaManualFActuracion
+                           {
+                               NumeroConector=n.NumeroConector,
+                               FechaFactura=n.FechaFactura
+                           }).FirstOrDefault();
+            }
+            return Asignar;
+        }
+        #endregion
     }
 }

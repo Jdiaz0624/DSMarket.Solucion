@@ -33,7 +33,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
     #endregion
 		
 		public BDConecionServicioDataContext() : 
-				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString1, mappingSource)
+				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString6, mappingSource)
 		{
 			OnCreated();
 		}
@@ -321,6 +321,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idRegistro, idEmpleado, idTipoProducto, fechaDesde, fechaHasta, estatus, idProducto, numeroConectorProducto, numeroConectorOperacion, numeropagina, numeroRegistros);
 			return ((ISingleResult<SP_BUSCA_COMISIONES_EMPLEADOSResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_ASIGNA_FECHA_MANUAL_FACTURACION")]
+		public ISingleResult<SP_ASIGNA_FECHA_MANUAL_FACTURACIONResult> SP_ASIGNA_FECHA_MANUAL_FACTURACION([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroConector", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroConector, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaFactura", DbType="Date")] System.Nullable<System.DateTime> fechaFactura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), numeroConector, fechaFactura, accion);
+			return ((ISingleResult<SP_ASIGNA_FECHA_MANUAL_FACTURACIONResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -7701,6 +7708,50 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._CantidadServicios != value))
 				{
 					this._CantidadServicios = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_ASIGNA_FECHA_MANUAL_FACTURACIONResult
+	{
+		
+		private System.Nullable<decimal> _NumeroConector;
+		
+		private System.Nullable<System.DateTime> _FechaFactura;
+		
+		public SP_ASIGNA_FECHA_MANUAL_FACTURACIONResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroConector", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> NumeroConector
+		{
+			get
+			{
+				return this._NumeroConector;
+			}
+			set
+			{
+				if ((this._NumeroConector != value))
+				{
+					this._NumeroConector = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaFactura", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaFactura
+		{
+			get
+			{
+				return this._FechaFactura;
+			}
+			set
+			{
+				if ((this._FechaFactura != value))
+				{
+					this._FechaFactura = value;
 				}
 			}
 		}

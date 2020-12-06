@@ -132,6 +132,8 @@
             this.lbMontoCredito = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.cbFechaManual = new System.Windows.Forms.CheckBox();
+            this.txtFechaManual = new System.Windows.Forms.DateTimePicker();
             this.gbGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCantidadDiasGarantia)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -146,6 +148,8 @@
             // 
             // gbGeneral
             // 
+            this.gbGeneral.Controls.Add(this.txtFechaManual);
+            this.gbGeneral.Controls.Add(this.cbFechaManual);
             this.gbGeneral.Controls.Add(this.lbValorSinImpuestoVariable);
             this.gbGeneral.Controls.Add(this.txtImpuestoComprobante);
             this.gbGeneral.Controls.Add(this.label27);
@@ -1318,6 +1322,27 @@
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
             // 
+            // cbFechaManual
+            // 
+            this.cbFechaManual.AutoSize = true;
+            this.cbFechaManual.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbFechaManual.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbFechaManual.Location = new System.Drawing.Point(7, 330);
+            this.cbFechaManual.Name = "cbFechaManual";
+            this.cbFechaManual.Size = new System.Drawing.Size(196, 24);
+            this.cbFechaManual.TabIndex = 58;
+            this.cbFechaManual.Text = "Asignar Fecha Manual";
+            this.toolTip1.SetToolTip(this.cbFechaManual, "Asignar la Fecha Manual");
+            this.cbFechaManual.UseVisualStyleBackColor = true;
+            // 
+            // txtFechaManual
+            // 
+            this.txtFechaManual.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFechaManual.Location = new System.Drawing.Point(7, 360);
+            this.txtFechaManual.Name = "txtFechaManual";
+            this.txtFechaManual.Size = new System.Drawing.Size(239, 27);
+            this.txtFechaManual.TabIndex = 69;
+            // 
             // Facturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -1458,5 +1483,7 @@
         private System.Windows.Forms.DataGridViewButtonColumn Select;
         private System.Windows.Forms.DataGridView dtFacturasMinimizadas;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
+        private System.Windows.Forms.DateTimePicker txtFechaManual;
+        private System.Windows.Forms.CheckBox cbFechaManual;
     }
 }

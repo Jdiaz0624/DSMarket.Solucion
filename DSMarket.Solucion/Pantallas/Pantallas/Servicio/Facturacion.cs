@@ -585,6 +585,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
             var MAn = ObjDataServicio.Value.ManteniientoFacturacionEspejo(Mantenimiento, Accion);
 
+
+           
+
         }
         #endregion
         #region SACAR LOS DATOS DE LA FACTURACION ESPEJO
@@ -1823,7 +1826,14 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         }
         #endregion
 
-
+        #region AGREGAR FECHA MANUAL
+        private void FechaManual() {
+            DSMarket.Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFechaMAnual FechaMAnual = new Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFechaMAnual(
+                VariablesGlobales.NumeroConector,
+                Convert.ToDateTime(txtFechaManual.Text), "UPDATE");
+            FechaMAnual.ProcesarInformacionFechaManual();
+        }
+        #endregion
 
 
         #region ELIMINAR FACTURACION CLIENTE
@@ -2423,7 +2433,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                                 ProcesarInformacionCuentasContables();
                                 AfectarCuentasContablesCreditos();
                                 AfectarCuentasContableOtrosImpuestos();
-
+                                FechaManual();
 
 
 
@@ -2461,6 +2471,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                                         ProcesarInformacionCuentasContables();
                                         AfectarCuentasContablesCreditos();
                                         AfectarCuentasContableOtrosImpuestos();
+                                        FechaManual();
                                         MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         DSMarket.Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionComisionesEmpleados Procesar = new Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionComisionesEmpleados(
                                 0, 0, 0, 0, 0, 0, VariablesGlobales.NumeroConector, 0, 0, DateTime.Now, false, "CAMBIARESTATUS");

@@ -91,6 +91,7 @@
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionReportesFinancieros.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionTipoTiempoGarantia.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Servicio\ProcesarInformacionComisionesEmpleados.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\Servicio\ProcesarInformacionFechaMAnual.cs" />
     <Compile Include="Comunes\ProcesarMontoInicialCaja.cs" />
     <Compile Include="Comunes\ProcesarProductosDefectuosos.cs" />
     <Compile Include="Comunes\ProcesarRegistrosReporteProductosDefectuosos.cs" />
@@ -216,6 +217,7 @@
     <Compile Include="Entidades\EntidadesSeguridad\EMantenimientoClaveSeguridad.cs" />
     <Compile Include="Entidades\EntidadesSeguridad\EMantenimientoUsuario.cs" />
     <Compile Include="Entidades\EntidadesSeguridad\EUsuarios.cs" />
+    <Compile Include="Entidades\EntidadesServicio\EAsignaFechaManualFActuracion.cs" />
     <Compile Include="Entidades\EntidadesServicio\EBuscaHistorialProducto.cs" />
     <Compile Include="Entidades\EntidadesServicio\EBuscaRegistroReferencia.cs" />
     <Compile Include="Entidades\EntidadesServicio\EComisionesEmpleados.cs" />
