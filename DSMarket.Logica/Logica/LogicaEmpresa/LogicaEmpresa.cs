@@ -1040,5 +1040,112 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
             return Buscar;
         }
         #endregion
+
+        #region MANTENIMIENTO DE CITA
+        //BUSCA ENCABEZADO DE CITAS
+        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.ECitasEncabezado> BuscaEncabezadoCita(string IdCIta = null, decimal? IdEmpleado = null, DateTime? FechaCitaDesde = null, DateTime? FechaCitaHasta = null, string NombreCliente = null, string NumeroIdentificacion = null, bool? Estatus = null, int? NumeropAGINA = null, int? NumeroRegistros = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_BUSCA_CITAS_ENCABEZADO(IdCIta, IdEmpleado, FechaCitaDesde, FechaCitaHasta, NombreCliente, NumeroIdentificacion, Estatus, NumeropAGINA, NumeroRegistros)
+                           select new DSMarket.Logica.Entidades.EntidadesEmpresa.ECitasEncabezado
+                           {
+                               IdCitas=n.IdCitas,
+                               IdEmpleado=n.IdEmpleado,
+                               Empleado=n.Empleado,
+                               FechaCita0=n.FechaCita0,
+                               FechaCita=n.FechaCita,
+                               Hora=n.Hora,
+                               NombreCliente=n.NombreCliente,
+                               Telefono=n.Telefono,
+                               Direccion=n.Direccion,
+                               NumeroIdentificacion=n.NumeroIdentificacion,
+                               NumeroConectorCita=n.NumeroConectorCita,
+                               Estatus0=n.Estatus0,
+                               Estatus=n.Estatus
+                           }).ToList();
+            return Listado;
+        }
+
+        //MANTENIMIENTO DE ENCABEZADO DE CITAS
+        public DSMarket.Logica.Entidades.EntidadesEmpresa.ECitasEncabezado MantenimientoCitasEncabezado(DSMarket.Logica.Entidades.EntidadesEmpresa.ECitasEncabezado Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesEmpresa.ECitasEncabezado Mantenimiento = null;
+
+            var CitasEncabezado = ObjData.SP_PROCESAR_INFORMACION_Encabezado_CITAS(
+                Item.IdCitas,
+                Item.IdEmpleado,
+                Item.FechaCita0,
+                Item.Hora,
+                Item.NombreCliente,
+                Item.Telefono,
+                Item.Direccion,
+                Item.NumeroIdentificacion,
+                Item.NumeroConectorCita,
+                Item.Estatus0,
+                Accion);
+            if (CitasEncabezado != null) {
+                Mantenimiento = (from n in CitasEncabezado
+                                 select new DSMarket.Logica.Entidades.EntidadesEmpresa.ECitasEncabezado
+                                 {
+                                     IdCitas=n.IdCitas,
+                                     IdEmpleado=n.IdEmpleado,
+                                     FechaCita0=n.FechaCita,
+                                     Hora=n.Hora,
+                                     NombreCliente=n.NombreCliente,
+                                     Telefono=n.Telefono,
+                                     Direccion=n.Direccion,
+                                     NumeroIdentificacion=n.NumeroIdentificacion,
+                                     NumeroConectorCita=n.NumeroConectorCita,
+                                     Estatus0=n.Estatus
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
+
+
+
+        //BUSCA DETALLE DE CITAS
+        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.ECitasDetalle> BuscaCitaDetalle(decimal? NumeroConector = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var BuscarDetalle = (from n in ObjData.SP_BUSCA_CITAS_DETALLE(NumeroConector)
+                                 select new DSMarket.Logica.Entidades.EntidadesEmpresa.ECitasDetalle
+                                 {
+                                     NumeroConectorCita=n.NumeroConectorCita,
+                                     IdProducto=n.IdProducto,
+                                     Precio=n.Precio,
+                                     DescripcionProducto=n.DescripcionProducto,
+                                     CantidadRegistros=n.CantidadRegistros,
+                                     Total=n.Total
+                                 }).ToList();
+            return BuscarDetalle;
+        }
+
+        //MANTENIMIENTO CITAS DETALLE
+        public DSMarket.Logica.Entidades.EntidadesEmpresa.ECitasDetalle GuardarDetalleCitas(DSMarket.Logica.Entidades.EntidadesEmpresa.ECitasDetalle Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesEmpresa.ECitasDetalle Guardar = null;
+
+            var CitasDetalle = ObjData.SP_GUARDAR_DATOS_CITAS_DETALLE(
+                Item.NumeroConectorCita,
+                Item.IdProducto,
+                Item.Precio,
+                Item.DescripcionProducto,
+                Accion);
+            if (CitasDetalle != null) {
+                Guardar = (from n in CitasDetalle
+                           select new DSMarket.Logica.Entidades.EntidadesEmpresa.ECitasDetalle
+                           {
+                               NumeroConectorCita=n.NumeroConector,
+                               IdProducto=n.IdProducto,
+                               Precio=n.Precio,
+                               DescripcionProducto=n.DescripcionProducto
+                           }).FirstOrDefault();
+            }
+            return Guardar;
+        }
+        #endregion
     }
 }

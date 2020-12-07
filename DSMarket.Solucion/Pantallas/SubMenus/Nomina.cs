@@ -133,5 +133,12 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
             ConsultarEmpleados.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
             ConsultarEmpleados.ShowDialog();
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Empresa.ProgramacionCitas CitasConsultas = new Pantallas.Empresa.ProgramacionCitas();
+            CitasConsultas.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
+            CitasConsultas.ShowDialog();
+        }
     }
 }

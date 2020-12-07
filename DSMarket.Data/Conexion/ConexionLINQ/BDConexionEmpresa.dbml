@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DSMarket" Class="BDConexionEmpresaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=172.26.24.199;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=DSMarket;User ID=SA" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString6" Provider="System.Data.SqlClient" />
   <Function Name="Empresa.SP_MANTENIMIENTO_CLIENTES" Method="SP_MANTENIMIENTO_CLIENTES">
     <Parameter Name="IdCliente" Parameter="idCliente" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="IdComprobante" Parameter="idComprobante" Type="System.Decimal" DbType="Decimal(20,0)" />
@@ -740,6 +740,81 @@
       <Column Name="Nombre" Type="System.String" DbType="VarChar(201) NOT NULL" CanBeNull="false" />
       <Column Name="PorcientoCOmisionVentas" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
       <Column Name="PorcientoComsiionServicio" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Empresa.SP_BUSCA_CITAS_DETALLE" Method="SP_BUSCA_CITAS_DETALLE">
+    <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <ElementType Name="SP_BUSCA_CITAS_DETALLEResult">
+      <Column Name="NumeroConectorCita" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdProducto" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Precio" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="DescripcionProducto" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="CantidadRegistros" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Empresa.SP_GUARDAR_DATOS_CITAS_DETALLE" Method="SP_GUARDAR_DATOS_CITAS_DETALLE">
+    <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdProducto" Parameter="idProducto" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Precion" Parameter="precion" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="DescripcionProducto" Parameter="descripcionProducto" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_GUARDAR_DATOS_CITAS_DETALLEResult">
+      <Column Name="NumeroConector" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdProducto" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Precio" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="DescripcionProducto" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Empresa.SP_PROCESAR_INFORMACION_Encabezado_CITAS" Method="SP_PROCESAR_INFORMACION_Encabezado_CITAS">
+    <Parameter Name="IdCitas" Parameter="idCitas" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdEmpleado" Parameter="idEmpleado" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="FechaCita" Parameter="fechaCita" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Hora" Parameter="hora" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="NombreCliente" Parameter="nombreCliente" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Telefono" Parameter="telefono" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Direccion" Parameter="direccion" Type="System.String" DbType="VarChar(8000)" />
+    <Parameter Name="NumeroIdentificacion" Parameter="numeroIdentificacion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="NumeroConectorCita" Parameter="numeroConectorCita" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Estatus" Parameter="estatus" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_PROCESAR_INFORMACION_Encabezado_CITASResult">
+      <Column Name="IdCitas" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdEmpleado" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="FechaCita" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Hora" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="NombreCliente" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Direccion" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="NumeroIdentificacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="NumeroConectorCita" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Estatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Empresa.SP_BUSCA_CITAS_ENCABEZADO" Method="SP_BUSCA_CITAS_ENCABEZADO">
+    <Parameter Name="IdCIta" Parameter="idCIta" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="IdEmpleado" Parameter="idEmpleado" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="FechaCitaDesde" Parameter="fechaCitaDesde" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FechaCitaHasta" Parameter="fechaCitaHasta" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="NombreCliente" Parameter="nombreCliente" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="NumeroIdentificacion" Parameter="numeroIdentificacion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Estatus" Parameter="estatus" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="NumeropAGINA" Parameter="numeropAGINA" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NumeroRegistros" Parameter="numeroRegistros" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_BUSCA_CITAS_ENCABEZADOResult">
+      <Column Name="IdCitas" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="IdEmpleado" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Empleado" Type="System.String" DbType="VarChar(201)" CanBeNull="true" />
+      <Column Name="FechaCita0" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaCita" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="Hora" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="NombreCliente" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Direccion" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="NumeroIdentificacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="NumeroConectorCita" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Estatus0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Estatus" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

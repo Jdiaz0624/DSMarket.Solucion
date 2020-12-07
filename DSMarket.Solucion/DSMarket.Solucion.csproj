@@ -375,6 +375,12 @@
     <Compile Include="Pantallas\Pantallas\Empresa\MantenimientoBancos.Designer.cs">
       <DependentUpon>MantenimientoBancos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\MantenimientoCitas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\MantenimientoCitas.Designer.cs">
+      <DependentUpon>MantenimientoCitas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Empresa\MantenimientoCompraSuplidores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -416,6 +422,12 @@
     </Compile>
     <Compile Include="Pantallas\Pantallas\Empresa\PorcientoRetencionConsulta.Designer.cs">
       <DependentUpon>PorcientoRetencionConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\ProgramacionCitas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\ProgramacionCitas.Designer.cs">
+      <DependentUpon>ProgramacionCitas.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Pantallas\Empresa\RetencionesConsulta.cs">
       <SubType>Form</SubType>
@@ -920,6 +932,9 @@
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\MantenimientoBancos.resx">
       <DependentUpon>MantenimientoBancos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\MantenimientoCitas.resx">
+      <DependentUpon>MantenimientoCitas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\MantenimientoCompraSuplidores.resx">
       <DependentUpon>MantenimientoCompraSuplidores.cs</DependentUpon>
     </EmbeddedResource>
@@ -940,6 +955,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\PorcientoRetencionConsulta.resx">
       <DependentUpon>PorcientoRetencionConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\ProgramacionCitas.resx">
+      <DependentUpon>ProgramacionCitas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\RetencionesConsulta.resx">
       <DependentUpon>RetencionesConsulta.cs</DependentUpon>
