@@ -20,6 +20,7 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
         public static decimal IdUsuarioMantenimientos;
         Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjdataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
         Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjDataCOnfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
+        Lazy<DSMarket.Logica.Logica.LogicaEmpresa.LogicaEmpresa> ObjDataEmpresa = new Lazy<Logica.Logica.LogicaEmpresa.LogicaEmpresa>();
         public  DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
 
@@ -59,18 +60,26 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
         }
         #endregion
         private void MostrarNotificaciones() {
+            bool AlertaCumpleaños = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(15);
+            if (AlertaCumpleaños == true) {
+                //SACAR LA CANTIDAD PERSONAS DE FIESTA DE CUMPLEAÑOS
+                var Cantidad = ObjDataEmpresa.Value.MostrarCumpleanosClientes(1, 999999999);
+                string CantidadRegistros = Cantidad.Count.ToString();
+
+                NotificacionCumpleanos.Icon = new System.Drawing.Icon(Path.GetFullPath(@"../../Resources/DSMarket-Icono-1024x1024.ico"));
+                NotificacionCumpleanos.Text = "DeveSoft - DSMarket";
+                NotificacionCumpleanos.Visible = true;
+                NotificacionCumpleanos.BalloonTipTitle = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+                NotificacionCumpleanos.BalloonTipText = "Se han encontrado " + CantidadRegistros + " clientes que estan de cumpleaños el dia de hoy";
+                NotificacionCumpleanos.ShowBalloonTip(100);
+            }
+
+
+
+
+
+
             
-
-
-       
-
-
-            NotificacionCumpleanos.Icon = new System.Drawing.Icon(Path.GetFullPath(@"../../Resources/DSMarket-Icono-1024x1024.ico"));
-            NotificacionCumpleanos.Text = "Este es mi canal MannyDevs";
-            NotificacionCumpleanos.Visible = true;
-            NotificacionCumpleanos.BalloonTipTitle = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
-            NotificacionCumpleanos.BalloonTipText = "Notificacion enviada";
-            NotificacionCumpleanos.ShowBalloonTip(100);
         }
         private void PCerrar_Click(object sender, EventArgs e)
         {
