@@ -112,6 +112,24 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
             }
             return Mantenimeinto;
         }
+
+        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.EMostrarCumpleanos> MostrarCumpleanosClientes(int? NumeroPagina = null, int? NumeroRegistros =null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_MOSTRAR_CUMPLEANOS_CLIENTES(NumeroPagina, NumeroRegistros)
+                           select new DSMarket.Logica.Entidades.EntidadesEmpresa.EMostrarCumpleanos
+                           {
+                               CodigoCliente=n.CodigoCliente,
+                               Cliente=n.Cliente,
+                               FechaNacimiento=n.FechaNacimiento,
+                               Edad=n.Edad,
+                               MesNacimiento=n.MesNacimiento,
+                               MesActual=n.MesActual,
+                               Cumpleanos=n.Cumpleanos
+                           }).ToList();
+            return Listado;
+
+        }
         #endregion
 
         #region MANTENIMIENTO DE COMPRA DE SUPLIDORES

@@ -825,4 +825,17 @@
       <Column Name="EnvioEmail" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Empresa.SP_MOSTRAR_CUMPLEANOS_CLIENTES" Method="SP_MOSTRAR_CUMPLEANOS_CLIENTES">
+    <Parameter Name="NumeroPagina" Parameter="numeroPagina" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NumeroRegistros" Parameter="numeroRegistros" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_MOSTRAR_CUMPLEANOS_CLIENTESResult">
+      <Column Name="CodigoCliente" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Cliente" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="FechaNacimiento" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="Edad" Type="System.String" DbType="VarChar(35) NOT NULL" CanBeNull="false" />
+      <Column Name="MesNacimiento" Type="System.String" DbType="VarChar(44) NOT NULL" CanBeNull="false" />
+      <Column Name="MesActual" Type="System.String" DbType="VarChar(44) NOT NULL" CanBeNull="false" />
+      <Column Name="Cumpleanos" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>

@@ -157,6 +157,7 @@
     <Compile Include="Entidades\EntidadesEmpresa\EEmpleados.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\EEstadoCivil.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\EFormaPagoEmpleado.cs" />
+    <Compile Include="Entidades\EntidadesEmpresa\EMostrarCumpleanos.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\ENacionalidad.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\EPorcientoRetenciones.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\ERetenciones.cs" />

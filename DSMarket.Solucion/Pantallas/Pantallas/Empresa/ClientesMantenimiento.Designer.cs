@@ -227,6 +227,7 @@
             this.txtLimiteCredito.Name = "txtLimiteCredito";
             this.txtLimiteCredito.Size = new System.Drawing.Size(291, 27);
             this.txtLimiteCredito.TabIndex = 17;
+            this.txtLimiteCredito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLimiteCredito_KeyPress);
             // 
             // txtDireccion
             // 

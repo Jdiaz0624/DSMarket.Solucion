@@ -363,6 +363,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idCliente, idComprobante, nombre, telefono, idTipoIdentificacion, rNC, fechaNacimiento, alertaCumpleanos, direccion, email, comentario, estatus, idUsuario, montoCredito, envioEmail, accion);
 			return ((ISingleResult<SP_MANTENIMIENTO_CLIENTESResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Empresa.SP_MOSTRAR_CUMPLEANOS_CLIENTES")]
+		public ISingleResult<SP_MOSTRAR_CUMPLEANOS_CLIENTESResult> SP_MOSTRAR_CUMPLEANOS_CLIENTES([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroPagina", DbType="Int")] System.Nullable<int> numeroPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroRegistros", DbType="Int")] System.Nullable<int> numeroRegistros)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), numeroPagina, numeroRegistros);
+			return ((ISingleResult<SP_MOSTRAR_CUMPLEANOS_CLIENTESResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_MANTENIMIENTO_COMPRAS_SUPLIDORESResult
@@ -8904,6 +8911,140 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._EnvioEmail != value))
 				{
 					this._EnvioEmail = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_MOSTRAR_CUMPLEANOS_CLIENTESResult
+	{
+		
+		private decimal _CodigoCliente;
+		
+		private string _Cliente;
+		
+		private string _FechaNacimiento;
+		
+		private string _Edad;
+		
+		private string _MesNacimiento;
+		
+		private string _MesActual;
+		
+		private string _Cumpleanos;
+		
+		public SP_MOSTRAR_CUMPLEANOS_CLIENTESResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodigoCliente", DbType="Decimal(20,0) NOT NULL")]
+		public decimal CodigoCliente
+		{
+			get
+			{
+				return this._CodigoCliente;
+			}
+			set
+			{
+				if ((this._CodigoCliente != value))
+				{
+					this._CodigoCliente = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cliente", DbType="VarChar(500)")]
+		public string Cliente
+		{
+			get
+			{
+				return this._Cliente;
+			}
+			set
+			{
+				if ((this._Cliente != value))
+				{
+					this._Cliente = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaNacimiento", DbType="NVarChar(4000)")]
+		public string FechaNacimiento
+		{
+			get
+			{
+				return this._FechaNacimiento;
+			}
+			set
+			{
+				if ((this._FechaNacimiento != value))
+				{
+					this._FechaNacimiento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Edad", DbType="VarChar(35) NOT NULL", CanBeNull=false)]
+		public string Edad
+		{
+			get
+			{
+				return this._Edad;
+			}
+			set
+			{
+				if ((this._Edad != value))
+				{
+					this._Edad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MesNacimiento", DbType="VarChar(44) NOT NULL", CanBeNull=false)]
+		public string MesNacimiento
+		{
+			get
+			{
+				return this._MesNacimiento;
+			}
+			set
+			{
+				if ((this._MesNacimiento != value))
+				{
+					this._MesNacimiento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MesActual", DbType="VarChar(44) NOT NULL", CanBeNull=false)]
+		public string MesActual
+		{
+			get
+			{
+				return this._MesActual;
+			}
+			set
+			{
+				if ((this._MesActual != value))
+				{
+					this._MesActual = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cumpleanos", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
+		public string Cumpleanos
+		{
+			get
+			{
+				return this._Cumpleanos;
+			}
+			set
+			{
+				if ((this._Cumpleanos != value))
+				{
+					this._Cumpleanos = value;
 				}
 			}
 		}

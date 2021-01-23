@@ -346,5 +346,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             }
 
         }
+
+        private void txtLimiteCredito_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            DSMarket.Logica.Comunes.ValidarControles.SoloNumeros(e);
+        }
     }
 }
