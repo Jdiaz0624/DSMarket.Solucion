@@ -80,8 +80,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
                 txtDireccion.Text = n.Direccion;
                 txtLimiteCredito.Text = n.MontoCredito.ToString();
                 txtComentario.Text = n.Comentario;
+                txtFechaNacimiento.Text = n.FechaNacimiento0.ToString();
                 cbEstatus.Checked = (n.Estatus0.HasValue ? n.Estatus0.Value : false);
                 cbEnvioEmail.Checked = (n.EnvioEmail0.HasValue ? n.EnvioEmail0.Value : false);
+                cbalertacumpleanos.Checked = (n.AlertaCumpleanos0.HasValue ? n.AlertaCumpleanos0.Value : false);
             }
         }
 
@@ -202,6 +204,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
                   txtTelefono.Text,
                   Convert.ToDecimal(ddlTipIdentificacion.SelectedValue),
                   txtNumeroidentificacionCliente.Text,
+                  Convert.ToDateTime(txtFechaNacimiento.Text),
+                  cbalertacumpleanos.Checked,
                   txtDireccion.Text,
                   txtEmail.Text,
                   txtComentario.Text,
@@ -261,6 +265,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
                             txtTelefono.Text,
                             Convert.ToDecimal(ddlTipIdentificacion.SelectedValue),
                             txtNumeroidentificacionCliente.Text,
+                            Convert.ToDateTime(txtFechaNacimiento.Text),
+                            cbalertacumpleanos.Checked,
                             txtDireccion.Text,
                             txtEmail.Text,
                             txtComentario.Text,
@@ -317,6 +323,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
                           txtTelefono.Text,
                           Convert.ToDecimal(ddlTipIdentificacion.SelectedValue),
                           txtNumeroidentificacionCliente.Text,
+                          Convert.ToDateTime(txtFechaNacimiento.Text),
+                          cbalertacumpleanos.Checked,
                           txtDireccion.Text,
                           txtEmail.Text,
                           txtComentario.Text,

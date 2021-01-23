@@ -16,6 +16,8 @@ namespace DSMarket.Logica.Comunes
         private string Telefono = "";
         private decimal IdTipoIdentificacion = 0;
         private string RNC = "";
+        private DateTime FechaNacimiento = DateTime.Now;
+        private bool AceptaCumpleanos = false;
         private string Direccion = "";
         private string EMail = "";
         private string Comentario = "";
@@ -35,6 +37,8 @@ namespace DSMarket.Logica.Comunes
             string TelefonoCON,
             decimal IdTipoIdentificacionCON,
             string RNCCON,
+            DateTime FechaNacimientoCON,
+            bool AceptaCumpleanosCON,
             string DireccionCON,
             string EMailCON,
             string ComentarioCON,
@@ -53,6 +57,8 @@ namespace DSMarket.Logica.Comunes
             Telefono = TelefonoCON;
             IdTipoIdentificacion = IdTipoIdentificacionCON;
             RNC = RNCCON;
+            FechaNacimiento = FechaNacimientoCON;
+            AceptaCumpleanos = AceptaCumpleanosCON;
             Direccion = DireccionCON;
             EMail = EMailCON;
             Comentario = ComentarioCON;
@@ -76,6 +82,8 @@ namespace DSMarket.Logica.Comunes
             Procesar.Telefono = Telefono;
             Procesar.IdTipoIdentificacion = IdTipoIdentificacion;
             Procesar.RNC = RNC;
+            Procesar.FechaNacimiento0 = FechaNacimiento;
+            Procesar.AlertaCumpleanos0 = AceptaCumpleanos;
             Procesar.Direccion = Direccion;
             Procesar.Email = EMail;
             Procesar.Comentario = Comentario;

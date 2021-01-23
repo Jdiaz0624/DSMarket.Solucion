@@ -59,6 +59,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             this.dtListado.Columns["FechaModifica"].Visible = false;
             this.dtListado.Columns["FechaModificado"].Visible = false;
             this.dtListado.Columns["CantidadClientes"].Visible = false;
+            this.dtListado.Columns["FechaNacimiento0"].Visible = false;
+            this.dtListado.Columns["AlertaCumpleanos0"].Visible = false;
         }
         #endregion
         private void ClientesConsulta_Load(object sender, EventArgs e)

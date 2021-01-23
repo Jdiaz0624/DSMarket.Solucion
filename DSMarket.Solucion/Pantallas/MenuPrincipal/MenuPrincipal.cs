@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,6 +58,20 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
             }
         }
         #endregion
+        private void MostrarNotificaciones() {
+            
+
+
+       
+
+
+            NotificacionCumpleanos.Icon = new System.Drawing.Icon(Path.GetFullPath(@"../../Resources/DSMarket-Icono-1024x1024.ico"));
+            NotificacionCumpleanos.Text = "Este es mi canal MannyDevs";
+            NotificacionCumpleanos.Visible = true;
+            NotificacionCumpleanos.BalloonTipTitle = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+            NotificacionCumpleanos.BalloonTipText = "Notificacion enviada";
+            NotificacionCumpleanos.ShowBalloonTip(100);
+        }
         private void PCerrar_Click(object sender, EventArgs e)
         {
 
@@ -103,6 +118,7 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
+            
             SacarInformacionEmpresa();
             TemaGenerico();
             //btnServicio.Visible = false;
@@ -151,7 +167,7 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
                 btnSeguridad.Enabled = false;
                 btnContabilidad.Enabled = false;
             }
-
+            MostrarNotificaciones();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

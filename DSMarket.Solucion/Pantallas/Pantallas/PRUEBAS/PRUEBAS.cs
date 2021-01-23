@@ -61,5 +61,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.PRUEBAS
             DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion().Close();
             MessageBox.Show("Regsitro guardado");
         }
+
+        private void PRUEBAS_Load(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

@@ -38,6 +38,8 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ddlSeleccionarComprobantes = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtComentario = new System.Windows.Forms.TextBox();
             this.txtLimiteCredito = new System.Windows.Forms.TextBox();
@@ -56,9 +58,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lbClaveSeguridad = new System.Windows.Forms.Label();
             this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
-            this.ddlSeleccionarComprobantes = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cbalertacumpleanos = new System.Windows.Forms.CheckBox();
+            this.txtFechaNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -75,7 +78,7 @@
             this.cbEstatus.AutoSize = true;
             this.cbEstatus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbEstatus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbEstatus.Location = new System.Drawing.Point(206, 354);
+            this.cbEstatus.Location = new System.Drawing.Point(134, 352);
             this.cbEstatus.Name = "cbEstatus";
             this.cbEstatus.Size = new System.Drawing.Size(83, 24);
             this.cbEstatus.TabIndex = 20;
@@ -88,7 +91,7 @@
             this.cbEnvioEmail.AutoSize = true;
             this.cbEnvioEmail.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbEnvioEmail.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbEnvioEmail.Location = new System.Drawing.Point(291, 354);
+            this.cbEnvioEmail.Location = new System.Drawing.Point(219, 352);
             this.cbEnvioEmail.Name = "cbEnvioEmail";
             this.cbEnvioEmail.Size = new System.Drawing.Size(140, 24);
             this.cbEnvioEmail.TabIndex = 21;
@@ -104,7 +107,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::DSMarket.Solucion.Properties.Resources.Guardar;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(52, 472);
+            this.btnGuardar.Location = new System.Drawing.Point(55, 466);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(491, 41);
             this.btnGuardar.TabIndex = 22;
@@ -149,6 +152,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txtFechaNacimiento);
+            this.groupBox1.Controls.Add(this.cbalertacumpleanos);
             this.groupBox1.Controls.Add(this.ddlSeleccionarComprobantes);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cbEnvioEmail);
@@ -171,10 +177,31 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 45);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(547, 385);
+            this.groupBox1.Size = new System.Drawing.Size(547, 382);
             this.groupBox1.TabIndex = 79;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Cliente";
+            // 
+            // ddlSeleccionarComprobantes
+            // 
+            this.ddlSeleccionarComprobantes.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ddlSeleccionarComprobantes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarComprobantes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarComprobantes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarComprobantes.FormattingEnabled = true;
+            this.ddlSeleccionarComprobantes.Location = new System.Drawing.Point(206, 55);
+            this.ddlSeleccionarComprobantes.Name = "ddlSeleccionarComprobantes";
+            this.ddlSeleccionarComprobantes.Size = new System.Drawing.Size(291, 28);
+            this.ddlSeleccionarComprobantes.TabIndex = 23;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(93, 59);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 20);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Comprobante";
             // 
             // label10
             // 
@@ -319,7 +346,7 @@
             // lbClaveSeguridad
             // 
             this.lbClaveSeguridad.AutoSize = true;
-            this.lbClaveSeguridad.Location = new System.Drawing.Point(59, 435);
+            this.lbClaveSeguridad.Location = new System.Drawing.Point(72, 436);
             this.lbClaveSeguridad.Name = "lbClaveSeguridad";
             this.lbClaveSeguridad.Size = new System.Drawing.Size(153, 20);
             this.lbClaveSeguridad.TabIndex = 24;
@@ -329,7 +356,7 @@
             // txtClaveSeguridad
             // 
             this.txtClaveSeguridad.BackColor = System.Drawing.Color.Silver;
-            this.txtClaveSeguridad.Location = new System.Drawing.Point(218, 432);
+            this.txtClaveSeguridad.Location = new System.Drawing.Point(231, 433);
             this.txtClaveSeguridad.MaxLength = 20;
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
             this.txtClaveSeguridad.PasswordChar = '•';
@@ -337,36 +364,45 @@
             this.txtClaveSeguridad.TabIndex = 23;
             this.txtClaveSeguridad.Visible = false;
             // 
-            // ddlSeleccionarComprobantes
-            // 
-            this.ddlSeleccionarComprobantes.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ddlSeleccionarComprobantes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlSeleccionarComprobantes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlSeleccionarComprobantes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ddlSeleccionarComprobantes.FormattingEnabled = true;
-            this.ddlSeleccionarComprobantes.Location = new System.Drawing.Point(206, 55);
-            this.ddlSeleccionarComprobantes.Name = "ddlSeleccionarComprobantes";
-            this.ddlSeleccionarComprobantes.Size = new System.Drawing.Size(291, 28);
-            this.ddlSeleccionarComprobantes.TabIndex = 23;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(93, 59);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 20);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Comprobante";
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // cbalertacumpleanos
+            // 
+            this.cbalertacumpleanos.AutoSize = true;
+            this.cbalertacumpleanos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbalertacumpleanos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbalertacumpleanos.Location = new System.Drawing.Point(365, 352);
+            this.cbalertacumpleanos.Name = "cbalertacumpleanos";
+            this.cbalertacumpleanos.Size = new System.Drawing.Size(169, 24);
+            this.cbalertacumpleanos.TabIndex = 24;
+            this.cbalertacumpleanos.Text = "Alerta Cumpleaños";
+            this.toolTip1.SetToolTip(this.cbalertacumpleanos, "Alerta Cumpleaños");
+            this.cbalertacumpleanos.UseVisualStyleBackColor = true;
+            // 
+            // txtFechaNacimiento
+            // 
+            this.txtFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFechaNacimiento.Location = new System.Drawing.Point(206, 320);
+            this.txtFechaNacimiento.Name = "txtFechaNacimiento";
+            this.txtFechaNacimiento.Size = new System.Drawing.Size(135, 27);
+            this.txtFechaNacimiento.TabIndex = 25;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(35, 323);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(168, 20);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Fecha de Nacimiento:";
             // 
             // ClientesMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(571, 532);
+            this.ClientSize = new System.Drawing.Size(571, 522);
             this.Controls.Add(this.lbClaveSeguridad);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnGuardar);
@@ -424,5 +460,8 @@
         private System.Windows.Forms.ComboBox ddlSeleccionarComprobantes;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker txtFechaNacimiento;
+        private System.Windows.Forms.CheckBox cbalertacumpleanos;
     }
 }
