@@ -65,13 +65,16 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
                 //SACAR LA CANTIDAD PERSONAS DE FIESTA DE CUMPLEAÑOS
                 var Cantidad = ObjDataEmpresa.Value.MostrarCumpleanosClientes(1, 999999999);
                 string CantidadRegistros = Cantidad.Count.ToString();
+                int CantidadRegistrosEntero = Cantidad.Count;
 
-                NotificacionCumpleanos.Icon = new System.Drawing.Icon(Path.GetFullPath(@"../../Resources/DSMarket-Icono-1024x1024.ico"));
-                NotificacionCumpleanos.Text = "DeveSoft - DSMarket";
-                NotificacionCumpleanos.Visible = true;
-                NotificacionCumpleanos.BalloonTipTitle = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
-                NotificacionCumpleanos.BalloonTipText = "Se han encontrado " + CantidadRegistros + " clientes que estan de cumpleaños el dia de hoy";
-                NotificacionCumpleanos.ShowBalloonTip(100);
+                if (CantidadRegistrosEntero != 0) {
+                    NotificacionCumpleanos.Icon = new System.Drawing.Icon(Path.GetFullPath(@"../../Resources/DSMarket-Icono-1024x1024.ico"));
+                    NotificacionCumpleanos.Text = "DeveSoft - DSMarket";
+                    NotificacionCumpleanos.Visible = true;
+                    NotificacionCumpleanos.BalloonTipTitle = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+                    NotificacionCumpleanos.BalloonTipText = "Se han encontrado " + CantidadRegistros + " clientes que estan de cumpleaños el dia de hoy";
+                    NotificacionCumpleanos.ShowBalloonTip(100);
+                }
             }
 
 
