@@ -189,5 +189,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             txtCedulaCliente.Text = string.Empty;
             MostrarListadoClientes();
         }
+
+       
+
+        private void btnCumpleanos_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DSMarket.Solucion.Pantallas.Pantallas.Empresa.MostrarClientesCumpleanos Cumpleanos = new MostrarClientesCumpleanos();
+            Cumpleanos.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+            Cumpleanos.ShowDialog();
+        }
     }
 }

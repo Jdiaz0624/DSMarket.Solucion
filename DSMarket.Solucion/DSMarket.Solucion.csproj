@@ -393,6 +393,12 @@
     <Compile Include="Pantallas\Pantallas\Empresa\MantenimientoPorcientoretencion.Designer.cs">
       <DependentUpon>MantenimientoPorcientoretencion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\MostrarClientesCumpleanos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\MostrarClientesCumpleanos.Designer.cs">
+      <DependentUpon>MostrarClientesCumpleanos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Empresa\NacionalidadConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -941,6 +947,9 @@
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\MantenimientoPorcientoretencion.resx">
       <DependentUpon>MantenimientoPorcientoretencion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\MostrarClientesCumpleanos.resx">
+      <DependentUpon>MostrarClientesCumpleanos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\NacionalidadConsulta.resx">
       <DependentUpon>NacionalidadConsulta.cs</DependentUpon>
     </EmbeddedResource>
@@ -1319,6 +1328,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\DSMarket-Icono-1024x1024.ico" />
+    <None Include="Resources\png-clipart-hot-air-balloon-birthday-graphy-balloon-photography-heart.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
