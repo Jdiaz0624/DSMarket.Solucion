@@ -130,6 +130,49 @@ namespace DSMarket.Logica.Logica.LogicaEmpresa
             return Listado;
 
         }
+
+        //LISTADO DE LOS CORREOS DE LOS CLIENTES
+        public List<DSMarket.Logica.Entidades.EntidadesEmpresa.EProcesarCorreosClientes> BuscaCorreosClientes(decimal? IdRegistro = null, decimal? IdUsuario = null, decimal? IdCliente = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_BUSCA_CORREOS_CLIENTES(IdRegistro, IdUsuario, IdCliente)
+                           select new DSMarket.Logica.Entidades.EntidadesEmpresa.EProcesarCorreosClientes
+                           {
+                               IdRegistro=n.IdRegistro,
+                               IdUsuario=n.IdUsuario,
+                               IdCliente=n.IdCliente,
+                               Cliente=n.Cliente,
+                               Correo=n.Correo
+                           }).ToList();
+            return Listado;
+        }
+
+        //PROCESAR LA INFORMACION DEL CORREO DEL CLIENTE
+        public DSMarket.Logica.Entidades.EntidadesEmpresa.EProcesarCorreosClientes ProcesarInformacionCorreoClientesOrigen(DSMarket.Logica.Entidades.EntidadesEmpresa.EProcesarCorreosClientes Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesEmpresa.EProcesarCorreosClientes Procesar = null;
+
+            var InformacionCorreoClientes = ObjData.SP_PROCESAR_INFORMACION_LISTADO_CORREO_ENVIAR(
+                Item.IdRegistro,
+                Item.IdUsuario,
+                Item.IdCliente,
+                Item.Cliente,
+                Item.Correo,
+                Accion);
+            if (InformacionCorreoClientes != null) {
+                Procesar = (from n in InformacionCorreoClientes
+                            select new DSMarket.Logica.Entidades.EntidadesEmpresa.EProcesarCorreosClientes
+                            {
+                                IdRegistro=n.IdRegistro,
+                                IdUsuario=n.IdUsuario,
+                                IdCliente=n.IdCliente,
+                                Cliente=n.Nombre,
+                                Correo=n.Correo
+                            }).FirstOrDefault();
+            }
+            return Procesar;
+        }
         #endregion
 
         #region MANTENIMIENTO DE COMPRA DE SUPLIDORES

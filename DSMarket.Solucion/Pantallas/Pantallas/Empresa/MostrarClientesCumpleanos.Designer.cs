@@ -45,7 +45,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtListado = new System.Windows.Forms.DataGridView();
-            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
@@ -64,9 +63,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dtArchivos = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewButtonColumn2 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dtCorreosProcesar = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
+            this.dataGridViewButtonColumn2 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.lbCantidadArchivos = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.CnArchivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quitar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
@@ -81,7 +82,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtArchivos)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtCorreosProcesar)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -160,7 +161,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtListado.BackgroundColor = System.Drawing.Color.LightGray;
             this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -173,8 +174,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Select});
             this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtListado.EnableHeadersVisualStyles = false;
@@ -184,16 +183,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             this.dtListado.RowTemplate.Height = 24;
             this.dtListado.Size = new System.Drawing.Size(1170, 215);
             this.dtListado.TabIndex = 3;
-            // 
-            // Select
-            // 
-            this.Select.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Select.HeaderText = "Felicitar";
-            this.Select.Name = "Select";
-            this.Select.ReadOnly = true;
-            this.Select.Text = "Felicitar";
-            this.Select.ToolTipText = "Felicitar";
-            this.Select.UseColumnTextForButtonValue = true;
             // 
             // txtNumeroRegistros
             // 
@@ -254,9 +243,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             // cbEnvioMasivo
             // 
             this.cbEnvioMasivo.AutoSize = true;
+            this.cbEnvioMasivo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbEnvioMasivo.Location = new System.Drawing.Point(328, 291);
             this.cbEnvioMasivo.Name = "cbEnvioMasivo";
-            this.cbEnvioMasivo.Size = new System.Drawing.Size(120, 24);
+            this.cbEnvioMasivo.Size = new System.Drawing.Size(118, 24);
             this.cbEnvioMasivo.TabIndex = 89;
             this.cbEnvioMasivo.Text = "Envio Masivo";
             this.cbEnvioMasivo.UseVisualStyleBackColor = true;
@@ -264,6 +254,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             // 
             // gbEnvioCorreo
             // 
+            this.gbEnvioCorreo.Controls.Add(this.label4);
+            this.gbEnvioCorreo.Controls.Add(this.lbCantidadArchivos);
             this.gbEnvioCorreo.Controls.Add(this.button3);
             this.gbEnvioCorreo.Controls.Add(this.groupBox4);
             this.gbEnvioCorreo.Controls.Add(this.groupBox3);
@@ -317,6 +309,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             // 
             // button1
             // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Location = new System.Drawing.Point(353, 55);
             this.button1.Name = "button1";
@@ -337,6 +330,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 32;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox2
             // 
@@ -355,6 +349,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             this.button2.Size = new System.Drawing.Size(150, 32);
             this.button2.TabIndex = 34;
             this.button2.Text = "Agregar Archivos";
+            this.toolTip1.SetToolTip(this.button2, "Agregar archivos Adjuntos");
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -384,7 +379,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtArchivos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dtArchivos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtArchivos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtArchivos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtArchivos.BackgroundColor = System.Drawing.Color.LightGray;
             this.dtArchivos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -409,28 +404,29 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             this.dtArchivos.RowTemplate.Height = 24;
             this.dtArchivos.Size = new System.Drawing.Size(424, 113);
             this.dtArchivos.TabIndex = 3;
+            this.dtArchivos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtArchivos_CellContentClick);
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.dataGridView2);
+            this.groupBox4.Controls.Add(this.dtCorreosProcesar);
             this.groupBox4.Location = new System.Drawing.Point(509, 25);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(430, 374);
+            this.groupBox4.Size = new System.Drawing.Size(649, 374);
             this.groupBox4.TabIndex = 83;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Listado de Correos";
             // 
-            // dataGridView2
+            // dtCorreosProcesar
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dtCorreosProcesar.AllowUserToAddRows = false;
+            this.dtCorreosProcesar.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.LightGray;
-            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dtCorreosProcesar.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtCorreosProcesar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtCorreosProcesar.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtCorreosProcesar.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dtCorreosProcesar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -438,52 +434,77 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dtCorreosProcesar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dtCorreosProcesar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtCorreosProcesar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewButtonColumn2});
-            this.dataGridView2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.EnableHeadersVisualStyles = false;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 22);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(424, 349);
-            this.dataGridView2.TabIndex = 3;
+            this.dtCorreosProcesar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtCorreosProcesar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtCorreosProcesar.EnableHeadersVisualStyles = false;
+            this.dtCorreosProcesar.Location = new System.Drawing.Point(3, 22);
+            this.dtCorreosProcesar.Name = "dtCorreosProcesar";
+            this.dtCorreosProcesar.ReadOnly = true;
+            this.dtCorreosProcesar.RowTemplate.Height = 24;
+            this.dtCorreosProcesar.Size = new System.Drawing.Size(643, 349);
+            this.dtCorreosProcesar.TabIndex = 3;
+            this.dtCorreosProcesar.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtCorreosProcesar_CellContentClick);
+            // 
+            // button3
+            // 
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button3.Location = new System.Drawing.Point(509, 405);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(646, 32);
+            this.button3.TabIndex = 84;
+            this.button3.Text = "Enviar";
+            this.toolTip1.SetToolTip(this.button3, "Enviar Correos");
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // dataGridViewButtonColumn2
             // 
             this.dataGridViewButtonColumn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dataGridViewButtonColumn2.HeaderText = "Felicitar";
+            this.dataGridViewButtonColumn2.HeaderText = "Quitar";
             this.dataGridViewButtonColumn2.Name = "dataGridViewButtonColumn2";
             this.dataGridViewButtonColumn2.ReadOnly = true;
-            this.dataGridViewButtonColumn2.Text = "Felicitar";
-            this.dataGridViewButtonColumn2.ToolTipText = "Felicitar";
+            this.dataGridViewButtonColumn2.Text = "Quitar";
+            this.dataGridViewButtonColumn2.ToolTipText = "Quitar";
             this.dataGridViewButtonColumn2.UseColumnTextForButtonValue = true;
+            this.dataGridViewButtonColumn2.Width = 58;
             // 
-            // button3
+            // lbCantidadArchivos
             // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Location = new System.Drawing.Point(509, 405);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(427, 32);
-            this.button3.TabIndex = 84;
-            this.button3.Text = "Enviar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.lbCantidadArchivos.AutoSize = true;
+            this.lbCantidadArchivos.Location = new System.Drawing.Point(431, 272);
+            this.lbCantidadArchivos.Name = "lbCantidadArchivos";
+            this.lbCantidadArchivos.Size = new System.Drawing.Size(18, 20);
+            this.lbCantidadArchivos.TabIndex = 85;
+            this.lbCantidadArchivos.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(228, 272);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(197, 20);
+            this.label4.TabIndex = 86;
+            this.label4.Text = "Total de Archivos Adjuntos";
             // 
             // CnArchivo
             // 
-            this.CnArchivo.HeaderText = "CnArchivo";
+            this.CnArchivo.HeaderText = "Archivo";
             this.CnArchivo.Name = "CnArchivo";
             this.CnArchivo.ReadOnly = true;
+            this.CnArchivo.Width = 86;
             // 
             // Quitar
             // 
             this.Quitar.HeaderText = "Quitar";
+            this.Quitar.Image = global::DSMarket.Solucion.Properties.Resources.Eliminar;
             this.Quitar.Name = "Quitar";
             this.Quitar.ReadOnly = true;
+            this.Quitar.Width = 58;
             // 
             // MostrarClientesCumpleanos
             // 
@@ -520,7 +541,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtArchivos)).EndInit();
             this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtCorreosProcesar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -537,15 +558,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
         private System.Windows.Forms.Label lbCantidadRegistrosTitulo;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dtListado;
-        private System.Windows.Forms.DataGridViewButtonColumn Select;
         private System.Windows.Forms.NumericUpDown txtNumeroRegistros;
         private System.Windows.Forms.Label lbNumeroRegistros;
         private System.Windows.Forms.NumericUpDown txtNumeroPagina;
         private System.Windows.Forms.Label lbNumeroPagina;
         private System.Windows.Forms.GroupBox gbEnvioCorreo;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn2;
+        private System.Windows.Forms.DataGridView dtCorreosProcesar;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dtArchivos;
         private System.Windows.Forms.Label label3;
@@ -559,6 +578,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox cbEnvioMasivo;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn2;
+        private System.Windows.Forms.Label lbCantidadArchivos;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridViewTextBoxColumn CnArchivo;
         private System.Windows.Forms.DataGridViewImageColumn Quitar;
     }

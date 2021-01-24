@@ -17,50 +17,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             InitializeComponent();
         }
         Lazy<DSMarket.Logica.Logica.LogicaEmpresa.LogicaEmpresa> ObjDtaEmpresa = new Lazy<Logica.Logica.LogicaEmpresa.LogicaEmpresa>();
+        Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
-
-        //public void send()
-        //{
-        //    EMailSetting eMailSetting = _boEnterprise.EMailSetting();
-        //    EEnterprise enterprise = _boEnterprise.GetEnterpriseData();
-
-        //    string htmlBody = "<html><body><h1>Picture</h1><br><img src=\"cid:Imagen1\"></body></html>";
-        //    AlternateView avHtml = AlternateView.CreateAlternateViewFromString
-        //       (htmlBody, null, MediaTypeNames.Text.Html);
-
-        //    LinkedResource inline = new LinkedResource("Imagen1.jpg", MediaTypeNames.Image.Jpeg);
-        //    inline.ContentId = Guid.NewGuid().ToString();
-        //    avHtml.LinkedResources.Add(inline);
-
-        //    MailMessage mail = new MailMessage();
-        //    mail.AlternateViews.Add(avHtml);
-
-        //    Attachment att = new Attachment(@"D:\...\Debug\Imagen1.jpg");
-        //    att.ContentDisposition.Inline = true;
-
-        //    mail.From = new MailAddress(eMailSetting.UserName);
-        //    mail.To.Add("xxxxxx@hotmail.com");
-        //    mail.Subject = "Client: ffffff Has Sent You A Screenshot";
-        //    mail.Body = String.Format(
-        //               "<h3>Client: yyyyy Has Sent You A Screenshot</h3>" +
-        //               @"<img src=""cid:{0}"" />", inline.ContentId);
-
-        //    mail.IsBodyHtml = true;
-        //    mail.Attachments.Add(att);
-
-        //    SmtpClient smtp = new SmtpClient
-        //    {
-        //        Credentials =
-        //            new NetworkCredential(eMailSetting.UserName, eMailSetting.Password),
-        //        Host = eMailSetting.Servidor,
-        //        Port = eMailSetting.Puerto,
-        //        EnableSsl = eMailSetting.Ssl
-        //    };
-        //    smtp.Send(mail);
-        //    mail.Dispose();
-        //}
         private void MostrarListadoCumpleanos() {
+            MANProcesarClientes(0, VariablesGlobales.IdUsuario, 0, "", "", "DELETEALL");
+
+
             var MostrarListado = ObjDtaEmpresa.Value.MostrarCumpleanosClientes(
                 Convert.ToInt32(txtNumeroPagina.Value),
                 Convert.ToInt32(txtNumeroRegistros.Value));
@@ -72,6 +35,46 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             this.dtListado.Columns["MesNacimiento"].Visible = false;
             this.dtListado.Columns["MesActual"].Visible = false;
             this.dtListado.Columns["Cumpleanos"].Visible = false;
+
+        
+            foreach (var n in MostrarListado) {
+
+                //BUSCAMOS LOIdClienteS DATOS DEL CLIENTE
+                var BuscarCliente = ObjDtaEmpresa.Value.BuscaClientes(
+                    (decimal)n.CodigoCliente, null, null, null, null, null, 1, 1);
+                foreach (var n2 in BuscarCliente) {
+                    MANProcesarClientes(
+                        0,
+                        VariablesGlobales.IdUsuario,
+                        (decimal)n2.IdCliente,
+                        n2.Nombre,
+                        n2.Email,
+                        "INSERT");
+                }
+            }
+            MostrarCorreosProcesar(null, VariablesGlobales.IdUsuario, null);
+        }
+
+        private void MostrarCorreosProcesar(decimal? IdRegistro, decimal IdUsuario, decimal? IdCliente) {
+            var MostrarCorreosProcesar = ObjDtaEmpresa.Value.BuscaCorreosClientes(
+                    IdRegistro,
+                    IdUsuario,
+                    IdCliente);
+            dtCorreosProcesar.DataSource = MostrarCorreosProcesar;
+            this.dtCorreosProcesar.Columns["IdRegistro"].Visible = false;
+            this.dtCorreosProcesar.Columns["IdUsuario"].Visible = false;
+            this.dtCorreosProcesar.Columns["IdCliente"].Visible = false;
+        }
+
+        private void MANProcesarClientes(decimal IdRegistro, decimal IdUsuario, decimal IdCliente, string Nombre, string Correo, string Accion) {
+            DSMarket.Logica.Comunes.ProcesarInformacion.Empresa.ProcesarInformacionCorreosClienteDinamico Procesar = new Logica.Comunes.ProcesarInformacion.Empresa.ProcesarInformacionCorreosClienteDinamico(
+                IdRegistro,
+                IdUsuario,
+                IdCliente,
+                Nombre,
+                Correo,
+                Accion);
+            Procesar.ProcesarInformacion();
         }
         private void PCerrar_Click(object sender, EventArgs e)
         {
@@ -83,10 +86,14 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
 
         private void MostrarClientesCumpleanos_Load(object sender, EventArgs e)
         {
+            VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             lbCantidadRegistrosTitulo.ForeColor = Color.White;
             lbCantidadRegistrosVariable.ForeColor = Color.White;
+            lbTitulo.ForeColor = Color.White;
+            lbTitulo.Text = "Listado de Cumpleaños";
             MostrarListadoCumpleanos();
             gbEnvioCorreo.Visible = false;
+            
         }
 
         private void MostrarClientesCumpleanos_FormClosing(object sender, FormClosingEventArgs e)
@@ -103,6 +110,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             if (cbEnvioMasivo.Checked == true)
             {
                 gbEnvioCorreo.Visible = true;
+                MostrarListadoCumpleanos();
             }
             else {
                 gbEnvioCorreo.Visible = false;
@@ -111,36 +119,73 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
 
         private void button3_Click(object sender, EventArgs e)
         {
+            string CorreoBD = "";
+            string AliasBD = VariablesGlobales.NombreSistema;
+            string Asunto = string.IsNullOrEmpty(txtAsunto.Text.Trim()) ? null : txtAsunto.Text.Trim();
+            string ClaveCorreo = "";
+            int PuertoCorreo = 0;
+            string smtpCorreoBD = "";
+
+            var SacarInformacionCorreo = ObjDataConfiguracion.Value.BuscaMail(1);
+            foreach (var nCorreo in SacarInformacionCorreo) {
+                CorreoBD = nCorreo.Mail;
+                ClaveCorreo = DSMarket.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(nCorreo.Clave);
+                PuertoCorreo = (int)nCorreo.Puerto;
+                smtpCorreoBD = nCorreo.smtp;
+            }
             DSMarket.Logica.Comunes.Correo Envio = new Logica.Comunes.Correo
             {
-                Mail = "ing.juanmarcelinom.diaz@hotmail.com",
-                Alias = "DSMarket",
-                Asunto = txtAsunto.Text,
-                Clave = "!@Pa$$W0rd!@0624",
-                Puerto = 587,
-                smtp = "smtp.live.com",
+                Mail = CorreoBD,
+                Alias = AliasBD,
+                Asunto = Asunto,
+                Clave = ClaveCorreo,
+                Puerto = PuertoCorreo,
+                smtp = smtpCorreoBD,
                 RutaImagen = VariablesGlobales.RutaImagen,
                 Cuerpo=txtCuerpo.Text,
                 Destinatarios = new List<string>(),
                 Adjuntos=new List<string>()
             };
 
-            Envio.Destinatarios.Add("ing.juanmarcelinom.diaz@gmail.com");
-            Envio.Destinatarios.Add("jmdiaz@amigosseguros.com");
-            Envio.Destinatarios.Add("juanmarcelinoo0624@gmail.com");
-            Envio.Destinatarios.Add("angela.diaz.reyes0624@gmail.com");
+            var SacarCorreosEnviar = ObjDtaEmpresa.Value.BuscaCorreosClientes(
+                new Nullable<decimal>(),
+                VariablesGlobales.IdUsuario,
+                null);
+            if (SacarCorreosEnviar.Count() < 1)
+            {
+                MessageBox.Show("No se encontraron destinos a los que enviar los correos, favor de verificar.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else {
+                foreach (var nEnviar in SacarCorreosEnviar)
+                {
+                    Envio.Destinatarios.Add(nEnviar.Correo);
+                }
 
-            foreach (DataGridViewRow fila in dtArchivos.Rows) {
-                string Destino = fila.Cells["CnArchivo"].Value.ToString();
+                foreach (DataGridViewRow fila in dtArchivos.Rows)
+                {
+                    string Destino = fila.Cells["CnArchivo"].Value.ToString();
 
-                if (!string.IsNullOrEmpty(Destino)) {
-                    Envio.Adjuntos.Add(Destino);
+                    if (!string.IsNullOrEmpty(Destino))
+                    {
+                        Envio.Adjuntos.Add(Destino);
+                    }
+                }
+
+                if (Envio.Enviar(Envio))
+                {
+                    MessageBox.Show("Correo Exitosamente", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dtArchivos.DataSource = null;
+                    pictureBox2.Image = null;
+                    dtCorreosProcesar.DataSource = null;
+                    cbEnvioMasivo.Checked = false;
+                    txtAsunto.Text = string.Empty;
+                    txtCuerpo.Text = string.Empty;
+                    dtArchivos.DataSource = null;
+                    dtCorreosProcesar.DataSource = null;
+                    lbCantidadArchivos.Text = "0";
                 }
             }
-
-            if (Envio.Enviar(Envio)) {
-                MessageBox.Show("OK");
-            }
+         
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -171,8 +216,35 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
                 foreach (var Item in archivos) {
                     dtArchivos.Rows.Add(Item);
                 }
+                var Cantidad = archivos.Count();
+                lbCantidadArchivos.Text = Cantidad.ToString();
             }
             Abrir.Dispose();
+        }
+
+        private void dtCorreosProcesar_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (MessageBox.Show("¿Quieres Quitar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+
+                decimal IdRegistro = Convert.ToDecimal(dtCorreosProcesar.CurrentRow.Cells["IdRegistro"].Value.ToString());
+                decimal IdUsuario = Convert.ToDecimal(dtCorreosProcesar.CurrentRow.Cells["IdUsuario"].Value.ToString());
+                decimal IdCliente = Convert.ToDecimal(dtCorreosProcesar.CurrentRow.Cells["IdCliente"].Value.ToString());
+
+                MANProcesarClientes(IdRegistro, IdUsuario, IdCliente, "", "", "DELETE");
+                MostrarCorreosProcesar(null, VariablesGlobales.IdUsuario, null);
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            pictureBox2.Image = null;
+        }
+
+        private void dtArchivos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (MessageBox.Show("¿Quieres eliminar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+                dtArchivos.Rows.RemoveAt(dtArchivos.CurrentRow.Index);
+            }
         }
     }
 }

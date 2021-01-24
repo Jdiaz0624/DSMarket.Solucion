@@ -69,6 +69,7 @@
     <Compile Include="Comunes\ProcesarInformacion\Configuracion\ProcesarInformacionDescuentoPorDefecto.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionBancos.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionCitas.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionCorreosClienteDinamico.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionEmpleado.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionEstadoCivil.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionFormaPagoEmpleado.cs" />
@@ -161,6 +162,7 @@
     <Compile Include="Entidades\EntidadesEmpresa\EMostrarCumpleanos.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\ENacionalidad.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\EPorcientoRetenciones.cs" />
+    <Compile Include="Entidades\EntidadesEmpresa\EProcesarCorreosClientes.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\ERetenciones.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\ETipoEmpleado.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\ETipoMovimiento.cs" />

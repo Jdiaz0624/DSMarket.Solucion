@@ -54,7 +54,7 @@ namespace DSMarket.Logica.Comunes
                 //AGREGAMOS LOS DESTINATARIOS
                 foreach (var Destinos in correo.Destinatarios) {
                     if (!string.IsNullOrEmpty(Destinos)) {
-                        Mail.To.Add(Destinos);
+                        Mail.Bcc.Add(Destinos);
                     }
                 }
 
