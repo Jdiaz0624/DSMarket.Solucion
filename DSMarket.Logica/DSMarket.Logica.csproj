@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Comunes\ActualizarMail.cs" />
     <Compile Include="Comunes\AutoCompletarControles.cs" />
+    <Compile Include="Comunes\Correo.cs" />
     <Compile Include="Comunes\GenerarBAckupBD.cs" />
     <Compile Include="Comunes\InformacionEmpresa.cs" />
     <Compile Include="Comunes\Mails.cs" />

@@ -86,7 +86,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             lbCantidadRegistrosTitulo.ForeColor = Color.White;
             lbCantidadRegistrosVariable.ForeColor = Color.White;
             MostrarListadoCumpleanos();
-
+            gbEnvioCorreo.Visible = false;
         }
 
         private void MostrarClientesCumpleanos_FormClosing(object sender, FormClosingEventArgs e)
@@ -96,6 +96,83 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
                     e.Cancel = true;
                     break;
             }
+        }
+
+        private void cbEnvioMasivo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbEnvioMasivo.Checked == true)
+            {
+                gbEnvioCorreo.Visible = true;
+            }
+            else {
+                gbEnvioCorreo.Visible = false;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DSMarket.Logica.Comunes.Correo Envio = new Logica.Comunes.Correo
+            {
+                Mail = "ing.juanmarcelinom.diaz@hotmail.com",
+                Alias = "DSMarket",
+                Asunto = txtAsunto.Text,
+                Clave = "!@Pa$$W0rd!@0624",
+                Puerto = 587,
+                smtp = "smtp.live.com",
+                RutaImagen = VariablesGlobales.RutaImagen,
+                Cuerpo=txtCuerpo.Text,
+                Destinatarios = new List<string>(),
+                Adjuntos=new List<string>()
+            };
+
+            Envio.Destinatarios.Add("ing.juanmarcelinom.diaz@gmail.com");
+            Envio.Destinatarios.Add("jmdiaz@amigosseguros.com");
+            Envio.Destinatarios.Add("juanmarcelinoo0624@gmail.com");
+            Envio.Destinatarios.Add("angela.diaz.reyes0624@gmail.com");
+
+            foreach (DataGridViewRow fila in dtArchivos.Rows) {
+                string Destino = fila.Cells["CnArchivo"].Value.ToString();
+
+                if (!string.IsNullOrEmpty(Destino)) {
+                    Envio.Adjuntos.Add(Destino);
+                }
+            }
+
+            if (Envio.Enviar(Envio)) {
+                MessageBox.Show("OK");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog Imagen = new OpenFileDialog();
+                Imagen.InitialDirectory = "C://";
+                Imagen.Filter = "All files(*.*)|*.*";
+                Imagen.FilterIndex = 2;
+                Imagen.RestoreDirectory = true;
+                if (Imagen.ShowDialog() == DialogResult.OK)
+                {
+                    this.VariablesGlobales.RutaImagen = Imagen.FileName;
+                    pictureBox2.ImageLocation = VariablesGlobales.RutaImagen;
+                }
+            }
+            catch (Exception) { }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog Abrir = new OpenFileDialog();
+            Abrir.Title = "Seleccionar Archivo";
+            Abrir.Multiselect = true;
+            if (Abrir.ShowDialog() == DialogResult.OK) {
+                var archivos = Abrir.FileNames;
+                foreach (var Item in archivos) {
+                    dtArchivos.Rows.Add(Item);
+                }
+            }
+            Abrir.Dispose();
         }
     }
 }
