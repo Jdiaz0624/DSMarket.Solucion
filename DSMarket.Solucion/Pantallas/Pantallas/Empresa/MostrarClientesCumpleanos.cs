@@ -19,6 +19,47 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
         Lazy<DSMarket.Logica.Logica.LogicaEmpresa.LogicaEmpresa> ObjDtaEmpresa = new Lazy<Logica.Logica.LogicaEmpresa.LogicaEmpresa>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
+
+        //public void send()
+        //{
+        //    EMailSetting eMailSetting = _boEnterprise.EMailSetting();
+        //    EEnterprise enterprise = _boEnterprise.GetEnterpriseData();
+
+        //    string htmlBody = "<html><body><h1>Picture</h1><br><img src=\"cid:Imagen1\"></body></html>";
+        //    AlternateView avHtml = AlternateView.CreateAlternateViewFromString
+        //       (htmlBody, null, MediaTypeNames.Text.Html);
+
+        //    LinkedResource inline = new LinkedResource("Imagen1.jpg", MediaTypeNames.Image.Jpeg);
+        //    inline.ContentId = Guid.NewGuid().ToString();
+        //    avHtml.LinkedResources.Add(inline);
+
+        //    MailMessage mail = new MailMessage();
+        //    mail.AlternateViews.Add(avHtml);
+
+        //    Attachment att = new Attachment(@"D:\...\Debug\Imagen1.jpg");
+        //    att.ContentDisposition.Inline = true;
+
+        //    mail.From = new MailAddress(eMailSetting.UserName);
+        //    mail.To.Add("xxxxxx@hotmail.com");
+        //    mail.Subject = "Client: ffffff Has Sent You A Screenshot";
+        //    mail.Body = String.Format(
+        //               "<h3>Client: yyyyy Has Sent You A Screenshot</h3>" +
+        //               @"<img src=""cid:{0}"" />", inline.ContentId);
+
+        //    mail.IsBodyHtml = true;
+        //    mail.Attachments.Add(att);
+
+        //    SmtpClient smtp = new SmtpClient
+        //    {
+        //        Credentials =
+        //            new NetworkCredential(eMailSetting.UserName, eMailSetting.Password),
+        //        Host = eMailSetting.Servidor,
+        //        Port = eMailSetting.Puerto,
+        //        EnableSsl = eMailSetting.Ssl
+        //    };
+        //    smtp.Send(mail);
+        //    mail.Dispose();
+        //}
         private void MostrarListadoCumpleanos() {
             var MostrarListado = ObjDtaEmpresa.Value.MostrarCumpleanosClientes(
                 Convert.ToInt32(txtNumeroPagina.Value),
