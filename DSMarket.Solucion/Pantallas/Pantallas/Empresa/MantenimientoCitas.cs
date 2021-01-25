@@ -32,7 +32,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
         #endregion
         #region CARGAR EL LISTADO DE LOS TIPOS DE PRODUCTOS
         private void ListadoTipoProductos() {
-            var TipoProducto = ObjDataListas.Value.ListaTipoProducto(new Nullable<decimal>(), null);
+            var TipoProducto = ObjDataListas.Value.ListaTipoProducto(2, null);
             ddlSeleccionarTipoProducto.DataSource = TipoProducto;
             ddlSeleccionarTipoProducto.DisplayMember = "Descripcion";
             ddlSeleccionarTipoProducto.ValueMember = "IdTipoproducto";
