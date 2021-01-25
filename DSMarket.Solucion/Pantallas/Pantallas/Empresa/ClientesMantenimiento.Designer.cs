@@ -34,10 +34,13 @@
             this.cbEstatus = new System.Windows.Forms.CheckBox();
             this.cbEnvioEmail = new System.Windows.Forms.CheckBox();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.cbalertacumpleanos = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.ddlSeleccionarComprobantes = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -59,9 +62,6 @@
             this.lbClaveSeguridad = new System.Windows.Forms.Label();
             this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.cbalertacumpleanos = new System.Windows.Forms.CheckBox();
-            this.txtFechaNacimiento = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -115,6 +115,19 @@
             this.toolTip1.SetToolTip(this.btnGuardar, "Completar Operación");
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // cbalertacumpleanos
+            // 
+            this.cbalertacumpleanos.AutoSize = true;
+            this.cbalertacumpleanos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbalertacumpleanos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbalertacumpleanos.Location = new System.Drawing.Point(365, 352);
+            this.cbalertacumpleanos.Name = "cbalertacumpleanos";
+            this.cbalertacumpleanos.Size = new System.Drawing.Size(169, 24);
+            this.cbalertacumpleanos.TabIndex = 24;
+            this.cbalertacumpleanos.Text = "Alerta Cumpleaños";
+            this.toolTip1.SetToolTip(this.cbalertacumpleanos, "Alerta Cumpleaños");
+            this.cbalertacumpleanos.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -182,6 +195,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Cliente";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(35, 323);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(168, 20);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Fecha de Nacimiento:";
+            // 
+            // txtFechaNacimiento
+            // 
+            this.txtFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFechaNacimiento.Location = new System.Drawing.Point(206, 320);
+            this.txtFechaNacimiento.Name = "txtFechaNacimiento";
+            this.txtFechaNacimiento.Size = new System.Drawing.Size(135, 27);
+            this.txtFechaNacimiento.TabIndex = 25;
+            // 
             // ddlSeleccionarComprobantes
             // 
             this.ddlSeleccionarComprobantes.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -227,6 +257,7 @@
             this.txtLimiteCredito.Name = "txtLimiteCredito";
             this.txtLimiteCredito.Size = new System.Drawing.Size(291, 27);
             this.txtLimiteCredito.TabIndex = 17;
+            this.txtLimiteCredito.Text = "0";
             this.txtLimiteCredito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLimiteCredito_KeyPress);
             // 
             // txtDireccion
@@ -368,36 +399,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // cbalertacumpleanos
-            // 
-            this.cbalertacumpleanos.AutoSize = true;
-            this.cbalertacumpleanos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbalertacumpleanos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbalertacumpleanos.Location = new System.Drawing.Point(365, 352);
-            this.cbalertacumpleanos.Name = "cbalertacumpleanos";
-            this.cbalertacumpleanos.Size = new System.Drawing.Size(169, 24);
-            this.cbalertacumpleanos.TabIndex = 24;
-            this.cbalertacumpleanos.Text = "Alerta Cumpleaños";
-            this.toolTip1.SetToolTip(this.cbalertacumpleanos, "Alerta Cumpleaños");
-            this.cbalertacumpleanos.UseVisualStyleBackColor = true;
-            // 
-            // txtFechaNacimiento
-            // 
-            this.txtFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtFechaNacimiento.Location = new System.Drawing.Point(206, 320);
-            this.txtFechaNacimiento.Name = "txtFechaNacimiento";
-            this.txtFechaNacimiento.Size = new System.Drawing.Size(135, 27);
-            this.txtFechaNacimiento.TabIndex = 25;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(35, 323);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(168, 20);
-            this.label6.TabIndex = 26;
-            this.label6.Text = "Fecha de Nacimiento:";
             // 
             // ClientesMantenimiento
             // 
