@@ -65,6 +65,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
         #endregion
         private void ClientesConsulta_Load(object sender, EventArgs e)
         {
+            VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             this.BackColor = SystemColors.Control;
             dtListado.BackgroundColor = SystemColors.Control;
               
@@ -84,6 +85,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             lbTitulo.ForeColor = Color.White;
             lbCantidadRegistrosTitulo.ForeColor = Color.WhiteSmoke;
             lbCantidadRegistrosVariable.ForeColor = Color.WhiteSmoke;
+
+            bool ValidaCumpleanos = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(15);
+            if (ValidaCumpleanos == true)
+            {
+                btnCumpleanos.Visible = true;
+            }
+            else {
+                btnCumpleanos.Visible = false;
+            }
         }
 
         private void PCerrar_Click(object sender, EventArgs e)

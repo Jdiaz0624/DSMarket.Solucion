@@ -333,7 +333,6 @@
     <Compile Include="Pantallas\Pantallas\Empresa\DepartamentosMantenimiento.Designer.cs">
       <DependentUpon>DepartamentosMantenimiento.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pantallas\Pantallas\Empresa\EMailSetting.cs" />
     <Compile Include="Pantallas\Pantallas\Empresa\EmpleadosConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
