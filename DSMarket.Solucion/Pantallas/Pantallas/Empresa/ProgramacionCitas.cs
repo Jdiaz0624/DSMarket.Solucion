@@ -129,6 +129,21 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             lbCantidadRegistrosTitulo.ForeColor = Color.White;
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             rbActivos.Checked = true;
+
+
+
+            var Buscar = ObjDataEmpresa.Value.BuscaEncabezadoCita(
+                    null,
+                    null,
+                    DateTime.Now,
+                    DateTime.Now,
+                    null,
+                    null,
+                    null,
+                    Convert.ToInt32(txtNumeroPagina.Value),
+                    Convert.ToInt32(txtNumeroRegistros.Value));
+            dtListadoCitas.DataSource = Buscar;
+            OcultarColumnas();
         }
 
         private void PCerrar_Click(object sender, EventArgs e)
