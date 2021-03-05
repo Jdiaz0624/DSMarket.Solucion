@@ -187,6 +187,7 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
                 btnConfiguracion.Enabled = false;
                 btnSeguridad.Enabled = false;
                 btnContabilidad.Enabled = false;
+                btnReportesSistema.Enabled = false;
             }
             MostrarNotificaciones();
         }

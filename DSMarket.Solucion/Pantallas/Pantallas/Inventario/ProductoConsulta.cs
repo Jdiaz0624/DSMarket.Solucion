@@ -1537,6 +1537,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 btnSuplir.Visible = false;
                 btnDescartar.Visible = false;
                 btnReporte.Visible = false;
+                lbCapitalInvertidoTitulo.Visible = false;
+                lbCapitalInvertidoVariable.Visible = false;
+                lbGananciaAproximadaTitulo.Visible = false;
+                lbGananciaAproximadaVariable.Visible = false;
             }
         }
 
