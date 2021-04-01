@@ -111,7 +111,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     txtIdentificacion.Text = n.NumeroIdentificacion;
                     txtDireccion.Text = n.Direccion;
                     txtEmail.Text = n.Email;
-                    txtFecha.Text = n.FechaFacturacion;
+                    txtFecha.Text = n.FechaFacturacion; 
                     txtFaturadoPor.Text = n.CreadoPor;
                     int CantidadArticulos = Convert.ToInt32(n.CantidadProductos);
                     txtCantidadArtiuclos.Text = CantidadArticulos.ToString("N0");
@@ -146,6 +146,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     MontoComprobante = Convert.ToDecimal(n.MontoImpuestoComprobante);
                     lbMontoPorcientoTipoPagoVariable.Text = MontoTipoPago.ToString("N2");
                     lbMontoPorcientoImpuestoComprobanteVariable.Text = MontoComprobante.ToString("N2");
+                    lbNumeroFactura.Text = n.IdFactura.ToString();
                 }
 
                 var MostrarProductosAgregados = ObjDataServicio.Value.BuscapRoductosAgregados(
@@ -685,6 +686,27 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             var MAN = ObjDataConfiguracion.Value.MantenimientoConfiguracionGeneral(Modificar, "UPDATE");
         }
         #endregion
+        #region PROCESAR BITACORA DE PRODUCTOS DEVUELTOS
+        private void ProcesarBitacora(decimal NumeroFactura) {
+            DateTime FechaFacturacion = DateTime.Now;
+            int CantidadArtciculos = 0;
+
+            var SacarInformacion = ObjDataServicio.Value.HistorialFacturacion(NumeroFactura, null, null, null, null, null, null, null, null, 1, 1);
+            foreach (var n in SacarInformacion) {
+                FechaFacturacion = (DateTime)n.FechaFacturacion0;
+                CantidadArtciculos = (int)n.CantidadArticulos;
+
+            }
+
+            DSMarket.Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionBitacraArticulos Procesar = new Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionBitacraArticulos(
+                0,
+                NumeroFactura,
+                FechaFacturacion,
+                CantidadArtciculos,
+                "INSERT");
+            Procesar.ProcesarInformacion();
+        }
+        #endregion
 
         private void PCerrar_Click(object sender, EventArgs e)
         {
@@ -747,6 +769,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         if (MessageBox.Show("¿Quieres anular esta factura?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
                             if (MessageBox.Show("¿Quieres devolver los productos facturados al inventario?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                             {
+                                ProcesarBitacora(Convert.ToDecimal(lbNumeroFactura.Text));
                                 //DEVOLVEMOS
                                 FacturacionCliente(VariablesGlobales.NumeroConector, "INSERT");
                                 FacturacionCliente(VariablesGlobales.NumeroConector, "CHANGESTATUSCANCEL");

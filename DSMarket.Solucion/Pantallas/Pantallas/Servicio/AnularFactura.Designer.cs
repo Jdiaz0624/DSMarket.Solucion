@@ -49,6 +49,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtListado = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtTiempoGarantia = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -96,15 +97,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.dtListado = new System.Windows.Forms.DataGridView();
+            this.lbNumeroFactura = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.gbGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -326,6 +327,37 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Productos";
+            // 
+            // dtListado
+            // 
+            this.dtListado.AllowUserToAddRows = false;
+            this.dtListado.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtListado.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtListado.EnableHeadersVisualStyles = false;
+            this.dtListado.Location = new System.Drawing.Point(3, 23);
+            this.dtListado.Name = "dtListado";
+            this.dtListado.ReadOnly = true;
+            this.dtListado.RowTemplate.Height = 24;
+            this.dtListado.Size = new System.Drawing.Size(984, 139);
+            this.dtListado.TabIndex = 5;
+            this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtListado_CellContentClick);
             // 
             // groupBox2
             // 
@@ -785,42 +817,22 @@
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
             // 
-            // dtListado
+            // lbNumeroFactura
             // 
-            this.dtListado.AllowUserToAddRows = false;
-            this.dtListado.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dtListado.BackgroundColor = System.Drawing.Color.LightGray;
-            this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtListado.EnableHeadersVisualStyles = false;
-            this.dtListado.Location = new System.Drawing.Point(3, 23);
-            this.dtListado.Name = "dtListado";
-            this.dtListado.ReadOnly = true;
-            this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(984, 139);
-            this.dtListado.TabIndex = 5;
-            this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtListado_CellContentClick);
+            this.lbNumeroFactura.AutoSize = true;
+            this.lbNumeroFactura.Location = new System.Drawing.Point(25, 729);
+            this.lbNumeroFactura.Name = "lbNumeroFactura";
+            this.lbNumeroFactura.Size = new System.Drawing.Size(108, 15);
+            this.lbNumeroFactura.TabIndex = 70;
+            this.lbNumeroFactura.Text = "Numero de Factura";
+            this.lbNumeroFactura.Visible = false;
             // 
             // AnularFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1027, 750);
+            this.Controls.Add(this.lbNumeroFactura);
             this.Controls.Add(this.gbGeneral);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -840,10 +852,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -915,5 +928,6 @@
         private System.Windows.Forms.Label lbMontoPorcientoTipoPagoVariable;
         private System.Windows.Forms.Label lbMontoPorcientoImpuestoTipoPagoTitulo;
         private System.Windows.Forms.DataGridView dtListado;
+        private System.Windows.Forms.Label lbNumeroFactura;
     }
 }

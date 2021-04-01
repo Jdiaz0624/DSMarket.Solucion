@@ -33,7 +33,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
     #endregion
 		
 		public BDConecionServicioDataContext() : 
-				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString6, mappingSource)
+				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -328,6 +328,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), numeroConector, fechaFactura, accion);
 			return ((ISingleResult<SP_ASIGNA_FECHA_MANUAL_FACTURACIONResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_PROCESAR_BITACORA_PRODUCTOS_DEVUELTOS")]
+		public ISingleResult<SP_PROCESAR_BITACORA_PRODUCTOS_DEVUELTOSResult> SP_PROCESAR_BITACORA_PRODUCTOS_DEVUELTOS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdBitacora", DbType="Decimal(20,0)")] System.Nullable<decimal> idBitacora, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroFactura", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroFactura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaFactura", DbType="Date")] System.Nullable<System.DateTime> fechaFactura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CantidadArticulos", DbType="Int")] System.Nullable<int> cantidadArticulos, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(100)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idBitacora, numeroFactura, fechaFactura, cantidadArticulos, accion);
+			return ((ISingleResult<SP_PROCESAR_BITACORA_PRODUCTOS_DEVUELTOSResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -7752,6 +7759,86 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._FechaFactura != value))
 				{
 					this._FechaFactura = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_PROCESAR_BITACORA_PRODUCTOS_DEVUELTOSResult
+	{
+		
+		private System.Nullable<decimal> _IdBitacora;
+		
+		private System.Nullable<decimal> _NumeroFactura;
+		
+		private System.Nullable<System.DateTime> _FechaFactura;
+		
+		private System.Nullable<int> _CantidadArticulos;
+		
+		public SP_PROCESAR_BITACORA_PRODUCTOS_DEVUELTOSResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdBitacora", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdBitacora
+		{
+			get
+			{
+				return this._IdBitacora;
+			}
+			set
+			{
+				if ((this._IdBitacora != value))
+				{
+					this._IdBitacora = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroFactura", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> NumeroFactura
+		{
+			get
+			{
+				return this._NumeroFactura;
+			}
+			set
+			{
+				if ((this._NumeroFactura != value))
+				{
+					this._NumeroFactura = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaFactura", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaFactura
+		{
+			get
+			{
+				return this._FechaFactura;
+			}
+			set
+			{
+				if ((this._FechaFactura != value))
+				{
+					this._FechaFactura = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadArticulos", DbType="Int")]
+		public System.Nullable<int> CantidadArticulos
+		{
+			get
+			{
+				return this._CantidadArticulos;
+			}
+			set
+			{
+				if ((this._CantidadArticulos != value))
+				{
+					this._CantidadArticulos = value;
 				}
 			}
 		}

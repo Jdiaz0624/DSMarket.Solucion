@@ -912,5 +912,31 @@ namespace DSMarket.Logica.Logica.LogicaServicio
             return Asignar;
         }
         #endregion
+        #region BITACORA ARTICULOS DEVUELTOS
+        public DSMarket.Logica.Entidades.EntidadesServicio.EProcesarInformacionBitacoraArticulosDevueltos BitacoraArticulos(DSMarket.Logica.Entidades.EntidadesServicio.EProcesarInformacionBitacoraArticulosDevueltos Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesServicio.EProcesarInformacionBitacoraArticulosDevueltos Procesar = null;
+
+            var Bitacora = ObjData.SP_PROCESAR_BITACORA_PRODUCTOS_DEVUELTOS(
+                Item.IdBitacora,
+                Item.NumeroFactura,
+                Item.FechaFactura,
+                Item.CantidadArticulos,
+                Accion);
+            if (Bitacora != null) {
+                Procesar = (from n in Bitacora
+                            select new DSMarket.Logica.Entidades.EntidadesServicio.EProcesarInformacionBitacoraArticulosDevueltos
+                            {
+                                IdBitacora=n.IdBitacora,
+                                NumeroFactura=n.NumeroFactura,
+                                FechaFactura=n.FechaFactura,
+                                CantidadArticulos=n.CantidadArticulos
+                            }).FirstOrDefault();
+            }
+            return Procesar;
+
+        }
+        #endregion
     }
 }

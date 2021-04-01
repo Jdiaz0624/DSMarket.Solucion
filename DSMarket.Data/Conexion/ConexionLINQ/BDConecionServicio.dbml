@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DSMarket" Class="BDConecionServicioDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=DSMarket;User ID=SA" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString6" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString" Provider="System.Data.SqlClient" />
   <Function Name="Servicio.SP_GUARDAR_CLIENTE_FACTURACION_ESPEJO" Method="SP_GUARDAR_CLIENTE_FACTURACION_ESPEJO">
     <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
@@ -713,6 +713,19 @@
     <ElementType Name="SP_ASIGNA_FECHA_MANUAL_FACTURACIONResult">
       <Column Name="NumeroConector" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="FechaFactura" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Servicio.SP_PROCESAR_BITACORA_PRODUCTOS_DEVUELTOS" Method="SP_PROCESAR_BITACORA_PRODUCTOS_DEVUELTOS">
+    <Parameter Name="IdBitacora" Parameter="idBitacora" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NumeroFactura" Parameter="numeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="FechaFactura" Parameter="fechaFactura" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="CantidadArticulos" Parameter="cantidadArticulos" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(100)" />
+    <ElementType Name="SP_PROCESAR_BITACORA_PRODUCTOS_DEVUELTOSResult">
+      <Column Name="IdBitacora" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NumeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="FechaFactura" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CantidadArticulos" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
