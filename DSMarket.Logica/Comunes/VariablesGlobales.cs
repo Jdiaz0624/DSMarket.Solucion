@@ -18,6 +18,7 @@ namespace DSMarket.Logica.Comunes
         public decimal Conector { get; set; }
         public string RutaImagen { get; set; }
         public decimal NumeroConector { get; set; }
+        public string NumeroConectorstring { get; set; }
         public int EstadisticaProducto { get; set; }
         public bool SacarDataEspejo { get; set; }
         // public bool Bloquear

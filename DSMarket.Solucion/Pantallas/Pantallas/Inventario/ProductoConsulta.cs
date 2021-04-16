@@ -182,6 +182,21 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             }
         }
 
+        private string GenerarNumeroConector() {
+            string NumeroConector = "";
+
+            Random NumeroAleatorio = new Random();
+            string PrimerNumero = NumeroAleatorio.Next(0, 999999999).ToString();
+            string SegundoNumero = NumeroAleatorio.Next(0, 999999999).ToString();
+            string Year = DateTime.Now.Year.ToString();
+            string Month = DateTime.Now.Month.ToString().Length == 1 ? "0" + DateTime.Now.Month.ToString() : DateTime.Now.Month.ToString();
+            string Day = DateTime.Now.Day.ToString().Length == 1 ? "0" + DateTime.Now.Day.ToString() : DateTime.Now.Day.ToString();
+
+            NumeroConector = PrimerNumero + Year + Month + Day + SegundoNumero;
+            return NumeroConector;
+
+        }
+
 
         private void PCerrar_Click(object sender, EventArgs e)
         {
@@ -259,6 +274,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.Hide();
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.MantenimientoProducto Mantenimiento = new MantenimientoProducto();
             Mantenimiento.VariablesGlobales.Accion = "INSERT";
+            Mantenimiento.VariablesGlobales.NumeroConectorstring = GenerarNumeroConector();
             Mantenimiento.VariablesGlobales.IdUsuario = variablesGlobales.IdUsuario;
             Mantenimiento.VariablesGlobales.IdMantenimeinto = 0;
             Mantenimiento.ShowDialog();
