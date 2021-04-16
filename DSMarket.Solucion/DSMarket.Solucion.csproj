@@ -489,47 +489,17 @@
     <Compile Include="Pantallas\Pantallas\Graficos\CantidadMArcas.Designer.cs">
       <DependentUpon>CantidadMArcas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pantallas\Pantallas\Inventario\AgregarOferta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pantallas\Pantallas\Inventario\AgregarOferta.Designer.cs">
-      <DependentUpon>AgregarOferta.cs</DependentUpon>
-    </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\AgregarQuitarProductos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\AgregarQuitarProductos.Designer.cs">
       <DependentUpon>AgregarQuitarProductos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pantallas\Pantallas\Inventario\CapacidadConulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pantallas\Pantallas\Inventario\CapacidadConulta.Designer.cs">
-      <DependentUpon>CapacidadConulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pantallas\Pantallas\Inventario\CapacidadMantenimiento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pantallas\Pantallas\Inventario\CapacidadMantenimiento.Designer.cs">
-      <DependentUpon>CapacidadMantenimiento.cs</DependentUpon>
-    </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\CategoriaConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\CategoriaConsulta.Designer.cs">
       <DependentUpon>CategoriaConsulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pantallas\Pantallas\Inventario\CondicionConsulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pantallas\Pantallas\Inventario\CondicionConsulta.Designer.cs">
-      <DependentUpon>CondicionConsulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pantallas\Pantallas\Inventario\ConsultaColores.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pantallas\Pantallas\Inventario\ConsultaColores.Designer.cs">
-      <DependentUpon>ConsultaColores.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\EstadisticaProductos.cs">
       <SubType>Form</SubType>
@@ -543,29 +513,11 @@
     <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoCategoria.Designer.cs">
       <DependentUpon>MantenimientoCategoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoColores.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoColores.Designer.cs">
-      <DependentUpon>MantenimientoColores.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoCondicion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoCondicion.Designer.cs">
-      <DependentUpon>MantenimientoCondicion.cs</DependentUpon>
-    </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoMarcas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoMarcas.Designer.cs">
       <DependentUpon>MantenimientoMarcas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoModelos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoModelos.Designer.cs">
-      <DependentUpon>MantenimientoModelos.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoProducto.cs">
       <SubType>Form</SubType>
@@ -597,23 +549,11 @@
     <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoTipoSuplidores.Designer.cs">
       <DependentUpon>MantenimientoTipoSuplidores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoUnidadMedida.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoUnidadMedida.Designer.cs">
-      <DependentUpon>MantenimientoUnidadMedida.cs</DependentUpon>
-    </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\MarcasConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\MarcasConsulta.Designer.cs">
       <DependentUpon>MarcasConsulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pantallas\Pantallas\Inventario\ModelosConsulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pantallas\Pantallas\Inventario\ModelosConsulta.Designer.cs">
-      <DependentUpon>ModelosConsulta.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\PasarInventarioDefectuoso.cs">
       <SubType>Form</SubType>
@@ -650,12 +590,6 @@
     </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\TipoSuplidoresConsulta.Designer.cs">
       <DependentUpon>TipoSuplidoresConsulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pantallas\Pantallas\Inventario\UnidadMedidaConsulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pantallas\Pantallas\Inventario\UnidadMedidaConsulta.Designer.cs">
-      <DependentUpon>UnidadMedidaConsulta.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Pantallas\PRUEBAS\PRUEBAS.cs">
       <SubType>Form</SubType>
@@ -995,26 +929,11 @@
     <EmbeddedResource Include="Pantallas\Pantallas\Graficos\CantidadMArcas.resx">
       <DependentUpon>CantidadMArcas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\AgregarOferta.resx">
-      <DependentUpon>AgregarOferta.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\AgregarQuitarProductos.resx">
       <DependentUpon>AgregarQuitarProductos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\CapacidadConulta.resx">
-      <DependentUpon>CapacidadConulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\CapacidadMantenimiento.resx">
-      <DependentUpon>CapacidadMantenimiento.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\CategoriaConsulta.resx">
       <DependentUpon>CategoriaConsulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\CondicionConsulta.resx">
-      <DependentUpon>CondicionConsulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\ConsultaColores.resx">
-      <DependentUpon>ConsultaColores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\EstadisticaProductos.resx">
       <DependentUpon>EstadisticaProductos.cs</DependentUpon>
@@ -1022,17 +941,8 @@
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MantenimientoCategoria.resx">
       <DependentUpon>MantenimientoCategoria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MantenimientoColores.resx">
-      <DependentUpon>MantenimientoColores.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MantenimientoCondicion.resx">
-      <DependentUpon>MantenimientoCondicion.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MantenimientoMarcas.resx">
       <DependentUpon>MantenimientoMarcas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MantenimientoModelos.resx">
-      <DependentUpon>MantenimientoModelos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MantenimientoProducto.resx">
       <DependentUpon>MantenimientoProducto.cs</DependentUpon>
@@ -1049,14 +959,8 @@
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MantenimientoTipoSuplidores.resx">
       <DependentUpon>MantenimientoTipoSuplidores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MantenimientoUnidadMedida.resx">
-      <DependentUpon>MantenimientoUnidadMedida.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MarcasConsulta.resx">
       <DependentUpon>MarcasConsulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\ModelosConsulta.resx">
-      <DependentUpon>ModelosConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\PasarInventarioDefectuoso.resx">
       <DependentUpon>PasarInventarioDefectuoso.cs</DependentUpon>
@@ -1075,9 +979,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\TipoSuplidoresConsulta.resx">
       <DependentUpon>TipoSuplidoresConsulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\UnidadMedidaConsulta.resx">
-      <DependentUpon>UnidadMedidaConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\PRUEBAS\PRUEBAS.resx">
       <DependentUpon>PRUEBAS.cs</DependentUpon>

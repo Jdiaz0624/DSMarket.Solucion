@@ -38,9 +38,7 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
 
         private void btnTipoProducto_Click(object sender, EventArgs e)
         {
-            DSMarket.Solucion.Pantallas.Pantallas.Inventario.TipoProductoConsulta TipoProducto = new Pantallas.Inventario.TipoProductoConsulta();
-            TipoProducto.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
-            TipoProducto.ShowDialog();
+           
         }
 
         private void btnCategoria_Click(object sender, EventArgs e)
@@ -59,9 +57,7 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
 
         private void btnUnidaMedida_Click(object sender, EventArgs e)
         {
-            DSMarket.Solucion.Pantallas.Pantallas.Inventario.UnidadMedidaConsulta MantenimientoUnidadMedida = new Pantallas.Inventario.UnidadMedidaConsulta();
-            MantenimientoUnidadMedida.variablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
-            MantenimientoUnidadMedida.ShowDialog();
+         
         }
 
         private void btnMArcas_Click(object sender, EventArgs e)
@@ -73,9 +69,7 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
 
         private void btnMonedas_Click(object sender, EventArgs e)
         {
-            DSMarket.Solucion.Pantallas.Pantallas.Inventario.ModelosConsulta MantenimientoModelos = new Pantallas.Inventario.ModelosConsulta();
-            MantenimientoModelos.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
-            MantenimientoModelos.ShowDialog();
+            
         }
 
         private void btnSuplidores_Click(object sender, EventArgs e)
@@ -92,23 +86,17 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
 
         private void btnColores_Click(object sender, EventArgs e)
         {
-            DSMarket.Solucion.Pantallas.Pantallas.Inventario.ConsultaColores Consulta = new Pantallas.Inventario.ConsultaColores();
-            Consulta.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
-            Consulta.ShowDialog();
+            
         }
 
         private void btnCondiciones_Click(object sender, EventArgs e)
         {
-            DSMarket.Solucion.Pantallas.Pantallas.Inventario.CondicionConsulta Condiciones = new Pantallas.Inventario.CondicionConsulta();
-            Condiciones.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
-            Condiciones.ShowDialog();
+         
         }
 
         private void btbCapacidad_Click(object sender, EventArgs e)
         {
-            DSMarket.Solucion.Pantallas.Pantallas.Inventario.CapacidadConulta Capacidad = new Pantallas.Inventario.CapacidadConulta();
-            Capacidad.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
-            Capacidad.ShowDialog();
+          
         }
     }
 }

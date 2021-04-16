@@ -195,130 +195,6 @@ namespace DSMarket.Logica.Logica.LogicaInventario
             return Mantenimiento;
         }
         #endregion
-        #region MANTENIMIENTO DE UNIDAD DE MEDIDA
-        //LISTADO DE UNIDAD DE MEDIDA
-        public List<DSMarket.Logica.Entidades.EntidadesInventario.EUnidadMedida> BuscaUnidadMedida(decimal? IdUnidadMedida = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistros = null)
-        {
-            Objdata.CommandTimeout = 999999999;
-
-            var Buscar = (from n in Objdata.SP_BUSCA_UNIDAD_MEDIDA(IdUnidadMedida, Descripcion, NumeroPagina, NumeroRegistros)
-                          select new DSMarket.Logica.Entidades.EntidadesInventario.EUnidadMedida
-                          {
-                              IdUnidadMedida=n.IdUnidadMedida,
-                              UnidadMedida=n.UnidadMedida,
-                              Estatus0=n.Estatus0,
-                              Estatus=n.Estatus,
-                              UsuarioAdiciona=n.UsuarioAdiciona,
-                              CredoPor=n.CredoPor,
-                              FechaAdiciona=n.FechaAdiciona,
-                              FechaCreado=n.FechaCreado,
-                              UsuarioModifica=n.UsuarioModifica,
-                              ModificadoPor=n.ModificadoPor,
-                              FechaModifica=n.FechaModifica,
-                              FechaModificado=n.FechaModificado,
-                              CantidadRegistros=n.CantidadRegistros
-                          }).ToList();
-            return Buscar;
-        }
-
-        //MANTENIMIENTO DE UNIDAD DE MEDIDA
-        public DSMarket.Logica.Entidades.EntidadesInventario.EUnidadMedida MantenimientoUnidadMedida(DSMarket.Logica.Entidades.EntidadesInventario.EUnidadMedida Item, string Accion)
-        {
-            Objdata.CommandTimeout = 999999999;
-
-            DSMarket.Logica.Entidades.EntidadesInventario.EUnidadMedida Mantenimiento = null;
-
-            var UnudadMedda = Objdata.SP_MANTENIMIENTO_UNIDAD_MEDIDA(
-                Item.IdUnidadMedida,
-                Item.UnidadMedida,
-                Item.Estatus0,
-                Item.UsuarioAdiciona,
-                Accion);
-            if (UnudadMedda != null)
-            {
-                Mantenimiento = (from n in UnudadMedda
-                                 select new DSMarket.Logica.Entidades.EntidadesInventario.EUnidadMedida
-                                 {
-                                     IdUnidadMedida=n.IdUnidadMedida,
-                                     UnidadMedida=n.Descripcion,
-                                     Estatus0=n.Estatus,
-                                     UsuarioAdiciona=n.UsuarioAdiciona,
-                                     FechaAdiciona=n.FechaAdiciona,
-                                     UsuarioModifica=n.UsuarioModifica,
-                                     FechaModifica=n.FechaModifica
-                                 }).FirstOrDefault();
-            }
-            return Mantenimiento;
-        }
-        #endregion
-        #region MANTENIMIENTO DE MODELOS
-        //LISTADO DE MODELOS
-        public List<DSMarket.Logica.Entidades.EntidadesInventario.EModelos> BuscaModelos(decimal? IdTipoProducto = null, decimal? IdCategoria = null, decimal? IdMarca = null, decimal? IdModelo = null, string Descripcion = null, int? NumeroPagina = null, int? Numeroregistro = null)
-        {
-            Objdata.CommandTimeout = 999999999;
-
-            var Buscar = (from n in Objdata.SP_BUSCA_MODELOS(IdTipoProducto, IdCategoria, IdMarca, IdModelo, Descripcion, NumeroPagina, Numeroregistro)
-                          select new DSMarket.Logica.Entidades.EntidadesInventario.EModelos
-                          {
-                              IdMarca=n.IdMarca,
-                              IdModelo=n.IdModelo,
-                              IdTipoProducto=n.IdTipoProducto,
-                              TipoPrducto=n.TipoPrducto,
-                              IdCategoria=n.IdCategoria,
-                              Categoria=n.Categoria,
-                              Marca=n.Marca,
-                              Modelo=n.Modelo,
-                              Estatus0=n.Estatus0,
-                              Estatus=n.Estatus,
-                              UsuarioAdiciona=n.UsuarioAdiciona,
-                              CreadoPor=n.CreadoPor,
-                              FechaAdiciona=n.FechaAdiciona,
-                              FechaCreado=n.FechaCreado,
-                              UsuarioModifica=n.UsuarioModifica,
-                              ModificadoPor=n.ModificadoPor,
-                              FechaModifica=n.FechaModifica,
-                              FechaModificado=n.FechaModificado,
-                              CantidadRegistros=n.CantidadRegistros
-                          }).ToList();
-            return Buscar;
-        }
-
-        //MANTENIMIENTO DE MODELOS
-        public DSMarket.Logica.Entidades.EntidadesInventario.EModelos MantenimientoModelos(DSMarket.Logica.Entidades.EntidadesInventario.EModelos Item, string Accion)
-        {
-            Objdata.CommandTimeout = 999999999;
-
-            DSMarket.Logica.Entidades.EntidadesInventario.EModelos Mantenimiento = null;
-
-            var Modelos = Objdata.SP_MANTENIMIENTO_MODELO(
-                Item.IdMarca,
-                Item.IdModelo,
-                Item.Modelo,
-                Item.Estatus0,
-                Item.UsuarioAdiciona,
-                Item.IdTipoProducto,
-                Item.IdCategoria,
-               Accion);
-            if (Modelos != null)
-            {
-                Mantenimiento = (from n in Modelos
-                                 select new DSMarket.Logica.Entidades.EntidadesInventario.EModelos
-                                 {
-                                     IdMarca=n.IdMarca,
-                                     IdModelo=n.IdModelo,
-                                     Modelo=n.Descripcion,
-                                     Estatus0=n.Estatus,
-                                     UsuarioAdiciona=n.UsuarioAdiciona,
-                                     FechaAdiciona=n.FechaAdiciona,
-                                     UsuarioModifica=n.UsuarioModifica,
-                                     FechaModifica=n.FechaModifica,
-                                     IdTipoProducto=n.IdTipoProducto,
-                                     IdCategoria=n.IdCategoria
-                                 }).FirstOrDefault();
-            }
-            return Mantenimiento;
-        }
-        #endregion
         #region MANTENIMIENTO DE TIPO DE SUPLIDORES
         //LISTADO DE TIPO DE SUPLIDORES
         public List<DSMarket.Logica.Entidades.EntidadesInventario.ETipoSuplidores> BuscaTipoSupidores(decimal? IdTipoSuplidor = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistros = null)
@@ -703,6 +579,154 @@ namespace DSMarket.Logica.Logica.LogicaInventario
             return Listado;
         }
         #endregion
+        #region MANTENIMIENTO DE PRODUCTOS Y SERVICIOS
+        //LISTADO DE PRODUCTOS
+        public List<DSMarket.Logica.Entidades.EntidadesInventario.EProductosServicios> BuscaProductosServicios(decimal? IdRegistro = null, string NumeroConector = null, decimal? IdTipoProducto = null, decimal? IdCategoria = null, decimal? IdMarca = null, decimal? IdTipoSuplidor = null, decimal? IdSuplidor = null, string Descripcion = null, string CodigoBarra = null, string Referencia = null, string NumeroSeguimiento = null, string CodigoProducto = null, DateTime? FechaIngresoDesde = null, DateTime? FechaIngresoHasta = null, decimal? IdUsuarioGenera = null, decimal? Stock = null) {
+            Objdata.CommandTimeout = 999999999;
+
+            var Listado = (from n in Objdata.SP_BUSCA_PRODUCTOS_SERVICIOS(IdRegistro, NumeroConector, IdTipoProducto, IdCategoria, IdMarca, IdTipoSuplidor, IdSuplidor, Descripcion, CodigoBarra, Referencia, NumeroSeguimiento, CodigoProducto, FechaIngresoDesde, FechaIngresoHasta, IdUsuarioGenera, Stock)
+                           select new DSMarket.Logica.Entidades.EntidadesInventario.EProductosServicios
+                           {
+                               IdRegistro=n.IdRegistro,
+                               NumeroConector=n.NumeroConector,
+                               IdTipoProducto=n.IdTipoProducto,
+                               TipoProducto=n.TipoProducto,
+                               IdCategoria=n.IdCategoria,
+                               Categoria=n.Categoria,
+                               IdMarca=n.IdMarca,
+                               Marca=n.Marca,
+                               IdTipoSuplidor=n.IdTipoSuplidor,
+                               TipoSuplidor=n.TipoSuplidor,
+                               IdSuplidor=n.IdSuplidor,
+                               Suplidor=n.Suplidor,
+                               Descripcion=n.Descripcion,
+                               CodigoBarra=n.CodigoBarra,
+                               Referencia=n.Referencia,
+                               NumeroSeguimiento=n.NumeroSeguimiento,
+                               CodigoProducto=n.CodigoProducto,
+                               PrecioCompra=n.PrecioCompra,
+                               PrecioVenta=n.PrecioVenta,
+                               GananciaAproximada=n.GananciaAproximada,
+                               Stock=n.Stock,
+                               StockMinimo=n.StockMinimo,
+                               Estatus=n.Estatus,
+                               UnidadMedida=n.UnidadMedida,
+                               Modelo=n.Modelo,
+                               Color=n.Color,
+                               Condicion=n.Condicion,
+                               Capacidad=n.Capacidad,
+                               AplicaParaImpuesto0=n.AplicaParaImpuesto0,
+                               AplicaParaImpuesto=n.AplicaParaImpuesto,
+                               TieneImagen0=n.TieneImagen0,
+                               TieneImagen=n.TieneImagen,
+                               LlevaGarantia0=n.LlevaGarantia0,
+                               LlevaGarantia=n.LlevaGarantia,
+                               IdTipoGarantia=n.IdTipoGarantia,
+                               TipoTiempoGarantia=n.TipoTiempoGarantia,
+                               TiempoGarantia=n.TiempoGarantia,
+                               Comentario=n.Comentario,
+                               UsuarioAdiciona=n.UsuarioAdiciona,
+                               CreadoPor=n.CreadoPor,
+                               FechaAdiciona0=n.FechaAdiciona0,
+                               FechaAdiciona=n.FechaAdiciona,
+                               UsuarioModifica=n.UsuarioModifica,
+                               ModificadoPor=n.ModificadoPor,
+                               FechaModifica0 = n.FechaModifica0,
+                               FechaModifica=n.FechaModifica,
+                               FechaIngreso0=n.FechaIngreso0,
+                               FechaIngreso=n.FechaIngreso,
+                               NombreEmpresa=n.NombreEmpresa,
+                               RNC=n.RNC,
+                               Direccion=n.Direccion,
+                               Telefonos=n.Telefonos,
+                               Email=n.Email,
+                               Email2=n.Email2,
+                               Facebook=n.Facebook,
+                               Instagran=n.Instagran,
+                               GeneradoPor=n.GeneradoPor,
+                               CapitalInvertido=n.CapitalInvertido,
+                               GananciaAproximadaTotal=n.GananciaAproximadaTotal,
+                               LogoEmpresa=n.LogoEmpresa
+                           }).ToList();
+            return Listado;
+        }
+
+        public DSMarket.Logica.Entidades.EntidadesInventario.EProductosServicios ProcesarProductosServicios(DSMarket.Logica.Entidades.EntidadesInventario.EProductosServicios Item, string Accion) {
+            Objdata.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesInventario.EProductosServicios Procesar = null;
+
+            var ProductosServicios = Objdata.SP_PROCESAR_INFORMACION_PRODUCTOS_SERVICIOS(
+                Item.IdRegistro,
+                Item.NumeroConector,
+                Item.IdTipoProducto,
+                Item.IdCategoria,
+                Item.IdMarca,
+                Item.IdTipoSuplidor,
+                Item.IdSuplidor,
+                Item.Descripcion,
+                Item.CodigoBarra,
+                Item.Referencia,
+                Item.NumeroSeguimiento,
+                Item.CodigoProducto,
+                Item.PrecioCompra,
+                Item.PrecioVenta,
+                Item.Stock,
+                Item.StockMinimo,
+                Item.UnidadMedida,
+                Item.Modelo,
+                Item.Color,
+                Item.Condicion,
+                Item.Capacidad,
+                Item.AplicaParaImpuesto0,
+                Item.TieneImagen0,
+                Item.LlevaGarantia0,
+                Item.IdTipoGarantia,
+                Item.TiempoGarantia,
+                Item.Comentario,
+                Item.UsuarioAdiciona,
+                Accion);
+            if (ProductosServicios != null) {
+                Procesar = (from n in ProductosServicios
+                            select new DSMarket.Logica.Entidades.EntidadesInventario.EProductosServicios
+                            {
+                                IdRegistro = n.IdRegistro,
+                                NumeroConector = n.NumeroConector,
+                                IdTipoProducto = n.IdTipoProducto,
+                                IdCategoria = n.IdCategoria,
+                                IdMarca = n.IdMarca,
+                                IdTipoSuplidor = n.IdTipoSuplidor,
+                                IdSuplidor = n.IdSuplidor,
+                                Descripcion = n.Descripcion,
+                                CodigoBarra = n.CodigoBarra,
+                                Referencia = n.Referencia,
+                                NumeroSeguimiento = n.NumeroSeguimiento,
+                                CodigoProducto = n.CodigoProducto,
+                                PrecioCompra = n.PrecioCompra,
+                                PrecioVenta = n.PrecioVenta,
+                                Stock = n.Stock,
+                                StockMinimo = n.StockMinimo,
+                                UnidadMedida = n.UnidadMedida,
+                                Modelo = n.Modelo,
+                                Color = n.Color,
+                                Condicion = n.Condicion,
+                                Capacidad = n.Capacidad,
+                                AplicaParaImpuesto0 = n.AplicaParaImpuesto,
+                                TieneImagen0 = n.TieneImagen,
+                                LlevaGarantia0 = n.LlevaGarantia,
+                                IdTipoGarantia = n.IdTipoGarantia,
+                                TiempoGarantia = n.TiempoGarantia,
+                                Comentario = n.Comentario,
+                                UsuarioAdiciona = n.UsuarioAdiciona,
+                                FechaAdiciona0 = n.FechaAdiciona,
+                                UsuarioModifica = n.UsuarioModifica,
+                                FechaModifica0 = n.FechaModifica,
+                                FechaIngreso0 = n.FechaIngreso,
+                            }).FirstOrDefault();
+            }
+            return Procesar;
+        }
+        #endregion
         #region MANTENIMIENTO DE PRODUCTOS DEFECTUOSOS
         //LISTADO DE PRODUCTOS DEFECTUOSOS
         public List<DSMarket.Logica.Entidades.EntidadesInventario.EProductosDefectuosos> BuscaProductosDefectuosos(decimal? IdProducto = null, decimal? NumeroConector = null, string Descripcion = null, string CodigoBarra = null, string Referencia = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null, decimal? IdTipoProducto = null, decimal? IdCategoria = null, decimal? IdUnidadMedida = null, decimal? IdMarca = null, decimal? IdModelo = null, bool? TieneOferta = null, bool? EstatusProducto = null, string NumeroSeguimiento = null, int? NumeroPagina = null, int? NumeroRegistros = null)
@@ -869,166 +893,6 @@ namespace DSMarket.Logica.Logica.LogicaInventario
                                 CantidadProductosDefectuosos=n.CantidadProductosDefectuosos
                             }).ToList();
             return Cantidad;
-        }
-        #endregion
-        #region MANTENIMIENTO DE COLORES DE ARTICULOS
-        //LISTADO DE COLORES
-        public List<DSMarket.Logica.Entidades.EntidadesInventario.EColorArticulo> BuscaColoresArticulos(decimal? IdColorArticulo = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
-            Objdata.CommandTimeout = 999999999;
-
-            var Listado = (from n in Objdata.SP_BUSCA_COLORES_EQUIPOS(IdColorArticulo, Descripcion, NumeroPagina, NumeroRegistros)
-                           select new DSMarket.Logica.Entidades.EntidadesInventario.EColorArticulo
-                           {
-                               IdColor=n.IdColor,
-                                Color=n.Color,
-                                Estatus0=n.Estatus0,
-                                Estatus=n.Estatus,
-                                UsuarioAdiciona=n.UsuarioAdiciona,
-                                CreadoPor=n.CreadoPor,
-                                FechaAdiciona=n.FechaAdiciona,
-                                FechaCreado=n.FechaCreado,
-                                UsuarioModifica=n.UsuarioModifica,
-                                ModificadoPor=n.ModificadoPor,
-                                FechaModifica=n.FechaModifica,
-                                FechaModificado=n.FechaModificado,
-                                CantidadRegistros=n.CantidadRegistros
-                           }).ToList();
-            return Listado;
-        }
-
-        //MANTENIMIENTO DE COLORES DE ARTICULOS
-        public DSMarket.Logica.Entidades.EntidadesInventario.EColorArticulo MantenimientoColorArticulos(DSMarket.Logica.Entidades.EntidadesInventario.EColorArticulo Item, string Accion) {
-            Objdata.CommandTimeout = 999999999;
-
-            DSMarket.Logica.Entidades.EntidadesInventario.EColorArticulo Mantenimiento = null;
-
-            var ColorArticulo = Objdata.SP_MANTENIMIENTO_COLORES_EQUIPOS(
-                Item.IdColor,
-                Item.Color,
-                Item.Estatus0,
-                Item.UsuarioAdiciona,
-                Accion);
-            if (ColorArticulo != null) {
-                Mantenimiento = (from n in ColorArticulo
-                                 select new DSMarket.Logica.Entidades.EntidadesInventario.EColorArticulo
-                                 {
-                                     IdColor=n.IdColor,
-                                     Color=n.Descripcion,
-                                     Estatus0=n.Estatus,
-                                     UsuarioAdiciona=n.UsuarioAdiciona,
-                                     FechaAdiciona=n.FechaAdiciona,
-                                     UsuarioModifica=n.UsuarioModifica,
-                                     FechaModifica=n.FechaModifica
-                                 }).FirstOrDefault();
-            }
-            return Mantenimiento;
-        }
-        #endregion
-        #region MANTENIMIENTO DE CAPACIDAD DE ARTICULOS
-        //LISTADO DE CAPACIDAD DE ARTICULOS
-        public List<DSMarket.Logica.Entidades.EntidadesInventario.ECapacidadArticulos> CapacidadArticulos(decimal? IdCapacidad = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
-            Objdata.CommandTimeout = 999999999;
-
-            var Listado = (from n in Objdata.SP_BUSCA_CAPACIDAD_ARTICULO(IdCapacidad, Descripcion, NumeroPagina, NumeroRegistros)
-                           select new DSMarket.Logica.Entidades.EntidadesInventario.ECapacidadArticulos
-                           {
-                               IdCapacidad=n.IdCapacidad,
-                               Capacidad=n.Capacidad,
-                               Estatus=n.Estatus,
-                               Estatus0=n.Estatus0,
-                               UsuarioAdiciona=n.UsuarioAdiciona,
-                               FechaAdiciona=n.FechaAdiciona,
-                               CreadoPor=n.CreadoPor,
-                               FechaCreado=n.FechaCreado,
-                               UsuarioModifica=n.UsuarioModifica,
-                               FechaModifica=n.FechaModifica,
-                               ModificadoPor=n.ModificadoPor,
-                               FechaModificado=n.FechaModificado,
-                               CantidadRegistros=n.CantidadRegistros
-                           }).ToList();
-            return Listado;
-        }
-
-        //MANTENIMIENTO DE CAPACIDAD DE ARTICULOS
-        public DSMarket.Logica.Entidades.EntidadesInventario.ECapacidadArticulos MantenimientoCapacidadArticulos(DSMarket.Logica.Entidades.EntidadesInventario.ECapacidadArticulos Item, string Accion) {
-            Objdata.CommandTimeout = 999999999;
-
-            DSMarket.Logica.Entidades.EntidadesInventario.ECapacidadArticulos Mantenimiento = null;
-
-            var CapacidadArticulos = Objdata.SP_MANTENIMIENTO_CAPACIDAD_ARTICULOS(
-                Item.IdCapacidad,
-                Item.Capacidad,
-                Item.Estatus0,
-                Item.UsuarioAdiciona,
-                Accion);
-            if (CapacidadArticulos != null) {
-                Mantenimiento = (from n in CapacidadArticulos
-                                 select new DSMarket.Logica.Entidades.EntidadesInventario.ECapacidadArticulos
-                                 {
-                                     IdCapacidad=n.IdCapacidad,
-                                     Capacidad=n.Descripcion,
-                                     Estatus0=n.Estatus,
-                                     UsuarioAdiciona=n.UsuarioAdiciona,
-                                     FechaAdiciona=n.FechaAdiciona,
-                                     UsuarioModifica=n.UsuarioModifica,
-                                     FechaModifica=n.FechaModifica
-                                 }).FirstOrDefault();
-            }
-            return Mantenimiento;
-
-        }
-        #endregion
-        #region MANTENIMIENTO DE CONDICION
-        //LISTADO DE CONDICIONES
-        public List<DSMarket.Logica.Entidades.EntidadesInventario.ECondiciones> BuscaCondiciones(decimal? IdCondiciones = null, string Descripcion = null, int? NumeroPagina = 1, int? NumeroRegistros = 10) {
-            Objdata.CommandTimeout = 999999999;
-
-            var Buscar = (from n in Objdata.SP_BUSCA_CONDICION_ARTICULO(IdCondiciones, Descripcion, NumeroPagina, NumeroRegistros)
-                          select new DSMarket.Logica.Entidades.EntidadesInventario.ECondiciones
-                          {
-                              IdCondicion=n.IdCondicion,
-                              Condicion=n.Condicion,
-                              Estatus0=n.Estatus0,
-                              Estatus=n.Estatus,
-                              UsuarioAdiciona=n.UsuarioAdiciona,
-                              CreadoPor=n.CreadoPor,
-                              FechaAdiciona=n.FechaAdiciona,
-                              FechaCreado=n.FechaCreado,
-                             UsuarioModifica=n.UsuarioModifica,
-                             ModificadoPor=n.ModificadoPor,
-                             FechaModifica=n.FechaModifica,
-                             FechaModificado=n.FechaModificado,
-                             CantidadRegistros=n.CantidadRegistros
-                          }).ToList();
-            return Buscar;
-        }
-
-        //MANTENIMIENTO DE CONDICIONES
-        public DSMarket.Logica.Entidades.EntidadesInventario.ECondiciones MantenimientoCondiciones(DSMarket.Logica.Entidades.EntidadesInventario.ECondiciones Item, string Accion) {
-            Objdata.CommandTimeout = 999999999;
-
-            DSMarket.Logica.Entidades.EntidadesInventario.ECondiciones Mantenimiento = null;
-
-            var Condifiones = Objdata.SP_MANTENIMIENTO_CONDICION_ARTICULOS(
-                Item.IdCondicion,
-                Item.Condicion,
-                Item.Estatus0,
-                Convert.ToInt32(Item.UsuarioAdiciona),
-                Accion);
-            if (Condifiones != null) {
-                Mantenimiento = (from n in Condifiones
-                                 select new DSMarket.Logica.Entidades.EntidadesInventario.ECondiciones
-                                 {
-                                     IdCondicion=n.IdCondicion,
-                                     Condicion=n.Descripcion,
-                                     Estatus0=n.Estatus,
-                                     UsuarioAdiciona=n.UsuarioAdiciona,
-                                     FechaAdiciona=n.FechaAdiciona,
-                                     UsuarioModifica=n.UsuarioModifica,
-                                     FechaModifica=n.FechaModifica
-                                 }).FirstOrDefault();
-            }
-            return Mantenimiento;
         }
         #endregion
         #region VALIDAR REFERENCIA DE PRODUCTO

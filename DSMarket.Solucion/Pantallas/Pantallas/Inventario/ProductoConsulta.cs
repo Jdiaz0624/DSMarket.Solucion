@@ -1688,9 +1688,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         private void btnOferta_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            DSMarket.Solucion.Pantallas.Pantallas.Inventario.AgregarOferta Oferta = new AgregarOferta();
-            Oferta.ShowDialog();
+           
         }
 
         private void ddlSeleccionarTipoProducto_SelectedIndexChanged(object sender, EventArgs e)
