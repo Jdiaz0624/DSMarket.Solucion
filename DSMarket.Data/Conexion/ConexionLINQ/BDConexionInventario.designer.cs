@@ -337,9 +337,11 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaIngresoDesde", DbType="Date")] System.Nullable<System.DateTime> fechaIngresoDesde, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaIngresoHasta", DbType="Date")] System.Nullable<System.DateTime> fechaIngresoHasta, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuarioGenera", DbType="Decimal(20,0)")] System.Nullable<decimal> idUsuarioGenera, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stock", DbType="Decimal(20,0)")] System.Nullable<decimal> stock)
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stock", DbType="Decimal(20,0)")] System.Nullable<decimal> stock, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroPagina", DbType="Int")] System.Nullable<int> numeroPagina, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroRegistro", DbType="Int")] System.Nullable<int> numeroRegistro)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idRegistro, numeroConector, idTipoProducto, idCategoria, idMarca, idTipoSuplidor, idSuplidor, descripcion, codigoBarra, referencia, numeroSeguimiento, codigoProducto, fechaIngresoDesde, fechaIngresoHasta, idUsuarioGenera, stock);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idRegistro, numeroConector, idTipoProducto, idCategoria, idMarca, idTipoSuplidor, idSuplidor, descripcion, codigoBarra, referencia, numeroSeguimiento, codigoProducto, fechaIngresoDesde, fechaIngresoHasta, idUsuarioGenera, stock, numeroPagina, numeroRegistro);
 			return ((ISingleResult<SP_BUSCA_PRODUCTOS_SERVICIOSResult>)(result.ReturnValue));
 		}
 	}

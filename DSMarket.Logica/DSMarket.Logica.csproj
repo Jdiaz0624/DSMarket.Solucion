@@ -80,6 +80,7 @@
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionTipoEmpleados.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionTipoMovimiento.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionTipoNomina.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\Inventario\ProcesarInformacionProductoServicio.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarDatosReporteFinanciero.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionCargos.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionCatalogoCuentas.cs" />

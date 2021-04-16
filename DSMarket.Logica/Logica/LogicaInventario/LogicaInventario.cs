@@ -581,10 +581,10 @@ namespace DSMarket.Logica.Logica.LogicaInventario
         #endregion
         #region MANTENIMIENTO DE PRODUCTOS Y SERVICIOS
         //LISTADO DE PRODUCTOS
-        public List<DSMarket.Logica.Entidades.EntidadesInventario.EProductosServicios> BuscaProductosServicios(decimal? IdRegistro = null, string NumeroConector = null, decimal? IdTipoProducto = null, decimal? IdCategoria = null, decimal? IdMarca = null, decimal? IdTipoSuplidor = null, decimal? IdSuplidor = null, string Descripcion = null, string CodigoBarra = null, string Referencia = null, string NumeroSeguimiento = null, string CodigoProducto = null, DateTime? FechaIngresoDesde = null, DateTime? FechaIngresoHasta = null, decimal? IdUsuarioGenera = null, decimal? Stock = null) {
+        public List<DSMarket.Logica.Entidades.EntidadesInventario.EProductosServicios> BuscaProductosServicios(decimal? IdRegistro = null, string NumeroConector = null, decimal? IdTipoProducto = null, decimal? IdCategoria = null, decimal? IdMarca = null, decimal? IdTipoSuplidor = null, decimal? IdSuplidor = null, string Descripcion = null, string CodigoBarra = null, string Referencia = null, string NumeroSeguimiento = null, string CodigoProducto = null, DateTime? FechaIngresoDesde = null, DateTime? FechaIngresoHasta = null, decimal? IdUsuarioGenera = null, decimal? Stock = null, int? NumeroPagina = null,int? NumeroRegistro = null) {
             Objdata.CommandTimeout = 999999999;
 
-            var Listado = (from n in Objdata.SP_BUSCA_PRODUCTOS_SERVICIOS(IdRegistro, NumeroConector, IdTipoProducto, IdCategoria, IdMarca, IdTipoSuplidor, IdSuplidor, Descripcion, CodigoBarra, Referencia, NumeroSeguimiento, CodigoProducto, FechaIngresoDesde, FechaIngresoHasta, IdUsuarioGenera, Stock)
+            var Listado = (from n in Objdata.SP_BUSCA_PRODUCTOS_SERVICIOS(IdRegistro, NumeroConector, IdTipoProducto, IdCategoria, IdMarca, IdTipoSuplidor, IdSuplidor, Descripcion, CodigoBarra, Referencia, NumeroSeguimiento, CodigoProducto, FechaIngresoDesde, FechaIngresoHasta, IdUsuarioGenera, Stock, NumeroPagina, NumeroRegistro)
                            select new DSMarket.Logica.Entidades.EntidadesInventario.EProductosServicios
                            {
                                IdRegistro=n.IdRegistro,

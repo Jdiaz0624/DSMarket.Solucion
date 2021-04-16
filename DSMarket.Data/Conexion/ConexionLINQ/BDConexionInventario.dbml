@@ -725,6 +725,8 @@
     <Parameter Name="FechaIngresoHasta" Parameter="fechaIngresoHasta" Type="System.DateTime" DbType="Date" />
     <Parameter Name="IdUsuarioGenera" Parameter="idUsuarioGenera" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="Stock" Parameter="stock" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NumeroPagina" Parameter="numeroPagina" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NumeroRegistro" Parameter="numeroRegistro" Type="System.Int32" DbType="Int" />
     <ElementType Name="SP_BUSCA_PRODUCTOS_SERVICIOSResult">
       <Column Name="IdRegistro" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="NumeroConector" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
