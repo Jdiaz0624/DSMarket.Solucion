@@ -235,7 +235,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 btnEliminar.Visible = false;
                 btnSuplir.Visible = false;
                 btnSuplir.Visible = false;
-                btnDescartar.Visible = false;
+                btnRestablecer.Visible = false;
                 btnReporte.Visible = false;
                 lbCapitalInvertidoTitulo.Visible = false;
                 lbCapitalInvertidoVariable.Visible = false;
@@ -285,9 +285,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.Hide();
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.MantenimientoProducto Mantenimiento = new MantenimientoProducto();
             Mantenimiento.VariablesGlobales.Accion = "UPDATE";
+            Mantenimiento.VariablesGlobales.NumeroConectorstring = variablesGlobales.NumeroConectorstring;
             Mantenimiento.VariablesGlobales.IdUsuario = variablesGlobales.IdUsuario;
             Mantenimiento.VariablesGlobales.IdMantenimeinto = variablesGlobales.IdMantenimeinto;
-            Mantenimiento.VariablesGlobales.NumeroConector = variablesGlobales.NumeroConector;
             Mantenimiento.ShowDialog();
         }
 
@@ -296,9 +296,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.Hide();
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.MantenimientoProducto Mantenimiento = new MantenimientoProducto();
             Mantenimiento.VariablesGlobales.Accion = "DELETE";
+            Mantenimiento.VariablesGlobales.NumeroConectorstring = variablesGlobales.NumeroConectorstring;
             Mantenimiento.VariablesGlobales.IdUsuario = variablesGlobales.IdUsuario;
             Mantenimiento.VariablesGlobales.IdMantenimeinto = variablesGlobales.IdMantenimeinto;
-            Mantenimiento.VariablesGlobales.NumeroConector = variablesGlobales.NumeroConector;
             Mantenimiento.ShowDialog();
         }
 
@@ -357,14 +357,44 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.variablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdProducto"].Value.ToString());
-            this.variablesGlobales.NumeroConector = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["NumeroConector"].Value.ToString());
-            this.variablesGlobales.LlevaDescuentoPregunta = Convert.ToBoolean(this.dtListado.CurrentRow.Cells["LlevaImagen0"].Value.ToString());
-            decimal IdTipoProducto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdTipoProducto"].Value.ToString());
+            this.variablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdRegistro"].Value.ToString());
+            this.variablesGlobales.NumeroConectorstring = this.dtListado.CurrentRow.Cells["NumeroConector"].Value.ToString();
+            decimal IdTipoProducto = 0;
+            var BuscarInformacionSeleccionada = ObjDataInventario.Value.BuscaProductosServicios(
+                variablesGlobales.IdMantenimeinto,
+                variablesGlobales.NumeroConectorstring,
+                null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+            int CantidadRegistros = 0;
+            decimal CapitalInvertido = 0, GananciaAproximada = 0;
+            CantidadRegistros = BuscarInformacionSeleccionada.Count;
+            foreach (var n in BuscarInformacionSeleccionada)
+            {
+                CapitalInvertido = (decimal)n.CapitalInvertido;
+                GananciaAproximada = (decimal)n.GananciaAproximadaTotal;
+                IdTipoProducto = (decimal)n.IdTipoProducto;
+            }
+            lbCantidadProductos.Text = CantidadRegistros.ToString("N0");
+            lbCapitalInvertidoVariable.Text = CapitalInvertido.ToString("N2");
+            lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
 
+            dtListado.DataSource = BuscarInformacionSeleccionada;
+            OcultarColumnasGrid();
 
-           
-           
+            btnNuevo.Enabled = false;
+            btnBuscar.Enabled = false;
+            btnEditar.Enabled = true;
+            btnEliminar.Enabled = true;
+            btnReporte.Enabled = true;
+            btnRestablecer.Enabled = true;
+
+            if (IdTipoProducto == 1)
+            {
+                btnSuplir.Visible = true;
+            }
+            else {
+                btnSuplir.Visible = false;
+            }
+
         }
 
         private void btnRestablecer_Click(object sender, EventArgs e)

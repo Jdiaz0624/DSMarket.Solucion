@@ -22,6 +22,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         Lazy<DSMarket.Logica.Logica.LogicaInventario.LogicaInventario> ObjDataInventario = new Lazy<Logica.Logica.LogicaInventario.LogicaInventario>();
         Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
         Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
+        Lazy<DSMarket.Logica.Logica.LogicaServicio.LogicaServicio> ObjDataServicio = new Lazy<Logica.Logica.LogicaServicio.LogicaServicio>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region CARGAR LAS LISTAS
@@ -91,7 +92,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 var Tipogarantia = ObjDataListas.Value.ListadoTipoTiempoGarantia();
                 ddlTipoGarantia.DataSource = Tipogarantia;
                 ddlTipoGarantia.DisplayMember = "TipoTiempoGarantia";
-                ddlTipoGarantia.ValueMember = "IdTipoTiempoGarantia"; 
+                ddlTipoGarantia.ValueMember = "IdTipoTiempoGarantia";
+
+                txtTiempoGarantia.Text = SacarTiempoGarantia(Convert.ToInt32(ddlTipoGarantia.SelectedValue)).ToString();
             }
             catch (Exception) { }
         }
@@ -105,6 +108,48 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             CargarTipogarantia();
         }
         #endregion
+        /// <summary>
+        /// Este metodo es para sacar la informacion del producto seleccionado
+        /// </summary>
+        private void SacarInformacionProductoSeleccionado() {
+            var SacarInformacion = ObjDataInventario.Value.BuscaProductosServicios(
+                        VariablesGlobales.IdMantenimeinto,
+                        VariablesGlobales.NumeroConectorstring,
+                        null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+            foreach (var n in SacarInformacion)
+            {
+                cbAplicaParaImpuesto.Checked = (n.AplicaParaImpuesto0.HasValue ? n.AplicaParaImpuesto0.Value : false);
+                cbLlevagarantia.Checked = (n.LlevaGarantia0.HasValue ? n.LlevaGarantia0.Value : false);
+                CargarTipoPdoducto();
+                ddlTipoProducto.Text = n.TipoProducto;
+                CargarCategorias();
+                ddlCategoria.Text = n.Categoria;
+                CargarMarcas();
+                ddlMarca.Text = n.Marca;
+                CargarTipoSuplidores();
+                ddlTipoSuplidor.Text = n.TipoSuplidor;
+                CargarSuplidores();
+                ddlSuplidor.Text = n.Suplidor;
+                txtDescripcion.Text = n.Descripcion;
+                txtcodigobarra.Text = n.CodigoBarra;
+                txtReferencia.Text = n.Referencia;
+                txtNumeroSeguimiento.Text = n.NumeroSeguimiento;
+                txtCodigoproducto.Text = n.CodigoProducto;
+                txtPrecioCompra.Text = n.PrecioCompra.ToString();
+                txtPrecioVenta.Text = n.PrecioVenta.ToString();
+                txtstock.Text = n.Stock.ToString();
+                txtstockminimo.Text = n.StockMinimo.ToString();
+                txtUnidadMedinda.Text = n.UnidadMedida;
+                txtModelo.Text = n.Modelo;
+                txtColor.Text = n.Color;
+                txtCondicion.Text = n.Condicion;
+                txtCapacidad.Text = n.Capacidad;
+                CargarTipogarantia();
+                ddlTipoGarantia.Text = n.TipoTiempoGarantia;
+                txtTiempoGarantia.Text = n.TiempoGarantia.ToString();
+                txtComentario.Text = n.Comentario;
+            }
+        }
         private void ProcesarInformacionProductoServicio() {
             decimal IdTipoGarantia = cbLlevagarantia.Checked == true ? Convert.ToDecimal(ddlTipoGarantia.SelectedValue) : 0;
            int TiempoGarantia = cbLlevagarantia.Checked == true ? Convert.ToInt32(txtTiempoGarantia.Text) : 0;
@@ -142,6 +187,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             Procesar.ProcesarInformacion();
         }
 
+        private int SacarTiempoGarantia(int IdGarantia) {
+            int TiempoGarantia = 0;
+
+            var SacarGarantia = ObjDataServicio.Value.BuscaTipoTiempoGarantia(IdGarantia);
+            foreach (var n in SacarGarantia) {
+                TiempoGarantia = (int)n.TiempoGarantia;
+            }
+            return TiempoGarantia;
+        }
+
         private void cerrarPantalla() {
             this.Dispose();
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.ProductoConsulta Consulta = new ProductoConsulta();
@@ -164,12 +219,21 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
             if (VariablesGlobales.Accion == "INSERT") {
                 btnGuardar.Text = "Guardar";
+
+                lbTipoGarantia.Visible = false;
+                ddlTipoGarantia.Visible = false;
+                lbTiempoGarantia.Visible = false;
+                txtTiempoGarantia.Visible = false;
             }
             else if (VariablesGlobales.Accion == "UPDATE") {
                 btnGuardar.Text = "Modificar";
+                SacarInformacionProductoSeleccionado();
+
+
             }
             else if (VariablesGlobales.Accion == "DELETE") {
                 btnGuardar.Text = "Eliminar";
+                SacarInformacionProductoSeleccionado();
             }
             CargarListas();
         }
@@ -244,6 +308,31 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                     cerrarPantalla();
                 }
             }
+        }
+
+        private void cbLlevagarantia_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbLlevagarantia.Checked == true) {
+                lbTipoGarantia.Visible = true;
+                ddlTipoGarantia.Visible = true;
+                lbTiempoGarantia.Visible = true;
+                txtTiempoGarantia.Visible = true;
+                CargarTipogarantia();
+            }
+            else if (cbLlevagarantia.Checked == false) {
+                lbTipoGarantia.Visible = false;
+                ddlTipoGarantia.Visible = false;
+                lbTiempoGarantia.Visible = false;
+                txtTiempoGarantia.Visible = false;
+            }
+        }
+
+        private void ddlTipoGarantia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try {
+                txtTiempoGarantia.Text = SacarTiempoGarantia(Convert.ToInt32(ddlTipoGarantia.SelectedValue)).ToString();
+            }
+            catch (Exception) { }
         }
     }
 }
