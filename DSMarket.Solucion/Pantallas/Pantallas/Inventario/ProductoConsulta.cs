@@ -307,7 +307,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.Hide();
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.AgregarQuitarProductos Suplir = new AgregarQuitarProductos();
             Suplir.VariablesGlobales.IdMantenimeinto = variablesGlobales.IdMantenimeinto;
-            Suplir.VariablesGlobales.NumeroConector = variablesGlobales.NumeroConector;
+            Suplir.VariablesGlobales.NumeroConectorstring = variablesGlobales.NumeroConectorstring;
             Suplir.ShowDialog();
         }
 

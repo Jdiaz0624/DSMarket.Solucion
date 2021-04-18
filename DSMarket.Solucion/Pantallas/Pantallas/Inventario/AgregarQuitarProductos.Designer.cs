@@ -43,20 +43,20 @@
             this.lbStickVariable = new System.Windows.Forms.Label();
             this.lbPrecioVentaVariable = new System.Windows.Forms.Label();
             this.lbDescripcionVariable = new System.Windows.Forms.Label();
+            this.lbMarcaVariable = new System.Windows.Forms.Label();
+            this.lbCategoriaVariable = new System.Windows.Forms.Label();
             this.lbStockMinimo = new System.Windows.Forms.Label();
             this.lbStock = new System.Windows.Forms.Label();
             this.lbPrecioVenta = new System.Windows.Forms.Label();
             this.lbDescripcion = new System.Windows.Forms.Label();
+            this.lbMarca = new System.Windows.Forms.Label();
+            this.lbCategoria = new System.Windows.Forms.Label();
             this.lbTipoProducto = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.lbMarcaVariable = new System.Windows.Forms.Label();
-            this.lbMarca = new System.Windows.Forms.Label();
-            this.lbCategoriaVariable = new System.Windows.Forms.Label();
-            this.lbCategoria = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -238,6 +238,24 @@
             this.lbDescripcionVariable.TabIndex = 76;
             this.lbDescripcionVariable.Text = "Dato";
             // 
+            // lbMarcaVariable
+            // 
+            this.lbMarcaVariable.AutoSize = true;
+            this.lbMarcaVariable.Location = new System.Drawing.Point(164, 73);
+            this.lbMarcaVariable.Name = "lbMarcaVariable";
+            this.lbMarcaVariable.Size = new System.Drawing.Size(50, 21);
+            this.lbMarcaVariable.TabIndex = 72;
+            this.lbMarcaVariable.Text = "Dato";
+            // 
+            // lbCategoriaVariable
+            // 
+            this.lbCategoriaVariable.AutoSize = true;
+            this.lbCategoriaVariable.Location = new System.Drawing.Point(163, 53);
+            this.lbCategoriaVariable.Name = "lbCategoriaVariable";
+            this.lbCategoriaVariable.Size = new System.Drawing.Size(50, 21);
+            this.lbCategoriaVariable.TabIndex = 70;
+            this.lbCategoriaVariable.Text = "Dato";
+            // 
             // lbStockMinimo
             // 
             this.lbStockMinimo.AutoSize = true;
@@ -273,6 +291,24 @@
             this.lbDescripcion.Size = new System.Drawing.Size(100, 21);
             this.lbDescripcion.TabIndex = 59;
             this.lbDescripcion.Text = "Descripción";
+            // 
+            // lbMarca
+            // 
+            this.lbMarca.AutoSize = true;
+            this.lbMarca.Location = new System.Drawing.Point(103, 73);
+            this.lbMarca.Name = "lbMarca";
+            this.lbMarca.Size = new System.Drawing.Size(62, 21);
+            this.lbMarca.TabIndex = 55;
+            this.lbMarca.Text = "Marca";
+            // 
+            // lbCategoria
+            // 
+            this.lbCategoria.AutoSize = true;
+            this.lbCategoria.Location = new System.Drawing.Point(73, 53);
+            this.lbCategoria.Name = "lbCategoria";
+            this.lbCategoria.Size = new System.Drawing.Size(91, 21);
+            this.lbCategoria.TabIndex = 53;
+            this.lbCategoria.Text = "Categoria";
             // 
             // lbTipoProducto
             // 
@@ -324,42 +360,6 @@
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
             // 
-            // lbMarcaVariable
-            // 
-            this.lbMarcaVariable.AutoSize = true;
-            this.lbMarcaVariable.Location = new System.Drawing.Point(164, 73);
-            this.lbMarcaVariable.Name = "lbMarcaVariable";
-            this.lbMarcaVariable.Size = new System.Drawing.Size(50, 21);
-            this.lbMarcaVariable.TabIndex = 72;
-            this.lbMarcaVariable.Text = "Dato";
-            // 
-            // lbMarca
-            // 
-            this.lbMarca.AutoSize = true;
-            this.lbMarca.Location = new System.Drawing.Point(103, 73);
-            this.lbMarca.Name = "lbMarca";
-            this.lbMarca.Size = new System.Drawing.Size(62, 21);
-            this.lbMarca.TabIndex = 55;
-            this.lbMarca.Text = "Marca";
-            // 
-            // lbCategoriaVariable
-            // 
-            this.lbCategoriaVariable.AutoSize = true;
-            this.lbCategoriaVariable.Location = new System.Drawing.Point(163, 53);
-            this.lbCategoriaVariable.Name = "lbCategoriaVariable";
-            this.lbCategoriaVariable.Size = new System.Drawing.Size(50, 21);
-            this.lbCategoriaVariable.TabIndex = 70;
-            this.lbCategoriaVariable.Text = "Dato";
-            // 
-            // lbCategoria
-            // 
-            this.lbCategoria.AutoSize = true;
-            this.lbCategoria.Location = new System.Drawing.Point(73, 53);
-            this.lbCategoria.Name = "lbCategoria";
-            this.lbCategoria.Size = new System.Drawing.Size(91, 21);
-            this.lbCategoria.TabIndex = 53;
-            this.lbCategoria.Text = "Categoria";
-            // 
             // AgregarQuitarProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -374,6 +374,7 @@
             this.Name = "AgregarQuitarProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AgregarQuitarProductos";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AgregarQuitarProductos_FormClosing);
             this.Load += new System.EventHandler(this.AgregarQuitarProductos_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
