@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
 
 namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 {
@@ -223,8 +225,12 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             CargarTipoPdoducto();
             CargarCategorias();
             CargarMarcas();
-            MostrarListadoInventario();
-
+            variablesGlobales.NumeroConectorstring = "-1";
+            if (variablesGlobales.NumeroConectorstring == "-1")
+            {
+                MostrarListadoInventario();
+            }
+            
 
 
 
@@ -324,7 +330,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            MostrarListadoInventario();
+            if (variablesGlobales.NumeroConectorstring == "-1")
+            {
+                MostrarListadoInventario();
+            }
 
 
         }
@@ -334,11 +343,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             if (txtNumeroPagina.Value < 1)
             {
                 txtNumeroPagina.Value = 1;
-                MostrarListadoInventario();
+                if (variablesGlobales.NumeroConectorstring == "-1")
+                {
+                    MostrarListadoInventario();
+                }
             }
             else
             {
-               
+                if (variablesGlobales.NumeroConectorstring == "-1")
+                {
+                    MostrarListadoInventario();
+                }
             }
         }
 
@@ -347,11 +362,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             if (txtNumeroRegistros.Value < 1)
             {
                 txtNumeroRegistros.Value = 10;
-                MostrarListadoInventario();
+                if (variablesGlobales.NumeroConectorstring == "-1")
+                {
+                    MostrarListadoInventario();
+                }
             }
             else
             {
-                MostrarListadoInventario();
+                if (variablesGlobales.NumeroConectorstring == "-1")
+                {
+                    MostrarListadoInventario();
+                }
             }
         }
 
@@ -397,26 +418,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         }
 
-        private void btnRestablecer_Click(object sender, EventArgs e)
-        {
-            txtNumeroPagina.Enabled = true;
-            txtNumeroRegistros.Enabled = true;
-            btnNuevo.Enabled = true;
-            btnEditar.Enabled = false;
-            btnEliminar.Enabled = false;
-            btnSuplir.Enabled = false;
-          
 
-            txtNumeroPagina.Value = 1;
-            txtNumeroRegistros.Value = 10;
-
-
-            CargarTipoPdoducto();
-            CargarCategorias();
-            CargarMarcas();
-
-
-        }
 
         private void btnProductoConOfertas_Click(object sender, EventArgs e)
         {
@@ -448,19 +450,42 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         private void btnReporte_Click(object sender, EventArgs e)
         {
-           
+            DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes Reporte = new Reportes.Reportes();
+
+            string RutaReporte = "";
+            var SacarInformacionRuta = ObjdataConfiguracion.Value.BuscaRutaReporte(5);
+            foreach (var n in SacarInformacionRuta) {
+                RutaReporte = n.RutaReporte;
+            }
+
+            Reporte.GenerarReporteInventarioGeneral(RutaReporte, "sa", "!@Pa$$W0rd!@0624", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1000);
+            Reporte.ShowDialog();
         }
 
    
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            DSMarket.Solucion.Pantallas.Pantallas.Inventario.PasarInventarioDefectuoso Descartar = new PasarInventarioDefectuoso();
-            Descartar.VariablesGlobales.IdUsuario = variablesGlobales.IdUsuario;
-            Descartar.VariablesGlobales.IdMantenimeinto = variablesGlobales.IdMantenimeinto;
-            Descartar.VariablesGlobales.NumeroConector = variablesGlobales.NumeroConector;
-            Descartar.ShowDialog();
+            btnBuscar.Enabled = true;
+            btnNuevo.Enabled = true;
+            btnEditar.Enabled = false;
+            btnEliminar.Enabled = false;
+            btnSuplir.Visible = false;
+            btnRestablecer.Enabled = true;
+            cbAgregarFiltroPreciso.Checked = false;
+            cbAgregarRangoFecha.Checked = false;
+            cbProductosAgotados.Checked = false;
+            CargarTipoPdoducto();
+            CargarCategorias();
+            CargarMarcas();
+            txtClaveSeguridad.Text = string.Empty;
+            txtCodigoBarra.Text = string.Empty;
+            txtCodigoProducto.Text = string.Empty;
+            txtDescripcion.Text = string.Empty;
+            txtNumeroPagina.Value = 1;
+            txtNumeroRegistros.Value = 10;
+            variablesGlobales.NumeroConectorstring = "-1";
+            MostrarListadoInventario();
         }
 
         private void cbProductosVendidosDescartados_CheckedChanged(object sender, EventArgs e)
@@ -517,22 +542,33 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         private void txtDescripcion_TextChanged_1(object sender, EventArgs e)
         {
-            MostrarListadoInventario();
+            if (variablesGlobales.NumeroConectorstring == "-1") {
+                MostrarListadoInventario();
+            }
         }
 
         private void txtCodigoBarra_TextChanged_1(object sender, EventArgs e)
         {
-            MostrarListadoInventario();
+            if (variablesGlobales.NumeroConectorstring == "-1")
+            {
+                MostrarListadoInventario();
+            }
         }
 
         private void txtReferencia_TextChanged_1(object sender, EventArgs e)
         {
-            MostrarListadoInventario();
+            if (variablesGlobales.NumeroConectorstring == "-1")
+            {
+                MostrarListadoInventario();
+            }
         }
 
         private void txtCodigoProducto_TextChanged(object sender, EventArgs e)
         {
-            MostrarListadoInventario();
+            if (variablesGlobales.NumeroConectorstring == "-1")
+            {
+                MostrarListadoInventario();
+            }
         }
     }
 }

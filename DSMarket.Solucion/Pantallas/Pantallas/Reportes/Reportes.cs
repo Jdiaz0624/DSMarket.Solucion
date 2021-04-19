@@ -97,18 +97,50 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
         #endregion
 
         #region MOSTRAR EL REPORTE DE INVENTARIO GENERAL
-        public void GenerarReporteInventarioGeneral(string RutaReporte, string UsuarioBD, string ClaveBD) {
+        public void GenerarReporteInventarioGeneral(string RutaReporte, string UsuarioBD, string ClaveBD, decimal? IdRegistro,string NumeroConector,decimal? IdTipoProducto,decimal? IdCategoria,decimal? IdMarca,decimal? IdTipoSuplidor,decimal? IdSuplidor,string Descripcion,string CodigoBarra,string Referencia,string NumeroSeguimiento,string CodigoProducto,DateTime? FechaIngresoDesde,DateTime? FechaIngresoHasta,decimal? IdUsuarioGenera,decimal? Stock,int? NumeroPagina,int? NumeroRegistro) {
             try {
-                ReportDocument ReporteInventarioGeneral = new ReportDocument();
+                ReportDocument Reporte = new ReportDocument();
 
                 SqlCommand comando = new SqlCommand();
-                comando.CommandText = "EXEC  [Reporte].[SP_REPORTE_INVENTARIO]";
+                comando.CommandText = "EXEC  [Inventario].[SP_BUSCA_PRODUCTOS_SERVICIOS] @IdRegistro,@NumeroConector,@IdTipoProducto,@IdCategoria,@IdMarca,@IdTipoSuplidor,@IdSuplidor,@Descripcion,@CodigoBarra,@Referencia,@NumeroSeguimiento,@CodigoProducto,@FechaIngresoDesde,@FechaIngresoHasta,@IdUsuarioGenera,@Stock,@NumeroPagina,@NumeroRegistro";
                 comando.Connection = DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion();
 
-                ReporteInventarioGeneral.Load(@"" + RutaReporte);
-                ReporteInventarioGeneral.Refresh();
-                ReporteInventarioGeneral.SetDatabaseLogon(UsuarioBD, ClaveBD);
-                crystalReportViewer1.ReportSource = ReporteInventarioGeneral;
+                Reporte.SetParameterValue("@IdRegistro", IdRegistro);
+                Reporte.SetParameterValue("@NumeroConector", NumeroConector);
+                Reporte.SetParameterValue("@IdTipoProducto", IdTipoProducto);
+                Reporte.SetParameterValue("@IdCategoria", IdCategoria);
+                Reporte.SetParameterValue("@IdMarca", IdMarca);
+                Reporte.SetParameterValue("@IdTipoSuplidor", IdTipoSuplidor);
+                Reporte.SetParameterValue("@IdSuplidor", IdTipoSuplidor);
+                Reporte.SetParameterValue("@Descripcion", Descripcion);
+                Reporte.SetParameterValue("@CodigoBarra", CodigoBarra);
+                Reporte.SetParameterValue("@Referencia", Referencia);
+                Reporte.SetParameterValue("@NumeroSeguimiento", NumeroSeguimiento);
+                Reporte.SetParameterValue("@CodigoProducto", CodigoProducto);
+                Reporte.SetParameterValue("@FechaIngresoDesde", FechaIngresoDesde);
+                Reporte.SetParameterValue("@FechaIngresoHasta", FechaIngresoHasta);
+                Reporte.SetParameterValue("@IdUsuarioGenera", IdUsuarioGenera);
+                Reporte.SetParameterValue("@Stock", Stock);
+                Reporte.SetParameterValue("@NumeroPagina", NumeroPagina);
+                Reporte.SetParameterValue("@NumeroRegistro", NumeroRegistro);
+
+                Reporte.Load(@"" + RutaReporte);
+                Reporte.Refresh();
+
+                Reporte.SetDatabaseLogon(UsuarioBD, ClaveBD);
+                crystalReportViewer1.ReportSource = RutaReporte;
+
+
+                //ReportDocument ReporteInventarioGeneral = new ReportDocument();
+
+                //SqlCommand comando = new SqlCommand();
+                //comando.CommandText = "EXEC  [Reporte].[SP_REPORTE_INVENTARIO]";
+                //comando.Connection = DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion();
+
+                //ReporteInventarioGeneral.Load(@"" + RutaReporte);
+                //ReporteInventarioGeneral.Refresh();
+                //ReporteInventarioGeneral.SetDatabaseLogon(UsuarioBD, ClaveBD);
+                //crystalReportViewer1.ReportSource = ReporteInventarioGeneral;
             }
             catch (Exception ex) {
                 MessageBox.Show("Error al mostrar el reporte de ventas general, codigo de error: " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
