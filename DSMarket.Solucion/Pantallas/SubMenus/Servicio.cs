@@ -51,7 +51,7 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
                 }
                 if (EstatusCaja == true)
                 {
-                    DSMarket.Solucion.Pantallas.Pantallas.Servicio.Facturacion FActuracion = new Pantallas.Servicio.Facturacion();
+                    DSMarket.Solucion.Pantallas.Pantallas.Servicio.FacturacionProductosServicios FActuracion = new Pantallas.Servicio.FacturacionProductosServicios();
                     FActuracion.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbUsuario.Text);
                     FActuracion.VariablesGlobales.GenerarConector = true;
                     FActuracion.VariablesGlobales.SacarDataEspejo = false;

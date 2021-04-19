@@ -2207,7 +2207,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             DSMarket.Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionComisionesEmpleados Procesar = new Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionComisionesEmpleados(
                 0, 0, 0, 0, 0, 0, VariablesGlobales.NumeroConector, 0, 0, DateTime.Now, false, "cANCELARPROCESO");
             Procesar.ProcesarComisiones();
-
             this.Dispose();
         }
 

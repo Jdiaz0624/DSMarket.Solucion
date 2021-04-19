@@ -675,6 +675,12 @@
     <Compile Include="Pantallas\Pantallas\Servicio\Facturacion.Designer.cs">
       <DependentUpon>Facturacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Servicio\FacturacionProductosServicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Servicio\FacturacionProductosServicios.Designer.cs">
+      <DependentUpon>FacturacionProductosServicios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Servicio\FotoProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1018,6 +1024,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Servicio\Facturacion.resx">
       <DependentUpon>Facturacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Servicio\FacturacionProductosServicios.resx">
+      <DependentUpon>FacturacionProductosServicios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Servicio\FotoProducto.resx">
       <DependentUpon>FotoProducto.cs</DependentUpon>
