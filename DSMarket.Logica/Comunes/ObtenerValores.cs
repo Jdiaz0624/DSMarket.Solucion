@@ -24,15 +24,15 @@ namespace DSMarket.Logica.Comunes
         }
 
         //OBTENER EL NUMERO DE FACTURA
-        public static decimal SacarNumeroFactura(decimal NumeroConector) {
-            decimal NumeroFactura = 0;
+        //public static decimal SacarNumeroFactura(decimal NumeroConector) {
+        //    decimal NumeroFactura = 0;
 
-            var ObtenerNumeroFactura = ObjDataServicio.Value.SacarNumeroFactura(NumeroConector);
-            foreach (var n in ObtenerNumeroFactura) {
-                NumeroFactura = Convert.ToDecimal(n.IdFactura);
-            }
-            return NumeroFactura;
-        }
+        //    var ObtenerNumeroFactura = ObjDataServicio.Value.SacarNumeroFactura(NumeroConector);
+        //    foreach (var n in ObtenerNumeroFactura) {
+        //        NumeroFactura = Convert.ToDecimal(n.IdFactura);
+        //    }
+        //    return NumeroFactura;
+        //}
 
         //OBTENER EL TIPO DE CUENTA
         public static int ObtenerTipoCuentaContable(decimal IdCuentaCatalogo) {

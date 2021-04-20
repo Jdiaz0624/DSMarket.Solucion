@@ -8,6 +8,7 @@ namespace DSMarket.Logica.Comunes
 {
     public class VariablesGlobales
     {
+        public int ProductoSeleccionadoFacturacion { get; set; }
         public string NombreSistema { get; set; }
         public bool ConvertirCotizacionFactura = false;
         public bool ModoRecarga { get; set; }

@@ -85,613 +85,80 @@ namespace DSMarket.Logica.Logica.LogicaServicio
         #endregion
         #region FACTURACION
         /// <summary>
-        /// Este metodo es para mostrar el listado de las facturas minimizadas mediante el usuario
+        /// Este metodo es para sacar la información de la facturacion de manera de preview antes de facturar.
         /// </summary>
         /// <param name="IdUsuario"></param>
         /// <param name="NumeroConector"></param>
-        /// <param name="Nombre"></param>
-        /// <param name="Rnc"></param>
         /// <returns></returns>
-        public List<DSMarket.Logica.Entidades.EntidadesServicio.EFacturaMinimizada> BuscaFacturasMinimizadas(decimal? IdUsuario = null, decimal? NumeroConector = null, decimal? Secuencial = null, string Nombre = null, string Rnc = null)
-        {
+        public List<DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionPreview> BuscaFacturacionPreview(decimal? IdUsuario = null, string NumeroConector = null) {
             ObjData.CommandTimeout = 999999999;
 
-            var Listado = (from n in ObjData.SP_BUSCA_FACTURA_MINIMIZADAS(IdUsuario, NumeroConector, Secuencial, Nombre, Rnc)
-                           select new DSMarket.Logica.Entidades.EntidadesServicio.EFacturaMinimizada
-                           {
-                               IdUsuario = n.IdUsuario,
-                               Usuario = n.Usuario,
-                               NumeroConector = n.NumeroConector,
-                               Secuencia = n.Secuencia,
-                               AgregarCliente = n.AgregarCliente,
-                               BuscarCliente = n.BuscarCliente,
-                               IdTipoVenta = n.IdTipoVenta,
-                               TipoVenta = n.TipoVenta,
-                               IdCantidadDias = n.IdCantidadDias,
-                               CantidadDias = n.CantidadDias,
-                               RncConsulta = n.RncConsulta,
-                               IdComprobante = n.IdComprobante,
-                               Comprobante = n.Comprobante,
-                               Nombre = n.Nombre,
-                               Telefono = n.Telefono,
-                               Email = n.Email,
-                               NoCotizacion = n.NoCotizacion,
-                               IdTipoIdentificacion = n.IdTipoIdentificacion,
-                               TipoIdentificacion = n.TipoIdentificacion,
-                               NumeroIdentificacion = n.NumeroIdentificacion,
-                               Comentario = n.Comentario,
-                               MontoCredito = n.MontoCredito,
-                               FacturarCotizar = n.FacturarCotizar,
-                               FacturaPuntoVenta = n.FacturaPuntoVenta,
-                               FormatoFactura = n.FormatoFactura,
-                               BloqueaControles = n.BloqueaControles,
-                               Cantidadregistros = n.Cantidadregistros,
-                               CantidadDiasGarantia=n.CantidadDiasGarantia,
-                               IdTipoIngreso=n.IdTipoIngreso,
-                               TipoIngreso=n.TipoIngreso,
-                               IdTipoTiempoGarantia=n.IdTipoTiempoGarantia,
-                               TipoTiempoGarantia=n.TipoTiempoGarantia
-                           }).ToList();
-            return Listado;
+            var BuscarListado = (from n in ObjData.SP_BUSCAR_FACTURACION_PREVIEW(IdUsuario, NumeroConector)
+                                 select new DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionPreview
+                                 {
+                                     IdUsuario=n.IdUsuario,
+                                     NumeroConector=n.NumeroConector,
+                                     IdProducto=n.IdProducto,
+                                     IdTipoProducto=n.IdTipoProducto,
+                                     Precio=n.Precio,
+                                     DescuentoAplicado=n.DescuentoAplicado,
+                                     Cantidad=n.Cantidad,
+                                     SubTotal=n.SubTotal,
+                                     Impuesto=n.Impuesto,
+                                     Total=n.Total,
+                                     TotalProdctos=n.TotalProdctos,
+                                     TotalServicios=n.TotalServicios,
+                                     TotalItems=n.TotalItems,
+                                     SubTotal1=n.SubTotal,
+                                     TotalDescuento=n.TotalDescuento,
+                                     TotalImpuesto=n.TotalImpuesto,
+                                     TotalGeneral=n.TotalGeneral
+                                 }).ToList();
+            return BuscarListado;
         }
-        /// <summary>
-        /// Este metodo es para realziar el mantenimiento de las facturas minimizadas
-        /// </summary>
-        /// <param name="Item"></param>
-        /// <param name="Accion"></param>
-        /// <returns></returns>
-        public DSMarket.Logica.Entidades.EntidadesServicio.EFacturaMinimizada MantenimientoFacturaMinimizado(DSMarket.Logica.Entidades.EntidadesServicio.EFacturaMinimizada Item, string Accion)
-        {
+
+        public DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionPreview ProcesarDatosFacturacionPreview(DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionPreview Item, string Accion) {
             ObjData.CommandTimeout = 999999999;
 
-            DSMarket.Logica.Entidades.EntidadesServicio.EFacturaMinimizada Mantenimiento = null;
+            DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionPreview Procesar = null;
 
-            var FacturasMinimizadas = ObjData.SP_MANTENIMIENTO_FACTURAS_MINIMUZADAS(
+            var FacturacionPreview = ObjData.SP_PROCESAR_INFORMACION_FACTURA_PREVIEW(
                 Item.IdUsuario,
                 Item.NumeroConector,
-                Item.Secuencia,
-                Item.AgregarCliente,
-                Item.BuscarCliente,
-                Item.IdTipoVenta,
-                Item.IdCantidadDias,
-                Item.RncConsulta,
-                Item.IdComprobante,
-                Item.Nombre,
-                Item.Telefono,
-                Item.Email,
-                Item.NoCotizacion,
-                Item.IdTipoIdentificacion,
-                Item.NumeroIdentificacion,
-                Item.Comentario,
-                Item.MontoCredito,
-                Item.FacturarCotizar,
-                Item.FacturaPuntoVenta,
-                Item.FormatoFactura,
-                Item.BloqueaControles,
-                Item.CantidadDiasGarantia,
-                Item.IdTipoIngreso,
-                Item.IdTipoTiempoGarantia,
-                Accion);
-            if (FacturasMinimizadas != null)
-            {
-                Mantenimiento = (from n in FacturasMinimizadas
-                                 select new DSMarket.Logica.Entidades.EntidadesServicio.EFacturaMinimizada
-                                 {
-                                     IdUsuario = n.IdUsuario,
-                                     NumeroConector = n.NumeroConector,
-                                     Secuencia = n.Secuencial,
-                                     AgregarCliente = n.AgregarCliente,
-                                     BuscarCliente = n.BuscarCliente,
-                                     IdTipoVenta = n.IdTipoVenta,
-                                     IdCantidadDias = n.IdCantidadDias,
-                                     RncConsulta = n.RncConsulta,
-                                     IdComprobante = n.IdComprobante,
-                                     Nombre = n.Nombre,
-                                     Telefono = n.Telefono,
-                                     Email = n.Email,
-                                     NoCotizacion = n.NoCotizacion,
-                                     IdTipoIdentificacion = n.IdTipoIdentificacion,
-                                     NumeroIdentificacion = n.NumeroIdentificacion,
-                                     Comentario = n.Comentario,
-                                     MontoCredito = n.MontoCredito,
-                                     FacturarCotizar = n.FacturarCotizar,
-                                     FacturaPuntoVenta = n.FacturaPuntoVenta,
-                                     FormatoFactura = n.FormatoFactura,
-                                     BloqueaControles = n.BloqueaControles,
-                                     CantidadDiasGarantia=n.CantidadDiasGarantia,
-                                     IdTipoIngreso=n.IdTipoIngreso,
-                                     IdTipoTiempoGarantia=n.IdTipoTiempoGarantia
-                                 }).FirstOrDefault();
-            }
-            return Mantenimiento;
-
-
-        }
-
-        public DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionClientes GuardarFacturacionClientes(DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionClientes Items, string Accion)
-        {
-            ObjData.CommandTimeout = 999999999;
-
-            DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionClientes Guardar = null;
-
-            var FacturacionCliente = ObjData.SP_GUARDAR_CLIENTE_FACTURACION(
-                Items.IdFactura,
-                Items.NumeroConector,
-                Items.IdEstatusFacturacion,
-                Items.IdComprobante,
-                Items.Nombre,
-                Items.Telefono,
-                Items.Email,
-                Items.IdTipoIdentificacion,
-                Items.NumeroIdentificacion,
-                Items.Direccion,
-                Items.Comentario,
-                Items.IdTipoVenta,
-                Items.IdCantidadDias,
-                Items.IdUsuario,
-                Items.AplicaGarantia,
-                Items.DiasGarantia,
-                Items.IdTipoIngreso,
-                Items.IdTipoAnulaicon,
-                Items.TipoTiempoGarantia,
-                Accion);
-            if (FacturacionCliente != null) {
-                Guardar = (from n in FacturacionCliente
-                           select new DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionClientes
-                           {
-                               IdFactura = n.IdFactura,
-                               NumeroConector = n.NumeroConector,
-                               IdEstatusFacturacion = n.IdEstatusFacturacion,
-                               IdComprobante = n.IdComprobante,
-                               Nombre = n.Nombre,
-                               Telefono = n.Telefono,
-                               Email = n.Email,
-                               IdTipoIdentificacion = n.IdTipoIdentificacion,
-                               NumeroIdentificacion = n.NumeroIdentificacion,
-                               Direccion = n.Direccion,
-                               Comentario = n.Comentario,
-                               IdTipoVenta = n.IdTipoVenta,
-                               IdCantidadDias = n.IdCantidadDias,
-                               IdUsuario = n.IdUsuario,
-                               FechaFacturacion=n.FechaFacturacion,
-                               AplicaGarantia=n.AplicaGarantia,
-                               DiasGarantia=n.DiasGarantia,
-                               IdTipoIngreso=n.IdTipoIngreso,
-                               IdTipoAnulaicon=n.IdTipoAnulaicon,
-                               TipoTiempoGarantia=n.TipoTiempoGarantia
-                           }).FirstOrDefault();
-            }
-            return Guardar;
-        }
-
-
-        public List<DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionEspejo> BuscaFacturacionEspeo(Nullable<decimal> IdUsuario = null)
-        {
-            ObjData.CommandTimeout = 999999999;
-
-            var Listado = (from n in ObjData.SP_BUSCA_FACTURACION_ESPEJO(IdUsuario)
-                           select new DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionEspejo
-                           {
-                               IdUsuario = n.IdUsuario,
-                               NumeroConector = n.NumeroConector,
-                               AgregarCliente = n.AgregarCliente,
-                               BuscarCliente = n.BuscarCliente,
-                               IdTipoVenta = n.IdTipoVenta,
-                               TipoVenta = n.TipoVenta,
-                               IdCantidadDias = n.IdCantidadDias,
-                               CantidadDias = n.CantidadDias,
-                               RncConsulta = n.RncConsulta,
-                               IdComprobante = n.IdComprobante,
-                               Comprobante = n.Comprobante,
-                               Nombre = n.Nombre,
-                               Telefono = n.Telefono,
-                               Email = n.Email,
-                               NoCotizacion = n.NoCotizacion,
-                               IdTipoIdentificacion = n.IdTipoIdentificacion,
-                               TipoIdentificacion = n.TipoIdentificacion,
-                               NumeroIdentificacion = n.NumeroIdentificacion,
-                               Comentario = n.Comentario,
-                               MontoCredito = n.MontoCredito,
-                               FacturarCotizar = n.FacturarCotizar,
-                               FacturaPuntoVenta = n.FacturaPuntoVenta,
-                               FormatoFactura = n.FormatoFactura,
-                               BloqueaControles = n.BloqueaControles,
-                               CantidadDiasGarantia=n.CantidadDiasGarantia,
-                               IdTipoIngreso=n.IdTipoIngreso,
-                               TipoIngreso=n.TipoIngreso,
-                               FechaFacturacion=n.FechaFacturacion,
-                               IdTiempoGarantia=n.IdTiempoGarantia,
-                               TipoTiempoGarantia=n.TipoTiempoGarantia
-                           }).ToList();
-            return Listado;
-        }
-
-        public DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionEspejo ManteniientoFacturacionEspejo(DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionEspejo Item, string Accion)
-        {
-            ObjData.CommandTimeout = 999999999;
-
-            DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionEspejo Mantenimiento = null;
-
-            var FacturacionEspejo = ObjData.SP_MANTENIMIENTO_FACTURACION_ESPEJO(
-                Item.IdUsuario,
-                Item.NumeroConector,
-                Item.AgregarCliente,
-                Item.BuscarCliente,
-                Item.IdTipoVenta,
-                Item.IdCantidadDias,
-                Item.RncConsulta,
-                Item.IdComprobante,
-                Item.Nombre,
-                Item.Telefono,
-                Item.Email,
-                Item.NoCotizacion,
-                Item.IdTipoIdentificacion,
-                Item.NumeroIdentificacion,
-                Item.Comentario,
-                Item.MontoCredito,
-                Item.FacturarCotizar,
-                Item.FacturaPuntoVenta,
-                Item.FormatoFactura,
-                Item.BloqueaControles,
-                Item.CantidadDiasGarantia,
-                Item.IdTipoIngreso,
-                Item.IdTiempoGarantia,
-                Accion);
-            if (FacturacionEspejo != null)
-            {
-                Mantenimiento = (from n in FacturacionEspejo
-                                 select new DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionEspejo
-                                 {
-                                     IdUsuario = n.IdUsuario,
-                                     NumeroConector = n.NumeroConector,
-                                     AgregarCliente = n.AgregarCliente,
-                                     BuscarCliente = n.BuscarCliente,
-                                     IdTipoVenta = n.IdTipoVenta,
-                                     IdCantidadDias = n.IdCantidadDias,
-                                     RncConsulta = n.RncConsulta,
-                                     IdComprobante = n.IdComprobante,
-                                     Nombre = n.Nombre,
-                                     Telefono = n.Telefono,
-                                     Email = n.Email,
-                                     NoCotizacion = n.NoCotizacion,
-                                     IdTipoIdentificacion = n.IdTipoIdentificacion,
-                                     NumeroIdentificacion = n.NumeroIdentificacion,
-                                     Comentario = n.Comentario,
-                                     MontoCredito = n.MontoCredito,
-                                     FacturarCotizar = n.FacturarCotizar,
-                                     FacturaPuntoVenta = n.FacturaPuntoVenta,
-                                     FormatoFactura = n.FormatoFactura,
-                                     BloqueaControles = n.BloqueaControles,
-                                     CantidadDiasGarantia=n.CantidadDiasGarantia,
-                                     IdTipoIngreso=n.IdTipoIngreso,
-                                     IdTiempoGarantia=n.IdTiempoGarantia
-                                 }).FirstOrDefault();
-            }
-            return Mantenimiento;
-        }
-
-        public DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionProducto GuardarFacturacionProductos(DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionProducto Item, string Accion) {
-
-            ObjData.CommandTimeout = 999999999;
-
-            DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionProducto Guardar = null;
-
-            var FacturacionProducto = ObjData.SP_GUARDAR_FACTURACION_PRODUCTO(
-                Item.NumeroConector,
+                Item.IdProducto,
                 Item.IdTipoProducto,
-                Item.IdCategoria,
-                Item.DescripcionProducto,
-                Item.CantidadVendida,
                 Item.Precio,
                 Item.DescuentoAplicado,
-                Item.DescripcionTipoProducto,
-                Item.PorcientoDescuento,
-                Item.IdProducto,
-                Item.Acumulativo,
-                Item.ConectorProducto,
-                Item.Impuesto,
-                Item.Referencia,
-                Accion);
-            if (FacturacionProducto != null) {
-                Guardar = (from n in FacturacionProducto
-                           select new DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionProducto
-                           {
-                               NumeroConector = n.NumeroConector,
-                               IdTipoProducto = n.IdTipoProducto,
-                               IdCategoria = n.IdCategoria,
-                               DescripcionProducto = n.DescripcionProducto,
-                               CantidadVendida = n.CantidadVendida,
-                               Precio = n.Precio,
-                               DescuentoAplicado = n.DescuentoAplicado,
-                               DescripcionTipoProducto = n.DescripcionTipoProducto,
-                               PorcientoDescuento = n.PorcientoDescuento,
-                               IdProducto = n.IdProducto,
-                               Acumulativo = n.Acumulativo,
-                               ConectorProducto = n.ConectorProducto,
-                               Impuesto=n.Impuesto,
-                               Referencia=n.Referencia
-                           }).FirstOrDefault();
-            }
-            return Guardar;
-        }
-        /// <summary>
-        /// Este metodo es para mostrar los productos agregados a la factura
-        /// </summary>
-        /// <param name="IdProducto"></param>
-        /// <param name="NumeroConector"></param>
-        /// <returns></returns>
-        public List<DSMarket.Logica.Entidades.EntidadesServicio.EProductosAgregados> BuscapRoductosAgregados(decimal? IdProducto = null, decimal? NumeroConector = null) {
-            ObjData.CommandTimeout = 999999999;
-
-            var Listado = (from n in ObjData.SP_BUSCA_PRODUCTOS_AGREGADOS(IdProducto, NumeroConector)
-                           select new DSMarket.Logica.Entidades.EntidadesServicio.EProductosAgregados
-                           {
-                              DescripcionProducto=n.DescripcionProducto,
-                               Referencia=n.Referencia,
-                               NumeroConector=n.NumeroConector,
-                               IdTipoProducto=n.IdTipoProducto,
-                               IdCategoria=n.IdCategoria,
-                               Categoria=n.Categoria,
-                               DescripcionTipoProducto=n.DescripcionTipoProducto,
-                               Precio=n.Precio,
-                               Cantidad=n.Cantidad,
-                               DescuentoAplicado=n.DescuentoAplicado,
-                               Total=n.Total,
-                               DescripcionTipoProducto1=n.DescripcionTipoProducto1,
-                               PorcientoDescuento=n.PorcientoDescuento,
-                               Acumulativo=n.Acumulativo,
-                               IdProducto=n.IdProducto,
-                               ConectorProducto=n.ConectorProducto,
-                               AplicaImpuesto=n.AplicaImpuesto,
-                               Impuesto=n.Impuesto,
-                               CantidadProductos=n.CantidadProductos,
-                               CantidadServicios=n.CantidadServicios,
-                               CantidadRegistros=n.CantidadRegistros,
-                               TotalDescuento=n.TotalDescuento,
-                               PorcientoImpuesto=n.PorcientoImpuesto,
-                               SubTotal=n.SubTotal,
-                               TotalImpuesto=n.TotalImpuesto,
-                               TotalGeneral=n.TotalGeneral
-
-                           }).ToList();
-            return Listado;
-        }
-        /// <summary>
-        /// Este metodo es para guardar los datos de los calculos.
-        /// </summary>
-        /// <param name="Item"></param>
-        /// <param name="Accion"></param>
-        /// <returns></returns>
-        public DSMarket.Logica.Entidades.EntidadesServicio.EGuardarFacturacionCalculos GuardarFacturacionCalculos(DSMarket.Logica.Entidades.EntidadesServicio.EGuardarFacturacionCalculos Item, string Accion) {
-            ObjData.CommandTimeout = 999999999;
-
-            DSMarket.Logica.Entidades.EntidadesServicio.EGuardarFacturacionCalculos Guardar = null;
-
-            var FacturacionCalculos = ObjData.SP_GUARDAR_FACTURACION_CALCULOS(
-                Item.NumeroColector,
-                Item.CantidadProductos,
-                Item.CantidadServicios,
-                Item.CantidadArticulos,
-                Item.TotalDescuento,
+                Item.Cantidad,
                 Item.SubTotal,
                 Item.Impuesto,
-                Item.PorcientoImpuesto,
-                Item.MontoPagado,
-                Item.Cambio,
-                Item.IdTipoPago,
-                Item.TotalGeneral,
-                Item.PorcientoTipoPago,
-                Item.MontoImpuestoTipoPago,
-                Item.PorcientoImpuestoComprobante,
-                Item.MontoImpuestoComprobante,
+                Item.Total,
                 Accion);
-            if (FacturacionCalculos != null)
-            {
-                Guardar = (from n in FacturacionCalculos
-                           select new DSMarket.Logica.Entidades.EntidadesServicio.EGuardarFacturacionCalculos
-                           {
-                               NumeroColector = n.NumeroColector,
-                               CantidadProductos = n.CantidadProductos,
-                               CantidadServicios = n.CantidadServicios,
-                               CantidadArticulos = n.CantidadArticulos,
-                               TotalDescuento = n.TotalDescuento,
-                               SubTotal = n.SubTotal,
-                               Impuesto = n.Impuesto,
-                               PorcientoImpuesto = n.PorcientoImpuesto,
-                               MontoPagado = n.MontoPagado,
-                               Cambio = n.Cambio,
-                               IdTipoPago = n.IdTipoPago,
-                               TotalGeneral=n.TotalGeneral,
-                               PorcientoTipoPago=n.PorcientoTipoPago,
-                               MontoImpuestoTipoPago=n.MontoImpuestoTipoPago,
-                               PorcientoImpuestoComprobante=n.PorcientoImpuestoComprobante,
-                               MontoImpuestoComprobante=n.MontoImpuestoComprobante
-                           }).FirstOrDefault();
+            if (FacturacionPreview != null) {
+                Procesar = (from n in FacturacionPreview
+                            select new DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionPreview
+                            {
+                                IdUsuario=n.IdUsuario,
+                                NumeroConector=n.NumeroConector,
+                                IdProducto=n.IdProducto,
+                                IdTipoProducto=n.IdTipoProducto,
+                                Precio=n.Precio,
+                                DescuentoAplicado=n.DescuentoAplicado,
+                                Cantidad=n.Cantidad,
+                                SubTotal=n.SubTotal,
+                                Impuesto=n.Impuesto,
+                                Total=n.Total
+                            }).FirstOrDefault();
             }
-            return Guardar;
+            return Procesar;
         }
-
-        public DSMarket.Logica.Entidades.EntidadesServicio.EGuardarFacturacionComprobantes GuardarFacturacionComprobante (DSMarket.Logica.Entidades.EntidadesServicio.EGuardarFacturacionComprobantes Item, string Accion){
-            ObjData.CommandTimeout = 999999999;
-
-            DSMarket.Logica.Entidades.EntidadesServicio.EGuardarFacturacionComprobantes Guardar = null;
-
-            var FacturacionComprobante = ObjData.SP_GUARDAR_FACTURACION_COMPROBANTE(
-                Item.IdFacturacion,
-                Item.NumeroConector,
-                Item.DescripcionComprobante,
-                Item.Comprobante,
-                Accion);
-            if (FacturacionComprobante != null) {
-                Guardar = (from n in FacturacionComprobante
-                           select new DSMarket.Logica.Entidades.EntidadesServicio.EGuardarFacturacionComprobantes
-                           {
-                               IdFacturacion=n.IdFacturacion,
-                               NumeroConector=n.NumeroConector,
-                               DescripcionComprobante=n.DescripcionComprobante,
-                               Comprobante=n.Comprobante
-                           }).FirstOrDefault();
-            }
-            return Guardar;
-        }
-
-        public List<DSMarket.Logica.Entidades.EntidadesServicio.ESacarNumeroFactura> SacarNumeroFactura(decimal? NumeroConector = null) {
-            ObjData.CommandTimeout = 999999999;
-
-            var BuscarNumero = (from n in ObjData.SP_SACAR_NUMERO_FACTURA(NumeroConector)
-                                select new DSMarket.Logica.Entidades.EntidadesServicio.ESacarNumeroFactura
-                                {
-                                    IdFactura=n.IdFactura
-                                }).ToList();
-            return BuscarNumero;
-        }
-
-       
-        #endregion
-        #region BUSCAR LOS REGISTROS DEL HISTORIAL DE PRODUCTOS
-        public List<DSMarket.Logica.Entidades.EntidadesServicio.EBuscaHistorialProducto> BuscaHistorialProducto(decimal? IdHistorialProducto = null, decimal? IdProducto = null) {
-            ObjData.CommandTimeout = 999999999;
-
-            var Listado = (from n in ObjData.SP_BUSCA_HISTORIAL_PRODUCTO(IdHistorialProducto, IdProducto)
-                           select new DSMarket.Logica.Entidades.EntidadesServicio.EBuscaHistorialProducto
-                           {
-                              IdHistorialProducto=n.IdHistorialProducto,
-                               IdProducto=n.IdProducto,
-                               NumeroConector=n.NumeroConector,
-                               IdTipoProducto=n.IdTipoProducto,
-                               TipoProducto=n.TipoProducto,
-                               IdCategoria=n.IdCategoria,
-                               Categoria=n.Categoria,
-                               IdUnidadMedida=n.IdUnidadMedida,
-                               UnidadMedida=n.UnidadMedida,
-                               IdMarca=n.IdMarca,
-                               Marca=n.Marca,
-                               IdModelo=n.IdModelo,
-                               Modelo=n.Modelo,
-                               IdTipoSuplidor=n.IdTipoSuplidor,
-                               TipoSuplidor=n.TipoSuplidor,
-                               IdSuplidor=n.IdSuplidor,
-                               Suplidor=n.Suplidor,
-                               Producto=n.Producto,
-                               CodigoBarra=n.CodigoBarra,
-                               Referencia=n.Referencia,
-                               PrecioCompra=n.PrecioCompra,
-                               PrecioVenta=n.PrecioVenta,
-                               Stock=n.Stock,
-                               StockMinimo=n.StockMinimo,
-                               PorcientoDescuento=n.PorcientoDescuento,
-                               AfectaOferta=n.AfectaOferta,
-                               ProductoAcumulativo0=n.ProductoAcumulativo0,
-                               ProductoAcumulativo=n.ProductoAcumulativo,
-                               LlevaImagen=n.LlevaImagen,
-                               UsuarioAdiciona=n.UsuarioAdiciona,
-                               FechaAdiciona=n.FechaAdiciona,
-                               UsuarioModifica=n.UsuarioModifica,
-                               FechaModifica=n.FechaModifica,
-                               Fecha=n.Fecha,
-                               Comentario=n.Comentario,
-                               AplicaParaimpuesto=n.AplicaParaimpuesto,
-                               PrecioOriginal=n.PrecioOriginal
-                               
-                           }).ToList();
-            return Listado;
-        }
-        #endregion
-        #region MANTENIMIENTO DE HISTORIAL DE PRODUCTO
-        public DSMarket.Logica.Entidades.EntidadesServicio.EMantenimientoHistorialProductoInventario MantenimientoHistorialProducto(DSMarket.Logica.Entidades.EntidadesServicio.EMantenimientoHistorialProductoInventario Item, string Accion)
-        {
-            ObjData.CommandTimeout = 999999999;
-
-            DSMarket.Logica.Entidades.EntidadesServicio.EMantenimientoHistorialProductoInventario Mantenimiento = null;
-
-            var HistorialProducto = ObjData.SP_MANTENIMIENTO_HISTORIAL_PRODUCTO_INVENTARIO(
-                Item.IdHistorialProducto,
-                Item.IdProducto,
-                Accion);
-            if (HistorialProducto != null) {
-                Mantenimiento = (from n in HistorialProducto
-                                 select new DSMarket.Logica.Entidades.EntidadesServicio.EMantenimientoHistorialProductoInventario
-                                 {
-                                     IdHistorialProducto=n.IdHistorialProducto,
-                                     IdProducto=n.IdProducto
-                                 }).FirstOrDefault();
-            }
-            return Mantenimiento;
-        }
-
+  
 
         #endregion
-        #region HISTORIAL DE FACTURACION
-        public List<DSMarket.Logica.Entidades.EntidadesServicio.EHistorialFacturacion> HistorialFacturacion(decimal? IdFactura = null, decimal? NumeroConector=null, decimal? IdEstatusFacturacion = null, decimal? IdTipoFacturacion = null, decimal? IdTipoPago = null, string Cliente = null, string NumeroIdentificacion = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
-            ObjData.CommandTimeout = 999999999;
+      
+   
+        
 
-            var Listado = (from n in ObjData.SP_BUSCA_HISTORIAL_FACTURACION(IdFactura,NumeroConector, IdEstatusFacturacion, IdTipoFacturacion, IdTipoPago, Cliente, NumeroIdentificacion, FechaDesde, FechaHasta, NumeroPagina, NumeroRegistros)
-                           select new DSMarket.Logica.Entidades.EntidadesServicio.EHistorialFacturacion
-                           {
-                               Cliente=n.Cliente,
-                               EstatusFacturacion=n.EstatusFacturacion,
-                               IdFactura=n.IdFactura,
-                               NumeroConector=n.NumeroConector,
-                               IdEstatusFacturacion=n.IdEstatusFacturacion,
-                               TipoIdentificacion=n.TipoIdentificacion,
-                               DescripcionComprobante=n.DescripcionComprobante,
-                               Comprobante=n.Comprobante,
-                               IdComprobante=n.IdComprobante,
-                               Descripcion=n.Descripcion,
-                               Telefono=n.Telefono,
-                               Email=n.Email,
-                               IdTipoIdentificacion = n.IdTipoIdentificacion,
-                               NumeroIdentificacion=n.NumeroIdentificacion,
-                               Direccion=n.Direccion,
-                               Comentario=n.Comentario,
-                               IdTipoVenta=n.IdTipoVenta,
-                               TipoVenta=n.TipoVenta,
-                               CantidadDias=n.CantidadDias,
-                               IdCantidadDias=n.IdCantidadDias,
-                               IdTipoIngreso=n.IdTipoIngreso,
-                               TipoIngreso=n.TipoIngreso,
-                               IdUsuario=n.IdUsuario,
-                               CreadoPor=n.CreadoPor,
-                               FechaFacturacion=n.FechaFacturacion,
-                               FechaFacturacion0=n.FechaFacturacion0,
-                               CantidadProductos=n.CantidadProductos,
-                               CantidadServicios=n.CantidadServicios,
-                               CantidadArticulos=n.CantidadArticulos,
-                               TotalDescuento=n.TotalDescuento,
-                               SubTotal=n.SubTotal,
-                               Impuesto=n.Impuesto,
-                               PorcientoImpuesto=n.PorcientoImpuesto,
-                               MontoPagado=n.MontoPagado,
-                               Cambio=n.Cambio,
-                               IdTipoPago=n.IdTipoPago,
-                               TipoPago=n.TipoPago,
-                               PorcientoTipoPago=n.PorcientoTipoPago,
-                               MontoImpuestoTipoPago=n.MontoImpuestoTipoPago,
-                               PorcientoImpuestoComprobante=n.PorcientoImpuestoComprobante,
-                               MontoImpuestoComprobante=n.MontoImpuestoComprobante,
-                               TotalGeneral=n.TotalGeneral,
-                               CantidadRegistros = n.CantidadRegistros,
-                               AplicaGarantia0=n.AplicaGarantia0,
-                               AplicaGarantia=n.AplicaGarantia,
-                               DiasGarantia=n.DiasGarantia,
-                               TipoTiempoGarantia0=n.TipoTiempoGarantia0,
-                               TipoTiempoGarantia=n.TipoTiempoGarantia
-                           }).ToList();
-            return Listado;
-        }
-        #endregion
-        #region VALIDAR LAS FACTURAS ANULADAS
-        public List<DSMarket.Logica.Entidades.EntidadesServicio.EValidarFacturaAnulada> ValidarFacturaAnulada(decimal? NumeroConector = null) {
-            ObjData.CommandTimeout = 999999999;
-
-            var Validar = (from n in ObjData.SP_VALIDAR_FACTURA_ANULADA(NumeroConector)
-                           select new DSMarket.Logica.Entidades.EntidadesServicio.EValidarFacturaAnulada
-                           {
-                               NumeroConector=n.NumeroConector
-                           }).ToList();
-            return Validar;
-        }
-        #endregion
         #region GENERAR LA GANANCIA DE VENTA
         public List<DSMarket.Logica.Entidades.EntidadesServicio.ESacarGananciaFacturacion> GenerarGananciaVenta(decimal? IdFactura = null,decimal? NumeroConector = null, decimal? IdEstatusFacturacion = null, decimal? IdTipoFacturacion = null, decimal? IdTipoPago = null, string Cliente = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null)
         {
@@ -791,39 +258,7 @@ namespace DSMarket.Logica.Logica.LogicaServicio
             return Modificar;
         }
         #endregion
-        #region BUSCAR LOS REGISTROS POR REFERENCIA
-        public List<DSMarket.Logica.Entidades.EntidadesServicio.EBuscaRegistroReferencia> BuscaRegistrosReferencia(decimal? NumeroConector = null,decimal? IdFactura = null, string Referencia = null, string DescripcionProducto = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
-            ObjData.CommandTimeout = 999999999;
 
-            var Listado = (from n in ObjData.SP_BUSCA_REGISTRO_PRODUCTO_REFERENCIA(NumeroConector, IdFactura, Referencia, DescripcionProducto, FechaDesde, FechaHasta, NumeroPagina, NumeroRegistros)
-                           select new DSMarket.Logica.Entidades.EntidadesServicio.EBuscaRegistroReferencia
-                           {
-                               NumeroConector=n.NumeroConector,
-                               IdFactura=n.IdFactura,
-                               Referencia=n.Referencia,
-                               Producto=n.Producto,
-                               Estatus=n.Estatus,
-                               IdTipoProducto=n.IdTipoProducto,
-                               TipoProducto=n.TipoProducto,
-                               DescripcionTipoProducto=n.DescripcionTipoProducto,
-                               IdCategoria=n.IdCategoria,
-                               Categoria=n.Categoria,
-                               FechaFacturacion=n.FechaFacturacion,
-                               CantidadVendida=n.CantidadVendida,
-                               Precio=n.Precio,
-                               PorcientoDescuento=n.PorcientoDescuento,
-                               Acumulativo=n.Acumulativo,
-                               DescuentoAplicado=n.DescuentoAplicado,
-                               Impuesto=n.Impuesto,
-                               Total=n.Total,
-                               IdProducto=n.IdProducto,
-                               ProductoInventario=n.ProductoInventario,
-                               CantidadRegistros=n.CantidadRegistros,
-
-                           }).ToList();
-            return Listado;
-        }
-        #endregion
         #region COMISIONES DE EMPLEADOS
         public List<DSMarket.Logica.Entidades.EntidadesServicio.EComisionesEmpleados> BuscaComisionesEmpleado(decimal? IdRegistro = null, decimal? IdEmpleado = null, decimal? IdTipoProducto = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null,bool? Estatus =null, decimal? IdProducto = null,decimal? NumeroConectorProducto = null,decimal? NumeroConectorOperacion = null, int? Numeropagina = null, int? NumeroRegistros = null)
         {
@@ -891,52 +326,7 @@ namespace DSMarket.Logica.Logica.LogicaServicio
             return Procesar;
         }
         #endregion
-        #region ASIGNAR LA FECHA MANUAL 
-        public DSMarket.Logica.Entidades.EntidadesServicio.EAsignaFechaManualFActuracion AsignarFechaManual(DSMarket.Logica.Entidades.EntidadesServicio.EAsignaFechaManualFActuracion Item, string Accion) {
-            ObjData.CommandTimeout = 999999999;
 
-            DSMarket.Logica.Entidades.EntidadesServicio.EAsignaFechaManualFActuracion Asignar = null;
 
-            var FechaMAnualFacturacion = ObjData.SP_ASIGNA_FECHA_MANUAL_FACTURACION(
-                Item.NumeroConector,
-                Item.FechaFactura,
-                Accion);
-            if (FechaMAnualFacturacion != null) {
-                Asignar = (from n in FechaMAnualFacturacion
-                           select new DSMarket.Logica.Entidades.EntidadesServicio.EAsignaFechaManualFActuracion
-                           {
-                               NumeroConector=n.NumeroConector,
-                               FechaFactura=n.FechaFactura
-                           }).FirstOrDefault();
-            }
-            return Asignar;
-        }
-        #endregion
-        #region BITACORA ARTICULOS DEVUELTOS
-        public DSMarket.Logica.Entidades.EntidadesServicio.EProcesarInformacionBitacoraArticulosDevueltos BitacoraArticulos(DSMarket.Logica.Entidades.EntidadesServicio.EProcesarInformacionBitacoraArticulosDevueltos Item, string Accion) {
-            ObjData.CommandTimeout = 999999999;
-
-            DSMarket.Logica.Entidades.EntidadesServicio.EProcesarInformacionBitacoraArticulosDevueltos Procesar = null;
-
-            var Bitacora = ObjData.SP_PROCESAR_BITACORA_PRODUCTOS_DEVUELTOS(
-                Item.IdBitacora,
-                Item.NumeroFactura,
-                Item.FechaFactura,
-                Item.CantidadArticulos,
-                Accion);
-            if (Bitacora != null) {
-                Procesar = (from n in Bitacora
-                            select new DSMarket.Logica.Entidades.EntidadesServicio.EProcesarInformacionBitacoraArticulosDevueltos
-                            {
-                                IdBitacora=n.IdBitacora,
-                                NumeroFactura=n.NumeroFactura,
-                                FechaFactura=n.FechaFactura,
-                                CantidadArticulos=n.CantidadArticulos
-                            }).FirstOrDefault();
-            }
-            return Procesar;
-
-        }
-        #endregion
     }
 }

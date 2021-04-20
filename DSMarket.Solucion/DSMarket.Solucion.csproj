@@ -657,24 +657,6 @@
     <Compile Include="Pantallas\Pantallas\Seguridad\UsuariosMantenimiento.Designer.cs">
       <DependentUpon>UsuariosMantenimiento.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pantallas\Pantallas\Servicio\AgregarProductos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pantallas\Pantallas\Servicio\AgregarProductos.Designer.cs">
-      <DependentUpon>AgregarProductos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pantallas\Pantallas\Servicio\AnularFactura.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pantallas\Pantallas\Servicio\AnularFactura.Designer.cs">
-      <DependentUpon>AnularFactura.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pantallas\Pantallas\Servicio\Facturacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pantallas\Pantallas\Servicio\Facturacion.Designer.cs">
-      <DependentUpon>Facturacion.cs</DependentUpon>
-    </Compile>
     <Compile Include="Pantallas\Pantallas\Servicio\FacturacionProductosServicios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -687,23 +669,11 @@
     <Compile Include="Pantallas\Pantallas\Servicio\FotoProducto.Designer.cs">
       <DependentUpon>FotoProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pantallas\Pantallas\Servicio\HistorialFActuracion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pantallas\Pantallas\Servicio\HistorialFActuracion.Designer.cs">
-      <DependentUpon>HistorialFActuracion.cs</DependentUpon>
-    </Compile>
     <Compile Include="Pantallas\Pantallas\Servicio\MantenimientoTipoPago.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pantallas\Pantallas\Servicio\MantenimientoTipoPago.Designer.cs">
       <DependentUpon>MantenimientoTipoPago.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pantallas\Pantallas\Servicio\ModificarGarantiaFactura.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pantallas\Pantallas\Servicio\ModificarGarantiaFactura.Designer.cs">
-      <DependentUpon>ModificarGarantiaFactura.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Pantallas\Servicio\TipoPago.cs">
       <SubType>Form</SubType>
@@ -1016,29 +986,14 @@
     <EmbeddedResource Include="Pantallas\Pantallas\Seguridad\UsuariosMantenimiento.resx">
       <DependentUpon>UsuariosMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\Pantallas\Servicio\AgregarProductos.resx">
-      <DependentUpon>AgregarProductos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\Pantallas\Servicio\AnularFactura.resx">
-      <DependentUpon>AnularFactura.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\Pantallas\Servicio\Facturacion.resx">
-      <DependentUpon>Facturacion.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Servicio\FacturacionProductosServicios.resx">
       <DependentUpon>FacturacionProductosServicios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Servicio\FotoProducto.resx">
       <DependentUpon>FotoProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\Pantallas\Servicio\HistorialFActuracion.resx">
-      <DependentUpon>HistorialFActuracion.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Servicio\MantenimientoTipoPago.resx">
       <DependentUpon>MantenimientoTipoPago.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\Pantallas\Servicio\ModificarGarantiaFactura.resx">
-      <DependentUpon>ModificarGarantiaFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Servicio\TipoPago.resx">
       <DependentUpon>TipoPago.cs</DependentUpon>

@@ -16,6 +16,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         {
             InitializeComponent();
         }
+        enum TipoProductoSeleccionado { 
+        ProductoNoSeleccionado=1,
+        ProductoSeleccionado=2
+        }
+
         Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
         Lazy<DSMarket.Logica.Logica.LogicaListas.LogicaListas> ObjDataListas = new Lazy<Logica.Logica.LogicaListas.LogicaListas>();
         Lazy<DSMarket.Logica.Logica.LogicaEmpresa.LogicaEmpresa> ObjDataEmpresa = new Lazy<Logica.Logica.LogicaEmpresa.LogicaEmpresa>();
@@ -203,7 +208,18 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             return RecuentoFactura;
         }
         #endregion
-
+        #region RESTABLECER PANTALLA DE FACTURACION
+        private void RestablecerPantallaFacturacion() {
+            VariablesGlobales.ProductoSeleccionadoFacturacion = (int)TipoProductoSeleccionado.ProductoNoSeleccionado;
+            btnRestablecerPantalla.Visible = false;
+            txtDescripcionItemsSeleccionado.Text = string.Empty;
+            txtTipoProductoItemsseleccionado.Text = string.Empty;
+            txtPrecioItemSeleccionado.Text = string.Empty;
+            txtStockitemSeleccionado.Text = string.Empty;
+            txtDescuentoItemsSeleccionado.Text = string.Empty;
+            txtCantidadItemSelecionado.Text = string.Empty;
+        }
+        #endregion
 
         private void MostrarComprobante() {
             //Mostrar los comprobantes fiscales
@@ -236,8 +252,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             CargarMarcas();
             MostrarListadoTipoPagos();
 
-            VariablesGlobales.NumeroConectorstring = "-1";
+            VariablesGlobales.ProductoSeleccionadoFacturacion = (int)TipoProductoSeleccionado.ProductoNoSeleccionado;
             gbItemsAgregados.Text = MostrarRecuentoFactura(0, 0, 0, 0, 0);
+            txtCodigoBarra.Focus();
         }
 
         private void cbUsarComprobantes_CheckedChanged(object sender, EventArgs e)
@@ -298,14 +315,14 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (VariablesGlobales.NumeroConectorstring == "-1") {
+            if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado) {
                 MostrarListadoProductos();
             }
         }
 
         private void txtDescripcion_TextChanged(object sender, EventArgs e)
         {
-            if (VariablesGlobales.NumeroConectorstring == "-1")
+            if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
             {
                 MostrarListadoProductos();
             }
@@ -321,7 +338,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void txtReferencia_TextChanged(object sender, EventArgs e)
         {
-            if (VariablesGlobales.NumeroConectorstring == "-1")
+            if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
             {
                 MostrarListadoProductos();
             }
@@ -329,7 +346,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void txtCodigoBarra_TextChanged(object sender, EventArgs e)
         {
-            if (VariablesGlobales.NumeroConectorstring == "-1")
+            if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
             {
                 MostrarListadoProductos();
             }
@@ -339,13 +356,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         {
             if (txtNumeroRegistros.Value < 1) {
                 txtNumeroRegistros.Value = 10;
-                if (VariablesGlobales.NumeroConectorstring == "-1")
+                if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
                 {
                     MostrarListadoProductos();
                 }
             }
             else {
-                if (VariablesGlobales.NumeroConectorstring == "-1")
+                if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
                 {
                     MostrarListadoProductos();
                 }
@@ -388,6 +405,37 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 ddlComprobante.Visible = false;
                 lbTitulo.Text = "";
             }
+        }
+
+        private void dtListadoItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try {
+                decimal IdRegistro = Convert.ToDecimal(this.dtListadoItems.CurrentRow.Cells["IdRegistro"].Value.ToString());
+                string NumeroConector = this.dtListadoItems.CurrentRow.Cells["NumeroConector"].Value.ToString();
+
+                var BuscarRegistros = ObjDataInventario.Value.BuscaProductosServicios(IdRegistro, NumeroConector, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                dtListadoItems.DataSource = BuscarRegistros;
+                OcultarColumnasListadoItems();
+                foreach (var n in BuscarRegistros) {
+                    txtDescripcionItemsSeleccionado.Text = n.Descripcion;
+                    txtTipoProductoItemsseleccionado.Text = n.TipoProducto;
+                    decimal Precio = (decimal)n.PrecioVenta;
+                    txtPrecioItemSeleccionado.Text = Precio.ToString("N2");
+                    decimal Stock = (decimal)n.Stock;
+                    txtStockitemSeleccionado.Text = Stock.ToString("N0");
+                    txtDescuentoItemsSeleccionado.Text = "0";
+                    txtCantidadItemSelecionado.Text = "1";
+                    VariablesGlobales.ProductoSeleccionadoFacturacion = (int)TipoProductoSeleccionado.ProductoSeleccionado;
+                    btnRestablecerPantalla.Visible = true;
+                }
+            }
+            catch (Exception) { }
+        }
+
+        private void btnRestablecerPantalla_Click(object sender, EventArgs e)
+        {
+            RestablecerPantallaFacturacion();
+            MostrarListadoProductos();
         }
     }
 }
