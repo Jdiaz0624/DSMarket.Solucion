@@ -92,6 +92,9 @@
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionReportesFinancieros.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionTipoTiempoGarantia.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Servicio\ProcesarInformacionComisionesEmpleados.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\Servicio\ProcesarInformacionFactura.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\Servicio\ProcesarInformacionFacturacionDetalle.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\Servicio\ProcesarInformacionFacturacionPreview.cs" />
     <Compile Include="Comunes\ProcesarMontoInicialCaja.cs" />
     <Compile Include="Comunes\ProcesarProductosDefectuosos.cs" />
     <Compile Include="Comunes\ProcesarRegistrosReporteProductosDefectuosos.cs" />
@@ -219,6 +222,8 @@
     <Compile Include="Entidades\EntidadesSeguridad\EMantenimientoUsuario.cs" />
     <Compile Include="Entidades\EntidadesSeguridad\EUsuarios.cs" />
     <Compile Include="Entidades\EntidadesServicio\EComisionesEmpleados.cs" />
+    <Compile Include="Entidades\EntidadesServicio\EFacturacion.cs" />
+    <Compile Include="Entidades\EntidadesServicio\EFacturacionDetalle.cs" />
     <Compile Include="Entidades\EntidadesServicio\EFacturacionEspejo.cs" />
     <Compile Include="Entidades\EntidadesServicio\EFacturacionPreview.cs" />
     <Compile Include="Entidades\EntidadesServicio\EMantenimientoTipoPago.cs" />

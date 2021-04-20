@@ -124,8 +124,22 @@ namespace DSMarket.Logica.Comunes
         public decimal ConectorProductoComisiones { get; set; }
         
         public bool ValidarComisiones { get; set; }
-        
-        
+
+
+
+        #endregion
+
+        #region VARIABLES GLOBALES FACTURACION
+        public decimal IdProductoFacturarCotizar { get; set; }
+        public decimal IdTipoProductoFacturarCotizar { get; set; }
+        public string ProductoSeleccionadoFacturarCotizar { get; set; }
+        public int TotalProductosFacturarCotizar { get; set; }
+        public int TotalServiciosFacturarCotizar { get; set; }
+        public int TotalItemsFacturarCotizar { get; set; }
+        public decimal SubTotalFacturarCotizar { get; set; }
+        public decimal TotalDescuentoFacturarCotizar { get; set; }
+        public decimal TotalImpuestoFacturarCotizar { get; set; }
+        public decimal TotalGeneralFacturarCotizar { get; set; }
 
         #endregion
     }

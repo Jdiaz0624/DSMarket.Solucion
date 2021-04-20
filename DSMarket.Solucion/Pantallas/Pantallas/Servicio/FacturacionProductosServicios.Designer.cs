@@ -30,10 +30,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.cbUsarComprobantes = new System.Windows.Forms.CheckBox();
             this.rbCotizar = new System.Windows.Forms.RadioButton();
@@ -45,6 +45,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnARS = new System.Windows.Forms.Button();
+            this.btnRestablecerPantalla = new System.Windows.Forms.Button();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbCantidadServiciosVariable = new System.Windows.Forms.Label();
@@ -54,6 +55,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.gbGeneral = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.rbBuscarPorRNC = new System.Windows.Forms.RadioButton();
+            this.rbBuscarPorCodigo = new System.Windows.Forms.RadioButton();
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.txtTasa = new System.Windows.Forms.TextBox();
@@ -99,8 +103,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.ddlTipoProducto = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.rbBuscarPorCodigo = new System.Windows.Forms.RadioButton();
-            this.rbBuscarPorRNC = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtComentario = new System.Windows.Forms.TextBox();
@@ -110,18 +112,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.lbComprobante = new System.Windows.Forms.Label();
             this.btnFiltroCliente = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnRestablecerPantalla = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.gbGeneral.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
             this.gbItemsAgregados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtItemsAgregados)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtListadoItems)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbUsarComprobantes
@@ -249,6 +249,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.button2.TabIndex = 96;
             this.toolTip1.SetToolTip(this.button2, "Buscar Cliente mediante el codigo");
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnARS
             // 
@@ -265,6 +266,20 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.btnARS.Text = "Completar Operación";
             this.toolTip1.SetToolTip(this.btnARS, "Completar Operación");
             this.btnARS.UseVisualStyleBackColor = true;
+            // 
+            // btnRestablecerPantalla
+            // 
+            this.btnRestablecerPantalla.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestablecerPantalla.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRestablecerPantalla.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
+            this.btnRestablecerPantalla.Location = new System.Drawing.Point(1077, 420);
+            this.btnRestablecerPantalla.Name = "btnRestablecerPantalla";
+            this.btnRestablecerPantalla.Size = new System.Drawing.Size(41, 26);
+            this.btnRestablecerPantalla.TabIndex = 109;
+            this.toolTip1.SetToolTip(this.btnRestablecerPantalla, "Buscar Cliente mediante el codigo");
+            this.btnRestablecerPantalla.UseVisualStyleBackColor = true;
+            this.btnRestablecerPantalla.Visible = false;
+            this.btnRestablecerPantalla.Click += new System.EventHandler(this.btnRestablecerPantalla_Click);
             // 
             // bunifuElipse1
             // 
@@ -334,6 +349,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PCerrar.TabIndex = 19;
             this.PCerrar.TabStop = false;
+            this.toolTip1.SetToolTip(this.PCerrar, "Cerrar");
+            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
             // 
             // lbTitulo
             // 
@@ -406,6 +423,39 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.gbGeneral.TabIndex = 4;
             this.gbGeneral.TabStop = false;
             this.gbGeneral.Text = "Datos de Facturación";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.rbBuscarPorRNC);
+            this.groupBox3.Controls.Add(this.rbBuscarPorCodigo);
+            this.groupBox3.Controls.Add(this.cbUsarComprobantes);
+            this.groupBox3.Location = new System.Drawing.Point(252, 13);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(914, 44);
+            this.groupBox3.TabIndex = 108;
+            this.groupBox3.TabStop = false;
+            // 
+            // rbBuscarPorRNC
+            // 
+            this.rbBuscarPorRNC.AutoSize = true;
+            this.rbBuscarPorRNC.Location = new System.Drawing.Point(6, 16);
+            this.rbBuscarPorRNC.Name = "rbBuscarPorRNC";
+            this.rbBuscarPorRNC.Size = new System.Drawing.Size(196, 24);
+            this.rbBuscarPorRNC.TabIndex = 67;
+            this.rbBuscarPorRNC.TabStop = true;
+            this.rbBuscarPorRNC.Text = "Buscar Cliente Por RNC";
+            this.rbBuscarPorRNC.UseVisualStyleBackColor = true;
+            // 
+            // rbBuscarPorCodigo
+            // 
+            this.rbBuscarPorCodigo.AutoSize = true;
+            this.rbBuscarPorCodigo.Location = new System.Drawing.Point(226, 16);
+            this.rbBuscarPorCodigo.Name = "rbBuscarPorCodigo";
+            this.rbBuscarPorCodigo.Size = new System.Drawing.Size(212, 24);
+            this.rbBuscarPorCodigo.TabIndex = 68;
+            this.rbBuscarPorCodigo.TabStop = true;
+            this.rbBuscarPorCodigo.Text = "Buscar Cliente Por Codigo";
+            this.rbBuscarPorCodigo.UseVisualStyleBackColor = true;
             // 
             // txtNumeroRegistros
             // 
@@ -540,7 +590,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // gbItemsAgregados
             // 
             this.gbItemsAgregados.Controls.Add(this.dtItemsAgregados);
-            this.gbItemsAgregados.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbItemsAgregados.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbItemsAgregados.Location = new System.Drawing.Point(7, 448);
             this.gbItemsAgregados.Name = "gbItemsAgregados";
             this.gbItemsAgregados.Size = new System.Drawing.Size(1153, 119);
@@ -553,21 +603,21 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // 
             this.dtItemsAgregados.AllowUserToAddRows = false;
             this.dtItemsAgregados.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtItemsAgregados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtItemsAgregados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
             this.dtItemsAgregados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtItemsAgregados.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtItemsAgregados.BackgroundColor = System.Drawing.Color.LightGray;
             this.dtItemsAgregados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtItemsAgregados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtItemsAgregados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dtItemsAgregados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtItemsAgregados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewButtonColumn1});
@@ -721,21 +771,21 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // 
             this.dtListadoItems.AllowUserToAddRows = false;
             this.dtListadoItems.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtListadoItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtListadoItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
             this.dtListadoItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtListadoItems.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtListadoItems.BackgroundColor = System.Drawing.Color.LightGray;
             this.dtListadoItems.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtListadoItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtListadoItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.dtListadoItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtListadoItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Select});
@@ -915,28 +965,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.label1.TabIndex = 67;
             this.label1.Text = "Agregar a Consulta";
             // 
-            // rbBuscarPorCodigo
-            // 
-            this.rbBuscarPorCodigo.AutoSize = true;
-            this.rbBuscarPorCodigo.Location = new System.Drawing.Point(226, 16);
-            this.rbBuscarPorCodigo.Name = "rbBuscarPorCodigo";
-            this.rbBuscarPorCodigo.Size = new System.Drawing.Size(212, 24);
-            this.rbBuscarPorCodigo.TabIndex = 68;
-            this.rbBuscarPorCodigo.TabStop = true;
-            this.rbBuscarPorCodigo.Text = "Buscar Cliente Por Codigo";
-            this.rbBuscarPorCodigo.UseVisualStyleBackColor = true;
-            // 
-            // rbBuscarPorRNC
-            // 
-            this.rbBuscarPorRNC.AutoSize = true;
-            this.rbBuscarPorRNC.Location = new System.Drawing.Point(6, 16);
-            this.rbBuscarPorRNC.Name = "rbBuscarPorRNC";
-            this.rbBuscarPorRNC.Size = new System.Drawing.Size(196, 24);
-            this.rbBuscarPorRNC.TabIndex = 67;
-            this.rbBuscarPorRNC.TabStop = true;
-            this.rbBuscarPorRNC.Text = "Buscar Cliente Por RNC";
-            this.rbBuscarPorRNC.UseVisualStyleBackColor = true;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label2);
@@ -1033,31 +1061,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.label5.TabIndex = 58;
             this.label5.Text = "Filtro de Cliente";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.rbBuscarPorRNC);
-            this.groupBox3.Controls.Add(this.rbBuscarPorCodigo);
-            this.groupBox3.Controls.Add(this.cbUsarComprobantes);
-            this.groupBox3.Location = new System.Drawing.Point(252, 13);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(914, 44);
-            this.groupBox3.TabIndex = 108;
-            this.groupBox3.TabStop = false;
-            // 
-            // btnRestablecerPantalla
-            // 
-            this.btnRestablecerPantalla.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestablecerPantalla.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRestablecerPantalla.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
-            this.btnRestablecerPantalla.Location = new System.Drawing.Point(1077, 420);
-            this.btnRestablecerPantalla.Name = "btnRestablecerPantalla";
-            this.btnRestablecerPantalla.Size = new System.Drawing.Size(41, 26);
-            this.btnRestablecerPantalla.TabIndex = 109;
-            this.toolTip1.SetToolTip(this.btnRestablecerPantalla, "Buscar Cliente mediante el codigo");
-            this.btnRestablecerPantalla.UseVisualStyleBackColor = true;
-            this.btnRestablecerPantalla.Visible = false;
-            this.btnRestablecerPantalla.Click += new System.EventHandler(this.btnRestablecerPantalla_Click);
-            // 
             // FacturacionProductosServicios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1071,12 +1074,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.Name = "FacturacionProductosServicios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FacturacionProductosServicios";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FacturacionProductosServicios_FormClosing);
             this.Load += new System.EventHandler(this.FacturacionProductosServicios_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.gbGeneral.ResumeLayout(false);
             this.gbGeneral.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).EndInit();
             this.gbItemsAgregados.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtItemsAgregados)).EndInit();
@@ -1084,8 +1090,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             ((System.ComponentModel.ISupportInitialize)(this.dtListadoItems)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }

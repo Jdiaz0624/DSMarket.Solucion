@@ -96,27 +96,36 @@ namespace DSMarket.Logica.Logica.LogicaServicio
             var BuscarListado = (from n in ObjData.SP_BUSCAR_FACTURACION_PREVIEW(IdUsuario, NumeroConector)
                                  select new DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionPreview
                                  {
-                                     IdUsuario=n.IdUsuario,
+                                    IdUsuario=n.IdUsuario,
                                      NumeroConector=n.NumeroConector,
                                      IdProducto=n.IdProducto,
+                                     Descripcion=n.Descripcion,
                                      IdTipoProducto=n.IdTipoProducto,
                                      Precio=n.Precio,
-                                     DescuentoAplicado=n.DescuentoAplicado,
                                      Cantidad=n.Cantidad,
+                                     Descuento=n.Descuento,
+                                     PorcientoImpuesto=n.PorcientoImpuesto,
                                      SubTotal=n.SubTotal,
                                      Impuesto=n.Impuesto,
                                      Total=n.Total,
-                                     TotalProdctos=n.TotalProdctos,
-                                     TotalServicios=n.TotalServicios,
+                                     TotalProducto=n.TotalProducto,
+                                     TotalServicio=n.TotalServicio,
                                      TotalItems=n.TotalItems,
-                                     SubTotal1=n.SubTotal,
                                      TotalDescuento=n.TotalDescuento,
+                                     TotalSubTotal=n.TotalSubTotal,
                                      TotalImpuesto=n.TotalImpuesto,
                                      TotalGeneral=n.TotalGeneral
+
                                  }).ToList();
             return BuscarListado;
         }
 
+        /// <summary>
+        /// Este metodo es para procesar informacion de los productos agregados
+        /// </summary>
+        /// <param name="Item"></param>
+        /// <param name="Accion"></param>
+        /// <returns></returns>
         public DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionPreview ProcesarDatosFacturacionPreview(DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionPreview Item, string Accion) {
             ObjData.CommandTimeout = 999999999;
 
@@ -128,11 +137,9 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                 Item.IdProducto,
                 Item.IdTipoProducto,
                 Item.Precio,
-                Item.DescuentoAplicado,
-                Item.Cantidad,
-                Item.SubTotal,
-                Item.Impuesto,
-                Item.Total,
+                (int)Item.Cantidad,
+                Item.Descuento,
+                Item.PorcientoImpuesto,
                 Accion);
             if (FacturacionPreview != null) {
                 Procesar = (from n in FacturacionPreview
@@ -143,17 +150,172 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                 IdProducto=n.IdProducto,
                                 IdTipoProducto=n.IdTipoProducto,
                                 Precio=n.Precio,
-                                DescuentoAplicado=n.DescuentoAplicado,
                                 Cantidad=n.Cantidad,
-                                SubTotal=n.SubTotal,
-                                Impuesto=n.Impuesto,
-                                Total=n.Total
+                                Descuento=n.Descuento,
+                                PorcientoImpuesto=n.PorcientoImpuesto
                             }).FirstOrDefault();
             }
             return Procesar;
         }
-  
 
+        /// <summary>
+        /// Este metodo es para procesar la informacion de la factura en cabezado
+        /// </summary>
+        /// <param name="Item"></param>
+        /// <param name="Accion"></param>
+        /// <returns></returns>
+        public DSMarket.Logica.Entidades.EntidadesServicio.EFacturacion ProcesarFacturacion(DSMarket.Logica.Entidades.EntidadesServicio.EFacturacion Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesServicio.EFacturacion Procesar = null;
+
+            var Facturacion = ObjData.SP_PROCESAR_INFORMACION_FACTURACION(
+                Item.NumeroFactura,
+                Item.NumeroConector,
+                Item.FacturadoA,
+                Item.CodigoCliente,
+                Item.IdTipoFacturacion,
+                Item.Comentario,
+                Item.TotalProductos,
+                Item.TotalServicios,
+                Item.TotalItems,
+                Item.SubTotal,
+                Item.DescuentoTotal,
+                Item.ImpuestoTotal,
+                Item.TotalGeneral,
+                Item.IdTipoPago,
+                Item.MontoPagado,
+                Item.Cambio,
+                Item.IdMoneda,
+                Item.Tasa,
+                Item.IdUsuario,
+                Item.FechaFacturacion,
+                Item.IdComprobante,
+                Item.ValidoHasta,
+                Item.NumeroComprobante,
+                Accion);
+            if (Facturacion != null) {
+                Procesar = (from n in Facturacion
+                            select new DSMarket.Logica.Entidades.EntidadesServicio.EFacturacion
+                            {
+                                NumeroFactura=n.NumeroFactura,
+                                NumeroConector=n.NumeroConector,
+                                FacturadoA=n.FacturadoA,
+                                CodigoCliente=n.CodigoCliente,
+                                IdTipoFacturacion=n.IdTipoFacturacion,
+                                Comentario=n.Comentario,
+                                TotalProductos=n.TotalProductos,
+                                TotalServicios=n.TotalServicios,
+                                TotalItems=n.TotalItems,
+                                SubTotal=n.SubTotal,
+                                DescuentoTotal=n.DescuentoTotal,
+                                ImpuestoTotal=n.ImpuestoTotal,
+                                TotalGeneral=n.TotalGeneral,
+                                IdTipoPago=n.IdTipoPago,
+                                MontoPagado=n.MontoPagado,
+                                Cambio=n.Cambio,
+                                IdMoneda=n.IdMoneda,
+                                Tasa=n.Tasa,
+                                IdUsuario=n.IdUsuario,
+                                FechaFacturacion=n.FechaFacturacion,
+                                IdComprobante=n.IdComprobante,
+                                ValidoHasta=n.ValidoHasta,
+                                NumeroComprobante=n.NumeroComprobante
+                            }).FirstOrDefault();
+            }
+            return Procesar;
+        }
+
+        public DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionDetalle ProcesarfacturacionDetalle(DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionDetalle Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionDetalle Procesar = null;
+
+            var FacturacionDetalle = ObjData.SP_PROCESAR_INFORMACION_FACTURACION_DETALLE(
+                Item.NumeroConector,
+                Item.Tipo,
+                Item.Precio,
+                Item.Descuento,
+                Item.Cantidad,
+                Item.IdRegistroRespaldo,
+                Item.NumeroConectorItemRespaldo,
+                Item.IdTipoProductoRespaldo,
+                Item.IdCategoriaRespaldo,
+                Item.IdMarcaRespaldo,
+                Item.IdTipoSuplidorRespaldo,
+                Item.IdSuplidorRespaldo,
+                Item.DescripcionRespaldo,
+                Item.CodigoBarraRespaldo,
+                Item.ReferenciaRespaldo,
+                Item.NumeroSeguimientoRespaldo,
+                Item.CodigoProductoRespaldo,
+                Item.PrecioCompraRespaldo,
+                Item.PrecioVentaRespaldo,
+                Item.StockRespaldo,
+                Item.StockMinimoRespaldo,
+                Item.UnidadMedidaRespaldo,
+                Item.ModeloRespaldo,
+                Item.ColorRespaldo,
+                Item.CondicionRespaldo,
+                Item.CapacidadRespaldo,
+                Item.AplicaParaImpuestoRespaldo,
+                Item.TieneImagenRespaldo,
+                Item.LlevaGarantiaRespaldo,
+                Item.IdTipoGarantiaRespaldo,
+                Item.TiempoGarantiaRespaldo,
+                Item.ComentarioItemRespaldo,
+                Item.UsuarioAdicionaRespaldo,
+                Item.FechaAdicionaRespaldo,
+                Item.UsuarioModificaRespaldo,
+                Item.FechaModificaRespaldo,
+                Item.FechaIngresoRespaldo,
+                Accion);
+            if (FacturacionDetalle != null) {
+                Procesar = (from n in FacturacionDetalle
+                            select new DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionDetalle
+                            {
+                                NumeroConector = n.NumeroConector,
+                                Tipo = n.Tipo,
+                                Precio = n.Precio,
+                                Descuento = n.Descuento,
+                                Cantidad = n.Cantidad,
+                                IdRegistroRespaldo = n.IdRegistroRespaldo,
+                                NumeroConectorItemRespaldo = n.NumeroConectorItemRespaldo,
+                                IdTipoProductoRespaldo = n.IdTipoProductoRespaldo,
+                                IdCategoriaRespaldo = n.IdCategoriaRespaldo,
+                                IdMarcaRespaldo = n.IdMarcaRespaldo,
+                                IdTipoSuplidorRespaldo = n.IdTipoSuplidorRespaldo,
+                                IdSuplidorRespaldo = n.IdSuplidorRespaldo,
+                                DescripcionRespaldo = n.DescripcionRespaldo,
+                                CodigoBarraRespaldo = n.CodigoBarraRespaldo,
+                                ReferenciaRespaldo = n.ReferenciaRespaldo,
+                                NumeroSeguimientoRespaldo = n.ReferenciaRespaldo,
+                                CodigoProductoRespaldo = n.CodigoProductoRespaldo,
+                                PrecioCompraRespaldo = n.PrecioCompraRespaldo,
+                                PrecioVentaRespaldo = n.PrecioVentaRespaldo,
+                                StockRespaldo = n.StockRespaldo,
+                                StockMinimoRespaldo = n.StockMinimoRespaldo,
+                                UnidadMedidaRespaldo = n.UnidadMedidaRespaldo,
+                                ModeloRespaldo = n.ModeloRespaldo,
+                                ColorRespaldo = n.ColorRespaldo,
+                                CondicionRespaldo = n.CondicionRespaldo,
+                                CapacidadRespaldo = n.CapacidadRespaldo,
+                                AplicaParaImpuestoRespaldo = n.AplicaParaImpuestoRespaldo,
+                                TieneImagenRespaldo = n.TieneImagenRespaldo,
+                                LlevaGarantiaRespaldo = n.LlevaGarantiaRespaldo,
+                                IdTipoGarantiaRespaldo = n.IdTipoGarantiaRespaldo,
+                                TiempoGarantiaRespaldo = n.TiempoGarantiaRespaldo,
+                                ComentarioItemRespaldo = n.ComentarioItemRespaldo,
+                                UsuarioAdicionaRespaldo = n.UsuarioAdicionaRespaldo,
+                                FechaAdicionaRespaldo = n.FechaAdicionaRespaldo,
+                                UsuarioModificaRespaldo = n.UsuarioModificaRespaldo,
+                                FechaModificaRespaldo = n.FechaModificaRespaldo,
+                                FechaIngresoRespaldo = n.FechaIngresoRespaldo
+                            }).FirstOrDefault();
+            }
+            return Procesar;
+           
+        }
         #endregion
       
    
