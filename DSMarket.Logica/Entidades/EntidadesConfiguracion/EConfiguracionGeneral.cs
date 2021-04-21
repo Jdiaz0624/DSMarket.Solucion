@@ -8,16 +8,16 @@ namespace DSMarket.Logica.Entidades.EntidadesConfiguracion
 {
     public class EConfiguracionGeneral
     {
-        public int? IdConfiguracionGeneral { get; set; }
+		public System.Nullable<decimal> IdConfiguracion { get; set; }
 
-        public string Descripcion { get; set; }
+		public System.Nullable<decimal> IdModulo { get; set; }
 
-        public System.Nullable<bool> Estatus0 { get; set; }
+		public string Modulo { get; set; }
 
-        public string Estatus { get; set; }
+		public string Descripcion { get; set; }
 
-        public System.Nullable<int> CantidadActivos { get; set; }
+		public System.Nullable<bool> Estatus0 { get; set; }
 
-        public System.Nullable<int> CantidadInactivos { get; set; }
-    }
+		public string Estatus { get; set; }
+	}
 }

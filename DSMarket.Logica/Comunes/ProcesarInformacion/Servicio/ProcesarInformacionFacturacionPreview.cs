@@ -15,7 +15,7 @@ namespace DSMarket.Logica.Comunes.ProcesarInformacion.Servicio
         private decimal IdProducto = 0;
         private decimal IdTipoProducto = 0;
         private decimal Precio = 0;
-        private int Cantidad = 0;
+        private decimal Cantidad = 0;
         private decimal Descuento = 0;
         private decimal PorcientoImpuesto = 0;
         private string Accion = "";
@@ -26,7 +26,7 @@ namespace DSMarket.Logica.Comunes.ProcesarInformacion.Servicio
         decimal IdProductoCON,
         decimal IdTipoProductoCON,
         decimal PrecioCON,
-        int CantidadCON,
+        decimal CantidadCON,
         decimal DescuentoCON,
         decimal PorcientoImpuestoCON,
         string AccionCON)

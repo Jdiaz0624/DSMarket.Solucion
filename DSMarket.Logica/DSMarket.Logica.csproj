@@ -62,9 +62,9 @@
     <Compile Include="Comunes\ProcesarInformacion607.cs" />
     <Compile Include="Comunes\ProcesarInformacionCompraSuplidores.cs" />
     <Compile Include="Comunes\ProcesarInformacionDataReporte606.cs" />
-    <Compile Include="Comunes\ProcesarInformacionModificarConfiguracionGeneral.cs" />
     <Compile Include="Comunes\ProcesarInformacionReporte608.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Configuracion\ProcesarInformacionCamposEspeciales.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\Configuracion\ProcesarInformacionConfiguracionGeneralSistema.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Configuracion\ProcesarInformacionDatosreporteEmpleados.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Configuracion\ProcesarInformacionDescuentoPorDefecto.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionBancos.cs" />
@@ -193,11 +193,13 @@
     <Compile Include="Entidades\EntidadesListas\EListaCategorias.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaComprobantesFiscales.cs" />
     <Compile Include="Entidades\EntidadesListas\EListadoDepartamentos.cs" />
+    <Compile Include="Entidades\EntidadesListas\EListadoMoneda.cs" />
     <Compile Include="Entidades\EntidadesListas\EListadoTipoAnulaicon.cs" />
     <Compile Include="Entidades\EntidadesListas\EListadoTipoPago.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaEstatusFacturacion.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaMarcas.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaModeos.cs" />
+    <Compile Include="Entidades\EntidadesListas\EListaModulos.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaNacionalidad.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaNivelAcceso.cs" />
     <Compile Include="Entidades\EntidadesListas\EListaRetenciones.cs" />

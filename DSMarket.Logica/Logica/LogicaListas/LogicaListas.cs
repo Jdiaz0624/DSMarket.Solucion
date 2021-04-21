@@ -531,5 +531,36 @@ namespace DSMarket.Logica.Logica.LogicaListas
 
         }
         #endregion
+
+        #region MOSTRAR EL LISTADO DE LAS MONEDAS
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EListadoMoneda> CargarListadoMonedas() {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var ListadoMonedas = (from n in ObjDataListas.SP_LISTA_MONEDA()
+                                  select new DSMarket.Logica.Entidades.EntidadesListas.EListadoMoneda
+                                  {
+                                      IdMoneda=n.IdMoneda,
+                                      Descripcion=n.Descripcion
+                                  }).ToList();
+            return ListadoMonedas;
+        }
+
+        #endregion
+
+        #region MOSTRAR EL LISTADO DE LOS MODULOS
+        public List<DSMarket.Logica.Entidades.EntidadesListas.EListaModulos> CargarListadoModulos()
+        {
+            ObjDataListas.CommandTimeout = 999999999;
+
+            var ListadoModulos = (from n in ObjDataListas.SP_CARGAR_MODULOS()
+                                  select new DSMarket.Logica.Entidades.EntidadesListas.EListaModulos
+                                  {
+                                      IdModulo = n.IdModulo,
+                                      Descripcion = n.Descripcion
+                                  }).ToList();
+            return ListadoModulos;
+        }
+
+        #endregion
     }
 }

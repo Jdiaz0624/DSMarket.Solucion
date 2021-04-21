@@ -39,21 +39,21 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
 
         private void btnComprobantes_Click(object sender, EventArgs e)
         {
-            bool UsoComprobante = false;
+            //bool UsoComprobante = false;
 
-            var SacarValidacion = ObjDataConfiguracion.Value.BuscaCOnfiguracionGeneral(1);
-            foreach (var n in SacarValidacion) {
-                UsoComprobante = Convert.ToBoolean(n.Estatus0);
-            }
+            //var SacarValidacion = ObjDataConfiguracion.Value.BuscaCOnfiguracionGeneral(1);
+            //foreach (var n in SacarValidacion) {
+            //    UsoComprobante = Convert.ToBoolean(n.Estatus0);
+            //}
 
-            if (UsoComprobante == true)
-            {
-                DSMarket.Solucion.Pantallas.Pantallas.Configuracion.Comprobantes Comprobantes = new Pantallas.Configuracion.Comprobantes();
-                Comprobantes.ShowDialog();
-            }
-            else {
-                MessageBox.Show("El uso de comprobantes fiscales esta desactivado, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            //if (UsoComprobante == true)
+            //{
+            //    DSMarket.Solucion.Pantallas.Pantallas.Configuracion.Comprobantes Comprobantes = new Pantallas.Configuracion.Comprobantes();
+            //    Comprobantes.ShowDialog();
+            //}
+            //else {
+            //    MessageBox.Show("El uso de comprobantes fiscales esta desactivado, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
@@ -89,7 +89,7 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
 
         private void BtnComfiguracionGeneral_Click(object sender, EventArgs e)
         {
-            DSMarket.Solucion.Pantallas.Pantallas.Configuracion.ModificarConfiguracionGeneral ConfiguracionGeneral = new Pantallas.Configuracion.ModificarConfiguracionGeneral();
+            DSMarket.Solucion.Pantallas.Pantallas.Configuracion.ConfiguracionGeneral ConfiguracionGeneral = new Pantallas.Configuracion.ConfiguracionGeneral();
             ConfiguracionGeneral.ShowDialog();
         }
 

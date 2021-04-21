@@ -86,14 +86,14 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             lbCantidadRegistrosTitulo.ForeColor = Color.WhiteSmoke;
             lbCantidadRegistrosVariable.ForeColor = Color.WhiteSmoke;
 
-            bool ValidaCumpleanos = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(15);
-            if (ValidaCumpleanos == true)
-            {
-                btnCumpleanos.Visible = true;
-            }
-            else {
-                btnCumpleanos.Visible = false;
-            }
+            //bool ValidaCumpleanos = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(15);
+            //if (ValidaCumpleanos == true)
+            //{
+            //    btnCumpleanos.Visible = true;
+            //}
+            //else {
+            //    btnCumpleanos.Visible = false;
+            //}
         }
 
         private void PCerrar_Click(object sender, EventArgs e)

@@ -235,4 +235,16 @@
       <Column Name="FormaPago" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Listas.SP_LISTA_MONEDA" Method="SP_LISTA_MONEDA">
+    <ElementType Name="SP_LISTA_MONEDAResult">
+      <Column Name="IdMoneda" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_CARGAR_MODULOS" Method="SP_CARGAR_MODULOS">
+    <ElementType Name="SP_CARGAR_MODULOSResult">
+      <Column Name="IdModulo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

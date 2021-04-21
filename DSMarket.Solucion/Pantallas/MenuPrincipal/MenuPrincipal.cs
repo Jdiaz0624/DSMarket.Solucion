@@ -59,32 +59,32 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
             }
         }
         #endregion
-        private void MostrarNotificaciones() {
-            bool AlertaCumpleaños = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(15);
-            if (AlertaCumpleaños == true) {
-                //SACAR LA CANTIDAD PERSONAS DE FIESTA DE CUMPLEAÑOS
-                var Cantidad = ObjDataEmpresa.Value.MostrarCumpleanosClientes(1, 999999999);
-                string CantidadRegistros = Cantidad.Count.ToString();
-                int CantidadRegistrosEntero = Cantidad.Count;
-                string ClientePlural = "";
+        //private void MostrarNotificaciones() {
+        //    bool AlertaCumpleaños = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(15);
+        //    if (AlertaCumpleaños == true) {
+        //        //SACAR LA CANTIDAD PERSONAS DE FIESTA DE CUMPLEAÑOS
+        //        var Cantidad = ObjDataEmpresa.Value.MostrarCumpleanosClientes(1, 999999999);
+        //        string CantidadRegistros = Cantidad.Count.ToString();
+        //        int CantidadRegistrosEntero = Cantidad.Count;
+        //        string ClientePlural = "";
 
-                if (CantidadRegistrosEntero != 0) {
+        //        if (CantidadRegistrosEntero != 0) {
 
-                    if (CantidadRegistrosEntero == 1) {
-                        ClientePlural = "Cliente";
-                    }
-                    else {
-                        ClientePlural = "Clientes";
-                    }
+        //            if (CantidadRegistrosEntero == 1) {
+        //                ClientePlural = "Cliente";
+        //            }
+        //            else {
+        //                ClientePlural = "Clientes";
+        //            }
 
-                    NotificacionCumpleanos.Icon = new System.Drawing.Icon(Path.GetFullPath(@"../../Resources/DSMarket-Icono-1024x1024.ico"));
-                    NotificacionCumpleanos.Text = "DeveSoft - DSMarket";
-                    NotificacionCumpleanos.Visible = true;
-                    NotificacionCumpleanos.BalloonTipTitle = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
-                    NotificacionCumpleanos.BalloonTipText = "Se han encontrado " + CantidadRegistros + " " + ClientePlural + " que estan de cumpleaños el dia de hoy";
-                    NotificacionCumpleanos.ShowBalloonTip(100);
-                }
-            }
+        //            NotificacionCumpleanos.Icon = new System.Drawing.Icon(Path.GetFullPath(@"../../Resources/DSMarket-Icono-1024x1024.ico"));
+        //            NotificacionCumpleanos.Text = "DeveSoft - DSMarket";
+        //            NotificacionCumpleanos.Visible = true;
+        //            NotificacionCumpleanos.BalloonTipTitle = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+        //            NotificacionCumpleanos.BalloonTipText = "Se han encontrado " + CantidadRegistros + " " + ClientePlural + " que estan de cumpleaños el dia de hoy";
+        //            NotificacionCumpleanos.ShowBalloonTip(100);
+        //        }
+        //    }
 
 
 
@@ -92,7 +92,7 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
 
 
             
-        }
+        //}
         private void PCerrar_Click(object sender, EventArgs e)
         {
 
@@ -189,7 +189,7 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
                 btnContabilidad.Enabled = false;
                 btnReportesSistema.Enabled = false;
             }
-            MostrarNotificaciones();
+          //  MostrarNotificaciones();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

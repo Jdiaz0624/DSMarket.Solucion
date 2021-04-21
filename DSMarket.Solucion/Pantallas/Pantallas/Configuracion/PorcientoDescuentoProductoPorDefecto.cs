@@ -77,7 +77,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
                 else {
                     groupBox1.Enabled = false;
                     groupBox2.Enabled = true;
-                    txtPorciento.Text = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.SacarPorcientoDescuentoProducto(1).ToString();
+                  //  txtPorciento.Text = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.SacarPorcientoDescuentoProducto(1).ToString();
                 }
             }
         }

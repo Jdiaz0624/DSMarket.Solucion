@@ -377,60 +377,6 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             return Modificar;
         }
         #endregion
-        #region MOSTRAR EL LISTADO DE LOS CONFIGURACIONES GENERALES
-        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral> BuscaCOnfiguracionGeneral(int? IdConfiguracionGeneral = null)
-        {
-            ObjData.CommandTimeout = 999999999;
-
-            var Listado = (from n in ObjData.SP_BUSCA_CONFIGURACION_GENERAL(IdConfiguracionGeneral)
-                           select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral
-                           {
-                               IdConfiguracionGeneral = n.IdConfiguracionGeneral,
-                               Descripcion = n.Descripcion,
-                               Estatus0 = n.Estatus0,
-                               Estatus = n.Estatus,
-                               CantidadActivos = n.CantidadActivos,
-                               CantidadInactivos = n.CantidadInactivos
-                           }).ToList();
-            return Listado;
-        }
-        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral MantenimientoConfiguracionGeneral(DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral Item, string Accion)
-        {
-            ObjData.CommandTimeout = 999999999;
-
-            DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral Mantenimiento = null;
-
-            var ConfiguracionGeneral = ObjData.SP_MANTENIMIENTO_CONFIGURACION_GENERAL(
-                Item.IdConfiguracionGeneral,
-                Item.Descripcion,
-                Item.Estatus0,
-                Accion);
-            if (ConfiguracionGeneral != null)
-            {
-                Mantenimiento = (from n in ConfiguracionGeneral
-                                 select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral
-                                 {
-                                     IdConfiguracionGeneral = n.IdConfiguracionGeneral,
-                                     Descripcion = n.Descripcion,
-                                     Estatus0 = n.Estatus
-                                 }).FirstOrDefault();
-            }
-            return Mantenimiento;
-        }
-
-        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarComprobante> GenerarComprobanteFiscal(decimal? IdComprobante = null)
-        {
-            ObjData.CommandTimeout = 999999999;
-
-            var Generar = (from n in ObjData.SP_GENERAR_COMPROBANTE_FISCAL(IdComprobante)
-                           select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarComprobante
-                           {
-                               TipoComprobante = n.TipoComprobante,
-                               Comprobante = n.Comprobante
-                           }).ToList();
-            return Generar;
-        }
-        #endregion
         #region GENERAR COMPROBANTE FISCAL
         public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EGenerarComprobante> GenerarComprobante(decimal? IdComprobante = null)
         {
@@ -1070,30 +1016,6 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
 
         }
         #endregion
-        #region MODIFICAR LA CONFIGURACION GENERAL
-        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EModificarConfiguracionGeneral ModificarConfiguracionGeneral(DSMarket.Logica.Entidades.EntidadesConfiguracion.EModificarConfiguracionGeneral Item, string Accion) {
-            ObjData.CommandTimeout = 999999999;
-
-            DSMarket.Logica.Entidades.EntidadesConfiguracion.EModificarConfiguracionGeneral Modificar = null;
-
-            var ConfiguracionGeneral = ObjData.SP_MODIFICAR_CONFIGURACION_GENERAL(
-                Item.IdConfiguracionGeneral,
-                Item.Descripcion,
-                Item.Estatus,
-                Accion);
-            if (ConfiguracionGeneral != null) {
-                Modificar = (from n in ConfiguracionGeneral
-                             select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EModificarConfiguracionGeneral
-                             {
-                                 IdConfiguracionGeneral=n.IdConfiguracionGeneral,
-                                 Descripcion=n.Descripcion,
-                                 Estatus=n.Estatus
-                             }).FirstOrDefault();
-                
-            }
-            return Modificar;
-        }
-        #endregion
         #region OBTENER EL PRIMER DIA DEL MES
         //SACAR EL PRIMER DIA DEL MES
         public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EObtenerPrimerDiaMes> ObtenerPrimerDiaMes() {
@@ -1319,6 +1241,61 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             }
             return Procesar;
 
+        }
+        #endregion
+
+
+        #region CONFIGURACION GENERAL
+        /// <summary>
+        /// Este metodo es para mostrar el listado de las configuraciones generales del sistema
+        /// </summary>
+        /// <param name="IdConfiguracion"></param>
+        /// <param name="IdModulo"></param>
+        /// <returns></returns>
+        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral> BuscaConfiguraciongeneral(decimal? IdConfiguracion = null, decimal? IdModulo = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_BUSCA_CONFIGURACION_GENERAL(IdConfiguracion, IdModulo)
+                           select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral
+                           {
+                               IdConfiguracion=n.IdConfiguracion,
+                               IdModulo=n.IdModulo,
+                               Modulo=n.Modulo,
+                               Descripcion=n.Descripcion,
+                               Estatus0=n.Estatus0,
+                               Estatus=n.Estatus
+                           }).ToList();
+            return Listado;
+        }
+
+        /// <summary>
+        /// Modificar las condiciones generales del sistema
+        /// </summary>
+        /// <param name="Item"></param>
+        /// <param name="Accion"></param>
+        /// <returns></returns>
+        public DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral ModificarConfiguracionesGenerales(DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral Modificar = null;
+
+            var Condiciones = ObjData.SP_MODIFICAR_CONFIGURACION_GENERAL(
+                Item.IdConfiguracion,
+                Item.IdModulo,
+                Item.Descripcion,
+                Item.Estatus0,
+                Accion);
+            if (Condiciones != null) {
+                Modificar = (from n in Condiciones
+                             select new DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral
+                             {
+                                 IdConfiguracion=n.IdConfiguracion,
+                                 IdModulo=n.IdModulo,
+                                 Descripcion=n.Descripcion,
+                                 Estatus0=n.Estatus
+                             }).FirstOrDefault();
+            }
+            return Modificar;
         }
         #endregion
     }

@@ -31,13 +31,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
             lbTitulo.Text = "CUADRE DE CAJA";
             lbTitulo.ForeColor = Color.WhiteSmoke;
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
-            bool Mail = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(4);
-            if (Mail == true) {
-                cbCradreMail.Checked = true;
-            }
-            else {
-                cbCradreMail.Checked = false;
-            }
+            //bool Mail = DSMarket.Logica.Comunes.ValidarConfiguracionGeneral.Validar(4);
+            //if (Mail == true) {
+            //    cbCradreMail.Checked = true;
+            //}
+            //else {
+            //    cbCradreMail.Checked = false;
+            //}
         }
 
         private void CuadreCaja_FormClosing(object sender, FormClosingEventArgs e)

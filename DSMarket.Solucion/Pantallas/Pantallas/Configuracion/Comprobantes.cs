@@ -83,30 +83,30 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
         #endregion
         #region CONFIGURAICON GENERAL
         private void SacarDataConfiguracionGeneral(int IdConfiguraciongeneral) {
-            var SacarData = ObjDataConfiguracion.Value.BuscaCOnfiguracionGeneral(IdConfiguraciongeneral);
-            foreach (var n in SacarData) {
-                cbUsarComprobantes.Checked = (n.Estatus0.HasValue ? n.Estatus0.Value : false);
-            }
+            //var SacarData = ObjDataConfiguracion.Value.BuscaCOnfiguracionGeneral(IdConfiguraciongeneral);
+            //foreach (var n in SacarData) {
+            //    cbUsarComprobantes.Checked = (n.Estatus0.HasValue ? n.Estatus0.Value : false);
+            //}
         }
         private void MantenimeintoConfiguraicongeneral(string Accion) {
-            if (cbUsarComprobantes.Checked == true) {
-                DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral Modificar = new Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral();
+            //if (cbUsarComprobantes.Checked == true) {
+            //    DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral Modificar = new Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral();
 
-                Modificar.IdConfiguracionGeneral = 1;
-                Modificar.Descripcion = "Usar Comprobantes Fiscales";
-                Modificar.Estatus0 = true;
+            //    Modificar.IdConfiguracionGeneral = 1;
+            //    Modificar.Descripcion = "Usar Comprobantes Fiscales";
+            //    Modificar.Estatus0 = true;
 
-                var MAN = ObjDataConfiguracion.Value.MantenimientoConfiguracionGeneral(Modificar, Accion);
-            }
-            else if (cbUsarComprobantes.Checked == false) {
-                DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral Modificar = new Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral();
+            //    var MAN = ObjDataConfiguracion.Value.MantenimientoConfiguracionGeneral(Modificar, Accion);
+            //}
+            //else if (cbUsarComprobantes.Checked == false) {
+            //    DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral Modificar = new Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral();
 
-                Modificar.IdConfiguracionGeneral = 1;
-                Modificar.Descripcion = "Usar Comprobantes Fiscales";
-                Modificar.Estatus0 = false;
+            //    Modificar.IdConfiguracionGeneral = 1;
+            //    Modificar.Descripcion = "Usar Comprobantes Fiscales";
+            //    Modificar.Estatus0 = false;
 
-                var MAN = ObjDataConfiguracion.Value.MantenimientoConfiguracionGeneral(Modificar, Accion);
-            }
+            //    var MAN = ObjDataConfiguracion.Value.MantenimientoConfiguracionGeneral(Modificar, Accion);
+            //}
         }
         #endregion
         private void PCerrar_Click(object sender, EventArgs e)
@@ -195,22 +195,22 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
 
                 DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral Modificar = new Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral();
 
-                Modificar.IdConfiguracionGeneral = 1;
-                Modificar.Descripcion = "Usar Comprobantes Fiscales";
-                Modificar.Estatus0 = true;
+                //Modificar.IdConfiguracionGeneral = 1;
+                //Modificar.Descripcion = "Usar Comprobantes Fiscales";
+                //Modificar.Estatus0 = true;
 
-                var MAN = ObjDataConfiguracion.Value.MantenimientoConfiguracionGeneral(Modificar, "UPDATE");
+             //   var MAN = ObjDataConfiguracion.Value.MantenimientoConfiguracionGeneral(Modificar, "UPDATE");
             }
             else {
                 cbUsarComprobantes.ForeColor = Color.DarkRed;
 
                 DSMarket.Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral Modificar = new Logica.Entidades.EntidadesConfiguracion.EConfiguracionGeneral();
 
-                Modificar.IdConfiguracionGeneral = 1;
-                Modificar.Descripcion = "Usar Comprobantes Fiscales";
-                Modificar.Estatus0 = false;
+                //Modificar.IdConfiguracionGeneral = 1;
+                //Modificar.Descripcion = "Usar Comprobantes Fiscales";
+                //Modificar.Estatus0 = false;
 
-                var MAN = ObjDataConfiguracion.Value.MantenimientoConfiguracionGeneral(Modificar, "UPDATE");
+            //    var MAN = ObjDataConfiguracion.Value.MantenimientoConfiguracionGeneral(Modificar, "UPDATE");
                 
             }
         }

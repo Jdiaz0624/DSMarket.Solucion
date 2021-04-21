@@ -589,7 +589,7 @@
     <Parameter Name="IdProducto" Parameter="idProducto" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="IdTipoProducto" Parameter="idTipoProducto" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="Precio" Parameter="precio" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="Cantidad" Parameter="cantidad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Cantidad" Parameter="cantidad" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="Descuento" Parameter="descuento" Type="System.Decimal" DbType="Decimal(20,2)" />
     <Parameter Name="PorcientoImpuesto" Parameter="porcientoImpuesto" Type="System.Decimal" DbType="Decimal(20,2)" />
     <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
@@ -599,7 +599,7 @@
       <Column Name="IdProducto" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="IdTipoProducto" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="Precio" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cantidad" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="Descuento" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
       <Column Name="PorcientoImpuesto" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
     </ElementType>
@@ -607,6 +607,8 @@
   <Function Name="Servicio.SP_BUSCAR_FACTURACION_PREVIEW" Method="SP_BUSCAR_FACTURACION_PREVIEW">
     <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="IdProducto" Parameter="idProducto" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdTipoProducto" Parameter="idTipoProducto" Type="System.Decimal" DbType="Decimal(20,0)" />
     <ElementType Name="SP_BUSCAR_FACTURACION_PREVIEWResult">
       <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="NumeroConector" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
@@ -620,9 +622,9 @@
       <Column Name="SubTotal" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
       <Column Name="Impuesto" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
       <Column Name="Total" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
-      <Column Name="TotalProducto" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TotalServicio" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TotalItems" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalProducto" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="TotalServicio" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="TotalItems" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
       <Column Name="TotalDescuento" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
       <Column Name="TotalSubTotal" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
       <Column Name="TotalImpuesto" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />

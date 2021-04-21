@@ -272,16 +272,16 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_PROCESAR_INFORMACION_FACTURA_PREVIEW")]
-		public ISingleResult<SP_PROCESAR_INFORMACION_FACTURA_PREVIEWResult> SP_PROCESAR_INFORMACION_FACTURA_PREVIEW([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Decimal(20,0)")] System.Nullable<decimal> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroConector", DbType="VarChar(30)")] string numeroConector, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdProducto", DbType="Decimal(20,0)")] System.Nullable<decimal> idProducto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoProducto", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoProducto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Precio", DbType="Decimal(20,2)")] System.Nullable<decimal> precio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cantidad", DbType="Int")] System.Nullable<int> cantidad, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Descuento", DbType="Decimal(20,2)")] System.Nullable<decimal> descuento, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PorcientoImpuesto", DbType="Decimal(20,2)")] System.Nullable<decimal> porcientoImpuesto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		public ISingleResult<SP_PROCESAR_INFORMACION_FACTURA_PREVIEWResult> SP_PROCESAR_INFORMACION_FACTURA_PREVIEW([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Decimal(20,0)")] System.Nullable<decimal> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroConector", DbType="VarChar(30)")] string numeroConector, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdProducto", DbType="Decimal(20,0)")] System.Nullable<decimal> idProducto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoProducto", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoProducto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Precio", DbType="Decimal(20,2)")] System.Nullable<decimal> precio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cantidad", DbType="Decimal(20,0)")] System.Nullable<decimal> cantidad, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Descuento", DbType="Decimal(20,2)")] System.Nullable<decimal> descuento, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PorcientoImpuesto", DbType="Decimal(20,2)")] System.Nullable<decimal> porcientoImpuesto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, numeroConector, idProducto, idTipoProducto, precio, cantidad, descuento, porcientoImpuesto, accion);
 			return ((ISingleResult<SP_PROCESAR_INFORMACION_FACTURA_PREVIEWResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_BUSCAR_FACTURACION_PREVIEW")]
-		public ISingleResult<SP_BUSCAR_FACTURACION_PREVIEWResult> SP_BUSCAR_FACTURACION_PREVIEW([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Decimal(20,0)")] System.Nullable<decimal> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroConector", DbType="VarChar(30)")] string numeroConector)
+		public ISingleResult<SP_BUSCAR_FACTURACION_PREVIEWResult> SP_BUSCAR_FACTURACION_PREVIEW([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Decimal(20,0)")] System.Nullable<decimal> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroConector", DbType="VarChar(30)")] string numeroConector, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdProducto", DbType="Decimal(20,0)")] System.Nullable<decimal> idProducto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoProducto", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoProducto)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, numeroConector);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, numeroConector, idProducto, idTipoProducto);
 			return ((ISingleResult<SP_BUSCAR_FACTURACION_PREVIEWResult>)(result.ReturnValue));
 		}
 	}
@@ -6713,7 +6713,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		
 		private System.Nullable<decimal> _Precio;
 		
-		private System.Nullable<int> _Cantidad;
+		private System.Nullable<decimal> _Cantidad;
 		
 		private System.Nullable<decimal> _Descuento;
 		
@@ -6803,8 +6803,8 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
-		public System.Nullable<int> Cantidad
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> Cantidad
 		{
 			get
 			{
@@ -6879,11 +6879,11 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		
 		private System.Nullable<decimal> _Total;
 		
-		private System.Nullable<int> _TotalProducto;
+		private System.Nullable<decimal> _TotalProducto;
 		
-		private System.Nullable<int> _TotalServicio;
+		private System.Nullable<decimal> _TotalServicio;
 		
-		private System.Nullable<int> _TotalItems;
+		private System.Nullable<decimal> _TotalItems;
 		
 		private System.Nullable<decimal> _TotalDescuento;
 		
@@ -7089,8 +7089,8 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalProducto", DbType="Int")]
-		public System.Nullable<int> TotalProducto
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalProducto", DbType="Decimal(38,0)")]
+		public System.Nullable<decimal> TotalProducto
 		{
 			get
 			{
@@ -7105,8 +7105,8 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalServicio", DbType="Int")]
-		public System.Nullable<int> TotalServicio
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalServicio", DbType="Decimal(38,0)")]
+		public System.Nullable<decimal> TotalServicio
 		{
 			get
 			{
@@ -7121,8 +7121,8 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalItems", DbType="Int")]
-		public System.Nullable<int> TotalItems
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalItems", DbType="Decimal(38,0)")]
+		public System.Nullable<decimal> TotalItems
 		{
 			get
 			{

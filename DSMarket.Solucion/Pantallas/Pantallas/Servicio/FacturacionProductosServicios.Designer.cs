@@ -30,10 +30,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.cbUsarComprobantes = new System.Windows.Forms.CheckBox();
             this.rbCotizar = new System.Windows.Forms.RadioButton();
@@ -46,13 +46,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.button2 = new System.Windows.Forms.Button();
             this.btnARS = new System.Windows.Forms.Button();
             this.btnRestablecerPantalla = new System.Windows.Forms.Button();
+            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbCantidadServiciosVariable = new System.Windows.Forms.Label();
             this.lbCantidadServiciosTitulo = new System.Windows.Forms.Label();
             this.lbCantidadProductosvariable = new System.Windows.Forms.Label();
             this.lbCantidadProductosTitulo = new System.Windows.Forms.Label();
-            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.gbGeneral = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -112,8 +112,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.lbComprobante = new System.Windows.Forms.Label();
             this.btnFiltroCliente = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
+            this.panel1.SuspendLayout();
             this.gbGeneral.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
@@ -259,11 +261,12 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.btnARS.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnARS.Image = global::DSMarket.Solucion.Properties.Resources.Completar;
             this.btnARS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnARS.Location = new System.Drawing.Point(848, 585);
+            this.btnARS.Location = new System.Drawing.Point(899, 585);
             this.btnARS.Name = "btnARS";
-            this.btnARS.Size = new System.Drawing.Size(309, 34);
+            this.btnARS.Size = new System.Drawing.Size(258, 34);
             this.btnARS.TabIndex = 97;
             this.btnARS.Text = "Completar Operación";
+            this.btnARS.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTip1.SetToolTip(this.btnARS, "Completar Operación");
             this.btnARS.UseVisualStyleBackColor = true;
             // 
@@ -280,6 +283,20 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.btnRestablecerPantalla.UseVisualStyleBackColor = true;
             this.btnRestablecerPantalla.Visible = false;
             this.btnRestablecerPantalla.Click += new System.EventHandler(this.btnRestablecerPantalla_Click);
+            // 
+            // PCerrar
+            // 
+            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
+            this.PCerrar.Location = new System.Drawing.Point(1156, 5);
+            this.PCerrar.Name = "PCerrar";
+            this.PCerrar.Size = new System.Drawing.Size(30, 30);
+            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PCerrar.TabIndex = 19;
+            this.PCerrar.TabStop = false;
+            this.toolTip1.SetToolTip(this.PCerrar, "Cerrar");
+            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
             // 
             // bunifuElipse1
             // 
@@ -338,20 +355,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.lbCantidadProductosTitulo.TabIndex = 20;
             this.lbCantidadProductosTitulo.Text = "Total de Productos";
             // 
-            // PCerrar
-            // 
-            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(1156, 5);
-            this.PCerrar.Name = "PCerrar";
-            this.PCerrar.Size = new System.Drawing.Size(30, 30);
-            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PCerrar.TabIndex = 19;
-            this.PCerrar.TabStop = false;
-            this.toolTip1.SetToolTip(this.PCerrar, "Cerrar");
-            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
-            // 
             // lbTitulo
             // 
             this.lbTitulo.AutoSize = true;
@@ -363,6 +366,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // 
             // gbGeneral
             // 
+            this.gbGeneral.Controls.Add(this.label22);
+            this.gbGeneral.Controls.Add(this.txtTotal);
             this.gbGeneral.Controls.Add(this.btnRestablecerPantalla);
             this.gbGeneral.Controls.Add(this.groupBox3);
             this.gbGeneral.Controls.Add(this.txtNumeroRegistros);
@@ -509,7 +514,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // 
             this.txtCambio.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtCambio.Enabled = false;
-            this.txtCambio.Location = new System.Drawing.Point(596, 569);
+            this.txtCambio.Location = new System.Drawing.Point(770, 569);
             this.txtCambio.Name = "txtCambio";
             this.txtCambio.Size = new System.Drawing.Size(114, 26);
             this.txtCambio.TabIndex = 103;
@@ -518,7 +523,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(522, 572);
+            this.label20.Location = new System.Drawing.Point(696, 572);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(69, 20);
             this.label20.TabIndex = 102;
@@ -549,7 +554,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // txtMontoPagar
             // 
             this.txtMontoPagar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtMontoPagar.Location = new System.Drawing.Point(405, 569);
+            this.txtMontoPagar.Location = new System.Drawing.Point(579, 569);
             this.txtMontoPagar.Name = "txtMontoPagar";
             this.txtMontoPagar.Size = new System.Drawing.Size(114, 26);
             this.txtMontoPagar.TabIndex = 99;
@@ -559,7 +564,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(343, 572);
+            this.label6.Location = new System.Drawing.Point(517, 572);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 20);
             this.label6.TabIndex = 98;
@@ -603,21 +608,21 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // 
             this.dtItemsAgregados.AllowUserToAddRows = false;
             this.dtItemsAgregados.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtItemsAgregados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtItemsAgregados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtItemsAgregados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtItemsAgregados.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtItemsAgregados.BackgroundColor = System.Drawing.Color.LightGray;
             this.dtItemsAgregados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtItemsAgregados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtItemsAgregados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtItemsAgregados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtItemsAgregados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewButtonColumn1});
@@ -634,13 +639,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // dataGridViewButtonColumn1
             // 
             this.dataGridViewButtonColumn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dataGridViewButtonColumn1.HeaderText = "Select";
+            this.dataGridViewButtonColumn1.HeaderText = "Quitar";
             this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
             this.dataGridViewButtonColumn1.ReadOnly = true;
-            this.dataGridViewButtonColumn1.Text = "Select";
-            this.dataGridViewButtonColumn1.ToolTipText = "Select";
+            this.dataGridViewButtonColumn1.Text = "Quitar";
+            this.dataGridViewButtonColumn1.ToolTipText = "Quitar";
             this.dataGridViewButtonColumn1.UseColumnTextForButtonValue = true;
-            this.dataGridViewButtonColumn1.Width = 52;
+            this.dataGridViewButtonColumn1.Width = 55;
             // 
             // label17
             // 
@@ -771,21 +776,21 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // 
             this.dtListadoItems.AllowUserToAddRows = false;
             this.dtListadoItems.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtListadoItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtListadoItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dtListadoItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtListadoItems.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtListadoItems.BackgroundColor = System.Drawing.Color.LightGray;
             this.dtListadoItems.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtListadoItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtListadoItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dtListadoItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtListadoItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Select});
@@ -1061,6 +1066,25 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.label5.TabIndex = 58;
             this.label5.Text = "Filtro de Cliente";
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(345, 572);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(49, 20);
+            this.label22.TabIndex = 111;
+            this.label22.Text = "Total";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTotal.Enabled = false;
+            this.txtTotal.Location = new System.Drawing.Point(400, 569);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(114, 26);
+            this.txtTotal.TabIndex = 110;
+            // 
             // FacturacionProductosServicios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1076,9 +1100,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.Text = "FacturacionProductosServicios";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FacturacionProductosServicios_FormClosing);
             this.Load += new System.EventHandler(this.FacturacionProductosServicios_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.gbGeneral.ResumeLayout(false);
             this.gbGeneral.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -1158,7 +1182,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private System.Windows.Forms.TextBox txtDescripcionItemsSeleccionado;
         private System.Windows.Forms.GroupBox gbItemsAgregados;
         private System.Windows.Forms.DataGridView dtItemsAgregados;
-        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
         private System.Windows.Forms.Button btnARS;
         private System.Windows.Forms.TextBox txtTasa;
         private System.Windows.Forms.Label label21;
@@ -1174,5 +1197,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private System.Windows.Forms.Label lbNumeroRegistros;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnRestablecerPantalla;
+        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox txtTotal;
     }
 }

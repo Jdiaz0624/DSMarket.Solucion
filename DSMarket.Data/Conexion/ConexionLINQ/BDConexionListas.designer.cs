@@ -320,6 +320,20 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<SP_LISTADO_FORMA_PAGOResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTA_MONEDA")]
+		public ISingleResult<SP_LISTA_MONEDAResult> SP_LISTA_MONEDA()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_LISTA_MONEDAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_CARGAR_MODULOS")]
+		public ISingleResult<SP_CARGAR_MODULOSResult> SP_CARGAR_MODULOS()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_CARGAR_MODULOSResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_CARGAR_LISTA_TIPO_PRODUCTOResult
@@ -2035,6 +2049,94 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._FormaPago != value))
 				{
 					this._FormaPago = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_LISTA_MONEDAResult
+	{
+		
+		private System.Nullable<decimal> _IdMoneda;
+		
+		private string _Descripcion;
+		
+		public SP_LISTA_MONEDAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMoneda", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdMoneda
+		{
+			get
+			{
+				return this._IdMoneda;
+			}
+			set
+			{
+				if ((this._IdMoneda != value))
+				{
+					this._IdMoneda = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(100)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_CARGAR_MODULOSResult
+	{
+		
+		private int _IdModulo;
+		
+		private string _Descripcion;
+		
+		public SP_CARGAR_MODULOSResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdModulo", DbType="Int NOT NULL")]
+		public int IdModulo
+		{
+			get
+			{
+				return this._IdModulo;
+			}
+			set
+			{
+				if ((this._IdModulo != value))
+				{
+					this._IdModulo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(100)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
 				}
 			}
 		}

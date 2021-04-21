@@ -84,6 +84,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbLlevagarantia = new System.Windows.Forms.CheckBox();
             this.cbAplicaParaImpuesto = new System.Windows.Forms.CheckBox();
+            this.ddlUnidadMedida = new System.Windows.Forms.ComboBox();
+            this.ddlModelo = new System.Windows.Forms.ComboBox();
+            this.ddlColor = new System.Windows.Forms.ComboBox();
+            this.ddlCondicion = new System.Windows.Forms.ComboBox();
+            this.ddlCpacidad = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -156,6 +161,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.ddlCpacidad);
+            this.groupBox1.Controls.Add(this.ddlCondicion);
+            this.groupBox1.Controls.Add(this.ddlColor);
+            this.groupBox1.Controls.Add(this.ddlModelo);
+            this.groupBox1.Controls.Add(this.ddlUnidadMedida);
             this.groupBox1.Controls.Add(this.txtTiempoGarantia);
             this.groupBox1.Controls.Add(this.lbTiempoGarantia);
             this.groupBox1.Controls.Add(this.ddlTipoGarantia);
@@ -628,6 +638,66 @@
             this.cbAplicaParaImpuesto.Text = "Aplica para Impuesto";
             this.cbAplicaParaImpuesto.UseVisualStyleBackColor = true;
             // 
+            // ddlUnidadMedida
+            // 
+            this.ddlUnidadMedida.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlUnidadMedida.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlUnidadMedida.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlUnidadMedida.FormattingEnabled = true;
+            this.ddlUnidadMedida.Location = new System.Drawing.Point(984, 185);
+            this.ddlUnidadMedida.Name = "ddlUnidadMedida";
+            this.ddlUnidadMedida.Size = new System.Drawing.Size(251, 28);
+            this.ddlUnidadMedida.TabIndex = 46;
+            this.ddlUnidadMedida.Visible = false;
+            // 
+            // ddlModelo
+            // 
+            this.ddlModelo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlModelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlModelo.FormattingEnabled = true;
+            this.ddlModelo.Location = new System.Drawing.Point(169, 214);
+            this.ddlModelo.Name = "ddlModelo";
+            this.ddlModelo.Size = new System.Drawing.Size(251, 28);
+            this.ddlModelo.TabIndex = 47;
+            this.ddlModelo.Visible = false;
+            // 
+            // ddlColor
+            // 
+            this.ddlColor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlColor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlColor.FormattingEnabled = true;
+            this.ddlColor.Location = new System.Drawing.Point(583, 214);
+            this.ddlColor.Name = "ddlColor";
+            this.ddlColor.Size = new System.Drawing.Size(251, 28);
+            this.ddlColor.TabIndex = 48;
+            this.ddlColor.Visible = false;
+            // 
+            // ddlCondicion
+            // 
+            this.ddlCondicion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlCondicion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlCondicion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlCondicion.FormattingEnabled = true;
+            this.ddlCondicion.Location = new System.Drawing.Point(984, 215);
+            this.ddlCondicion.Name = "ddlCondicion";
+            this.ddlCondicion.Size = new System.Drawing.Size(251, 28);
+            this.ddlCondicion.TabIndex = 49;
+            this.ddlCondicion.Visible = false;
+            // 
+            // ddlCpacidad
+            // 
+            this.ddlCpacidad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlCpacidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlCpacidad.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlCpacidad.FormattingEnabled = true;
+            this.ddlCpacidad.Location = new System.Drawing.Point(169, 246);
+            this.ddlCpacidad.Name = "ddlCpacidad";
+            this.ddlCpacidad.Size = new System.Drawing.Size(251, 28);
+            this.ddlCpacidad.TabIndex = 50;
+            this.ddlCpacidad.Visible = false;
+            // 
             // MantenimientoProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -711,5 +781,10 @@
         private System.Windows.Forms.Label lbTiempoGarantia;
         private System.Windows.Forms.ComboBox ddlTipoGarantia;
         private System.Windows.Forms.Label lbTipoGarantia;
+        private System.Windows.Forms.ComboBox ddlCpacidad;
+        private System.Windows.Forms.ComboBox ddlCondicion;
+        private System.Windows.Forms.ComboBox ddlColor;
+        private System.Windows.Forms.ComboBox ddlModelo;
+        private System.Windows.Forms.ComboBox ddlUnidadMedida;
     }
 }

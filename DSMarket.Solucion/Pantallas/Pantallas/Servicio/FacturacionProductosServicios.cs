@@ -92,6 +92,22 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             ddltIPago.DisplayMember = "TipoPago";
             ddltIPago.ValueMember = "IdTipoPago";
         }
+
+        /// <summary>
+        /// Este metodo es para cargar las monedas del sistema
+        /// </summary>
+          private void CargarMonedas()
+        {
+            try
+            {
+                var Marca = ObjDataListas.Value.CargarListadoMonedas();
+                ddlSeleccionarMoneda.DataSource = Marca;
+                ddlSeleccionarMoneda.DisplayMember = "Descripcion";
+                ddlSeleccionarMoneda.ValueMember = "IdMoneda";
+            }
+            catch (Exception) { }
+
+        }
         #endregion
         #region MOSTRAR EL LISTADO DE LOS PRODUCTOS A FACTURAR
         private void MostrarListadoProductos() {
@@ -245,7 +261,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             dtItemsAgregados.DataSource = MostrarItems;
 
 
-            foreach (var n in MostrarItems) {
+            foreach (var n in MostrarItems)
+            {
                 VariablesGlobales.TotalProductosFacturarCotizar = (int)n.TotalProducto;
                 VariablesGlobales.TotalServiciosFacturarCotizar = (int)n.TotalServicio;
                 VariablesGlobales.TotalItemsFacturarCotizar = (int)n.TotalItems;
@@ -254,8 +271,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 VariablesGlobales.TotalImpuestoFacturarCotizar = (decimal)n.TotalImpuesto;
                 VariablesGlobales.TotalGeneralFacturarCotizar = (decimal)n.TotalGeneral;
             }
-            lbCantidadProductosvariable.Text = VariablesGlobales.TotalProductosFacturarCotizar.ToString("N2");
-            lbCantidadServiciosVariable.Text = VariablesGlobales.TotalServiciosFacturarCotizar.ToString("N2");
+            lbCantidadProductosvariable.Text = VariablesGlobales.TotalProductosFacturarCotizar.ToString("N0");
+            lbCantidadServiciosVariable.Text = VariablesGlobales.TotalServiciosFacturarCotizar.ToString("N0");
+            txtTotal.Text = VariablesGlobales.TotalGeneralFacturarCotizar.ToString("N2");
             gbItemsAgregados.Text = MostrarRecuentoFactura(VariablesGlobales.TotalItemsFacturarCotizar, VariablesGlobales.SubTotalFacturarCotizar, VariablesGlobales.TotalDescuentoFacturarCotizar, VariablesGlobales.TotalImpuestoFacturarCotizar, VariablesGlobales.TotalGeneralFacturarCotizar);
 
             //OCULTAMOS LAS COLUMNAS QUE NO SON NECESARIOAS PARA MOSTRAR ESTE PROCESO
@@ -273,6 +291,28 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.dtItemsAgregados.Columns["TotalDescuento"].Visible = false;
         }
         #endregion
+
+        private void SacarDatosProductoSeleccionado(ref DataGridView Grid, decimal IdRegistro,string NumeroConector) {
+           
+
+            var BuscarRegistros = ObjDataInventario.Value.BuscaProductosServicios(IdRegistro, NumeroConector, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+            dtListadoItems.DataSource = BuscarRegistros;
+            OcultarColumnasListadoItems();
+            foreach (var n in BuscarRegistros)
+            {
+                txtDescripcionItemsSeleccionado.Text = n.Descripcion;
+                txtTipoProductoItemsseleccionado.Text = n.TipoProducto;
+                decimal Precio = (decimal)n.PrecioVenta;
+                txtPrecioItemSeleccionado.Text = Precio.ToString("N2");
+                decimal Stock = (decimal)n.Stock;
+                txtStockitemSeleccionado.Text = Stock.ToString("N0");
+                txtDescuentoItemsSeleccionado.Text = "0";
+                txtCantidadItemSelecionado.Text = "1";
+                VariablesGlobales.ProductoSeleccionadoFacturacion = (int)TipoProductoSeleccionado.ProductoSeleccionado;
+                btnRestablecerPantalla.Visible = true;
+                VariablesGlobales.ProductoSeleccionadoFacturarCotizar = "SI";
+            }
+        }
 
         private void MostrarComprobante() {
             //Mostrar los comprobantes fiscales
@@ -312,6 +352,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             CargarCategorias();
             CargarMarcas();
             MostrarListadoTipoPagos();
+            CargarMonedas();
 
             VariablesGlobales.ProductoSeleccionadoFacturacion = (int)TipoProductoSeleccionado.ProductoNoSeleccionado;
 
@@ -482,25 +523,43 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             try {
                 decimal IdRegistro = Convert.ToDecimal(this.dtListadoItems.CurrentRow.Cells["IdRegistro"].Value.ToString());
                 string NumeroConector = this.dtListadoItems.CurrentRow.Cells["NumeroConector"].Value.ToString();
+                decimal IdTipoProducto = Convert.ToDecimal(this.dtListadoItems.CurrentRow.Cells["IdTipoProducto"].Value.ToString());
+                decimal Stock = Convert.ToDecimal(this.dtListadoItems.CurrentRow.Cells["Stock"].Value.ToString());
                 VariablesGlobales.IdTipoProductoFacturarCotizar = Convert.ToDecimal(this.dtListadoItems.CurrentRow.Cells["IdTipoProducto"].Value.ToString());
                 VariablesGlobales.IdProductoFacturarCotizar = Convert.ToDecimal(this.dtListadoItems.CurrentRow.Cells["IdRegistro"].Value.ToString());
 
-                var BuscarRegistros = ObjDataInventario.Value.BuscaProductosServicios(IdRegistro, NumeroConector, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
-                dtListadoItems.DataSource = BuscarRegistros;
-                OcultarColumnasListadoItems();
-                foreach (var n in BuscarRegistros) {
-                    txtDescripcionItemsSeleccionado.Text = n.Descripcion;
-                    txtTipoProductoItemsseleccionado.Text = n.TipoProducto;
-                    decimal Precio = (decimal)n.PrecioVenta;
-                    txtPrecioItemSeleccionado.Text = Precio.ToString("N2");
-                    decimal Stock = (decimal)n.Stock;
-                    txtStockitemSeleccionado.Text = Stock.ToString("N0");
-                    txtDescuentoItemsSeleccionado.Text = "0";
-                    txtCantidadItemSelecionado.Text = "1";
-                    VariablesGlobales.ProductoSeleccionadoFacturacion = (int)TipoProductoSeleccionado.ProductoSeleccionado;
-                    btnRestablecerPantalla.Visible = true;
-                    VariablesGlobales.ProductoSeleccionadoFacturarCotizar = "SI";
+                //VALIDAMOS SI ESTE PRODUCTO YA ESTA AGREGADO PARA FACTURAR
+                var ValidarRegistro = ObjDataServicio.Value.BuscaFacturacionPreview(
+                    VariablesGlobales.IdUsuario,
+                    VariablesGlobales.NumeroConectorstring,
+                    IdRegistro,
+                    IdTipoProducto);
+                if (ValidarRegistro.Count() < 1) {
+                    if (IdTipoProducto == 1)
+                    {
+                        if (Stock <= 0)
+                        {
+                            MessageBox.Show("Este producto esta actualmente agotado, por lo tanto no puede facturarse.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            SacarDatosProductoSeleccionado(ref dtListadoItems, IdRegistro, NumeroConector);
+                        }
+                    }
+                    else if (IdTipoProducto == 2)
+                    {
+                        SacarDatosProductoSeleccionado(ref dtListadoItems, IdRegistro, NumeroConector);
+                    }
                 }
+                else {
+                    string TipoOperacions ="";
+                    TipoOperacions = rbFacturar.Checked == true ? "facturar" : "cotizar";
+                    MessageBox.Show("Este registro ya esta agregado para " + TipoOperacions + ", favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+               
+
+              
+
             }
             catch (Exception) { }
         }
@@ -516,10 +575,36 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             try {
                 if (VariablesGlobales.ProductoSeleccionadoFacturarCotizar == "SI")
                 {
-                    ProcesarPreviewFacturacion();
-                    MostrarItemsagregados(VariablesGlobales.IdUsuario, VariablesGlobales.NumeroConectorstring);
-                    RestablecerPantallaFacturacion();
-                    MostrarListadoProductos();
+                    if (string.IsNullOrEmpty(txtCantidadItemSelecionado.Text.Trim())) {
+                        txtCantidadItemSelecionado.Text = "1";
+                    }
+
+                    string TipoProducto = txtTipoProductoItemsseleccionado.Text;
+
+                    if (TipoProducto == "PRODUCTO") {
+
+                        decimal StockActual = 0, CantidadFacturar = 0;
+                        StockActual = Convert.ToDecimal(txtStockitemSeleccionado.Text);
+                        CantidadFacturar = Convert.ToDecimal(txtCantidadItemSelecionado.Text);
+
+                        if (CantidadFacturar > StockActual)
+                        {
+                            MessageBox.Show("Actualmente tienes " + StockActual.ToString("N0") + " del item seleccionado e intentas facturar " + CantidadFacturar.ToString("N0") + " por lo tanto no es posible proceder con este paso, favor de verificar la cantidad.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else {
+                            ProcesarPreviewFacturacion();
+                            MostrarItemsagregados(VariablesGlobales.IdUsuario, VariablesGlobales.NumeroConectorstring);
+                            RestablecerPantallaFacturacion();
+                            MostrarListadoProductos();
+                        }
+                       
+                    }
+                    else if (TipoProducto == "SERVICIO") {
+                        ProcesarPreviewFacturacion();
+                        MostrarItemsagregados(VariablesGlobales.IdUsuario, VariablesGlobales.NumeroConectorstring);
+                        RestablecerPantallaFacturacion();
+                        MostrarListadoProductos();
+                    }
                 }
                 else
                 {

@@ -13,6 +13,7 @@ namespace DSMarket.Logica.Entidades.EntidadesServicio
 		public string NumeroConector { get; set; }
 
 		public System.Nullable<decimal> IdProducto { get; set; }
+
 		public string Descripcion { get; set; }
 
 		public System.Nullable<decimal> IdTipoProducto { get; set; }
@@ -31,11 +32,12 @@ namespace DSMarket.Logica.Entidades.EntidadesServicio
 
 		public System.Nullable<decimal> Total { get; set; }
 
-		public System.Nullable<int> TotalProducto { get; set; }
+		public System.Nullable<decimal> TotalProducto { get; set; }
 
-		public System.Nullable<int> TotalServicio { get; set; }
+		public System.Nullable<decimal> TotalServicio { get; set; }
 
-		public System.Nullable<int> TotalItems { get; set; }
+		public System.Nullable<decimal> TotalItems { get; set; }
+
 		public System.Nullable<decimal> TotalDescuento { get; set; }
 
 		public System.Nullable<decimal> TotalSubTotal { get; set; }

@@ -90,13 +90,13 @@ namespace DSMarket.Logica.Logica.LogicaServicio
         /// <param name="IdUsuario"></param>
         /// <param name="NumeroConector"></param>
         /// <returns></returns>
-        public List<DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionPreview> BuscaFacturacionPreview(decimal? IdUsuario = null, string NumeroConector = null) {
+        public List<DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionPreview> BuscaFacturacionPreview(decimal? IdUsuario = null, string NumeroConector = null,decimal? IdProducto = null,decimal? IdTipoProducto = null) {
             ObjData.CommandTimeout = 999999999;
 
-            var BuscarListado = (from n in ObjData.SP_BUSCAR_FACTURACION_PREVIEW(IdUsuario, NumeroConector)
+            var BuscarListado = (from n in ObjData.SP_BUSCAR_FACTURACION_PREVIEW(IdUsuario, NumeroConector, IdProducto, IdTipoProducto)
                                  select new DSMarket.Logica.Entidades.EntidadesServicio.EFacturacionPreview
                                  {
-                                    IdUsuario=n.IdUsuario,
+                                   IdUsuario=n.IdUsuario,
                                      NumeroConector=n.NumeroConector,
                                      IdProducto=n.IdProducto,
                                      Descripcion=n.Descripcion,
@@ -137,7 +137,7 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                 Item.IdProducto,
                 Item.IdTipoProducto,
                 Item.Precio,
-                (int)Item.Cantidad,
+                Item.Cantidad,
                 Item.Descuento,
                 Item.PorcientoImpuesto,
                 Accion);
