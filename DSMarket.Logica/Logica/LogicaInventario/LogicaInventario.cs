@@ -907,5 +907,276 @@ namespace DSMarket.Logica.Logica.LogicaInventario
             return Listado;
         }
         #endregion
+
+        #region MODELOS
+        /// <summary>
+        /// Consultar Modelos
+        /// </summary>
+        /// <param name="IdMarca"></param>
+        /// <param name="IdModelo"></param>
+        /// <param name="Descripcion"></param>
+        /// <param name="NumeroPagina"></param>
+        /// <param name="NumeroRegistros"></param>
+        /// <returns></returns>
+        public List<DSMarket.Logica.Entidades.EntidadesInventario.EModelos> BuscaModelos(decimal? IdMarca = null, decimal? IdModelo = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
+            Objdata.CommandTimeout = 999999999;
+
+            var Listado = (from n in Objdata.SP_BUSCA_MODELOS(IdMarca, IdModelo, Descripcion, NumeroPagina, NumeroRegistros)
+                           select new DSMarket.Logica.Entidades.EntidadesInventario.EModelos
+                           {
+                               IdMarca=n.IdMarca,
+                               IdModelo=n.IdModelo,
+                               Marca=n.Marca,
+                               Modelo=n.Modelo,
+                               Estatus0=n.Estatus0,
+                               Estatus=n.Estatus
+                           }).ToList();
+            return Listado;
+        }
+
+        /// <summary>
+        /// Procesar Modelos
+        /// </summary>
+        /// <param name="Item"></param>
+        /// <param name="Accion"></param>
+        /// <returns></returns>
+        public DSMarket.Logica.Entidades.EntidadesInventario.EModelos ProcesarModelos(DSMarket.Logica.Entidades.EntidadesInventario.EModelos Item, string Accion) {
+            Objdata.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesInventario.EModelos Procesar = null;
+
+            var Modelos = Objdata.SP_MANTENIMIENTO_MODELO(
+                Item.IdMarca,
+                Item.IdModelo,
+                Item.Modelo,
+                Item.Estatus0,
+                Accion);
+
+            if (Modelos != null) {
+                Procesar = (from n in Modelos
+                            select new DSMarket.Logica.Entidades.EntidadesInventario.EModelos
+                            {
+                                IdMarca=n.IdMarca,
+                                IdModelo=n.IdModelo,
+                                Modelo=n.Descripcion,
+                                Estatus0=n.Estatus
+                            }).FirstOrDefault();
+                
+
+            }
+            return Procesar;
+        }
+        #endregion
+
+        #region UNIDAD DE MEDIDA
+        /// <summary>
+        /// Listado de Unidad de Medida
+        /// </summary>
+        /// <param name="IdUnidadMedida"></param>
+        /// <param name="Descripcion"></param>
+        /// <param name="NumeroPagina"></param>
+        /// <param name="NumeroRegistros"></param>
+        /// <returns></returns>
+        public List<DSMarket.Logica.Entidades.EntidadesInventario.EUnidadMEdida> BuscaUnidadMedida(decimal? IdUnidadMedida = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
+            Objdata.CommandTimeout = 999999999;
+
+            var Listado = (from n in Objdata.SP_BUSCA_UNIDAD_MEDIDA(IdUnidadMedida, Descripcion, NumeroPagina, NumeroRegistros)
+                           select new DSMarket.Logica.Entidades.EntidadesInventario.EUnidadMEdida
+                           {
+                               IdUnidadMedida=n.IdUnidadMedida,
+                               UnidadMedida=n.UnidadMedida,
+                               Estatus0=n.Estatus0,
+                               Estatus=n.Estatus
+                           }).ToList();
+            return Listado;
+        }
+
+        /// <summary>
+        /// Procesar Unidad de Medida
+        /// </summary>
+        /// <param name="Item"></param>
+        /// <param name="Accion"></param>
+        /// <returns></returns>
+        public DSMarket.Logica.Entidades.EntidadesInventario.EUnidadMEdida ProcesarUnidadMedida(DSMarket.Logica.Entidades.EntidadesInventario.EUnidadMEdida Item, string Accion) {
+            Objdata.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesInventario.EUnidadMEdida Procesar = null;
+
+            var UnidadMedida = Objdata.SP_MANTENIMIENTO_UNIDAD_MEDIDA(
+                Item.IdUnidadMedida,
+                Item.UnidadMedida,
+                Item.Estatus0,
+                Accion);
+            if (UnidadMedida != null) {
+                Procesar = (from n in UnidadMedida
+                            select new DSMarket.Logica.Entidades.EntidadesInventario.EUnidadMEdida
+                            {
+                                IdUnidadMedida=n.IdUnidadMedida,
+                                UnidadMedida=n.Descripcion,
+                                Estatus0=n.Estatus,
+                            }).FirstOrDefault();
+            }
+            return Procesar;
+        
+        }
+        #endregion
+
+        #region COLORES
+        /// <summary>
+        /// Busca listado de colores
+        /// </summary>
+        /// <param name="IdColor"></param>
+        /// <param name="Descripcion"></param>
+        /// <param name="NumeroPagina"></param>
+        /// <param name="NumeroRegistros"></param>
+        /// <returns></returns>
+        public List<DSMarket.Logica.Entidades.EntidadesInventario.EColores> BuscaColores(decimal? IdColor = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
+
+            Objdata.CommandTimeout = 999999999;
+
+            var Listado = (from n in Objdata.SP_BUSCA_COLORES_EQUIPOS(IdColor, Descripcion, NumeroPagina, NumeroRegistros)
+                           select new DSMarket.Logica.Entidades.EntidadesInventario.EColores
+                           {
+                               IdColor=n.IdColor,
+                               Color=n.Color,
+                               Estatus0=n.Estatus0,
+                               Estatus=n.Estatus
+
+                           }).ToList();
+            return Listado;
+        }
+
+        /// <summary>
+        /// Procesar Colores
+        /// </summary>
+        /// <param name="Item"></param>
+        /// <param name="Accion"></param>
+        /// <returns></returns>
+        public DSMarket.Logica.Entidades.EntidadesInventario.EColores ProcesarColores(DSMarket.Logica.Entidades.EntidadesInventario.EColores Item, string Accion) {
+            Objdata.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesInventario.EColores Procesar = null;
+
+            var Colores = Objdata.SP_MANTENIMIENTO_COLORES_EQUIPOS(
+                Item.IdColor,
+                Item.Color,
+                Item.Estatus0,
+                Accion);
+            if (Colores != null) {
+                Procesar = (from n in Colores
+                           select new DSMarket.Logica.Entidades.EntidadesInventario.EColores
+                           {
+                               IdColor=n.IdColor,
+                               Color=n.Descripcion,
+                               Estatus0=n.Estatus
+                           }).FirstOrDefault();
+            }
+            return Procesar;
+        }
+        #endregion
+
+        #region CONDICIONES
+        /// <summary>
+        /// Listado de Colores
+        /// </summary>
+        /// <param name="IdCondicion"></param>
+        /// <param name="Descripcion"></param>
+        /// <param name="NumeroPagina"></param>
+        /// <param name="NumeroRegistros"></param>
+        /// <returns></returns>
+        public List<DSMarket.Logica.Entidades.EntidadesInventario.ECondicion> BuscaCondiciones(decimal? IdCondicion = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistros = null) {
+            Objdata.CommandTimeout = 999999999;
+
+            var Listado = (from n in Objdata.SP_BUSCA_CONDICION_ARTICULO(IdCondicion, Descripcion, NumeroPagina, NumeroRegistros)
+                           select new DSMarket.Logica.Entidades.EntidadesInventario.ECondicion
+                           {
+                               IdCondicion=n.IdCondicion,
+                               Condicion=n.Condicion,
+                               Estatus0=n.Estatus0,
+                               Estatus=n.Estatus
+                           }).ToList();
+            return Listado;
+        }
+
+        /// <summary>
+        /// Procesar Condiciones
+        /// </summary>
+        /// <param name="Item"></param>
+        /// <param name="Accion"></param>
+        /// <returns></returns>
+        public DSMarket.Logica.Entidades.EntidadesInventario.ECondicion ProcesarCondiciones(DSMarket.Logica.Entidades.EntidadesInventario.ECondicion Item, string Accion) {
+            Objdata.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesInventario.ECondicion Procesar = null;
+
+            var Condiciones = Objdata.SP_MANTENIMIENTO_CONDICION_ARTICULOS(
+                Item.IdCondicion,
+                Item.Condicion,
+                Item.Estatus0,
+                Accion);
+            if (Condiciones != null) {
+                Procesar = (from n in Condiciones
+                            select new DSMarket.Logica.Entidades.EntidadesInventario.ECondicion
+                            {
+                                IdCondicion = n.IdCondicion,
+                                Condicion=n.Descripcion,
+                                Estatus0=n.Estatus
+                            }).FirstOrDefault();
+            }
+            return Procesar;
+        }
+        #endregion
+
+        #region CAPACIDAD
+        /// <summary>
+        /// Listado de Capacidad de equipios
+        /// </summary>
+        /// <param name="IdCapacidad"></param>
+        /// <param name="Descripcion"></param>
+        /// <param name="NumeroPagina"></param>
+        /// <param name="NumeroRegistros"></param>
+        /// <returns></returns>
+        public List<DSMarket.Logica.Entidades.EntidadesInventario.ECapacidad> BuscaCapacidad(decimal? IdCapacidad = null, string Descripcion = null, int? NumeroPagina = null, int? NumeroRegistros = 0) {
+            Objdata.CommandTimeout = 999999999;
+
+            var Listado = (from n in Objdata.SP_BUSCA_CAPACIDAD_ARTICULO(IdCapacidad, Descripcion, NumeroPagina, NumeroRegistros)
+                           select new DSMarket.Logica.Entidades.EntidadesInventario.ECapacidad
+                           {
+                               IdCapacidad=n.IdCapacidad,
+                               Capacidad=n.Capacidad,
+                               Estatus0=n.Estatus0,
+                               Estatus=n.Estatus
+                           }).ToList();
+            return Listado;
+        }
+
+        /// <summary>
+        /// Procesar las capacidades de los equipos
+        /// </summary>
+        /// <param name="Item"></param>
+        /// <param name="Accion"></param>
+        /// <returns></returns>
+        public DSMarket.Logica.Entidades.EntidadesInventario.ECapacidad ProcesarCapacidad(DSMarket.Logica.Entidades.EntidadesInventario.ECapacidad Item, string Accion) {
+            Objdata.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesInventario.ECapacidad Procesar = null;
+
+            var Capacidad = Objdata.SP_MANTENIMIENTO_CAPACIDAD_ARTICULOS(
+                Item.IdCapacidad,
+                Item.Capacidad,
+                Item.Estatus0,
+                Accion);
+            if (Capacidad != null) {
+                Procesar = (from n in Capacidad
+                            select new DSMarket.Logica.Entidades.EntidadesInventario.ECapacidad
+                            {
+                                IdCapacidad=n.IdCapacidad,
+                                Capacidad=n.Descripcion,
+                                Estatus0=n.Estatus
+                            }).FirstOrDefault();
+            }
+            return Procesar;
+        }
+        #endregion
     }
 }

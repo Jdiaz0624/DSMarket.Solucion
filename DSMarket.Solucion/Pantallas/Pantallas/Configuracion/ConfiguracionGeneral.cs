@@ -118,5 +118,24 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
                     break;
             }
         }
+
+        private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            decimal IdConfiguraciongeneral = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdConfiguracion"].Value.ToString());
+            decimal IdModulo = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdModulo"].Value.ToString());
+            bool Estatus = Convert.ToBoolean(this.dtListado.CurrentRow.Cells["Estatus0"].Value.ToString());
+
+            DSMarket.Logica.Comunes.ProcesarInformacion.Configuracion.ProcesarInformacionConfiguracionGeneralSistema Configuraciongeneral = new Logica.Comunes.ProcesarInformacion.Configuracion.ProcesarInformacionConfiguracionGeneralSistema(
+                IdConfiguraciongeneral, IdModulo, "", Estatus, "UPDATE");
+            Configuraciongeneral.ProcesarInformacion();
+            if (cbFiltrarPorFiltro.Checked == true)
+            {
+                CargarConfiguraciones();
+            }
+            else if (cbFiltrarPorFiltro.Checked == false)
+            {
+                CargarConfiguraciones();
+            }
+        }
     }
 }

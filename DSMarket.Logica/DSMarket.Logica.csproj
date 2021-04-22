@@ -80,7 +80,12 @@
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionTipoEmpleados.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionTipoMovimiento.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionTipoNomina.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\Inventario\ProcesarCondiciones.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\Inventario\ProcesarInformacionCapacidad.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\Inventario\ProcesarInformacionColores.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\Inventario\ProcesarInformacionModelos.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Inventario\ProcesarInformacionProductoServicio.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\Inventario\ProcesarUnidadMedida.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarDatosReporteFinanciero.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionCargos.cs" />
     <Compile Include="Comunes\ProcesarInformacion\ProcesarInformacionCatalogoCuentas.cs" />
@@ -169,9 +174,13 @@
     <Compile Include="Entidades\EntidadesEmpresa\ETipoMovimiento.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\ETipoNomina.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECantidadProductosDefectuosos.cs" />
+    <Compile Include="Entidades\EntidadesInventario\ECapacidad.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECapacidadArticulos.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECategorias.cs" />
+    <Compile Include="Entidades\EntidadesInventario\EColores.cs" />
+    <Compile Include="Entidades\EntidadesInventario\ECondicion.cs" />
     <Compile Include="Entidades\EntidadesInventario\Emarcas.cs" />
+    <Compile Include="Entidades\EntidadesInventario\EModelos.cs" />
     <Compile Include="Entidades\EntidadesInventario\EProducto.cs" />
     <Compile Include="Entidades\EntidadesInventario\EProductoProximoAgotarse.cs" />
     <Compile Include="Entidades\EntidadesInventario\EProductosAgotados.cs" />
@@ -180,6 +189,7 @@
     <Compile Include="Entidades\EntidadesInventario\ESuplidores.cs" />
     <Compile Include="Entidades\EntidadesInventario\ETipoProducto.cs" />
     <Compile Include="Entidades\EntidadesInventario\ETipoSuplidores.cs" />
+    <Compile Include="Entidades\EntidadesInventario\EUnidadMEdida.cs" />
     <Compile Include="Entidades\EntidadesInventario\EValidaReferenciaProducto.cs" />
     <Compile Include="Entidades\EntidadesListas\EAceptaMovimientoCuentasCOntables.cs" />
     <Compile Include="Entidades\EntidadesListas\ECantidadDias.cs" />

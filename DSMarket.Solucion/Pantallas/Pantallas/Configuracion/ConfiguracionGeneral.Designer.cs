@@ -30,24 +30,24 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
             this.PCerrar = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.gbValidar = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.gbListado = new System.Windows.Forms.GroupBox();
+            this.dtListado = new System.Windows.Forms.DataGridView();
+            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cbFiltrarPorFiltro = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.ddlModulo = new System.Windows.Forms.ComboBox();
-            this.dtListado = new System.Windows.Forms.DataGridView();
-            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
+            this.panel1.SuspendLayout();
             this.gbValidar.SuspendLayout();
             this.gbListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
@@ -57,19 +57,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
             // 
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.panel1.Controls.Add(this.PCerrar);
-            this.panel1.Controls.Add(this.lbTitulo);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(976, 38);
-            this.panel1.TabIndex = 103;
             // 
             // PCerrar
             // 
@@ -84,6 +71,19 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
             this.PCerrar.TabStop = false;
             this.toolTip1.SetToolTip(this.PCerrar, "Cerrar");
             this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.PCerrar);
+            this.panel1.Controls.Add(this.lbTitulo);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(976, 38);
+            this.panel1.TabIndex = 103;
             // 
             // lbTitulo
             // 
@@ -105,15 +105,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
             this.gbValidar.TabStop = false;
             this.gbValidar.Text = "Validar Clave de Seguridad";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Clave de Seguridad";
-            // 
             // txtClaveSeguridad
             // 
             this.txtClaveSeguridad.Location = new System.Drawing.Point(170, 33);
@@ -123,6 +114,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
             this.txtClaveSeguridad.TabIndex = 1;
             this.txtClaveSeguridad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClaveSeguridad_KeyPress);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(147, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Clave de Seguridad";
+            // 
             // gbListado
             // 
             this.gbListado.Controls.Add(this.dtListado);
@@ -131,6 +131,50 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
             this.gbListado.Size = new System.Drawing.Size(945, 328);
             this.gbListado.TabIndex = 105;
             this.gbListado.TabStop = false;
+            // 
+            // dtListado
+            // 
+            this.dtListado.AllowUserToAddRows = false;
+            this.dtListado.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtListado.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Select});
+            this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtListado.EnableHeadersVisualStyles = false;
+            this.dtListado.Location = new System.Drawing.Point(3, 22);
+            this.dtListado.Name = "dtListado";
+            this.dtListado.ReadOnly = true;
+            this.dtListado.RowTemplate.Height = 24;
+            this.dtListado.Size = new System.Drawing.Size(939, 303);
+            this.dtListado.TabIndex = 5;
+            this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
+            // 
+            // Select
+            // 
+            this.Select.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Select.HeaderText = "Cambiar";
+            this.Select.Name = "Select";
+            this.Select.ReadOnly = true;
+            this.Select.Text = "Cambiar";
+            this.Select.ToolTipText = "Cambiar";
+            this.Select.UseColumnTextForButtonValue = true;
+            this.Select.Width = 74;
             // 
             // cbFiltrarPorFiltro
             // 
@@ -166,49 +210,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
             this.ddlModulo.TabIndex = 108;
             this.ddlModulo.SelectedIndexChanged += new System.EventHandler(this.ddlModulo_SelectedIndexChanged);
             // 
-            // dtListado
-            // 
-            this.dtListado.AllowUserToAddRows = false;
-            this.dtListado.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
-            this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dtListado.BackgroundColor = System.Drawing.Color.LightGray;
-            this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
-            this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Select});
-            this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtListado.EnableHeadersVisualStyles = false;
-            this.dtListado.Location = new System.Drawing.Point(3, 22);
-            this.dtListado.Name = "dtListado";
-            this.dtListado.ReadOnly = true;
-            this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(939, 303);
-            this.dtListado.TabIndex = 5;
-            // 
-            // Select
-            // 
-            this.Select.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Select.HeaderText = "Cambiar";
-            this.Select.Name = "Select";
-            this.Select.ReadOnly = true;
-            this.Select.Text = "Cambiar";
-            this.Select.ToolTipText = "Cambiar";
-            this.Select.UseColumnTextForButtonValue = true;
-            this.Select.Width = 74;
-            // 
             // ConfiguracionGeneral
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -228,9 +229,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
             this.Text = "ConfiguracionGeneral";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConfiguracionGeneral_FormClosing);
             this.Load += new System.EventHandler(this.ConfiguracionGeneral_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.gbValidar.ResumeLayout(false);
             this.gbValidar.PerformLayout();
             this.gbListado.ResumeLayout(false);
