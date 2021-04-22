@@ -25,6 +25,193 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         Lazy<DSMarket.Logica.Logica.LogicaServicio.LogicaServicio> ObjDataServicio = new Lazy<Logica.Logica.LogicaServicio.LogicaServicio>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
+        enum OpcionesConfigunacionGeneral
+        {
+            ImpuestoPorDefecto = 1,
+            LlevaGarantiaPorDefecto = 2,
+            CampoReferenciaObligatorio = 3,
+            CampoReferenciaNumerico = 4,
+            ValidarampoReferencia = 5,
+            UnidadMedidaSeleccionable = 6,
+            CampoModeloSeleccionable = 7,
+            CampoColorSeleccionable = 8,
+            CampoCondicionSeleccionable = 9,
+            CampoCapacidadSeleccionable = 10,
+            RestablecerListasDesplegablesGuardar = 11,
+            AutoCompletarCampoReferenciaConsulta = 12
+        }
+
+        /// <summary>
+        /// Este metodo es para validar las configuraciones generales del sistema
+        /// </summary>
+        private void ValidarConfiguracionesGenerales()
+        {
+
+            //DECLARAMOS LAS VARIABLES PARA RECIBIR LOS CAMPOS PARA VALIDAR
+            bool RespuestaValidacion = false;
+
+
+            #region VALIDACION DEL CHECK DE IMPUESTO
+            DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarImpuestoPorDefecto = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfigunacionGeneral.ImpuestoPorDefecto, 1);
+            RespuestaValidacion = ValidarImpuestoPorDefecto.ValidarConfiguracionGeneral();
+
+            switch (RespuestaValidacion)
+            {
+                case true:
+                    cbAplicaParaImpuesto.Checked = true;
+                    break;
+                case false:
+                    cbAplicaParaImpuesto.Checked = false;
+                    break;
+            }
+            #endregion
+
+
+            #region VALIDACION DEL CHECK DE GARANTIA
+            DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarLlevaGarantiaPorDefecto = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfigunacionGeneral.LlevaGarantiaPorDefecto, 1);
+            RespuestaValidacion = ValidarLlevaGarantiaPorDefecto.ValidarConfiguracionGeneral();
+
+            switch (RespuestaValidacion)
+            {
+                case true:
+                    cbLlevagarantia.Checked = true;
+                    lbTipoGarantia.Visible = true;
+                    ddlTipoGarantia.Visible = true;
+                    lbTiempoGarantia.Visible = true;
+                    txtTiempoGarantia.Visible = true;
+                    CargarTipogarantia();
+                    break;
+                case false:
+                    cbLlevagarantia.Checked = false;
+                    lbTipoGarantia.Visible = false;
+                    ddlTipoGarantia.Visible = false;
+                    lbTiempoGarantia.Visible = false;
+                    txtTiempoGarantia.Visible = true;
+                    CargarTipogarantia();
+                    break;
+            }
+            #endregion
+
+
+            #region VALIDAMOS EL CAMPO DE REFERENCIA OBLIGATORIA
+            DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarCampoReferenciaObligatorio = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfigunacionGeneral.CampoReferenciaObligatorio, 1);
+            RespuestaValidacion = ValidarCampoReferenciaObligatorio.ValidarConfiguracionGeneral();
+
+            switch (RespuestaValidacion)
+            {
+                case true:
+                    lbReferencia.Text = "Referencia *";
+                    break;
+                case false:
+                    lbReferencia.Text = "Referencia";
+                    break;
+            }
+
+            #endregion
+
+            #region UNIDAD DE MEDIDA SELECCIONABLE
+            DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarUnidadMedidaSeleccionable = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfigunacionGeneral.UnidadMedidaSeleccionable, 1);
+            RespuestaValidacion = ValidarUnidadMedidaSeleccionable.ValidarConfiguracionGeneral();
+
+            switch (RespuestaValidacion)
+            {
+                case true:
+                    txtUnidadMedinda.Visible = false;
+                    ddlUnidadMedida.Visible = true;
+                    CargarUnidadMedida();
+                    break;
+                case false:
+                    txtUnidadMedinda.Visible = true;
+                    ddlUnidadMedida.Visible = false;
+                    break;
+            }
+            #endregion
+
+            #region MODELO SELECCIONABLE
+            DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarCampoModeloSeleccionable = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfigunacionGeneral.CampoModeloSeleccionable, 1);
+            RespuestaValidacion = ValidarCampoModeloSeleccionable.ValidarConfiguracionGeneral();
+
+            switch (RespuestaValidacion)
+            {
+                case true:
+                    txtModelo.Visible = false;
+                    ddlModelo.Visible = true;
+                    CargarModelos();
+                    break;
+                case false:
+                    txtModelo.Visible = true;
+                    ddlModelo.Visible = false;
+                    break;
+            }
+            #endregion
+
+            #region COLORES SELECCIONABLES
+            DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarCampoColorSeleccionable = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfigunacionGeneral.CampoColorSeleccionable, 1);
+            RespuestaValidacion = ValidarCampoColorSeleccionable.ValidarConfiguracionGeneral();
+            switch (RespuestaValidacion) {
+                case true:
+                    txtColor.Visible = false;
+                    ddlColor.Visible = true;
+                    CargarClores();
+                    break;
+
+                case false:
+                    txtColor.Visible = true;
+                    ddlColor.Visible = false;
+                    break;
+            }
+            #endregion
+
+            #region CONDICIONES SELECCIONABLES
+            DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarCampoCondicionSeleccionable = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfigunacionGeneral.CampoCondicionSeleccionable, 1);
+            RespuestaValidacion = ValidarCampoCondicionSeleccionable.ValidarConfiguracionGeneral();
+            switch (RespuestaValidacion)
+            {
+                case true:
+                    txtCondicion.Visible = false;
+                    ddlCondicion.Visible = true;
+                    CargarCondiciones();
+                    break;
+
+                case false:
+                    txtCondicion.Visible = true;
+                    ddlCondicion.Visible = false;
+                    break;
+            }
+            #endregion
+
+            #region CAPACIDAD SELECCIONABLE
+            DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarCampoCapacidadSeleccionable = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfigunacionGeneral.CampoCapacidadSeleccionable, 1);
+            RespuestaValidacion = ValidarCampoCapacidadSeleccionable.ValidarConfiguracionGeneral();
+            switch (RespuestaValidacion)
+            {
+                case true:
+                    txtCapacidad.Visible = false;
+                    ddlCpacidad.Visible = true;
+                    CargarCapacidad();
+                    break;
+
+                case false:
+                    txtCapacidad.Visible = true;
+                    ddlCpacidad.Visible = false;
+                    break;
+            }
+
+            #endregion
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+
         #region CARGAR LAS LISTAS
         private void CargarTipoPdoducto()
         {
@@ -64,6 +251,60 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             }
             catch (Exception) { }
 
+        }
+
+        private void CargarUnidadMedida() {
+            try {
+                var UnidadMEdida = ObjDataListas.Value.BuscaUnidadMedida();
+                ddlUnidadMedida.DataSource = UnidadMEdida;
+                ddlUnidadMedida.DisplayMember = "Descripcion";
+                ddlUnidadMedida.SelectedValue = "IdUnidadMedida";
+            }
+            catch (Exception) { }
+        }
+
+        private void CargarModelos() {
+            try {
+                var Modelo = ObjDataListas.Value.BuscaListaModelos(Convert.ToDecimal(ddlMarca.SelectedValue));
+                ddlModelo.DataSource = Modelo;
+                ddlModelo.DisplayMember = "Descripcion";
+                ddlModelo.ValueMember = "IdModelo";
+            }
+            catch (Exception) { }
+        }
+
+        private void CargarClores() {
+            try {
+                var Colores = ObjDataListas.Value.ListadoColores();
+                ddlColor.DataSource = Colores;
+                ddlColor.DisplayMember = "Color";
+                
+            }
+            catch (Exception) { }
+        }
+
+        private void CargarCondiciones()
+        {
+            try
+            {
+                var Condicion = ObjDataListas.Value.ListadoCondiciones();
+                ddlCondicion.DataSource = Condicion;
+                ddlCondicion.DisplayMember = "Condicion";
+
+            }
+            catch (Exception) { }
+        }
+
+        private void CargarCapacidad()
+        {
+            try
+            {
+                var Capacidad = ObjDataListas.Value.ListadoCapacidad();
+                ddlColor.DataSource = Capacidad;
+                ddlColor.DisplayMember = "Capacidad";
+
+            }
+            catch (Exception) { }
         }
 
         private void CargarTipoSuplidores() {
@@ -236,6 +477,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 SacarInformacionProductoSeleccionado();
             }
             CargarListas();
+            ValidarConfiguracionesGenerales();
         }
 
     
@@ -333,6 +575,41 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 txtTiempoGarantia.Text = SacarTiempoGarantia(Convert.ToInt32(ddlTipoGarantia.SelectedValue)).ToString();
             }
             catch (Exception) { }
+        }
+
+        private void txtReferencia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool RespuestaValidacion = false;
+
+            DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarCampoReferenciaNumerico = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfigunacionGeneral.CampoReferenciaNumerico, 1);
+            RespuestaValidacion = ValidarCampoReferenciaNumerico.ValidarConfiguracionGeneral();
+
+            if (RespuestaValidacion == true)
+            {
+                DSMarket.Logica.Comunes.ValidarControles.SoloNumeros(e);
+            }
+        }
+
+        private void ddlMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bool RespuestaValidacion = false;
+            #region MODELO SELECCIONABLE
+            DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarCampoModeloSeleccionable = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfigunacionGeneral.CampoModeloSeleccionable, 1);
+            RespuestaValidacion = ValidarCampoModeloSeleccionable.ValidarConfiguracionGeneral();
+
+            switch (RespuestaValidacion)
+            {
+                case true:
+                    txtModelo.Visible = false;
+                    ddlModelo.Visible = true;
+                    CargarModelos();
+                    break;
+                case false:
+                    txtModelo.Visible = true;
+                    ddlModelo.Visible = false;
+                    break;
+            }
+            #endregion
         }
     }
 }

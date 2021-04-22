@@ -102,6 +102,7 @@
     <Compile Include="Comunes\ProcesarRUtaArchivotxt.cs" />
     <Compile Include="Comunes\ProcesarUsuarios.cs" />
     <Compile Include="Comunes\SeguridadEncriptacion.cs" />
+    <Compile Include="Comunes\ValidarConfiguracionesGeneralesSistema.cs" />
     <Compile Include="Comunes\ValidarConfiguracionGeneral.cs" />
     <Compile Include="Comunes\ValidarControles.cs" />
     <Compile Include="Comunes\ValidarNivelUsuario.cs" />

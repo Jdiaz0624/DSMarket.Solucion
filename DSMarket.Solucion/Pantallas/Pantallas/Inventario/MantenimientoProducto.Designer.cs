@@ -38,6 +38,11 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ddlCpacidad = new System.Windows.Forms.ComboBox();
+            this.ddlCondicion = new System.Windows.Forms.ComboBox();
+            this.ddlColor = new System.Windows.Forms.ComboBox();
+            this.ddlModelo = new System.Windows.Forms.ComboBox();
+            this.ddlUnidadMedida = new System.Windows.Forms.ComboBox();
             this.txtTiempoGarantia = new System.Windows.Forms.TextBox();
             this.lbTiempoGarantia = new System.Windows.Forms.Label();
             this.ddlTipoGarantia = new System.Windows.Forms.ComboBox();
@@ -74,7 +79,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lbReferencia = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -84,11 +89,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbLlevagarantia = new System.Windows.Forms.CheckBox();
             this.cbAplicaParaImpuesto = new System.Windows.Forms.CheckBox();
-            this.ddlUnidadMedida = new System.Windows.Forms.ComboBox();
-            this.ddlModelo = new System.Windows.Forms.ComboBox();
-            this.ddlColor = new System.Windows.Forms.ComboBox();
-            this.ddlCondicion = new System.Windows.Forms.ComboBox();
-            this.ddlCpacidad = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -202,7 +202,7 @@
             this.groupBox1.Controls.Add(this.label20);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.lbReferencia);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
@@ -220,6 +220,66 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de Item";
+            // 
+            // ddlCpacidad
+            // 
+            this.ddlCpacidad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlCpacidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlCpacidad.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlCpacidad.FormattingEnabled = true;
+            this.ddlCpacidad.Location = new System.Drawing.Point(169, 246);
+            this.ddlCpacidad.Name = "ddlCpacidad";
+            this.ddlCpacidad.Size = new System.Drawing.Size(251, 28);
+            this.ddlCpacidad.TabIndex = 50;
+            this.ddlCpacidad.Visible = false;
+            // 
+            // ddlCondicion
+            // 
+            this.ddlCondicion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlCondicion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlCondicion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlCondicion.FormattingEnabled = true;
+            this.ddlCondicion.Location = new System.Drawing.Point(984, 215);
+            this.ddlCondicion.Name = "ddlCondicion";
+            this.ddlCondicion.Size = new System.Drawing.Size(251, 28);
+            this.ddlCondicion.TabIndex = 49;
+            this.ddlCondicion.Visible = false;
+            // 
+            // ddlColor
+            // 
+            this.ddlColor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlColor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlColor.FormattingEnabled = true;
+            this.ddlColor.Location = new System.Drawing.Point(583, 214);
+            this.ddlColor.Name = "ddlColor";
+            this.ddlColor.Size = new System.Drawing.Size(251, 28);
+            this.ddlColor.TabIndex = 48;
+            this.ddlColor.Visible = false;
+            // 
+            // ddlModelo
+            // 
+            this.ddlModelo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlModelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlModelo.FormattingEnabled = true;
+            this.ddlModelo.Location = new System.Drawing.Point(169, 214);
+            this.ddlModelo.Name = "ddlModelo";
+            this.ddlModelo.Size = new System.Drawing.Size(251, 28);
+            this.ddlModelo.TabIndex = 47;
+            this.ddlModelo.Visible = false;
+            // 
+            // ddlUnidadMedida
+            // 
+            this.ddlUnidadMedida.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlUnidadMedida.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlUnidadMedida.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlUnidadMedida.FormattingEnabled = true;
+            this.ddlUnidadMedida.Location = new System.Drawing.Point(984, 185);
+            this.ddlUnidadMedida.Name = "ddlUnidadMedida";
+            this.ddlUnidadMedida.Size = new System.Drawing.Size(251, 28);
+            this.ddlUnidadMedida.TabIndex = 46;
+            this.ddlUnidadMedida.Visible = false;
             // 
             // txtTiempoGarantia
             // 
@@ -357,6 +417,7 @@
             this.txtReferencia.Name = "txtReferencia";
             this.txtReferencia.Size = new System.Drawing.Size(251, 27);
             this.txtReferencia.TabIndex = 29;
+            this.txtReferencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtReferencia_KeyPress);
             // 
             // txtcodigobarra
             // 
@@ -408,6 +469,7 @@
             this.ddlMarca.Name = "ddlMarca";
             this.ddlMarca.Size = new System.Drawing.Size(251, 28);
             this.ddlMarca.TabIndex = 24;
+            this.ddlMarca.SelectedIndexChanged += new System.EventHandler(this.ddlMarca_SelectedIndexChanged);
             // 
             // ddlCategoria
             // 
@@ -541,14 +603,15 @@
             this.label9.TabIndex = 10;
             this.label9.Text = "No. Seguimiento";
             // 
-            // label8
+            // lbReferencia
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(492, 129);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(88, 20);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Referencia";
+            this.lbReferencia.AutoSize = true;
+            this.lbReferencia.Location = new System.Drawing.Point(480, 129);
+            this.lbReferencia.Name = "lbReferencia";
+            this.lbReferencia.Size = new System.Drawing.Size(100, 20);
+            this.lbReferencia.TabIndex = 9;
+            this.lbReferencia.Text = "Referencia *";
+            this.lbReferencia.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label7
             // 
@@ -638,66 +701,6 @@
             this.cbAplicaParaImpuesto.Text = "Aplica para Impuesto";
             this.cbAplicaParaImpuesto.UseVisualStyleBackColor = true;
             // 
-            // ddlUnidadMedida
-            // 
-            this.ddlUnidadMedida.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlUnidadMedida.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlUnidadMedida.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ddlUnidadMedida.FormattingEnabled = true;
-            this.ddlUnidadMedida.Location = new System.Drawing.Point(984, 185);
-            this.ddlUnidadMedida.Name = "ddlUnidadMedida";
-            this.ddlUnidadMedida.Size = new System.Drawing.Size(251, 28);
-            this.ddlUnidadMedida.TabIndex = 46;
-            this.ddlUnidadMedida.Visible = false;
-            // 
-            // ddlModelo
-            // 
-            this.ddlModelo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlModelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ddlModelo.FormattingEnabled = true;
-            this.ddlModelo.Location = new System.Drawing.Point(169, 214);
-            this.ddlModelo.Name = "ddlModelo";
-            this.ddlModelo.Size = new System.Drawing.Size(251, 28);
-            this.ddlModelo.TabIndex = 47;
-            this.ddlModelo.Visible = false;
-            // 
-            // ddlColor
-            // 
-            this.ddlColor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlColor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ddlColor.FormattingEnabled = true;
-            this.ddlColor.Location = new System.Drawing.Point(583, 214);
-            this.ddlColor.Name = "ddlColor";
-            this.ddlColor.Size = new System.Drawing.Size(251, 28);
-            this.ddlColor.TabIndex = 48;
-            this.ddlColor.Visible = false;
-            // 
-            // ddlCondicion
-            // 
-            this.ddlCondicion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlCondicion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlCondicion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ddlCondicion.FormattingEnabled = true;
-            this.ddlCondicion.Location = new System.Drawing.Point(984, 215);
-            this.ddlCondicion.Name = "ddlCondicion";
-            this.ddlCondicion.Size = new System.Drawing.Size(251, 28);
-            this.ddlCondicion.TabIndex = 49;
-            this.ddlCondicion.Visible = false;
-            // 
-            // ddlCpacidad
-            // 
-            this.ddlCpacidad.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlCpacidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlCpacidad.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ddlCpacidad.FormattingEnabled = true;
-            this.ddlCpacidad.Location = new System.Drawing.Point(169, 246);
-            this.ddlCpacidad.Name = "ddlCpacidad";
-            this.ddlCpacidad.Size = new System.Drawing.Size(251, 28);
-            this.ddlCpacidad.TabIndex = 50;
-            this.ddlCpacidad.Visible = false;
-            // 
             // MantenimientoProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -746,7 +749,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbReferencia;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
