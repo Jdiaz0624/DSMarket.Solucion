@@ -40,6 +40,11 @@
             this.btnMArcas = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnModelo = new System.Windows.Forms.Button();
+            this.btnUnidadMedida = new System.Windows.Forms.Button();
+            this.btnColores = new System.Windows.Forms.Button();
+            this.btnCondiciones = new System.Windows.Forms.Button();
+            this.btnCapacidad = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.gbOpciones.SuspendLayout();
@@ -94,6 +99,11 @@
             // 
             // gbOpciones
             // 
+            this.gbOpciones.Controls.Add(this.btnCapacidad);
+            this.gbOpciones.Controls.Add(this.btnCondiciones);
+            this.gbOpciones.Controls.Add(this.btnColores);
+            this.gbOpciones.Controls.Add(this.btnUnidadMedida);
+            this.gbOpciones.Controls.Add(this.btnModelo);
             this.gbOpciones.Controls.Add(this.btnSuplidores);
             this.gbOpciones.Controls.Add(this.btnTipoSuplidores);
             this.gbOpciones.Controls.Add(this.btnCategoria);
@@ -160,7 +170,7 @@
             this.btnMArcas.Size = new System.Drawing.Size(186, 56);
             this.btnMArcas.TabIndex = 4;
             this.btnMArcas.Text = "Marcas";
-            this.toolTip1.SetToolTip(this.btnMArcas, "Mantenimiento de marcas");
+            this.toolTip1.SetToolTip(this.btnMArcas, "Mantenimiento de Marcas");
             this.btnMArcas.UseVisualStyleBackColor = true;
             this.btnMArcas.Click += new System.EventHandler(this.btnMArcas_Click);
             // 
@@ -177,6 +187,71 @@
             this.toolTip1.SetToolTip(this.btnProductos, "Inventario");
             this.btnProductos.UseVisualStyleBackColor = true;
             this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
+            // 
+            // btnModelo
+            // 
+            this.btnModelo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModelo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModelo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModelo.Location = new System.Drawing.Point(390, 92);
+            this.btnModelo.Name = "btnModelo";
+            this.btnModelo.Size = new System.Drawing.Size(186, 56);
+            this.btnModelo.TabIndex = 8;
+            this.btnModelo.Text = "Modelos";
+            this.toolTip1.SetToolTip(this.btnModelo, "Mantenimiento de Modelos");
+            this.btnModelo.UseVisualStyleBackColor = true;
+            // 
+            // btnUnidadMedida
+            // 
+            this.btnUnidadMedida.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUnidadMedida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUnidadMedida.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUnidadMedida.Location = new System.Drawing.Point(6, 153);
+            this.btnUnidadMedida.Name = "btnUnidadMedida";
+            this.btnUnidadMedida.Size = new System.Drawing.Size(186, 56);
+            this.btnUnidadMedida.TabIndex = 9;
+            this.btnUnidadMedida.Text = "Unidad de Medida";
+            this.toolTip1.SetToolTip(this.btnUnidadMedida, "Mantenimiento de Unidad de Medida");
+            this.btnUnidadMedida.UseVisualStyleBackColor = true;
+            // 
+            // btnColores
+            // 
+            this.btnColores.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnColores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnColores.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnColores.Location = new System.Drawing.Point(199, 153);
+            this.btnColores.Name = "btnColores";
+            this.btnColores.Size = new System.Drawing.Size(186, 56);
+            this.btnColores.TabIndex = 10;
+            this.btnColores.Text = "Colores";
+            this.toolTip1.SetToolTip(this.btnColores, "Mantenimiento de Colores");
+            this.btnColores.UseVisualStyleBackColor = true;
+            // 
+            // btnCondiciones
+            // 
+            this.btnCondiciones.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCondiciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCondiciones.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCondiciones.Location = new System.Drawing.Point(390, 154);
+            this.btnCondiciones.Name = "btnCondiciones";
+            this.btnCondiciones.Size = new System.Drawing.Size(186, 56);
+            this.btnCondiciones.TabIndex = 11;
+            this.btnCondiciones.Text = "Condiciones";
+            this.toolTip1.SetToolTip(this.btnCondiciones, "Mantenimiento de Condiciones");
+            this.btnCondiciones.UseVisualStyleBackColor = true;
+            // 
+            // btnCapacidad
+            // 
+            this.btnCapacidad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCapacidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCapacidad.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCapacidad.Location = new System.Drawing.Point(7, 215);
+            this.btnCapacidad.Name = "btnCapacidad";
+            this.btnCapacidad.Size = new System.Drawing.Size(186, 56);
+            this.btnCapacidad.TabIndex = 12;
+            this.btnCapacidad.Text = "Capacidad";
+            this.toolTip1.SetToolTip(this.btnCapacidad, "Mantenimiento de Capacidad");
+            this.btnCapacidad.UseVisualStyleBackColor = true;
             // 
             // Inventario
             // 
@@ -211,5 +286,10 @@
         private System.Windows.Forms.Button btnSuplidores;
         private System.Windows.Forms.Button btnTipoSuplidores;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button btnCapacidad;
+        private System.Windows.Forms.Button btnCondiciones;
+        private System.Windows.Forms.Button btnColores;
+        private System.Windows.Forms.Button btnUnidadMedida;
+        private System.Windows.Forms.Button btnModelo;
     }
 }
