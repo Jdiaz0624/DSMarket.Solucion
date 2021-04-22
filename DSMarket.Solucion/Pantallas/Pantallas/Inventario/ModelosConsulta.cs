@@ -16,5 +16,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         {
             InitializeComponent();
         }
+       // Lazy<DSMarket.Logica.Logica.
+
+        private void ModelosConsulta_Load(object sender, EventArgs e)
+        {
+           // vari
+        }
     }
 }
