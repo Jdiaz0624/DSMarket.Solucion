@@ -31,19 +31,63 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         {
             this.components = new System.ComponentModel.Container();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.cbEstatus = new System.Windows.Forms.CheckBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.PCerrar = new System.Windows.Forms.PictureBox();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbEstatus = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCapacidad = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbTitulo = new System.Windows.Forms.Label();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.PCerrar = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.SuspendLayout();
+            // 
+            // cbEstatus
+            // 
+            this.cbEstatus.AutoSize = true;
+            this.cbEstatus.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbEstatus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbEstatus.Location = new System.Drawing.Point(117, 73);
+            this.cbEstatus.Name = "cbEstatus";
+            this.cbEstatus.Size = new System.Drawing.Size(83, 25);
+            this.cbEstatus.TabIndex = 6;
+            this.cbEstatus.Text = "Estatus";
+            this.toolTip1.SetToolTip(this.cbEstatus, "Estatus de Tipo de Producto");
+            this.cbEstatus.UseVisualStyleBackColor = true;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardar.FlatAppearance.BorderSize = 10;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Image = global::DSMarket.Solucion.Properties.Resources.Guardar;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardar.Location = new System.Drawing.Point(12, 160);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(440, 41);
+            this.btnGuardar.TabIndex = 26;
+            this.btnGuardar.Text = "Accion";
+            this.toolTip1.SetToolTip(this.btnGuardar, "Completar Operación");
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // PCerrar
+            // 
+            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
+            this.PCerrar.Location = new System.Drawing.Point(424, 5);
+            this.PCerrar.Name = "PCerrar";
+            this.PCerrar.Size = new System.Drawing.Size(30, 30);
+            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PCerrar.TabIndex = 15;
+            this.PCerrar.TabStop = false;
+            this.toolTip1.SetToolTip(this.PCerrar, "Cerrar");
+            this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
             // 
             // bunifuElipse1
             // 
@@ -62,19 +106,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Mantenimiento de Capacidad";
-            // 
-            // cbEstatus
-            // 
-            this.cbEstatus.AutoSize = true;
-            this.cbEstatus.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbEstatus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbEstatus.Location = new System.Drawing.Point(117, 73);
-            this.cbEstatus.Name = "cbEstatus";
-            this.cbEstatus.Size = new System.Drawing.Size(83, 25);
-            this.cbEstatus.TabIndex = 6;
-            this.cbEstatus.Text = "Estatus";
-            this.toolTip1.SetToolTip(this.cbEstatus, "Estatus de Tipo de Producto");
-            this.cbEstatus.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -116,35 +147,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.lbTitulo.TabIndex = 13;
             this.lbTitulo.Text = "label6";
             // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardar.FlatAppearance.BorderSize = 10;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Image = global::DSMarket.Solucion.Properties.Resources.Guardar;
-            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(12, 160);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(440, 41);
-            this.btnGuardar.TabIndex = 26;
-            this.btnGuardar.Text = "Accion";
-            this.toolTip1.SetToolTip(this.btnGuardar, "Completar Operación");
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            // 
-            // PCerrar
-            // 
-            this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(424, 5);
-            this.PCerrar.Name = "PCerrar";
-            this.PCerrar.Size = new System.Drawing.Size(30, 30);
-            this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PCerrar.TabIndex = 15;
-            this.PCerrar.TabStop = false;
-            this.toolTip1.SetToolTip(this.PCerrar, "Cerrar");
-            // 
             // MantenimientoCapacidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -155,12 +157,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MantenimientoCapacidad";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MantenimientoCapacidad";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MantenimientoCapacidad_FormClosing);
+            this.Load += new System.EventHandler(this.MantenimientoCapacidad_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).EndInit();
             this.ResumeLayout(false);
 
         }

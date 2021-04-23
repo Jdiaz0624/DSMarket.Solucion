@@ -130,6 +130,7 @@
             this.btnCapacidad.Text = "Capacidad";
             this.toolTip1.SetToolTip(this.btnCapacidad, "Mantenimiento de Capacidad");
             this.btnCapacidad.UseVisualStyleBackColor = true;
+            this.btnCapacidad.Click += new System.EventHandler(this.btnCapacidad_Click);
             // 
             // btnCondiciones
             // 
@@ -143,6 +144,7 @@
             this.btnCondiciones.Text = "Condiciones";
             this.toolTip1.SetToolTip(this.btnCondiciones, "Mantenimiento de Condiciones");
             this.btnCondiciones.UseVisualStyleBackColor = true;
+            this.btnCondiciones.Click += new System.EventHandler(this.btnCondiciones_Click_1);
             // 
             // btnColores
             // 

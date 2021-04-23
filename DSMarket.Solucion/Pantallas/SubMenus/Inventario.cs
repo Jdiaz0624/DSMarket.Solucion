@@ -207,20 +207,8 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
 
        
 
-        private void btnCondiciones_Click(object sender, EventArgs e)
-        {
-            DSMarket.Solucion.Pantallas.Pantallas.Inventario.CondicionConsulta ConsultaCondiciones = new Pantallas.Inventario.CondicionConsulta();
-            ConsultaCondiciones.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
-            ConsultaCondiciones.ShowDialog();
-        }
+      
 
-        private void btbCapacidad_Click(object sender, EventArgs e)
-        {
-
-            DSMarket.Solucion.Pantallas.Pantallas.Inventario.CapacidadConsulta ConsultaCapacidad = new Pantallas.Inventario.CapacidadConsulta();
-            ConsultaCapacidad.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
-            ConsultaCapacidad.ShowDialog();
-        }
 
         private void btnModelo_Click(object sender, EventArgs e)
         {
@@ -241,6 +229,20 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.ColoresConsulta ConsultaColores = new Pantallas.Inventario.ColoresConsulta();
             ConsultaColores.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
             ConsultaColores.ShowDialog();
+        }
+
+        private void btnCapacidad_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Inventario.CapacidadConsulta ConsultaCapacidad = new Pantallas.Inventario.CapacidadConsulta();
+            ConsultaCapacidad.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
+            ConsultaCapacidad.ShowDialog();
+        }
+
+        private void btnCondiciones_Click_1(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Inventario.CondicionConsulta ConsultaCondiciones = new Pantallas.Inventario.CondicionConsulta();
+            ConsultaCondiciones.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
+            ConsultaCondiciones.ShowDialog();
         }
     }
 }
