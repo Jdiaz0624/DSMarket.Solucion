@@ -55,6 +55,18 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             Consulta.ShowDialog();
           
         }
+        private void SacarInformacionModelo() {
+            var SacarInformacion = ObjDataInventario.Value.BuscaModelos(
+                        new Nullable<decimal>(),
+                        VariablesGlobales.IdMantenimeinto,
+                        null, 1, 1);
+            foreach (var n in SacarInformacion)
+            {
+                ddlMarca.Text = n.Marca;
+                txtModelo.Text = n.Modelo;
+                cbEstatus.Checked = (n.Estatus0.HasValue ? n.Estatus0.Value : false);
+            }
+        }
         private void ModelosMantenimiento_Load(object sender, EventArgs e)
         {
             CargarMarcas();
@@ -64,20 +76,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             lbTitulo.Text = "MANTENIMIENTO DE MODELOS";
             if (VariablesGlobales.Accion == "UPDATE")
             {
-                var SacarInformacion = ObjDataInventario.Value.BuscaModelos(
-                    new Nullable<decimal>(),
-                    VariablesGlobales.IdMantenimeinto,
-                    null, 1, 1);
-                foreach (var n in SacarInformacion)
-                {
-                    ddlMarca.Text = n.Marca;
-                    txtModelo.Text = n.Modelo;
-                    cbEstatus.Checked = (n.Estatus0.HasValue ? n.Estatus0.Value : false);
-                }
+                SacarInformacionModelo();
                 btnGuardar.Text = "Editar";
             }
-            else {
+            else if (VariablesGlobales.Accion == "INSERT")
+            {
                 btnGuardar.Text = "Guardar";
+            }
+            else if (VariablesGlobales.Accion == "DELETE") {
+                SacarInformacionModelo();
+                btnGuardar.Text = "Eliminar";
             }
         }
 
@@ -103,19 +111,28 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             }
             else {
                 MantenimientoModelo();
-                if (VariablesGlobales.Accion == "INSERT") {
-                    MessageBox.Show("Registro guardado con exito.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (MessageBox.Show("¿Quieres guardar otro registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        LimpiarControles();
-                    }
-                    else {
+
+
+                switch (VariablesGlobales.Accion) {
+                    case "INSERT":
+                        MessageBox.Show("Registro guardado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (MessageBox.Show("¿Quieres gaurdar otro registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+                            LimpiarControles();
+                        }
+                        else {
+                            CerrarPantalla();
+                        }
+                        break;
+
+                    case "UPDATE":
+                        MessageBox.Show("Registro Modificado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         CerrarPantalla();
-                    }
-                }
-                else {
-                    MessageBox.Show("Registro modificado con exito.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    CerrarPantalla();
+                        break;
+
+                    case "DELETE":
+                        MessageBox.Show("Registro Eliminado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CerrarPantalla();
+                        break;
                 }
             }
         }

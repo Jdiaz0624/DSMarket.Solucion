@@ -156,6 +156,7 @@
             this.btnColores.Text = "Colores";
             this.toolTip1.SetToolTip(this.btnColores, "Mantenimiento de Colores");
             this.btnColores.UseVisualStyleBackColor = true;
+            this.btnColores.Click += new System.EventHandler(this.btnColores_Click_1);
             // 
             // btnUnidadMedida
             // 

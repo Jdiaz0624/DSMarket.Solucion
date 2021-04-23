@@ -205,12 +205,7 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
 
         }
 
-        private void btnColores_Click(object sender, EventArgs e)
-        {
-            DSMarket.Solucion.Pantallas.Pantallas.Inventario.ColoresConsulta ConsultaColores = new Pantallas.Inventario.ColoresConsulta();
-            ConsultaColores.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
-            ConsultaColores.ShowDialog();
-        }
+       
 
         private void btnCondiciones_Click(object sender, EventArgs e)
         {
@@ -239,6 +234,13 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
             DSMarket.Solucion.Pantallas.Pantallas.Inventario.UnidadMedidaConsulta unidadMEdidaConsulta = new Pantallas.Inventario.UnidadMedidaConsulta();
             unidadMEdidaConsulta.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
             unidadMEdidaConsulta.ShowDialog();
+        }
+
+        private void btnColores_Click_1(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Inventario.ColoresConsulta ConsultaColores = new Pantallas.Inventario.ColoresConsulta();
+            ConsultaColores.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
+            ConsultaColores.ShowDialog();
         }
     }
 }

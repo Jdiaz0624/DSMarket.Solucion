@@ -54,6 +54,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.lbCantidadRegistrosVariable = new System.Windows.Forms.Label();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.lbCantidadRegistrosTitulo = new System.Windows.Forms.Label();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -72,7 +73,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.btnDeshabilitar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeshabilitar.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
             this.btnDeshabilitar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeshabilitar.Location = new System.Drawing.Point(531, 7);
+            this.btnDeshabilitar.Location = new System.Drawing.Point(917, 7);
             this.btnDeshabilitar.Name = "btnDeshabilitar";
             this.btnDeshabilitar.Size = new System.Drawing.Size(170, 41);
             this.btnDeshabilitar.TabIndex = 67;
@@ -294,6 +295,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Linen;
+            this.panel2.Controls.Add(this.btnEliminar);
             this.panel2.Controls.Add(this.btnDeshabilitar);
             this.panel2.Controls.Add(this.btnEditar);
             this.panel2.Controls.Add(this.btnNuevo);
@@ -347,6 +349,23 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.lbCantidadRegistrosTitulo.Size = new System.Drawing.Size(184, 21);
             this.lbCantidadRegistrosTitulo.TabIndex = 30;
             this.lbCantidadRegistrosTitulo.Text = "Cantidad de Registros";
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.Enabled = false;
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Image = global::DSMarket.Solucion.Properties.Resources.Eliminar;
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(531, 7);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(170, 41);
+            this.btnEliminar.TabIndex = 69;
+            this.btnEliminar.Text = "      Borrar";
+            this.toolTip1.SetToolTip(this.btnEliminar, "Modificar Registro seleccionadp");
+            this.btnEliminar.UseVisualStyleBackColor = true;
             // 
             // CapacidadConsulta
             // 
@@ -406,5 +425,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         private System.Windows.Forms.PictureBox PCerrar;
         public System.Windows.Forms.Label lbTitulo;
         private System.Windows.Forms.Label lbCantidadRegistrosTitulo;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }
