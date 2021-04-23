@@ -393,7 +393,35 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         }
         private void ProcesarInformacionProductoServicio() {
             decimal IdTipoGarantia = cbLlevagarantia.Checked == true ? Convert.ToDecimal(ddlTipoGarantia.SelectedValue) : 0;
-           int TiempoGarantia = cbLlevagarantia.Checked == true ? Convert.ToInt32(txtTiempoGarantia.Text) : 0;
+            int TiempoGarantia = cbLlevagarantia.Checked == true ? Convert.ToInt32(txtTiempoGarantia.Text) : 0;
+            string UnidadMedida = "", Modelo = "", Color = "", Capacidad = "", Condicion = "";
+            bool ValidacionUnidadMedida = false, ValidacionModelo = false, ValidacionColor = false, ValidacionCapacidad = false, ValidacionCondicion = false;
+
+
+
+            //VALIDAMOS
+            DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarUnidadMedidaSeleccionable = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfigunacionGeneral.UnidadMedidaSeleccionable, 1);
+            ValidacionUnidadMedida = ValidarUnidadMedidaSeleccionable.ValidarConfiguracionGeneral();
+
+            DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarCampoModeloSeleccionable = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfigunacionGeneral.CampoModeloSeleccionable, 1);
+            ValidacionModelo = ValidarCampoModeloSeleccionable.ValidarConfiguracionGeneral();
+
+            DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarCampoColorSeleccionable = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfigunacionGeneral.CampoColorSeleccionable, 1);
+            ValidacionColor = ValidarCampoColorSeleccionable.ValidarConfiguracionGeneral();
+
+            DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarCampoCondicionSeleccionable = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfigunacionGeneral.CampoCondicionSeleccionable, 1);
+            ValidacionCondicion = ValidarCampoCondicionSeleccionable.ValidarConfiguracionGeneral();
+
+            DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarCampoCapacidadSeleccionable = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfigunacionGeneral.CampoCapacidadSeleccionable, 1);
+            ValidacionCapacidad = ValidarCampoCapacidadSeleccionable.ValidarConfiguracionGeneral();
+
+            //ASIGNAMOS LOS VALORES
+            UnidadMedida = ValidacionUnidadMedida == true ? ddlUnidadMedida.Text.Trim() : txtUnidadMedinda.Text.Trim();
+            Modelo = ValidacionModelo == true ? ddlModelo.Text.Trim() : txtModelo.Text.Trim();
+            Color = ValidacionColor == true ? ddlColor.Text.Trim() : txtColor.Text.Trim();
+            Capacidad = ValidacionCapacidad == true ? ddlCpacidad.Text.Trim() : txtCapacidad.Text.Trim();
+            Condicion = ValidacionCondicion == true ? ddlCondicion.Text.Trim() : txtCondicion.Text.Trim();
+
 
             DSMarket.Logica.Comunes.ProcesarInformacion.Inventario.ProcesarInformacionProductoServicio Procesar = new Logica.Comunes.ProcesarInformacion.Inventario.ProcesarInformacionProductoServicio(
             VariablesGlobales.IdMantenimeinto,
@@ -412,11 +440,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             Convert.ToDecimal(txtPrecioVenta.Text),
             Convert.ToDecimal(txtstock.Text),
             Convert.ToDecimal(txtstockminimo.Text),
-            txtUnidadMedinda.Text,
-            txtModelo.Text,
-            txtColor.Text,
-            txtCondicion.Text,
-            txtCapacidad.Text,
+            UnidadMedida,
+            Modelo,
+            Color,
+            Condicion,
+            Capacidad,
             cbAplicaParaImpuesto.Checked,
             false,
             cbLlevagarantia.Checked,
