@@ -118,7 +118,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 case true:
                     txtUnidadMedinda.Visible = false;
                     ddlUnidadMedida.Visible = true;
-                    CargarUnidadMedida();
+                 //   CargarUnidadMedida();
                     break;
                 case false:
                     txtUnidadMedinda.Visible = true;
@@ -136,7 +136,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 case true:
                     txtModelo.Visible = false;
                     ddlModelo.Visible = true;
-                    CargarModelos();
+                  //  CargarModelos();
                     break;
                 case false:
                     txtModelo.Visible = true;
@@ -152,7 +152,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 case true:
                     txtColor.Visible = false;
                     ddlColor.Visible = true;
-                    CargarClores();
+                //    CargarClores();
                     break;
 
                 case false:
@@ -170,7 +170,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 case true:
                     txtCondicion.Visible = false;
                     ddlCondicion.Visible = true;
-                    CargarCondiciones();
+                 //   CargarCondiciones();
                     break;
 
                 case false:
@@ -188,7 +188,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 case true:
                     txtCapacidad.Visible = false;
                     ddlCpacidad.Visible = true;
-                    CargarCapacidad();
+                 //   CargarCapacidad();
                     break;
 
                 case false:
@@ -300,8 +300,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             try
             {
                 var Capacidad = ObjDataListas.Value.ListadoCapacidad();
-                ddlColor.DataSource = Capacidad;
-                ddlColor.DisplayMember = "Capacidad";
+                ddlCpacidad.DataSource = Capacidad;
+                ddlCpacidad.DisplayMember = "Capacidad";
 
             }
             catch (Exception) { }
@@ -344,11 +344,30 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             CargarTipoPdoducto();
             CargarCategorias();
             CargarMarcas();
+            CargarModelos();
             CargarTipoSuplidores();
             CargarSuplidores();
             CargarTipogarantia();
+            CargarUnidadMedida();
+            CargarClores();
+            CargarCondiciones();
+            CargarCapacidad();
+
+
         }
         #endregion
+        private void ValidarInformacionSacarInformacion(bool RespuestaValidacion, ref ComboBox ControlDDL, ref TextBox ControlTXT, string Dato) {
+
+            switch (RespuestaValidacion) {
+                case true:
+                    ControlDDL.Text = Dato;
+                    break;
+
+                case false:
+                    ControlTXT.Text = Dato;
+                    break;
+            }
+        }
         /// <summary>
         /// Este metodo es para sacar la informacion del producto seleccionado
         /// </summary>
@@ -359,6 +378,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                         null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
             foreach (var n in SacarInformacion)
             {
+
+
+
                 cbAplicaParaImpuesto.Checked = (n.AplicaParaImpuesto0.HasValue ? n.AplicaParaImpuesto0.Value : false);
                 cbLlevagarantia.Checked = (n.LlevaGarantia0.HasValue ? n.LlevaGarantia0.Value : false);
                 CargarTipoPdoducto();
@@ -381,10 +403,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 txtstock.Text = n.Stock.ToString();
                 txtstockminimo.Text = n.StockMinimo.ToString();
                 txtUnidadMedinda.Text = n.UnidadMedida;
+                ddlUnidadMedida.Text = n.UnidadMedida;
+                ddlModelo.Text = n.Modelo;
                 txtModelo.Text = n.Modelo;
                 txtColor.Text = n.Color;
+                ddlColor.Text = n.Color;
                 txtCondicion.Text = n.Condicion;
+                ddlCondicion.Text = n.Condicion;
                 txtCapacidad.Text = n.Capacidad;
+                ddlCpacidad.Text = n.Capacidad;
                 CargarTipogarantia();
                 ddlTipoGarantia.Text = n.TipoTiempoGarantia;
                 txtTiempoGarantia.Text = n.TiempoGarantia.ToString();
@@ -483,9 +510,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         private void MantenimientoProducto_Load(object sender, EventArgs e)
         {
+            VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             lbTitulo.Text = "PROCESAR INFORMACION DE PRODUCTOS Y SERVICIOS";
             lbTitulo.ForeColor = Color.White;
-
+            CargarListas();
             if (VariablesGlobales.Accion == "INSERT") {
                 btnGuardar.Text = "Guardar";
 
@@ -504,7 +532,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 btnGuardar.Text = "Eliminar";
                 SacarInformacionProductoSeleccionado();
             }
-            CargarListas();
+           
             ValidarConfiguracionesGenerales();
         }
 
