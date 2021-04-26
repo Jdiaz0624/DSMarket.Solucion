@@ -21,6 +21,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         ProductoSeleccionado=2
         }
 
+        enum OpcionesConfiguracionGeneral {
+        UsarComprobantesFiscales=1,
+        BuscarClientesRegistrados=2,
+        ImprimirFacturaDirectoImpresora=3,
+        ValidarTipoPago=4,
+        ValidarMoneda=5,
+        UsoComprobantesFiscalesPorDefecto=6
+        }
+
         Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
         Lazy<DSMarket.Logica.Logica.LogicaListas.LogicaListas> ObjDataListas = new Lazy<Logica.Logica.LogicaListas.LogicaListas>();
         Lazy<DSMarket.Logica.Logica.LogicaEmpresa.LogicaEmpresa> ObjDataEmpresa = new Lazy<Logica.Logica.LogicaEmpresa.LogicaEmpresa>();
@@ -30,6 +39,109 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
         Lazy<DSMarket.Logica.Logica.LogicaContabilidad.LogicaContabilidad> ObjdataContabilidad = new Lazy<Logica.Logica.LogicaContabilidad.LogicaContabilidad>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
+
+
+        private void ValidarConfiguracionGeneral() {
+            bool ResultadoValidacionUsoComprobantesFiscales = false, ResultadoValidacionBuscarClientesRegistrados = false, ResultadoValidarTipoPago = false, ResultadoValidarMoneda = false, UsoComprobanteFiscalPorDefecto = false;
+
+            #region USAR COMPROBANTES FISCALES
+            DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarUsoComprobanteFiscal = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfiguracionGeneral.UsarComprobantesFiscales, 2);
+            ResultadoValidacionUsoComprobantesFiscales = ValidarUsoComprobanteFiscal.ValidarConfiguracionGeneral();
+            switch (ResultadoValidacionUsoComprobantesFiscales)
+            {
+                case true:
+                    cbUsarComprobantes.Visible = true;
+                    cbUsarComprobantes.Checked = false;
+                    lbComprobante.Visible = false;
+                    ddlComprobante.Visible = false;
+                    break;
+
+                case false:
+                    cbUsarComprobantes.Visible = false;
+                    cbUsarComprobantes.Checked = false;
+                    lbComprobante.Visible = false;
+                    ddlComprobante.Visible = false;
+                    break;
+            }
+            #endregion
+
+            #region BUSCAR CLIENTES REGISTRADOS EN EL SISTEMA
+            DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarBuscarClientesRegistrados = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfiguracionGeneral.BuscarClientesRegistrados, 2);
+            ResultadoValidacionBuscarClientesRegistrados = ValidarBuscarClientesRegistrados.ValidarConfiguracionGeneral();
+            switch (ResultadoValidacionBuscarClientesRegistrados) {
+                case true:
+                    lbLetreroFiltroCliente.Visible = true;
+                    txtFiltroCliente.Visible = true;
+                    btnBuscarCliente.Visible = true;
+                    rbBuscarPorCodigo.Visible = true;
+                    rbBuscarPorRNC.Visible = true;
+                    rbBuscarPorRNC.Checked = true;
+                    break;
+
+                case false:
+                    lbLetreroFiltroCliente.Visible = false;
+                    txtFiltroCliente.Visible = false;
+                    btnBuscarCliente.Visible = false;
+                    rbBuscarPorCodigo.Visible = false;
+                    rbBuscarPorRNC.Visible = false;
+                    break;
+            }
+            #endregion
+
+            #region VALIDAR EL TIPO DE PAGO
+            DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarTipoPago = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfiguracionGeneral.ValidarTipoPago, 2);
+            ResultadoValidarTipoPago = ValidarTipoPago.ValidarConfiguracionGeneral();
+            switch (ResultadoValidarTipoPago) {
+                case true:
+                    lbTipoPago.Visible = true;
+                    ddltIPago.Visible = true;
+                    break;
+
+                case false:
+                    lbTipoPago.Visible = false;
+                    ddltIPago.Visible = false;
+                    break;
+            }
+            #endregion
+
+            #region VALIDAR LA MONEDA
+            DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarMoneda = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfiguracionGeneral.ValidarMoneda, 2);
+            ResultadoValidarMoneda = ValidarMoneda.ValidarConfiguracionGeneral();
+            switch (ResultadoValidarMoneda) {
+                case true:
+                    lbMoneda.Visible = true;
+                    ddlSeleccionarMoneda.Visible = true;
+                    lbTasa.Visible = true;
+                    txtTasa.Visible = true;
+                    break;
+
+                case false:
+                    lbMoneda.Visible = false;
+                    ddlSeleccionarMoneda.Visible = false;
+                    lbTasa.Visible = false;
+                    txtTasa.Visible = false;
+                    break;
+            }
+            #endregion
+
+            #region VALIDAR EL USO DE COMPROBANTES FISCALES POR DEFECTO
+            DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarUsoComprobanteFiscalesPorDefecto = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfiguracionGeneral.UsoComprobantesFiscalesPorDefecto, 2);
+            UsoComprobanteFiscalPorDefecto = ValidarUsoComprobanteFiscalesPorDefecto.ValidarConfiguracionGeneral();
+
+            switch (UsoComprobanteFiscalPorDefecto) {
+                case true:
+                    cbUsarComprobantes.Checked = true;
+                    lbComprobante.Visible = true;
+                    ddlComprobante.Visible = true;
+                    MostrarComprobante();
+                    break;
+
+                case false:
+                    cbUsarComprobantes.Checked = false;
+                    break;
+            }
+            #endregion
+            }
 
         #region CARGAR LAS LISTAS
         /// <summary>
@@ -323,10 +435,12 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         }
         private void FacturacionProductosServicios_Load(object sender, EventArgs e)
         {
+
             DSMarket.Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFacturacionPreview Eliminar = new Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFacturacionPreview(
                 VariablesGlobales.IdUsuario, "", 0, 0, 0, 0, 0, 0, "DELETEALL");
             Eliminar.ProcesarInformacion();
 
+            ValidarConfiguracionGeneral();
 
             VariablesGlobales.NumeroConectorstring = GenerarNumeroConector();
             MostrarItemsagregados(VariablesGlobales.IdUsuario, VariablesGlobales.NumeroConectorstring);
@@ -341,10 +455,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             lbCantidadServiciosTitulo.ForeColor = Color.White;
             lbCantidadServiciosVariable.ForeColor = Color.White;
 
-            cbUsarComprobantes.Visible = true;
-            cbUsarComprobantes.Checked = false;
-            lbComprobante.Visible = false;
-            ddlComprobante.Visible = false;
+            //cbUsarComprobantes.Visible = true;
+            //cbUsarComprobantes.Checked = false;
+            //lbComprobante.Visible = false;
+            //ddlComprobante.Visible = false;
             lbTitulo.Text = "FACTURACION";
             lbFActuradoA.Text = "Facturado A";
 
@@ -483,16 +597,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void rbFacturar_CheckedChanged(object sender, EventArgs e)
         {
             if (rbFacturar.Checked == true) {
-                cbUsarComprobantes.Visible = true;
-                cbUsarComprobantes.Checked = false;
+                //cbUsarComprobantes.Visible = true;
+                //cbUsarComprobantes.Checked = false;
                 lbComprobante.Visible = false;
                 ddlComprobante.Visible = false;
                 lbTitulo.Text = "FACTURACION";
                 lbFActuradoA.Text = "Facturado A";
             }
             else if (rbFacturar.Checked == false) {
-                cbUsarComprobantes.Visible = false;
-                cbUsarComprobantes.Checked = false;
+                //cbUsarComprobantes.Visible = false;
+                //cbUsarComprobantes.Checked = false;
                 lbComprobante.Visible = false;
                 ddlComprobante.Visible = false;
                 lbTitulo.Text = "";
@@ -502,16 +616,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void rbCotizar_CheckedChanged(object sender, EventArgs e)
         {
             if (rbCotizar.Checked == true) {
-                cbUsarComprobantes.Visible = false;
-                cbUsarComprobantes.Checked = false;
+                //cbUsarComprobantes.Visible = false;
+                //cbUsarComprobantes.Checked = false;
                 lbComprobante.Visible = false;
                 ddlComprobante.Visible = false;
                 lbTitulo.Text = "COTIZACION";
                 lbFActuradoA.Text = "Cotizado A";
             }
             else if (rbCotizar.Checked == false) {
-                cbUsarComprobantes.Visible = true;
-                cbUsarComprobantes.Checked = false;
+                //cbUsarComprobantes.Visible = true;
+                //cbUsarComprobantes.Checked = false;
                 lbComprobante.Visible = false;
                 ddlComprobante.Visible = false;
                 lbTitulo.Text = "";

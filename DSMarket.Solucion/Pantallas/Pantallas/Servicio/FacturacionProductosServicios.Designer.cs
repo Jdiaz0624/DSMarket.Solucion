@@ -30,10 +30,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.cbUsarComprobantes = new System.Windows.Forms.CheckBox();
             this.rbCotizar = new System.Windows.Forms.RadioButton();
@@ -55,21 +55,23 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.lbCantidadProductosTitulo = new System.Windows.Forms.Label();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.gbGeneral = new System.Windows.Forms.GroupBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.rbBuscarPorRNC = new System.Windows.Forms.RadioButton();
             this.rbBuscarPorCodigo = new System.Windows.Forms.RadioButton();
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.txtTasa = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
+            this.lbTasa = new System.Windows.Forms.Label();
             this.txtCambio = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.ddlSeleccionarMoneda = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
+            this.lbMoneda = new System.Windows.Forms.Label();
             this.txtMontoPagar = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.ddltIPago = new System.Windows.Forms.ComboBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.lbTipoPago = new System.Windows.Forms.Label();
             this.gbItemsAgregados = new System.Windows.Forms.GroupBox();
             this.dtItemsAgregados = new System.Windows.Forms.DataGridView();
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -110,10 +112,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.ddlComprobante = new System.Windows.Forms.ComboBox();
             this.lbComprobante = new System.Windows.Forms.Label();
-            this.btnFiltroCliente = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.txtFiltroCliente = new System.Windows.Forms.TextBox();
+            this.lbLetreroFiltroCliente = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel1.SuspendLayout();
             this.gbGeneral.SuspendLayout();
@@ -131,7 +131,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.cbUsarComprobantes.AutoSize = true;
             this.cbUsarComprobantes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbUsarComprobantes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbUsarComprobantes.Location = new System.Drawing.Point(444, 16);
+            this.cbUsarComprobantes.Location = new System.Drawing.Point(15, 14);
             this.cbUsarComprobantes.Name = "cbUsarComprobantes";
             this.cbUsarComprobantes.Size = new System.Drawing.Size(169, 24);
             this.cbUsarComprobantes.TabIndex = 66;
@@ -183,7 +183,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.btnBuscarCliente.TabIndex = 60;
             this.toolTip1.SetToolTip(this.btnBuscarCliente, "Buscar Cliente mediante el codigo");
             this.btnBuscarCliente.UseVisualStyleBackColor = true;
-            this.btnBuscarCliente.Visible = false;
             // 
             // cbTipoProducto
             // 
@@ -373,16 +372,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.gbGeneral.Controls.Add(this.txtNumeroRegistros);
             this.gbGeneral.Controls.Add(this.lbNumeroRegistros);
             this.gbGeneral.Controls.Add(this.txtTasa);
-            this.gbGeneral.Controls.Add(this.label21);
+            this.gbGeneral.Controls.Add(this.lbTasa);
             this.gbGeneral.Controls.Add(this.txtCambio);
             this.gbGeneral.Controls.Add(this.label20);
             this.gbGeneral.Controls.Add(this.ddlSeleccionarMoneda);
-            this.gbGeneral.Controls.Add(this.label18);
+            this.gbGeneral.Controls.Add(this.lbMoneda);
             this.gbGeneral.Controls.Add(this.txtMontoPagar);
             this.gbGeneral.Controls.Add(this.label6);
             this.gbGeneral.Controls.Add(this.ddltIPago);
             this.gbGeneral.Controls.Add(this.btnARS);
-            this.gbGeneral.Controls.Add(this.label19);
+            this.gbGeneral.Controls.Add(this.lbTipoPago);
             this.gbGeneral.Controls.Add(this.gbItemsAgregados);
             this.gbGeneral.Controls.Add(this.button2);
             this.gbGeneral.Controls.Add(this.label17);
@@ -429,6 +428,25 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.gbGeneral.TabStop = false;
             this.gbGeneral.Text = "Datos de Facturación";
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(345, 572);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(49, 20);
+            this.label22.TabIndex = 111;
+            this.label22.Text = "Total";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTotal.Enabled = false;
+            this.txtTotal.Location = new System.Drawing.Point(400, 569);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(114, 26);
+            this.txtTotal.TabIndex = 110;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.rbBuscarPorRNC);
@@ -443,7 +461,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // rbBuscarPorRNC
             // 
             this.rbBuscarPorRNC.AutoSize = true;
-            this.rbBuscarPorRNC.Location = new System.Drawing.Point(6, 16);
+            this.rbBuscarPorRNC.Location = new System.Drawing.Point(190, 14);
             this.rbBuscarPorRNC.Name = "rbBuscarPorRNC";
             this.rbBuscarPorRNC.Size = new System.Drawing.Size(196, 24);
             this.rbBuscarPorRNC.TabIndex = 67;
@@ -454,7 +472,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // rbBuscarPorCodigo
             // 
             this.rbBuscarPorCodigo.AutoSize = true;
-            this.rbBuscarPorCodigo.Location = new System.Drawing.Point(226, 16);
+            this.rbBuscarPorCodigo.Location = new System.Drawing.Point(392, 14);
             this.rbBuscarPorCodigo.Name = "rbBuscarPorCodigo";
             this.rbBuscarPorCodigo.Size = new System.Drawing.Size(212, 24);
             this.rbBuscarPorCodigo.TabIndex = 68;
@@ -500,15 +518,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.txtTasa.Size = new System.Drawing.Size(114, 26);
             this.txtTasa.TabIndex = 105;
             // 
-            // label21
+            // lbTasa
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(354, 604);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(48, 20);
-            this.label21.TabIndex = 104;
-            this.label21.Text = "Tasa";
+            this.lbTasa.AutoSize = true;
+            this.lbTasa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTasa.Location = new System.Drawing.Point(354, 604);
+            this.lbTasa.Name = "lbTasa";
+            this.lbTasa.Size = new System.Drawing.Size(48, 20);
+            this.lbTasa.TabIndex = 104;
+            this.lbTasa.Text = "Tasa";
             // 
             // txtCambio
             // 
@@ -541,15 +559,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.ddlSeleccionarMoneda.Size = new System.Drawing.Size(207, 28);
             this.ddlSeleccionarMoneda.TabIndex = 100;
             // 
-            // label18
+            // lbMoneda
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(55, 604);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(73, 20);
-            this.label18.TabIndex = 101;
-            this.label18.Text = "Moneda";
+            this.lbMoneda.AutoSize = true;
+            this.lbMoneda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMoneda.Location = new System.Drawing.Point(55, 604);
+            this.lbMoneda.Name = "lbMoneda";
+            this.lbMoneda.Size = new System.Drawing.Size(73, 20);
+            this.lbMoneda.TabIndex = 101;
+            this.lbMoneda.Text = "Moneda";
             // 
             // txtMontoPagar
             // 
@@ -582,15 +600,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.ddltIPago.Size = new System.Drawing.Size(207, 28);
             this.ddltIPago.TabIndex = 35;
             // 
-            // label19
+            // lbTipoPago
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(12, 574);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(114, 20);
-            this.label19.TabIndex = 36;
-            this.label19.Text = "Tipo de Pago";
+            this.lbTipoPago.AutoSize = true;
+            this.lbTipoPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTipoPago.Location = new System.Drawing.Point(12, 574);
+            this.lbTipoPago.Name = "lbTipoPago";
+            this.lbTipoPago.Size = new System.Drawing.Size(114, 20);
+            this.lbTipoPago.TabIndex = 36;
+            this.lbTipoPago.Text = "Tipo de Pago";
             // 
             // gbItemsAgregados
             // 
@@ -608,21 +626,21 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // 
             this.dtItemsAgregados.AllowUserToAddRows = false;
             this.dtItemsAgregados.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtItemsAgregados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtItemsAgregados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dtItemsAgregados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtItemsAgregados.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtItemsAgregados.BackgroundColor = System.Drawing.Color.LightGray;
             this.dtItemsAgregados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtItemsAgregados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtItemsAgregados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dtItemsAgregados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtItemsAgregados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewButtonColumn1});
@@ -776,21 +794,21 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // 
             this.dtListadoItems.AllowUserToAddRows = false;
             this.dtListadoItems.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtListadoItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtListadoItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dtListadoItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtListadoItems.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtListadoItems.BackgroundColor = System.Drawing.Color.LightGray;
             this.dtListadoItems.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtListadoItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtListadoItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dtListadoItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtListadoItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Select});
@@ -979,8 +997,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.groupBox2.Controls.Add(this.ddlComprobante);
             this.groupBox2.Controls.Add(this.lbComprobante);
             this.groupBox2.Controls.Add(this.btnBuscarCliente);
-            this.groupBox2.Controls.Add(this.btnFiltroCliente);
-            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.txtFiltroCliente);
+            this.groupBox2.Controls.Add(this.lbLetreroFiltroCliente);
             this.groupBox2.Location = new System.Drawing.Point(7, 59);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1159, 81);
@@ -1048,42 +1066,23 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.lbComprobante.TabIndex = 61;
             this.lbComprobante.Text = "Comprobante";
             // 
-            // btnFiltroCliente
+            // txtFiltroCliente
             // 
-            this.btnFiltroCliente.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnFiltroCliente.Location = new System.Drawing.Point(150, 20);
-            this.btnFiltroCliente.Name = "btnFiltroCliente";
-            this.btnFiltroCliente.Size = new System.Drawing.Size(158, 26);
-            this.btnFiltroCliente.TabIndex = 59;
+            this.txtFiltroCliente.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtFiltroCliente.Location = new System.Drawing.Point(150, 20);
+            this.txtFiltroCliente.Name = "txtFiltroCliente";
+            this.txtFiltroCliente.Size = new System.Drawing.Size(158, 26);
+            this.txtFiltroCliente.TabIndex = 59;
             // 
-            // label5
+            // lbLetreroFiltroCliente
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(8, 23);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(136, 20);
-            this.label5.TabIndex = 58;
-            this.label5.Text = "Filtro de Cliente";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(345, 572);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(49, 20);
-            this.label22.TabIndex = 111;
-            this.label22.Text = "Total";
-            // 
-            // txtTotal
-            // 
-            this.txtTotal.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtTotal.Enabled = false;
-            this.txtTotal.Location = new System.Drawing.Point(400, 569);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(114, 26);
-            this.txtTotal.TabIndex = 110;
+            this.lbLetreroFiltroCliente.AutoSize = true;
+            this.lbLetreroFiltroCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLetreroFiltroCliente.Location = new System.Drawing.Point(8, 23);
+            this.lbLetreroFiltroCliente.Name = "lbLetreroFiltroCliente";
+            this.lbLetreroFiltroCliente.Size = new System.Drawing.Size(136, 20);
+            this.lbLetreroFiltroCliente.TabIndex = 58;
+            this.lbLetreroFiltroCliente.Text = "Filtro de Cliente";
             // 
             // FacturacionProductosServicios
             // 
@@ -1137,8 +1136,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private System.Windows.Forms.RadioButton rbFacturar;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnBuscarCliente;
-        private System.Windows.Forms.TextBox btnFiltroCliente;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtFiltroCliente;
+        private System.Windows.Forms.Label lbLetreroFiltroCliente;
         public System.Windows.Forms.ComboBox ddlComprobante;
         private System.Windows.Forms.Label lbComprobante;
         private System.Windows.Forms.Label label2;
@@ -1184,15 +1183,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private System.Windows.Forms.DataGridView dtItemsAgregados;
         private System.Windows.Forms.Button btnARS;
         private System.Windows.Forms.TextBox txtTasa;
-        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label lbTasa;
         private System.Windows.Forms.TextBox txtCambio;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ComboBox ddlSeleccionarMoneda;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lbMoneda;
         private System.Windows.Forms.TextBox txtMontoPagar;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox ddltIPago;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label lbTipoPago;
         private System.Windows.Forms.NumericUpDown txtNumeroRegistros;
         private System.Windows.Forms.Label lbNumeroRegistros;
         private System.Windows.Forms.GroupBox groupBox3;

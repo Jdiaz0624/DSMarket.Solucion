@@ -259,9 +259,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             txtPrecioCompra.Text = "0";
             txtPrecioVenta.Enabled = true;
             txtstock.Enabled = false;
-            txtstock.Text = "0";
+            txtstock.Text = "1";
             txtstockminimo.Enabled = false;
-            txtstockminimo.Text = "0";
+            txtstockminimo.Text = "1";
             ddlUnidadMedida.Enabled = false;
             txtUnidadMedinda.Enabled = false;
             ddlModelo.Enabled = false;
@@ -494,6 +494,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 ddlTipoGarantia.Text = n.TipoTiempoGarantia;
                 txtTiempoGarantia.Text = n.TiempoGarantia.ToString();
                 txtComentario.Text = n.Comentario;
+                ddlTipoProducto.Enabled = false;
             }
         }
         private void ProcesarInformacionProductoServicio() {
