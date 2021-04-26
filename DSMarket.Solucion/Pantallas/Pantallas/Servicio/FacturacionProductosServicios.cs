@@ -800,7 +800,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     {
                         if (Stock <= 0)
                         {
-                            MessageBox.Show("Este producto esta actualmente agotado, por lo tanto no puede facturarse.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Este producto esta actualmente agotado, por lo tanto no puede facturar.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         else
                         {
