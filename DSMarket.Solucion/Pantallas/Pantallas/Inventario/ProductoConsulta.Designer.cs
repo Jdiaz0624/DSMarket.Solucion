@@ -329,6 +329,7 @@
             this.btnProductosDefectuosos.TabIndex = 71;
             this.toolTip1.SetToolTip(this.btnProductosDefectuosos, "Productos defectuosos");
             this.btnProductosDefectuosos.UseVisualStyleBackColor = true;
+            this.btnProductosDefectuosos.Visible = false;
             this.btnProductosDefectuosos.Click += new System.EventHandler(this.btnProductoConOfertas_Click);
             // 
             // txtNumeroRegistros
@@ -504,6 +505,7 @@
             this.lbCantidadProductosConOferta.Size = new System.Drawing.Size(18, 20);
             this.lbCantidadProductosConOferta.TabIndex = 64;
             this.lbCantidadProductosConOferta.Text = "0";
+            this.lbCantidadProductosConOferta.Visible = false;
             // 
             // label5
             // 
@@ -514,6 +516,7 @@
             this.label5.Size = new System.Drawing.Size(172, 20);
             this.label5.TabIndex = 59;
             this.label5.Text = "Productos Defectuosos";
+            this.label5.Visible = false;
             // 
             // groupBox1
             // 

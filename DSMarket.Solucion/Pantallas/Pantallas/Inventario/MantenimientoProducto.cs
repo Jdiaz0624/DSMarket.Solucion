@@ -201,8 +201,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
 
 
-
-
+          
 
 
 
@@ -211,8 +210,86 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
 
         }
+        enum TipoProductos { 
+        Producto=1,
+        Servicio=2
+        }
+        private void ModoProducto() {
+            ddlTipoProducto.Enabled = true;
+            ddlCategoria.Enabled = true;
+            ddlMarca.Enabled = true;
+            ddlTipoSuplidor.Enabled = true;
+            ddlSuplidor.Enabled = true;
+            txtDescripcion.Enabled = false;
+            txtcodigobarra.Enabled = true;
+            txtReferencia.Enabled = true;
+            txtNumeroSeguimiento.Enabled = true;
+            txtCodigoproducto.Enabled = true;
+            txtPrecioCompra.Enabled = true;
+            txtPrecioVenta.Enabled = true;
+            txtstock.Enabled = true;
+            txtstockminimo.Enabled = true;
+            ddlUnidadMedida.Enabled = true;
+            txtUnidadMedinda.Enabled = true;
+            ddlModelo.Enabled = true;
+            txtModelo.Enabled = true;
+            ddlColor.Enabled = true;
+            txtColor.Enabled = true;
+            ddlCondicion.Enabled = true;
+            txtCondicion.Enabled = true;
+            ddlCpacidad.Enabled = true;
+            txtCapacidad.Enabled = true;
+            ddlTipoGarantia.Enabled = true;
+            txtTiempoGarantia.Enabled = true;
+            txtComentario.Enabled = true;
+        }
 
+        private void ModoServicio() {
+            ddlTipoProducto.Enabled = true;
+            ddlCategoria.Enabled = true;
+            ddlMarca.Enabled = false;
+            ddlTipoSuplidor.Enabled = false;
+            ddlSuplidor.Enabled = false;
+            txtDescripcion.Enabled = true;
+            txtcodigobarra.Enabled = false;
+            txtReferencia.Enabled = false;
+            txtNumeroSeguimiento.Enabled = false;
+            txtCodigoproducto.Enabled = true;
+            txtPrecioCompra.Enabled = false;
+            txtPrecioCompra.Text = "0";
+            txtPrecioVenta.Enabled = true;
+            txtstock.Enabled = false;
+            txtstock.Text = "0";
+            txtstockminimo.Enabled = false;
+            txtstockminimo.Text = "0";
+            ddlUnidadMedida.Enabled = false;
+            txtUnidadMedinda.Enabled = false;
+            ddlModelo.Enabled = false;
+            txtModelo.Enabled = false;
+            ddlColor.Enabled = false;
+            txtColor.Enabled = false;
+            ddlCondicion.Enabled = false;
+            txtCondicion.Enabled = false;
+            ddlCpacidad.Enabled = false;
+            txtCapacidad.Enabled = false;
+            ddlTipoGarantia.Enabled = true;
+            txtTiempoGarantia.Enabled = true;
+            txtComentario.Enabled = true;
+        }
+
+        private void SeleccionarModo(decimal CodigoTipoProducto) {
+            if (CodigoTipoProducto == (decimal)TipoProductos.Producto)
+            {
+                ModoProducto();
+            }
+
+            else if (CodigoTipoProducto == (decimal)TipoProductos.Servicio) {
+                ModoServicio();
+            }
+        }
         #region CARGAR LAS LISTAS
+
+
         private void CargarTipoPdoducto()
         {
             try
@@ -385,6 +462,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 cbLlevagarantia.Checked = (n.LlevaGarantia0.HasValue ? n.LlevaGarantia0.Value : false);
                 CargarTipoPdoducto();
                 ddlTipoProducto.Text = n.TipoProducto;
+                SeleccionarModo(Convert.ToDecimal(ddlTipoProducto.SelectedValue));
                 CargarCategorias();
                 ddlCategoria.Text = n.Categoria;
                 CargarMarcas();
@@ -552,6 +630,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             try {
                 CargarCategorias();
                 CargarMarcas();
+                SeleccionarModo(Convert.ToDecimal(ddlTipoProducto.SelectedValue));
             }
             catch (Exception) { }
         }
