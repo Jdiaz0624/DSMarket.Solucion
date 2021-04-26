@@ -30,10 +30,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.cbUsarComprobantes = new System.Windows.Forms.CheckBox();
             this.rbCotizar = new System.Windows.Forms.RadioButton();
@@ -47,6 +47,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.btnARS = new System.Windows.Forms.Button();
             this.btnRestablecerPantalla = new System.Windows.Forms.Button();
             this.PCerrar = new System.Windows.Forms.PictureBox();
+            this.btnRestablecer = new System.Windows.Forms.Button();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbCantidadServiciosVariable = new System.Windows.Forms.Label();
@@ -146,7 +147,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.rbCotizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbCotizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbCotizar.Font = new System.Drawing.Font("Century", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCotizar.Location = new System.Drawing.Point(135, 25);
+            this.rbCotizar.Location = new System.Drawing.Point(157, 21);
             this.rbCotizar.Name = "rbCotizar";
             this.rbCotizar.Size = new System.Drawing.Size(111, 32);
             this.rbCotizar.TabIndex = 5;
@@ -183,6 +184,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.btnBuscarCliente.TabIndex = 60;
             this.toolTip1.SetToolTip(this.btnBuscarCliente, "Buscar Cliente mediante el codigo");
             this.btnBuscarCliente.UseVisualStyleBackColor = true;
+            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
             // 
             // cbTipoProducto
             // 
@@ -296,6 +298,20 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.PCerrar.TabStop = false;
             this.toolTip1.SetToolTip(this.PCerrar, "Cerrar");
             this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
+            // 
+            // btnRestablecer
+            // 
+            this.btnRestablecer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestablecer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRestablecer.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
+            this.btnRestablecer.Location = new System.Drawing.Point(354, 20);
+            this.btnRestablecer.Name = "btnRestablecer";
+            this.btnRestablecer.Size = new System.Drawing.Size(41, 26);
+            this.btnRestablecer.TabIndex = 67;
+            this.toolTip1.SetToolTip(this.btnRestablecer, "Buscar Cliente mediante el codigo");
+            this.btnRestablecer.UseVisualStyleBackColor = true;
+            this.btnRestablecer.Visible = false;
+            this.btnRestablecer.Click += new System.EventHandler(this.btnRestablecer_Click);
             // 
             // bunifuElipse1
             // 
@@ -452,15 +468,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.groupBox3.Controls.Add(this.rbBuscarPorRNC);
             this.groupBox3.Controls.Add(this.rbBuscarPorCodigo);
             this.groupBox3.Controls.Add(this.cbUsarComprobantes);
-            this.groupBox3.Location = new System.Drawing.Point(252, 13);
+            this.groupBox3.Location = new System.Drawing.Point(345, 13);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(914, 44);
+            this.groupBox3.Size = new System.Drawing.Size(819, 44);
             this.groupBox3.TabIndex = 108;
             this.groupBox3.TabStop = false;
             // 
             // rbBuscarPorRNC
             // 
             this.rbBuscarPorRNC.AutoSize = true;
+            this.rbBuscarPorRNC.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbBuscarPorRNC.Location = new System.Drawing.Point(190, 14);
             this.rbBuscarPorRNC.Name = "rbBuscarPorRNC";
             this.rbBuscarPorRNC.Size = new System.Drawing.Size(196, 24);
@@ -472,6 +489,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // rbBuscarPorCodigo
             // 
             this.rbBuscarPorCodigo.AutoSize = true;
+            this.rbBuscarPorCodigo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbBuscarPorCodigo.Location = new System.Drawing.Point(392, 14);
             this.rbBuscarPorCodigo.Name = "rbBuscarPorCodigo";
             this.rbBuscarPorCodigo.Size = new System.Drawing.Size(212, 24);
@@ -626,21 +644,21 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // 
             this.dtItemsAgregados.AllowUserToAddRows = false;
             this.dtItemsAgregados.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtItemsAgregados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtItemsAgregados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtItemsAgregados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtItemsAgregados.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtItemsAgregados.BackgroundColor = System.Drawing.Color.LightGray;
             this.dtItemsAgregados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtItemsAgregados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtItemsAgregados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtItemsAgregados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtItemsAgregados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewButtonColumn1});
@@ -653,6 +671,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.dtItemsAgregados.RowTemplate.Height = 24;
             this.dtItemsAgregados.Size = new System.Drawing.Size(1147, 98);
             this.dtItemsAgregados.TabIndex = 4;
+            this.dtItemsAgregados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtItemsAgregados_CellContentClick);
             // 
             // dataGridViewButtonColumn1
             // 
@@ -794,21 +813,21 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // 
             this.dtListadoItems.AllowUserToAddRows = false;
             this.dtListadoItems.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtListadoItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtListadoItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dtListadoItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtListadoItems.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtListadoItems.BackgroundColor = System.Drawing.Color.LightGray;
             this.dtListadoItems.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtListadoItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtListadoItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dtListadoItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtListadoItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Select});
@@ -990,6 +1009,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnRestablecer);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtComentario);
             this.groupBox2.Controls.Add(this.lbFActuradoA);
@@ -1051,16 +1071,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.ddlComprobante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlComprobante.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ddlComprobante.FormattingEnabled = true;
-            this.ddlComprobante.Location = new System.Drawing.Point(471, 18);
+            this.ddlComprobante.Location = new System.Drawing.Point(551, 18);
             this.ddlComprobante.Name = "ddlComprobante";
-            this.ddlComprobante.Size = new System.Drawing.Size(514, 28);
+            this.ddlComprobante.Size = new System.Drawing.Size(602, 28);
             this.ddlComprobante.TabIndex = 62;
             // 
             // lbComprobante
             // 
             this.lbComprobante.AutoSize = true;
             this.lbComprobante.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbComprobante.Location = new System.Drawing.Point(353, 22);
+            this.lbComprobante.Location = new System.Drawing.Point(433, 22);
             this.lbComprobante.Name = "lbComprobante";
             this.lbComprobante.Size = new System.Drawing.Size(117, 20);
             this.lbComprobante.TabIndex = 61;
@@ -1073,6 +1093,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.txtFiltroCliente.Name = "txtFiltroCliente";
             this.txtFiltroCliente.Size = new System.Drawing.Size(158, 26);
             this.txtFiltroCliente.TabIndex = 59;
+            this.txtFiltroCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFiltroCliente_KeyPress);
             // 
             // lbLetreroFiltroCliente
             // 
@@ -1199,5 +1220,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.Button btnRestablecer;
     }
 }

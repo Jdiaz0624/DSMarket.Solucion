@@ -41,6 +41,142 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
 
+
+        private void ConsultarClientesRegistrados() {
+            if (string.IsNullOrEmpty(txtFiltroCliente.Text.Trim())) {
+                MessageBox.Show("El campo Dato de filtro de cliente no puede estar vacio para buscar esta información, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+              
+            }
+            else {
+                string _DatoFiltro = string.IsNullOrEmpty(txtFiltroCliente.Text.Trim()) ? null : txtFiltroCliente.Text.Trim();
+
+                bool ValidarComprobantesFiscales = false;
+                DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarComprobante = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfiguracionGeneral.UsarComprobantesFiscales, 2);
+                ValidarComprobantesFiscales = ValidarComprobante.ValidarConfiguracionGeneral();
+                switch (ValidarComprobantesFiscales) {
+                    case true:
+                        cbUsarComprobantes.Visible = true;
+                        cbUsarComprobantes.Checked = true;
+                        lbComprobante.Visible = true;
+                        ddlComprobante.Visible = true;
+                        MostrarComprobante();
+                        break;
+
+                    case false:
+
+                        break;
+                }
+
+                if (rbBuscarPorRNC.Checked == true) {
+                    var BuscarInformacion = ObjDataEmpresa.Value.BuscaClientes(
+                        new Nullable<decimal>(),
+                        null,
+                        null,
+                        _DatoFiltro,
+                        null,
+                        null,
+                        1, 1);
+                    if (BuscarInformacion.Count() < 1)
+                    {
+                        MessageBox.Show("No se encontraron registros con el numero e RNC ingresado, favor de verificar.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        bool ValidarUsoComprobanteRegistroNoEncontrado = false;
+                        bool ValidarUsoComprobanteRegistroNoEncontradoPorDefecto = false;
+
+                        DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema Validar = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfiguracionGeneral.UsarComprobantesFiscales, 2);
+                        ValidarUsoComprobanteRegistroNoEncontrado = Validar.ValidarConfiguracionGeneral();
+
+                        switch (ValidarUsoComprobanteRegistroNoEncontrado) {
+                            case true:
+                                cbUsarComprobantes.Visible = true;
+                                cbUsarComprobantes.Checked = true;
+                                lbComprobante.Visible = true;
+                                ddlComprobante.Visible = true;
+                                DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarPorDefecto = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfiguracionGeneral.UsoComprobantesFiscalesPorDefecto, 2);
+                                ValidarUsoComprobanteRegistroNoEncontradoPorDefecto = ValidarPorDefecto.ValidarConfiguracionGeneral();
+                                switch (ValidarUsoComprobanteRegistroNoEncontradoPorDefecto) {
+                                    case true:
+                                        cbUsarComprobantes.Checked = true;
+                                        break;
+                                    case false:
+                                        cbUsarComprobantes.Checked = false;
+                                        break;
+                                }
+                                break;
+
+                            case false:
+                                cbUsarComprobantes.Visible = false;
+                                cbUsarComprobantes.Checked = false;
+                                lbComprobante.Visible = false;
+                                ddlComprobante.Visible = false;
+                                break;
+                        }
+
+                       
+                    }
+                    else {
+                       
+                        foreach (var n in BuscarInformacion) {
+                            txtNombreCliente.Text = n.Nombre.ToUpper();
+                            ddlComprobante.Text = n.Comprobante;
+                        }
+                        
+                        cbUsarComprobantes.Enabled = false;
+                        rbBuscarPorRNC.Enabled = false;
+                        rbBuscarPorCodigo.Enabled = false;
+                        txtFiltroCliente.Enabled = false;
+                        txtNombreCliente.Enabled = false;
+                        btnBuscarCliente.Enabled = false;
+                        lbComprobante.Enabled = false;
+                        ddlComprobante.Enabled = false;
+                        btnRestablecer.Visible = true;
+                    }
+                }
+                else if (rbBuscarPorCodigo.Checked == true) {
+                    try {
+                        var BuscarInformacion = ObjDataEmpresa.Value.BuscaClientes(
+                            Convert.ToDecimal(_DatoFiltro),
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            1, 1);
+                        if (BuscarInformacion.Count() < 1)
+                        {
+                            MessageBox.Show("No se encontraron registros con el codigo de cliente ingresado, favor de verificar.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            cbUsarComprobantes.Visible = false;
+                            cbUsarComprobantes.Checked = false;
+                            lbComprobante.Visible = false;
+                            ddlComprobante.Visible = false;
+                        }
+                        else
+                        {
+
+                            foreach (var n in BuscarInformacion)
+                            {
+                                txtNombreCliente.Text = n.Nombre.ToUpper();
+                                ddlComprobante.Text = n.Comprobante;
+                            }
+
+                            cbUsarComprobantes.Enabled = false;
+                            rbBuscarPorRNC.Enabled = false;
+                            rbBuscarPorCodigo.Enabled = false;
+                            txtFiltroCliente.Enabled = false;
+                            txtNombreCliente.Enabled = false;
+                            btnBuscarCliente.Enabled = false;
+                            lbComprobante.Enabled = false;
+                            ddlComprobante.Enabled = false;
+                            btnRestablecer.Visible = true;
+                        }
+                    }
+                    catch (Exception ex) {
+                        MessageBox.Show("El valor ingresado tiene que ser numerico para consultar mediante el codigo del cliente, favor de verificar, codigo de error: " + ex.Message , VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                
+                }
+            }
+            
+        }
         private void ValidarConfiguracionGeneral() {
             bool ResultadoValidacionUsoComprobantesFiscales = false, ResultadoValidacionBuscarClientesRegistrados = false, ResultadoValidarTipoPago = false, ResultadoValidarMoneda = false, UsoComprobanteFiscalPorDefecto = false;
 
@@ -370,37 +506,48 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         #region MOSTRAR LOS PRODUCTOS AGREGADOS
         private void MostrarItemsagregados(decimal Idusuario, string NumeroConector) {
             var MostrarItems = ObjDataServicio.Value.BuscaFacturacionPreview(Idusuario, NumeroConector);
-            dtItemsAgregados.DataSource = MostrarItems;
-
-
-            foreach (var n in MostrarItems)
+            if (MostrarItems.Count() < 1)
             {
-                VariablesGlobales.TotalProductosFacturarCotizar = (int)n.TotalProducto;
-                VariablesGlobales.TotalServiciosFacturarCotizar = (int)n.TotalServicio;
-                VariablesGlobales.TotalItemsFacturarCotizar = (int)n.TotalItems;
-                VariablesGlobales.SubTotalFacturarCotizar = (decimal)n.TotalSubTotal;
-                VariablesGlobales.TotalDescuentoFacturarCotizar = (decimal)n.TotalDescuento;
-                VariablesGlobales.TotalImpuestoFacturarCotizar = (decimal)n.TotalImpuesto;
-                VariablesGlobales.TotalGeneralFacturarCotizar = (decimal)n.TotalGeneral;
+                dtItemsAgregados.DataSource = null;
+                gbItemsAgregados.Text = MostrarRecuentoFactura(0, 0, 0, 0, 0);
             }
-            lbCantidadProductosvariable.Text = VariablesGlobales.TotalProductosFacturarCotizar.ToString("N0");
-            lbCantidadServiciosVariable.Text = VariablesGlobales.TotalServiciosFacturarCotizar.ToString("N0");
-            txtTotal.Text = VariablesGlobales.TotalGeneralFacturarCotizar.ToString("N2");
-            gbItemsAgregados.Text = MostrarRecuentoFactura(VariablesGlobales.TotalItemsFacturarCotizar, VariablesGlobales.SubTotalFacturarCotizar, VariablesGlobales.TotalDescuentoFacturarCotizar, VariablesGlobales.TotalImpuestoFacturarCotizar, VariablesGlobales.TotalGeneralFacturarCotizar);
 
-            //OCULTAMOS LAS COLUMNAS QUE NO SON NECESARIOAS PARA MOSTRAR ESTE PROCESO
-            this.dtItemsAgregados.Columns["IdUsuario"].Visible = false;
-            this.dtItemsAgregados.Columns["NumeroConector"].Visible = false;
-            this.dtItemsAgregados.Columns["IdProducto"].Visible = false;
-            this.dtItemsAgregados.Columns["IdTipoProducto"].Visible = false;
-            this.dtItemsAgregados.Columns["PorcientoImpuesto"].Visible = false;
-            this.dtItemsAgregados.Columns["TotalProducto"].Visible = false;
-            this.dtItemsAgregados.Columns["TotalServicio"].Visible = false;
-            this.dtItemsAgregados.Columns["TotalItems"].Visible = false;
-            this.dtItemsAgregados.Columns["TotalSubTotal"].Visible = false;
-            this.dtItemsAgregados.Columns["TotalImpuesto"].Visible = false;
-            this.dtItemsAgregados.Columns["TotalGeneral"].Visible = false;
-            this.dtItemsAgregados.Columns["TotalDescuento"].Visible = false;
+            else {
+                dtItemsAgregados.DataSource = MostrarItems;
+
+
+                foreach (var n in MostrarItems)
+                {
+                    VariablesGlobales.TotalProductosFacturarCotizar = (int)n.TotalProducto;
+                    VariablesGlobales.TotalServiciosFacturarCotizar = (int)n.TotalServicio;
+                    VariablesGlobales.TotalItemsFacturarCotizar = (int)n.TotalItems;
+                    VariablesGlobales.SubTotalFacturarCotizar = (decimal)n.TotalSubTotal;
+                    VariablesGlobales.TotalDescuentoFacturarCotizar = (decimal)n.TotalDescuento;
+                    VariablesGlobales.TotalImpuestoFacturarCotizar = (decimal)n.TotalImpuesto;
+                    VariablesGlobales.TotalGeneralFacturarCotizar = (decimal)n.TotalGeneral;
+                }
+                lbCantidadProductosvariable.Text = VariablesGlobales.TotalProductosFacturarCotizar.ToString("N0");
+                lbCantidadServiciosVariable.Text = VariablesGlobales.TotalServiciosFacturarCotizar.ToString("N0");
+                txtTotal.Text = VariablesGlobales.TotalGeneralFacturarCotizar.ToString("N2");
+                gbItemsAgregados.Text = MostrarRecuentoFactura(VariablesGlobales.TotalItemsFacturarCotizar, VariablesGlobales.SubTotalFacturarCotizar, VariablesGlobales.TotalDescuentoFacturarCotizar, VariablesGlobales.TotalImpuestoFacturarCotizar, VariablesGlobales.TotalGeneralFacturarCotizar);
+
+                //OCULTAMOS LAS COLUMNAS QUE NO SON NECESARIOAS PARA MOSTRAR ESTE PROCESO
+                this.dtItemsAgregados.Columns["IdUsuario"].Visible = false;
+                this.dtItemsAgregados.Columns["NumeroConector"].Visible = false;
+                this.dtItemsAgregados.Columns["IdProducto"].Visible = false;
+                this.dtItemsAgregados.Columns["IdTipoProducto"].Visible = false;
+                this.dtItemsAgregados.Columns["PorcientoImpuesto"].Visible = false;
+                this.dtItemsAgregados.Columns["TotalProducto"].Visible = false;
+                this.dtItemsAgregados.Columns["TotalServicio"].Visible = false;
+                this.dtItemsAgregados.Columns["TotalItems"].Visible = false;
+                this.dtItemsAgregados.Columns["TotalSubTotal"].Visible = false;
+                this.dtItemsAgregados.Columns["TotalImpuesto"].Visible = false;
+                this.dtItemsAgregados.Columns["TotalGeneral"].Visible = false;
+                this.dtItemsAgregados.Columns["TotalDescuento"].Visible = false;
+
+            }
+
+           
         }
         #endregion
 
@@ -743,6 +890,97 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void PCerrar_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void btnBuscarCliente_Click(object sender, EventArgs e)
+        {
+            ConsultarClientesRegistrados();
+        }
+
+        private void btnRestablecer_Click(object sender, EventArgs e)
+        {
+            bool ValidarComprobantesFiscales = false;
+            DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarComprobante = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfiguracionGeneral.UsarComprobantesFiscales, 2);
+            ValidarComprobantesFiscales = ValidarComprobante.ValidarConfiguracionGeneral();
+            switch (ValidarComprobantesFiscales)
+            {
+                case true:
+                    bool ValidarComprobantePorDefecto = false;
+                    DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema Validar = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfiguracionGeneral.UsoComprobantesFiscalesPorDefecto, 2);
+                    ValidarComprobantePorDefecto = Validar.ValidarConfiguracionGeneral();
+                    switch (ValidarComprobantePorDefecto) {
+                        case true:
+                            cbUsarComprobantes.Checked = true;
+                            lbComprobante.Visible = true;
+                            ddlComprobante.Visible = true;
+                            MostrarComprobante();
+                            break;
+
+                        case false:
+                            cbUsarComprobantes.Checked = false;
+                            lbComprobante.Visible = false;
+                            ddlComprobante.Visible = false;
+                            //MostrarComprobante();
+                            break;
+                    }
+                    break;
+
+                case false:
+                    cbUsarComprobantes.Visible = false;
+                    cbUsarComprobantes.Checked = false;
+                    lbComprobante.Visible = false;
+                    ddlComprobante.Visible = false;
+                    //MostrarComprobante();
+                    break;
+            }
+
+            cbUsarComprobantes.Enabled = true;
+            rbBuscarPorRNC.Enabled = true;
+            rbBuscarPorCodigo.Enabled = true;
+            txtFiltroCliente.Enabled = true;
+            txtNombreCliente.Enabled = true;
+            btnBuscarCliente.Enabled = true;
+            lbComprobante.Enabled = true;
+            ddlComprobante.Enabled = true;
+            btnRestablecer.Visible = false;
+            txtFiltroCliente.Text = string.Empty;
+            txtNombreCliente.Text = string.Empty;
+        }
+
+        private void txtFiltroCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (rbBuscarPorCodigo.Checked == true) {
+                DSMarket.Logica.Comunes.ValidarControles.SoloNumeros(e);
+            }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
+                ConsultarClientesRegistrados();
+            }
+        }
+
+        private void dtItemsAgregados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (MessageBox.Show("¿Quieres quitar este item de la factura?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+                decimal IdusuarioQuitar = 0, IdProductoQuitar = 0, IdTipoProductoQUitar = 0;
+                string NumeroConectorQUitar = "";
+
+                IdusuarioQuitar = Convert.ToDecimal(this.dtItemsAgregados.CurrentRow.Cells["IdUsuario"].Value.ToString());
+                NumeroConectorQUitar = dtItemsAgregados.CurrentRow.Cells["NumeroConector"].Value.ToString();
+                IdProductoQuitar = Convert.ToDecimal(this.dtItemsAgregados.CurrentRow.Cells["IdProducto"].Value.ToString());
+                IdTipoProductoQUitar = Convert.ToDecimal(this.dtItemsAgregados.CurrentRow.Cells["IdTipoProducto"].Value.ToString());
+
+                DSMarket.Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFacturacionPreview Eliminar = new Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFacturacionPreview(
+                    IdusuarioQuitar,
+                    NumeroConectorQUitar,
+                    IdProductoQuitar,
+                    IdTipoProductoQUitar,
+                    0, 0, 0, 0, "DELETE");
+                Eliminar.ProcesarInformacion();
+                MostrarItemsagregados(VariablesGlobales.IdUsuario, VariablesGlobales.NumeroConectorstring);
+                RestablecerPantallaFacturacion();
+                MostrarListadoProductos();
+
+            }
         }
     }
 }
