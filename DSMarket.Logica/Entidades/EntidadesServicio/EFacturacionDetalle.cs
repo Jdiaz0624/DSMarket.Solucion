@@ -17,6 +17,13 @@ namespace DSMarket.Logica.Entidades.EntidadesServicio
 		public System.Nullable<decimal> Descuento{get;set;}
 
 		public System.Nullable<int> Cantidad{get;set;}
+		public System.Nullable<int> PorcientoImpuesto { get; set; }
+
+		public System.Nullable<decimal> SubTotal { get; set; }
+
+		public System.Nullable<decimal> Impuesto { get; set; }
+
+		public System.Nullable<decimal> Total { get; set; }
 
 		public System.Nullable<decimal> IdRegistroRespaldo{get;set;}
 

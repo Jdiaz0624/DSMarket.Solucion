@@ -567,11 +567,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         #endregion
         #region GUARDAR LA INFORMACION DEL DETALLE DE FACTURACION
         private void GuardarInformacionDetalleFacturacion() {
-            string NumeroConector = "";//
+            string NumeroConector = "";
+            decimal IdTipoProducto = 0;
             string Tipo = "";
             decimal Precio = 0;//
             decimal Descuento = 0; //
             int Cantidad = 0;//
+            int PorcientoImpuesto = 0;
+            decimal SubTotal = 0;
+            decimal Impuesto = 0;
+            decimal Total = 0;
             decimal IdRegistroRespaldo = 0; //
             string NumeroConectorItemRespaldo = "";
             decimal IdTipoProductoRespaldo = 0;
@@ -625,11 +630,152 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 VariablesGlobales.NumeroConectorstring,
                 null, null);
             foreach (var n in RecorrerItemsAgregados) {
-                IdRegistroRespaldo = (decimal)n.IdProducto;
+                NumeroConector = n.NumeroConector;
+                IdTipoProducto = (decimal)n.IdTipoProducto;
+                Tipo = IdTipoProducto == 1 ? "PRODUCTO" : "SERVICIO";
                 Precio = (decimal)n.Precio;
-                Cantidad = (int)n.Cantidad;
                 Descuento = (decimal)n.Descuento;
+                Cantidad = (int)n.Cantidad;
+                PorcientoImpuesto = (int)n.PorcientoImpuesto;
+                SubTotal = (decimal)n.SubTotal;
+                Impuesto = (decimal)n.Impuesto;
+                Total = (decimal)n.Total;
+                IdRegistroRespaldo = (decimal)n.IdProducto;
+
+                //SACAMOS LOS DATOS DEL PRODUCTO REGISTRADO
+
+                var SacarInformacionItem = ObjDataInventario.Value.BuscaProductosServicios(
+                    IdRegistroRespaldo, 
+                    null, 
+                    IdTipoProducto, 
+                    null, 
+                    null, 
+                    null, 
+                    null, 
+                    null, 
+                    null, 
+                    null, 
+                    null, 
+                    null, 
+                    null,
+                    null,
+                    null,
+                    null, 
+                    1,
+                    1);
+                foreach (var InformacionItem in SacarInformacionItem) {
+                    NumeroConectorItemRespaldo = InformacionItem.NumeroConector;
+                    IdTipoProductoRespaldo = (decimal)InformacionItem.IdTipoProducto;
+                    IdCategoriaRespaldo = (decimal)InformacionItem.IdCategoria;
+                    IdMarcaRespaldo = (decimal)InformacionItem.IdMarca;
+                    IdTipoSuplidorRespaldo = (decimal)InformacionItem.IdTipoSuplidor;
+                    IdSuplidorRespaldo = (decimal)InformacionItem.IdSuplidor;
+                    DescripcionRespaldo = InformacionItem.Descripcion;
+                    CodigoBarraRespaldo = InformacionItem.CodigoBarra;
+                    ReferenciaRespaldo = InformacionItem.Referencia;
+                    NumeroSeguimientoRespaldo = InformacionItem.NumeroSeguimiento;
+                    CodigoProductoRespaldo = InformacionItem.CodigoProducto;
+                    PrecioCompraRespaldo = (decimal)InformacionItem.PrecioCompra;
+                    PrecioVentaRespaldo = (decimal)InformacionItem.PrecioVenta;
+                    StockRespaldo = (decimal)InformacionItem.Stock;
+                    StockMinimoRespaldo = (decimal)InformacionItem.StockMinimo;
+                    UnidadMedidaRespaldo = InformacionItem.UnidadMedida;
+                    ModeloRespaldo = InformacionItem.Modelo;
+                    ColorRespaldo = InformacionItem.Color;
+                    CondicionRespaldo = InformacionItem.Condicion;
+                    CapacidadRespaldo = InformacionItem.Capacidad;
+                    AplicaParaImpuestoRespaldo = (bool)InformacionItem.AplicaParaImpuesto0;
+                    TieneImagenRespaldo = (bool)InformacionItem.TieneImagen0;
+                    LlevaGarantiaRespaldo = (bool)InformacionItem.LlevaGarantia0;
+                    IdTipoGarantiaRespaldo = (decimal)InformacionItem.IdTipoGarantia;
+                    TiempoGarantiaRespaldo = (int)InformacionItem.TiempoGarantia;
+                    ComentarioItemRespaldo = InformacionItem.Comentario;
+                    UsuarioAdicionaRespaldo = (decimal)InformacionItem.UsuarioAdiciona;
+                    FechaAdicionaRespaldo = (DateTime)InformacionItem.FechaAdiciona0;
+                    UsuarioModificaRespaldo = (decimal)InformacionItem.UsuarioModifica;
+                    FechaModificaRespaldo = (DateTime)InformacionItem.FechaModifica0;
+                    FechaIngresoRespaldo = (DateTime)InformacionItem.FechaIngreso0;
+                }
+
+                //GUARDAMOS LA INFORMACION EN LA BASE DE DATOS
+                DSMarket.Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFacturacionDetalle Procesar = new Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFacturacionDetalle(
+                    NumeroConector,
+                    Tipo,
+                    Precio,
+                    Descuento,
+                    Cantidad,
+                    PorcientoImpuesto,
+                    SubTotal,
+                    Impuesto,
+                    Total,
+                    IdRegistroRespaldo,
+                    NumeroConectorItemRespaldo,
+                    IdTipoProductoRespaldo,
+                    IdCategoriaRespaldo,
+                    IdMarcaRespaldo,
+                    IdTipoSuplidorRespaldo,
+                    IdSuplidorRespaldo,
+                    DescripcionRespaldo,
+                    CodigoBarraRespaldo,
+                    ReferenciaRespaldo,
+                    NumeroSeguimientoRespaldo,
+                    CodigoProductoRespaldo,
+                    PrecioCompraRespaldo,
+                    PrecioVentaRespaldo,
+                    StockRespaldo,
+                    StockMinimoRespaldo,
+                    UnidadMedidaRespaldo,
+                    ModeloRespaldo,
+                    ColorRespaldo,
+                    CondicionRespaldo,
+                    CapacidadRespaldo,
+                    AplicaParaImpuestoRespaldo,
+                    TieneImagenRespaldo,
+                    LlevaGarantiaRespaldo,
+                    IdTipoGarantiaRespaldo,
+                    TiempoGarantiaRespaldo,
+                    ComentarioItemRespaldo,
+                    UsuarioAdicionaRespaldo,
+                    FechaAdicionaRespaldo,
+                    UsuarioModificaRespaldo,
+                    FechaModificaRespaldo,
+                    FechaIngresoRespaldo,
+                    "INSERT");
+                Procesar.ProcesarInformacion();
+
+                //AFECTAMOS EL INVENTARIO
+                DSMarket.Logica.Comunes.ProcesarInformacion.Inventario.ProcesarInformacionProductoServicio AfectarInventario = new Logica.Comunes.ProcesarInformacion.Inventario.ProcesarInformacionProductoServicio(
+                    IdRegistroRespaldo,
+                    NumeroConectorItemRespaldo,
+                    0, 0, 0, 0, 0, "", "", "", "", "", 0, 0,
+                    Cantidad,
+                    0, "", "", "", "", "", false, false, false, 0, 0, "", 0, "LESSPRODUCT");
+                AfectarInventario.ProcesarInformacion();
+
+                //VALIDAMOS SI ESTA ACTIVA LA OPCION DE ELIMINAR EL REGISTRO AL MOMENTO DE AGOTARSE
+                if (EliminarProductoAgotado == "SI") {
+                    decimal cantidad = 0;
+
+                    var SacarCantidadproducto = ObjDataInventario.Value.BuscaProductosServicios(IdRegistroRespaldo, NumeroConectorItemRespaldo, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
+                    foreach (var nCantidad in SacarCantidadproducto) {
+                        cantidad = (decimal)nCantidad.Stock;
+                    }
+
+                    if (cantidad < 1 && IdTipoProductoRespaldo == 1) {
+                        DSMarket.Logica.Comunes.ProcesarInformacion.Inventario.ProcesarInformacionProductoServicio EliminarProducto = new Logica.Comunes.ProcesarInformacion.Inventario.ProcesarInformacionProductoServicio(
+                           IdRegistroRespaldo,
+                           NumeroConectorItemRespaldo,
+                           0, 0, 0, 0, 0, "", "", "", "", "", 0, 0,
+                           0,
+                           0, "", "", "", "", "", false, false, false, 0, 0, "", 0, "DELETE");
+                        EliminarProducto.ProcesarInformacion();
+                    }
+                   
+                }
+                
             }
+
+
         }
         #endregion
         #region CALCULAR EL CAMBIO 
@@ -1167,6 +1313,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         }
                         else {
                             GuardarInformacionFacturacion();
+                            GuardarInformacionDetalleFacturacion();
+                            MessageBox.Show("Operación completada con exito.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Dispose();
+
                         }
                     }
                     else if (rbCotizar.Checked == true) { }

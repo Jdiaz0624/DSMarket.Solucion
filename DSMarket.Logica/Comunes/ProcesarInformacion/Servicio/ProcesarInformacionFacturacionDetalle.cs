@@ -15,6 +15,10 @@ namespace DSMarket.Logica.Comunes.ProcesarInformacion.Servicio
         private decimal Precio = 0;
         private decimal Descuento = 0;
         private int Cantidad = 0;
+        private int PorcientoImpuesto = 0;
+        private decimal SubTotal = 0;
+        private decimal Impuesto = 0;
+        private decimal Total = 0;
         private decimal IdRegistroRespaldo = 0;
         private string NumeroConectorItemRespaldo = "";
         private decimal IdTipoProductoRespaldo = 0;
@@ -55,6 +59,10 @@ namespace DSMarket.Logica.Comunes.ProcesarInformacion.Servicio
         decimal PrecioCON,
         decimal DescuentoCON,
         int CantidadCON,
+        int PorcientoImpuestoCON,
+        decimal SubTotalCON,
+        decimal ImpuestoCON,
+        decimal TotalCON,
         decimal IdRegistroRespaldoCON,
         string NumeroConectorItemRespaldoCON,
         decimal IdTipoProductoRespaldoCON,
@@ -94,6 +102,10 @@ namespace DSMarket.Logica.Comunes.ProcesarInformacion.Servicio
             Precio = PrecioCON;
             Descuento = DescuentoCON;
             Cantidad = CantidadCON;
+            PorcientoImpuesto = PorcientoImpuestoCON;
+            SubTotal = SubTotalCON;
+            Impuesto = ImpuestoCON;
+            Total = TotalCON;
             IdRegistroRespaldo = IdRegistroRespaldoCON;
             NumeroConectorItemRespaldo = NumeroConectorItemRespaldoCON;
             IdTipoProductoRespaldo = IdTipoProductoRespaldoCON;
@@ -139,6 +151,10 @@ namespace DSMarket.Logica.Comunes.ProcesarInformacion.Servicio
             Procesar.Precio = Precio;
             Procesar.Descuento = Descuento;
             Procesar.Cantidad = Cantidad;
+            Procesar.PorcientoImpuesto = PorcientoImpuesto;
+            Procesar.SubTotal = SubTotal;
+            Procesar.Impuesto = Impuesto;
+            Procesar.Total = Total;
             Procesar.IdRegistroRespaldo = IdRegistroRespaldo;
             Procesar.NumeroConectorItemRespaldo = NumeroConectorItemRespaldo;
             Procesar.IdTipoProductoRespaldo = IdTipoProductoRespaldo;
