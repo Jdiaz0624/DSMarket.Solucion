@@ -317,10 +317,6 @@ namespace DSMarket.Logica.Logica.LogicaServicio
            
         }
         #endregion
-      
-   
-        
-
         #region GENERAR LA GANANCIA DE VENTA
         public List<DSMarket.Logica.Entidades.EntidadesServicio.ESacarGananciaFacturacion> GenerarGananciaVenta(decimal? IdFactura = null,decimal? NumeroConector = null, decimal? IdEstatusFacturacion = null, decimal? IdTipoFacturacion = null, decimal? IdTipoPago = null, string Cliente = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null)
         {
@@ -420,7 +416,81 @@ namespace DSMarket.Logica.Logica.LogicaServicio
             return Modificar;
         }
         #endregion
+        #region MANTENIMIENTO DE MONEDA
+        /// <summary>
+        /// Busca el listado de las monedas registradas en el sistema
+        /// </summary>
+        /// <param name="IdMoneda"></param>
+        /// <param name="Moneda"></param>
+        /// <param name="NumeroPagina"></param>
+        /// <param name="NumeroRegistro"></param>
+        /// <returns></returns>
+        public List<DSMarket.Logica.Entidades.EntidadesServicio.EMoneda> BuscaMOneda(decimal? IdMoneda = null, string Moneda = null, int? NumeroPagina = 1, int? NumeroRegistro = 10) {
+            ObjData.CommandTimeout = 999999999;
 
+            var Listado = (from n in ObjData.SP_BUSCA_MONEDAS(IdMoneda, Moneda, NumeroPagina, NumeroRegistro)
+                           select new DSMarket.Logica.Entidades.EntidadesServicio.EMoneda
+                           {
+                               IdMoneda=n.IdMoneda,
+                               Moneda=n.Moneda,
+                               Sigla=n.Sigla,
+                               Estatus0=n.Estatus0,
+                               Estatus=n.Estatus,
+                               Tasa=n.Tasa,
+                               UsuarioAdiciona=n.UsuarioAdiciona,
+                               CreadoPor=n.CreadoPor,
+                               FechaAdiciona=n.FechaAdiciona,
+                               FechaCreado=n.FechaCreado,
+                               UsuarioModifica=n.UsuarioModifica,
+                               ModificadoPor=n.ModificadoPor,
+                               FechaModifica=n.FechaModifica,
+                               FechaModificado=n.FechaModificado,
+                               PorDefecto0=n.PorDefecto0,
+                               PorDefecto=n.PorDefecto
+                           }).ToList();
+            return Listado;
+        }
+
+        /// <summary>
+        /// Procesar Informacion de las monedas
+        /// </summary>
+        /// <param name="Item"></param>
+        /// <param name="Accion"></param>
+        /// <returns></returns>
+        public DSMarket.Logica.Entidades.EntidadesServicio.EMoneda ProcesarMonedas(DSMarket.Logica.Entidades.EntidadesServicio.EMoneda Item, string Accion){
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesServicio.EMoneda Procesar = null;
+
+            var Moneda = ObjData.SP_PROCESAR_INFORMACION_MONEDA(
+                Item.IdMoneda,
+                Item.Moneda,
+                Item.Sigla,
+                Item.Estatus0,
+                Item.Tasa,
+                Item.UsuarioAdiciona,
+                Item.PorDefecto0,
+                Accion);
+            if (Moneda  != null) {
+                Procesar = (from n in Moneda
+                            select new DSMarket.Logica.Entidades.EntidadesServicio.EMoneda
+                            {
+                                IdMoneda=n.IdMoneda,
+                                Moneda=n.Descripcion,
+                                Sigla=n.Sigla,
+                                Estatus0=n.Estatus,
+                                Tasa=n.Tasa,
+                                UsuarioAdiciona=n.UsuarioAdiciona,
+                                FechaAdiciona=n.FechaAdiciona,
+                                UsuarioModifica=n.UsuarioModifica,
+                                FechaModifica=n.FechaModifica,
+                                PorDefecto0=n.PorDefecto
+                            }).FirstOrDefault();
+            }
+            return Procesar;
+        
+        }
+        #endregion
         #region COMISIONES DE EMPLEADOS
         public List<DSMarket.Logica.Entidades.EntidadesServicio.EComisionesEmpleados> BuscaComisionesEmpleado(decimal? IdRegistro = null, decimal? IdEmpleado = null, decimal? IdTipoProducto = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null,bool? Estatus =null, decimal? IdProducto = null,decimal? NumeroConectorProducto = null,decimal? NumeroConectorOperacion = null, int? Numeropagina = null, int? NumeroRegistros = null)
         {

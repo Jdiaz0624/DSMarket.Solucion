@@ -1243,8 +1243,6 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
 
         }
         #endregion
-
-
         #region CONFIGURACION GENERAL
         /// <summary>
         /// Este metodo es para mostrar el listado de las configuraciones generales del sistema

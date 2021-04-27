@@ -27,7 +27,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         ImprimirFacturaDirectoImpresora=3,
         ValidarTipoPago=4,
         ValidarMoneda=5,
-        UsoComprobantesFiscalesPorDefecto=6
+        UsoComprobantesFiscalesPorDefecto=6,
+        ValidarOpcionesContables=7,
+        EliminarProductosAgotadosFacturar=8
         }
 
         Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
@@ -490,7 +492,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         #region PROCESAR INFORMACION DEL PREVIEW DE FACTURACION
         private void ProcesarPreviewFacturacion() {
-            int PorcitneoImpuesto = 0;
+            DSMarket.Logica.Comunes.SacarPorcientoImpuesto Porciento = new Logica.Comunes.SacarPorcientoImpuesto(1);
+            int PorcitneoImpuesto = Porciento.PorcientoImpuesto();
             DSMarket.Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFacturacionPreview Procesar = new Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFacturacionPreview(
                 VariablesGlobales.IdUsuario,
                 VariablesGlobales.NumeroConectorstring,
@@ -562,6 +565,98 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             GuardarInformacion.ProcesarInformacion();
         }
         #endregion
+        #region GUARDAR LA INFORMACION DEL DETALLE DE FACTURACION
+        private void GuardarInformacionDetalleFacturacion() {
+            string NumeroConector = "";//
+            string Tipo = "";
+            decimal Precio = 0;//
+            decimal Descuento = 0; //
+            int Cantidad = 0;//
+            decimal IdRegistroRespaldo = 0; //
+            string NumeroConectorItemRespaldo = "";
+            decimal IdTipoProductoRespaldo = 0;
+            decimal IdCategoriaRespaldo = 0;
+            decimal IdMarcaRespaldo = 0;
+            decimal IdTipoSuplidorRespaldo = 0;
+            decimal IdSuplidorRespaldo = 0;
+            string DescripcionRespaldo = "";
+            string CodigoBarraRespaldo = "";
+            string ReferenciaRespaldo = "";
+            string NumeroSeguimientoRespaldo = "";
+            string CodigoProductoRespaldo = "";
+            decimal PrecioCompraRespaldo = 0;
+            decimal PrecioVentaRespaldo = 0;
+            decimal StockRespaldo = 0;
+            decimal StockMinimoRespaldo = 0;
+            string UnidadMedidaRespaldo = "";
+            string ModeloRespaldo = "";
+            string ColorRespaldo = "";
+            string CondicionRespaldo = "";
+            string CapacidadRespaldo = "";
+            bool AplicaParaImpuestoRespaldo = false;
+            bool TieneImagenRespaldo = false;
+            bool LlevaGarantiaRespaldo = false;
+            decimal IdTipoGarantiaRespaldo = 0;
+            int TiempoGarantiaRespaldo = 0;
+            string ComentarioItemRespaldo = "";
+            decimal UsuarioAdicionaRespaldo = 0;
+            DateTime FechaAdicionaRespaldo = DateTime.Now;
+            decimal UsuarioModificaRespaldo = 0;
+            DateTime FechaModificaRespaldo = DateTime.Now;
+            DateTime FechaIngresoRespaldo = DateTime.Now;
+
+            bool ValidarEliminarProductosAgotadosFacturar = false;
+            string EliminarProductoAgotado = "";
+            DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema Validar = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfiguracionGeneral.EliminarProductosAgotadosFacturar, 2);
+            ValidarEliminarProductosAgotadosFacturar = Validar.ValidarConfiguracionGeneral();
+            switch (ValidarEliminarProductosAgotadosFacturar) {
+                case true:
+                    EliminarProductoAgotado = "SI";
+                    break;
+
+                case false:
+                    EliminarProductoAgotado = "NO";
+                    break;
+            }
+
+            //RECORREMOS TODOS LOS ITEMS AGREGADOS
+            var RecorrerItemsAgregados = ObjDataServicio.Value.BuscaFacturacionPreview(
+                VariablesGlobales.IdUsuario,
+                VariablesGlobales.NumeroConectorstring,
+                null, null);
+            foreach (var n in RecorrerItemsAgregados) {
+                IdRegistroRespaldo = (decimal)n.IdProducto;
+                Precio = (decimal)n.Precio;
+                Cantidad = (int)n.Cantidad;
+                Descuento = (decimal)n.Descuento;
+            }
+        }
+        #endregion
+        #region CALCULAR EL CAMBIO 
+        private decimal CalcularCambio(decimal TotalPagar, decimal MontoPagado) {
+            try {
+                decimal Cambio = MontoPagado - TotalPagar;
+                return Cambio;
+            }
+            catch (Exception) {
+                decimal Cambio = 0;
+                return Cambio;
+            }
+
+        }
+        #endregion
+        #region SACAR TASA DE LA MONEDA
+        private decimal SacarTasaMoneda(decimal IdMoneda)
+        {
+
+            decimal Tasa = 0;
+            var BuscarMoneda = ObjDataServicio.Value.BuscaMOneda(IdMoneda, null, 1, 1);
+            foreach (var n in BuscarMoneda) {
+                Tasa = (decimal)n.Tasa;
+            }
+            return Tasa;
+        }
+        #endregion
         #region MOSTRAR LOS PRODUCTOS AGREGADOS
         private void MostrarItemsagregados(decimal Idusuario, string NumeroConector) {
             var MostrarItems = ObjDataServicio.Value.BuscaFacturacionPreview(Idusuario, NumeroConector);
@@ -588,6 +683,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 lbCantidadProductosvariable.Text = VariablesGlobales.TotalProductosFacturarCotizar.ToString("N0");
                 lbCantidadServiciosVariable.Text = VariablesGlobales.TotalServiciosFacturarCotizar.ToString("N0");
                 txtTotal.Text = VariablesGlobales.TotalGeneralFacturarCotizar.ToString("N2");
+                txtMontoPagar.Text = txtTotal.Text;
                 gbItemsAgregados.Text = MostrarRecuentoFactura(VariablesGlobales.TotalItemsFacturarCotizar, VariablesGlobales.SubTotalFacturarCotizar, VariablesGlobales.TotalDescuentoFacturarCotizar, VariablesGlobales.TotalImpuestoFacturarCotizar, VariablesGlobales.TotalGeneralFacturarCotizar);
 
                 //OCULTAMOS LAS COLUMNAS QUE NO SON NECESARIOAS PARA MOSTRAR ESTE PROCESO
@@ -1056,7 +1152,45 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 MessageBox.Show("No es posible completar esta operación por que no se ha agregado ningun items para facturar, favor de verificar.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else {
-                GuardarInformacionFacturacion();
+
+                if (string.IsNullOrEmpty(txtMontoPagar.Text.Trim()) && rbFacturar.Checked==true)
+                {
+                    MessageBox.Show("El campo monto a pagar no puede estar vacio para facturar, favor de verificar.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else {
+                    if (rbFacturar.Checked == true) {
+                        decimal MontoTotalPagar = Convert.ToDecimal(txtTotal.Text);
+                        decimal MontoPagado = (Convert.ToDecimal(txtMontoPagar.Text));
+
+                        if (MontoTotalPagar > MontoPagado) {
+                            MessageBox.Show("El total a pagar supera el monto ingresado, favor de verificar.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else {
+                            GuardarInformacionFacturacion();
+                        }
+                    }
+                    else if (rbCotizar.Checked == true) { }
+                }
+            }
+        }
+
+        private void txtMontoPagar_TextChanged(object sender, EventArgs e)
+        {
+            try {
+                txtCambio.Text = CalcularCambio(Convert.ToDecimal(txtTotal.Text), Convert.ToDecimal(txtMontoPagar.Text)).ToString("N2");
+            }
+            catch (Exception) {
+                txtCambio.Text = "0";
+            }
+        }
+
+        private void ddlSeleccionarMoneda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try {
+                txtTasa.Text = SacarTasaMoneda(Convert.ToDecimal(ddlSeleccionarMoneda.SelectedValue)).ToString();
+            }
+            catch (Exception) {
+                txtTasa.Text = "1";
             }
         }
     }
