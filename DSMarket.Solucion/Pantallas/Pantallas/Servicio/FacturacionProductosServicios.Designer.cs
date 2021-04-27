@@ -44,7 +44,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.cbMarca = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.btnARS = new System.Windows.Forms.Button();
+            this.btnCompletarOperaciom = new System.Windows.Forms.Button();
             this.btnRestablecerPantalla = new System.Windows.Forms.Button();
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.btnRestablecer = new System.Windows.Forms.Button();
@@ -254,22 +254,23 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // btnARS
+            // btnCompletarOperaciom
             // 
-            this.btnARS.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnARS.FlatAppearance.BorderSize = 10;
-            this.btnARS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnARS.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnARS.Image = global::DSMarket.Solucion.Properties.Resources.Completar;
-            this.btnARS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnARS.Location = new System.Drawing.Point(899, 585);
-            this.btnARS.Name = "btnARS";
-            this.btnARS.Size = new System.Drawing.Size(258, 34);
-            this.btnARS.TabIndex = 97;
-            this.btnARS.Text = "Completar Operación";
-            this.btnARS.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnARS, "Completar Operación");
-            this.btnARS.UseVisualStyleBackColor = true;
+            this.btnCompletarOperaciom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCompletarOperaciom.FlatAppearance.BorderSize = 10;
+            this.btnCompletarOperaciom.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCompletarOperaciom.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCompletarOperaciom.Image = global::DSMarket.Solucion.Properties.Resources.Completar;
+            this.btnCompletarOperaciom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCompletarOperaciom.Location = new System.Drawing.Point(899, 585);
+            this.btnCompletarOperaciom.Name = "btnCompletarOperaciom";
+            this.btnCompletarOperaciom.Size = new System.Drawing.Size(258, 34);
+            this.btnCompletarOperaciom.TabIndex = 97;
+            this.btnCompletarOperaciom.Text = "Completar Operación";
+            this.btnCompletarOperaciom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnCompletarOperaciom, "Completar Operación");
+            this.btnCompletarOperaciom.UseVisualStyleBackColor = true;
+            this.btnCompletarOperaciom.Click += new System.EventHandler(this.btnARS_Click);
             // 
             // btnRestablecerPantalla
             // 
@@ -396,7 +397,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.gbGeneral.Controls.Add(this.txtMontoPagar);
             this.gbGeneral.Controls.Add(this.label6);
             this.gbGeneral.Controls.Add(this.ddltIPago);
-            this.gbGeneral.Controls.Add(this.btnARS);
+            this.gbGeneral.Controls.Add(this.btnCompletarOperaciom);
             this.gbGeneral.Controls.Add(this.lbTipoPago);
             this.gbGeneral.Controls.Add(this.gbItemsAgregados);
             this.gbGeneral.Controls.Add(this.button2);
@@ -1202,7 +1203,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private System.Windows.Forms.TextBox txtDescripcionItemsSeleccionado;
         private System.Windows.Forms.GroupBox gbItemsAgregados;
         private System.Windows.Forms.DataGridView dtItemsAgregados;
-        private System.Windows.Forms.Button btnARS;
+        private System.Windows.Forms.Button btnCompletarOperaciom;
         private System.Windows.Forms.TextBox txtTasa;
         private System.Windows.Forms.Label lbTasa;
         private System.Windows.Forms.TextBox txtCambio;

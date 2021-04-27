@@ -118,6 +118,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         foreach (var n in BuscarInformacion) {
                             txtNombreCliente.Text = n.Nombre.ToUpper();
                             ddlComprobante.Text = n.Comprobante;
+                            VariablesGlobales.CodigoClienteFacturacion = (decimal)n.IdCliente;
                         }
                         
                         cbUsarComprobantes.Enabled = false;
@@ -156,6 +157,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             {
                                 txtNombreCliente.Text = n.Nombre.ToUpper();
                                 ddlComprobante.Text = n.Comprobante;
+                                VariablesGlobales.CodigoClienteFacturacion = (decimal)n.IdCliente;
                             }
 
                             cbUsarComprobantes.Enabled = false;
@@ -503,6 +505,63 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         }
         #endregion
+        #region GUARDAR LA INFORMACION DE FACTURACION
+        private void GuardarInformacionFacturacion() {
+            DSMarket.Logica.Comunes.SacarNombreClientePorDefecto SacarNombreCliente = new Logica.Comunes.SacarNombreClientePorDefecto();
+
+            string _FacturadoA = string.IsNullOrEmpty(txtNombreCliente.Text.Trim()) && VariablesGlobales.CodigoClienteFacturacion == 0 ? SacarNombreCliente.SacarClientePorDefecto() : txtNombreCliente.Text.Trim();
+            decimal _CodigoCliente = VariablesGlobales.CodigoClienteFacturacion == 0 ? 1 : VariablesGlobales.CodigoClienteFacturacion;
+            decimal _IdTipoFacturacion = rbFacturar.Checked == true ? 1 : 2;
+            string _Comentario = string.IsNullOrEmpty(txtComentario.Text.Trim()) ? null : txtComentario.Text.Trim();
+
+            decimal _IdComprobante = 0;
+            string _ValidoHasta = "";
+            string _NumeroComprobante = "";
+            bool ValidarComprobante = false;
+            DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema Validar = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfiguracionGeneral.UsarComprobantesFiscales, 2);
+            ValidarComprobante = Validar.ValidarConfiguracionGeneral();
+            switch (ValidarComprobante) {
+                case true:
+                    _IdComprobante = Convert.ToDecimal(ddlComprobante.SelectedValue);
+                    DSMarket.Logica.Comunes.ProcesarInformacionComprobanteFiscal ProcesarComprobante = new Logica.Comunes.ProcesarInformacionComprobanteFiscal(_IdComprobante);
+                    _ValidoHasta = ProcesarComprobante.SacarFechaValidoComprobante();
+                    _NumeroComprobante = ProcesarComprobante.GenerarComprobanteFiscal();
+                    break;
+
+                case false:
+                    _IdComprobante = 0;
+                    _ValidoHasta = "";
+                    _NumeroComprobante = "";
+                    break;
+            }
+
+            DSMarket.Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFactura GuardarInformacion = new Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFactura(
+                0,
+                VariablesGlobales.NumeroConectorstring,
+                _FacturadoA,
+                _CodigoCliente,
+                _IdTipoFacturacion,
+                _Comentario,
+                VariablesGlobales.TotalProductosFacturarCotizar,
+                VariablesGlobales.TotalServiciosFacturarCotizar,
+                VariablesGlobales.TotalItemsFacturarCotizar,
+                VariablesGlobales.SubTotalFacturarCotizar,
+                VariablesGlobales.TotalDescuentoFacturarCotizar,
+                VariablesGlobales.TotalImpuestoFacturarCotizar,
+                VariablesGlobales.TotalGeneralFacturarCotizar,
+                Convert.ToDecimal(ddltIPago.SelectedValue),
+                Convert.ToDecimal(txtMontoPagar.Text),
+                0,//Convert.ToDecimal(txtCambio.Text),
+                Convert.ToDecimal(ddlSeleccionarMoneda.SelectedValue),
+                0,///Convert.ToDecimal(txtTasa.Text),
+                VariablesGlobales.IdUsuario,
+                _IdComprobante,
+                _ValidoHasta,
+                _NumeroComprobante,
+                "INSERT");
+            GuardarInformacion.ProcesarInformacion();
+        }
+        #endregion
         #region MOSTRAR LOS PRODUCTOS AGREGADOS
         private void MostrarItemsagregados(decimal Idusuario, string NumeroConector) {
             var MostrarItems = ObjDataServicio.Value.BuscaFacturacionPreview(Idusuario, NumeroConector);
@@ -582,7 +641,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         }
         private void FacturacionProductosServicios_Load(object sender, EventArgs e)
         {
-
+            VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+            VariablesGlobales.CodigoClienteFacturacion = 0;
             DSMarket.Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFacturacionPreview Eliminar = new Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFacturacionPreview(
                 VariablesGlobales.IdUsuario, "", 0, 0, 0, 0, 0, 0, "DELETEALL");
             Eliminar.ProcesarInformacion();
@@ -902,6 +962,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             bool ValidarComprobantesFiscales = false;
             DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarComprobante = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfiguracionGeneral.UsarComprobantesFiscales, 2);
             ValidarComprobantesFiscales = ValidarComprobante.ValidarConfiguracionGeneral();
+            VariablesGlobales.CodigoClienteFacturacion = 0;
             switch (ValidarComprobantesFiscales)
             {
                 case true:
@@ -980,6 +1041,22 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 RestablecerPantallaFacturacion();
                 MostrarListadoProductos();
 
+            }
+        }
+
+        private void btnARS_Click(object sender, EventArgs e)
+        {
+            var ValidarItemsAgregado = ObjDataServicio.Value.BuscaFacturacionPreview(
+                VariablesGlobales.IdUsuario,
+                VariablesGlobales.NumeroConectorstring,
+                null, null);
+            int RegistrosAgregados = ValidarItemsAgregado.Count;
+            if (RegistrosAgregados < 1)
+            {
+                MessageBox.Show("No es posible completar esta operación por que no se ha agregado ningun items para facturar, favor de verificar.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else {
+                GuardarInformacionFacturacion();
             }
         }
     }

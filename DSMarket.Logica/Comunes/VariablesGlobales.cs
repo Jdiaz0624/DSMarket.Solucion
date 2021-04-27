@@ -140,6 +140,7 @@ namespace DSMarket.Logica.Comunes
         public decimal TotalDescuentoFacturarCotizar { get; set; }
         public decimal TotalImpuestoFacturarCotizar { get; set; }
         public decimal TotalGeneralFacturarCotizar { get; set; }
+        public decimal CodigoClienteFacturacion = 0;
 
         #endregion
     }

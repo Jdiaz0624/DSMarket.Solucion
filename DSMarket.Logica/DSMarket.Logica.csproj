@@ -61,6 +61,7 @@
     <Compile Include="Comunes\ProcesarHistorialCaja.cs" />
     <Compile Include="Comunes\ProcesarInformacion607.cs" />
     <Compile Include="Comunes\ProcesarInformacionCompraSuplidores.cs" />
+    <Compile Include="Comunes\ProcesarInformacionComprobanteFiscal.cs" />
     <Compile Include="Comunes\ProcesarInformacionDataReporte606.cs" />
     <Compile Include="Comunes\ProcesarInformacionReporte608.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Configuracion\ProcesarInformacionCamposEspeciales.cs" />
@@ -106,6 +107,7 @@
     <Compile Include="Comunes\ProcesarReporteVenta.cs" />
     <Compile Include="Comunes\ProcesarRUtaArchivotxt.cs" />
     <Compile Include="Comunes\ProcesarUsuarios.cs" />
+    <Compile Include="Comunes\SacarNombreClientePorDefecto.cs" />
     <Compile Include="Comunes\SeguridadEncriptacion.cs" />
     <Compile Include="Comunes\ValidarConfiguracionesGeneralesSistema.cs" />
     <Compile Include="Comunes\ValidarConfiguracionGeneral.cs" />
