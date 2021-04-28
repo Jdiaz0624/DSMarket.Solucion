@@ -64,6 +64,8 @@
     <Compile Include="Comunes\ProcesarInformacionComprobanteFiscal.cs" />
     <Compile Include="Comunes\ProcesarInformacionDataReporte606.cs" />
     <Compile Include="Comunes\ProcesarInformacionReporte608.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\Caja\ProcesarInformacionAfectarCaja.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\Caja\ProcesarInformacionHistorialCaja.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Configuracion\ProcesarInformacionCamposEspeciales.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Configuracion\ProcesarInformacionConfiguracionGeneralSistema.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Configuracion\ProcesarInformacionDatosreporteEmpleados.cs" />

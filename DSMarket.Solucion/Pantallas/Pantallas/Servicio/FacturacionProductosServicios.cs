@@ -43,7 +43,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
 
+        #region AFECTAR LA CAJA
+        private void AfectarCaja() { }
 
+        private void GuardarHistorialcaja() { }
+        #endregion
         private void ConsultarClientesRegistrados() {
             if (string.IsNullOrEmpty(txtFiltroCliente.Text.Trim())) {
                 MessageBox.Show("El campo Dato de filtro de cliente no puede estar vacio para buscar esta información, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
