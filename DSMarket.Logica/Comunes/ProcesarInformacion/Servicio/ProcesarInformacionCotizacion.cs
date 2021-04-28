@@ -80,7 +80,7 @@ namespace DSMarket.Logica.Comunes.ProcesarInformacion.Servicio
         /// <summary>
         /// Procesar la información de la cotización
         /// </summary>
-        private void ProcesarInformacion() {
+        public void ProcesarInformacion() {
             DSMarket.Logica.Entidades.EntidadesServicio.ECotizacion Procesar = new Entidades.EntidadesServicio.ECotizacion();
 
             Procesar.NumeroCotizacion = NumeroCotizacion;

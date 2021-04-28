@@ -778,6 +778,215 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         }
         #endregion
+        #region GUARDAR LA INFORMACION DE LA COTIZACION
+        /// <summary>
+        /// Guardamos los datos de la cotización
+        /// </summary>
+        private void GuardarCotizacion() {
+            DSMarket.Logica.Comunes.SacarNombreClientePorDefecto SacarNombreCliente = new Logica.Comunes.SacarNombreClientePorDefecto();
+
+            string _CotizadoA = string.IsNullOrEmpty(txtNombreCliente.Text.Trim()) && VariablesGlobales.CodigoClienteFacturacion == 0 ? SacarNombreCliente.SacarClientePorDefecto() : txtNombreCliente.Text.Trim();
+            decimal _CodigoCliente = VariablesGlobales.CodigoClienteFacturacion == 0 ? 1 : VariablesGlobales.CodigoClienteFacturacion;
+            decimal _IdTipoFacturacion = rbFacturar.Checked == true ? 1 : 2;
+            string _Comentario = string.IsNullOrEmpty(txtComentario.Text.Trim()) ? null : txtComentario.Text.Trim();
+
+            DSMarket.Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionCotizacion GuardarCotizacion = new Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionCotizacion(
+                0,
+                VariablesGlobales.NumeroConectorstring,
+                _CotizadoA,
+                _CodigoCliente,
+                _IdTipoFacturacion,
+                _Comentario,
+                VariablesGlobales.TotalProductosFacturarCotizar,
+                VariablesGlobales.TotalServiciosFacturarCotizar,
+                VariablesGlobales.TotalItemsFacturarCotizar,
+                VariablesGlobales.SubTotalFacturarCotizar,
+                VariablesGlobales.TotalDescuentoFacturarCotizar,
+                VariablesGlobales.TotalImpuestoFacturarCotizar,
+                VariablesGlobales.TotalGeneralFacturarCotizar,
+                Convert.ToDecimal(ddltIPago.SelectedValue),
+                0,
+                0,
+                Convert.ToDecimal(ddlSeleccionarMoneda.SelectedValue),
+                Convert.ToDecimal(txtTasa.Text),
+                VariablesGlobales.IdUsuario,
+                DateTime.Now,
+                "INSERT");
+            GuardarCotizacion.ProcesarInformacion();
+        }
+
+        /// <summary>
+        /// Guardamos los datos del detalle de la cotización
+        /// </summary>
+        private void GuardarCotizacionDetalle() {
+            string NumeroConector = "";
+            decimal IdTipoProducto = 0;
+            string Tipo = "";
+            decimal Precio = 0;//
+            decimal Descuento = 0; //
+            int Cantidad = 0;//
+            int PorcientoImpuesto = 0;
+            decimal SubTotal = 0;
+            decimal Impuesto = 0;
+            decimal Total = 0;
+            decimal IdRegistroRespaldo = 0; //
+            string NumeroConectorItemRespaldo = "";
+            decimal IdTipoProductoRespaldo = 0;
+            decimal IdCategoriaRespaldo = 0;
+            decimal IdMarcaRespaldo = 0;
+            decimal IdTipoSuplidorRespaldo = 0;
+            decimal IdSuplidorRespaldo = 0;
+            string DescripcionRespaldo = "";
+            string CodigoBarraRespaldo = "";
+            string ReferenciaRespaldo = "";
+            string NumeroSeguimientoRespaldo = "";
+            string CodigoProductoRespaldo = "";
+            decimal PrecioCompraRespaldo = 0;
+            decimal PrecioVentaRespaldo = 0;
+            decimal StockRespaldo = 0;
+            decimal StockMinimoRespaldo = 0;
+            string UnidadMedidaRespaldo = "";
+            string ModeloRespaldo = "";
+            string ColorRespaldo = "";
+            string CondicionRespaldo = "";
+            string CapacidadRespaldo = "";
+            bool AplicaParaImpuestoRespaldo = false;
+            bool TieneImagenRespaldo = false;
+            bool LlevaGarantiaRespaldo = false;
+            decimal IdTipoGarantiaRespaldo = 0;
+            int TiempoGarantiaRespaldo = 0;
+            string ComentarioItemRespaldo = "";
+            decimal UsuarioAdicionaRespaldo = 0;
+            DateTime FechaAdicionaRespaldo = DateTime.Now;
+            decimal UsuarioModificaRespaldo = 0;
+            DateTime FechaModificaRespaldo = DateTime.Now;
+            DateTime FechaIngresoRespaldo = DateTime.Now;
+
+            //RECORREMOS TODOS LOS ITEMS AGREGADOS
+            var RecorrerItemsAgregados = ObjDataServicio.Value.BuscaFacturacionPreview(
+                VariablesGlobales.IdUsuario,
+                VariablesGlobales.NumeroConectorstring,
+                null, null);
+            foreach (var n in RecorrerItemsAgregados)
+            {
+                NumeroConector = n.NumeroConector;
+                IdTipoProducto = (decimal)n.IdTipoProducto;
+                Tipo = IdTipoProducto == 1 ? "PRODUCTO" : "SERVICIO";
+                Precio = (decimal)n.Precio;
+                Descuento = (decimal)n.Descuento;
+                Cantidad = (int)n.Cantidad;
+                PorcientoImpuesto = (int)n.PorcientoImpuesto;
+                SubTotal = (decimal)n.SubTotal;
+                Impuesto = (decimal)n.Impuesto;
+                Total = (decimal)n.Total;
+                IdRegistroRespaldo = (decimal)n.IdProducto;
+
+                //SACAMOS LOS DATOS DEL PRODUCTO REGISTRADO
+
+                var SacarInformacionItem = ObjDataInventario.Value.BuscaProductosServicios(
+                    IdRegistroRespaldo,
+                    null,
+                    IdTipoProducto,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    1,
+                    1);
+                foreach (var InformacionItem in SacarInformacionItem)
+                {
+                    NumeroConectorItemRespaldo = InformacionItem.NumeroConector;
+                    IdTipoProductoRespaldo = (decimal)InformacionItem.IdTipoProducto;
+                    IdCategoriaRespaldo = (decimal)InformacionItem.IdCategoria;
+                    IdMarcaRespaldo = (decimal)InformacionItem.IdMarca;
+                    IdTipoSuplidorRespaldo = (decimal)InformacionItem.IdTipoSuplidor;
+                    IdSuplidorRespaldo = (decimal)InformacionItem.IdSuplidor;
+                    DescripcionRespaldo = InformacionItem.Descripcion;
+                    CodigoBarraRespaldo = InformacionItem.CodigoBarra;
+                    ReferenciaRespaldo = InformacionItem.Referencia;
+                    NumeroSeguimientoRespaldo = InformacionItem.NumeroSeguimiento;
+                    CodigoProductoRespaldo = InformacionItem.CodigoProducto;
+                    PrecioCompraRespaldo = (decimal)InformacionItem.PrecioCompra;
+                    PrecioVentaRespaldo = (decimal)InformacionItem.PrecioVenta;
+                    StockRespaldo = (decimal)InformacionItem.Stock;
+                    StockMinimoRespaldo = (decimal)InformacionItem.StockMinimo;
+                    UnidadMedidaRespaldo = InformacionItem.UnidadMedida;
+                    ModeloRespaldo = InformacionItem.Modelo;
+                    ColorRespaldo = InformacionItem.Color;
+                    CondicionRespaldo = InformacionItem.Condicion;
+                    CapacidadRespaldo = InformacionItem.Capacidad;
+                    AplicaParaImpuestoRespaldo = (bool)InformacionItem.AplicaParaImpuesto0;
+                    TieneImagenRespaldo = (bool)InformacionItem.TieneImagen0;
+                    LlevaGarantiaRespaldo = (bool)InformacionItem.LlevaGarantia0;
+                    IdTipoGarantiaRespaldo = (decimal)InformacionItem.IdTipoGarantia;
+                    TiempoGarantiaRespaldo = (int)InformacionItem.TiempoGarantia;
+                    ComentarioItemRespaldo = InformacionItem.Comentario;
+                    UsuarioAdicionaRespaldo = (decimal)InformacionItem.UsuarioAdiciona;
+                    FechaAdicionaRespaldo = (DateTime)InformacionItem.FechaAdiciona0;
+                    UsuarioModificaRespaldo = (decimal)InformacionItem.UsuarioModifica;
+                    FechaModificaRespaldo = (DateTime)InformacionItem.FechaModifica0;
+                    FechaIngresoRespaldo = (DateTime)InformacionItem.FechaIngreso0;
+                }
+
+                //GUARDAMOS EL DETALLE DE LA COTIZACION EN LA BASE DE DATOS
+                DSMarket.Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionCotizacionDetalle GaurdarInformacion = new Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionCotizacionDetalle(
+                    NumeroConector,
+                    Tipo,
+                    Precio,
+                    Descuento,
+                    Cantidad,
+                    PorcientoImpuesto,
+                    SubTotal,
+                    Impuesto,
+                    Total,
+                    IdRegistroRespaldo,
+                    NumeroConectorItemRespaldo,
+                    IdTipoProductoRespaldo,
+                    IdCategoriaRespaldo,
+                    IdMarcaRespaldo,
+                    IdTipoSuplidorRespaldo,
+                    IdSuplidorRespaldo,
+                    DescripcionRespaldo,
+                    CodigoBarraRespaldo,
+                    ReferenciaRespaldo,
+                    NumeroSeguimientoRespaldo,
+                    CodigoProductoRespaldo,
+                    PrecioCompraRespaldo,
+                    PrecioVentaRespaldo,
+                    StockRespaldo,
+                    StockMinimoRespaldo,
+                    UnidadMedidaRespaldo,
+                    ModeloRespaldo,
+                    ColorRespaldo,
+                    CondicionRespaldo,
+                    CapacidadRespaldo,
+                    AplicaParaImpuestoRespaldo,
+                    TieneImagenRespaldo,
+                    LlevaGarantiaRespaldo,
+                    IdTipoGarantiaRespaldo,
+                    TiempoGarantiaRespaldo,
+                    ComentarioItemRespaldo,
+                    UsuarioAdicionaRespaldo,
+                    FechaAdicionaRespaldo,
+                    UsuarioModificaRespaldo,
+                    FechaModificaRespaldo,
+                    FechaIngresoRespaldo,
+                    "INSERT");
+                GaurdarInformacion.ProcesarInformacion();
+            }
+
+             
+            }
+        #endregion
         #region CALCULAR EL CAMBIO 
         private decimal CalcularCambio(decimal TotalPagar, decimal MontoPagado) {
             try {
@@ -1319,7 +1528,12 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
                         }
                     }
-                    else if (rbCotizar.Checked == true) { }
+                    else if (rbCotizar.Checked == true) {
+                        GuardarCotizacion();
+                        GuardarCotizacionDetalle();
+                        MessageBox.Show("Operación completada con exito.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Dispose();
+                    }
                 }
             }
         }
