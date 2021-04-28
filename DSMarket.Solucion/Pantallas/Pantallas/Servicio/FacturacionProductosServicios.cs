@@ -282,6 +282,56 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             }
             #endregion
             }
+        private void AgregarItems() {
+            try
+            {
+                if (VariablesGlobales.ProductoSeleccionadoFacturarCotizar == "SI")
+                {
+                    if (string.IsNullOrEmpty(txtCantidadItemSelecionado.Text.Trim()))
+                    {
+                        txtCantidadItemSelecionado.Text = "1";
+                    }
+
+                    string TipoProducto = txtTipoProductoItemsseleccionado.Text;
+
+                    if (TipoProducto == "PRODUCTO")
+                    {
+
+                        decimal StockActual = 0, CantidadFacturar = 0;
+                        StockActual = Convert.ToDecimal(txtStockitemSeleccionado.Text);
+                        CantidadFacturar = Convert.ToDecimal(txtCantidadItemSelecionado.Text);
+
+                        if (CantidadFacturar > StockActual)
+                        {
+                            MessageBox.Show("Actualmente tienes " + StockActual.ToString("N0") + " del item seleccionado e intentas facturar " + CantidadFacturar.ToString("N0") + " por lo tanto no es posible proceder con este paso, favor de verificar la cantidad.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            ProcesarPreviewFacturacion();
+                            MostrarItemsagregados(VariablesGlobales.IdUsuario, VariablesGlobales.NumeroConectorstring);
+                            RestablecerPantallaFacturacion();
+                            MostrarListadoProductos();
+                        }
+
+                    }
+                    else if (TipoProducto == "SERVICIO")
+                    {
+                        ProcesarPreviewFacturacion();
+                        MostrarItemsagregados(VariablesGlobales.IdUsuario, VariablesGlobales.NumeroConectorstring);
+                        RestablecerPantallaFacturacion();
+                        MostrarListadoProductos();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Favor de seleccionar un producto para proceder con esta operación, favor de verificar.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
         #region CARGAR LAS LISTAS
         /// <summary>
@@ -1157,6 +1207,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void txtMontoPagar_KeyPress(object sender, KeyPressEventArgs e)
         {
             DSMarket.Logica.Comunes.ValidarControles.SoloNumeros(e);
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
+                AgregarItems();
+            }
         }
 
         private void ddlTipoProducto_SelectedIndexChanged(object sender, EventArgs e)
@@ -1328,9 +1381,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     TipoOperacions = rbFacturar.Checked == true ? "facturar" : "cotizar";
                     MessageBox.Show("Este registro ya esta agregado para " + TipoOperacions + ", favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-               
 
-              
+
+                txtCantidadItemSelecionado.Focus();
 
             }
             catch (Exception) { }
@@ -1344,48 +1397,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void button2_Click(object sender, EventArgs e)
         {
-            try {
-                if (VariablesGlobales.ProductoSeleccionadoFacturarCotizar == "SI")
-                {
-                    if (string.IsNullOrEmpty(txtCantidadItemSelecionado.Text.Trim())) {
-                        txtCantidadItemSelecionado.Text = "1";
-                    }
-
-                    string TipoProducto = txtTipoProductoItemsseleccionado.Text;
-
-                    if (TipoProducto == "PRODUCTO") {
-
-                        decimal StockActual = 0, CantidadFacturar = 0;
-                        StockActual = Convert.ToDecimal(txtStockitemSeleccionado.Text);
-                        CantidadFacturar = Convert.ToDecimal(txtCantidadItemSelecionado.Text);
-
-                        if (CantidadFacturar > StockActual)
-                        {
-                            MessageBox.Show("Actualmente tienes " + StockActual.ToString("N0") + " del item seleccionado e intentas facturar " + CantidadFacturar.ToString("N0") + " por lo tanto no es posible proceder con este paso, favor de verificar la cantidad.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                        else {
-                            ProcesarPreviewFacturacion();
-                            MostrarItemsagregados(VariablesGlobales.IdUsuario, VariablesGlobales.NumeroConectorstring);
-                            RestablecerPantallaFacturacion();
-                            MostrarListadoProductos();
-                        }
-                       
-                    }
-                    else if (TipoProducto == "SERVICIO") {
-                        ProcesarPreviewFacturacion();
-                        MostrarItemsagregados(VariablesGlobales.IdUsuario, VariablesGlobales.NumeroConectorstring);
-                        RestablecerPantallaFacturacion();
-                        MostrarListadoProductos();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Favor de seleccionar un producto para proceder con esta operación, favor de verificar.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            catch (Exception ex) {
-                MessageBox.Show(ex.Message);
-            }
+            AgregarItems();
           
         }
 
