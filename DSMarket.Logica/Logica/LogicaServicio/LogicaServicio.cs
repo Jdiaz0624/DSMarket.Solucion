@@ -325,6 +325,175 @@ namespace DSMarket.Logica.Logica.LogicaServicio
            
         }
         #endregion
+        #region COTIZACION
+        /// <summary>
+        /// Este metodo es para guardar y eliminar datos de una cotización
+        /// </summary>
+        /// <param name="Item"></param>
+        /// <param name="Accion"></param>
+        /// <returns></returns>
+        public DSMarket.Logica.Entidades.EntidadesServicio.ECotizacion ProcesarCotizacion(DSMarket.Logica.Entidades.EntidadesServicio.ECotizacion Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesServicio.ECotizacion Procesar = null;
+
+            
+            var Cotizacion = ObjData.SP_PROCESAR_INFORMCION_COTIZACION(
+                Item.NumeroCotizacion,
+                Item.NumeroConector,
+                Item.CotizacoA,
+                Item.CodigoCliente,
+                Item.IdTipoFacturacion,
+                Item.Comentario,
+                Item.TotalProductos,
+                Item.TotalServicios,
+                Item.TotalItems,
+                Item.SubTotal,
+                Item.DescuentoTotal,
+                Item.ImpuestoTotal,
+                Item.TotalGeneral,
+                Item.IdTipoPago,
+                Item.MontoPagado,
+                Item.Cambio,
+                Item.IdMoneda,
+                Item.Tasa,
+                Item.IdUsuario,
+                Item.FechaCotizacion,
+                Accion);
+            if (Cotizacion != null) {
+                Procesar = (from n in Cotizacion
+                            select new DSMarket.Logica.Entidades.EntidadesServicio.ECotizacion
+                            {
+                                NumeroCotizacion=n.NumeroCotizacion,
+                                NumeroConector=n.NumeroConector,
+                                CotizacoA=n.CotizacoA,
+                                CodigoCliente=n.CodigoCliente,
+                                IdTipoFacturacion=n.IdTipoFacturacion,
+                                Comentario=n.Comentario,
+                                TotalProductos=n.TotalProductos,
+                                TotalServicios=n.TotalServicios,
+                                TotalItems=n.TotalItems,
+                                SubTotal=n.SubTotal,
+                                DescuentoTotal=n.DescuentoTotal,
+                                ImpuestoTotal=n.ImpuestoTotal,
+                                TotalGeneral=n.TotalGeneral,
+                                IdTipoPago=n.IdTipoPago,
+                                MontoPagado=n.MontoPagado,
+                                Cambio=n.Cambio,
+                                IdMoneda=n.IdMoneda,
+                                Tasa=n.Tasa,
+                                IdUsuario=n.IdUsuario,
+                                FechaCotizacion=n.FechaCotizacion,
+                            }).FirstOrDefault();
+            }
+            return Procesar;
+        }
+
+        /// <summary>
+        /// Este metodo es para guardar y eliminar los datos del detalle de una cotización
+        /// </summary>
+        /// <param name="Item"></param>
+        /// <param name="Accion"></param>
+        /// <returns></returns>
+        public DSMarket.Logica.Entidades.EntidadesServicio.ECotizacionDetalle ProcesarCotizacionDetalle(DSMarket.Logica.Entidades.EntidadesServicio.ECotizacionDetalle Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesServicio.ECotizacionDetalle Procesar = null;
+
+            var CotizacionDetalle = ObjData.SP_PROCESAR_INFORMACION_COTIZACION_DETALLE(
+                Item.NumeroConector,
+                Item.Tipo,
+                Item.Precio,
+                Item.Descuento,
+                Item.Cantidad,
+                Item.PorcientoImpuesto,
+                Item.SubTotal,
+                Item.Impuesto,
+                Item.Total,
+                Item.IdRegistroRespaldo,
+                Item.NumeroConectorItemRespaldo,
+                Item.IdTipoProductoRespaldo,
+                Item.IdCategoriaRespaldo,
+                Item.IdMarcaRespaldo,
+                Item.IdTipoSuplidorRespaldo,
+                Item.IdSuplidorRespaldo,
+                Item.DescripcionRespaldo,
+                Item.CodigoBarraRespaldo,
+                Item.ReferenciaRespaldo,
+                Item.NumeroSeguimientoRespaldo,
+                Item.CodigoProductoRespaldo,
+                Item.PrecioCompraRespaldo,
+                Item.PrecioVentaRespaldo,
+                Item.StockRespaldo,
+                Item.StockMinimoRespaldo,
+                Item.UnidadMedidaRespaldo,
+                Item.ModeloRespaldo,
+                Item.ColorRespaldo,
+                Item.CondicionRespaldo,
+                Item.CapacidadRespaldo,
+                Item.AplicaParaImpuestoRespaldo,
+                Item.TieneImagenRespaldo,
+                Item.LlevaGarantiaRespaldo,
+                Item.IdTipoGarantiaRespaldo,
+                Item.TiempoGarantiaRespaldo,
+                Item.ComentarioItemRespaldo,
+                Item.UsuarioAdicionaRespaldo,
+                Item.FechaAdicionaRespaldo,
+                Item.UsuarioModificaRespaldo,
+                Item.FechaModificaRespaldo,
+                Item.FechaIngresoRespaldo,
+                Accion);
+
+            if (CotizacionDetalle != null) {
+                Procesar = (from n in CotizacionDetalle
+                            select new DSMarket.Logica.Entidades.EntidadesServicio.ECotizacionDetalle
+                            {
+                                NumeroConector =n.NumeroConector,
+                                Tipo = n.Tipo,
+                                Precio = n.Precio,
+                                Descuento = n.Descuento,
+                                Cantidad = n.Cantidad,
+                                PorcientoImpuesto = n.PorcientoImpuesto,
+                                SubTotal = n.SubTotal,
+                                Impuesto = n.Impuesto,
+                                Total = n.Total,
+                                IdRegistroRespaldo = n.IdRegistroRespaldo,
+                                NumeroConectorItemRespaldo = n.NumeroConectorItemRespaldo,
+                                IdTipoProductoRespaldo = n.IdTipoProductoRespaldo,
+                                IdCategoriaRespaldo = n.IdCategoriaRespaldo,
+                                IdMarcaRespaldo = n.IdMarcaRespaldo,
+                                IdTipoSuplidorRespaldo = n.IdTipoSuplidorRespaldo,
+                                IdSuplidorRespaldo = n.IdSuplidorRespaldo,
+                                DescripcionRespaldo = n.DescripcionRespaldo,
+                                CodigoBarraRespaldo = n.CodigoBarraRespaldo,
+                                ReferenciaRespaldo = n.ReferenciaRespaldo,
+                                NumeroSeguimientoRespaldo = n.NumeroSeguimientoRespaldo,
+                                CodigoProductoRespaldo = n.CodigoProductoRespaldo,
+                                PrecioCompraRespaldo = n.PrecioCompraRespaldo,
+                                PrecioVentaRespaldo = n.PrecioVentaRespaldo,
+                                StockRespaldo = n.StockRespaldo,
+                                StockMinimoRespaldo = n.StockMinimoRespaldo,
+                                UnidadMedidaRespaldo = n.UnidadMedidaRespaldo,
+                                ModeloRespaldo = n.ModeloRespaldo,
+                                ColorRespaldo = n.ColorRespaldo,
+                                CondicionRespaldo = n.CondicionRespaldo,
+                                CapacidadRespaldo = n.CapacidadRespaldo,
+                                AplicaParaImpuestoRespaldo = n.AplicaParaImpuestoRespaldo,
+                                TieneImagenRespaldo = n.TieneImagenRespaldo,
+                                LlevaGarantiaRespaldo = n.LlevaGarantiaRespaldo,
+                                IdTipoGarantiaRespaldo = n.IdTipoGarantiaRespaldo,
+                                TiempoGarantiaRespaldo = n.TiempoGarantiaRespaldo,
+                                ComentarioItemRespaldo = n.ComentarioItemRespaldo,
+                                UsuarioAdicionaRespaldo = n.UsuarioAdicionaRespaldo,
+                                FechaAdicionaRespaldo = n.FechaAdicionaRespaldo,
+                                UsuarioModificaRespaldo = n.UsuarioModificaRespaldo,
+                                FechaModificaRespaldo = n.FechaModificaRespaldo,
+                                FechaIngresoRespaldo = n.FechaIngresoRespaldo
+                            }).FirstOrDefault();
+            }
+            return Procesar;
+        }
+        #endregion
         #region GENERAR LA GANANCIA DE VENTA
         public List<DSMarket.Logica.Entidades.EntidadesServicio.ESacarGananciaFacturacion> GenerarGananciaVenta(decimal? IdFactura = null,decimal? NumeroConector = null, decimal? IdEstatusFacturacion = null, decimal? IdTipoFacturacion = null, decimal? IdTipoPago = null, string Cliente = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null)
         {
