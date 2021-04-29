@@ -69,13 +69,6 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			return ((ISingleResult<SP_MANTENIMIENTO_HISTORIAL_PRODUCTO_INVENTARIOResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_SACAR_NUMERO_FACTURA")]
-		public ISingleResult<SP_SACAR_NUMERO_FACTURAResult> SP_SACAR_NUMERO_FACTURA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroConector", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroConector)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), numeroConector);
-			return ((ISingleResult<SP_SACAR_NUMERO_FACTURAResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_VALIDAR_FACTURA_ANULADA")]
 		public ISingleResult<SP_VALIDAR_FACTURA_ANULADAResult> SP_VALIDAR_FACTURA_ANULADA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroConector", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroConector)
 		{
@@ -379,6 +372,20 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), numeroConector, tipo, precio, descuento, cantidad, porcientoImpuesto, subTotal, impuesto, total, idRegistroRespaldo, numeroConectorItemRespaldo, idTipoProductoRespaldo, idCategoriaRespaldo, idMarcaRespaldo, idTipoSuplidorRespaldo, idSuplidorRespaldo, descripcionRespaldo, codigoBarraRespaldo, referenciaRespaldo, numeroSeguimientoRespaldo, codigoProductoRespaldo, precioCompraRespaldo, precioVentaRespaldo, stockRespaldo, stockMinimoRespaldo, unidadMedidaRespaldo, modeloRespaldo, colorRespaldo, condicionRespaldo, capacidadRespaldo, aplicaParaImpuestoRespaldo, tieneImagenRespaldo, llevaGarantiaRespaldo, idTipoGarantiaRespaldo, tiempoGarantiaRespaldo, comentarioItemRespaldo, usuarioAdicionaRespaldo, fechaAdicionaRespaldo, usuarioModificaRespaldo, fechaModificaRespaldo, fechaIngresoRespaldo, accion);
 			return ((ISingleResult<SP_PROCESAR_INFORMACION_COTIZACION_DETALLEResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_SACAR_NUMERO_FACTURA")]
+		public ISingleResult<SP_SACAR_NUMERO_FACTURAResult> SP_SACAR_NUMERO_FACTURA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroCoector", DbType="VarChar(30)")] string numeroCoector)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), numeroCoector);
+			return ((ISingleResult<SP_SACAR_NUMERO_FACTURAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_SACAR_NUMERO_COTIZACION")]
+		public ISingleResult<SP_SACAR_NUMERO_COTIZACIONResult> SP_SACAR_NUMERO_COTIZACION([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroCoector", DbType="VarChar(30)")] string numeroCoector)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), numeroCoector);
+			return ((ISingleResult<SP_SACAR_NUMERO_COTIZACIONResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_MANTENIMIENTO_HISTORIAL_PRODUCTO_INVENTARIOResult
@@ -420,32 +427,6 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._IdProducto != value))
 				{
 					this._IdProducto = value;
-				}
-			}
-		}
-	}
-	
-	public partial class SP_SACAR_NUMERO_FACTURAResult
-	{
-		
-		private decimal _IdFactura;
-		
-		public SP_SACAR_NUMERO_FACTURAResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdFactura", DbType="Decimal(20,0) NOT NULL")]
-		public decimal IdFactura
-		{
-			get
-			{
-				return this._IdFactura;
-			}
-			set
-			{
-				if ((this._IdFactura != value))
-				{
-					this._IdFactura = value;
 				}
 			}
 		}
@@ -8962,6 +8943,58 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._FechaIngresoRespaldo != value))
 				{
 					this._FechaIngresoRespaldo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_SACAR_NUMERO_FACTURAResult
+	{
+		
+		private System.Nullable<decimal> _NumeroFactura;
+		
+		public SP_SACAR_NUMERO_FACTURAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroFactura", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> NumeroFactura
+		{
+			get
+			{
+				return this._NumeroFactura;
+			}
+			set
+			{
+				if ((this._NumeroFactura != value))
+				{
+					this._NumeroFactura = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_SACAR_NUMERO_COTIZACIONResult
+	{
+		
+		private System.Nullable<decimal> _NumeroCotizacion;
+		
+		public SP_SACAR_NUMERO_COTIZACIONResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroCotizacion", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> NumeroCotizacion
+		{
+			get
+			{
+				return this._NumeroCotizacion;
+			}
+			set
+			{
+				if ((this._NumeroCotizacion != value))
+				{
+					this._NumeroCotizacion = value;
 				}
 			}
 		}

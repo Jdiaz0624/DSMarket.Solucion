@@ -26,29 +26,104 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
         Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
-        #region MOSTRAR LA FACTURA 
-        public void GenerarFacturaVenta(decimal IdFactura, string RutaReporte, string UsuaruoBD, string ClaveBD) {
+        enum CodigoReportes { 
+        Factura=1,
+        Cotizacion=2
+        }
+
+        #region MOSTRAR LA FACTURA  Y LA COTIZACION
+        /// <summary>
+        /// Este metodo es para generar una factura
+        /// </summary>
+        /// <param name="IdFactura"></param>
+        /// <param name="ImpresionDirecta"></param>
+        public void GenerarFacturaVenta(decimal IdFactura, bool ImpresionDirecta) {
             try {
+
+                string UsuarioBD = "", ClaveBD = "", RutaReporte = "";
+                var SacarCredencialesBD = ObjDataSeguridad.Value.SacarCredencialBD(1);
+                foreach (var n in SacarCredencialesBD) {
+                    UsuarioBD = n.Usuario;
+                    ClaveBD = DSMarket.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
+                }
+
+                //SACAMOS LA RUTA DEL REPORTE
+                var SacarRuta = ObjDataConfiguracion.Value.BuscaRutaReporte((int)CodigoReportes.Factura);
+                foreach (var n in SacarRuta) {
+                    RutaReporte = n.RutaReporte;
+                }
+
+                //GENERAMOS LA FACTURA
                 ReportDocument Factura = new ReportDocument();
 
                 SqlCommand comando = new SqlCommand();
-                comando.CommandText = "EXEC [Reporte].[SP_GENERAR_FACTURA_VENTA] @IdFactura";
+                comando.CommandText = "EXEC [Reporte].[SP_GENERAR_FACTURA] @NumeroFactura";
                 comando.Connection = DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion();
 
-                comando.Parameters.Add("@IdFactura", SqlDbType.Decimal);
-                comando.Parameters["@IdFactura"].Value = IdFactura;
+                comando.Parameters.Add("@NumeroFactura", SqlDbType.Decimal);
+                comando.Parameters["@NumeroFactura"].Value = IdFactura;
 
                 Factura.Load(@"" + RutaReporte);
                 Factura.Refresh();
-                Factura.SetParameterValue("@IdFactura", IdFactura);
-                Factura.SetDatabaseLogon(UsuaruoBD, ClaveBD);
-                crystalReportViewer1.ReportSource = Factura;
+                Factura.SetParameterValue("@NumeroFactura", IdFactura);
+                Factura.SetDatabaseLogon(UsuarioBD, ClaveBD);
 
-
+                if (ImpresionDirecta == true) {
+                    Factura.PrintToPrinter(1, false, 0, 0);
+                }
+                else if (ImpresionDirecta == false) {
+                    crystalReportViewer1.ReportSource = Factura;
+                }
 
             }
             catch (Exception ex) {
                 MessageBox.Show("Error al generar la factura de venta, favor de contactar al administrador del sistema, codigo de error--> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Este metodo es para generar una cotizacion mediante el numero
+        /// </summary>
+        /// <param name="NumeroCotizacion"></param>
+        /// <param name="ImpresionDirecta"></param>
+        public void GenerarCotizacion(decimal NumeroCotizacion, bool ImpresionDirecta) {
+            try {
+                string UsuarioBD = "", ClaveBD = "", RutaReporte = "";
+
+                var SacarCredenciales = ObjDataSeguridad.Value.SacarCredencialBD(1);
+                foreach (var n in SacarCredenciales) {
+                    UsuarioBD = n.Usuario;
+                    ClaveBD = DSMarket.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
+                }
+
+                var SacarRutaReporte = ObjDataConfiguracion.Value.BuscaRutaReporte((int)CodigoReportes.Cotizacion);
+                foreach (var n in SacarRutaReporte) {
+                    RutaReporte = n.RutaReporte;
+                }
+
+                //GENERAMOS EL REPORTE
+                ReportDocument Cotizacion = new ReportDocument();
+
+                SqlCommand comando = new SqlCommand();
+                comando.CommandText = "EXEC [Reporte].[SP_GENERAR_COTIZACION] @NumeroCotizacion";
+                comando.Connection = DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion();
+
+                comando.Parameters.Add("@NumeroCotizacion", SqlDbType.Decimal);
+                comando.Parameters["@NumeroCotizacion"].Value= NumeroCotizacion;
+
+                Cotizacion.Load(@"" + RutaReporte);
+                Cotizacion.Refresh();
+                Cotizacion.SetParameterValue("@NumeroCotizacion", NumeroCotizacion);
+                Cotizacion.SetDatabaseLogon(UsuarioBD, ClaveBD);
+                if (ImpresionDirecta == true) {
+                    Cotizacion.PrintToPrinter(1, false, 0, 0);
+                }
+                else if (ImpresionDirecta==false) {
+                    crystalReportViewer1.ReportSource = Cotizacion;
+                }
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al generar la cotización, favor de contactar al administrador del sistema, codigo de error--> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         #endregion

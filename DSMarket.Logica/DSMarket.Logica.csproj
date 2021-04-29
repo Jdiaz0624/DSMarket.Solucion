@@ -113,6 +113,8 @@
     <Compile Include="Comunes\ProcesarRUtaArchivotxt.cs" />
     <Compile Include="Comunes\ProcesarUsuarios.cs" />
     <Compile Include="Comunes\SacarNombreClientePorDefecto.cs" />
+    <Compile Include="Comunes\SacarNumeroCotizacion.cs" />
+    <Compile Include="Comunes\SacarNumeroFactura.cs" />
     <Compile Include="Comunes\SacarPorcientoImpuesto.cs" />
     <Compile Include="Comunes\SeguridadEncriptacion.cs" />
     <Compile Include="Comunes\ValidarConfiguracionesGeneralesSistema.cs" />
@@ -253,6 +255,8 @@
     <Compile Include="Entidades\EntidadesServicio\EMoneda.cs" />
     <Compile Include="Entidades\EntidadesServicio\EObservaciones.cs" />
     <Compile Include="Entidades\EntidadesServicio\ESacarGananciaFacturacion.cs" />
+    <Compile Include="Entidades\EntidadesServicio\ESacarNumeroCotizacion.cs" />
+    <Compile Include="Entidades\EntidadesServicio\ESacarNumeroFactura.cs" />
     <Compile Include="Entidades\EntidadesServicio\ETipoPago.cs" />
     <Compile Include="Entidades\EntidadesServicio\ETipoTiempoGarantia.cs" />
     <Compile Include="Logica\LogicaCaja\LogicaCaja.cs" />

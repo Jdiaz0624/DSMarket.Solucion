@@ -9,12 +9,6 @@
       <Column Name="IdProducto" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="Servicio.SP_SACAR_NUMERO_FACTURA" Method="SP_SACAR_NUMERO_FACTURA">
-    <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <ElementType Name="SP_SACAR_NUMERO_FACTURAResult">
-      <Column Name="IdFactura" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="Servicio.SP_VALIDAR_FACTURA_ANULADA" Method="SP_VALIDAR_FACTURA_ANULADA">
     <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
     <ElementType Name="SP_VALIDAR_FACTURA_ANULADAResult">
@@ -815,6 +809,18 @@
       <Column Name="UsuarioModificaRespaldo" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="FechaModificaRespaldo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="FechaIngresoRespaldo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Servicio.SP_SACAR_NUMERO_FACTURA" Method="SP_SACAR_NUMERO_FACTURA">
+    <Parameter Name="NumeroCoector" Parameter="numeroCoector" Type="System.String" DbType="VarChar(30)" />
+    <ElementType Name="SP_SACAR_NUMERO_FACTURAResult">
+      <Column Name="NumeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Servicio.SP_SACAR_NUMERO_COTIZACION" Method="SP_SACAR_NUMERO_COTIZACION">
+    <Parameter Name="NumeroCoector" Parameter="numeroCoector" Type="System.String" DbType="VarChar(30)" />
+    <ElementType Name="SP_SACAR_NUMERO_COTIZACIONResult">
+      <Column Name="NumeroCotizacion" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

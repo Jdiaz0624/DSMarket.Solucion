@@ -44,9 +44,31 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
 
         #region AFECTAR LA CAJA
-        private void AfectarCaja() { }
+        private void AfectarCaja() {
+            DSMarket.Logica.Comunes.ProcesarInformacion.Caja.ProcesarInformacionAfectarCaja AfectarCaja = new Logica.Comunes.ProcesarInformacion.Caja.ProcesarInformacionAfectarCaja(
+                1,
+                "Caja General",
+                VariablesGlobales.TotalGeneralFacturarCotizar,
+                true,
+                "ADDMONEY");
+            AfectarCaja.ProcesarInformacion();
+        }
 
-        private void GuardarHistorialcaja() { }
+        private void GuardarHistorialcaja() {
+            DSMarket.Logica.Comunes.SacarNumeroFactura Factura = new Logica.Comunes.SacarNumeroFactura(VariablesGlobales.NumeroConectorstring);
+            decimal NumeroFactura = Factura.SacarNumero();
+
+            DSMarket.Logica.Comunes.ProcesarInformacion.Caja.ProcesarInformacionHistorialCaja Historial = new Logica.Comunes.ProcesarInformacion.Caja.ProcesarInformacionHistorialCaja(
+                0,
+                1,
+                VariablesGlobales.TotalGeneralFacturarCotizar,
+                "FACTURACION",
+                VariablesGlobales.IdUsuario,
+                NumeroFactura,
+                Convert.ToDecimal(ddltIPago.SelectedValue),
+                "INSERT");
+            Historial.ProcesarInformacion();
+        }
         #endregion
         private void ConsultarClientesRegistrados() {
             if (string.IsNullOrEmpty(txtFiltroCliente.Text.Trim())) {
@@ -608,9 +630,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 VariablesGlobales.TotalGeneralFacturarCotizar,
                 Convert.ToDecimal(ddltIPago.SelectedValue),
                 Convert.ToDecimal(txtMontoPagar.Text),
-                0,//Convert.ToDecimal(txtCambio.Text),
+                Convert.ToDecimal(txtCambio.Text),
                 Convert.ToDecimal(ddlSeleccionarMoneda.SelectedValue),
-                0,///Convert.ToDecimal(txtTasa.Text),
+                Convert.ToDecimal(txtTasa.Text),
                 VariablesGlobales.IdUsuario,
                 _IdComprobante,
                 _ValidoHasta,
@@ -1539,7 +1561,21 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         else {
                             GuardarInformacionFacturacion();
                             GuardarInformacionDetalleFacturacion();
+                            AfectarCaja();
+                            GuardarHistorialcaja();
                             MessageBox.Show("Operación completada con exito.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //VALIDAR EL TIPO DE IMPRESION
+                            bool ImpresionDirecta = false;
+                            DSMarket.Logica.Comunes.SacarNumeroFactura NumeroFactura = new Logica.Comunes.SacarNumeroFactura(VariablesGlobales.NumeroConectorstring);
+                            decimal NoFactura = NumeroFactura.SacarNumero();
+                            DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes Factura = new Reportes.Reportes();
+                            DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarImpresion = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfiguracionGeneral.ImprimirFacturaDirectoImpresora, 2);
+                            ImpresionDirecta = ValidarImpresion.ValidarConfiguracionGeneral();
+                            Factura.GenerarFacturaVenta(NoFactura, ImpresionDirecta);
+                            if (ImpresionDirecta == false) {
+                                Factura.ShowDialog();
+                            }
+                            
                             this.Dispose();
 
                         }
@@ -1548,6 +1584,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         GuardarCotizacion();
                         GuardarCotizacionDetalle();
                         MessageBox.Show("Operación completada con exito.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //VALIDAR EL TIPO DE IMPRESION
+                        bool ImpresionDirecta = false;
+                        DSMarket.Logica.Comunes.SacarNumeroCotizacion NumeroCotizacion = new Logica.Comunes.SacarNumeroCotizacion(VariablesGlobales.NumeroConectorstring);
+                        decimal NoCotizacion = NumeroCotizacion.NumeroCotiacion();
+                        DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarImpresion = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfiguracionGeneral.ImprimirFacturaDirectoImpresora, 2);
+                        ImpresionDirecta = ValidarImpresion.ValidarConfiguracionGeneral();
+                        DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes Cotizacion = new Reportes.Reportes();
+                        Cotizacion.GenerarCotizacion(NoCotizacion, ImpresionDirecta);
+                        if (ImpresionDirecta == false) {
+                            Cotizacion.ShowDialog();
+                        }
                         this.Dispose();
                     }
                 }

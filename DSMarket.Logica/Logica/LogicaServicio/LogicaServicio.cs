@@ -735,7 +735,30 @@ namespace DSMarket.Logica.Logica.LogicaServicio
             return Procesar;
         }
         #endregion
+        #region SACAR EL NUMERO DE LA FACTURA
+        public List<DSMarket.Logica.Entidades.EntidadesServicio.ESacarNumeroFactura> SacarNumeroFactura(string NumeroConector = null) {
+            ObjData.CommandTimeout = 999999999;
 
+            var Numero = (from n in ObjData.SP_SACAR_NUMERO_FACTURA(NumeroConector)
+                          select new DSMarket.Logica.Entidades.EntidadesServicio.ESacarNumeroFactura
+                          {
+                              NumeroFactura=n.NumeroFactura
+                          }).ToList();
+            return Numero;
+        }
+        #region SACAR EL NUMERO DE LA COTIZACION
+        public List<DSMarket.Logica.Entidades.EntidadesServicio.ESacarNumeroCotizacion> SacarNumeroCotizacion(string NumeroConector) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Numero = (from n in ObjData.SP_SACAR_NUMERO_COTIZACION(NumeroConector)
+                          select new DSMarket.Logica.Entidades.EntidadesServicio.ESacarNumeroCotizacion
+                          {
+                           NumeroCotizacion=n.NumeroCotizacion   
+                          }).ToList();
+            return Numero;
+        }
+        #endregion
+        #endregion
 
     }
 }
