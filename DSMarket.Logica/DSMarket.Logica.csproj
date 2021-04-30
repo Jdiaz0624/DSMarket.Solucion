@@ -183,6 +183,8 @@
     <Compile Include="Entidades\EntidadesEmpresa\ETipoEmpleado.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\ETipoMovimiento.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\ETipoNomina.cs" />
+    <Compile Include="Entidades\EntidadesHistorial\EHistorialFacturacion.cs" />
+    <Compile Include="Entidades\EntidadesHistorial\EItemsAgregadosFactura.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECantidadProductosDefectuosos.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECapacidad.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECapacidadArticulos.cs" />
@@ -263,6 +265,7 @@
     <Compile Include="Logica\LogicaConfiguracion\LogicaCOnfiguracion.cs" />
     <Compile Include="Logica\LogicaContabilidad\LogicaContabilidad.cs" />
     <Compile Include="Logica\LogicaEmpresa\LogicaEmpresa.cs" />
+    <Compile Include="Logica\LogicaHistorial\LogicaHistorial.cs" />
     <Compile Include="Logica\LogicaInventario\LogicaInventario.cs" />
     <Compile Include="Entidades\EntidadesSeguridad\EClaveSeguridad.cs" />
     <Compile Include="Logica\LogicaListas\LogicaListas.cs" />

@@ -489,6 +489,18 @@
     <Compile Include="Pantallas\Pantallas\Graficos\CantidadMArcas.Designer.cs">
       <DependentUpon>CantidadMArcas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Historial\HistorialFacturacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Historial\HistorialFacturacion.Designer.cs">
+      <DependentUpon>HistorialFacturacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Historial\ItemsAgregadosFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Historial\ItemsAgregadosFactura.Designer.cs">
+      <DependentUpon>ItemsAgregadosFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\AgregarQuitarProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -964,6 +976,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Graficos\CantidadMArcas.resx">
       <DependentUpon>CantidadMArcas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Historial\HistorialFacturacion.resx">
+      <DependentUpon>HistorialFacturacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Historial\ItemsAgregadosFactura.resx">
+      <DependentUpon>ItemsAgregadosFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\AgregarQuitarProductos.resx">
       <DependentUpon>AgregarQuitarProductos.cs</DependentUpon>

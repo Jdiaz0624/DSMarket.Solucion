@@ -250,69 +250,6 @@
       <Column Name="TiempoGarantia" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="Historial.SP_BUSCA_HISTORIAL_FACTURACION" Method="SP_BUSCA_HISTORIAL_FACTURACION">
-    <Parameter Name="IdFactura" Parameter="idFactura" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="IdEstatusFacturacion" Parameter="idEstatusFacturacion" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="IdTipoFacturacion" Parameter="idTipoFacturacion" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="IdTipoPago" Parameter="idTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="Cliente" Parameter="cliente" Type="System.String" DbType="VarChar(1000)" />
-    <Parameter Name="NumeroIdentificacion" Parameter="numeroIdentificacion" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="FechaDesde" Parameter="fechaDesde" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="FechaHasta" Parameter="fechaHasta" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="NumeroPagina" Parameter="numeroPagina" Type="System.Int32" DbType="Int" />
-    <Parameter Name="NumeroRegistros" Parameter="numeroRegistros" Type="System.Int32" DbType="Int" />
-    <ElementType Name="SP_BUSCA_HISTORIAL_FACTURACIONResult">
-      <Column Name="Cliente" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="EstatusFacturacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="IdFactura" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
-      <Column Name="NumeroConector" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
-      <Column Name="IdEstatusFacturacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="TipoIdentificacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="DescripcionComprobante" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Comprobante" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="IdComprobante" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Telefono" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="IdTipoIdentificacion" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="NumeroIdentificacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Direccion" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
-      <Column Name="Comentario" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
-      <Column Name="IdTipoVenta" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="TipoVenta" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="CantidadDias" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="IdCantidadDias" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="IdTipoIngreso" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TipoIngreso" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="CreadoPor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="FechaFacturacion0" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="FechaFacturacion" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="CantidadProductos" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CantidadServicios" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CantidadArticulos" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TotalDescuento" Type="System.Decimal" DbType="Decimal(22,2)" CanBeNull="true" />
-      <Column Name="SubTotal" Type="System.Decimal" DbType="Decimal(22,2)" CanBeNull="true" />
-      <Column Name="Impuesto" Type="System.Decimal" DbType="Decimal(22,2)" CanBeNull="true" />
-      <Column Name="PorcientoImpuesto" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MontoPagado" Type="System.Decimal" DbType="Decimal(22,2)" CanBeNull="true" />
-      <Column Name="Cambio" Type="System.Decimal" DbType="Decimal(22,2)" CanBeNull="true" />
-      <Column Name="IdTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="TipoPago" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="PorcientoTipoPago" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MontoImpuestoTipoPago" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="PorcientoImpuestoComprobante" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MontoImpuestoComprobante" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="TotalGeneral" Type="System.Decimal" DbType="Decimal(22,2)" CanBeNull="true" />
-      <Column Name="AplicaGarantia0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="AplicaGarantia" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
-      <Column Name="DiasGarantia" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TipoTiempoGarantia0" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TipoTiempoGarantia" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
-      <Column Name="CantidadRegistros" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="Servicio.SP_BUSCA_REGISTRO_PRODUCTO_REFERENCIA" Method="SP_BUSCA_REGISTRO_PRODUCTO_REFERENCIA">
     <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="IdFactura" Parameter="idFactura" Type="System.Decimal" DbType="Decimal(20,0)" />
@@ -821,6 +758,69 @@
     <Parameter Name="NumeroCoector" Parameter="numeroCoector" Type="System.String" DbType="VarChar(30)" />
     <ElementType Name="SP_SACAR_NUMERO_COTIZACIONResult">
       <Column Name="NumeroCotizacion" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Historial.SP_BUSCA_HISTORIAL_FACTURACION" Method="SP_BUSCA_HISTORIAL_FACTURACION">
+    <Parameter Name="IdFactura" Parameter="idFactura" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdEstatusFacturacion" Parameter="idEstatusFacturacion" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdTipoFacturacion" Parameter="idTipoFacturacion" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdTipoPago" Parameter="idTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Cliente" Parameter="cliente" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="NumeroIdentificacion" Parameter="numeroIdentificacion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="FechaDesde" Parameter="fechaDesde" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FechaHasta" Parameter="fechaHasta" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="NumeroPagina" Parameter="numeroPagina" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NumeroRegistros" Parameter="numeroRegistros" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_BUSCA_HISTORIAL_FACTURACIONResult">
+      <Column Name="Cliente" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="EstatusFacturacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdFactura" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="NumeroConector" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="IdEstatusFacturacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TipoIdentificacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DescripcionComprobante" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Comprobante" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdComprobante" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdTipoIdentificacion" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NumeroIdentificacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Direccion" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="Comentario" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="IdTipoVenta" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="TipoVenta" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CantidadDias" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="IdCantidadDias" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdTipoIngreso" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TipoIngreso" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="CreadoPor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FechaFacturacion0" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaFacturacion" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="CantidadProductos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CantidadServicios" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CantidadArticulos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalDescuento" Type="System.Decimal" DbType="Decimal(22,2)" CanBeNull="true" />
+      <Column Name="SubTotal" Type="System.Decimal" DbType="Decimal(22,2)" CanBeNull="true" />
+      <Column Name="Impuesto" Type="System.Decimal" DbType="Decimal(22,2)" CanBeNull="true" />
+      <Column Name="PorcientoImpuesto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MontoPagado" Type="System.Decimal" DbType="Decimal(22,2)" CanBeNull="true" />
+      <Column Name="Cambio" Type="System.Decimal" DbType="Decimal(22,2)" CanBeNull="true" />
+      <Column Name="IdTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="TipoPago" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="PorcientoTipoPago" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MontoImpuestoTipoPago" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="PorcientoImpuestoComprobante" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MontoImpuestoComprobante" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="TotalGeneral" Type="System.Decimal" DbType="Decimal(22,2)" CanBeNull="true" />
+      <Column Name="AplicaGarantia0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AplicaGarantia" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="DiasGarantia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TipoTiempoGarantia0" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TipoTiempoGarantia" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="CantidadRegistros" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

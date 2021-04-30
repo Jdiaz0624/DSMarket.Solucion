@@ -37,6 +37,7 @@
             this.btnCotizacion = new System.Windows.Forms.Button();
             this.btnFinanciamiento = new System.Windows.Forms.Button();
             this.btnFacturacion = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.gbOpciones.SuspendLayout();
@@ -50,7 +51,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(608, 38);
+            this.panel1.Size = new System.Drawing.Size(791, 38);
             this.panel1.TabIndex = 17;
             // 
             // PCerrar
@@ -58,7 +59,7 @@
             this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PCerrar.Image = global::DSMarket.Solucion.Properties.Resources.Close_Window__2_48px;
-            this.PCerrar.Location = new System.Drawing.Point(570, 5);
+            this.PCerrar.Location = new System.Drawing.Point(753, 5);
             this.PCerrar.Name = "PCerrar";
             this.PCerrar.Size = new System.Drawing.Size(30, 30);
             this.PCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -77,6 +78,7 @@
             // 
             // gbOpciones
             // 
+            this.gbOpciones.Controls.Add(this.button2);
             this.gbOpciones.Controls.Add(this.lbUsuario);
             this.gbOpciones.Controls.Add(this.button1);
             this.gbOpciones.Controls.Add(this.btnCotizacion);
@@ -85,7 +87,7 @@
             this.gbOpciones.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbOpciones.Location = new System.Drawing.Point(12, 44);
             this.gbOpciones.Name = "gbOpciones";
-            this.gbOpciones.Size = new System.Drawing.Size(587, 108);
+            this.gbOpciones.Size = new System.Drawing.Size(774, 108);
             this.gbOpciones.TabIndex = 16;
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Facturación - Seleccionar Opción";
@@ -152,11 +154,23 @@
             this.btnFacturacion.UseVisualStyleBackColor = true;
             this.btnFacturacion.Click += new System.EventHandler(this.btnFacturacion_Click);
             // 
+            // button2
+            // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(582, 29);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(186, 56);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Historial de Cotización";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // Servicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(608, 164);
+            this.ClientSize = new System.Drawing.Size(791, 164);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gbOpciones);
             this.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -185,5 +199,6 @@
         private System.Windows.Forms.Button btnFinanciamiento;
         private System.Windows.Forms.Button btnFacturacion;
         private System.Windows.Forms.PictureBox PCerrar;
+        private System.Windows.Forms.Button button2;
     }
 }
