@@ -28,7 +28,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
 
         enum CodigoReportes { 
         Factura=1,
-        Cotizacion=2
+        Cotizacion=2,
+        GananciaFacturacion=3
         }
 
         #region MOSTRAR LA FACTURA  Y LA COTIZACION
@@ -224,13 +225,29 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
         #endregion
 
         #region GENERAR EL REPORTE DE LA GANANCIA DE VENTA
-        public void GenerarReporteGananciaVenta(decimal IdUsuario, string RutaReporte, string UsuarioBD, string ClaveBD) {
+        public void GenerarReporteGananciaVenta(decimal IdUsuario) {
             try
             {
+                string RutaReporte = "", UsuarioBD = "", ClaveBD = "";
+
+                //SACAMOS LA RUTA DEL REPORTE
+                var SacarRuta = ObjDataConfiguracion.Value.BuscaRutaReporte((int)CodigoReportes.GananciaFacturacion);
+                foreach (var nRuta in SacarRuta) {
+                    RutaReporte = nRuta.RutaReporte;
+                }
+
+                //SACAMOS LAS CREDENCIALES DE LA BASE DE DATOS
+                var SacarCredenciales = ObjDataSeguridad.Value.SacarCredencialBD(1);
+                foreach (var nBD in SacarCredenciales) {
+                    UsuarioBD = nBD.Usuario;
+                    ClaveBD = DSMarket.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(nBD.Clave);
+                }
+
+                //GENERAMOS EL REPORTE
                 ReportDocument Ganancia = new ReportDocument();
 
                 SqlCommand comando = new SqlCommand();
-                comando.CommandText = "EXEC [Reporte].[SP_GENERAR_REPORTE_GANANCIA_VENTA] @IdUsuario";
+                comando.CommandText = "EXEC [Reporte].[SP_GENERAR_GANANCIA_VENTA] @IdUsuario";
                 comando.Connection = DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion();
 
                 comando.Parameters.Add("@IdUsuario", SqlDbType.Decimal);
@@ -241,6 +258,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
                 Ganancia.SetParameterValue("@IdUsuario", IdUsuario);
                 Ganancia.SetDatabaseLogon(UsuarioBD, ClaveBD);
                 crystalReportViewer1.ReportSource = Ganancia;
+           
             }
             catch (Exception ex) {
                 MessageBox.Show("Error al generar el reporte de las ganancias, codigo de error: " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);

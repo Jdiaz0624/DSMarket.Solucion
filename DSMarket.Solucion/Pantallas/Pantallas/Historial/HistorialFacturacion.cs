@@ -100,6 +100,107 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             txtNumeroRegistros.Enabled = true;
         }
 
+        private void GenerarReporteGananciaVenta(decimal IdUsuario) {
+            try
+            {
+                decimal IdEstatusFacturacion = 0;
+                string Estatus = "";
+                decimal NumeroFactura = 0;
+                string Descripcion = "";
+                decimal IdCategoria = 0;
+                decimal IdTipoProducto = 0;
+                decimal PrecioCompra = 0;
+                decimal PrecioVenta = 0;
+                decimal CantidadVendida = 0;
+                decimal TotalDescuentoAplicado = 0;
+                decimal TotalVenta = 0;
+                decimal TotalPrecioCompra = 0;
+                decimal Ganancia = 0;
+                decimal DescuentoAplicado = 0;
+                string NumeroConectorFactura = "";
+
+                //ELIMINAMOS LOS DATOS
+                DSMarket.Logica.Comunes.ProcesarInformacion.Historial.ProcesarInformacionGananciaVenta EliminarRegistros = new Logica.Comunes.ProcesarInformacion.Historial.ProcesarInformacionGananciaVenta(
+                    IdUsuario, 0, "", 0, "", 0, 0, 0, 0, 0, 0,0, 0, 0, 0, "DELETE");
+                EliminarRegistros.ProcesarInformacion();
+
+                //CARGAMOS LAS VARIABES
+                decimal? _NumeroFactura = string.IsNullOrEmpty(txtNumerofactura.Text.Trim()) ? new Nullable<decimal>() : Convert.ToDecimal(txtNumerofactura.Text.Trim());
+                string _FacturadoA = string.IsNullOrEmpty(txtFacturadoA.Text.Trim()) ? null : txtFacturadoA.Text.Trim();
+                DateTime? _FechaDesde = cbAgregarRangoFecha.Checked == true ? string.IsNullOrEmpty(txtFechaDesde.Text.Trim()) ? new Nullable<DateTime>() : Convert.ToDateTime(txtFechaDesde.Text) : new Nullable<DateTime>();
+                DateTime? _FechaHasta = cbAgregarRangoFecha.Checked == true ? string.IsNullOrEmpty(txtFechaHasta.Text.Trim()) ? new Nullable<DateTime>() : Convert.ToDateTime(txtFechaHasta.Text) : new Nullable<DateTime>();
+
+
+                var InformacionHistorial = ObjdataHistorial.Value.HistorialFacturacion(
+                    _NumeroFactura,
+                    null,
+                    _FacturadoA,
+                    null,
+                    _FechaDesde,
+                    _FechaHasta,
+                    1, 999999999);
+                if (InformacionHistorial.Count() < 1)
+                {
+                    MessageBox.Show("No se encontrarón registros para cargar este reporte, favor de verificar los parametros ingresados.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else {
+                    foreach (var n in InformacionHistorial) {
+                        IdEstatusFacturacion = (decimal)n.IdTipoFacturacion;
+                        Estatus = n.TipoFacturacion;
+                        NumeroFactura = (decimal)n.NumeroFactura;
+                        TotalDescuentoAplicado = (decimal)n.DescuentoTotal;
+                        TotalVenta = (decimal)n.TotalGeneral;
+                        TotalPrecioCompra = (decimal)n.GananciaVenta;
+                        Ganancia = (decimal)n.Ganancia;
+                        NumeroConectorFactura = n.NumeroConector;
+
+                        var InformacionItems = ObjdataHistorial.Value.ItemsAgregadosFactura(NumeroFactura, NumeroConectorFactura);
+                        foreach (var n2 in InformacionItems) {
+                            Descripcion = n2.Descripcion;
+                            IdCategoria = (decimal)n2.IdCategoriaRespaldo;
+                            IdTipoProducto = (decimal)n2.IdTipoProductoRespaldo;
+                            PrecioCompra = (decimal)n2.PrecioCompraRespaldo;
+                            PrecioVenta = (decimal)n2.Precio;
+                            CantidadVendida = (decimal)n2.Cantidad;
+                            DescuentoAplicado = (decimal)n2.Descuento;
+
+                            //GUARDAMOS EL REGISTRO
+                            DSMarket.Logica.Comunes.ProcesarInformacion.Historial.ProcesarInformacionGananciaVenta GuardarRegistro = new Logica.Comunes.ProcesarInformacion.Historial.ProcesarInformacionGananciaVenta(
+                                IdUsuario,
+                                IdEstatusFacturacion,
+                                Estatus,
+                                NumeroFactura,
+                                Descripcion,
+                                IdCategoria,
+                                IdTipoProducto,
+                                PrecioCompra,
+                                PrecioVenta,
+                                CantidadVendida,
+                                DescuentoAplicado,
+                                TotalDescuentoAplicado,
+                                TotalVenta,
+                                TotalPrecioCompra,
+                                Ganancia, "INSERT");
+                            GuardarRegistro.ProcesarInformacion();
+                        }
+                    }
+                    //GENERAMOS EL REPORTE
+                    DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes Reporte = new Reportes.Reportes();
+                    Reporte.GenerarReporteGananciaVenta(IdUsuario);
+                    Reporte.ShowDialog();
+
+                }
+
+
+             
+
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al generar el reporte de estadistica, codigo de error: " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
         private void GenerarFactura() {
             DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes Factura = new Reportes.Reportes();
             Factura.GenerarFacturaVenta(VariablesGlobales.IdMantenimeinto, false);
@@ -194,7 +295,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             OcultarColumnas();
             btnBuscar.Enabled = false;
             btnReImprimir.Enabled = true;
-            //   btnItemsAgregados.Enabled = false;
+               btnItemsAgregados.Enabled = true;
             //  btnEstadisticaVenta.Enabled = true;
             //  btnReporteventa.Enabled = true;
             // btnAnularfactura.Enabled = false;
@@ -205,6 +306,21 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
         private void btnReImprimir_Click(object sender, EventArgs e)
         {
             GenerarFactura();
+        }
+
+        private void btnItemsAgregados_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DSMarket.Solucion.Pantallas.Pantallas.Historial.ItemsAgregadosFactura ItemsAgregados = new ItemsAgregadosFactura();
+            ItemsAgregados.VariablesGlobales.IdMantenimeinto = VariablesGlobales.IdMantenimeinto;
+            ItemsAgregados.VariablesGlobales.NumeroConectorstring = VariablesGlobales.NumeroConectorstring;
+            ItemsAgregados.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+            ItemsAgregados.ShowDialog();
+        }
+
+        private void btnEstadisticaVenta_Click(object sender, EventArgs e)
+        {
+            GenerarReporteGananciaVenta(VariablesGlobales.IdUsuario);
         }
     }
 }

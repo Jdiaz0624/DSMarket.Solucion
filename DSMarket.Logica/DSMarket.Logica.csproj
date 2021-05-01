@@ -83,6 +83,7 @@
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionTipoEmpleados.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionTipoMovimiento.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionTipoNomina.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\Historial\ProcesarInformacionGananciaVenta.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Inventario\ProcesarCondiciones.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Inventario\ProcesarInformacionCapacidad.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Inventario\ProcesarInformacionColores.cs" />
@@ -185,6 +186,7 @@
     <Compile Include="Entidades\EntidadesEmpresa\ETipoNomina.cs" />
     <Compile Include="Entidades\EntidadesHistorial\EHistorialFacturacion.cs" />
     <Compile Include="Entidades\EntidadesHistorial\EItemsAgregadosFactura.cs" />
+    <Compile Include="Entidades\EntidadesHistorial\EProcesarGananciaVenta.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECantidadProductosDefectuosos.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECapacidad.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECapacidadArticulos.cs" />

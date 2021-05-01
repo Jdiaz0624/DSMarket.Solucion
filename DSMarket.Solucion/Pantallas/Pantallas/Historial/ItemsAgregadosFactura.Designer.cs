@@ -35,8 +35,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbTitulo = new System.Windows.Forms.Label();
             this.PCerrar = new System.Windows.Forms.PictureBox();
+            this.lbTitulo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -76,15 +76,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.panel1.Size = new System.Drawing.Size(1200, 38);
             this.panel1.TabIndex = 102;
             // 
-            // lbTitulo
-            // 
-            this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Location = new System.Drawing.Point(15, 9);
-            this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
-            this.lbTitulo.TabIndex = 13;
-            this.lbTitulo.Text = "label6";
-            // 
             // PCerrar
             // 
             this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -97,6 +88,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.PCerrar.TabIndex = 15;
             this.PCerrar.TabStop = false;
             this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
+            // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(15, 9);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
+            this.lbTitulo.TabIndex = 13;
+            this.lbTitulo.Text = "label6";
             // 
             // label1
             // 
@@ -217,7 +217,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.groupBox1.Controls.Add(this.dtListado);
             this.groupBox1.Location = new System.Drawing.Point(12, 168);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1176, 445);
+            this.groupBox1.Size = new System.Drawing.Size(1176, 512);
             this.groupBox1.TabIndex = 115;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Items de factura";
@@ -249,7 +249,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.dtListado.Name = "dtListado";
             this.dtListado.ReadOnly = true;
             this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(1170, 420);
+            this.dtListado.Size = new System.Drawing.Size(1170, 487);
             this.dtListado.TabIndex = 5;
             // 
             // label4

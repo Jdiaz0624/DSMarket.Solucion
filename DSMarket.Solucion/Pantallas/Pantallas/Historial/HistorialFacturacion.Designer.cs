@@ -30,14 +30,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.PCerrar = new System.Windows.Forms.PictureBox();
-            this.lbTitulo = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.btnrestablecer = new System.Windows.Forms.Button();
             this.btnItemsAgregados = new System.Windows.Forms.Button();
             this.btnReImprimir = new System.Windows.Forms.Button();
@@ -45,19 +41,25 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.btnEstadisticaVenta = new System.Windows.Forms.Button();
             this.btnReporteventa = new System.Windows.Forms.Button();
             this.btnAnularfactura = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lbGananciaVariable = new System.Windows.Forms.Label();
+            this.lbGananciaTitulo = new System.Windows.Forms.Label();
+            this.PCerrar = new System.Windows.Forms.PictureBox();
+            this.lbTitulo = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbAgregarRangoFecha = new System.Windows.Forms.CheckBox();
-            this.cbAgregarUsuario = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtNumerofactura = new System.Windows.Forms.TextBox();
-            this.txtFacturadoA = new System.Windows.Forms.TextBox();
-            this.ddlUsuario = new System.Windows.Forms.ComboBox();
-            this.txtFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.txtFechaHasta = new System.Windows.Forms.DateTimePicker();
+            this.txtFechaDesde = new System.Windows.Forms.DateTimePicker();
+            this.ddlUsuario = new System.Windows.Forms.ComboBox();
+            this.txtFacturadoA = new System.Windows.Forms.TextBox();
+            this.txtNumerofactura = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbAgregarUsuario = new System.Windows.Forms.CheckBox();
+            this.cbAgregarRangoFecha = new System.Windows.Forms.CheckBox();
             this.gbListadoFacturas = new System.Windows.Forms.GroupBox();
             this.dtListado = new System.Windows.Forms.DataGridView();
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -65,8 +67,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
-            this.lbGananciaTitulo = new System.Windows.Forms.Label();
-            this.lbGananciaVariable = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel2.SuspendLayout();
@@ -82,6 +82,126 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
             // 
+            // btnrestablecer
+            // 
+            this.btnrestablecer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnrestablecer.FlatAppearance.BorderSize = 0;
+            this.btnrestablecer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnrestablecer.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnrestablecer.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
+            this.btnrestablecer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnrestablecer.Location = new System.Drawing.Point(1059, 7);
+            this.btnrestablecer.Name = "btnrestablecer";
+            this.btnrestablecer.Size = new System.Drawing.Size(170, 41);
+            this.btnrestablecer.TabIndex = 67;
+            this.btnrestablecer.Text = "      Restablecer";
+            this.toolTip1.SetToolTip(this.btnrestablecer, "Restablecer Pantalla");
+            this.btnrestablecer.UseVisualStyleBackColor = true;
+            this.btnrestablecer.Click += new System.EventHandler(this.btnrestablecer_Click);
+            // 
+            // btnItemsAgregados
+            // 
+            this.btnItemsAgregados.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnItemsAgregados.Enabled = false;
+            this.btnItemsAgregados.FlatAppearance.BorderSize = 0;
+            this.btnItemsAgregados.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnItemsAgregados.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnItemsAgregados.Image = global::DSMarket.Solucion.Properties.Resources.Reporte;
+            this.btnItemsAgregados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnItemsAgregados.Location = new System.Drawing.Point(355, 7);
+            this.btnItemsAgregados.Name = "btnItemsAgregados";
+            this.btnItemsAgregados.Size = new System.Drawing.Size(170, 41);
+            this.btnItemsAgregados.TabIndex = 66;
+            this.btnItemsAgregados.Text = "      Items";
+            this.toolTip1.SetToolTip(this.btnItemsAgregados, "Mostrar los Items de la factura seleccionada");
+            this.btnItemsAgregados.UseVisualStyleBackColor = true;
+            this.btnItemsAgregados.Click += new System.EventHandler(this.btnItemsAgregados_Click);
+            // 
+            // btnReImprimir
+            // 
+            this.btnReImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReImprimir.Enabled = false;
+            this.btnReImprimir.FlatAppearance.BorderSize = 0;
+            this.btnReImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnReImprimir.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReImprimir.Image = global::DSMarket.Solucion.Properties.Resources.Imprimir;
+            this.btnReImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReImprimir.Location = new System.Drawing.Point(179, 7);
+            this.btnReImprimir.Name = "btnReImprimir";
+            this.btnReImprimir.Size = new System.Drawing.Size(170, 41);
+            this.btnReImprimir.TabIndex = 65;
+            this.btnReImprimir.Text = "      Re-Imprimir";
+            this.toolTip1.SetToolTip(this.btnReImprimir, "Reimprimir la factura seleccionada");
+            this.btnReImprimir.UseVisualStyleBackColor = true;
+            this.btnReImprimir.Click += new System.EventHandler(this.btnReImprimir_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscar.Location = new System.Drawing.Point(3, 7);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(170, 41);
+            this.btnBuscar.TabIndex = 64;
+            this.btnBuscar.Text = "      Buscar";
+            this.toolTip1.SetToolTip(this.btnBuscar, "Consultar registros");
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnEstadisticaVenta
+            // 
+            this.btnEstadisticaVenta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEstadisticaVenta.FlatAppearance.BorderSize = 0;
+            this.btnEstadisticaVenta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEstadisticaVenta.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEstadisticaVenta.Image = global::DSMarket.Solucion.Properties.Resources.Estadistica;
+            this.btnEstadisticaVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEstadisticaVenta.Location = new System.Drawing.Point(531, 7);
+            this.btnEstadisticaVenta.Name = "btnEstadisticaVenta";
+            this.btnEstadisticaVenta.Size = new System.Drawing.Size(170, 41);
+            this.btnEstadisticaVenta.TabIndex = 68;
+            this.btnEstadisticaVenta.Text = "      Estadistica";
+            this.toolTip1.SetToolTip(this.btnEstadisticaVenta, "Estadistica de Venta");
+            this.btnEstadisticaVenta.UseVisualStyleBackColor = true;
+            this.btnEstadisticaVenta.Click += new System.EventHandler(this.btnEstadisticaVenta_Click);
+            // 
+            // btnReporteventa
+            // 
+            this.btnReporteventa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReporteventa.FlatAppearance.BorderSize = 0;
+            this.btnReporteventa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnReporteventa.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporteventa.Image = global::DSMarket.Solucion.Properties.Resources.Facturar;
+            this.btnReporteventa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReporteventa.Location = new System.Drawing.Point(707, 7);
+            this.btnReporteventa.Name = "btnReporteventa";
+            this.btnReporteventa.Size = new System.Drawing.Size(170, 41);
+            this.btnReporteventa.TabIndex = 69;
+            this.btnReporteventa.Text = "      Reporte";
+            this.toolTip1.SetToolTip(this.btnReporteventa, "Reporte de Ventas");
+            this.btnReporteventa.UseVisualStyleBackColor = true;
+            // 
+            // btnAnularfactura
+            // 
+            this.btnAnularfactura.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAnularfactura.Enabled = false;
+            this.btnAnularfactura.FlatAppearance.BorderSize = 0;
+            this.btnAnularfactura.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAnularfactura.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnularfactura.Image = global::DSMarket.Solucion.Properties.Resources.Anular;
+            this.btnAnularfactura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAnularfactura.Location = new System.Drawing.Point(883, 7);
+            this.btnAnularfactura.Name = "btnAnularfactura";
+            this.btnAnularfactura.Size = new System.Drawing.Size(170, 41);
+            this.btnAnularfactura.TabIndex = 70;
+            this.btnAnularfactura.Text = "      Anular";
+            this.toolTip1.SetToolTip(this.btnAnularfactura, "Anular Factura");
+            this.btnAnularfactura.UseVisualStyleBackColor = true;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
@@ -95,6 +215,24 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1240, 38);
             this.panel1.TabIndex = 102;
+            // 
+            // lbGananciaVariable
+            // 
+            this.lbGananciaVariable.AutoSize = true;
+            this.lbGananciaVariable.Location = new System.Drawing.Point(676, 9);
+            this.lbGananciaVariable.Name = "lbGananciaVariable";
+            this.lbGananciaVariable.Size = new System.Drawing.Size(51, 20);
+            this.lbGananciaVariable.TabIndex = 17;
+            this.lbGananciaVariable.Text = "label6";
+            // 
+            // lbGananciaTitulo
+            // 
+            this.lbGananciaTitulo.AutoSize = true;
+            this.lbGananciaTitulo.Location = new System.Drawing.Point(595, 9);
+            this.lbGananciaTitulo.Name = "lbGananciaTitulo";
+            this.lbGananciaTitulo.Size = new System.Drawing.Size(86, 20);
+            this.lbGananciaTitulo.TabIndex = 16;
+            this.lbGananciaTitulo.Text = "Ganancia: ";
             // 
             // PCerrar
             // 
@@ -135,126 +273,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.panel2.Size = new System.Drawing.Size(1240, 58);
             this.panel2.TabIndex = 103;
             // 
-            // btnrestablecer
-            // 
-            this.btnrestablecer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnrestablecer.FlatAppearance.BorderSize = 0;
-            this.btnrestablecer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnrestablecer.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnrestablecer.Image = global::DSMarket.Solucion.Properties.Resources.Restablecer;
-            this.btnrestablecer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnrestablecer.Location = new System.Drawing.Point(1059, 7);
-            this.btnrestablecer.Name = "btnrestablecer";
-            this.btnrestablecer.Size = new System.Drawing.Size(170, 41);
-            this.btnrestablecer.TabIndex = 67;
-            this.btnrestablecer.Text = "      Restablecer";
-            this.toolTip1.SetToolTip(this.btnrestablecer, "Restablecer Pantalla");
-            this.btnrestablecer.UseVisualStyleBackColor = true;
-            this.btnrestablecer.Click += new System.EventHandler(this.btnrestablecer_Click);
-            // 
-            // btnItemsAgregados
-            // 
-            this.btnItemsAgregados.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnItemsAgregados.Enabled = false;
-            this.btnItemsAgregados.FlatAppearance.BorderSize = 0;
-            this.btnItemsAgregados.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnItemsAgregados.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnItemsAgregados.Image = global::DSMarket.Solucion.Properties.Resources.Reporte;
-            this.btnItemsAgregados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnItemsAgregados.Location = new System.Drawing.Point(355, 7);
-            this.btnItemsAgregados.Name = "btnItemsAgregados";
-            this.btnItemsAgregados.Size = new System.Drawing.Size(170, 41);
-            this.btnItemsAgregados.TabIndex = 66;
-            this.btnItemsAgregados.Text = "      Items";
-            this.toolTip1.SetToolTip(this.btnItemsAgregados, "Mostrar los Items de la factura seleccionada");
-            this.btnItemsAgregados.UseVisualStyleBackColor = true;
-            // 
-            // btnReImprimir
-            // 
-            this.btnReImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReImprimir.Enabled = false;
-            this.btnReImprimir.FlatAppearance.BorderSize = 0;
-            this.btnReImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnReImprimir.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReImprimir.Image = global::DSMarket.Solucion.Properties.Resources.Imprimir;
-            this.btnReImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReImprimir.Location = new System.Drawing.Point(179, 7);
-            this.btnReImprimir.Name = "btnReImprimir";
-            this.btnReImprimir.Size = new System.Drawing.Size(170, 41);
-            this.btnReImprimir.TabIndex = 65;
-            this.btnReImprimir.Text = "      Re-Imprimir";
-            this.toolTip1.SetToolTip(this.btnReImprimir, "Reimprimir la factura seleccionada");
-            this.btnReImprimir.UseVisualStyleBackColor = true;
-            this.btnReImprimir.Click += new System.EventHandler(this.btnReImprimir_Click);
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
-            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(3, 7);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(170, 41);
-            this.btnBuscar.TabIndex = 64;
-            this.btnBuscar.Text = "      Buscar";
-            this.toolTip1.SetToolTip(this.btnBuscar, "Consultar registros");
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // btnEstadisticaVenta
-            // 
-            this.btnEstadisticaVenta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEstadisticaVenta.Enabled = false;
-            this.btnEstadisticaVenta.FlatAppearance.BorderSize = 0;
-            this.btnEstadisticaVenta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEstadisticaVenta.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEstadisticaVenta.Image = global::DSMarket.Solucion.Properties.Resources.Estadistica;
-            this.btnEstadisticaVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEstadisticaVenta.Location = new System.Drawing.Point(531, 7);
-            this.btnEstadisticaVenta.Name = "btnEstadisticaVenta";
-            this.btnEstadisticaVenta.Size = new System.Drawing.Size(170, 41);
-            this.btnEstadisticaVenta.TabIndex = 68;
-            this.btnEstadisticaVenta.Text = "      Estadistica";
-            this.toolTip1.SetToolTip(this.btnEstadisticaVenta, "Estadistica de Venta");
-            this.btnEstadisticaVenta.UseVisualStyleBackColor = true;
-            // 
-            // btnReporteventa
-            // 
-            this.btnReporteventa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReporteventa.Enabled = false;
-            this.btnReporteventa.FlatAppearance.BorderSize = 0;
-            this.btnReporteventa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnReporteventa.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReporteventa.Image = global::DSMarket.Solucion.Properties.Resources.Facturar;
-            this.btnReporteventa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReporteventa.Location = new System.Drawing.Point(707, 7);
-            this.btnReporteventa.Name = "btnReporteventa";
-            this.btnReporteventa.Size = new System.Drawing.Size(170, 41);
-            this.btnReporteventa.TabIndex = 69;
-            this.btnReporteventa.Text = "      Reporte";
-            this.toolTip1.SetToolTip(this.btnReporteventa, "Reporte de Ventas");
-            this.btnReporteventa.UseVisualStyleBackColor = true;
-            // 
-            // btnAnularfactura
-            // 
-            this.btnAnularfactura.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAnularfactura.Enabled = false;
-            this.btnAnularfactura.FlatAppearance.BorderSize = 0;
-            this.btnAnularfactura.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAnularfactura.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnularfactura.Image = global::DSMarket.Solucion.Properties.Resources.Anular;
-            this.btnAnularfactura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnularfactura.Location = new System.Drawing.Point(883, 7);
-            this.btnAnularfactura.Name = "btnAnularfactura";
-            this.btnAnularfactura.Size = new System.Drawing.Size(170, 41);
-            this.btnAnularfactura.TabIndex = 70;
-            this.btnAnularfactura.Text = "      Anular";
-            this.toolTip1.SetToolTip(this.btnAnularfactura, "Anular Factura");
-            this.btnAnularfactura.UseVisualStyleBackColor = true;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtFechaHasta);
@@ -276,17 +294,95 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de Historial";
             // 
-            // cbAgregarRangoFecha
+            // txtFechaHasta
             // 
-            this.cbAgregarRangoFecha.AutoSize = true;
-            this.cbAgregarRangoFecha.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbAgregarRangoFecha.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbAgregarRangoFecha.Location = new System.Drawing.Point(7, 25);
-            this.cbAgregarRangoFecha.Name = "cbAgregarRangoFecha";
-            this.cbAgregarRangoFecha.Size = new System.Drawing.Size(206, 24);
-            this.cbAgregarRangoFecha.TabIndex = 0;
-            this.cbAgregarRangoFecha.Text = "Agregar Rango de Fecha";
-            this.cbAgregarRangoFecha.UseVisualStyleBackColor = true;
+            this.txtFechaHasta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFechaHasta.Location = new System.Drawing.Point(467, 89);
+            this.txtFechaHasta.Name = "txtFechaHasta";
+            this.txtFechaHasta.Size = new System.Drawing.Size(118, 26);
+            this.txtFechaHasta.TabIndex = 11;
+            // 
+            // txtFechaDesde
+            // 
+            this.txtFechaDesde.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFechaDesde.Location = new System.Drawing.Point(153, 89);
+            this.txtFechaDesde.Name = "txtFechaDesde";
+            this.txtFechaDesde.Size = new System.Drawing.Size(118, 26);
+            this.txtFechaDesde.TabIndex = 10;
+            // 
+            // ddlUsuario
+            // 
+            this.ddlUsuario.FormattingEnabled = true;
+            this.ddlUsuario.Location = new System.Drawing.Point(895, 61);
+            this.ddlUsuario.Name = "ddlUsuario";
+            this.ddlUsuario.Size = new System.Drawing.Size(315, 28);
+            this.ddlUsuario.TabIndex = 9;
+            this.ddlUsuario.Visible = false;
+            // 
+            // txtFacturadoA
+            // 
+            this.txtFacturadoA.Location = new System.Drawing.Point(467, 61);
+            this.txtFacturadoA.Name = "txtFacturadoA";
+            this.txtFacturadoA.Size = new System.Drawing.Size(352, 26);
+            this.txtFacturadoA.TabIndex = 8;
+            this.txtFacturadoA.TextChanged += new System.EventHandler(this.txtFacturadoA_TextChanged);
+            // 
+            // txtNumerofactura
+            // 
+            this.txtNumerofactura.Location = new System.Drawing.Point(153, 61);
+            this.txtNumerofactura.Name = "txtNumerofactura";
+            this.txtNumerofactura.Size = new System.Drawing.Size(205, 26);
+            this.txtNumerofactura.TabIndex = 7;
+            this.txtNumerofactura.TextChanged += new System.EventHandler(this.txtNumerofactura_TextChanged);
+            this.txtNumerofactura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumerofactura_KeyPress);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(363, 92);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(101, 20);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Fecha Hasta";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(45, 93);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(105, 20);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Fecha Desde";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(828, 65);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 20);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Usuario";
+            this.label3.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(367, 64);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(97, 20);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Facturado A";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 64);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(141, 20);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Numero de factura";
             // 
             // cbAgregarUsuario
             // 
@@ -301,95 +397,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.cbAgregarUsuario.UseVisualStyleBackColor = true;
             this.cbAgregarUsuario.Visible = false;
             // 
-            // label1
+            // cbAgregarRangoFecha
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 64);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 20);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Numero de factura";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(367, 64);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Facturado A";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(828, 65);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 20);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Usuario";
-            this.label3.Visible = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(45, 93);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 20);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Fecha Desde";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(363, 92);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 20);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Fecha Hasta";
-            // 
-            // txtNumerofactura
-            // 
-            this.txtNumerofactura.Location = new System.Drawing.Point(153, 61);
-            this.txtNumerofactura.Name = "txtNumerofactura";
-            this.txtNumerofactura.Size = new System.Drawing.Size(205, 26);
-            this.txtNumerofactura.TabIndex = 7;
-            this.txtNumerofactura.TextChanged += new System.EventHandler(this.txtNumerofactura_TextChanged);
-            this.txtNumerofactura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumerofactura_KeyPress);
-            // 
-            // txtFacturadoA
-            // 
-            this.txtFacturadoA.Location = new System.Drawing.Point(467, 61);
-            this.txtFacturadoA.Name = "txtFacturadoA";
-            this.txtFacturadoA.Size = new System.Drawing.Size(352, 26);
-            this.txtFacturadoA.TabIndex = 8;
-            this.txtFacturadoA.TextChanged += new System.EventHandler(this.txtFacturadoA_TextChanged);
-            // 
-            // ddlUsuario
-            // 
-            this.ddlUsuario.FormattingEnabled = true;
-            this.ddlUsuario.Location = new System.Drawing.Point(895, 61);
-            this.ddlUsuario.Name = "ddlUsuario";
-            this.ddlUsuario.Size = new System.Drawing.Size(315, 28);
-            this.ddlUsuario.TabIndex = 9;
-            this.ddlUsuario.Visible = false;
-            // 
-            // txtFechaDesde
-            // 
-            this.txtFechaDesde.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtFechaDesde.Location = new System.Drawing.Point(153, 89);
-            this.txtFechaDesde.Name = "txtFechaDesde";
-            this.txtFechaDesde.Size = new System.Drawing.Size(118, 26);
-            this.txtFechaDesde.TabIndex = 10;
-            // 
-            // txtFechaHasta
-            // 
-            this.txtFechaHasta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtFechaHasta.Location = new System.Drawing.Point(467, 89);
-            this.txtFechaHasta.Name = "txtFechaHasta";
-            this.txtFechaHasta.Size = new System.Drawing.Size(118, 26);
-            this.txtFechaHasta.TabIndex = 11;
+            this.cbAgregarRangoFecha.AutoSize = true;
+            this.cbAgregarRangoFecha.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbAgregarRangoFecha.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbAgregarRangoFecha.Location = new System.Drawing.Point(7, 25);
+            this.cbAgregarRangoFecha.Name = "cbAgregarRangoFecha";
+            this.cbAgregarRangoFecha.Size = new System.Drawing.Size(206, 24);
+            this.cbAgregarRangoFecha.TabIndex = 0;
+            this.cbAgregarRangoFecha.Text = "Agregar Rango de Fecha";
+            this.cbAgregarRangoFecha.UseVisualStyleBackColor = true;
             // 
             // gbListadoFacturas
             // 
@@ -405,21 +423,21 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             // 
             this.dtListado.AllowUserToAddRows = false;
             this.dtListado.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtListado.BackgroundColor = System.Drawing.Color.LightGray;
             this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Select});
@@ -502,24 +520,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.lbNumeroPagina.Size = new System.Drawing.Size(82, 20);
             this.lbNumeroPagina.TabIndex = 109;
             this.lbNumeroPagina.Text = "No.Pagina";
-            // 
-            // lbGananciaTitulo
-            // 
-            this.lbGananciaTitulo.AutoSize = true;
-            this.lbGananciaTitulo.Location = new System.Drawing.Point(595, 9);
-            this.lbGananciaTitulo.Name = "lbGananciaTitulo";
-            this.lbGananciaTitulo.Size = new System.Drawing.Size(86, 20);
-            this.lbGananciaTitulo.TabIndex = 16;
-            this.lbGananciaTitulo.Text = "Ganancia: ";
-            // 
-            // lbGananciaVariable
-            // 
-            this.lbGananciaVariable.AutoSize = true;
-            this.lbGananciaVariable.Location = new System.Drawing.Point(676, 9);
-            this.lbGananciaVariable.Name = "lbGananciaVariable";
-            this.lbGananciaVariable.Size = new System.Drawing.Size(51, 20);
-            this.lbGananciaVariable.TabIndex = 17;
-            this.lbGananciaVariable.Text = "label6";
             // 
             // HistorialFacturacion
             // 

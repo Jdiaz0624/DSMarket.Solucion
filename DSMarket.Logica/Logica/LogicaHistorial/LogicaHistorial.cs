@@ -79,7 +79,8 @@ namespace DSMarket.Logica.Logica.LogicaHistorial
             var itemsAgregados = (from n in ObjData.SP_MOSTRAR_ITEMS_AGREGADOS_FACTURA(NumeroFactura, NumeroConector)
                            select new DSMarket.Logica.Entidades.EntidadesHistorial.EItemsAgregadosFactura
                            {
-                               NumeroFactura=n.NumeroFactura,
+                               Descripcion = n.Descripcion,
+                               NumeroFactura =n.NumeroFactura,
                                NumeroConector=n.NumeroConector,
                                IdTipoFacturacion=n.IdTipoFacturacion,
                                TipoFacturacion=n.TipoFacturacion,
@@ -105,7 +106,6 @@ namespace DSMarket.Logica.Logica.LogicaHistorial
                                IdMarcaRespaldo=n.IdMarcaRespaldo,
                                IdTipoSuplidorRespaldo=n.IdTipoSuplidorRespaldo,
                                IdSuplidorRespaldo=n.IdSuplidorRespaldo,
-                               Descripcion=n.Descripcion,
                                CodigoBarraRespaldo=n.CodigoBarraRespaldo,
                                ReferenciaRespaldo=n.ReferenciaRespaldo,
                                NumeroSeguimientoRespaldo=n.NumeroSeguimientoRespaldo,
@@ -138,5 +138,60 @@ namespace DSMarket.Logica.Logica.LogicaHistorial
 
         }
         #endregion
+
+        /// <summary>
+        /// Este metodo es para procesar la informacion de los datos de la ganancia de venta
+        /// </summary>
+        /// <param name="Item"></param>
+        /// <param name="Accion"></param>
+        /// <returns></returns>
+        public DSMarket.Logica.Entidades.EntidadesHistorial.EProcesarGananciaVenta ProcesarGananciaVenta(DSMarket.Logica.Entidades.EntidadesHistorial.EProcesarGananciaVenta Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesHistorial.EProcesarGananciaVenta Procesar = null;
+
+            var GananciaVenta = ObjData.SP_PROCESAR_INFORMACION_GANANCIA_VENTA(
+               Item.IdUsuario,
+               Item.IdEstatusFacturacion,
+               Item.Estatus,
+               Item.NumeroFactura,
+               Item.Descripcion,
+               Item.IdCategoria,
+               Item.IdTipoProducto,
+               Item.PrecioCompra,
+               Item.PrecioVenta,
+               Item.CantidadVendida,
+               Item.DescuentoAplicado,
+               Item.TotalDescuentoAplicado,
+               Item.TotalVenta,
+               Item.TotalPrecioCompra,
+               Item.Ganancia,
+               Accion);
+            if (GananciaVenta != null) {
+                Procesar = (from n in GananciaVenta
+                            select new DSMarket.Logica.Entidades.EntidadesHistorial.EProcesarGananciaVenta
+                            {
+                                IdUsuario=n.IdUsuario,
+                                IdEstatusFacturacion=n.IdEstatusFacturacion,
+                                Estatus=n.Estatus,
+                                NumeroFactura=n.NumeroFactura,
+                                Descripcion=n.Descripcion,
+                                IdCategoria=n.IdCategoria,
+                                IdTipoProducto=n.IdTipoProducto,
+                                PrecioCompra=n.PrecioCompra,
+                                PrecioVenta=n.PrecioVenta,
+                                CantidadVendida=n.CantidadVendida,
+                                DescuentoAplicado=n.DescuentoAplicado,
+                                TotalDescuentoAplicado=n.TotalDescuentoAplicado,
+                                TotalVenta=n.TotalVenta,
+                                TotalPrecioCompra=n.TotalPrecioCompra,
+                                Ganancia=n.Ganancia
+                            }).FirstOrDefault();
+            }
+
+            return Procesar;
+        }
+        
+
     }
 }

@@ -40,6 +40,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             OcultarColumnas();
         }
         private void OcultarColumnas() {
+            this.dtListado.Columns["IdTipoFacturacion"].Visible = false;
+            this.dtListado.Columns["TipoFacturacion"].Visible = false;
+            this.dtListado.Columns["Anulada"].Visible = false;
             this.dtListado.Columns["NumeroFactura"].Visible = false;
             this.dtListado.Columns["NumeroConector"].Visible = false;
             this.dtListado.Columns["FacturadoA"].Visible = false;
@@ -48,14 +51,14 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.dtListado.Columns["TotalServicios"].Visible = false;
             this.dtListado.Columns["TotalItems"].Visible = false;
             this.dtListado.Columns["Coenectordetalle"].Visible = false;
-            this.dtListado.Columns["Tipo"].Visible = false;
-            this.dtListado.Columns["Precio"].Visible = false;
-            this.dtListado.Columns["Descuento"].Visible = false;
-            this.dtListado.Columns["Cantidad"].Visible = false;
+            //this.dtListado.Columns["Tipo"].Visible = false;
+            //this.dtListado.Columns["Precio"].Visible = false;
+            //this.dtListado.Columns["Descuento"].Visible = false;
+            //this.dtListado.Columns["Cantidad"].Visible = false;
             this.dtListado.Columns["PorcientoImpuesto"].Visible = false;
-            this.dtListado.Columns["SubTotal"].Visible = false;
-            this.dtListado.Columns["Impuesto"].Visible = false;
-            this.dtListado.Columns["Total"].Visible = false;
+            //this.dtListado.Columns["SubTotal"].Visible = false;
+            //this.dtListado.Columns["Impuesto"].Visible = false;
+            //this.dtListado.Columns["Total"].Visible = false;
             this.dtListado.Columns["IdRegistroRespaldo"].Visible = false;
             this.dtListado.Columns["NumeroConectorItemRespaldo"].Visible = false;
             this.dtListado.Columns["IdTipoProductoRespaldo"].Visible = false;
@@ -63,7 +66,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.dtListado.Columns["IdMarcaRespaldo"].Visible = false;
             this.dtListado.Columns["IdTipoSuplidorRespaldo"].Visible = false;
             this.dtListado.Columns["IdSuplidorRespaldo"].Visible = false;
-            this.dtListado.Columns["Descripcion"].Visible = false;
+            //this.dtListado.Columns["Descripcion"].Visible = false;
             this.dtListado.Columns["CodigoBarraRespaldo"].Visible = false;
             this.dtListado.Columns["ReferenciaRespaldo"].Visible = false;
             this.dtListado.Columns["NumeroSeguimientoRespaldo"].Visible = false;
@@ -95,6 +98,27 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             DSMarket.Solucion.Pantallas.Pantallas.Historial.HistorialFacturacion Historial = new HistorialFacturacion();
             Historial.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
             Historial.ShowDialog();
+        }
+
+        private void GenerarReporteGananciaVenta(decimal IdUsuario) {
+            try {
+                decimal IdEstatusFActuracion = 0;
+                string EstatusFacturacion = "";
+                decimal NumeroFactura = 0;
+                string Descripcion = "";
+                decimal IdCategoria = 0;
+                decimal IdTipoProducto = 0;
+                decimal Preciocompra = 0;
+                decimal PrecioVenta = 0;
+                decimal TotalDescuentoAplicado = 0;
+                decimal TotalVenta = 0;
+                decimal TotalPrecioCOmpra = 0;
+                decimal Ganancia = 0;
+            
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al generar el reporte de la ganancia de venta, codigo de error: " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void ItemsAgregadosFactura_FormClosing(object sender, FormClosingEventArgs e)

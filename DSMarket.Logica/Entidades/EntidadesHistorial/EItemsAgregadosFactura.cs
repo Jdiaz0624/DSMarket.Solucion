@@ -8,6 +8,7 @@ namespace DSMarket.Logica.Entidades.EntidadesHistorial
 {
     public class EItemsAgregadosFactura
     {
+		public string Descripcion { get; set; }
 		public decimal? NumeroFactura {get;set;}
 
 		public string NumeroConector {get;set;}
@@ -59,7 +60,7 @@ namespace DSMarket.Logica.Entidades.EntidadesHistorial
 
 		public System.Nullable<decimal> IdSuplidorRespaldo {get;set;}
 
-		public string Descripcion {get;set;}
+		
 
 		public string CodigoBarraRespaldo {get;set;}
 
