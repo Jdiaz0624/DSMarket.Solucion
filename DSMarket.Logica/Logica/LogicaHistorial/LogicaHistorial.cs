@@ -191,7 +191,66 @@ namespace DSMarket.Logica.Logica.LogicaHistorial
 
             return Procesar;
         }
-        
 
+        /// <summary>
+        /// Este metodo es apra procesar la informacion para generar el reporte de ventas
+        /// </summary>
+        /// <param name="Item"></param>
+        /// <param name="Accion"></param>
+        /// <returns></returns>
+        public DSMarket.Logica.Entidades.EntidadesHistorial.EInformacionInformcionVEnta InformacionInformacionVenta(DSMarket.Logica.Entidades.EntidadesHistorial.EInformacionInformcionVEnta Item, string Accion) {
+
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesHistorial.EInformacionInformcionVEnta Procesar = null;
+
+            var InformacionVenta = ObjData.SP_PROCESAR_INFORMACION_INFORMACION_VENTAS(
+                Item.IdUsuario,
+                Item.NumeroFActura,
+                Item.IdTipoFacturacion,
+                Item.NumeroConector,
+                Item.FacturadoA,
+                Item.NCF,
+                Item.FechaFActuracion,
+                Item.TotalProductos,
+                Item.TotalServicios,
+                Item.TotalItems,
+                Item.SubTotal,
+                Item.Descuento,
+                Item.Impuesto,
+                Item.Total,
+                Item.IdTipoPago,
+                Item.MontoPagado,
+                Item.Cambio,
+                Item.IdMoneda,
+                Item.Tasa,
+                Accion);
+            if (InformacionVenta != null) {
+                Procesar = (from n in InformacionVenta
+                            select new DSMarket.Logica.Entidades.EntidadesHistorial.EInformacionInformcionVEnta
+                            {
+                                IdUsuario   =n.IdUsuario,
+                                NumeroFActura = n.NumeroFActura,
+                                IdTipoFacturacion=n.IdTipoFacturacion,
+                                NumeroConector = n.NumeroConector,
+                                FacturadoA=n.FacturadoA,
+                                NCF = n.NCF,
+                                FechaFActuracion = n.FechaFActuracion,
+                                TotalProductos = n.TotalProductos,
+                                TotalServicios = n.TotalServicios,
+                                TotalItems = n.TotalItems,
+                                SubTotal = n.SubTotal,
+                                Descuento = n.Descuento,
+                                Impuesto = n.Impuesto,
+                                Total = n.Total,
+                                IdTipoPago = n.IdTipoPago,
+                                MontoPagado = n.MontoPagado,
+                                Cambio = n.Cambio,
+                                IdMoneda = n.IdMoneda,
+                                Tasa = n.Tasa
+                            }).FirstOrDefault();
+            }
+            return Procesar;
+        }
     }
 }

@@ -201,6 +201,108 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
 
         }
 
+        private void GenerarReporteVentas(decimal IdUsuario) {
+            try {
+                decimal NumeroFActura = 0;
+                decimal IdTipoFActuracion = 0;
+                string NumeroConector = "";
+                string FacturadoA;
+                string NCF = "";
+                DateTime FechaFActuracion = DateTime.Now;
+                int TotalProductos = 0;
+                int TotalServicios = 0;
+                int TotalItems = 0;
+                decimal SubTotal = 0;
+                decimal Descuento = 0;
+                decimal Impuesto = 0;
+                decimal Total = 0;
+                decimal IdTipoPago = 0;
+                decimal MontoPagado = 0;
+                decimal Cambio = 0;
+                decimal IdMoneda = 0;
+                decimal Tasa = 0;
+
+                //ELIMINAMOS TODOS LOS REGISTROS MEDIANTE EL USUARIO
+                DSMarket.Logica.Comunes.ProcesarInformacion.Historial.ProcesarInformacionInformacionInformacionVentas EliminarRegistros = new Logica.Comunes.ProcesarInformacion.Historial.ProcesarInformacionInformacionInformacionVentas(
+                    IdUsuario, 0,0, "","", "", DateTime.Now, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "DELETE");
+                EliminarRegistros.ProcesarInformacion();
+
+                //SACAMOS LOS DATOS PARA CARGAR LAS VARIABLES
+                decimal? _NumeroFactura = string.IsNullOrEmpty(txtNumerofactura.Text.Trim()) ? new Nullable<decimal>() : Convert.ToDecimal(txtNumerofactura.Text.Trim());
+                string _FacturadoA = string.IsNullOrEmpty(txtFacturadoA.Text.Trim()) ? null : txtFacturadoA.Text.Trim();
+                DateTime? _FechaDesde = cbAgregarRangoFecha.Checked == true ? string.IsNullOrEmpty(txtFechaDesde.Text.Trim()) ? new Nullable<DateTime>() : Convert.ToDateTime(txtFechaDesde.Text) : new Nullable<DateTime>();
+                DateTime? _FechaHasta = cbAgregarRangoFecha.Checked == true ? string.IsNullOrEmpty(txtFechaHasta.Text.Trim()) ? new Nullable<DateTime>() : Convert.ToDateTime(txtFechaHasta.Text) : new Nullable<DateTime>();
+
+                var HistorialVenta = ObjdataHistorial.Value.HistorialFacturacion(
+                    _NumeroFactura,
+                    null,
+                    _FacturadoA,
+                    null,
+                    _FechaDesde,
+                    _FechaHasta,
+                    1, 999999999);
+                if (HistorialVenta.Count() < 1)
+                {
+                    MessageBox.Show("No se encontraron registros para cargar el reporte", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else {
+                    foreach (var n in HistorialVenta) {
+                        NumeroFActura = (decimal)n.NumeroFactura;
+                        IdTipoFActuracion = (decimal)n.IdTipoFacturacion;
+                        NumeroConector = n.NumeroConector;
+                        FacturadoA = n.FacturadoA;
+                        NCF = n.NumeroComprobante;
+                        FechaFActuracion = (DateTime)n.FechaFacturacion0;
+                        TotalProductos = (int)n.TotalProductos;
+                        TotalServicios = (int)n.TotalServicios;
+                        TotalItems = (int)n.TotalItems;
+                        SubTotal = (decimal)n.SubTotal;
+                        Descuento = (decimal)n.DescuentoTotal;
+                        Impuesto = (decimal)n.ImpuestoTotal;
+                        Total = (decimal)n.TotalGeneral;
+                        IdTipoPago = (decimal)n.IdTipoPago;
+                        MontoPagado = (decimal)n.MontoPagado;
+                        Cambio = (decimal)n.Cambio;
+                        IdMoneda = (decimal)n.IdMoneda;
+                        Tasa = (decimal)n.Tasa;
+
+                        //GUARDAMOS LOS DATOS
+                        DSMarket.Logica.Comunes.ProcesarInformacion.Historial.ProcesarInformacionInformacionInformacionVentas GuardarInformacion = new Logica.Comunes.ProcesarInformacion.Historial.ProcesarInformacionInformacionInformacionVentas(
+                            IdUsuario,
+                            NumeroFActura,
+                            IdTipoFActuracion,
+                            NumeroConector,
+                            FacturadoA,
+                            NCF,
+                            FechaFActuracion,
+                            TotalProductos,
+                            TotalServicios,
+                            TotalItems,
+                            SubTotal,
+                            Descuento,
+                            Impuesto,
+                            Total,
+                            IdTipoPago,
+                            MontoPagado,
+                            Cambio,
+                            IdMoneda,
+                            Tasa,
+                            "INSERT");
+                        GuardarInformacion.ProcesarInformacion();
+                    }
+
+                    //GENERAMOS EL REPORTE
+                    DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes ReporteFacturacion = new Reportes.Reportes();
+                    ReporteFacturacion.GenerarReporteVenta(VariablesGlobales.IdUsuario);
+                    ReporteFacturacion.ShowDialog();
+                }
+
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al generar el reporte de ventas, codigo de error: " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void GenerarFactura() {
             DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes Factura = new Reportes.Reportes();
             Factura.GenerarFacturaVenta(VariablesGlobales.IdMantenimeinto, false);
@@ -321,6 +423,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
         private void btnEstadisticaVenta_Click(object sender, EventArgs e)
         {
             GenerarReporteGananciaVenta(VariablesGlobales.IdUsuario);
+        }
+
+        private void btnReporteventa_Click(object sender, EventArgs e)
+        {
+            GenerarReporteVentas(VariablesGlobales.IdUsuario);
         }
     }
 }

@@ -29,7 +29,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
         enum CodigoReportes { 
         Factura=1,
         Cotizacion=2,
-        GananciaFacturacion=3
+        GananciaFacturacion=3,
+        ReporteFacturacion=4
         }
 
         #region MOSTRAR LA FACTURA  Y LA COTIZACION
@@ -150,21 +151,35 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
         #endregion
 
         #region GENERAR REPORTE DE VENTA
-        public void GenerarReporteVenta(decimal IdUsuario, string RutaReporte, string UsuarioBD, string ClaveBD) {
+        public void GenerarReporteVenta(decimal IdUsuario) {
             try {
-                ReportDocument ReporteVenta = new ReportDocument();
+                string RutaDeReporte = "", UsuarioBD = "", ClaveBD = "";
+
+                var SacarRutaReporte = ObjDataConfiguracion.Value.BuscaRutaReporte((int)CodigoReportes.ReporteFacturacion);
+                foreach (var n in SacarRutaReporte) {
+                    RutaDeReporte = n.RutaReporte;
+                }
+
+                var SacarCredenciales = ObjDataSeguridad.Value.SacarCredencialBD(1);
+                foreach (var ncredencialse in SacarCredenciales) {
+                    UsuarioBD = ncredencialse.Usuario;
+                    ClaveBD = DSMarket.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(ncredencialse.Clave);
+                }
+
+                ReportDocument Reporte = new ReportDocument();
+
                 SqlCommand comando = new SqlCommand();
-                comando.CommandText = "EXEC [Reporte].[SP_BUSCAR_REPORTE_VENTA] @IdUsuario";
+                comando.CommandText = "EXEC [Reporte].[SP_REPORTE_VENTA] @IdUsuario";
                 comando.Connection = DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion();
 
                 comando.Parameters.Add("@IdUsuario", SqlDbType.Decimal);
                 comando.Parameters["@IdUsuario"].Value = IdUsuario;
 
-                ReporteVenta.Load(@"" + RutaReporte);
-                ReporteVenta.Refresh();
-                ReporteVenta.SetParameterValue("@IdUsuario", IdUsuario);
-                ReporteVenta.SetDatabaseLogon(UsuarioBD, ClaveBD);
-                crystalReportViewer1.ReportSource = ReporteVenta;
+                Reporte.Load(@"" + RutaDeReporte);
+                Reporte.Refresh();
+                Reporte.SetParameterValue("@IdUsuario", IdUsuario);
+                Reporte.SetDatabaseLogon(UsuarioBD, ClaveBD);
+                crystalReportViewer1.ReportSource = Reporte;
             }
             catch (Exception ex) {
                 MessageBox.Show("Error al generar reporte de venta, codigo de error: " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
