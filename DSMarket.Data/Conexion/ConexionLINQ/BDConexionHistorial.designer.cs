@@ -33,7 +33,7 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
     #endregion
 		
 		public BDConexionHistorialDataContext() : 
-				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString, mappingSource)
+				base(global::DSMarket.Data.Properties.Settings.Default.DSMarketConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -124,6 +124,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, numeroFActura, idTipoFacturacion, numeroConector, facturadoA, nCF, fechaFActuracion, totalProductos, totalServicios, totalItems, subTotal, descuento, impuesto, total, idTipoPago, montoPagado, cambio, idMoneda, tasa, accion);
 			return ((ISingleResult<SP_PROCESAR_INFORMACION_INFORMACION_VENTASResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Historial.SP_VALIDAR_ESTATUS_FACTURACION")]
+		public ISingleResult<SP_VALIDAR_ESTATUS_FACTURACIONResult> SP_VALIDAR_ESTATUS_FACTURACION([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroConector", DbType="VarChar(30)")] string numeroConector)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), numeroConector);
+			return ((ISingleResult<SP_VALIDAR_ESTATUS_FACTURACIONResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -2260,6 +2267,32 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._Tasa != value))
 				{
 					this._Tasa = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_VALIDAR_ESTATUS_FACTURACIONResult
+	{
+		
+		private System.Nullable<decimal> _EstatusFacturacion;
+		
+		public SP_VALIDAR_ESTATUS_FACTURACIONResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EstatusFacturacion", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> EstatusFacturacion
+		{
+			get
+			{
+				return this._EstatusFacturacion;
+			}
+			set
+			{
+				if ((this._EstatusFacturacion != value))
+				{
+					this._EstatusFacturacion = value;
 				}
 			}
 		}

@@ -252,5 +252,16 @@ namespace DSMarket.Logica.Logica.LogicaHistorial
             }
             return Procesar;
         }
+
+        public List<DSMarket.Logica.Entidades.EntidadesHistorial.EValidarEstatusFacturacion> ValidarEstatusFacturacion(string NumeroConector = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Validar = (from n in ObjData.SP_VALIDAR_ESTATUS_FACTURACION(NumeroConector)
+                           select new DSMarket.Logica.Entidades.EntidadesHistorial.EValidarEstatusFacturacion
+                           {
+                               EstatusFacturacion=n.EstatusFacturacion
+                           }).ToList();
+            return Validar;
+        }
     }
 }

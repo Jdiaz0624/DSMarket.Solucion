@@ -189,6 +189,7 @@
     <Compile Include="Entidades\EntidadesHistorial\EInformacionInformcionVEnta.cs" />
     <Compile Include="Entidades\EntidadesHistorial\EItemsAgregadosFactura.cs" />
     <Compile Include="Entidades\EntidadesHistorial\EProcesarGananciaVenta.cs" />
+    <Compile Include="Entidades\EntidadesHistorial\EValidarEstatusFacturacion.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECantidadProductosDefectuosos.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECapacidad.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECapacidadArticulos.cs" />

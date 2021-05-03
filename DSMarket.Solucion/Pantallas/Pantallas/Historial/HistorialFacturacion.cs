@@ -55,7 +55,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.dtListado.Columns["CodigoCliente"].Visible = false;
             this.dtListado.Columns["IdTipoFacturacion"].Visible = false;
             //this.dtListado.Columns["TipoFacturacion"].Visible = false;
-            this.dtListado.Columns["Comentario"].Visible = false;
+            //this.dtListado.Columns["Comentario"].Visible = false;
             //this.dtListado.Columns["TotalProductos"].Visible = false;
             //this.dtListado.Columns["TotalServicios"].Visible = false;
             //this.dtListado.Columns["TotalItems"].Visible = false;
@@ -405,6 +405,19 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             // btnAnularfactura.Enabled = false;
             txtNumeroPagina.Enabled = false;
             txtNumeroRegistros.Enabled = false;
+            int EstatusFacturacion = 0;
+            var ValidarEstatusValidacion = ObjdataHistorial.Value.ValidarEstatusFacturacion(VariablesGlobales.NumeroConectorstring);
+            foreach (var n in ValidarEstatusValidacion) {
+                EstatusFacturacion = (int)n.EstatusFacturacion;
+            }
+
+            if (EstatusFacturacion == 1)
+            {
+                btnAnularfactura.Enabled = true;
+            }
+            else {
+                btnAnularfactura.Enabled = false;
+            }
         }
 
         private void btnReImprimir_Click(object sender, EventArgs e)
@@ -437,6 +450,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.Hide();
             DSMarket.Solucion.Pantallas.Pantallas.Historial.AnularFactura Anular = new AnularFactura();
             Anular.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+            Anular.VariablesGlobales.IdMantenimeinto = VariablesGlobales.IdMantenimeinto;
+            Anular.VariablesGlobales.NumeroConectorstring = VariablesGlobales.NumeroConectorstring;
             Anular.ShowDialog();
         }
     }

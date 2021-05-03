@@ -32,8 +32,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.components = new System.ComponentModel.Container();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnAnularfactura = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.lbFechaFActuracionVariable = new System.Windows.Forms.Label();
             this.lbTotalGeneralVariable = new System.Windows.Forms.Label();
@@ -56,9 +57,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbTitulo = new System.Windows.Forms.Label();
-            this.btnAnularfactura = new System.Windows.Forms.Button();
             this.PCerrar = new System.Windows.Forms.PictureBox();
+            this.lbTitulo = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
@@ -69,10 +69,27 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
             // 
+            // btnAnularfactura
+            // 
+            this.btnAnularfactura.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAnularfactura.FlatAppearance.BorderSize = 0;
+            this.btnAnularfactura.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAnularfactura.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnularfactura.Image = global::DSMarket.Solucion.Properties.Resources.Anular;
+            this.btnAnularfactura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAnularfactura.Location = new System.Drawing.Point(829, 118);
+            this.btnAnularfactura.Name = "btnAnularfactura";
+            this.btnAnularfactura.Size = new System.Drawing.Size(170, 41);
+            this.btnAnularfactura.TabIndex = 71;
+            this.btnAnularfactura.Text = "      Anular";
+            this.toolTip1.SetToolTip(this.btnAnularfactura, "Anular Factura");
+            this.btnAnularfactura.UseVisualStyleBackColor = true;
+            this.btnAnularfactura.Click += new System.EventHandler(this.btnAnularfactura_Click);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnAnularfactura);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtClaveSeguridad);
             this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.lbFechaFActuracionVariable);
             this.groupBox1.Controls.Add(this.lbTotalGeneralVariable);
@@ -101,13 +118,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información de Factura";
             // 
-            // textBox1
+            // txtClaveSeguridad
             // 
-            this.textBox1.Location = new System.Drawing.Point(218, 136);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '•';
-            this.textBox1.Size = new System.Drawing.Size(301, 26);
-            this.textBox1.TabIndex = 21;
+            this.txtClaveSeguridad.Location = new System.Drawing.Point(218, 136);
+            this.txtClaveSeguridad.Name = "txtClaveSeguridad";
+            this.txtClaveSeguridad.PasswordChar = '•';
+            this.txtClaveSeguridad.Size = new System.Drawing.Size(301, 26);
+            this.txtClaveSeguridad.TabIndex = 21;
             // 
             // label21
             // 
@@ -321,32 +338,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.panel1.Size = new System.Drawing.Size(1064, 38);
             this.panel1.TabIndex = 105;
             // 
-            // lbTitulo
-            // 
-            this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Location = new System.Drawing.Point(15, 9);
-            this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
-            this.lbTitulo.TabIndex = 13;
-            this.lbTitulo.Text = "label6";
-            // 
-            // btnAnularfactura
-            // 
-            this.btnAnularfactura.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAnularfactura.Enabled = false;
-            this.btnAnularfactura.FlatAppearance.BorderSize = 0;
-            this.btnAnularfactura.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAnularfactura.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnularfactura.Image = global::DSMarket.Solucion.Properties.Resources.Anular;
-            this.btnAnularfactura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnularfactura.Location = new System.Drawing.Point(829, 118);
-            this.btnAnularfactura.Name = "btnAnularfactura";
-            this.btnAnularfactura.Size = new System.Drawing.Size(170, 41);
-            this.btnAnularfactura.TabIndex = 71;
-            this.btnAnularfactura.Text = "      Anular";
-            this.toolTip1.SetToolTip(this.btnAnularfactura, "Anular Factura");
-            this.btnAnularfactura.UseVisualStyleBackColor = true;
-            // 
             // PCerrar
             // 
             this.PCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -359,6 +350,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.PCerrar.TabIndex = 15;
             this.PCerrar.TabStop = false;
             this.PCerrar.Click += new System.EventHandler(this.PCerrar_Click);
+            // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(15, 9);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
+            this.lbTitulo.TabIndex = 13;
+            this.lbTitulo.Text = "label6";
             // 
             // AnularFactura
             // 
@@ -390,7 +390,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnAnularfactura;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtClaveSeguridad;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label lbFechaFActuracionVariable;
         private System.Windows.Forms.Label lbTotalGeneralVariable;

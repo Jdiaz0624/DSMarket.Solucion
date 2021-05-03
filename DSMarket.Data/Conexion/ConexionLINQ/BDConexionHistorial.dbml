@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DSMarket" Class="BDConexionHistorialDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=172.26.24.199;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString1" Provider="System.Data.SqlClient" />
   <Function Name="Historial.SP_HISTORIAL_FACTURACION" Method="SP_HISTORIAL_FACTURACION">
     <Parameter Name="NumeroFactura" Parameter="numeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.String" DbType="VarChar(30)" />
@@ -177,6 +177,12 @@
       <Column Name="Cambio" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="IdMoneda" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="Tasa" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Historial.SP_VALIDAR_ESTATUS_FACTURACION" Method="SP_VALIDAR_ESTATUS_FACTURACION">
+    <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.String" DbType="VarChar(30)" />
+    <ElementType Name="SP_VALIDAR_ESTATUS_FACTURACIONResult">
+      <Column Name="EstatusFacturacion" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
