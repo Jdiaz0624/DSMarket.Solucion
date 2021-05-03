@@ -102,8 +102,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
 
                 foreach (var ProductosAgregados in BuscarItemsagregados)
                 {
-                    IdRegistroAnulado = (decimal)ProductosAgregados.IdTipoProductoRespaldo;
-                    ConectorAnulado = ProductosAgregados.NumeroConector;
+                    IdRegistroAnulado = (decimal)ProductosAgregados.IdRegistroRespaldo;
+                    ConectorAnulado = ProductosAgregados.NumeroConectorItemRespaldo;
                     IdTipoProductoAnulado = (decimal)ProductosAgregados.IdTipoProductoRespaldo;
                     IdCategoriaAnulado = (decimal)ProductosAgregados.IdCategoriaRespaldo;
                     IdMarcaAnulado = (decimal)ProductosAgregados.IdMarcaRespaldo;
@@ -141,7 +141,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
                         //VERIFICAMOS QUE EL PRODUCTO EXISTE EN EL INVENTARIO
                         var VerificarExistencia = ObjdataInventario.BuscaProductosServicios(IdRegistroAnulado, ConectorAnulado,
                             null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
-                        if (VerificarExistencia.Count() < 1) {
+                        if (VerificarExistencia.Count() < 1)
+                        {
                             //CREAMOS EL PRODUCTO
                             DSMarket.Logica.Comunes.ProcesarInformacion.Inventario.ProcesarInformacionProductoServicio NuevoRegistro = new Logica.Comunes.ProcesarInformacion.Inventario.ProcesarInformacionProductoServicio(
                                 IdRegistroAnulado,
@@ -174,23 +175,27 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
                                 UsuarioAdicionaAnulado,
                                 "INSERT");
                             NuevoRegistro.ProcesarInformacion();
+                          
 
                         }
-                        else {
+                        else
+                        {
                             //ACTUALIZAMOS EL INVENTARIO
                             DSMarket.Logica.Comunes.ProcesarInformacion.Inventario.ProcesarInformacionProductoServicio Actualizar = new Logica.Comunes.ProcesarInformacion.Inventario.ProcesarInformacionProductoServicio(
                                 IdRegistroAnulado,
                                 ConectorAnulado,
                                 0, 0, 0, 0, 0, "", "", "", "", "", 0, 0, CantidadFacturada, 0, "", "", "", "", "", false, false, false, 0, 0, "", 0, "ADDPRODUCT");
                             Actualizar.ProcesarInformacion();
+                          
                         }
                     }
+                   
                 }
-                CerrarPantalla();
+                
             }
             else
             {
-                CerrarPantalla();
+                
             }
         }
 
@@ -365,9 +370,18 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
                         if (ValidarDevolverProductoInventario == true) {
                             DevolverProductoInventario(VariablesGlobales.IdMantenimeinto, VariablesGlobales.NumeroConectorstring);
                         }
+                        //GENERAMOS LA FACTURA
+                        DSMarket.Logica.Comunes.SacarNumeroFactura NoCredito = new Logica.Comunes.SacarNumeroFactura(VariablesGlobales.NumeroConectorstring);
+                        decimal Credito = NoCredito.SacarNumero();
 
+                        //DSMarket.Logica.Comunes.SacarNumeroFactura NoCredito = new Logica.Comunes.SacarNumeroFactura(VariablesGlobales.NumeroConectorstring);
+                        //decimal NoCredito = NumeroFactura.SacarNumero();
 
-                       
+                        DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes NotaCredito = new Reportes.Reportes();
+                        NotaCredito.GenerarFacturaVenta(Credito, false);
+                        NotaCredito.ShowDialog();
+                        CerrarPantalla();
+
 
                     }
                     
