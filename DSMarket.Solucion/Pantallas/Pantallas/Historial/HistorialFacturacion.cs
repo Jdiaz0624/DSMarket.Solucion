@@ -35,7 +35,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
                 _FechaHasta,
                 (int)txtNumeroPagina.Value,
                 (int)txtNumeroRegistros.Value);
-            if (BuscarHistorial.Count() < 1) { }
+            if (BuscarHistorial.Count() < 1) {
+                dtListado.DataSource = null;
+            }
             else {
                 dtListado.DataSource = BuscarHistorial;
                 decimal GananciaTotal = 0;
@@ -428,6 +430,14 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
         private void btnReporteventa_Click(object sender, EventArgs e)
         {
             GenerarReporteVentas(VariablesGlobales.IdUsuario);
+        }
+
+        private void btnAnularfactura_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DSMarket.Solucion.Pantallas.Pantallas.Historial.AnularFactura Anular = new AnularFactura();
+            Anular.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+            Anular.ShowDialog();
         }
     }
 }

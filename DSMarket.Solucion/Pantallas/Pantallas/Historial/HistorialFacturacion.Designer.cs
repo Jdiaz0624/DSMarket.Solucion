@@ -30,17 +30,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnAnularfactura = new System.Windows.Forms.Button();
+            this.btnReporteventa = new System.Windows.Forms.Button();
+            this.btnEstadisticaVenta = new System.Windows.Forms.Button();
             this.btnrestablecer = new System.Windows.Forms.Button();
             this.btnItemsAgregados = new System.Windows.Forms.Button();
             this.btnReImprimir = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnEstadisticaVenta = new System.Windows.Forms.Button();
-            this.btnReporteventa = new System.Windows.Forms.Button();
-            this.btnAnularfactura = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbGananciaVariable = new System.Windows.Forms.Label();
             this.lbGananciaTitulo = new System.Windows.Forms.Label();
@@ -81,6 +81,58 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             // 
             this.bunifuElipse1.ElipseRadius = 30;
             this.bunifuElipse1.TargetControl = this;
+            // 
+            // btnAnularfactura
+            // 
+            this.btnAnularfactura.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAnularfactura.Enabled = false;
+            this.btnAnularfactura.FlatAppearance.BorderSize = 0;
+            this.btnAnularfactura.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAnularfactura.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnularfactura.Image = global::DSMarket.Solucion.Properties.Resources.Anular;
+            this.btnAnularfactura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAnularfactura.Location = new System.Drawing.Point(883, 7);
+            this.btnAnularfactura.Name = "btnAnularfactura";
+            this.btnAnularfactura.Size = new System.Drawing.Size(170, 41);
+            this.btnAnularfactura.TabIndex = 70;
+            this.btnAnularfactura.Text = "      Anular";
+            this.toolTip1.SetToolTip(this.btnAnularfactura, "Anular Factura");
+            this.btnAnularfactura.UseVisualStyleBackColor = true;
+            this.btnAnularfactura.Click += new System.EventHandler(this.btnAnularfactura_Click);
+            // 
+            // btnReporteventa
+            // 
+            this.btnReporteventa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReporteventa.FlatAppearance.BorderSize = 0;
+            this.btnReporteventa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnReporteventa.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporteventa.Image = global::DSMarket.Solucion.Properties.Resources.Facturar;
+            this.btnReporteventa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReporteventa.Location = new System.Drawing.Point(707, 7);
+            this.btnReporteventa.Name = "btnReporteventa";
+            this.btnReporteventa.Size = new System.Drawing.Size(170, 41);
+            this.btnReporteventa.TabIndex = 69;
+            this.btnReporteventa.Text = "      Reporte";
+            this.toolTip1.SetToolTip(this.btnReporteventa, "Reporte de Ventas");
+            this.btnReporteventa.UseVisualStyleBackColor = true;
+            this.btnReporteventa.Click += new System.EventHandler(this.btnReporteventa_Click);
+            // 
+            // btnEstadisticaVenta
+            // 
+            this.btnEstadisticaVenta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEstadisticaVenta.FlatAppearance.BorderSize = 0;
+            this.btnEstadisticaVenta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEstadisticaVenta.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEstadisticaVenta.Image = global::DSMarket.Solucion.Properties.Resources.Estadistica;
+            this.btnEstadisticaVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEstadisticaVenta.Location = new System.Drawing.Point(531, 7);
+            this.btnEstadisticaVenta.Name = "btnEstadisticaVenta";
+            this.btnEstadisticaVenta.Size = new System.Drawing.Size(170, 41);
+            this.btnEstadisticaVenta.TabIndex = 68;
+            this.btnEstadisticaVenta.Text = "      Estadistica";
+            this.toolTip1.SetToolTip(this.btnEstadisticaVenta, "Estadistica de Venta");
+            this.btnEstadisticaVenta.UseVisualStyleBackColor = true;
+            this.btnEstadisticaVenta.Click += new System.EventHandler(this.btnEstadisticaVenta_Click);
             // 
             // btnrestablecer
             // 
@@ -151,57 +203,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.toolTip1.SetToolTip(this.btnBuscar, "Consultar registros");
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // btnEstadisticaVenta
-            // 
-            this.btnEstadisticaVenta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEstadisticaVenta.FlatAppearance.BorderSize = 0;
-            this.btnEstadisticaVenta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEstadisticaVenta.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEstadisticaVenta.Image = global::DSMarket.Solucion.Properties.Resources.Estadistica;
-            this.btnEstadisticaVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEstadisticaVenta.Location = new System.Drawing.Point(531, 7);
-            this.btnEstadisticaVenta.Name = "btnEstadisticaVenta";
-            this.btnEstadisticaVenta.Size = new System.Drawing.Size(170, 41);
-            this.btnEstadisticaVenta.TabIndex = 68;
-            this.btnEstadisticaVenta.Text = "      Estadistica";
-            this.toolTip1.SetToolTip(this.btnEstadisticaVenta, "Estadistica de Venta");
-            this.btnEstadisticaVenta.UseVisualStyleBackColor = true;
-            this.btnEstadisticaVenta.Click += new System.EventHandler(this.btnEstadisticaVenta_Click);
-            // 
-            // btnReporteventa
-            // 
-            this.btnReporteventa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReporteventa.FlatAppearance.BorderSize = 0;
-            this.btnReporteventa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnReporteventa.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReporteventa.Image = global::DSMarket.Solucion.Properties.Resources.Facturar;
-            this.btnReporteventa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReporteventa.Location = new System.Drawing.Point(707, 7);
-            this.btnReporteventa.Name = "btnReporteventa";
-            this.btnReporteventa.Size = new System.Drawing.Size(170, 41);
-            this.btnReporteventa.TabIndex = 69;
-            this.btnReporteventa.Text = "      Reporte";
-            this.toolTip1.SetToolTip(this.btnReporteventa, "Reporte de Ventas");
-            this.btnReporteventa.UseVisualStyleBackColor = true;
-            this.btnReporteventa.Click += new System.EventHandler(this.btnReporteventa_Click);
-            // 
-            // btnAnularfactura
-            // 
-            this.btnAnularfactura.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAnularfactura.Enabled = false;
-            this.btnAnularfactura.FlatAppearance.BorderSize = 0;
-            this.btnAnularfactura.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAnularfactura.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnularfactura.Image = global::DSMarket.Solucion.Properties.Resources.Anular;
-            this.btnAnularfactura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnularfactura.Location = new System.Drawing.Point(883, 7);
-            this.btnAnularfactura.Name = "btnAnularfactura";
-            this.btnAnularfactura.Size = new System.Drawing.Size(170, 41);
-            this.btnAnularfactura.TabIndex = 70;
-            this.btnAnularfactura.Text = "      Anular";
-            this.toolTip1.SetToolTip(this.btnAnularfactura, "Anular Factura");
-            this.btnAnularfactura.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -424,21 +425,21 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             // 
             this.dtListado.AllowUserToAddRows = false;
             this.dtListado.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtListado.BackgroundColor = System.Drawing.Color.LightGray;
             this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Select});
