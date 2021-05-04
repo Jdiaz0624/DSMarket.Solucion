@@ -19,6 +19,12 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
         Lazy<DSMarket.Logica.Logica.LogicaHistorial.LogicaHistorial> ObjdataHistorial = new Lazy<Logica.Logica.LogicaHistorial.LogicaHistorial>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
+        enum TipoProductoSeleccionado
+        {
+            ProductoNoSeleccionado = 1,
+            ProductoSeleccionado = 2
+        }
+
         #region MOSTRAR EL LISTADO DE FACTURAS
         private void ListadoFacturas() {
             decimal? _NumeroFactura = string.IsNullOrEmpty(txtNumerofactura.Text.Trim()) ? new Nullable<decimal>() : Convert.ToDecimal(txtNumerofactura.Text.Trim());
@@ -100,6 +106,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             btnAnularfactura.Enabled = false;
             txtNumeroPagina.Enabled = true;
             txtNumeroRegistros.Enabled = true;
+            VariablesGlobales.ProductoSeleccionadoFacturacion = 1;
         }
 
         private void GenerarReporteGananciaVenta(decimal IdUsuario) {
@@ -319,6 +326,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             lbGananciaVariable.ForeColor = Color.White;
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             ListadoFacturas();
+            VariablesGlobales.ProductoSeleccionadoFacturacion = 1;
         }
 
         private void PCerrar_Click(object sender, EventArgs e)
@@ -336,44 +344,63 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            ListadoFacturas();
+            if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
+            {
+                ListadoFacturas();
+            }
         }
 
         private void txtNumerofactura_TextChanged(object sender, EventArgs e)
         {
             try {
-                ListadoFacturas();
+                if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado) {
+                    ListadoFacturas();
+                }
+                
             }
             catch (Exception) { }
         }
 
         private void txtFacturadoA_TextChanged(object sender, EventArgs e)
         {
-            ListadoFacturas();
+            if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
+            {
+                ListadoFacturas();
+            }
         }
 
         private void txtNumeroPagina_ValueChanged(object sender, EventArgs e)
         {
-            if (txtNumeroPagina.Value < 1)
+            if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
             {
-                txtNumeroPagina.Value = 1;
-                ListadoFacturas();
+                if (txtNumeroPagina.Value < 1)
+                {
+                    txtNumeroPagina.Value = 1;
+                    ListadoFacturas();
+                }
+                else
+                {
+                    ListadoFacturas();
+                }
             }
-            else {
-                ListadoFacturas();
-            }
+          
         }
 
         private void txtNumeroRegistros_ValueChanged(object sender, EventArgs e)
         {
-            if (txtNumeroRegistros.Value < 1)
+            if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
             {
-                txtNumeroRegistros.Value = 10;
-                ListadoFacturas();
+                if (txtNumeroRegistros.Value < 1)
+                {
+                    txtNumeroRegistros.Value = 10;
+                    ListadoFacturas();
+                }
+                else
+                {
+                    ListadoFacturas();
+                }
             }
-            else {
-                ListadoFacturas();
-            }
+            
         }
 
         private void txtNumerofactura_KeyPress(object sender, KeyPressEventArgs e)
@@ -418,6 +445,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             else {
                 btnAnularfactura.Enabled = false;
             }
+            VariablesGlobales.ProductoSeleccionadoFacturacion = 2;
         }
 
         private void btnReImprimir_Click(object sender, EventArgs e)
@@ -453,6 +481,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             Anular.VariablesGlobales.IdMantenimeinto = VariablesGlobales.IdMantenimeinto;
             Anular.VariablesGlobales.NumeroConectorstring = VariablesGlobales.NumeroConectorstring;
             Anular.ShowDialog();
+        }
+
+        private void ddlUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

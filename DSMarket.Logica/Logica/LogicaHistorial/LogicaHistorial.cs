@@ -263,5 +263,41 @@ namespace DSMarket.Logica.Logica.LogicaHistorial
                            }).ToList();
             return Validar;
         }
+
+
+        public List<DSMarket.Logica.Entidades.EntidadesHistorial.EHistorialCotizaciones> HistorialCotizaciones(decimal? NumeroCotizacion = null, string NumeroConector = null, string CotizadoA = null, decimal? IdUsuario = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null, int? NumeroPagina = null, int? NumeroServicios = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var ListadoCotizaciones = (from n in ObjData.SP_HISTORIAL_COTIZACIONES(NumeroCotizacion, NumeroConector, CotizadoA, IdUsuario, FechaDesde, FechaHasta, NumeroPagina, NumeroServicios)
+                                       select new DSMarket.Logica.Entidades.EntidadesHistorial.EHistorialCotizaciones
+                                       {
+                                           NumeroCotizacion=n.NumeroCotizacion,
+                                           NumeroConector=n.NumeroConector,
+                                           CotizadoA=n.CotizadoA,
+                                           CodigoCliente=n.CodigoCliente,
+                                           IdTipoFacturacion=n.IdTipoFacturacion,
+                                           TipoFacturacion=n.TipoFacturacion,
+                                           Comentario=n.Comentario,
+                                           TotalProductos=n.TotalProductos,
+                                           TotalServicios=n.TotalServicios,
+                                           TotalItems=n.TotalItems,
+                                           SubTotal=n.SubTotal,
+                                           DescuentoTotal=n.DescuentoTotal,
+                                           ImpuestoTotal=n.ImpuestoTotal,
+                                           TotalGeneral=n.TotalGeneral,
+                                           IdTipoPago=n.IdTipoPago,
+                                           TipoPago=n.TipoPago,
+                                           MontoPagado=n.MontoPagado,
+                                           Cambio=n.Cambio,
+                                           IdMoneda=n.IdMoneda,
+                                           Moneda=n.Moneda,
+                                           Tasa=n.Tasa,
+                                           IdUsuario=n.IdUsuario,
+                                           CreadoPor=n.CreadoPor,
+                                           FechaCotizacion0=n.FechaCotizacion0,
+                                           FechaCotizacion=n.FechaCotizacion
+                                       }).ToList();
+            return ListadoCotizaciones;
+        }
     }
 }

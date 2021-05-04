@@ -1292,7 +1292,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void txtCodigoProducto_TextChanged(object sender, EventArgs e)
         {
-            if (VariablesGlobales.NumeroConectorstring == "-1")
+            if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
             {
                 MostrarListadoProductos();
             }

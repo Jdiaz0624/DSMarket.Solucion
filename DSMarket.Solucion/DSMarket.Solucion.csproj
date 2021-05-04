@@ -495,11 +495,23 @@
     <Compile Include="Pantallas\Pantallas\Historial\AnularFactura.Designer.cs">
       <DependentUpon>AnularFactura.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Historial\HistorialCotizaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Historial\HistorialCotizaciones.Designer.cs">
+      <DependentUpon>HistorialCotizaciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Historial\HistorialFacturacion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pantallas\Pantallas\Historial\HistorialFacturacion.Designer.cs">
       <DependentUpon>HistorialFacturacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Historial\ItemsAgregadosCotizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Historial\ItemsAgregadosCotizacion.Designer.cs">
+      <DependentUpon>ItemsAgregadosCotizacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Pantallas\Historial\ItemsAgregadosFactura.cs">
       <SubType>Form</SubType>
@@ -986,8 +998,14 @@
     <EmbeddedResource Include="Pantallas\Pantallas\Historial\AnularFactura.resx">
       <DependentUpon>AnularFactura.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Historial\HistorialCotizaciones.resx">
+      <DependentUpon>HistorialCotizaciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Historial\HistorialFacturacion.resx">
       <DependentUpon>HistorialFacturacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Historial\ItemsAgregadosCotizacion.resx">
+      <DependentUpon>ItemsAgregadosCotizacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Historial\ItemsAgregadosFactura.resx">
       <DependentUpon>ItemsAgregadosFactura.cs</DependentUpon>

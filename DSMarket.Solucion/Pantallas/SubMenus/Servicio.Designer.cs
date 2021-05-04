@@ -32,12 +32,12 @@
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.gbOpciones = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.lbUsuario = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.btnCotizacion = new System.Windows.Forms.Button();
             this.btnFinanciamiento = new System.Windows.Forms.Button();
             this.btnFacturacion = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.gbOpciones.SuspendLayout();
@@ -91,6 +91,19 @@
             this.gbOpciones.TabIndex = 16;
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Facturación - Seleccionar Opción";
+            // 
+            // button2
+            // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(582, 29);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(186, 56);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Historial de Cotización";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // lbUsuario
             // 
@@ -153,18 +166,6 @@
             this.btnFacturacion.Text = "Facturación";
             this.btnFacturacion.UseVisualStyleBackColor = true;
             this.btnFacturacion.Click += new System.EventHandler(this.btnFacturacion_Click);
-            // 
-            // button2
-            // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(582, 29);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(186, 56);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Historial de Cotización";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // Servicio
             // 

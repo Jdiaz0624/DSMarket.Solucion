@@ -185,6 +185,7 @@
     <Compile Include="Entidades\EntidadesEmpresa\ETipoEmpleado.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\ETipoMovimiento.cs" />
     <Compile Include="Entidades\EntidadesEmpresa\ETipoNomina.cs" />
+    <Compile Include="Entidades\EntidadesHistorial\EHistorialCotizaciones.cs" />
     <Compile Include="Entidades\EntidadesHistorial\EHistorialFacturacion.cs" />
     <Compile Include="Entidades\EntidadesHistorial\EInformacionInformcionVEnta.cs" />
     <Compile Include="Entidades\EntidadesHistorial\EItemsAgregadosFactura.cs" />

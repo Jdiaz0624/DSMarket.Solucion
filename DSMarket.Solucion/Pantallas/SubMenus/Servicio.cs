@@ -82,5 +82,12 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
             //Historial.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbUsuario.Text);
             //Historial.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DSMarket.Solucion.Pantallas.Pantallas.Historial.HistorialCotizaciones Cotizciones = new Pantallas.Historial.HistorialCotizaciones();
+            Cotizciones.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbUsuario.Text);
+            Cotizciones.ShowDialog();
+        }
     }
 }
