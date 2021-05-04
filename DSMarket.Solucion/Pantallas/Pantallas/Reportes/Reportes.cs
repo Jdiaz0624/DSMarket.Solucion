@@ -31,7 +31,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
         Cotizacion=2,
         GananciaFacturacion=3,
         ReporteFacturacion=4,
-        HistorialCotizaciones=5
+        HistorialCotizaciones=5,
+        CuadreCaja=6,
+        ReporteDel606=7,
+        ReporteDel607=8,
+        ReporteDel608=9,
+        CatalogoCuentas=10,
+        ReporteInventario=11,
+        ComisionEmpleados=12,
+        Comprobantes=13,
+        Financieros=14
         }
 
         #region MOSTRAR LA FACTURA  Y LA COTIZACION
@@ -135,7 +144,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
         public void GenerarCuadreCaja(decimal IdUsuario) {
             string RutaDeReporte = "", UsuarioBD = "", ClaveBD = "";
 
-            var SacarRutaReporte = ObjDataConfiguracion.Value.BuscaRutaReporte((int)CodigoReportes.ReporteFacturacion);
+            var SacarRutaReporte = ObjDataConfiguracion.Value.BuscaRutaReporte((int)CodigoReportes.CuadreCaja);
             foreach (var n in SacarRutaReporte)
             {
                 RutaDeReporte = n.RutaReporte;
@@ -457,7 +466,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
                 string ClaveBD = "";
 
                 //GENERAMOS EL REPORTE
-                var SacarRutaReporte = ObjDataConfiguracion.Value.BuscaRutaReporte(16);
+                var SacarRutaReporte = ObjDataConfiguracion.Value.BuscaRutaReporte((int)CodigoReportes.CatalogoCuentas);
                 foreach (var n in SacarRutaReporte)
                 {
                     RutaReporte = n.RutaReporte;
@@ -662,6 +671,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
             crystalReportViewer1.ReportSource = Reporte;
         }
         #endregion
+
+
         private void Reportes_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();

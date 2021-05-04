@@ -264,39 +264,31 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
 
         private void dtListadoServicoProducto_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres agregar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+            decimal IdPrductoDetalle = Convert.ToDecimal(this.dtListadoServicoProducto.CurrentRow.Cells["IdProducto"].Value.ToString());
+            decimal PrecioProductoDetalle = Convert.ToDecimal(this.dtListadoServicoProducto.CurrentRow.Cells["PrecioVenta"].Value.ToString());
+            string DescripcionProductoDetalle = this.dtListadoServicoProducto.CurrentRow.Cells["Producto"].Value.ToString();
 
-                decimal IdPrductoDetalle = Convert.ToDecimal(this.dtListadoServicoProducto.CurrentRow.Cells["IdProducto"].Value.ToString());
-                decimal PrecioProductoDetalle = Convert.ToDecimal(this.dtListadoServicoProducto.CurrentRow.Cells["PrecioVenta"].Value.ToString());
-                string DescripcionProductoDetalle = this.dtListadoServicoProducto.CurrentRow.Cells["Producto"].Value.ToString();
 
-               
 
-                DSMarket.Logica.Comunes.ProcesarInformacion.Empresa.ProcesarInformacionCitas Procesar = new Logica.Comunes.ProcesarInformacion.Empresa.ProcesarInformacionCitas(
-                    VariablesGlobales.NumeroConector,
-                    IdPrductoDetalle,
-                    PrecioProductoDetalle,
-                    DescripcionProductoDetalle,
-                    "INSERT");
-                Procesar.ProcesarInformacionDetalle();
-
-            }
+            DSMarket.Logica.Comunes.ProcesarInformacion.Empresa.ProcesarInformacionCitas Procesar = new Logica.Comunes.ProcesarInformacion.Empresa.ProcesarInformacionCitas(
+                VariablesGlobales.NumeroConector,
+                IdPrductoDetalle,
+                PrecioProductoDetalle,
+                DescripcionProductoDetalle,
+                "INSERT");
+            Procesar.ProcesarInformacionDetalle();
 
             MostrarProductosAgregados(VariablesGlobales.NumeroConector);
         }
 
         private void dtListadoProductosAgregados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres quitar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                decimal IdProducto = Convert.ToDecimal(this.dtListadoProductosAgregados.CurrentRow.Cells["IdProducto"].Value.ToString());
-                DSMarket.Logica.Comunes.ProcesarInformacion.Empresa.ProcesarInformacionCitas Eliminar = new Logica.Comunes.ProcesarInformacion.Empresa.ProcesarInformacionCitas(
-                VariablesGlobales.NumeroConector,
-                IdProducto, 0, "", "DELETE");
-                Eliminar.ProcesarInformacionDetalle();
-                MostrarProductosAgregados(VariablesGlobales.NumeroConector);
-
-            }
+            decimal IdProducto = Convert.ToDecimal(this.dtListadoProductosAgregados.CurrentRow.Cells["IdProducto"].Value.ToString());
+            DSMarket.Logica.Comunes.ProcesarInformacion.Empresa.ProcesarInformacionCitas Eliminar = new Logica.Comunes.ProcesarInformacion.Empresa.ProcesarInformacionCitas(
+            VariablesGlobales.NumeroConector,
+            IdProducto, 0, "", "DELETE");
+            Eliminar.ProcesarInformacionDetalle();
+            MostrarProductosAgregados(VariablesGlobales.NumeroConector);
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)

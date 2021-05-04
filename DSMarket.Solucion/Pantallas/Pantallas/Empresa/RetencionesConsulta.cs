@@ -133,20 +133,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres seleccioanr este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
-                this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(dtListado.CurrentRow.Cells["IdRetencion"].Value.ToString());
+            this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(dtListado.CurrentRow.Cells["IdRetencion"].Value.ToString());
 
-                var BuscarRegistro = ObjDataEmpresa.Value.BuscaRetenciones(
-                    VariablesGlobales.IdMantenimeinto, null, 1, 1);
-                dtListado.DataSource = BuscarRegistro;
-                OcultarColumnas();
-                txtNumeroPagina.Enabled = false;
-                txtNumeroRegistros.Enabled = false;
-                btnNuevo.Enabled = false;
-                btnBuscar.Enabled = false;
-                btnEditar.Enabled = true;
-               
-            }
+            var BuscarRegistro = ObjDataEmpresa.Value.BuscaRetenciones(
+                VariablesGlobales.IdMantenimeinto, null, 1, 1);
+            dtListado.DataSource = BuscarRegistro;
+            OcultarColumnas();
+            txtNumeroPagina.Enabled = false;
+            txtNumeroRegistros.Enabled = false;
+            btnNuevo.Enabled = false;
+            btnBuscar.Enabled = false;
+            btnEditar.Enabled = true;
         }
 
         private void RetencionesConsulta_FormClosing(object sender, FormClosingEventArgs e)

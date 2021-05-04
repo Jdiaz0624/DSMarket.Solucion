@@ -193,5 +193,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 ConsultarRegistros();
             }
         }
+
+        private void dtListado_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -53,16 +53,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
 
         private void dtProductosAgregados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres seleccionar este registro?", variablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
-                this.variablesGlobales.IdMantenimeinto = Convert.ToDecimal(Convert.ToDecimal(this.dtProductosAgregados.CurrentRow.Cells["IdObservacion"].Value.ToString()));
+            this.variablesGlobales.IdMantenimeinto = Convert.ToDecimal(Convert.ToDecimal(this.dtProductosAgregados.CurrentRow.Cells["IdObservacion"].Value.ToString()));
 
-                var Buscar = ObjDataServicio.Value.BuscaObservaciones(Convert.ToInt32(variablesGlobales.IdMantenimeinto));
-                dtProductosAgregados.DataSource = Buscar;
-                this.dtProductosAgregados.Columns["IdObservacion"].Visible = false;
-                foreach (var n in Buscar) {
-                    txtPolitica.Text = n.Observacion;
-                    btnModificar.Enabled = true;
-                }
+            var Buscar = ObjDataServicio.Value.BuscaObservaciones(Convert.ToInt32(variablesGlobales.IdMantenimeinto));
+            dtProductosAgregados.DataSource = Buscar;
+            this.dtProductosAgregados.Columns["IdObservacion"].Visible = false;
+            foreach (var n in Buscar)
+            {
+                txtPolitica.Text = n.Observacion;
+                btnModificar.Enabled = true;
             }
         }
 

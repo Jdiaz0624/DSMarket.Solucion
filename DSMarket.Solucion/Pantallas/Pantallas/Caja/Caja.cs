@@ -254,5 +254,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
             this.dataGridView1.Columns["IdUsuario"].Visible = false;
             this.dataGridView1.Columns["FechaCierre0"].Visible = false;
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

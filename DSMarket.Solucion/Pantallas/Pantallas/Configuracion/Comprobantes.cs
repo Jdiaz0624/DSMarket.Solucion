@@ -222,26 +222,25 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Configuracion
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
-                this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdComprobante"].Value.ToString());
+            this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdComprobante"].Value.ToString());
 
-                var Comprobantes = ObjDataConfiguracion.Value.BuscaComprobantesFiscales(
-                    VariablesGlobales.IdMantenimeinto);
-                dtListado.DataSource = Comprobantes;
-                foreach (var n in Comprobantes) {
-                    txtDescripcion.Text = n.Comprobante;
-                    txtSerie.Text = n.Serie;
-                    txtTipoComprobante.Text = n.TipoComprobante;
-                    txtSecuencial.Text = n.Secuencia.ToString();
-                    txtSecuenciaInicial.Text = n.SecuenciaInicial.ToString();
-                    txtSecuenciaFinal.Text = n.SecuenciaFinal.ToString();
-                    txtLimite.Text = n.Limite.ToString();
-                    txtValidoHasta.Text = n.ValidoHasta;
-                    txtPociciones.Text = n.Posiciones.ToString();
-                    cbEstatus.Checked = (n.Estatus0.HasValue ? n.Estatus0.Value : false);
-                    cbPorDefecto.Checked = (n.PorDefecto0.HasValue ? n.PorDefecto0.Value : false);
-                    txtCobroAdicional.Text = n.CobroPorcientoAdicional.ToString();
-                }
+            var Comprobantes = ObjDataConfiguracion.Value.BuscaComprobantesFiscales(
+                VariablesGlobales.IdMantenimeinto);
+            dtListado.DataSource = Comprobantes;
+            foreach (var n in Comprobantes)
+            {
+                txtDescripcion.Text = n.Comprobante;
+                txtSerie.Text = n.Serie;
+                txtTipoComprobante.Text = n.TipoComprobante;
+                txtSecuencial.Text = n.Secuencia.ToString();
+                txtSecuenciaInicial.Text = n.SecuenciaInicial.ToString();
+                txtSecuenciaFinal.Text = n.SecuenciaFinal.ToString();
+                txtLimite.Text = n.Limite.ToString();
+                txtValidoHasta.Text = n.ValidoHasta;
+                txtPociciones.Text = n.Posiciones.ToString();
+                cbEstatus.Checked = (n.Estatus0.HasValue ? n.Estatus0.Value : false);
+                cbPorDefecto.Checked = (n.PorDefecto0.HasValue ? n.PorDefecto0.Value : false);
+                txtCobroAdicional.Text = n.CobroPorcientoAdicional.ToString();
             }
         }
 

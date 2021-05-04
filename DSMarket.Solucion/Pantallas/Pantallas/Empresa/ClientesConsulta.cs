@@ -159,31 +159,30 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+            this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdCliente"].Value.ToString());
 
-                this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdCliente"].Value.ToString());
-
-                var BuscarCliente = ObjdataEmpresa.Value.BuscaClientes(
-                    VariablesGlobales.IdMantenimeinto,
-                    null, null, null, null, null, 1, 1);
-                dtListado.DataSource = BuscarCliente;
-                OcultarColumnas();
-                if (BuscarCliente.Count() < 1)
-                {
-                    lbCantidadRegistrosVariable.Text = "0";
-                }
-                else {
-                    foreach (var n in BuscarCliente) {
-                        int Cantidad = Convert.ToInt32(n.CantidadClientes);
-                        lbCantidadRegistrosVariable.Text = Cantidad.ToString("N0");
-                    }
-                }
-                btnNuevo.Enabled = false;
-                btnEditar.Enabled = true;
-                btnDeshabilitar.Enabled = true;
-                txtNumeroPagina.Enabled = false;
-                txtNumeroRegistros.Enabled = false;
+            var BuscarCliente = ObjdataEmpresa.Value.BuscaClientes(
+                VariablesGlobales.IdMantenimeinto,
+                null, null, null, null, null, 1, 1);
+            dtListado.DataSource = BuscarCliente;
+            OcultarColumnas();
+            if (BuscarCliente.Count() < 1)
+            {
+                lbCantidadRegistrosVariable.Text = "0";
             }
+            else
+            {
+                foreach (var n in BuscarCliente)
+                {
+                    int Cantidad = Convert.ToInt32(n.CantidadClientes);
+                    lbCantidadRegistrosVariable.Text = Cantidad.ToString("N0");
+                }
+            }
+            btnNuevo.Enabled = false;
+            btnEditar.Enabled = true;
+            btnDeshabilitar.Enabled = true;
+            txtNumeroPagina.Enabled = false;
+            txtNumeroRegistros.Enabled = false;
         }
 
         private void btnRestabelcer_Click(object sender, EventArgs e)

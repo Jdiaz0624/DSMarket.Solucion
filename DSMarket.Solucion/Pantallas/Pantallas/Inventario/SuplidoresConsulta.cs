@@ -181,27 +181,24 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres seleccionar este registro?", variablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                this.variablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdSuplidor"].Value.ToString());
+            this.variablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdSuplidor"].Value.ToString());
 
-                var BuscarRegistro = ObjDataInventario.Value.BuscaSupervisores(
-                   null,
-                   variablesGlobales.IdMantenimeinto,
-                   null,
-                   1, 1);
-                foreach (var n in BuscarRegistro)
-                {
-                    lbCantidadRegistrosVariable.Text = n.CantidadRegistros.ToString();
-                }
-                dtListado.DataSource = BuscarRegistro;
-                OcultarColumnas();
-                txtNumeroPagina.Enabled = false;
-                txtNumeroRegistros.Enabled = false;
-                btnBuscar.Enabled = false;
-                btnNuevo.Enabled = false;
-                btnEditar.Enabled = true;
+            var BuscarRegistro = ObjDataInventario.Value.BuscaSupervisores(
+               null,
+               variablesGlobales.IdMantenimeinto,
+               null,
+               1, 1);
+            foreach (var n in BuscarRegistro)
+            {
+                lbCantidadRegistrosVariable.Text = n.CantidadRegistros.ToString();
             }
+            dtListado.DataSource = BuscarRegistro;
+            OcultarColumnas();
+            txtNumeroPagina.Enabled = false;
+            txtNumeroRegistros.Enabled = false;
+            btnBuscar.Enabled = false;
+            btnNuevo.Enabled = false;
+            btnEditar.Enabled = true;
         }
     }
 }

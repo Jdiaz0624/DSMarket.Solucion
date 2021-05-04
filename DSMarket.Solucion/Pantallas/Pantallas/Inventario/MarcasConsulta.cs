@@ -166,32 +166,29 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres seleccionar este registro?", variablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            this.variablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdMarca"].Value.ToString());
+
+            var BuscarRegistro = ObjDataInventario.Value.Buscamarcas(
+                variablesGlobales.IdMantenimeinto,
+                null, null, null, 1, 1);
+            if (BuscarRegistro.Count() < 1)
             {
-                this.variablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdMarca"].Value.ToString());
-
-                var BuscarRegistro = ObjDataInventario.Value.Buscamarcas(
-                    variablesGlobales.IdMantenimeinto,
-                    null, null, null, 1, 1);
-                if (BuscarRegistro.Count() < 1)
-                {
-                    lbCantidadRegistrosVariable.Text = "0";
-                }
-                else
-                {
-                    foreach (var n in BuscarRegistro)
-                    {
-                        int Cantidad = Convert.ToInt32(n.CantidadRegistros);
-                        lbCantidadRegistrosVariable.Text = Cantidad.ToString("N0");
-                    }
-                }
-                dtListado.DataSource = BuscarRegistro;
-
-                btnBuscar.Enabled = false;
-                btnEditar.Enabled = true;
-                txtNumeroPagina.Enabled = false;
-                txtNumeroRegistros.Enabled = false;
+                lbCantidadRegistrosVariable.Text = "0";
             }
+            else
+            {
+                foreach (var n in BuscarRegistro)
+                {
+                    int Cantidad = Convert.ToInt32(n.CantidadRegistros);
+                    lbCantidadRegistrosVariable.Text = Cantidad.ToString("N0");
+                }
+            }
+            dtListado.DataSource = BuscarRegistro;
+
+            btnBuscar.Enabled = false;
+            btnEditar.Enabled = true;
+            txtNumeroPagina.Enabled = false;
+            txtNumeroRegistros.Enabled = false;
         }
 
         private void btnDeshabilitar_Click(object sender, EventArgs e)

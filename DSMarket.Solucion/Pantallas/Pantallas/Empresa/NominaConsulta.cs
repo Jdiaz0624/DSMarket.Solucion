@@ -147,5 +147,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             Mantenimiento.VariablesGlobales.Accion = "CANCEL";
             Mantenimiento.ShowDialog();
         }
+
+        private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

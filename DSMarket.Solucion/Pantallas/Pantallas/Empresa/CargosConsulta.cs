@@ -155,20 +155,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
-                this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdCargo"].Value.ToString());
+            this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdCargo"].Value.ToString());
 
-                var BuscarRegistroSelccionado = ObjDataEmpresa.Value.BuscaCargos(
-                    VariablesGlobales.IdMantenimeinto,
-                    null, null, 1, 1);
-                dtListado.DataSource = BuscarRegistroSelccionado;
-                OcultarColumnas();
-                btnNuevo.Enabled = false;
-                btnEditar.Enabled = true;
-                txtNumeroPagina.Enabled = false;
-                txtNumeroRegistros.Enabled = false;
-
-            }
+            var BuscarRegistroSelccionado = ObjDataEmpresa.Value.BuscaCargos(
+                VariablesGlobales.IdMantenimeinto,
+                null, null, 1, 1);
+            dtListado.DataSource = BuscarRegistroSelccionado;
+            OcultarColumnas();
+            btnNuevo.Enabled = false;
+            btnEditar.Enabled = true;
+            txtNumeroPagina.Enabled = false;
+            txtNumeroRegistros.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)

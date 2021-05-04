@@ -135,18 +135,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
 
         private void DtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
-                this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(dtListado.CurrentRow.Cells["IdEstadoCivil"].Value.ToString());
+            this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(dtListado.CurrentRow.Cells["IdEstadoCivil"].Value.ToString());
 
-                var Buscar = ObjdataEmpresa.Value.BuscaEstadiCivil(VariablesGlobales.IdMantenimeinto, null, 1, 1);
-                dtListado.DataSource = Buscar;
-                OcultarColumnas();
-                btnBuscar.Enabled = false;
-                btnNuevo.Enabled = false;
-                btnEditar.Enabled = true;
-                txtNumeroPagina.Enabled = false;
-                txtNumeroRegistros.Enabled = false;
-            }
+            var Buscar = ObjdataEmpresa.Value.BuscaEstadiCivil(VariablesGlobales.IdMantenimeinto, null, 1, 1);
+            dtListado.DataSource = Buscar;
+            OcultarColumnas();
+            btnBuscar.Enabled = false;
+            btnNuevo.Enabled = false;
+            btnEditar.Enabled = true;
+            txtNumeroPagina.Enabled = false;
+            txtNumeroRegistros.Enabled = false;
         }
     }
 }

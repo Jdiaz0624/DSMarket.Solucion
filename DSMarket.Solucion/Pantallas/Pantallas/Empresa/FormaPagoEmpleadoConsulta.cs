@@ -125,20 +125,18 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres seleccioanr este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
-                this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdFormaPagoEmpleado"].Value.ToString());
+            this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdFormaPagoEmpleado"].Value.ToString());
 
-                var Buscar = ObjDataEmpresa.Value.BuscaFormaPagoEmpleado(
-                    VariablesGlobales.IdMantenimeinto,
-                    null, 1, 1);
-                dtListado.DataSource = Buscar;
-                OcultarColumnas();
-                btnNuevo.Enabled = false;
-                btnBuscar.Enabled = false;
-                btnEditar.Enabled = true;
-                txtNumeroPagina.Enabled = false;
-                txtNumeroRegistros.Enabled = false;
-            }
+            var Buscar = ObjDataEmpresa.Value.BuscaFormaPagoEmpleado(
+                VariablesGlobales.IdMantenimeinto,
+                null, 1, 1);
+            dtListado.DataSource = Buscar;
+            OcultarColumnas();
+            btnNuevo.Enabled = false;
+            btnBuscar.Enabled = false;
+            btnEditar.Enabled = true;
+            txtNumeroPagina.Enabled = false;
+            txtNumeroRegistros.Enabled = false;
         }
 
         private void PCerrar_Click(object sender, EventArgs e)

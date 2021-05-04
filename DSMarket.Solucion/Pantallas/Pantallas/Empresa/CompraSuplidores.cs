@@ -146,23 +146,20 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres seleccionar este registro?", Variableslobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+            this.Variableslobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdCompraSuplidor"].Value.ToString());
 
-                this.Variableslobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdCompraSuplidor"].Value.ToString());
-
-                var BuscarRegistro = ObjdataEmpresa.Value.BuscaCompraSuplidores(
-                    Variableslobales.IdMantenimeinto,
-                    null, null, null, null, null, 1, 1);
-                dtListado.DataSource = BuscarRegistro;
-                OcultarColumnas();
-                btnBuscar.Enabled = false;
-                btnNuevo.Enabled = false;
-                btnEditar.Enabled = true;
-                btnEliminar.Enabled = true;
-                txtNumeroPagina.Enabled = false;
-                txtNumeroRegistros.Enabled = false;
-                btnRestablecer.Enabled = true;
-            }
+            var BuscarRegistro = ObjdataEmpresa.Value.BuscaCompraSuplidores(
+                Variableslobales.IdMantenimeinto,
+                null, null, null, null, null, 1, 1);
+            dtListado.DataSource = BuscarRegistro;
+            OcultarColumnas();
+            btnBuscar.Enabled = false;
+            btnNuevo.Enabled = false;
+            btnEditar.Enabled = true;
+            btnEliminar.Enabled = true;
+            txtNumeroPagina.Enabled = false;
+            txtNumeroRegistros.Enabled = false;
+            btnRestablecer.Enabled = true;
         }
 
         private void Button1_Click(object sender, EventArgs e)

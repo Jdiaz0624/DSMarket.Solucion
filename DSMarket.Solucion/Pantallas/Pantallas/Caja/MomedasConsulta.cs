@@ -31,5 +31,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
                     break;
             }
         }
+
+        private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

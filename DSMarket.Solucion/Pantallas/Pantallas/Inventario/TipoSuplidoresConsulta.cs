@@ -165,28 +165,25 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdTipoSuplidor"].Value.ToString());
+
+            var Seleccionar = ObjdataInventario.Value.BuscaTipoSupidores(
+                VariablesGlobales.IdMantenimeinto,
+                null, 1, 1);
+            dtListado.DataSource = Seleccionar;
+            foreach (var n in Seleccionar)
             {
-                this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdTipoSuplidor"].Value.ToString());
-
-                var Seleccionar = ObjdataInventario.Value.BuscaTipoSupidores(
-                    VariablesGlobales.IdMantenimeinto,
-                    null, 1, 1);
-                dtListado.DataSource = Seleccionar;
-                foreach (var n in Seleccionar)
-                {
-                    int Cantidad = Convert.ToInt32(n.CantidadRegistros);
-                    lbCantidadRegistrosVariable.Text = Cantidad.ToString("N0");
-                }
-                OcultarColumnas();
-
-                btnBuscar.Enabled = false;
-                btnNuevo.Enabled = false;
-                btnEditar.Enabled = true;
-                btnDeshabilitar.Enabled = true;
-                txtNumeroPagina.Enabled = false;
-                txtNumeroRegistros.Enabled = false;
+                int Cantidad = Convert.ToInt32(n.CantidadRegistros);
+                lbCantidadRegistrosVariable.Text = Cantidad.ToString("N0");
             }
+            OcultarColumnas();
+
+            btnBuscar.Enabled = false;
+            btnNuevo.Enabled = false;
+            btnEditar.Enabled = true;
+            btnDeshabilitar.Enabled = true;
+            txtNumeroPagina.Enabled = false;
+            txtNumeroRegistros.Enabled = false;
         }
 
         private void btnDeshabilitar_Click(object sender, EventArgs e)

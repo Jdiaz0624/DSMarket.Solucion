@@ -131,21 +131,19 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Seguridad
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
-                this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdUsuario"].Value.ToString());
-                this.VariablesGlobales.IdNivelAcceso = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdNivelAcceso"].Value.ToString());
+            this.VariablesGlobales.IdMantenimeinto = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdUsuario"].Value.ToString());
+            this.VariablesGlobales.IdNivelAcceso = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdNivelAcceso"].Value.ToString());
 
-                var BuscarRegistro = ObjDataSeguridad.Value.BuscaUsuarios(
-                   VariablesGlobales.IdMantenimeinto,
-                   null, null, null, null, 1, 1);
-                dtListado.DataSource = BuscarRegistro;
-                OcultarColumnas();
-                btnBuscar.Enabled = false;
-                btnNuevo.Enabled = false;
-                btnEditar.Enabled = true;
-                txtNumeroPagina.Enabled = false;
-                txtNumeroRegistros.Enabled = false;
-            }
+            var BuscarRegistro = ObjDataSeguridad.Value.BuscaUsuarios(
+               VariablesGlobales.IdMantenimeinto,
+               null, null, null, null, 1, 1);
+            dtListado.DataSource = BuscarRegistro;
+            OcultarColumnas();
+            btnBuscar.Enabled = false;
+            btnNuevo.Enabled = false;
+            btnEditar.Enabled = true;
+            txtNumeroPagina.Enabled = false;
+            txtNumeroRegistros.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
