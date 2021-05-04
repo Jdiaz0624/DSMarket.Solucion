@@ -126,10 +126,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
                     //invocamos el reporte
                     DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes Reporte = new Reportes();
                     Reporte.GenerarReporte606(
-                        VariablesGlobales.IdUsuario,
-                        RutaReporte,
-                        UsuarioBD,
-                        CLaveBD);
+                        VariablesGlobales.IdUsuario);
                     Reporte.ShowDialog();
 
                 }

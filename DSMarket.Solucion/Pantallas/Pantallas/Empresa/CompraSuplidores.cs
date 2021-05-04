@@ -272,10 +272,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
                 //INVOCAMOS EL REPORTE
                 DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes Reporte606 = new Reportes.Reportes();
                 Reporte606.GenerarReporte606(
-                    Variableslobales.IdUsuario,
-                    RutaReporte,
-                    UsuarioBD,
-                    ClaveBD);
+                    Variableslobales.IdUsuario);
                 Reporte606.ShowDialog();
             }
             else if (rbEntxt.Checked == true) {

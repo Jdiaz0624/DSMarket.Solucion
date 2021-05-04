@@ -336,10 +336,30 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
         #endregion
 
         #region GENERAR EL REPORTE DEL 606
-        public void GenerarReporte606(decimal IdUsuario, string RutaReporte, string UsuarioBD, string ClaveBD)
+        public void GenerarReporte606(decimal IdUsuario)
         {
             try
             {
+                string RutaReporte = "";
+                string UsuarioBD = "";
+                string ClaveBD = "";
+
+                //GENERAMOS EL REPORTE
+                var SacarRutaReporte = ObjDataConfiguracion.Value.BuscaRutaReporte((int)CodigoReportes.ReporteDel606);
+                foreach (var n in SacarRutaReporte)
+                {
+                    RutaReporte = n.RutaReporte;
+                }
+
+                //SACAMOS LAS CREDENCIALES DE LA BASE DE DATOS
+                var SacarCredenciales = ObjDataSeguridad.Value.SacarCredencialBD(1);
+                foreach (var nSeguridad in SacarCredenciales)
+                {
+                    UsuarioBD = nSeguridad.Usuario;
+                    ClaveBD = DSMarket.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(nSeguridad.Clave);
+                }
+
+
                 ReportDocument Ganancia = new ReportDocument();
 
                 SqlCommand comando = new SqlCommand();
