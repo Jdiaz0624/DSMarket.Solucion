@@ -30,7 +30,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
         Factura=1,
         Cotizacion=2,
         GananciaFacturacion=3,
-        ReporteFacturacion=4
+        ReporteFacturacion=4,
+        HistorialCotizaciones=5
         }
 
         #region MOSTRAR LA FACTURA  Y LA COTIZACION
@@ -131,7 +132,24 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
         #endregion
 
         #region GENERAR EL CUADRE DE CAJA
-        public void GenerarCuadreCaja(decimal IdUsuario, string RutaReporte, string UsuarioBD, string ClaveBD) {
+        public void GenerarCuadreCaja(decimal IdUsuario) {
+            string RutaDeReporte = "", UsuarioBD = "", ClaveBD = "";
+
+            var SacarRutaReporte = ObjDataConfiguracion.Value.BuscaRutaReporte((int)CodigoReportes.ReporteFacturacion);
+            foreach (var n in SacarRutaReporte)
+            {
+                RutaDeReporte = n.RutaReporte;
+            }
+
+            var SacarCredenciales = ObjDataSeguridad.Value.SacarCredencialBD(1);
+            foreach (var ncredencialse in SacarCredenciales)
+            {
+                UsuarioBD = ncredencialse.Usuario;
+                ClaveBD = DSMarket.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(ncredencialse.Clave);
+            }
+
+
+
             ReportDocument Cuadre = new ReportDocument();
 
             SqlCommand comando = new SqlCommand();
@@ -142,7 +160,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
             comando.Parameters["@IdUsuario"].Value = IdUsuario;
 
             
-            Cuadre.Load(@"" + RutaReporte);
+            Cuadre.Load(@"" + RutaDeReporte);
             Cuadre.Refresh();
             Cuadre.SetParameterValue("@IdUsuario", IdUsuario);
             Cuadre.SetDatabaseLogon(UsuarioBD, ClaveBD);
@@ -607,6 +625,41 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Reportes
             catch (Exception ex) {
                 MessageBox.Show("Error al generar el reporte de comisiones por la siguiente razón: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        #endregion
+
+        #region GENERAR REPORTE DE HISTORIAL DE COTIZACIONES
+        public void GenerarReporteHistorialCotizaciones(decimal IdUsuario) {
+            string RutaReporte = "", UsuarioBD = "", ClaveBD = "";
+
+            //SACAMOS LA RUTA DEL REPORTE
+            var SacarRutaReporte = ObjDataConfiguracion.Value.BuscaRutaReporte((int)CodigoReportes.HistorialCotizaciones);
+            foreach (var nReportes in SacarRutaReporte) {
+                RutaReporte = nReportes.RutaReporte;
+            }
+
+            //SACAMOS LAS CREDENCIALES DE BASE DE DATOS
+            var SacarCredenciales = ObjDataSeguridad.Value.SacarCredencialBD(1);
+            foreach (var n in SacarCredenciales) {
+                UsuarioBD = n.Usuario;
+                ClaveBD = DSMarket.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
+            }
+
+            //GENERAMOS EL REPORTE
+            ReportDocument Reporte = new ReportDocument();
+
+            SqlCommand comando = new SqlCommand();
+            comando.CommandText = "EXEC [Reporte].[SP_REPORTE_VENTA] @IdUsuario";
+            comando.Connection = DSMarket.Data.Conexion.ConexionADO.BDConexion.ObtenerConexion();
+
+            comando.Parameters.Add("@IdUsuario", SqlDbType.Decimal);
+            comando.Parameters["@IdUsuario"].Value = IdUsuario;
+
+            Reporte.Load(@"" + RutaReporte);
+            Reporte.Refresh();
+            Reporte.SetParameterValue("@IdUsuario", IdUsuario);
+            Reporte.SetDatabaseLogon(UsuarioBD, ClaveBD);
+            crystalReportViewer1.ReportSource = Reporte;
         }
         #endregion
         private void Reportes_Load(object sender, EventArgs e)

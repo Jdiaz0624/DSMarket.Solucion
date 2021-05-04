@@ -84,6 +84,7 @@
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionTipoMovimiento.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Empresa\ProcesarInformacionTipoNomina.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Historial\ProcesarInformacionGananciaVenta.cs" />
+    <Compile Include="Comunes\ProcesarInformacion\Historial\ProcesarInformacionHistorialContizacion.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Historial\ProcesarInformacionInformacionInformacionVentas.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Inventario\ProcesarCondiciones.cs" />
     <Compile Include="Comunes\ProcesarInformacion\Inventario\ProcesarInformacionCapacidad.cs" />
@@ -188,8 +189,10 @@
     <Compile Include="Entidades\EntidadesHistorial\EHistorialCotizaciones.cs" />
     <Compile Include="Entidades\EntidadesHistorial\EHistorialFacturacion.cs" />
     <Compile Include="Entidades\EntidadesHistorial\EInformacionInformcionVEnta.cs" />
+    <Compile Include="Entidades\EntidadesHistorial\EItemsAgregadosCotizacion.cs" />
     <Compile Include="Entidades\EntidadesHistorial\EItemsAgregadosFactura.cs" />
     <Compile Include="Entidades\EntidadesHistorial\EProcesarGananciaVenta.cs" />
+    <Compile Include="Entidades\EntidadesHistorial\EProcesarInformacionHistorialCotizaciones.cs" />
     <Compile Include="Entidades\EntidadesHistorial\EValidarEstatusFacturacion.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECantidadProductosDefectuosos.cs" />
     <Compile Include="Entidades\EntidadesInventario\ECapacidad.cs" />

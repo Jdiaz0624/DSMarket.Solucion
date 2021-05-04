@@ -110,6 +110,7 @@
             this.cbCradreMail.Text = "Alertar via Mail";
             this.toolTip1.SetToolTip(this.cbCradreMail, "Mandar Detalle del cuadre via Mail");
             this.cbCradreMail.UseVisualStyleBackColor = true;
+            this.cbCradreMail.Visible = false;
             this.cbCradreMail.CheckedChanged += new System.EventHandler(this.cbCradreMail_CheckedChanged);
             // 
             // btnProcesar

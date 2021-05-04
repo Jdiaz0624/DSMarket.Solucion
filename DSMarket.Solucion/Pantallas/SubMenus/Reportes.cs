@@ -81,28 +81,12 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
 
                  
                 }
-                string RutaReporte = "", UsuarioBD = "", ClaveBD = "";
-
-                var SacarRutaReporte = ObjdataConfiguracion.Value.BuscaRutaReporte(3);
-                foreach (var nRuta in SacarRutaReporte)
-                {
-                    RutaReporte = nRuta.RutaReporte;
-                }
-
-                var SacarCredenciales = ObjDataSeguridad.Value.SacarCredencialBD(1);
-                foreach (var n2 in SacarCredenciales)
-                {
-                    UsuarioBD = n2.Usuario;
-                    ClaveBD = DSMarket.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n2.Clave);
-                }
+                
 
                 DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes Invocar = new Pantallas.Reportes.Reportes();
 
                 Invocar.GenerarCuadreCaja(
-                    VariablesGlobales.IdUsuario,
-                    RutaReporte,
-                    UsuarioBD,
-                    ClaveBD);
+                    VariablesGlobales.IdUsuario);
                 Invocar.ShowDialog();
             }
 

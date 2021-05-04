@@ -171,10 +171,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Caja
 
 
                     Generar.GenerarCuadreCaja(
-                        VariablesGlobales.IdUsuario,
-                        RutaReporte,
-                        UsuarioBD,
-                        ClaveBD);
+                        VariablesGlobales.IdUsuario);
                     Generar.ShowDialog();
                 }
             }

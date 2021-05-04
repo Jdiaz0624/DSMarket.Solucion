@@ -299,5 +299,78 @@ namespace DSMarket.Logica.Logica.LogicaHistorial
                                        }).ToList();
             return ListadoCotizaciones;
         }
+
+
+        public List<DSMarket.Logica.Entidades.EntidadesHistorial.EItemsAgregadosCotizacion> ItemsAgregadosCotizacion(decimal? NumeroCotizacion = null, string NumeroCOnector=null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_BUSCA_ITEMS_AGREGADOS_COTIZACION(NumeroCotizacion, NumeroCOnector)
+                           select new DSMarket.Logica.Entidades.EntidadesHistorial.EItemsAgregadosCotizacion
+                           {
+                               NumeroCotizacion=n.NumeroCotizacion,
+                               NumeroConector=n.NumeroConector,
+                               CotizacoA=n.CotizacoA,
+                               FechaCotizacion=n.FechaCotizacion,
+                               TotalProductos=n.TotalProductos,
+                               TotalServicios=n.TotalServicios,
+                               TotalItems=n.TotalItems,
+                               DescripcionRespaldo=n.DescripcionRespaldo,
+                               IdTipoProductoRespaldo=n.IdTipoProductoRespaldo,
+                               TipoProducto=n.TipoProducto,
+                               Precio=n.Precio,
+                               Descuento=n.Descuento,
+                               Cantidad=n.Cantidad,
+                               SubTotal=n.SubTotal,
+                               Impuesto=n.Impuesto,
+                               Total=n.Total
+                           }).ToList();
+            return Listado;
+        }
+
+
+        public DSMarket.Logica.Entidades.EntidadesHistorial.EProcesarInformacionHistorialCotizaciones ProcesarHistorialCotizaciones(DSMarket.Logica.Entidades.EntidadesHistorial.EProcesarInformacionHistorialCotizaciones Item, string Accion) {
+            ObjData.CommandTimeout = 999999999;
+
+            DSMarket.Logica.Entidades.EntidadesHistorial.EProcesarInformacionHistorialCotizaciones Procesar = null;
+
+            var MAN = ObjData.SP_PROCESAR_INFORMACION_HISTORIAL_COTIZACIONES(
+                Item.IdUsuario,
+                Item.NumeroCotizacion,
+                Item.CotizadoA,
+                Item.FechaCotizacion,
+                Item.TotalProductos,
+                Item.TotalServicios,
+                Item.TotalItems,
+                Item.SubTotal,
+                Item.Descuento,
+                Item.Impuesto,
+                Item.Total,
+                Item.IdMoneda,
+                Item.Tasa,
+                Accion);
+            if (MAN != null) {
+                Procesar = (from n in MAN
+                            select new DSMarket.Logica.Entidades.EntidadesHistorial.EProcesarInformacionHistorialCotizaciones
+                            {
+                                IdUsuario=n.IdUsuario,
+                                NumeroCotizacion=n.NumeroCotizacion,
+                                CotizadoA=n.CotizadoA,
+                                FechaCotizacion=n.FechaCotizacion,
+                                TotalProductos=n.TotalProductos,
+                                TotalServicios=n.TotalServicios,
+                                TotalItems=n.TotalItems,
+                                SubTotal=n.SubTotal,
+                                Descuento=n.Descuento,
+                                Impuesto=n.Impuesto,
+                                Total=n.Total,
+                                IdMoneda=n.IdMoneda,
+                                Tasa=n.Tasa
+                            }).FirstOrDefault();
+            }
+            return Procesar;
+        }
     }
+
+
+
 }

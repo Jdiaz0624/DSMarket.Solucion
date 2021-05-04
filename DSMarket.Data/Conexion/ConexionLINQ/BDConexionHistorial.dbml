@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DSMarket" Class="BDConexionHistorialDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=172.26.24.199;Initial Catalog=DSMarket;User ID=sa" SettingsObjectName="DSMarket.Data.Properties.Settings" SettingsPropertyName="DSMarketConnectionString1" Provider="System.Data.SqlClient" />
   <Function Name="Historial.SP_HISTORIAL_FACTURACION" Method="SP_HISTORIAL_FACTURACION">
     <Parameter Name="NumeroFactura" Parameter="numeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.String" DbType="VarChar(30)" />
@@ -220,6 +220,59 @@
       <Column Name="CreadoPor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="FechaCotizacion0" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="FechaCotizacion" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Historial.SP_BUSCA_ITEMS_AGREGADOS_COTIZACION" Method="SP_BUSCA_ITEMS_AGREGADOS_COTIZACION">
+    <Parameter Name="NumeroCotizacion" Parameter="numeroCotizacion" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.String" DbType="VarChar(30)" />
+    <ElementType Name="SP_BUSCA_ITEMS_AGREGADOS_COTIZACIONResult">
+      <Column Name="NumeroCotizacion" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NumeroConector" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="CotizacoA" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FechaCotizacion" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="TotalProductos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalServicios" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalItems" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DescripcionRespaldo" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="IdTipoProductoRespaldo" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="TipoProducto" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Precio" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Descuento" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SubTotal" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Impuesto" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Historial.SP_PROCESAR_INFORMACION_HISTORIAL_COTIZACIONES" Method="SP_PROCESAR_INFORMACION_HISTORIAL_COTIZACIONES">
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NumeroCotizacion" Parameter="numeroCotizacion" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="CotizadoA" Parameter="cotizadoA" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="FechaCotizacion" Parameter="fechaCotizacion" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="TotalProductos" Parameter="totalProductos" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TotalServicios" Parameter="totalServicios" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TotalItems" Parameter="totalItems" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SubTotal" Parameter="subTotal" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="Descuento" Parameter="descuento" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="Impuesto" Parameter="impuesto" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="Total" Parameter="total" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="IdMoneda" Parameter="idMoneda" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Tasa" Parameter="tasa" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_PROCESAR_INFORMACION_HISTORIAL_COTIZACIONESResult">
+      <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NumeroCotizacion" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="CotizadoA" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FechaCotizacion" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TotalProductos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalServicios" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalItems" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SubTotal" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Descuento" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Impuesto" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="IdMoneda" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Tasa" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
