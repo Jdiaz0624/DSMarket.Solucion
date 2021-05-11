@@ -39,21 +39,9 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
 
         private void btnComprobantes_Click(object sender, EventArgs e)
         {
-            //bool UsoComprobante = false;
-
-            //var SacarValidacion = ObjDataConfiguracion.Value.BuscaCOnfiguracionGeneral(1);
-            //foreach (var n in SacarValidacion) {
-            //    UsoComprobante = Convert.ToBoolean(n.Estatus0);
-            //}
-
-            //if (UsoComprobante == true)
-            //{
-            //    DSMarket.Solucion.Pantallas.Pantallas.Configuracion.Comprobantes Comprobantes = new Pantallas.Configuracion.Comprobantes();
-            //    Comprobantes.ShowDialog();
-            //}
-            //else {
-            //    MessageBox.Show("El uso de comprobantes fiscales esta desactivado, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
+            DSMarket.Solucion.Pantallas.Pantallas.Configuracion.Comprobantes NCF = new Pantallas.Configuracion.Comprobantes();
+            //NCF.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbUsuario.Text);
+            NCF.ShowDialog();
         }
 
         private void btnReportes_Click(object sender, EventArgs e)

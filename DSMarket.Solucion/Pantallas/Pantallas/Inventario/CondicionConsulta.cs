@@ -141,5 +141,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             txtCondicion.Text = string.Empty;
             ListadoCondiciones();
         }
+
+        private void PCerrar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

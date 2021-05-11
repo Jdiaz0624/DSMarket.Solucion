@@ -153,5 +153,10 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                     break;
             }
         }
+
+        private void PCerrar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }
