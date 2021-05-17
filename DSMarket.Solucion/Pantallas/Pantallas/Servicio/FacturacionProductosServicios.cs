@@ -29,7 +29,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         ValidarMoneda=5,
         UsoComprobantesFiscalesPorDefecto=6,
         ValidarOpcionesContables=7,
-        EliminarProductosAgotadosFacturar=8
+        EliminarProductosAgotadosFacturar=8,
+        DevolverProductosInventarioAnularFactura=9,
+        MontoTotalManual=10
         }
 
         Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
@@ -1214,6 +1216,18 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
             gbItemsAgregados.Text = MostrarRecuentoFactura(VariablesGlobales.TotalItemsFacturarCotizar, VariablesGlobales.SubTotalFacturarCotizar, VariablesGlobales.TotalDescuentoFacturarCotizar, VariablesGlobales.TotalImpuestoFacturarCotizar, VariablesGlobales.TotalGeneralFacturarCotizar);
             txtCodigoBarra.Focus();
+
+            DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema Validar = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfiguracionGeneral.MontoTotalManual, 2);
+            bool ResultadoValidacion = Validar.ValidarConfiguracionGeneral();
+            switch (ResultadoValidacion) {
+                case true:
+                    txtPrecioItemSeleccionado.Enabled = true;
+                    break;
+
+                case false:
+                    txtPrecioItemSeleccionado.Enabled = false;
+                    break;
+            }
         }
 
         private void cbUsarComprobantes_CheckedChanged(object sender, EventArgs e)
