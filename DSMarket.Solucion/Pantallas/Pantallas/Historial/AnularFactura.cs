@@ -34,7 +34,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             USO_DE_COMPROBANTES_FISCALES_POR_DEFECTO=6,
             VALIDAR_LAS_OPCIONES_CONTABLES=7,
             ELIMINAR_PRODUCTOS_AGOTADOS_AL_FACTURAR=8,
-            DEVOLVER_PRODUCTOS_A_INVENTARIO_AL_ANULAR_FACTURA=9
+            DEVOLVER_PRODUCTOS_A_INVENTARIO_AL_ANULAR_FACTURA=9,
+            MONTO_TOTAL_VENTA_MANUAL=10,
+            CREAR_NOTAS_DE_CREDITO_AL_ANULAR_FACTURAS=11
         }
 
         private void CerrarPantalla()
@@ -276,6 +278,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
                     MessageBox.Show("La clave de seguridad ingresada no es validar, favor de verificar.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else {
+                  
                     //REALIZAMOS EL PROCESO DE ANULACION DE FACTURA
                     if (MessageBox.Show("Este proceso anulara la factura permanentemente, desea continuar?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
@@ -332,55 +335,94 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
                             NumeroComprobante = (decimal)n.IdComprobante == 0 ? "" : ComprobantesFiscales.GenerarComprobanteFiscal();
                         }
 
-                        //GUARDAMOS EL REGISTRO
-                        DSMarket.Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFactura Anular = new Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFactura(
-                            NumeroFactura,
-                            NumeroConector,
-                            FacturadoA,
-                            CodigoCliente,
-                            IdTipoFacturacion,
-                            Comentario,
-                            TotalProductos,
-                            TotalServicios,
-                            TotalItems,
-                            SubTotal,
-                            DescuentoTotal,
-                            ImpuestoTotal,
-                            TotalGeneral,
-                            IdTipoPago,
-                            MontoPagado,
-                            Cambio,
-                            IdMoneda,
-                            Tasa,
-                            VariablesGlobales.IdUsuario,
-                            IdComprobante,
-                            ValidoHasta,
-                            NumeroComprobante,
-                            "INSERT");
-                        Anular.ProcesarInformacion();
-                        AfectarCaja(TotalGeneral);
-                        GuardarHistorialcaja(IdTipoPago, TotalGeneral);
-                        MessageBox.Show("Factura anulada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        //VALIDAMOS SI ES ACTIVA LA OPCION DE DEVOLVER LOS PRODUCTOS A INVENTARIO
-                        bool ValidarDevolverProductoInventario = false;
-                        DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarDevolverProducto = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)ConfiguracionesGeneralesSistema.DEVOLVER_PRODUCTOS_A_INVENTARIO_AL_ANULAR_FACTURA, 2);
-                        ValidarDevolverProductoInventario = ValidarDevolverProducto.ValidarConfiguracionGeneral();
+                        bool ValidacionNotasCreditos = false;
+                        DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema Validaciones = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)ConfiguracionesGeneralesSistema.CREAR_NOTAS_DE_CREDITO_AL_ANULAR_FACTURAS, 2);
+                        ValidacionNotasCreditos = Validaciones.ValidarConfiguracionGeneral();
+                        switch (ValidacionNotasCreditos)
+                        {
+                            case true:
+                                //GUARDAMOS EL REGISTRO
+                                DSMarket.Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFactura Anular = new Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFactura(
+                                    NumeroFactura,
+                                    NumeroConector,
+                                    FacturadoA,
+                                    CodigoCliente,
+                                    IdTipoFacturacion,
+                                    Comentario,
+                                    TotalProductos,
+                                    TotalServicios,
+                                    TotalItems,
+                                    SubTotal,
+                                    DescuentoTotal,
+                                    ImpuestoTotal,
+                                    TotalGeneral,
+                                    IdTipoPago,
+                                    MontoPagado,
+                                    Cambio,
+                                    IdMoneda,
+                                    Tasa,
+                                    VariablesGlobales.IdUsuario,
+                                    IdComprobante,
+                                    ValidoHasta,
+                                    NumeroComprobante,
+                                    "INSERT");
+                                Anular.ProcesarInformacion();
+                                AfectarCaja(TotalGeneral);
+                                GuardarHistorialcaja(IdTipoPago, TotalGeneral);
+                                MessageBox.Show("Factura anulada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        if (ValidarDevolverProductoInventario == true) {
-                            DevolverProductoInventario(VariablesGlobales.IdMantenimeinto, VariablesGlobales.NumeroConectorstring);
+                                //VALIDAMOS SI ES ACTIVA LA OPCION DE DEVOLVER LOS PRODUCTOS A INVENTARIO
+                                bool ValidarDevolverProductoInventario = false;
+                                DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarDevolverProducto = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)ConfiguracionesGeneralesSistema.DEVOLVER_PRODUCTOS_A_INVENTARIO_AL_ANULAR_FACTURA, 2);
+                                ValidarDevolverProductoInventario = ValidarDevolverProducto.ValidarConfiguracionGeneral();
+
+                                if (ValidarDevolverProductoInventario == true)
+                                {
+                                    DevolverProductoInventario(VariablesGlobales.IdMantenimeinto, VariablesGlobales.NumeroConectorstring);
+                                }
+                                //GENERAMOS LA FACTURA
+                                DSMarket.Logica.Comunes.SacarNumeroFactura NoCredito = new Logica.Comunes.SacarNumeroFactura(VariablesGlobales.NumeroConectorstring);
+                                decimal Credito = NoCredito.SacarNumero();
+
+                                //DSMarket.Logica.Comunes.SacarNumeroFactura NoCredito = new Logica.Comunes.SacarNumeroFactura(VariablesGlobales.NumeroConectorstring);
+                                //decimal NoCredito = NumeroFactura.SacarNumero();
+
+                                DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes NotaCredito = new Reportes.Reportes();
+                                NotaCredito.GenerarFacturaVenta(Credito, false);
+                                NotaCredito.ShowDialog();
+                                CerrarPantalla();
+                                break;
+
+                            case false:
+                                //ELIMINAMOS TODO REGISTRO DE LA FACTURA
+                                AfectarCaja(TotalGeneral);
+                                GuardarHistorialcaja(IdTipoPago, TotalGeneral);
+                                //VALIDAMOS SI ES ACTIVA LA OPCION DE DEVOLVER LOS PRODUCTOS A INVENTARIO
+                                bool ValidarDevolverProductoInventarioEliminar = false;
+                                DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidarDevolverProductoEliminar = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)ConfiguracionesGeneralesSistema.DEVOLVER_PRODUCTOS_A_INVENTARIO_AL_ANULAR_FACTURA, 2);
+                                ValidarDevolverProductoInventarioEliminar = ValidarDevolverProductoEliminar.ValidarConfiguracionGeneral();
+
+                                if (ValidarDevolverProductoInventarioEliminar == true)
+                                {
+                                    DevolverProductoInventario(VariablesGlobales.IdMantenimeinto, VariablesGlobales.NumeroConectorstring);
+                                }
+
+
+                                decimal NumeroFacturaEliminar = Convert.ToDecimal(lbNumeroFacturaVariable.Text);
+                                DSMarket.Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFactura Eliminar = new Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFactura(
+                                    NumeroFacturaEliminar,
+                                    NumeroConector,
+                                    "", 0, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", "", "DELETE");
+                                Eliminar.ProcesarInformacion();
+
+
+                                CerrarPantalla();
+                                break;
                         }
-                        //GENERAMOS LA FACTURA
-                        DSMarket.Logica.Comunes.SacarNumeroFactura NoCredito = new Logica.Comunes.SacarNumeroFactura(VariablesGlobales.NumeroConectorstring);
-                        decimal Credito = NoCredito.SacarNumero();
 
-                        //DSMarket.Logica.Comunes.SacarNumeroFactura NoCredito = new Logica.Comunes.SacarNumeroFactura(VariablesGlobales.NumeroConectorstring);
-                        //decimal NoCredito = NumeroFactura.SacarNumero();
 
-                        DSMarket.Solucion.Pantallas.Pantallas.Reportes.Reportes NotaCredito = new Reportes.Reportes();
-                        NotaCredito.GenerarFacturaVenta(Credito, false);
-                        NotaCredito.ShowDialog();
-                        CerrarPantalla();
+                      
 
 
                     }
