@@ -322,8 +322,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
         {
             lbTitulo.Text = "HISTORIAL DE FACTURACION";
             lbTitulo.ForeColor = Color.White;
-            lbGananciaTitulo.ForeColor = Color.White;
-            lbGananciaVariable.ForeColor = Color.White;
+            //lbGananciaTitulo.ForeColor = Color.White;
+           // lbGananciaVariable.ForeColor = Color.White;
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             ListadoFacturas();
             VariablesGlobales.ProductoSeleccionadoFacturacion = 1;
