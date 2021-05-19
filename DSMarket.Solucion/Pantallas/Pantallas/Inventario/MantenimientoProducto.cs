@@ -277,6 +277,27 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             txtComentario.Enabled = true;
         }
 
+
+        private void ProcesarItem() {
+            ProcesarInformacionProductoServicio();
+            MessageBox.Show("Proceso completado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (VariablesGlobales.Accion == "INSERT")
+            {
+                if (MessageBox.Show("¿Quieres agregar otro registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    LimpiarPantalla();
+                }
+                else
+                {
+                    cerrarPantalla();
+                }
+            }
+            else
+            {
+                cerrarPantalla();
+            }
+        }
+
         private void SeleccionarModo(decimal CodigoTipoProducto) {
             if (CodigoTipoProducto == (decimal)TipoProductos.Producto)
             {
@@ -592,6 +613,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             lbTitulo.Text = "PROCESAR INFORMACION DE PRODUCTOS Y SERVICIOS";
             lbTitulo.ForeColor = Color.White;
+            txtstock.Text = "1";
+            txtstockminimo.Text = "1";
             CargarListas();
             if (VariablesGlobales.Accion == "INSERT") {
                 btnGuardar.Text = "Guardar";
@@ -668,23 +691,58 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             }
             else
             {
-                ProcesarInformacionProductoServicio();
-                MessageBox.Show("Proceso completado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (VariablesGlobales.Accion == "INSERT")
-                {
-                    if (MessageBox.Show("¿Quieres agregar otro registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        LimpiarPantalla();
+                if (VariablesGlobales.Accion == "INSERT") {
+
+                    bool ValidacionReferenciaObligatorio = false;
+                    DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema ValidacionCampoReferenciaObligatorio = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfigunacionGeneral.CampoReferenciaObligatorio, 1);
+                    ValidacionReferenciaObligatorio = ValidacionCampoReferenciaObligatorio.ValidarConfiguracionGeneral();
+                    int TipoProdcto = Convert.ToInt32(ddlTipoProducto.SelectedValue);
+
+                    if (ValidacionReferenciaObligatorio == true && TipoProdcto == 1) {
+
+                        //validamos si esta vacio el campo
+                        if (string.IsNullOrEmpty(txtReferencia.Text.Trim())) {
+                            MessageBox.Show("El campo referencia es obligatorio para guardar este registro, favor de verificar.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else {
+
+                            //BUSCAMOS SI LA REFERENCIA EXISTE EN BASE DE DATOS
+                            string _Referencia = string.IsNullOrEmpty(txtReferencia.Text.Trim()) ? null : txtReferencia.Text.Trim();
+                            string _Producto = "";
+                            var BuscarReferencia = ObjDataInventario.Value.BuscaProductosServicios(
+                                new Nullable<decimal>(),
+                                null, null, null, null, null, null, null, null, _Referencia, null, null, null, null, null, null, 1, 1);
+                            if (BuscarReferencia.Count() < 1)
+                            {
+                                ProcesarItem();
+                            }
+                            else
+                            {
+                                foreach (var n in BuscarReferencia)
+                                {
+                                    _Producto = n.Descripcion;
+                                }
+                                MessageBox.Show("La referencia ingresada pertenece al siguiente equipo, " + _Producto + " favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+
+                        }
+
                     }
-                    else
-                    {
-                        cerrarPantalla();
+                    else {
+                        ProcesarItem();
                     }
+
+
+              
+
+
+
                 }
-                else
-                {
-                    cerrarPantalla();
+                else {
+                    ProcesarItem();
                 }
+
+                
             }
         }
 

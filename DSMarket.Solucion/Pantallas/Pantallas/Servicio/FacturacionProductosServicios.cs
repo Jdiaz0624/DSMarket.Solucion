@@ -1575,7 +1575,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         else {
                             GuardarInformacionFacturacion();
                             GuardarInformacionDetalleFacturacion();
-                            AfectarCaja();
+                            int TipoPago = Convert.ToInt32(ddltIPago.SelectedValue);
+                            if (TipoPago == 1) {
+                                AfectarCaja();
+                            }
+                            
                             GuardarHistorialcaja();
                             MessageBox.Show("Operación completada con exito.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                             //VALIDAR EL TIPO DE IMPRESION

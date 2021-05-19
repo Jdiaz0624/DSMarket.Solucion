@@ -182,7 +182,7 @@ namespace DSMarket.Solucion.Pantallas.MenuPrincipal
             btnReportesSistema.Enabled = true;
 
             if (VariablesGlobales.IdNivelAcceso == 3) {
-                btnCaja.Enabled = false;
+                btnCaja.Enabled = true;
                 btneEmpresa.Enabled = false;
                 btnConfiguracion.Enabled = false;
                 btnSeguridad.Enabled = false;

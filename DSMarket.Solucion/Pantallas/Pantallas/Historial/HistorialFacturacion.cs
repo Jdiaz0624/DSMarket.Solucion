@@ -17,6 +17,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             InitializeComponent();
         }
         Lazy<DSMarket.Logica.Logica.LogicaHistorial.LogicaHistorial> ObjdataHistorial = new Lazy<Logica.Logica.LogicaHistorial.LogicaHistorial>();
+        Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjdataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         enum TipoProductoSeleccionado
@@ -327,6 +328,22 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             ListadoFacturas();
             VariablesGlobales.ProductoSeleccionadoFacturacion = 1;
+
+
+            var SacarDatosUsuario = ObjdataSeguridad.Value.BuscaUsuarios(VariablesGlobales.IdUsuario, null, null, null, null, 1, 1);
+            int IdNivel = 0;
+            foreach (var n in SacarDatosUsuario)
+            {
+                IdNivel = (int)n.IdNivelAcceso;
+            }
+
+
+ 
+
+            if (IdNivel == 3)
+            {
+                btnEstadisticaVenta.Visible = false;
+            }
         }
 
         private void PCerrar_Click(object sender, EventArgs e)
