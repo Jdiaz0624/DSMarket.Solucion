@@ -477,7 +477,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.dtListadoItems.Columns["Suplidor"].Visible = false;
             //this.dtListadoItems.Columns["Descripcion"].Visible = false;
             this.dtListadoItems.Columns["CodigoBarra"].Visible = false;
-            this.dtListadoItems.Columns["Referencia"].Visible = false;
+           // this.dtListadoItems.Columns["Referencia"].Visible = false;
             this.dtListadoItems.Columns["NumeroSeguimiento"].Visible = false;
             this.dtListadoItems.Columns["CodigoProducto"].Visible = false;
             this.dtListadoItems.Columns["PrecioCompra"].Visible = false;
