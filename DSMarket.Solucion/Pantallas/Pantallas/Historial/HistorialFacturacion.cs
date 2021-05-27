@@ -86,7 +86,22 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             //this.dtListado.Columns["ValidoHasta"].Visible = false;
             //this.dtListado.Columns["NumeroComprobante"].Visible = false;
             this.dtListado.Columns["CapitalInvertido"].Visible = false;
+
             this.dtListado.Columns["GananciaVenta"].Visible = false;
+            var SacarDatosUsuario = ObjdataSeguridad.Value.BuscaUsuarios(VariablesGlobales.IdUsuario, null, null, null, null, 1, 1);
+            int IdNivel = 0;
+            foreach (var n in SacarDatosUsuario)
+            {
+                IdNivel = (int)n.IdNivelAcceso;
+            }
+
+
+
+
+            if (IdNivel == 3)
+            {
+                this.dtListado.Columns["Ganancia"].Visible = false;
+            }
 
 
         }
