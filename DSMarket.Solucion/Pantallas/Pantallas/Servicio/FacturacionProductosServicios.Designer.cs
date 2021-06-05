@@ -48,6 +48,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.btnRestablecerPantalla = new System.Windows.Forms.Button();
             this.PCerrar = new System.Windows.Forms.PictureBox();
             this.btnRestablecer = new System.Windows.Forms.Button();
+            this.cbEfectivoPagoMixto = new System.Windows.Forms.CheckBox();
+            this.cbChequePagoMixto = new System.Windows.Forms.CheckBox();
+            this.cbTransferenciaPagoMixto = new System.Windows.Forms.CheckBox();
+            this.cbDepositoPagoMixto = new System.Windows.Forms.CheckBox();
+            this.cbTarjetaPagoMixto = new System.Windows.Forms.CheckBox();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbCantidadServiciosVariable = new System.Windows.Forms.Label();
@@ -56,6 +61,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.lbCantidadProductosTitulo = new System.Windows.Forms.Label();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.gbGeneral = new System.Windows.Forms.GroupBox();
+            this.lbValorPagoMixto = new System.Windows.Forms.Label();
+            this.lbPagoMixto = new System.Windows.Forms.Label();
+            this.txtTarjetaPagoMixto = new System.Windows.Forms.TextBox();
+            this.txtDepositoPagoMixto = new System.Windows.Forms.TextBox();
+            this.txtTransferenciaPagoMixto = new System.Windows.Forms.TextBox();
+            this.txtChequePagoMixto = new System.Windows.Forms.TextBox();
+            this.txtEfectivoPagoMixto = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -115,18 +127,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.lbComprobante = new System.Windows.Forms.Label();
             this.txtFiltroCliente = new System.Windows.Forms.TextBox();
             this.lbLetreroFiltroCliente = new System.Windows.Forms.Label();
-            this.cbEfectivoPagoMixto = new System.Windows.Forms.CheckBox();
-            this.cbChequePagoMixto = new System.Windows.Forms.CheckBox();
-            this.cbTransferenciaPagoMixto = new System.Windows.Forms.CheckBox();
-            this.cbDepositoPagoMixto = new System.Windows.Forms.CheckBox();
-            this.cbTarjetaPagoMixto = new System.Windows.Forms.CheckBox();
-            this.txtEfectivoPagoMixto = new System.Windows.Forms.TextBox();
-            this.txtChequePagoMixto = new System.Windows.Forms.TextBox();
-            this.txtTransferenciaPagoMixto = new System.Windows.Forms.TextBox();
-            this.txtDepositoPagoMixto = new System.Windows.Forms.TextBox();
-            this.txtTarjetaPagoMixto = new System.Windows.Forms.TextBox();
-            this.lbPagoMixto = new System.Windows.Forms.Label();
-            this.lbValorPagoMixto = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel1.SuspendLayout();
             this.gbGeneral.SuspendLayout();
@@ -274,9 +274,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.btnCompletarOperaciom.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCompletarOperaciom.Image = global::DSMarket.Solucion.Properties.Resources.Completar;
             this.btnCompletarOperaciom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCompletarOperaciom.Location = new System.Drawing.Point(882, 612);
+            this.btnCompletarOperaciom.Location = new System.Drawing.Point(754, 612);
             this.btnCompletarOperaciom.Name = "btnCompletarOperaciom";
-            this.btnCompletarOperaciom.Size = new System.Drawing.Size(258, 76);
+            this.btnCompletarOperaciom.Size = new System.Drawing.Size(406, 76);
             this.btnCompletarOperaciom.TabIndex = 97;
             this.btnCompletarOperaciom.Text = "Completar Operación";
             this.toolTip1.SetToolTip(this.btnCompletarOperaciom, "Completar Operación");
@@ -324,6 +324,81 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.btnRestablecer.UseVisualStyleBackColor = true;
             this.btnRestablecer.Visible = false;
             this.btnRestablecer.Click += new System.EventHandler(this.btnRestablecer_Click);
+            // 
+            // cbEfectivoPagoMixto
+            // 
+            this.cbEfectivoPagoMixto.AutoSize = true;
+            this.cbEfectivoPagoMixto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbEfectivoPagoMixto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbEfectivoPagoMixto.Location = new System.Drawing.Point(157, 639);
+            this.cbEfectivoPagoMixto.Name = "cbEfectivoPagoMixto";
+            this.cbEfectivoPagoMixto.Size = new System.Drawing.Size(100, 29);
+            this.cbEfectivoPagoMixto.TabIndex = 112;
+            this.cbEfectivoPagoMixto.Text = "Efectivo";
+            this.toolTip1.SetToolTip(this.cbEfectivoPagoMixto, "Usar comprobantes fiscales para realizar esta facturación");
+            this.cbEfectivoPagoMixto.UseVisualStyleBackColor = true;
+            this.cbEfectivoPagoMixto.Visible = false;
+            this.cbEfectivoPagoMixto.CheckedChanged += new System.EventHandler(this.cbEfectivoPagoMixto_CheckedChanged);
+            // 
+            // cbChequePagoMixto
+            // 
+            this.cbChequePagoMixto.AutoSize = true;
+            this.cbChequePagoMixto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbChequePagoMixto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbChequePagoMixto.Location = new System.Drawing.Point(256, 639);
+            this.cbChequePagoMixto.Name = "cbChequePagoMixto";
+            this.cbChequePagoMixto.Size = new System.Drawing.Size(101, 29);
+            this.cbChequePagoMixto.TabIndex = 113;
+            this.cbChequePagoMixto.Text = "Cheque";
+            this.toolTip1.SetToolTip(this.cbChequePagoMixto, "Usar comprobantes fiscales para realizar esta facturación");
+            this.cbChequePagoMixto.UseVisualStyleBackColor = true;
+            this.cbChequePagoMixto.Visible = false;
+            this.cbChequePagoMixto.CheckedChanged += new System.EventHandler(this.cbChequePagoMixto_CheckedChanged);
+            // 
+            // cbTransferenciaPagoMixto
+            // 
+            this.cbTransferenciaPagoMixto.AutoSize = true;
+            this.cbTransferenciaPagoMixto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbTransferenciaPagoMixto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbTransferenciaPagoMixto.Location = new System.Drawing.Point(359, 639);
+            this.cbTransferenciaPagoMixto.Name = "cbTransferenciaPagoMixto";
+            this.cbTransferenciaPagoMixto.Size = new System.Drawing.Size(151, 29);
+            this.cbTransferenciaPagoMixto.TabIndex = 114;
+            this.cbTransferenciaPagoMixto.Text = "Transferencia";
+            this.toolTip1.SetToolTip(this.cbTransferenciaPagoMixto, "Usar comprobantes fiscales para realizar esta facturación");
+            this.cbTransferenciaPagoMixto.UseVisualStyleBackColor = true;
+            this.cbTransferenciaPagoMixto.Visible = false;
+            this.cbTransferenciaPagoMixto.CheckedChanged += new System.EventHandler(this.cbTransferenciaPagoMixto_CheckedChanged);
+            // 
+            // cbDepositoPagoMixto
+            // 
+            this.cbDepositoPagoMixto.AutoSize = true;
+            this.cbDepositoPagoMixto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbDepositoPagoMixto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbDepositoPagoMixto.Location = new System.Drawing.Point(516, 639);
+            this.cbDepositoPagoMixto.Name = "cbDepositoPagoMixto";
+            this.cbDepositoPagoMixto.Size = new System.Drawing.Size(108, 29);
+            this.cbDepositoPagoMixto.TabIndex = 115;
+            this.cbDepositoPagoMixto.Text = "Deposito";
+            this.toolTip1.SetToolTip(this.cbDepositoPagoMixto, "Usar comprobantes fiscales para realizar esta facturación");
+            this.cbDepositoPagoMixto.UseVisualStyleBackColor = true;
+            this.cbDepositoPagoMixto.Visible = false;
+            this.cbDepositoPagoMixto.CheckedChanged += new System.EventHandler(this.cbDepositoPagoMixto_CheckedChanged);
+            // 
+            // cbTarjetaPagoMixto
+            // 
+            this.cbTarjetaPagoMixto.AutoSize = true;
+            this.cbTarjetaPagoMixto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbTarjetaPagoMixto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbTarjetaPagoMixto.Location = new System.Drawing.Point(631, 639);
+            this.cbTarjetaPagoMixto.Name = "cbTarjetaPagoMixto";
+            this.cbTarjetaPagoMixto.Size = new System.Drawing.Size(92, 29);
+            this.cbTarjetaPagoMixto.TabIndex = 116;
+            this.cbTarjetaPagoMixto.Text = "Tarjeta";
+            this.toolTip1.SetToolTip(this.cbTarjetaPagoMixto, "Usar comprobantes fiscales para realizar esta facturación");
+            this.cbTarjetaPagoMixto.UseVisualStyleBackColor = true;
+            this.cbTarjetaPagoMixto.Visible = false;
+            this.cbTarjetaPagoMixto.CheckedChanged += new System.EventHandler(this.cbTarjetaPagoMixto_CheckedChanged);
             // 
             // bunifuElipse1
             // 
@@ -467,6 +542,78 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.gbGeneral.TabIndex = 4;
             this.gbGeneral.TabStop = false;
             this.gbGeneral.Text = "Datos de Facturación";
+            // 
+            // lbValorPagoMixto
+            // 
+            this.lbValorPagoMixto.AutoSize = true;
+            this.lbValorPagoMixto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbValorPagoMixto.Location = new System.Drawing.Point(88, 666);
+            this.lbValorPagoMixto.Name = "lbValorPagoMixto";
+            this.lbValorPagoMixto.Size = new System.Drawing.Size(63, 25);
+            this.lbValorPagoMixto.TabIndex = 123;
+            this.lbValorPagoMixto.Text = "Valor";
+            this.lbValorPagoMixto.Visible = false;
+            // 
+            // lbPagoMixto
+            // 
+            this.lbPagoMixto.AutoSize = true;
+            this.lbPagoMixto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPagoMixto.Location = new System.Drawing.Point(9, 639);
+            this.lbPagoMixto.Name = "lbPagoMixto";
+            this.lbPagoMixto.Size = new System.Drawing.Size(142, 25);
+            this.lbPagoMixto.TabIndex = 122;
+            this.lbPagoMixto.Text = "Pagos Mixtos";
+            this.lbPagoMixto.Visible = false;
+            // 
+            // txtTarjetaPagoMixto
+            // 
+            this.txtTarjetaPagoMixto.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTarjetaPagoMixto.Location = new System.Drawing.Point(630, 663);
+            this.txtTarjetaPagoMixto.Name = "txtTarjetaPagoMixto";
+            this.txtTarjetaPagoMixto.Size = new System.Drawing.Size(93, 30);
+            this.txtTarjetaPagoMixto.TabIndex = 121;
+            this.txtTarjetaPagoMixto.Visible = false;
+            this.txtTarjetaPagoMixto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTarjetaPagoMixto_KeyPress);
+            // 
+            // txtDepositoPagoMixto
+            // 
+            this.txtDepositoPagoMixto.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtDepositoPagoMixto.Location = new System.Drawing.Point(516, 663);
+            this.txtDepositoPagoMixto.Name = "txtDepositoPagoMixto";
+            this.txtDepositoPagoMixto.Size = new System.Drawing.Size(93, 30);
+            this.txtDepositoPagoMixto.TabIndex = 120;
+            this.txtDepositoPagoMixto.Visible = false;
+            this.txtDepositoPagoMixto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTarjetaPagoMixto_KeyPress);
+            // 
+            // txtTransferenciaPagoMixto
+            // 
+            this.txtTransferenciaPagoMixto.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTransferenciaPagoMixto.Location = new System.Drawing.Point(359, 663);
+            this.txtTransferenciaPagoMixto.Name = "txtTransferenciaPagoMixto";
+            this.txtTransferenciaPagoMixto.Size = new System.Drawing.Size(93, 30);
+            this.txtTransferenciaPagoMixto.TabIndex = 119;
+            this.txtTransferenciaPagoMixto.Visible = false;
+            this.txtTransferenciaPagoMixto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTarjetaPagoMixto_KeyPress);
+            // 
+            // txtChequePagoMixto
+            // 
+            this.txtChequePagoMixto.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtChequePagoMixto.Location = new System.Drawing.Point(256, 663);
+            this.txtChequePagoMixto.Name = "txtChequePagoMixto";
+            this.txtChequePagoMixto.Size = new System.Drawing.Size(93, 30);
+            this.txtChequePagoMixto.TabIndex = 118;
+            this.txtChequePagoMixto.Visible = false;
+            this.txtChequePagoMixto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTarjetaPagoMixto_KeyPress);
+            // 
+            // txtEfectivoPagoMixto
+            // 
+            this.txtEfectivoPagoMixto.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtEfectivoPagoMixto.Location = new System.Drawing.Point(157, 663);
+            this.txtEfectivoPagoMixto.Name = "txtEfectivoPagoMixto";
+            this.txtEfectivoPagoMixto.Size = new System.Drawing.Size(93, 30);
+            this.txtEfectivoPagoMixto.TabIndex = 117;
+            this.txtEfectivoPagoMixto.Visible = false;
+            this.txtEfectivoPagoMixto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTarjetaPagoMixto_KeyPress);
             // 
             // label22
             // 
@@ -643,6 +790,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.ddltIPago.Name = "ddltIPago";
             this.ddltIPago.Size = new System.Drawing.Size(207, 33);
             this.ddltIPago.TabIndex = 35;
+            this.ddltIPago.SelectedIndexChanged += new System.EventHandler(this.ddltIPago_SelectedIndexChanged);
             // 
             // lbTipoPago
             // 
@@ -1134,148 +1282,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.lbLetreroFiltroCliente.Size = new System.Drawing.Size(164, 25);
             this.lbLetreroFiltroCliente.TabIndex = 58;
             this.lbLetreroFiltroCliente.Text = "Filtro de Cliente";
-            // 
-            // cbEfectivoPagoMixto
-            // 
-            this.cbEfectivoPagoMixto.AutoSize = true;
-            this.cbEfectivoPagoMixto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbEfectivoPagoMixto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbEfectivoPagoMixto.Location = new System.Drawing.Point(157, 639);
-            this.cbEfectivoPagoMixto.Name = "cbEfectivoPagoMixto";
-            this.cbEfectivoPagoMixto.Size = new System.Drawing.Size(100, 29);
-            this.cbEfectivoPagoMixto.TabIndex = 112;
-            this.cbEfectivoPagoMixto.Text = "Efectivo";
-            this.toolTip1.SetToolTip(this.cbEfectivoPagoMixto, "Usar comprobantes fiscales para realizar esta facturación");
-            this.cbEfectivoPagoMixto.UseVisualStyleBackColor = true;
-            this.cbEfectivoPagoMixto.Visible = false;
-            // 
-            // cbChequePagoMixto
-            // 
-            this.cbChequePagoMixto.AutoSize = true;
-            this.cbChequePagoMixto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbChequePagoMixto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbChequePagoMixto.Location = new System.Drawing.Point(256, 639);
-            this.cbChequePagoMixto.Name = "cbChequePagoMixto";
-            this.cbChequePagoMixto.Size = new System.Drawing.Size(101, 29);
-            this.cbChequePagoMixto.TabIndex = 113;
-            this.cbChequePagoMixto.Text = "Cheque";
-            this.toolTip1.SetToolTip(this.cbChequePagoMixto, "Usar comprobantes fiscales para realizar esta facturación");
-            this.cbChequePagoMixto.UseVisualStyleBackColor = true;
-            this.cbChequePagoMixto.Visible = false;
-            // 
-            // cbTransferenciaPagoMixto
-            // 
-            this.cbTransferenciaPagoMixto.AutoSize = true;
-            this.cbTransferenciaPagoMixto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbTransferenciaPagoMixto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbTransferenciaPagoMixto.Location = new System.Drawing.Point(359, 639);
-            this.cbTransferenciaPagoMixto.Name = "cbTransferenciaPagoMixto";
-            this.cbTransferenciaPagoMixto.Size = new System.Drawing.Size(151, 29);
-            this.cbTransferenciaPagoMixto.TabIndex = 114;
-            this.cbTransferenciaPagoMixto.Text = "Transferencia";
-            this.toolTip1.SetToolTip(this.cbTransferenciaPagoMixto, "Usar comprobantes fiscales para realizar esta facturación");
-            this.cbTransferenciaPagoMixto.UseVisualStyleBackColor = true;
-            this.cbTransferenciaPagoMixto.Visible = false;
-            // 
-            // cbDepositoPagoMixto
-            // 
-            this.cbDepositoPagoMixto.AutoSize = true;
-            this.cbDepositoPagoMixto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbDepositoPagoMixto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbDepositoPagoMixto.Location = new System.Drawing.Point(516, 639);
-            this.cbDepositoPagoMixto.Name = "cbDepositoPagoMixto";
-            this.cbDepositoPagoMixto.Size = new System.Drawing.Size(108, 29);
-            this.cbDepositoPagoMixto.TabIndex = 115;
-            this.cbDepositoPagoMixto.Text = "Deposito";
-            this.toolTip1.SetToolTip(this.cbDepositoPagoMixto, "Usar comprobantes fiscales para realizar esta facturación");
-            this.cbDepositoPagoMixto.UseVisualStyleBackColor = true;
-            this.cbDepositoPagoMixto.Visible = false;
-            // 
-            // cbTarjetaPagoMixto
-            // 
-            this.cbTarjetaPagoMixto.AutoSize = true;
-            this.cbTarjetaPagoMixto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbTarjetaPagoMixto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbTarjetaPagoMixto.Location = new System.Drawing.Point(631, 639);
-            this.cbTarjetaPagoMixto.Name = "cbTarjetaPagoMixto";
-            this.cbTarjetaPagoMixto.Size = new System.Drawing.Size(92, 29);
-            this.cbTarjetaPagoMixto.TabIndex = 116;
-            this.cbTarjetaPagoMixto.Text = "Tarjeta";
-            this.toolTip1.SetToolTip(this.cbTarjetaPagoMixto, "Usar comprobantes fiscales para realizar esta facturación");
-            this.cbTarjetaPagoMixto.UseVisualStyleBackColor = true;
-            this.cbTarjetaPagoMixto.Visible = false;
-            // 
-            // txtEfectivoPagoMixto
-            // 
-            this.txtEfectivoPagoMixto.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtEfectivoPagoMixto.Location = new System.Drawing.Point(157, 663);
-            this.txtEfectivoPagoMixto.Name = "txtEfectivoPagoMixto";
-            this.txtEfectivoPagoMixto.Size = new System.Drawing.Size(93, 30);
-            this.txtEfectivoPagoMixto.TabIndex = 117;
-            this.txtEfectivoPagoMixto.Visible = false;
-            this.txtEfectivoPagoMixto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTarjetaPagoMixto_KeyPress);
-            // 
-            // txtChequePagoMixto
-            // 
-            this.txtChequePagoMixto.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtChequePagoMixto.Location = new System.Drawing.Point(256, 663);
-            this.txtChequePagoMixto.Name = "txtChequePagoMixto";
-            this.txtChequePagoMixto.Size = new System.Drawing.Size(93, 30);
-            this.txtChequePagoMixto.TabIndex = 118;
-            this.txtChequePagoMixto.Visible = false;
-            this.txtChequePagoMixto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTarjetaPagoMixto_KeyPress);
-            // 
-            // txtTransferenciaPagoMixto
-            // 
-            this.txtTransferenciaPagoMixto.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtTransferenciaPagoMixto.Location = new System.Drawing.Point(359, 663);
-            this.txtTransferenciaPagoMixto.Name = "txtTransferenciaPagoMixto";
-            this.txtTransferenciaPagoMixto.Size = new System.Drawing.Size(93, 30);
-            this.txtTransferenciaPagoMixto.TabIndex = 119;
-            this.txtTransferenciaPagoMixto.Visible = false;
-            this.txtTransferenciaPagoMixto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTarjetaPagoMixto_KeyPress);
-            // 
-            // txtDepositoPagoMixto
-            // 
-            this.txtDepositoPagoMixto.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtDepositoPagoMixto.Location = new System.Drawing.Point(516, 663);
-            this.txtDepositoPagoMixto.Name = "txtDepositoPagoMixto";
-            this.txtDepositoPagoMixto.Size = new System.Drawing.Size(93, 30);
-            this.txtDepositoPagoMixto.TabIndex = 120;
-            this.txtDepositoPagoMixto.Visible = false;
-            this.txtDepositoPagoMixto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTarjetaPagoMixto_KeyPress);
-            // 
-            // txtTarjetaPagoMixto
-            // 
-            this.txtTarjetaPagoMixto.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtTarjetaPagoMixto.Location = new System.Drawing.Point(630, 663);
-            this.txtTarjetaPagoMixto.Name = "txtTarjetaPagoMixto";
-            this.txtTarjetaPagoMixto.Size = new System.Drawing.Size(93, 30);
-            this.txtTarjetaPagoMixto.TabIndex = 121;
-            this.txtTarjetaPagoMixto.Visible = false;
-            this.txtTarjetaPagoMixto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTarjetaPagoMixto_KeyPress);
-            // 
-            // lbPagoMixto
-            // 
-            this.lbPagoMixto.AutoSize = true;
-            this.lbPagoMixto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPagoMixto.Location = new System.Drawing.Point(9, 639);
-            this.lbPagoMixto.Name = "lbPagoMixto";
-            this.lbPagoMixto.Size = new System.Drawing.Size(142, 25);
-            this.lbPagoMixto.TabIndex = 122;
-            this.lbPagoMixto.Text = "Pagos Mixtos";
-            this.lbPagoMixto.Visible = false;
-            // 
-            // lbValorPagoMixto
-            // 
-            this.lbValorPagoMixto.AutoSize = true;
-            this.lbValorPagoMixto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbValorPagoMixto.Location = new System.Drawing.Point(88, 666);
-            this.lbValorPagoMixto.Name = "lbValorPagoMixto";
-            this.lbValorPagoMixto.Size = new System.Drawing.Size(63, 25);
-            this.lbValorPagoMixto.TabIndex = 123;
-            this.lbValorPagoMixto.Text = "Valor";
-            this.lbValorPagoMixto.Visible = false;
             // 
             // FacturacionProductosServicios
             // 

@@ -106,7 +106,20 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             txtDepositoPagoMixto.Text = "0";
             txtTarjetaPagoMixto.Text = "0";
         }
-        private void OcultarOpcionesPAgoMixto() { }
+        private void OcultarOpcionesPAgoMixto() {
+            lbPagoMixto.Visible = false;
+            lbValorPagoMixto.Visible = false;
+            cbEfectivoPagoMixto.Visible = false;
+            cbChequePagoMixto.Visible = false;
+            cbTransferenciaPagoMixto.Visible = false;
+            cbDepositoPagoMixto.Visible = false;
+            cbTarjetaPagoMixto.Visible = false;
+            txtEfectivoPagoMixto.Visible = false;
+            txtChequePagoMixto.Visible = false;
+            txtTransferenciaPagoMixto.Visible = false;
+            txtDepositoPagoMixto.Visible = false;
+            txtTarjetaPagoMixto.Visible = false;
+        }
         #endregion
         private void ConsultarClientesRegistrados() {
             if (string.IsNullOrEmpty(txtFiltroCliente.Text.Trim())) {
@@ -675,6 +688,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 _IdComprobante,
                 _ValidoHasta,
                 _NumeroComprobante,
+                cbEfectivoPagoMixto.Checked,
+                Convert.ToDecimal(txtEfectivoPagoMixto.Text),
+                cbChequePagoMixto.Checked,
+                Convert.ToDecimal(txtChequePagoMixto.Text),
+                cbTransferenciaPagoMixto.Checked,
+                Convert.ToDecimal(txtTransferenciaPagoMixto.Text),
+                cbDepositoPagoMixto.Checked,
+                Convert.ToDecimal(txtDepositoPagoMixto.Text),
+                cbTarjetaPagoMixto.Checked,
+                Convert.ToDecimal(txtTarjetaPagoMixto.Text),
                 "INSERT");
             GuardarInformacion.ProcesarInformacion();
         }
@@ -1678,6 +1701,83 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void txtTarjetaPagoMixto_KeyPress(object sender, KeyPressEventArgs e)
         {
             DSMarket.Logica.Comunes.ValidarControles.SoloNumeros(e);
+        }
+
+        private void ddltIPago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try {
+
+                int TipoPagoSeleccionado = Convert.ToInt32(ddltIPago.SelectedValue);
+                if (TipoPagoSeleccionado == 9)
+                {
+                    MostrarOpcionesPagoMixto();
+                }
+                else
+                {
+                    OcultarOpcionesPAgoMixto();
+                }
+            }
+            catch (Exception) { }
+        }
+
+        private void cbEfectivoPagoMixto_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbEfectivoPagoMixto.Checked == true) {
+                txtEfectivoPagoMixto.Enabled = true;
+                txtEfectivoPagoMixto.Text = string.Empty;
+            }
+            else {
+                txtEfectivoPagoMixto.Text = "0";
+                txtEfectivoPagoMixto.Enabled = false;
+            }
+        }
+
+        private void cbChequePagoMixto_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbChequePagoMixto.Checked == true) {
+                txtChequePagoMixto.Text = string.Empty;
+                txtChequePagoMixto.Enabled = true;
+            }
+            else {
+                txtChequePagoMixto.Enabled = false;
+                txtChequePagoMixto.Text = "0";
+            }
+        }
+
+        private void cbTransferenciaPagoMixto_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbTransferenciaPagoMixto.Checked == true) {
+                txtTransferenciaPagoMixto.Text = string.Empty;
+                txtTransferenciaPagoMixto.Enabled = true;
+            }
+            else {
+                txtTransferenciaPagoMixto.Text = "0";
+                txtTransferenciaPagoMixto.Enabled = false;
+            }
+        }
+
+        private void cbDepositoPagoMixto_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbDepositoPagoMixto.Checked == true) {
+                txtDepositoPagoMixto.Text = string.Empty;
+                txtDepositoPagoMixto.Enabled = true;
+            }
+            else {
+                txtDepositoPagoMixto.Text = "0";
+                txtDepositoPagoMixto.Enabled = false;
+            }
+        }
+
+        private void cbTarjetaPagoMixto_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbTarjetaPagoMixto.Checked == true) {
+                txtTarjetaPagoMixto.Text = string.Empty;
+                txtTarjetaPagoMixto.Enabled = true;
+            }
+            else {
+                txtTarjetaPagoMixto.Text = "0";
+                txtTarjetaPagoMixto.Enabled = false;
+            }
         }
     }
 }

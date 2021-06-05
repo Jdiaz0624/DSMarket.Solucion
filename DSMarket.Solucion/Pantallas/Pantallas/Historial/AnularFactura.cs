@@ -366,6 +366,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
                                     IdComprobante,
                                     ValidoHasta,
                                     NumeroComprobante,
+                                    false,0,false,0,false,0,false,0,false,0,
                                     "INSERT");
                                 Anular.ProcesarInformacion();
                                 AfectarCaja(TotalGeneral);
@@ -413,7 +414,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
                                 DSMarket.Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFactura Eliminar = new Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFactura(
                                     NumeroFacturaEliminar,
                                     NumeroConector,
-                                    "", 0, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", "", "DELETE");
+                                    "", 0, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", "",false,0,false,0,false,0,false,0,false,0, "DELETE");
                                 Eliminar.ProcesarInformacion();
 
 

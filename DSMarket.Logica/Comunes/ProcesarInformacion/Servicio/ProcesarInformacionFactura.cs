@@ -33,6 +33,16 @@ namespace DSMarket.Logica.Comunes.ProcesarInformacion.Servicio
         private decimal IdComprobante = 0;
         private string ValidoHasta = "";
         private string NumeroComprobante = "";
+        private bool EfectivoMixto = false;
+        private decimal MontoEfectivoMixto = 0;
+        private bool chequeMixto = false;
+        private decimal MontoChequeMixto = 0;
+        private bool TransferenciaMixto = false;
+        private decimal MontoTransferenciaMixto = 0;
+        private bool DepositoMixto = false;
+        private decimal MontoDepositoMixto = 0;
+        private bool TarjetaMixto = false;
+        private decimal MontoTarjetaMixto = 0;
         private string Accion = "";
 
         public ProcesarInformacionFactura(
@@ -58,6 +68,16 @@ namespace DSMarket.Logica.Comunes.ProcesarInformacion.Servicio
             decimal IdComprobanteCON,
             string ValidoHastaCON,
             string NumeroComprobanteCON,
+            bool EfectivoMixtoCON,
+            decimal MontoEfectivoMixtoCON,
+            bool chequeMixtoCON,
+            decimal MontoChequeMixtoCON,
+            bool TransferenciaMixtoCON,
+            decimal MontoTransferenciaMixtoCON,
+            bool DepositoMixtoCON,
+            decimal MontoDepositoMixtoCON,
+            bool TarjetaMixtoCON,
+            decimal MontoTarjetaMixtoCON,
             string AccionCON)
         {
             NumeroFactura = NumeroFacturaCON;
@@ -82,6 +102,16 @@ namespace DSMarket.Logica.Comunes.ProcesarInformacion.Servicio
             IdComprobante = IdComprobanteCON;
             ValidoHasta = ValidoHastaCON;
             NumeroComprobante = NumeroComprobanteCON;
+            EfectivoMixto = EfectivoMixtoCON;
+            MontoEfectivoMixto = MontoEfectivoMixtoCON;
+            chequeMixto = chequeMixtoCON;
+            MontoChequeMixto = MontoChequeMixtoCON;
+            TransferenciaMixto = TransferenciaMixtoCON;
+            MontoTransferenciaMixto = MontoTransferenciaMixtoCON;
+            DepositoMixto = DepositoMixtoCON;
+            MontoDepositoMixto = MontoDepositoMixtoCON;
+            TarjetaMixto = TarjetaMixtoCON;
+            MontoTarjetaMixto = MontoTarjetaMixtoCON;
             Accion = AccionCON;
         }
 
@@ -114,6 +144,16 @@ namespace DSMarket.Logica.Comunes.ProcesarInformacion.Servicio
             Procesar.IdComprobante = IdComprobante;
             Procesar.ValidoHasta = ValidoHasta;
             Procesar.NumeroComprobante = NumeroComprobante;
+            Procesar.EfectivoMixto = EfectivoMixto;
+            Procesar.MontoEfectivoMixto = MontoEfectivoMixto;
+            Procesar.ChequeMixto = chequeMixto;
+            Procesar.MontoChequeMixto = MontoChequeMixto;
+            Procesar.TransferenciaMixto = TransferenciaMixto;
+            Procesar.MontoTransferenciaMixto = MontoTransferenciaMixto;
+            Procesar.DepositoMixto = DepositoMixto;
+            Procesar.MontoDepositoMixto = MontoDepositoMixto;
+            Procesar.TarjetaMixto = TarjetaMixto;
+            Procesar.MontoTarjetaMixto = MontoTarjetaMixto;
 
             var MAn = ObjDta.ProcesarFacturacion(Procesar, Accion);
         }

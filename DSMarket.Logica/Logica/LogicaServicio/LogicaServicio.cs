@@ -193,6 +193,16 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                 Item.IdComprobante,
                 Item.ValidoHasta,
                 Item.NumeroComprobante,
+                Item.EfectivoMixto,
+                Item.MontoEfectivoMixto,
+                Item.ChequeMixto,
+                Item.MontoChequeMixto,
+                Item.TransferenciaMixto,
+                Item.MontoTransferenciaMixto,
+                Item.DepositoMixto,
+                Item.MontoDepositoMixto,
+                Item.TarjetaMixto,
+                Item.MontoTarjetaMixto,
                 Accion);
             if (Facturacion != null) {
                 Procesar = (from n in Facturacion
@@ -220,7 +230,18 @@ namespace DSMarket.Logica.Logica.LogicaServicio
                                 FechaFacturacion=n.FechaFacturacion,
                                 IdComprobante=n.IdComprobante,
                                 ValidoHasta=n.ValidoHasta,
-                                NumeroComprobante=n.NumeroComprobante
+                                NumeroComprobante=n.NumeroComprobante,
+                                EfectivoMixto=n.EfectivoMixto,
+                                MontoEfectivoMixto=n.MontoEfectivoMixto,
+                                ChequeMixto=n.ChequeMixto,
+                                MontoChequeMixto=n.MontoChequeMixto,
+                                TransferenciaMixto=n.TransferenciaMixto,
+                                MontoTransferenciaMixto=n.MontoTransferenciaMixto,
+                                DepositoMixto=n.DepositoMixto,
+                                MontoDepositoMixto=n.MontoDepositoMixto,
+                                TarjetaMixto=n.TarjetaMixto,
+                                MontoTarjetaMixto=n.MontoTarjetaMixto
+
                             }).FirstOrDefault();
             }
             return Procesar;

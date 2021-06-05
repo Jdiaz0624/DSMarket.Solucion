@@ -53,5 +53,25 @@ namespace DSMarket.Logica.Entidades.EntidadesServicio
 		public string ValidoHasta{get;set;}
 
 		public string NumeroComprobante{get;set;}
+
+		public System.Nullable<bool> EfectivoMixto { get; set; }
+
+		public System.Nullable<decimal> MontoEfectivoMixto { get; set; }
+
+		public System.Nullable<bool> ChequeMixto { get; set; }
+
+		public System.Nullable<decimal> MontoChequeMixto { get; set; }
+
+		public System.Nullable<bool> TransferenciaMixto { get; set; }
+
+		public System.Nullable<decimal> MontoTransferenciaMixto { get; set; }
+
+		public System.Nullable<bool> DepositoMixto { get; set; }
+
+		public System.Nullable<decimal> MontoDepositoMixto { get; set; }
+
+		public System.Nullable<bool> TarjetaMixto { get; set; }
+
+		public System.Nullable<decimal> MontoTarjetaMixto { get; set; }
 	}
 }
