@@ -46,11 +46,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
 
         #region AFECTAR LA CAJA
-        private void AfectarCaja() {
+        private void AfectarCaja(decimal MontoCaja) {
             DSMarket.Logica.Comunes.ProcesarInformacion.Caja.ProcesarInformacionAfectarCaja AfectarCaja = new Logica.Comunes.ProcesarInformacion.Caja.ProcesarInformacionAfectarCaja(
                 1,
                 "Caja General",
-                VariablesGlobales.TotalGeneralFacturarCotizar,
+                MontoCaja,
                 true,
                 "ADDMONEY");
             AfectarCaja.ProcesarInformacion();
@@ -60,11 +60,26 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             DSMarket.Logica.Comunes.SacarNumeroFactura Factura = new Logica.Comunes.SacarNumeroFactura(VariablesGlobales.NumeroConectorstring);
             decimal NumeroFactura = Factura.SacarNumero();
 
+            decimal TipoPagoutilizado = Convert.ToDecimal(ddltIPago.SelectedValue);
+            string ConceptoFacturacion = "";
+            if (TipoPagoutilizado == 9) {
+                string Efectivo = cbEfectivoPagoMixto.Checked == true ? " Efectivo : " + txtEfectivoPagoMixto.Text.ToString() : "";
+                string Cheque = cbChequePagoMixto.Checked == true ? " Cheque : " + txtChequePagoMixto.Text.ToString() : "";
+                string Transferencia = cbTransferenciaPagoMixto.Checked == true ? " Transferencia : " + txtTransferenciaPagoMixto.Text.ToString() : "";
+                string Deposito = cbDepositoPagoMixto.Checked == true ? " Deposito : " + txtDepositoPagoMixto.Text.ToString() : "";
+                string Tarjeta = cbTarjetaPagoMixto.Checked == true ? " Tarjeta : " + txtTransferenciaPagoMixto.Text.ToString() : "";
+                ConceptoFacturacion ="Facturación con pago en " + Efectivo + Cheque + Transferencia + Deposito + Tarjeta;
+
+            }
+            else {
+                ConceptoFacturacion = "Facturación";
+            }
+
             DSMarket.Logica.Comunes.ProcesarInformacion.Caja.ProcesarInformacionHistorialCaja Historial = new Logica.Comunes.ProcesarInformacion.Caja.ProcesarInformacionHistorialCaja(
                 0,
                 1,
                 VariablesGlobales.TotalGeneralFacturarCotizar,
-                "FACTURACION",
+                ConceptoFacturacion,
                 VariablesGlobales.IdUsuario,
                 NumeroFactura,
                 Convert.ToDecimal(ddltIPago.SelectedValue),
@@ -1628,6 +1643,12 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                         decimal MontoTotalPagar = Convert.ToDecimal(txtTotal.Text);
                         decimal MontoPagado = (Convert.ToDecimal(txtMontoPagar.Text));
 
+                        if (string.IsNullOrEmpty(txtEfectivoPagoMixto.Text.Trim())) { txtEfectivoPagoMixto.Text = "0"; }
+                        if (string.IsNullOrEmpty(txtChequePagoMixto.Text.Trim())) { txtChequePagoMixto.Text = "0"; }
+                        if (string.IsNullOrEmpty(txtTransferenciaPagoMixto.Text.Trim())) { txtTransferenciaPagoMixto.Text = "0"; }
+                        if (string.IsNullOrEmpty(txtDepositoPagoMixto.Text.Trim())) { txtDepositoPagoMixto.Text = "0"; }
+                        if (string.IsNullOrEmpty(txtTarjetaPagoMixto.Text.Trim())) { txtTarjetaPagoMixto.Text = "0"; }
+
                         if (MontoTotalPagar > MontoPagado) {
                             MessageBox.Show("El total a pagar supera el monto ingresado, favor de verificar.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
@@ -1635,8 +1656,12 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             GuardarInformacionFacturacion();
                             GuardarInformacionDetalleFacturacion();
                             int TipoPago = Convert.ToInt32(ddltIPago.SelectedValue);
-                            if (TipoPago == 1) {
-                                AfectarCaja();
+                            if (TipoPago == 1)
+                            {
+                                AfectarCaja(VariablesGlobales.TotalGeneralFacturarCotizar);
+                            }
+                            else if (TipoPago == 9) {
+                                AfectarCaja(Convert.ToDecimal(txtEfectivoPagoMixto.Text));
                             }
                             
                             GuardarHistorialcaja();

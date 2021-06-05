@@ -369,7 +369,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
                                     false,0,false,0,false,0,false,0,false,0,
                                     "INSERT");
                                 Anular.ProcesarInformacion();
-                                AfectarCaja(TotalGeneral);
+                              //  AfectarCaja(TotalGeneral);
                                 GuardarHistorialcaja(IdTipoPago, TotalGeneral);
                                 MessageBox.Show("Factura anulada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -397,7 +397,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
 
                             case false:
                                 //ELIMINAMOS TODO REGISTRO DE LA FACTURA
-                                AfectarCaja(TotalGeneral);
+                               // AfectarCaja(TotalGeneral);
                                 GuardarHistorialcaja(IdTipoPago, TotalGeneral);
                                 //VALIDAMOS SI ES ACTIVA LA OPCION DE DEVOLVER LOS PRODUCTOS A INVENTARIO
                                 bool ValidarDevolverProductoInventarioEliminar = false;
