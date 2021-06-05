@@ -72,6 +72,42 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             Historial.ProcesarInformacion();
         }
         #endregion
+
+        #region OPCIONES PAGOS MIXTO
+        private void MostrarOpcionesPagoMixto() {
+            lbPagoMixto.Visible = true;
+            lbValorPagoMixto.Visible = true;
+            cbEfectivoPagoMixto.Visible = true;
+            cbChequePagoMixto.Visible = true;
+            cbTransferenciaPagoMixto.Visible = true;
+            cbDepositoPagoMixto.Visible = true;
+            cbTarjetaPagoMixto.Visible = true;
+            txtEfectivoPagoMixto.Visible = true;
+            txtChequePagoMixto.Visible = true;
+            txtTransferenciaPagoMixto.Visible = true;
+            txtDepositoPagoMixto.Visible = true;
+            txtTarjetaPagoMixto.Visible = true;
+
+            cbEfectivoPagoMixto.Checked = false;
+            cbChequePagoMixto.Checked = false;
+            cbTransferenciaPagoMixto.Checked = false;
+            cbDepositoPagoMixto.Checked = false;
+            cbTarjetaPagoMixto.Checked = false;
+
+            txtEfectivoPagoMixto.Enabled = false;
+            txtChequePagoMixto.Enabled = false;
+            txtTransferenciaPagoMixto.Enabled = false;
+            txtDepositoPagoMixto.Enabled = false;
+            txtTarjetaPagoMixto.Enabled = false;
+
+            txtEfectivoPagoMixto.Text = "0";
+            txtChequePagoMixto.Text = "0";
+            txtTransferenciaPagoMixto.Text = "0";
+            txtDepositoPagoMixto.Text = "0";
+            txtTarjetaPagoMixto.Text = "0";
+        }
+        private void OcultarOpcionesPAgoMixto() { }
+        #endregion
         private void ConsultarClientesRegistrados() {
             if (string.IsNullOrEmpty(txtFiltroCliente.Text.Trim())) {
                 MessageBox.Show("El campo Dato de filtro de cliente no puede estar vacio para buscar esta información, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -1637,6 +1673,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             catch (Exception) {
                 txtTasa.Text = "1";
             }
+        }
+
+        private void txtTarjetaPagoMixto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            DSMarket.Logica.Comunes.ValidarControles.SoloNumeros(e);
         }
     }
 }

@@ -116,7 +116,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.dtListado.Columns["FechaModifica0"].Visible = false;
             this.dtListado.Columns["FechaModifica"].Visible = false;
             this.dtListado.Columns["FechaIngreso0"].Visible = false;
-            this.dtListado.Columns["FechaIngreso"].Visible = false;
+           // this.dtListado.Columns["FechaIngreso"].Visible = false;
             this.dtListado.Columns["NombreEmpresa"].Visible = false;
             this.dtListado.Columns["RNC"].Visible = false;
             this.dtListado.Columns["Direccion"].Visible = false;
