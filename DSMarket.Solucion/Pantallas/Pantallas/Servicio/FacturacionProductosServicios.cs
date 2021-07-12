@@ -614,7 +614,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             string ImpuestoTitulo = "Impuesto ( ";
             string TotalTitulo = "Total ( ";
 
-            RecuentoFactura = "Recuento de Facturación: " + TotalItemsTitulo + TotalItems.ToString("N0") + CerrarParentesis + ", " + SubTotalTitulo + SubTotal.ToString("N2") + CerrarParentesis + ", " + TotalDescuentoTitulo + TotalDescuento.ToString("N2") + CerrarParentesis + ", " + ImpuestoTitulo + Impuesto.ToString("N2") + CerrarParentesis + ", " + TotalTitulo + Total.ToString("N2") + CerrarParentesis + ".";
+            RecuentoFactura = "Recuento de Facturación: " + TotalItemsTitulo + TotalItems.ToString("N0") + CerrarParentesis + ", " + /*SubTotalTitulo + SubTotal.ToString("N2") + CerrarParentesis + ", " +*/ TotalDescuentoTitulo + TotalDescuento.ToString("N2") + CerrarParentesis + ", " + /*ImpuestoTitulo + Impuesto.ToString("N2") + CerrarParentesis + ", " +*/ TotalTitulo + Total.ToString("N2") + CerrarParentesis + ".";
             return RecuentoFactura;
         }
         #endregion
