@@ -17,15 +17,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             InitializeComponent();
         }
 
-        enum NombreCompanias {
-            DMSPI=1,
-            FJSmartPhone=2,
-            FerreteriaPerezDiaz=3,
-            RepuestosJoseJaques=4,
-            SmokeVape=5,
-            YeremiHooka=6,
-            LashesBroomRoom=7
-        }
+      
         enum TipoProductoSeleccionado { 
         ProductoNoSeleccionado=1,
         ProductoSeleccionado=2
@@ -1319,27 +1311,27 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             int Compania = ValidarCompania.CodigoCompania();
             switch (Compania)
             {
-                case (int)NombreCompanias.DMSPI:
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.DMSPI:
 
                     break;
 
-                case (int)NombreCompanias.FJSmartPhone:
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.FJSmartPhone:
 
                     break;
 
-                case (int)NombreCompanias.FerreteriaPerezDiaz:
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.FerreteriaPerezDiaz:
 
                     break;
 
-                case (int)NombreCompanias.RepuestosJoseJaques:
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.RepuestosJoseJaques:
 
                     break;
 
-                case (int)NombreCompanias.SmokeVape:
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.SmokeVape:
 
                     break;
 
-                case (int)NombreCompanias.YeremiHooka:
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.YerhemyHookahVape:
                     label2.Visible = false;
                     txtComentario.Visible = false;
                     label3.Visible = false;
@@ -1353,7 +1345,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
                     break;
 
-                case (int)NombreCompanias.LashesBroomRoom:
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.LashesBrowsRoom:
 
                     break;
             }

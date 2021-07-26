@@ -25,6 +25,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         Lazy<DSMarket.Logica.Logica.LogicaServicio.LogicaServicio> ObjDataServicio = new Lazy<Logica.Logica.LogicaServicio.LogicaServicio>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
+
         enum OpcionesConfigunacionGeneral
         {
             ImpuestoPorDefecto = 1,
@@ -41,16 +42,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             AutoCompletarCampoReferenciaConsulta = 12
         }
 
-        enum NombreCompanias
-        {
-            DMSPI = 1,
-            FJSmartPhone = 2,
-            FerreteriaPerezDiaz = 3,
-            RepuestosJoseJaques = 4,
-            SmokeVape = 5,
-            YerhemyHookahVape = 6,
-            LashesBrowsRoom = 7
-        }
+       
 
         public void ValidarCompanias() {
 
@@ -58,27 +50,27 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             int Validacion = Validar.CodigoCompania();
 
             switch (Validacion) {
-                case (int)NombreCompanias.DMSPI:
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.DMSPI:
 
                     break;
 
-                case (int)NombreCompanias.FJSmartPhone:
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.FJSmartPhone:
 
                     break;
 
-                case (int)NombreCompanias.FerreteriaPerezDiaz:
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.FerreteriaPerezDiaz:
 
                     break;
 
-                case (int)NombreCompanias.RepuestosJoseJaques:
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.RepuestosJoseJaques:
 
                     break;
 
-                case (int)NombreCompanias.SmokeVape:
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.SmokeVape:
 
                     break;
 
-                case (int)NombreCompanias.YerhemyHookahVape:
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.YerhemyHookahVape:
 
 
                     cbAplicaParaImpuesto.Visible = false;
@@ -114,12 +106,48 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                     txtCondicion.Visible = false;
                     txtCapacidad.Visible = false;
                     lbModelo.Text = "Descripción:";
-                    lbModelo.Location = new Point(65, 218);
+                    ddlModelo.Visible = false;
+
+
+
+                    
+                    lbTipoSuplidor.Location = new Point(18, 63);
+                    ddlTipoSuplidor.Location = new Point(169, 60);
+
+                    lbSuplidor.Location = new Point(485, 65);
+                    ddlSuplidor.Location = new Point(583, 60);
+
+                    lbCodigoBarra.Location = new Point(24, 98);
+                    txtcodigobarra.Location = new Point(169, 94);
+
+                    lbCodigoProducto.Location = new Point(425, 95);
+                    txtCodigoproducto.Location = new Point(583, 92);
+
+                    lbModelo.Location = new Point(37, 129);
+                    txtModelo.Location = new Point(169, 126);
+                    txtModelo.Size = new Size(665, 32);
+
+                    lbPrecioCompra.Location = new Point(15, 159);
+                    txtPrecioCompra.Location = new Point(169, 156);
+
+                    lbPrecioVenta.Location = new Point(429, 158);
+                    txtPrecioVenta.Location = new Point(583, 155);
+
+                    lbstock.Location = new Point(105, 188);
+                    txtstock.Location = new Point(169, 185);
+
+                    lbstockMinimo.Location = new Point(458, 189);
+                    txtstockminimo.Location = new Point(583, 185);
+
+                    groupBox1.Size = new Size(849, 311);
+                    this.Size = new Size(883, 414);
+                    this.StartPosition = FormStartPosition.CenterScreen;
+                    btnGuardar.Location = new Point(301, 361);
 
 
                     break;
 
-                case (int)NombreCompanias.LashesBrowsRoom:
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.LashesBrowsRoom:
 
                     break;
             }

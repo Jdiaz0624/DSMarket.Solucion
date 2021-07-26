@@ -73,17 +73,17 @@
             this.lbColor = new System.Windows.Forms.Label();
             this.lbModelo = new System.Windows.Forms.Label();
             this.lbUnidadMedida = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lbstockMinimo = new System.Windows.Forms.Label();
+            this.lbstock = new System.Windows.Forms.Label();
+            this.lbPrecioVenta = new System.Windows.Forms.Label();
+            this.lbPrecioCompra = new System.Windows.Forms.Label();
+            this.lbCodigoProducto = new System.Windows.Forms.Label();
             this.lbNumeroSeguimiento = new System.Windows.Forms.Label();
             this.lbReferencia = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lbCodigoBarra = new System.Windows.Forms.Label();
             this.lbDescripcion = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbSuplidor = new System.Windows.Forms.Label();
+            this.lbTipoSuplidor = new System.Windows.Forms.Label();
             this.lbMarca = new System.Windows.Forms.Label();
             this.lbCategoria = new System.Windows.Forms.Label();
             this.lbTipoProducto = new System.Windows.Forms.Label();
@@ -196,17 +196,17 @@
             this.groupBox1.Controls.Add(this.lbColor);
             this.groupBox1.Controls.Add(this.lbModelo);
             this.groupBox1.Controls.Add(this.lbUnidadMedida);
-            this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.lbstockMinimo);
+            this.groupBox1.Controls.Add(this.lbstock);
+            this.groupBox1.Controls.Add(this.lbPrecioVenta);
+            this.groupBox1.Controls.Add(this.lbPrecioCompra);
+            this.groupBox1.Controls.Add(this.lbCodigoProducto);
             this.groupBox1.Controls.Add(this.lbNumeroSeguimiento);
             this.groupBox1.Controls.Add(this.lbReferencia);
-            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.lbCodigoBarra);
             this.groupBox1.Controls.Add(this.lbDescripcion);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.lbSuplidor);
+            this.groupBox1.Controls.Add(this.lbTipoSuplidor);
             this.groupBox1.Controls.Add(this.lbMarca);
             this.groupBox1.Controls.Add(this.lbCategoria);
             this.groupBox1.Controls.Add(this.lbTipoProducto);
@@ -549,50 +549,50 @@
             this.lbUnidadMedida.TabIndex = 16;
             this.lbUnidadMedida.Text = "Unidad de Medida";
             // 
-            // label17
+            // lbstockMinimo
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(458, 189);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(155, 23);
-            this.label17.TabIndex = 15;
-            this.label17.Text = "Stock Minimo *";
+            this.lbstockMinimo.AutoSize = true;
+            this.lbstockMinimo.Location = new System.Drawing.Point(458, 189);
+            this.lbstockMinimo.Name = "lbstockMinimo";
+            this.lbstockMinimo.Size = new System.Drawing.Size(155, 23);
+            this.lbstockMinimo.TabIndex = 15;
+            this.lbstockMinimo.Text = "Stock Minimo *";
             // 
-            // label18
+            // lbstock
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(105, 188);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(78, 23);
-            this.label18.TabIndex = 14;
-            this.label18.Text = "Stock *";
+            this.lbstock.AutoSize = true;
+            this.lbstock.Location = new System.Drawing.Point(105, 188);
+            this.lbstock.Name = "lbstock";
+            this.lbstock.Size = new System.Drawing.Size(78, 23);
+            this.lbstock.TabIndex = 14;
+            this.lbstock.Text = "Stock *";
             // 
-            // label19
+            // lbPrecioVenta
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(844, 160);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(171, 23);
-            this.label19.TabIndex = 13;
-            this.label19.Text = "Precio de Venta *";
+            this.lbPrecioVenta.AutoSize = true;
+            this.lbPrecioVenta.Location = new System.Drawing.Point(844, 160);
+            this.lbPrecioVenta.Name = "lbPrecioVenta";
+            this.lbPrecioVenta.Size = new System.Drawing.Size(171, 23);
+            this.lbPrecioVenta.TabIndex = 13;
+            this.lbPrecioVenta.Text = "Precio de Venta *";
             // 
-            // label20
+            // lbPrecioCompra
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(429, 158);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(189, 23);
-            this.label20.TabIndex = 12;
-            this.label20.Text = "Precio de Compra *";
+            this.lbPrecioCompra.AutoSize = true;
+            this.lbPrecioCompra.Location = new System.Drawing.Point(429, 158);
+            this.lbPrecioCompra.Name = "lbPrecioCompra";
+            this.lbPrecioCompra.Size = new System.Drawing.Size(189, 23);
+            this.lbPrecioCompra.TabIndex = 12;
+            this.lbPrecioCompra.Text = "Precio de Compra *";
             // 
-            // label10
+            // lbCodigoProducto
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(15, 159);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(187, 23);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "Codigo de Producto";
+            this.lbCodigoProducto.AutoSize = true;
+            this.lbCodigoProducto.Location = new System.Drawing.Point(15, 159);
+            this.lbCodigoProducto.Name = "lbCodigoProducto";
+            this.lbCodigoProducto.Size = new System.Drawing.Size(187, 23);
+            this.lbCodigoProducto.TabIndex = 11;
+            this.lbCodigoProducto.Text = "Codigo de Producto";
             // 
             // lbNumeroSeguimiento
             // 
@@ -613,14 +613,14 @@
             this.lbReferencia.Text = "Referencia *";
             this.lbReferencia.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label7
+            // lbCodigoBarra
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(37, 129);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(159, 23);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Codigo de Barra";
+            this.lbCodigoBarra.AutoSize = true;
+            this.lbCodigoBarra.Location = new System.Drawing.Point(37, 129);
+            this.lbCodigoBarra.Name = "lbCodigoBarra";
+            this.lbCodigoBarra.Size = new System.Drawing.Size(159, 23);
+            this.lbCodigoBarra.TabIndex = 8;
+            this.lbCodigoBarra.Text = "Codigo de Barra";
             // 
             // lbDescripcion
             // 
@@ -631,23 +631,23 @@
             this.lbDescripcion.TabIndex = 7;
             this.lbDescripcion.Text = "Descripción *";
             // 
-            // label5
+            // lbSuplidor
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(495, 95);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 23);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Suplidor *";
+            this.lbSuplidor.AutoSize = true;
+            this.lbSuplidor.Location = new System.Drawing.Point(495, 95);
+            this.lbSuplidor.Name = "lbSuplidor";
+            this.lbSuplidor.Size = new System.Drawing.Size(104, 23);
+            this.lbSuplidor.TabIndex = 6;
+            this.lbSuplidor.Text = "Suplidor *";
             // 
-            // label4
+            // lbTipoSuplidor
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 98);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(177, 23);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Tipo de Suplidor *";
+            this.lbTipoSuplidor.AutoSize = true;
+            this.lbTipoSuplidor.Location = new System.Drawing.Point(24, 98);
+            this.lbTipoSuplidor.Name = "lbTipoSuplidor";
+            this.lbTipoSuplidor.Size = new System.Drawing.Size(177, 23);
+            this.lbTipoSuplidor.TabIndex = 5;
+            this.lbTipoSuplidor.Text = "Tipo de Suplidor *";
             // 
             // lbMarca
             // 
@@ -743,17 +743,17 @@
         private System.Windows.Forms.Label lbColor;
         private System.Windows.Forms.Label lbModelo;
         private System.Windows.Forms.Label lbUnidadMedida;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lbstockMinimo;
+        private System.Windows.Forms.Label lbstock;
+        private System.Windows.Forms.Label lbPrecioVenta;
+        private System.Windows.Forms.Label lbPrecioCompra;
+        private System.Windows.Forms.Label lbCodigoProducto;
         private System.Windows.Forms.Label lbNumeroSeguimiento;
         private System.Windows.Forms.Label lbReferencia;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbCodigoBarra;
         private System.Windows.Forms.Label lbDescripcion;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbSuplidor;
+        private System.Windows.Forms.Label lbTipoSuplidor;
         private System.Windows.Forms.Label lbMarca;
         private System.Windows.Forms.Label lbCategoria;
         private System.Windows.Forms.Label lbTipoProducto;

@@ -26,6 +26,61 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         Lazy<DSMarket.Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion> ObjdataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion.LogicaCOnfiguracion>();
         public DSMarket.Logica.Comunes.VariablesGlobales variablesGlobales = new Logica.Comunes.VariablesGlobales();
 
+        private void ValidarCompanias() {
+            DSMarket.Logica.Comunes.ValidarCompania Validar = new Logica.Comunes.ValidarCompania();
+            int Validacion = Validar.CodigoCompania();
+
+            switch (Validacion) {
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.DMSPI:
+                    OcultarColumnasGrid();
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.FJSmartPhone:
+                    OcultarColumnasGrid();
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.FerreteriaPerezDiaz:
+                    OcultarColumnasGrid();
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.RepuestosJoseJaques:
+                    OcultarColumnasGrid();
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.SmokeVape:
+                    OcultarColumnasGrid();
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.YerhemyHookahVape:
+
+                    cbAgregarFiltroPreciso.Visible = false;
+                    lbTipoProducto.Visible = false;
+                    ddlTipoProducto.Visible = false;
+                    lbCategoria.Visible = false;
+                    ddlCategoria.Visible = false;
+                    lbMarca.Visible = false;
+                    ddlMarca.Visible = false;
+                    lbReferencia.Visible = false;
+                    txtReferencia.Visible = false;
+
+
+                    OcultarColumnasGrid();
+
+
+
+
+
+
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.LashesBrowsRoom:
+                    OcultarColumnasGrid();
+                    break;
+            }
+
+
+        }
+
         #region CARGAR LAS LISTAS
         private void CargarTipoPdoducto()
         {
@@ -69,66 +124,136 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         #endregion
         private void OcultarColumnasGrid() {
-            this.dtListado.Columns["IdRegistro"].Visible = false;
-            this.dtListado.Columns["NumeroConector"].Visible = false;
-            this.dtListado.Columns["IdTipoProducto"].Visible = false;
-           // this.dtListado.Columns["TipoProducto"].Visible = false;
-            this.dtListado.Columns["IdCategoria"].Visible = false;
-            this.dtListado.Columns["Categoria"].Visible = false;
-            this.dtListado.Columns["IdMarca"].Visible = false;
-            this.dtListado.Columns["Marca"].Visible = false;
-            this.dtListado.Columns["IdTipoSuplidor"].Visible = false;
-            this.dtListado.Columns["TipoSuplidor"].Visible = false;
-            this.dtListado.Columns["IdSuplidor"].Visible = false;
-            this.dtListado.Columns["Suplidor"].Visible = false;
-          //  this.dtListado.Columns["Descripcion"].Visible = false;
-         //   this.dtListado.Columns["CodigoBarra"].Visible = false;
-         //   this.dtListado.Columns["Referencia"].Visible = false;
-         //   this.dtListado.Columns["NumeroSeguimiento"].Visible = false;
-         //   this.dtListado.Columns["CodigoProducto"].Visible = false;
-            this.dtListado.Columns["PrecioCompra"].Visible = false;
-         //   this.dtListado.Columns["PrecioVenta"].Visible = false;
-            this.dtListado.Columns["GananciaAproximada"].Visible = false;
-          //  this.dtListado.Columns["Stock"].Visible = false;
-            this.dtListado.Columns["StockMinimo"].Visible = false;
-          //  this.dtListado.Columns["Estatus"].Visible = false;
-            this.dtListado.Columns["UnidadMedida"].Visible = false;
-            this.dtListado.Columns["Modelo"].Visible = false;
-            this.dtListado.Columns["Color"].Visible = false;
-            this.dtListado.Columns["Condicion"].Visible = false;
-            this.dtListado.Columns["Capacidad"].Visible = false;
-            this.dtListado.Columns["AplicaParaImpuesto0"].Visible = false;
-            this.dtListado.Columns["AplicaParaImpuesto"].Visible = false;
-            this.dtListado.Columns["TieneImagen0"].Visible = false;
-            this.dtListado.Columns["TieneImagen"].Visible = false;
-            this.dtListado.Columns["LlevaGarantia0"].Visible = false;
-            this.dtListado.Columns["LlevaGarantia"].Visible = false;
-            this.dtListado.Columns["IdTipoGarantia"].Visible = false;
-            this.dtListado.Columns["TipoTiempoGarantia"].Visible = false;
-            this.dtListado.Columns["TiempoGarantia"].Visible = false;
-            this.dtListado.Columns["Comentario"].Visible = false;
-            this.dtListado.Columns["UsuarioAdiciona"].Visible = false;
-            this.dtListado.Columns["CreadoPor"].Visible = false;
-            this.dtListado.Columns["FechaAdiciona0"].Visible = false;
-            this.dtListado.Columns["FechaAdiciona"].Visible = false;
-            this.dtListado.Columns["UsuarioModifica"].Visible = false;
-            this.dtListado.Columns["ModificadoPor"].Visible = false;
-            this.dtListado.Columns["FechaModifica0"].Visible = false;
-            this.dtListado.Columns["FechaModifica"].Visible = false;
-            this.dtListado.Columns["FechaIngreso0"].Visible = false;
-           // this.dtListado.Columns["FechaIngreso"].Visible = false;
-            this.dtListado.Columns["NombreEmpresa"].Visible = false;
-            this.dtListado.Columns["RNC"].Visible = false;
-            this.dtListado.Columns["Direccion"].Visible = false;
-            this.dtListado.Columns["Telefonos"].Visible = false;
-            this.dtListado.Columns["Email"].Visible = false;
-            this.dtListado.Columns["Email2"].Visible = false;
-            this.dtListado.Columns["Facebook"].Visible = false;
-            this.dtListado.Columns["Instagran"].Visible = false;
-            this.dtListado.Columns["LogoEmpresa"].Visible = false;
-            this.dtListado.Columns["GeneradoPor"].Visible = false;
-            this.dtListado.Columns["CapitalInvertido"].Visible = false;
-            this.dtListado.Columns["GananciaAproximadaTotal"].Visible = false;
+
+            DSMarket.Logica.Comunes.ValidarCompania Validar = new Logica.Comunes.ValidarCompania();
+            int CodigoCompania = Validar.CodigoCompania();
+
+            if (CodigoCompania == (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.YerhemyHookahVape) {
+                this.dtListado.Columns["IdRegistro"].Visible = false;
+                this.dtListado.Columns["NumeroConector"].Visible = false;
+                this.dtListado.Columns["IdTipoProducto"].Visible = false;
+                this.dtListado.Columns["TipoProducto"].Visible = false;
+                this.dtListado.Columns["IdCategoria"].Visible = false;
+                this.dtListado.Columns["Categoria"].Visible = false;
+                this.dtListado.Columns["IdMarca"].Visible = false;
+                this.dtListado.Columns["Marca"].Visible = false;
+                this.dtListado.Columns["IdTipoSuplidor"].Visible = false;
+                //this.dtListado.Columns["TipoSuplidor"].Visible = false;
+                this.dtListado.Columns["IdSuplidor"].Visible = false;
+                //this.dtListado.Columns["Suplidor"].Visible = false;
+                //this.dtListado.Columns["Descripcion"].Visible = false;
+                //this.dtListado.Columns["CodigoBarra"].Visible = false;
+                this.dtListado.Columns["Referencia"].Visible = false;
+                this.dtListado.Columns["NumeroSeguimiento"].Visible = false;
+                //this.dtListado.Columns["CodigoProducto"].Visible = false;
+                //this.dtListado.Columns["PrecioCompra"].Visible = false;
+                //this.dtListado.Columns["PrecioVenta"].Visible = false;
+                //this.dtListado.Columns["GananciaAproximada"].Visible = false;
+                //this.dtListado.Columns["Stock"].Visible = false;
+                //this.dtListado.Columns["StockMinimo"].Visible = false;
+                //this.dtListado.Columns["Estatus"].Visible = false;
+                this.dtListado.Columns["UnidadMedida"].Visible = false;
+                this.dtListado.Columns["Modelo"].Visible = false;
+                this.dtListado.Columns["Color"].Visible = false;
+                this.dtListado.Columns["Condicion"].Visible = false;
+                this.dtListado.Columns["Capacidad"].Visible = false;
+                this.dtListado.Columns["AplicaParaImpuesto0"].Visible = false;
+                this.dtListado.Columns["AplicaParaImpuesto"].Visible = false;
+                this.dtListado.Columns["TieneImagen0"].Visible = false;
+                this.dtListado.Columns["TieneImagen"].Visible = false;
+                this.dtListado.Columns["LlevaGarantia0"].Visible = false;
+                this.dtListado.Columns["LlevaGarantia"].Visible = false;
+                this.dtListado.Columns["IdTipoGarantia"].Visible = false;
+                this.dtListado.Columns["TipoTiempoGarantia"].Visible = false;
+                this.dtListado.Columns["TiempoGarantia"].Visible = false;
+                this.dtListado.Columns["Comentario"].Visible = false;
+                this.dtListado.Columns["UsuarioAdiciona"].Visible = false;
+                this.dtListado.Columns["CreadoPor"].Visible = false;
+                this.dtListado.Columns["FechaAdiciona0"].Visible = false;
+                this.dtListado.Columns["FechaAdiciona"].Visible = false;
+                this.dtListado.Columns["UsuarioModifica"].Visible = false;
+                this.dtListado.Columns["ModificadoPor"].Visible = false;
+                this.dtListado.Columns["FechaModifica0"].Visible = false;
+                this.dtListado.Columns["FechaModifica"].Visible = false;
+                this.dtListado.Columns["FechaIngreso0"].Visible = false;
+                //this.dtListado.Columns["FechaIngreso"].Visible = false;
+                this.dtListado.Columns["NombreEmpresa"].Visible = false;
+                this.dtListado.Columns["RNC"].Visible = false;
+                this.dtListado.Columns["Direccion"].Visible = false;
+                this.dtListado.Columns["Telefonos"].Visible = false;
+                this.dtListado.Columns["Email"].Visible = false;
+                this.dtListado.Columns["Email2"].Visible = false;
+                this.dtListado.Columns["Facebook"].Visible = false;
+                this.dtListado.Columns["Instagran"].Visible = false;
+                this.dtListado.Columns["LogoEmpresa"].Visible = false;
+                this.dtListado.Columns["GeneradoPor"].Visible = false;
+                this.dtListado.Columns["CapitalInvertido"].Visible = false;
+                this.dtListado.Columns["GananciaAproximadaTotal"].Visible = false;
+            }
+            else {
+                this.dtListado.Columns["IdRegistro"].Visible = false;
+                this.dtListado.Columns["NumeroConector"].Visible = false;
+                this.dtListado.Columns["IdTipoProducto"].Visible = false;
+                this.dtListado.Columns["TipoProducto"].Visible = false;
+                this.dtListado.Columns["IdCategoria"].Visible = false;
+                this.dtListado.Columns["Categoria"].Visible = false;
+                this.dtListado.Columns["IdMarca"].Visible = false;
+                this.dtListado.Columns["Marca"].Visible = false;
+                this.dtListado.Columns["IdTipoSuplidor"].Visible = false;
+                this.dtListado.Columns["TipoSuplidor"].Visible = false;
+                this.dtListado.Columns["IdSuplidor"].Visible = false;
+                this.dtListado.Columns["Suplidor"].Visible = false;
+                this.dtListado.Columns["Descripcion"].Visible = false;
+                this.dtListado.Columns["CodigoBarra"].Visible = false;
+                this.dtListado.Columns["Referencia"].Visible = false;
+                this.dtListado.Columns["NumeroSeguimiento"].Visible = false;
+                this.dtListado.Columns["CodigoProducto"].Visible = false;
+                this.dtListado.Columns["PrecioCompra"].Visible = false;
+                this.dtListado.Columns["PrecioVenta"].Visible = false;
+                this.dtListado.Columns["GananciaAproximada"].Visible = false;
+                this.dtListado.Columns["Stock"].Visible = false;
+                this.dtListado.Columns["StockMinimo"].Visible = false;
+                this.dtListado.Columns["Estatus"].Visible = false;
+                this.dtListado.Columns["UnidadMedida"].Visible = false;
+                this.dtListado.Columns["Modelo"].Visible = false;
+                this.dtListado.Columns["Color"].Visible = false;
+                this.dtListado.Columns["Condicion"].Visible = false;
+                this.dtListado.Columns["Capacidad"].Visible = false;
+                this.dtListado.Columns["AplicaParaImpuesto0"].Visible = false;
+                this.dtListado.Columns["AplicaParaImpuesto"].Visible = false;
+                this.dtListado.Columns["TieneImagen0"].Visible = false;
+                this.dtListado.Columns["TieneImagen"].Visible = false;
+                this.dtListado.Columns["LlevaGarantia0"].Visible = false;
+                this.dtListado.Columns["LlevaGarantia"].Visible = false;
+                this.dtListado.Columns["IdTipoGarantia"].Visible = false;
+                this.dtListado.Columns["TipoTiempoGarantia"].Visible = false;
+                this.dtListado.Columns["TiempoGarantia"].Visible = false;
+                this.dtListado.Columns["Comentario"].Visible = false;
+                this.dtListado.Columns["UsuarioAdiciona"].Visible = false;
+                this.dtListado.Columns["CreadoPor"].Visible = false;
+                this.dtListado.Columns["FechaAdiciona0"].Visible = false;
+                this.dtListado.Columns["FechaAdiciona"].Visible = false;
+                this.dtListado.Columns["UsuarioModifica"].Visible = false;
+                this.dtListado.Columns["ModificadoPor"].Visible = false;
+                this.dtListado.Columns["FechaModifica0"].Visible = false;
+                this.dtListado.Columns["FechaModifica"].Visible = false;
+                this.dtListado.Columns["FechaIngreso0"].Visible = false;
+                this.dtListado.Columns["FechaIngreso"].Visible = false;
+                this.dtListado.Columns["NombreEmpresa"].Visible = false;
+                this.dtListado.Columns["RNC"].Visible = false;
+                this.dtListado.Columns["Direccion"].Visible = false;
+                this.dtListado.Columns["Telefonos"].Visible = false;
+                this.dtListado.Columns["Email"].Visible = false;
+                this.dtListado.Columns["Email2"].Visible = false;
+                this.dtListado.Columns["Facebook"].Visible = false;
+                this.dtListado.Columns["Instagran"].Visible = false;
+                this.dtListado.Columns["LogoEmpresa"].Visible = false;
+                this.dtListado.Columns["GeneradoPor"].Visible = false;
+                this.dtListado.Columns["CapitalInvertido"].Visible = false;
+                this.dtListado.Columns["GananciaAproximadaTotal"].Visible = false;
+            }
+
+           
         }
         private void MostrarListadoInventario() {
 
@@ -180,7 +305,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 lbGananciaAproximadaVariable.Text = GananciaAproximada.ToString("N2");
 
                 dtListado.DataSource = Buscrregistros;
-                OcultarColumnasGrid();
+                ValidarCompanias();
+                
             }
         }
 
