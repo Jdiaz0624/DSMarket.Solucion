@@ -148,7 +148,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 //this.dtListado.Columns["CodigoProducto"].Visible = false;
                 //this.dtListado.Columns["PrecioCompra"].Visible = false;
                 //this.dtListado.Columns["PrecioVenta"].Visible = false;
-                //this.dtListado.Columns["GananciaAproximada"].Visible = false;
+                this.dtListado.Columns["GananciaAproximada"].Visible = false;
                 //this.dtListado.Columns["Stock"].Visible = false;
                 //this.dtListado.Columns["StockMinimo"].Visible = false;
                 //this.dtListado.Columns["Estatus"].Visible = false;
