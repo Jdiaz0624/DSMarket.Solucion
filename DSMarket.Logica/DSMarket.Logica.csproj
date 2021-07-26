@@ -120,6 +120,7 @@
     <Compile Include="Comunes\SacarNumeroFactura.cs" />
     <Compile Include="Comunes\SacarPorcientoImpuesto.cs" />
     <Compile Include="Comunes\SeguridadEncriptacion.cs" />
+    <Compile Include="Comunes\ValidarCompania.cs" />
     <Compile Include="Comunes\ValidarConfiguracionesGeneralesSistema.cs" />
     <Compile Include="Comunes\ValidarConfiguracionGeneral.cs" />
     <Compile Include="Comunes\ValidarControles.cs" />
@@ -133,6 +134,7 @@
     <Compile Include="Entidades\EntidadesCaja\EReporteCuadreCaja.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EBuscaTipoMail.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\ECamposEspeciales.cs" />
+    <Compile Include="Entidades\EntidadesConfiguracion\ECompaniaUso.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EComprobantes.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EConfiguracionGeneral.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EGenerarArchivo607.cs" />

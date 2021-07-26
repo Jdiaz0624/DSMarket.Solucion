@@ -109,19 +109,28 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Seguridad
 
         private void Login_Load(object sender, EventArgs e)
         {
-            /// SacarInformacionEmpresa();
-            lbNombreEmpresa.Text = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
-            DSMarket.Logica.Comunes.AutoCompletarControles.AutoCompletarUsuarios(txtUsuario);
-            VariablesGlobales.NombreSistema = lbNombreEmpresa.Text;
-            txtclave.PasswordChar = '•';
-            gbLogin.Visible = false;
-            Efecto.Show(gbLogin);
-            lbNombreEmpresa.Visible = false;
-            EfectosBotones.Show(lbNombreEmpresa);
-            btnMiniminzar.Visible = false;
-            EfectosBotones.Show(btnMiniminzar);
-            PCerrar.Visible = false;
-            EfectosBotones.Show(PCerrar);
+            DSMarket.Logica.Comunes.ValidarCompania Validar = new Logica.Comunes.ValidarCompania();
+            int ValidarCompania = Validar.CodigoCompania();
+            if (ValidarCompania == 0) {
+                MessageBox.Show("El sistema no tiene una Compañia configurada, favor de contactar al administrador del sistema.", "DeveSoft", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Application.Exit();
+            }
+            else {
+                /// SacarInformacionEmpresa();
+                lbNombreEmpresa.Text = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
+                DSMarket.Logica.Comunes.AutoCompletarControles.AutoCompletarUsuarios(txtUsuario);
+                VariablesGlobales.NombreSistema = lbNombreEmpresa.Text;
+                txtclave.PasswordChar = '•';
+                gbLogin.Visible = false;
+                Efecto.Show(gbLogin);
+                lbNombreEmpresa.Visible = false;
+                EfectosBotones.Show(lbNombreEmpresa);
+                btnMiniminzar.Visible = false;
+                EfectosBotones.Show(btnMiniminzar);
+                PCerrar.Visible = false;
+                EfectosBotones.Show(PCerrar);
+            }
+           
         }
 
         private void btnServicio_Click(object sender, EventArgs e)

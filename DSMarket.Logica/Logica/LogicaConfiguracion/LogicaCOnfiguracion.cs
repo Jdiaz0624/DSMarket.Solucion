@@ -1296,5 +1296,23 @@ namespace DSMarket.Logica.Logica.LogicaConfiguracion
             return Modificar;
         }
         #endregion
+        #region BUSCAR LA COMPANIA EN USO
+        public List<DSMarket.Logica.Entidades.EntidadesConfiguracion.ECompaniaUso> BuscarUsoCompania(int? IdRegistro = null, int? IdCompania = null) {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_BUSCA_COMPANIA_USO(IdRegistro, IdCompania)
+                           select new DSMarket.Logica.Entidades.EntidadesConfiguracion.ECompaniaUso
+                           {
+                               IdRegistro=n.IdRegistro,
+                               IdCompania=n.IdCompania,
+                               Nombre=n.Nombre,
+                               RazonSocial=n.RazonSocial,
+                               Direccion=n.Direccion,
+                               Telefono=n.Telefono
+
+                           }).ToList();
+            return Listado;
+        }
+        #endregion
     }
 }

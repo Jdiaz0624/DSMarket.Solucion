@@ -1244,6 +1244,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         }
         private void FacturacionProductosServicios_Load(object sender, EventArgs e)
         {
+
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             VariablesGlobales.CodigoClienteFacturacion = 0;
             DSMarket.Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFacturacionPreview Eliminar = new Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFacturacionPreview(
