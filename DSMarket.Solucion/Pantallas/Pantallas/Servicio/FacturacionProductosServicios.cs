@@ -16,6 +16,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         {
             InitializeComponent();
         }
+
+        enum NombreCompanias {
+            DMSPI=1,
+            FJSmartPhone=2,
+            FerreteriaPerezDiaz=3,
+            RepuestosJoseJaques=4,
+            SmokeVape=5,
+            YeremiHooka=6,
+            LashesBroomRoom=7
+        }
         enum TipoProductoSeleccionado { 
         ProductoNoSeleccionado=1,
         ProductoSeleccionado=2
@@ -1244,6 +1254,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         }
         private void FacturacionProductosServicios_Load(object sender, EventArgs e)
         {
+           
 
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             VariablesGlobales.CodigoClienteFacturacion = 0;
@@ -1301,6 +1312,49 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
                 case false:
                     txtPrecioItemSeleccionado.Enabled = false;
+                    break;
+            }
+
+            DSMarket.Logica.Comunes.ValidarCompania ValidarCompania = new Logica.Comunes.ValidarCompania();
+            int Compania = ValidarCompania.CodigoCompania();
+            switch (Compania)
+            {
+                case (int)NombreCompanias.DMSPI:
+
+                    break;
+
+                case (int)NombreCompanias.FJSmartPhone:
+
+                    break;
+
+                case (int)NombreCompanias.FerreteriaPerezDiaz:
+
+                    break;
+
+                case (int)NombreCompanias.RepuestosJoseJaques:
+
+                    break;
+
+                case (int)NombreCompanias.SmokeVape:
+
+                    break;
+
+                case (int)NombreCompanias.YeremiHooka:
+                    label2.Visible = false;
+                    txtComentario.Visible = false;
+                    label3.Visible = false;
+                    ddlTipoProducto.Visible = false;
+                    label4.Visible = false;
+                    ddlCategoria.Visible = false;
+                    label7.Visible = false;
+                    ddlMarca.Visible = false;
+                    label10.Visible = false;
+                    txtReferencia.Visible = false;
+
+                    break;
+
+                case (int)NombreCompanias.LashesBroomRoom:
+
                     break;
             }
         }
