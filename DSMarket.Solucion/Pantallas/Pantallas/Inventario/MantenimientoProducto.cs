@@ -41,6 +41,91 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             AutoCompletarCampoReferenciaConsulta = 12
         }
 
+        enum NombreCompanias
+        {
+            DMSPI = 1,
+            FJSmartPhone = 2,
+            FerreteriaPerezDiaz = 3,
+            RepuestosJoseJaques = 4,
+            SmokeVape = 5,
+            YerhemyHookahVape = 6,
+            LashesBrowsRoom = 7
+        }
+
+        public void ValidarCompanias() {
+
+            DSMarket.Logica.Comunes.ValidarCompania Validar = new Logica.Comunes.ValidarCompania();
+            int Validacion = Validar.CodigoCompania();
+
+            switch (Validacion) {
+                case (int)NombreCompanias.DMSPI:
+
+                    break;
+
+                case (int)NombreCompanias.FJSmartPhone:
+
+                    break;
+
+                case (int)NombreCompanias.FerreteriaPerezDiaz:
+
+                    break;
+
+                case (int)NombreCompanias.RepuestosJoseJaques:
+
+                    break;
+
+                case (int)NombreCompanias.SmokeVape:
+
+                    break;
+
+                case (int)NombreCompanias.YerhemyHookahVape:
+
+
+                    cbAplicaParaImpuesto.Visible = false;
+                    cbLlevagarantia.Visible = false;
+                    lbTipoProducto.Visible = false;
+                    ddlTipoProducto.Visible = false;
+                    lbCategoria.Visible = false;
+                    ddlCategoria.Visible = false;
+                    lbMarca.Visible = false;
+                    ddlMarca.Visible = false;
+                    lbDescripcion.Visible = false;
+                    txtDescripcion.Visible = false;
+                    lbReferencia.Visible = false;
+                    txtReferencia.Visible = false;
+                    lbNumeroSeguimiento.Visible = false;
+                    txtNumeroSeguimiento.Visible = false;
+                    lbUnidadMedida.Visible = false;
+                    ddlUnidadMedida.Visible = false;
+                    txtUnidadMedinda.Visible = false;
+                    lbColor.Visible = false;
+                    ddlColor.Visible = false;
+                    txtColor.Visible = false;
+                    ddlModelo.Visible = false;
+                    lbCondicion.Visible = false;
+                    ddlCondicion.Visible = false;
+                    lbCapacidad.Visible = false;
+                    lbTipoGarantia.Visible = false;
+                    ddlTipoGarantia.Visible = false;
+                    lbTiempoGarantia.Visible = false;
+                    txtTiempoGarantia.Visible = false;
+                    lbComentario.Visible = false;
+                    txtComentario.Visible = false;
+                    txtCondicion.Visible = false;
+                    txtCapacidad.Visible = false;
+                    lbModelo.Text = "Descripción:";
+                    lbModelo.Location = new Point(65, 218);
+
+
+                    break;
+
+                case (int)NombreCompanias.LashesBrowsRoom:
+
+                    break;
+            }
+
+
+        }
         /// <summary>
         /// Este metodo es para validar las configuraciones generales del sistema
         /// </summary>
@@ -638,6 +723,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             }
            
             ValidarConfiguracionesGenerales();
+            ValidarCompanias();
         }
 
     
