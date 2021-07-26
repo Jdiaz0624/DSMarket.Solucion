@@ -610,6 +610,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         private void MantenimientoProducto_Load(object sender, EventArgs e)
         {
+
+           // ddlMarca.Location = new Point(500, 60);
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
             lbTitulo.Text = "PROCESAR INFORMACION DE PRODUCTOS Y SERVICIOS";
             lbTitulo.ForeColor = Color.White;
