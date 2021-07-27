@@ -47,22 +47,102 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             }
         }
         private void OcultarColumnas() {
-           // this.dtListado.Columns["IdCliente"].Visible = false;
-            this.dtListado.Columns["IdComprobante"].Visible = false;
-            this.dtListado.Columns["IdTipoIdentificacion"].Visible = false;
-            this.dtListado.Columns["Estatus0"].Visible = false;
-            this.dtListado.Columns["EnvioEmail0"].Visible = false;
-            this.dtListado.Columns["UsuarioAdiciona"].Visible = false;
-            this.dtListado.Columns["FechaAdiciona"].Visible = false;
-            this.dtListado.Columns["UsuarioModifica"].Visible = false;
-            this.dtListado.Columns["ModificadoPor"].Visible = false;
-            this.dtListado.Columns["FechaModifica"].Visible = false;
-            this.dtListado.Columns["FechaModificado"].Visible = false;
-            this.dtListado.Columns["CantidadClientes"].Visible = false;
-            this.dtListado.Columns["FechaNacimiento0"].Visible = false;
-            this.dtListado.Columns["AlertaCumpleanos0"].Visible = false;
+
+            DSMarket.Logica.Comunes.ValidarCompania Validar = new Logica.Comunes.ValidarCompania();
+            int Compania = Validar.CodigoCompania();
+
+            if (Compania == (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.YerhemyHookahVape)
+            {
+                //this.dtListado.Columns["IdCliente"].Visible = false;
+                this.dtListado.Columns["IdComprobante"].Visible = false;
+                this.dtListado.Columns["Comprobante"].Visible = false;
+                //this.dtListado.Columns["Nombre"].Visible = false;
+                //this.dtListado.Columns["Telefono"].Visible = false;
+                this.dtListado.Columns["IdTipoIdentificacion"].Visible = false;
+                this.dtListado.Columns["TipoIdentificacion"].Visible = false;
+                //this.dtListado.Columns["RNC"].Visible = false;
+                this.dtListado.Columns["FechaNacimiento0"].Visible = false;
+                this.dtListado.Columns["FechaNacimiento"].Visible = false;
+                this.dtListado.Columns["AlertaCumpleanos0"].Visible = false;
+                this.dtListado.Columns["AlertaCumpleanos"].Visible = false;
+                //this.dtListado.Columns["Direccion"].Visible = false;
+                this.dtListado.Columns["Email"].Visible = false;
+                //this.dtListado.Columns["Comentario"].Visible = false;
+                this.dtListado.Columns["Estatus0"].Visible = false;
+                this.dtListado.Columns["Estatus"].Visible = false;
+                this.dtListado.Columns["EnvioEmail0"].Visible = false;
+                this.dtListado.Columns["EnvioEmail"].Visible = false;
+                this.dtListado.Columns["UsuarioAdiciona"].Visible = false;
+                this.dtListado.Columns["CreadoPor"].Visible = false;
+                this.dtListado.Columns["FechaAdiciona"].Visible = false;
+                this.dtListado.Columns["FechaCreado"].Visible = false;
+                this.dtListado.Columns["UsuarioModifica"].Visible = false;
+                this.dtListado.Columns["ModificadoPor"].Visible = false;
+                this.dtListado.Columns["FechaModifica"].Visible = false;
+                this.dtListado.Columns["FechaModificado"].Visible = false;
+                this.dtListado.Columns["MontoCredito"].Visible = false;
+                this.dtListado.Columns["CantidadClientes"].Visible = false;
+         
+            }
+            else {
+                // this.dtListado.Columns["IdCliente"].Visible = false;
+                this.dtListado.Columns["IdComprobante"].Visible = false;
+                this.dtListado.Columns["IdTipoIdentificacion"].Visible = false;
+                this.dtListado.Columns["Estatus0"].Visible = false;
+                this.dtListado.Columns["EnvioEmail0"].Visible = false;
+                this.dtListado.Columns["UsuarioAdiciona"].Visible = false;
+                this.dtListado.Columns["FechaAdiciona"].Visible = false;
+                this.dtListado.Columns["UsuarioModifica"].Visible = false;
+                this.dtListado.Columns["ModificadoPor"].Visible = false;
+                this.dtListado.Columns["FechaModifica"].Visible = false;
+                this.dtListado.Columns["FechaModificado"].Visible = false;
+                this.dtListado.Columns["CantidadClientes"].Visible = false;
+                this.dtListado.Columns["FechaNacimiento0"].Visible = false;
+                this.dtListado.Columns["AlertaCumpleanos0"].Visible = false;
+            }
+           
         }
         #endregion
+
+
+        #region VALIDAR COMPANIAS
+        private void ValidarCompanias() {
+            DSMarket.Logica.Comunes.ValidarCompania Validar = new Logica.Comunes.ValidarCompania();
+            int Compania = Validar.CodigoCompania();
+
+            switch (Compania) {
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.DMSPI:
+
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.FJSmartPhone:
+
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.FerreteriaPerezDiaz:
+
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.RepuestosJoseJaques:
+
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.SmokeVape:
+
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.YerhemyHookahVape:
+                    btnCumpleanos.Visible = false;
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.LashesBrowsRoom:
+
+                    break;
+            }
+        }
+        #endregion
+
+
         private void ClientesConsulta_Load(object sender, EventArgs e)
         {
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
@@ -94,6 +174,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
             //else {
             //    btnCumpleanos.Visible = false;
             //}
+            ValidarCompanias();
         }
 
         private void PCerrar_Click(object sender, EventArgs e)

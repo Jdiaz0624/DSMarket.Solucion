@@ -72,12 +72,12 @@
             this.ddlMarca = new System.Windows.Forms.ComboBox();
             this.ddlCategoria = new System.Windows.Forms.ComboBox();
             this.ddlTipoProducto = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lbFechaHAsta = new System.Windows.Forms.Label();
+            this.lbFechaDesde = new System.Windows.Forms.Label();
+            this.lbCodigoProducto = new System.Windows.Forms.Label();
             this.lbReferencia = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbCodigoBarras = new System.Windows.Forms.Label();
+            this.lbDescripcion = new System.Windows.Forms.Label();
             this.lbMarca = new System.Windows.Forms.Label();
             this.lbCategoria = new System.Windows.Forms.Label();
             this.lbTipoProducto = new System.Windows.Forms.Label();
@@ -531,12 +531,12 @@
             this.groupBox1.Controls.Add(this.ddlMarca);
             this.groupBox1.Controls.Add(this.ddlCategoria);
             this.groupBox1.Controls.Add(this.ddlTipoProducto);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.lbFechaHAsta);
+            this.groupBox1.Controls.Add(this.lbFechaDesde);
+            this.groupBox1.Controls.Add(this.lbCodigoProducto);
             this.groupBox1.Controls.Add(this.lbReferencia);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.lbCodigoBarras);
+            this.groupBox1.Controls.Add(this.lbDescripcion);
             this.groupBox1.Controls.Add(this.lbMarca);
             this.groupBox1.Controls.Add(this.lbCategoria);
             this.groupBox1.Controls.Add(this.lbTipoProducto);
@@ -632,32 +632,32 @@
             this.ddlTipoProducto.TabIndex = 12;
             this.ddlTipoProducto.SelectedIndexChanged += new System.EventHandler(this.ddlTipoProducto_SelectedIndexChanged);
             // 
-            // label11
+            // lbFechaHAsta
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(845, 126);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(127, 23);
-            this.label11.TabIndex = 11;
-            this.label11.Text = "Fecha Hasta";
+            this.lbFechaHAsta.AutoSize = true;
+            this.lbFechaHAsta.Location = new System.Drawing.Point(845, 126);
+            this.lbFechaHAsta.Name = "lbFechaHAsta";
+            this.lbFechaHAsta.Size = new System.Drawing.Size(127, 23);
+            this.lbFechaHAsta.TabIndex = 11;
+            this.lbFechaHAsta.Text = "Fecha Hasta";
             // 
-            // label10
+            // lbFechaDesde
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(478, 126);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(127, 23);
-            this.label10.TabIndex = 10;
-            this.label10.Text = "Fecha Desde";
+            this.lbFechaDesde.AutoSize = true;
+            this.lbFechaDesde.Location = new System.Drawing.Point(478, 126);
+            this.lbFechaDesde.Name = "lbFechaDesde";
+            this.lbFechaDesde.Size = new System.Drawing.Size(127, 23);
+            this.lbFechaDesde.TabIndex = 10;
+            this.lbFechaDesde.Text = "Fecha Desde";
             // 
-            // label9
+            // lbCodigoProducto
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 124);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(187, 23);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "Codigo de Producto";
+            this.lbCodigoProducto.AutoSize = true;
+            this.lbCodigoProducto.Location = new System.Drawing.Point(12, 124);
+            this.lbCodigoProducto.Name = "lbCodigoProducto";
+            this.lbCodigoProducto.Size = new System.Drawing.Size(187, 23);
+            this.lbCodigoProducto.TabIndex = 9;
+            this.lbCodigoProducto.Text = "Codigo de Producto";
             // 
             // lbReferencia
             // 
@@ -668,23 +668,23 @@
             this.lbReferencia.TabIndex = 8;
             this.lbReferencia.Text = "Referencia";
             // 
-            // label7
+            // lbCodigoBarras
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(451, 93);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(159, 23);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Codigo de Barra";
+            this.lbCodigoBarras.AutoSize = true;
+            this.lbCodigoBarras.Location = new System.Drawing.Point(451, 93);
+            this.lbCodigoBarras.Name = "lbCodigoBarras";
+            this.lbCodigoBarras.Size = new System.Drawing.Size(159, 23);
+            this.lbCodigoBarras.TabIndex = 7;
+            this.lbCodigoBarras.Text = "Codigo de Barra";
             // 
-            // label6
+            // lbDescripcion
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(57, 92);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(117, 23);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Descripción";
+            this.lbDescripcion.AutoSize = true;
+            this.lbDescripcion.Location = new System.Drawing.Point(57, 92);
+            this.lbDescripcion.Name = "lbDescripcion";
+            this.lbDescripcion.Size = new System.Drawing.Size(117, 23);
+            this.lbDescripcion.TabIndex = 6;
+            this.lbDescripcion.Text = "Descripción";
             // 
             // lbMarca
             // 
@@ -842,12 +842,12 @@
         private System.Windows.Forms.ComboBox ddlMarca;
         private System.Windows.Forms.ComboBox ddlCategoria;
         private System.Windows.Forms.ComboBox ddlTipoProducto;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lbFechaHAsta;
+        private System.Windows.Forms.Label lbFechaDesde;
+        private System.Windows.Forms.Label lbCodigoProducto;
         private System.Windows.Forms.Label lbReferencia;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbCodigoBarras;
+        private System.Windows.Forms.Label lbDescripcion;
         private System.Windows.Forms.Label lbMarca;
         private System.Windows.Forms.Label lbCategoria;
         private System.Windows.Forms.Label lbTipoProducto;

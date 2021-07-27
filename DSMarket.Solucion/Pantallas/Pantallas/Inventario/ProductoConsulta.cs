@@ -64,6 +64,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                     txtReferencia.Visible = false;
 
 
+                    
+
+
                     OcultarColumnasGrid();
 
 

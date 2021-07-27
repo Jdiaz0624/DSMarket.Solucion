@@ -65,6 +65,62 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
         }
         #endregion
 
+        #region VALIDACION DE COMPANIA
+        private void ValidacionCompania() {
+
+            DSMarket.Logica.Comunes.ValidarCompania Validar = new Logica.Comunes.ValidarCompania();
+            int Compania = Validar.CodigoCompania();
+
+            switch (Compania) {
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.DMSPI:
+
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.FJSmartPhone:
+
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.FerreteriaPerezDiaz:
+
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.RepuestosJoseJaques:
+
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.SmokeVape:
+
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.YerhemyHookahVape:
+
+                    lbComprobante.Visible = false;
+                    ddlSeleccionarComprobantes.Visible = false;
+                    lbTipoIdentificacion.Visible = false;
+                    ddlTipIdentificacion.Visible = false;
+                    LimiteCredito.Visible = false;
+                    txtLimiteCredito.Visible = false;
+                    lbFechaNAcimiento.Visible = false;
+                    txtFechaNacimiento.Visible = false;
+                    lbEmail.Visible = false;
+                    txtEmail.Visible = false;
+                    cbEstatus.Visible = false;
+                    cbEnvioEmail.Visible = false;
+                    cbalertacumpleanos.Visible = false;
+
+                    cbEstatus.Checked = true;
+                    cbEnvioEmail.Checked = false;
+                    cbalertacumpleanos.Checked = false;
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.LashesBrowsRoom:
+
+                    break;
+            }
+        }
+        #endregion
+
 
         private void SacarDatosClientes(decimal IdCliente) {
             var BuscarCliente = ObjDataEmpresa.Value.BuscaClientes(
@@ -167,6 +223,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Empresa
                 cbEstatus.Enabled = false;
                 cbEnvioEmail.Enabled = false;
             }
+
+            ValidacionCompania();
         }
         
         private void btnGuardar_Click(object sender, EventArgs e)
