@@ -17,6 +17,53 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
             InitializeComponent();
         }
 
+        #region VALIDACION DE COMPANIA
+        private void ValidaconCompania() {
+            DSMarket.Logica.Comunes.ValidarCompania Validar = new Logica.Comunes.ValidarCompania();
+            int Compania = Validar.CodigoCompania();
+
+            switch (Compania) {
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.DMSPI:
+
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.FJSmartPhone:
+
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.FerreteriaPerezDiaz:
+
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.RepuestosJoseJaques:
+
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.SmokeVape:
+
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.YerhemyHookahVape:
+                    btnCategoria.Visible = false;
+                    btnMArcas.Visible = false;
+                    btnModelo.Visible = false;
+                    btnUnidadMedida.Visible = false;
+                    btnColores.Visible = false;
+                    btnCondiciones.Visible = false;
+                    btnCapacidad.Visible = false;
+
+                    //btnTipoSuplidores.Location = new Point(264, 36);
+                    //btnSuplidores.Location = new Point(520, 37);
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.LashesBrowsRoom:
+
+                    break;
+            }
+
+        }
+        #endregion
+
         enum OpcionesConfigunacionGeneral
         {
             ImpuestoPorDefecto = 1,
@@ -143,6 +190,8 @@ namespace DSMarket.Solucion.Pantallas.SubMenus
             lbTitulo.Text = "MANTENIMIENTO DE INVENTARIO";
             lbIdUsuario.Text = DSMarket.Solucion.Pantallas.MenuPrincipal.MenuPrincipal.IdUsuarioMantenimientos.ToString();
             ValidarConfiguracionesGenerales();
+
+            ValidaconCompania();
         }
 
         private void PCerrar_Click(object sender, EventArgs e)
