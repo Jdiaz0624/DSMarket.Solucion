@@ -1373,6 +1373,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             }
         }
 
+        private void txtDescuentoAplicar_KeyPress(object sender, KeyPressEventArgs e) {
+            DSMarket.Logica.Comunes.ValidarControles.SoloNumeros(e);
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
+                txtCantidadItemSelecionado.Focus();
+            }
+        }
+
         private void ddlTipoProducto_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarCategorias();
@@ -1544,7 +1551,12 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 }
 
 
-                txtCantidadItemSelecionado.Focus();
+                if (txtPrecioItemSeleccionado.Enabled == true) {
+                    txtPrecioItemSeleccionado.Focus();
+                }
+                else {
+                    txtDescuentoItemsSeleccionado.Focus();
+                }
 
             }
             catch (Exception) { }
@@ -1849,6 +1861,28 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             else {
                 txtTarjetaPagoMixto.Text = "0";
                 txtTarjetaPagoMixto.Enabled = false;
+            }
+        }
+
+        private void txtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
+                txtCodigoProducto.Focus();
+            }
+        }
+
+        private void txtCodigoProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
+                txtCodigoBarra.Focus();
+            }
+        }
+
+        private void txtPrecioItemSeleccionado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            DSMarket.Logica.Comunes.ValidarControles.SoloNumerosDecimales(e);
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
+                txtDescuentoItemsSeleccionado.Focus();
             }
         }
     }

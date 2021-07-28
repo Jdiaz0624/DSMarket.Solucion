@@ -20,6 +20,48 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
         Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjdataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
+        #region VALIDACION DE COMPANIA
+        /// <summary>
+        /// Este metodo es para validar las configuraciones especiales de cada compania
+        /// </summary>
+        private void ValidacionCompania() {
+
+            DSMarket.Logica.Comunes.ValidarCompania Validar = new Logica.Comunes.ValidarCompania();
+            int Compania = Validar.CodigoCompania();
+
+            switch (Compania) {
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.DMSPI:
+
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.FJSmartPhone:
+
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.FerreteriaPerezDiaz:
+
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.RepuestosJoseJaques:
+
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.SmokeVape:
+
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.YerhemyHookahVape:
+
+                    break;
+
+                case (int)DSMarket.Logica.Comunes.Enumeraciones.NombreCompanias.LashesBrowsRoom:
+
+                    break;
+            }
+
+        }
+        #endregion
+
         enum TipoProductoSeleccionado
         {
             ProductoNoSeleccionado = 1,
@@ -56,47 +98,85 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             }
         }
         private void OcultarColumnas() {
-            //this.dtListado.Columns["NumeroFactura"].Visible = false;
-            this.dtListado.Columns["NumeroConector"].Visible = false;
-            //this.dtListado.Columns["FacturadoA"].Visible = false;
-            this.dtListado.Columns["CodigoCliente"].Visible = false;
-            this.dtListado.Columns["IdTipoFacturacion"].Visible = false;
-            //this.dtListado.Columns["TipoFacturacion"].Visible = false;
-            //this.dtListado.Columns["Comentario"].Visible = false;
-            //this.dtListado.Columns["TotalProductos"].Visible = false;
-            //this.dtListado.Columns["TotalServicios"].Visible = false;
-            //this.dtListado.Columns["TotalItems"].Visible = false;
-            //this.dtListado.Columns["SubTotal"].Visible = false;
-            //this.dtListado.Columns["DescuentoTotal"].Visible = false;
-            //this.dtListado.Columns["ImpuestoTotal"].Visible = false;
-            //this.dtListado.Columns["TotalGeneral"].Visible = false;
-            this.dtListado.Columns["IdTipoPago"].Visible = false;
-            //this.dtListado.Columns["TipoPago"].Visible = false;
-            //this.dtListado.Columns["MontoPagado"].Visible = false;
-            //this.dtListado.Columns["Cambio"].Visible = false;
-            this.dtListado.Columns["IdMoneda"].Visible = false;
-            //this.dtListado.Columns["Moneda"].Visible = false;
-            //this.dtListado.Columns["Tasa"].Visible = false;
-            this.dtListado.Columns["IdUsuario"].Visible = false;
-            //this.dtListado.Columns["CreadoPor"].Visible = false;
-            this.dtListado.Columns["FechaFacturacion0"].Visible = false;
-            //this.dtListado.Columns["FechaFacturacion"].Visible = false;
-            this.dtListado.Columns["IdComprobante"].Visible = false;
-            //this.dtListado.Columns["NCF"].Visible = false;
-            //this.dtListado.Columns["ValidoHasta"].Visible = false;
-            //this.dtListado.Columns["NumeroComprobante"].Visible = false;
-            this.dtListado.Columns["CapitalInvertido"].Visible = false;
 
-            this.dtListado.Columns["GananciaVenta"].Visible = false;
+            DSMarket.Logica.Comunes.ValidarCompania Validar = new Logica.Comunes.ValidarCompania();
+            int Compania = Validar.CodigoCompania();
+
+            if (Compania == 6) {
+                //this.dtListado.Columns["NumeroFactura"].Visible = false;
+                this.dtListado.Columns["NumeroConector"].Visible = false;
+                //this.dtListado.Columns["FacturadoA"].Visible = false;
+                this.dtListado.Columns["CodigoCliente"].Visible = false;
+                this.dtListado.Columns["IdTipoFacturacion"].Visible = false;
+                //this.dtListado.Columns["TipoFacturacion"].Visible = false;
+                this.dtListado.Columns["Comentario"].Visible = false;
+                this.dtListado.Columns["TotalProductos"].Visible = false;
+                this.dtListado.Columns["TotalServicios"].Visible = false;
+                //this.dtListado.Columns["TotalItems"].Visible = false;
+                this.dtListado.Columns["SubTotal"].Visible = false;
+                //this.dtListado.Columns["DescuentoTotal"].Visible = false;
+                this.dtListado.Columns["ImpuestoTotal"].Visible = false;
+                //this.dtListado.Columns["TotalGeneral"].Visible = false;
+                this.dtListado.Columns["IdTipoPago"].Visible = false;
+                //this.dtListado.Columns["TipoPago"].Visible = false;
+                //this.dtListado.Columns["MontoPagado"].Visible = false;
+                //this.dtListado.Columns["Cambio"].Visible = false;
+                this.dtListado.Columns["IdMoneda"].Visible = false;
+                //this.dtListado.Columns["Moneda"].Visible = false;
+                //this.dtListado.Columns["Tasa"].Visible = false;
+                this.dtListado.Columns["IdUsuario"].Visible = false;
+                //this.dtListado.Columns["CreadoPor"].Visible = false;
+                this.dtListado.Columns["FechaFacturacion0"].Visible = false;
+                //this.dtListado.Columns["FechaFacturacion"].Visible = false;
+                this.dtListado.Columns["IdComprobante"].Visible = false;
+                this.dtListado.Columns["NCF"].Visible = false;
+                this.dtListado.Columns["ValidoHasta"].Visible = false;
+                this.dtListado.Columns["NumeroComprobante"].Visible = false;
+                this.dtListado.Columns["CapitalInvertido"].Visible = false;
+
+                this.dtListado.Columns["GananciaVenta"].Visible = false;
+            }
+            else {
+                //this.dtListado.Columns["NumeroFactura"].Visible = false;
+                this.dtListado.Columns["NumeroConector"].Visible = false;
+                //this.dtListado.Columns["FacturadoA"].Visible = false;
+                this.dtListado.Columns["CodigoCliente"].Visible = false;
+                this.dtListado.Columns["IdTipoFacturacion"].Visible = false;
+                //this.dtListado.Columns["TipoFacturacion"].Visible = false;
+                //this.dtListado.Columns["Comentario"].Visible = false;
+                //this.dtListado.Columns["TotalProductos"].Visible = false;
+                //this.dtListado.Columns["TotalServicios"].Visible = false;
+                //this.dtListado.Columns["TotalItems"].Visible = false;
+                //this.dtListado.Columns["SubTotal"].Visible = false;
+                //this.dtListado.Columns["DescuentoTotal"].Visible = false;
+                //this.dtListado.Columns["ImpuestoTotal"].Visible = false;
+                //this.dtListado.Columns["TotalGeneral"].Visible = false;
+                this.dtListado.Columns["IdTipoPago"].Visible = false;
+                //this.dtListado.Columns["TipoPago"].Visible = false;
+                //this.dtListado.Columns["MontoPagado"].Visible = false;
+                //this.dtListado.Columns["Cambio"].Visible = false;
+                this.dtListado.Columns["IdMoneda"].Visible = false;
+                //this.dtListado.Columns["Moneda"].Visible = false;
+                //this.dtListado.Columns["Tasa"].Visible = false;
+                this.dtListado.Columns["IdUsuario"].Visible = false;
+                //this.dtListado.Columns["CreadoPor"].Visible = false;
+                this.dtListado.Columns["FechaFacturacion0"].Visible = false;
+                //this.dtListado.Columns["FechaFacturacion"].Visible = false;
+                this.dtListado.Columns["IdComprobante"].Visible = false;
+                //this.dtListado.Columns["NCF"].Visible = false;
+                //this.dtListado.Columns["ValidoHasta"].Visible = false;
+                //this.dtListado.Columns["NumeroComprobante"].Visible = false;
+                this.dtListado.Columns["CapitalInvertido"].Visible = false;
+
+                this.dtListado.Columns["GananciaVenta"].Visible = false;
+            }
+            
             var SacarDatosUsuario = ObjdataSeguridad.Value.BuscaUsuarios(VariablesGlobales.IdUsuario, null, null, null, null, 1, 1);
             int IdNivel = 0;
             foreach (var n in SacarDatosUsuario)
             {
                 IdNivel = (int)n.IdNivelAcceso;
             }
-
-
-
 
             if (IdNivel == 3)
             {
