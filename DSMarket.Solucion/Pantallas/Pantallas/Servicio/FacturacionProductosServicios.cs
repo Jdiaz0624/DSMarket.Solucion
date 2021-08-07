@@ -1293,7 +1293,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             VariablesGlobales.TotalGeneralFacturarCotizar = 0;
 
             gbItemsAgregados.Text = MostrarRecuentoFactura(VariablesGlobales.TotalItemsFacturarCotizar, VariablesGlobales.SubTotalFacturarCotizar, VariablesGlobales.TotalDescuentoFacturarCotizar, VariablesGlobales.TotalImpuestoFacturarCotizar, VariablesGlobales.TotalGeneralFacturarCotizar);
-            txtCodigoBarra.Focus();
+            
 
             DSMarket.Logica.Comunes.ValidarConfiguracionesGeneralesSistema Validar = new Logica.Comunes.ValidarConfiguracionesGeneralesSistema((decimal)OpcionesConfiguracionGeneral.MontoTotalManual, 2);
             bool ResultadoValidacion = Validar.ValidarConfiguracionGeneral();
@@ -1349,6 +1349,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
                     break;
             }
+            txtNombreCliente.Focus();
         }
 
         private void cbUsarComprobantes_CheckedChanged(object sender, EventArgs e)
@@ -1883,6 +1884,21 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             DSMarket.Logica.Comunes.ValidarControles.SoloNumerosDecimales(e);
             if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
                 txtDescuentoItemsSeleccionado.Focus();
+            }
+        }
+
+        private void txtNombreCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
+
+                if (string.IsNullOrEmpty(txtNombreCliente.Text.Trim())) {
+                    txtNombreCliente.Text = "CLIENTE CONSUMIDOR FINAL";
+                    txtCodigoBarra.Focus();
+                }
+                else {
+                    txtCodigoBarra.Focus();
+                }
+            
             }
         }
     }
