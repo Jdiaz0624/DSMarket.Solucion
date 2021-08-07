@@ -21,6 +21,7 @@ namespace DSMarket.Logica.Entidades.EntidadesHistorial
 		public string FacturadoA {get;set;}
 
 		public string FechaFacturacion {get;set;}
+		public string HoraFacturacion { get; set; }
 
 		public System.Nullable<int> TotalProductos {get;set;}
 

@@ -53,6 +53,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.dtListado = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.lbfacturaAnuladavariable = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lbHoraFacturacion = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -94,7 +96,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Location = new System.Drawing.Point(15, 9);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
+            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
             this.lbTitulo.TabIndex = 13;
             this.lbTitulo.Text = "label6";
             // 
@@ -104,7 +106,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(28, 65);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(173, 20);
+            this.label1.Size = new System.Drawing.Size(209, 25);
             this.label1.TabIndex = 103;
             this.label1.Text = "Numero de Factura: ";
             // 
@@ -114,7 +116,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(349, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 20);
+            this.label2.Size = new System.Drawing.Size(143, 25);
             this.label2.TabIndex = 104;
             this.label2.Text = "Facturado A: ";
             // 
@@ -124,7 +126,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(829, 65);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(194, 20);
+            this.label3.Size = new System.Drawing.Size(234, 25);
             this.label3.TabIndex = 105;
             this.label3.Text = "Fecha de Facturación: ";
             // 
@@ -133,7 +135,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.lbNumeroFacturavariable.AutoSize = true;
             this.lbNumeroFacturavariable.Location = new System.Drawing.Point(194, 65);
             this.lbNumeroFacturavariable.Name = "lbNumeroFacturavariable";
-            this.lbNumeroFacturavariable.Size = new System.Drawing.Size(154, 20);
+            this.lbNumeroFacturavariable.Size = new System.Drawing.Size(190, 25);
             this.lbNumeroFacturavariable.TabIndex = 106;
             this.lbNumeroFacturavariable.Text = "Numero de Factura: ";
             // 
@@ -142,16 +144,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.lbFacturadoAvariable.AutoSize = true;
             this.lbFacturadoAvariable.Location = new System.Drawing.Point(463, 65);
             this.lbFacturadoAvariable.Name = "lbFacturadoAvariable";
-            this.lbFacturadoAvariable.Size = new System.Drawing.Size(105, 20);
+            this.lbFacturadoAvariable.Size = new System.Drawing.Size(130, 25);
             this.lbFacturadoAvariable.TabIndex = 107;
             this.lbFacturadoAvariable.Text = "Facturado A: ";
             // 
             // lbfechaFacturacionvariable
             // 
             this.lbfechaFacturacionvariable.AutoSize = true;
-            this.lbfechaFacturacionvariable.Location = new System.Drawing.Point(1021, 66);
+            this.lbfechaFacturacionvariable.Location = new System.Drawing.Point(1049, 66);
             this.lbfechaFacturacionvariable.Name = "lbfechaFacturacionvariable";
-            this.lbfechaFacturacionvariable.Size = new System.Drawing.Size(172, 20);
+            this.lbfechaFacturacionvariable.Size = new System.Drawing.Size(212, 25);
             this.lbfechaFacturacionvariable.TabIndex = 108;
             this.lbfechaFacturacionvariable.Text = "Fecha de Facturación: ";
             // 
@@ -161,7 +163,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(28, 103);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(202, 20);
+            this.label7.Size = new System.Drawing.Size(245, 25);
             this.label7.TabIndex = 109;
             this.label7.Text = "Cantidad de Productos: ";
             // 
@@ -171,7 +173,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(438, 103);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(193, 20);
+            this.label8.Size = new System.Drawing.Size(237, 25);
             this.label8.TabIndex = 110;
             this.label8.Text = "Cantidad de Servicios: ";
             // 
@@ -179,9 +181,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(813, 103);
+            this.label9.Location = new System.Drawing.Point(813, 137);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(156, 20);
+            this.label9.Size = new System.Drawing.Size(188, 25);
             this.label9.TabIndex = 111;
             this.label9.Text = "Numero de Items: ";
             // 
@@ -190,7 +192,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.lbCantidadProductosvariable.AutoSize = true;
             this.lbCantidadProductosvariable.Location = new System.Drawing.Point(224, 103);
             this.lbCantidadProductosvariable.Name = "lbCantidadProductosvariable";
-            this.lbCantidadProductosvariable.Size = new System.Drawing.Size(179, 20);
+            this.lbCantidadProductosvariable.Size = new System.Drawing.Size(222, 25);
             this.lbCantidadProductosvariable.TabIndex = 112;
             this.lbCantidadProductosvariable.Text = "Cantidad de Productos: ";
             // 
@@ -199,16 +201,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.lbCantidadServiciosVariable.AutoSize = true;
             this.lbCantidadServiciosVariable.Location = new System.Drawing.Point(625, 103);
             this.lbCantidadServiciosVariable.Name = "lbCantidadServiciosVariable";
-            this.lbCantidadServiciosVariable.Size = new System.Drawing.Size(170, 20);
+            this.lbCantidadServiciosVariable.Size = new System.Drawing.Size(214, 25);
             this.lbCantidadServiciosVariable.TabIndex = 113;
             this.lbCantidadServiciosVariable.Text = "Cantidad de Servicios: ";
             // 
             // lbNumeroItemsvariable
             // 
             this.lbNumeroItemsvariable.AutoSize = true;
-            this.lbNumeroItemsvariable.Location = new System.Drawing.Point(963, 103);
+            this.lbNumeroItemsvariable.Location = new System.Drawing.Point(963, 137);
             this.lbNumeroItemsvariable.Name = "lbNumeroItemsvariable";
-            this.lbNumeroItemsvariable.Size = new System.Drawing.Size(139, 20);
+            this.lbNumeroItemsvariable.Size = new System.Drawing.Size(171, 25);
             this.lbNumeroItemsvariable.TabIndex = 114;
             this.lbNumeroItemsvariable.Text = "Numero de Items: ";
             // 
@@ -245,11 +247,12 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtListado.EnableHeadersVisualStyles = false;
-            this.dtListado.Location = new System.Drawing.Point(3, 22);
+            this.dtListado.Location = new System.Drawing.Point(3, 26);
             this.dtListado.Name = "dtListado";
             this.dtListado.ReadOnly = true;
+            this.dtListado.RowHeadersWidth = 51;
             this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(1170, 487);
+            this.dtListado.Size = new System.Drawing.Size(1170, 483);
             this.dtListado.TabIndex = 5;
             // 
             // label4
@@ -258,7 +261,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(28, 136);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(152, 20);
+            this.label4.Size = new System.Drawing.Size(184, 25);
             this.label4.TabIndex = 116;
             this.label4.Text = "Factura Anulada: ";
             // 
@@ -267,15 +270,36 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.lbfacturaAnuladavariable.AutoSize = true;
             this.lbfacturaAnuladavariable.Location = new System.Drawing.Point(175, 136);
             this.lbfacturaAnuladavariable.Name = "lbfacturaAnuladavariable";
-            this.lbfacturaAnuladavariable.Size = new System.Drawing.Size(127, 20);
+            this.lbfacturaAnuladavariable.Size = new System.Drawing.Size(156, 25);
             this.lbfacturaAnuladavariable.TabIndex = 117;
             this.lbfacturaAnuladavariable.Text = "Factura Anulada";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(829, 91);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(214, 25);
+            this.label5.TabIndex = 118;
+            this.label5.Text = "Hora de Facturación:";
+            // 
+            // lbHoraFacturacion
+            // 
+            this.lbHoraFacturacion.AutoSize = true;
+            this.lbHoraFacturacion.Location = new System.Drawing.Point(1049, 91);
+            this.lbHoraFacturacion.Name = "lbHoraFacturacion";
+            this.lbHoraFacturacion.Size = new System.Drawing.Size(212, 25);
+            this.lbHoraFacturacion.TabIndex = 119;
+            this.lbHoraFacturacion.Text = "Fecha de Facturación: ";
+            // 
             // ItemsAgregadosFactura
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.lbHoraFacturacion);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.lbfacturaAnuladavariable);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox1);
@@ -333,5 +357,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
         private System.Windows.Forms.DataGridView dtListado;
         private System.Windows.Forms.Label lbfacturaAnuladavariable;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbHoraFacturacion;
+        private System.Windows.Forms.Label label5;
     }
 }

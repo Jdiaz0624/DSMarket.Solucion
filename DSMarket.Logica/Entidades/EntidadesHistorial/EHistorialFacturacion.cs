@@ -58,6 +58,8 @@ namespace DSMarket.Logica.Entidades.EntidadesHistorial
 
 		public string FechaFacturacion {get;set;}
 
+		public string Hora { get; set; }
+
 		public System.Nullable<decimal> IdComprobante {get;set;}
 
 		public string NCF {get;set;}
