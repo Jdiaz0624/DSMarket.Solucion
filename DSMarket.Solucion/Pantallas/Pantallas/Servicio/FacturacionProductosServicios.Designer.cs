@@ -245,7 +245,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Image = global::DSMarket.Solucion.Properties.Resources.Zoom_icon;
-            this.button1.Location = new System.Drawing.Point(422, 234);
+            this.button1.Location = new System.Drawing.Point(448, 239);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(41, 26);
             this.button1.TabIndex = 67;
@@ -1036,7 +1036,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(18, 237);
+            this.label11.Location = new System.Drawing.Point(7, 212);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(169, 25);
             this.label11.TabIndex = 82;
@@ -1056,7 +1056,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(424, 210);
+            this.label9.Location = new System.Drawing.Point(444, 210);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(125, 25);
             this.label9.TabIndex = 80;
@@ -1066,7 +1066,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(54, 209);
+            this.label8.Location = new System.Drawing.Point(53, 240);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(125, 25);
             this.label8.TabIndex = 79;
@@ -1075,11 +1075,12 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // txtCodigoBarra
             // 
             this.txtCodigoBarra.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtCodigoBarra.Location = new System.Drawing.Point(160, 234);
+            this.txtCodigoBarra.Location = new System.Drawing.Point(179, 208);
             this.txtCodigoBarra.Name = "txtCodigoBarra";
             this.txtCodigoBarra.Size = new System.Drawing.Size(261, 30);
             this.txtCodigoBarra.TabIndex = 78;
             this.txtCodigoBarra.TextChanged += new System.EventHandler(this.txtCodigoBarra_TextChanged);
+            this.txtCodigoBarra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoBarra_KeyPress);
             // 
             // txtReferencia
             // 
@@ -1093,9 +1094,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // txtCodigoProducto
             // 
             this.txtCodigoProducto.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtCodigoProducto.Location = new System.Drawing.Point(530, 207);
+            this.txtCodigoProducto.Location = new System.Drawing.Point(575, 207);
             this.txtCodigoProducto.Name = "txtCodigoProducto";
-            this.txtCodigoProducto.Size = new System.Drawing.Size(261, 30);
+            this.txtCodigoProducto.Size = new System.Drawing.Size(216, 30);
             this.txtCodigoProducto.TabIndex = 76;
             this.txtCodigoProducto.TextChanged += new System.EventHandler(this.txtCodigoProducto_TextChanged);
             this.txtCodigoProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoProducto_KeyPress);
@@ -1103,7 +1104,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // txtDescripcion
             // 
             this.txtDescripcion.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtDescripcion.Location = new System.Drawing.Point(160, 206);
+            this.txtDescripcion.Location = new System.Drawing.Point(182, 238);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(261, 30);
             this.txtDescripcion.TabIndex = 67;
@@ -1117,7 +1118,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.ddlMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlMarca.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ddlMarca.FormattingEnabled = true;
-            this.ddlMarca.Location = new System.Drawing.Point(899, 176);
+            this.ddlMarca.Location = new System.Drawing.Point(899, 170);
             this.ddlMarca.Name = "ddlMarca";
             this.ddlMarca.Size = new System.Drawing.Size(261, 33);
             this.ddlMarca.TabIndex = 75;
@@ -1126,7 +1127,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(838, 180);
+            this.label7.Location = new System.Drawing.Point(823, 174);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(72, 25);
             this.label7.TabIndex = 74;
@@ -1139,7 +1140,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.ddlCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ddlCategoria.FormattingEnabled = true;
-            this.ddlCategoria.Location = new System.Drawing.Point(532, 178);
+            this.ddlCategoria.Location = new System.Drawing.Point(551, 171);
             this.ddlCategoria.Name = "ddlCategoria";
             this.ddlCategoria.Size = new System.Drawing.Size(261, 33);
             this.ddlCategoria.TabIndex = 73;
@@ -1149,7 +1150,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(441, 182);
+            this.label4.Location = new System.Drawing.Point(441, 175);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 25);
             this.label4.TabIndex = 72;
@@ -1162,7 +1163,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.ddlTipoProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlTipoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ddlTipoProducto.FormattingEnabled = true;
-            this.ddlTipoProducto.Location = new System.Drawing.Point(160, 176);
+            this.ddlTipoProducto.Location = new System.Drawing.Point(183, 172);
             this.ddlTipoProducto.Name = "ddlTipoProducto";
             this.ddlTipoProducto.Size = new System.Drawing.Size(261, 33);
             this.ddlTipoProducto.TabIndex = 68;
@@ -1172,7 +1173,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(11, 180);
+            this.label3.Location = new System.Drawing.Point(6, 177);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(177, 25);
             this.label3.TabIndex = 67;

@@ -427,6 +427,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             }
         }
 
+        private decimal SacarPerfilUSuario(decimal IdUsuario) {
+
+            decimal Perfil = 0;
+
+            var SacarPerfilUsuario = ObjDataSeguridad.Value.BuscaUsuarios(IdUsuario, null, null, null, null, 1, 1);
+            foreach (var n in SacarPerfilUsuario) {
+                Perfil = (decimal)n.IdNivelAcceso;
+            }
+            return Perfil;
+        }
+
         #region CARGAR LAS LISTAS
         /// <summary>
         /// Muestra todos los tipos de productos del sistema
@@ -529,6 +540,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         }
 
         private void OcultarColumnasListadoItems() {
+            decimal Perfil = SacarPerfilUSuario(VariablesGlobales.IdUsuario);
             this.dtListadoItems.Columns["IdRegistro"].Visible = false;
             this.dtListadoItems.Columns["NumeroConector"].Visible = false;
             this.dtListadoItems.Columns["IdTipoProducto"].Visible = false;
@@ -546,7 +558,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
            // this.dtListadoItems.Columns["Referencia"].Visible = false;
             this.dtListadoItems.Columns["NumeroSeguimiento"].Visible = false;
             this.dtListadoItems.Columns["CodigoProducto"].Visible = false;
-            this.dtListadoItems.Columns["PrecioCompra"].Visible = false;
+            if (Perfil == 3) { this.dtListadoItems.Columns["PrecioCompra"].Visible = false; }
             //this.dtListadoItems.Columns["PrecioVenta"].Visible = false;
             this.dtListadoItems.Columns["GananciaAproximada"].Visible = false;
             //this.dtListadoItems.Columns["Stock"].Visible = false;
@@ -1867,15 +1879,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void txtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
-                txtCodigoProducto.Focus();
+            if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
+            {
+                MostrarListadoProductos();
             }
         }
 
         private void txtCodigoProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
-                txtCodigoBarra.Focus();
+                txtDescripcion.Focus();
             }
         }
 
@@ -1899,6 +1912,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     txtCodigoBarra.Focus();
                 }
             
+            }
+        }
+
+        private void txtCodigoBarra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
+                txtCodigoProducto.Focus();
             }
         }
     }
