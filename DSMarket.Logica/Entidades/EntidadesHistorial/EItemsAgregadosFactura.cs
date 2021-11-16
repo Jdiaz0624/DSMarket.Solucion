@@ -65,7 +65,7 @@ namespace DSMarket.Logica.Entidades.EntidadesHistorial
 
 		public string CodigoBarraRespaldo {get;set;}
 
-		public string ReferenciaRespaldo {get;set;}
+		public string Referencia {get;set;}
 
 		public string NumeroSeguimientoRespaldo {get;set;}
 

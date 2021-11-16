@@ -113,7 +113,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
                     IdSuplidorAnulado = (decimal)ProductosAgregados.IdSuplidorRespaldo;
                     DescripcionAnulado = ProductosAgregados.Descripcion;
                     CodigoBarraAnulado = ProductosAgregados.CodigoBarraRespaldo;
-                    ReferenciaAnulado = ProductosAgregados.ReferenciaRespaldo;
+                    ReferenciaAnulado = ProductosAgregados.Referencia;
                     NumeroSeguimientoAnulado = ProductosAgregados.NumeroSeguimientoRespaldo;
                     CodigoProductoAnulado = ProductosAgregados.CodigoProductoRespaldo;
                     PrecioCompraAnulado = (decimal)ProductosAgregados.PrecioCompraRespaldo;

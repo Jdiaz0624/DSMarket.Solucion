@@ -109,7 +109,7 @@ namespace DSMarket.Logica.Logica.LogicaHistorial
                                IdTipoSuplidorRespaldo=n.IdTipoSuplidorRespaldo,
                                IdSuplidorRespaldo=n.IdSuplidorRespaldo,
                                CodigoBarraRespaldo=n.CodigoBarraRespaldo,
-                               ReferenciaRespaldo=n.ReferenciaRespaldo,
+                               Referencia=n.ReferenciaRespaldo,
                                NumeroSeguimientoRespaldo=n.NumeroSeguimientoRespaldo,
                                CodigoProductoRespaldo=n.CodigoProductoRespaldo,
                                PrecioCompraRespaldo=n.PrecioCompraRespaldo,

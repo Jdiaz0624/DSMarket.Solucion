@@ -70,7 +70,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.dtListado.Columns["IdSuplidorRespaldo"].Visible = false;
             //this.dtListado.Columns["Descripcion"].Visible = false;
             this.dtListado.Columns["CodigoBarraRespaldo"].Visible = false;
-            this.dtListado.Columns["ReferenciaRespaldo"].Visible = false;
+            //this.dtListado.Columns["ReferenciaRespaldo"].Visible = false;
             this.dtListado.Columns["NumeroSeguimientoRespaldo"].Visible = false;
             this.dtListado.Columns["CodigoProductoRespaldo"].Visible = false;
             this.dtListado.Columns["PrecioCompraRespaldo"].Visible = false;

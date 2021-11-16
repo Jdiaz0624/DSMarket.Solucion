@@ -666,6 +666,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         #endregion
         #region GUARDAR LA INFORMACION DE FACTURACION
         private void GuardarInformacionFacturacion() {
+            if (string.IsNullOrEmpty(txtNombreCliente.Text.Trim()))
+            {
+                txtNombreCliente.Text = "Cliente Consumidor Final";
+            }
+
             DSMarket.Logica.Comunes.SacarNombreClientePorDefecto SacarNombreCliente = new Logica.Comunes.SacarNombreClientePorDefecto();
 
             string _FacturadoA = string.IsNullOrEmpty(txtNombreCliente.Text.Trim()) && VariablesGlobales.CodigoClienteFacturacion == 0 ? SacarNombreCliente.SacarClientePorDefecto() : txtNombreCliente.Text.Trim();
@@ -1725,6 +1730,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             MessageBox.Show("El total a pagar supera el monto ingresado, favor de verificar.", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         else {
+                    
                             GuardarInformacionFacturacion();
                             GuardarInformacionDetalleFacturacion();
                             int TipoPago = Convert.ToInt32(ddltIPago.SelectedValue);

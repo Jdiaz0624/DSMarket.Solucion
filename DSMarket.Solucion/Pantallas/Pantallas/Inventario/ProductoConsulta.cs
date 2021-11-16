@@ -163,7 +163,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.dtListado.Columns["IdTipoGarantia"].Visible = false;
             this.dtListado.Columns["TipoTiempoGarantia"].Visible = false;
             this.dtListado.Columns["TiempoGarantia"].Visible = false;
-            this.dtListado.Columns["Comentario"].Visible = false;
+           // this.dtListado.Columns["Comentario"].Visible = false;
             this.dtListado.Columns["UsuarioAdiciona"].Visible = false;
             this.dtListado.Columns["CreadoPor"].Visible = false;
             this.dtListado.Columns["FechaAdiciona0"].Visible = false;
@@ -288,7 +288,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             variablesGlobales.NumeroConectorstring = "-1";
             if (variablesGlobales.NumeroConectorstring == "-1")
             {
-                MostrarListadoInventario();
+              //  MostrarListadoInventario();
             }
             
 

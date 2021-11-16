@@ -413,7 +413,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             //lbGananciaTitulo.ForeColor = Color.White;
            // lbGananciaVariable.ForeColor = Color.White;
             VariablesGlobales.NombreSistema = DSMarket.Logica.Comunes.InformacionEmpresa.SacarNombreEmpresa();
-            ListadoFacturas();
+            // ListadoFacturas();
+            cbAgregarRangoFecha.Checked = true;
             VariablesGlobales.ProductoSeleccionadoFacturacion = 1;
 
 
