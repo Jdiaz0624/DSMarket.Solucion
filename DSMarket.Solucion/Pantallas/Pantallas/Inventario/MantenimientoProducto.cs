@@ -607,7 +607,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 ddlSuplidor.Text = n.Suplidor;
                 txtDescripcion.Text = n.Descripcion;
                 txtcodigobarra.Text = n.CodigoBarra;
-                txtReferencia.Text = n.Referencia;
+                txtReferencia.Text = n.Imei;
                 txtNumeroSeguimiento.Text = n.NumeroSeguimiento;
                 txtCodigoproducto.Text = n.CodigoProducto;
                 txtPrecioCompra.Text = n.PrecioCompra.ToString();

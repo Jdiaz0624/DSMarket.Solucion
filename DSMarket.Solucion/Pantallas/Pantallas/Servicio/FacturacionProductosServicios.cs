@@ -843,7 +843,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     IdSuplidorRespaldo = (decimal)InformacionItem.IdSuplidor;
                     DescripcionRespaldo = InformacionItem.Descripcion;
                     CodigoBarraRespaldo = InformacionItem.CodigoBarra;
-                    ReferenciaRespaldo = InformacionItem.Referencia;
+                    ReferenciaRespaldo = InformacionItem.Imei;
                     NumeroSeguimientoRespaldo = InformacionItem.NumeroSeguimiento;
                     CodigoProductoRespaldo = InformacionItem.CodigoProducto;
                     PrecioCompraRespaldo = (decimal)InformacionItem.PrecioCompra;
@@ -1083,7 +1083,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     IdSuplidorRespaldo = (decimal)InformacionItem.IdSuplidor;
                     DescripcionRespaldo = InformacionItem.Descripcion;
                     CodigoBarraRespaldo = InformacionItem.CodigoBarra;
-                    ReferenciaRespaldo = InformacionItem.Referencia;
+                    ReferenciaRespaldo = InformacionItem.Imei;
                     NumeroSeguimientoRespaldo = InformacionItem.NumeroSeguimiento;
                     CodigoProductoRespaldo = InformacionItem.CodigoProducto;
                     PrecioCompraRespaldo = (decimal)InformacionItem.PrecioCompra;

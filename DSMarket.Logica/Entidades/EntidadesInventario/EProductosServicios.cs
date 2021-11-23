@@ -36,7 +36,7 @@ namespace DSMarket.Logica.Entidades.EntidadesInventario
 
 		public string CodigoBarra {get;set;}
 
-		public string Referencia {get;set;}
+		public string Imei { get;set;}
 
 		public string NumeroSeguimiento {get;set;}
 

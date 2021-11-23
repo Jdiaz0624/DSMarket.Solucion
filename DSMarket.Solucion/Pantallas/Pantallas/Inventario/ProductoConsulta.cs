@@ -145,8 +145,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.dtListado.Columns["IdMarca"].Visible = false;
             this.dtListado.Columns["Marca"].Visible = false;
             this.dtListado.Columns["IdTipoSuplidor"].Visible = false;
+            this.dtListado.Columns["TipoSuplidor"].Visible = false;
             this.dtListado.Columns["IdSuplidor"].Visible = false;
-            this.dtListado.Columns["Referencia"].Visible = false;
+          //  this.dtListado.Columns["Referencia"].Visible = false;
             this.dtListado.Columns["NumeroSeguimiento"].Visible = false;
             this.dtListado.Columns["GananciaAproximada"].Visible = false;
             this.dtListado.Columns["UnidadMedida"].Visible = false;
@@ -165,6 +166,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             this.dtListado.Columns["TiempoGarantia"].Visible = false;
            // this.dtListado.Columns["Comentario"].Visible = false;
             this.dtListado.Columns["UsuarioAdiciona"].Visible = false;
+            this.dtListado.Columns["Estatus"].Visible = false;
             this.dtListado.Columns["CreadoPor"].Visible = false;
             this.dtListado.Columns["FechaAdiciona0"].Visible = false;
             this.dtListado.Columns["FechaAdiciona"].Visible = false;

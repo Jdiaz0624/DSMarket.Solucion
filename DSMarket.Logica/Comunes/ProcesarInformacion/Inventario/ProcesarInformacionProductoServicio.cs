@@ -117,7 +117,7 @@ namespace DSMarket.Logica.Comunes.ProcesarInformacion.Inventario
             Procesar.IdSuplidor = IdSuplidor;
             Procesar.Descripcion = Descripcion;
             Procesar.CodigoBarra = CodigoBarra;
-            Procesar.Referencia = Referencia;
+            Procesar.Imei = Referencia;
             Procesar.NumeroSeguimiento = NumeroSeguimiento;
             Procesar.CodigoProducto = CodigoProducto;
             Procesar.PrecioCompra = PrecioCompra;
