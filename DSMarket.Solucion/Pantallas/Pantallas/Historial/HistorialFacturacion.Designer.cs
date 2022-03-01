@@ -67,6 +67,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
+            this.txtImeiReferencia = new System.Windows.Forms.TextBox();
+            this.lbImei = new System.Windows.Forms.Label();
+            this.cbBuscarPorImei = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel2.SuspendLayout();
@@ -279,6 +282,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbBuscarPorImei);
+            this.groupBox1.Controls.Add(this.txtImeiReferencia);
+            this.groupBox1.Controls.Add(this.lbImei);
             this.groupBox1.Controls.Add(this.txtFechaHasta);
             this.groupBox1.Controls.Add(this.txtFechaDesde);
             this.groupBox1.Controls.Add(this.ddlUsuario);
@@ -319,7 +325,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             // ddlUsuario
             // 
             this.ddlUsuario.FormattingEnabled = true;
-            this.ddlUsuario.Location = new System.Drawing.Point(895, 61);
+            this.ddlUsuario.Location = new System.Drawing.Point(895, 88);
             this.ddlUsuario.Name = "ddlUsuario";
             this.ddlUsuario.Size = new System.Drawing.Size(315, 28);
             this.ddlUsuario.TabIndex = 9;
@@ -363,7 +369,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(828, 65);
+            this.label3.Location = new System.Drawing.Point(828, 92);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 20);
             this.label3.TabIndex = 4;
@@ -393,7 +399,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.cbAgregarUsuario.AutoSize = true;
             this.cbAgregarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbAgregarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbAgregarUsuario.Location = new System.Drawing.Point(219, 25);
+            this.cbAgregarUsuario.Location = new System.Drawing.Point(530, 25);
             this.cbAgregarUsuario.Name = "cbAgregarUsuario";
             this.cbAgregarUsuario.Size = new System.Drawing.Size(139, 24);
             this.cbAgregarUsuario.TabIndex = 1;
@@ -525,6 +531,39 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.lbNumeroPagina.TabIndex = 109;
             this.lbNumeroPagina.Text = "No.Pagina";
             // 
+            // txtImeiReferencia
+            // 
+            this.txtImeiReferencia.Location = new System.Drawing.Point(867, 61);
+            this.txtImeiReferencia.MaxLength = 15;
+            this.txtImeiReferencia.Name = "txtImeiReferencia";
+            this.txtImeiReferencia.Size = new System.Drawing.Size(205, 26);
+            this.txtImeiReferencia.TabIndex = 13;
+            this.txtImeiReferencia.Visible = false;
+            this.txtImeiReferencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImeiReferencia_KeyPress);
+            // 
+            // lbImei
+            // 
+            this.lbImei.AutoSize = true;
+            this.lbImei.Location = new System.Drawing.Point(822, 64);
+            this.lbImei.Name = "lbImei";
+            this.lbImei.Size = new System.Drawing.Size(39, 20);
+            this.lbImei.TabIndex = 12;
+            this.lbImei.Text = "Imei";
+            this.lbImei.Visible = false;
+            // 
+            // cbBuscarPorImei
+            // 
+            this.cbBuscarPorImei.AutoSize = true;
+            this.cbBuscarPorImei.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbBuscarPorImei.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbBuscarPorImei.Location = new System.Drawing.Point(219, 25);
+            this.cbBuscarPorImei.Name = "cbBuscarPorImei";
+            this.cbBuscarPorImei.Size = new System.Drawing.Size(137, 24);
+            this.cbBuscarPorImei.TabIndex = 14;
+            this.cbBuscarPorImei.Text = "Buscar por Imei";
+            this.cbBuscarPorImei.UseVisualStyleBackColor = true;
+            this.cbBuscarPorImei.CheckedChanged += new System.EventHandler(this.cbBuscarPorImei_CheckedChanged);
+            // 
             // HistorialFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -598,5 +637,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
         private System.Windows.Forms.Label lbNumeroPagina;
         public System.Windows.Forms.Label lbGananciaVariable;
         public System.Windows.Forms.Label lbGananciaTitulo;
+        private System.Windows.Forms.CheckBox cbBuscarPorImei;
+        private System.Windows.Forms.TextBox txtImeiReferencia;
+        private System.Windows.Forms.Label lbImei;
     }
 }

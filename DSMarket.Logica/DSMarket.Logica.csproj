@@ -258,6 +258,7 @@
     <Compile Include="Entidades\EntidadesSeguridad\EMantenimientoClaveSeguridad.cs" />
     <Compile Include="Entidades\EntidadesSeguridad\EMantenimientoUsuario.cs" />
     <Compile Include="Entidades\EntidadesSeguridad\EUsuarios.cs" />
+    <Compile Include="Entidades\EntidadesServicio\EBuscarFacturaMedianteImei.cs" />
     <Compile Include="Entidades\EntidadesServicio\EComisionesEmpleados.cs" />
     <Compile Include="Entidades\EntidadesServicio\ECotizacion.cs" />
     <Compile Include="Entidades\EntidadesServicio\ECotizacionDetalle.cs" />

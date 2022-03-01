@@ -18,6 +18,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
         }
         Lazy<DSMarket.Logica.Logica.LogicaHistorial.LogicaHistorial> ObjdataHistorial = new Lazy<Logica.Logica.LogicaHistorial.LogicaHistorial>();
         Lazy<DSMarket.Logica.Logica.LogicaSeguridad.LogicaSeguridad> ObjdataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad.LogicaSeguridad>();
+        Lazy<DSMarket.Logica.Logica.LogicaServicio.LogicaServicio> ObjdataServicio = new Lazy<Logica.Logica.LogicaServicio.LogicaServicio>();
         public DSMarket.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
 
@@ -451,7 +452,48 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
         {
             if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
             {
-                ListadoFacturas();
+                if (cbBuscarPorImei.Checked == true) {
+
+                    if (string.IsNullOrEmpty(txtImeiReferencia.Text.Trim())) {
+
+                        MessageBox.Show("El campo Imei no puede estar vacio para realizar esta busqueda, favor de verificar.", "Campo Vacio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else {
+
+                        decimal NumeroFactura = 0;
+                        string _Imei = string.IsNullOrEmpty(txtImeiReferencia.Text.Trim()) ? null : txtImeiReferencia.Text.Trim();
+
+                        var SacarNumeroFactura = ObjdataServicio.Value.BuscarFacturaMedianteImei(_Imei);
+                        if (SacarNumeroFactura.Count() < 1) {
+                            MessageBox.Show("No se encontrarón registros mediante el imei ingresado, favor de verificar", "Registro no Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else {
+
+                            foreach (var n in SacarNumeroFactura) {
+                                NumeroFactura = (decimal)n.NumeroFactura;
+                            }
+
+                            var BuscarHistorial = ObjdataHistorial.Value.HistorialFacturacion(
+                           NumeroFactura,
+                           null,
+                           null,
+                           null,
+                           null,
+                           null,
+                           1, 1);
+                            dtListado.DataSource = BuscarHistorial;
+                            OcultarColumnas();
+
+
+                        }
+
+                       
+                    }
+                }
+                else {
+                    ListadoFacturas();
+                }
+                
             }
         }
 
@@ -591,6 +633,24 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
         private void ddlUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtImeiReferencia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            DSMarket.Logica.Comunes.ValidarControles.SoloNumeros(e);
+        }
+
+        private void cbBuscarPorImei_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbBuscarPorImei.Checked == true) {
+                lbImei.Visible = true;
+                txtImeiReferencia.Visible = true;
+                txtImeiReferencia.Text = string.Empty;
+            }
+            else if (cbBuscarPorImei.Checked == false) {
+                lbImei.Visible = false;
+                txtImeiReferencia.Visible = false;
+            }
         }
     }
 }

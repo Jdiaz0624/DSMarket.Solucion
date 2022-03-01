@@ -396,6 +396,13 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), numeroFactura, numeroConector, facturadoA, codigoCliente, idTipoFacturacion, comentario, totalProductos, totalServicios, totalItems, subTotal, descuentoTotal, impuestoTotal, totalGeneral, idTipoPago, montoPagado, cambio, idMoneda, tasa, idUsuario, fechaFacturacion, idComprobante, validoHasta, numeroComprobante, efectivoMixto, montoEfectivoMixto, chequeMixto, montoChequeMixto, transferenciaMixto, montoTransferenciaMixto, depositoMixto, montoDepositoMixto, tarjetaMixto, montoTarjetaMixto, accion);
 			return ((ISingleResult<SP_PROCESAR_INFORMACION_FACTURACIONResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Servicio.SP_BUSCAR_NUMERO_FACTURA_MEDIANTE_IMEI")]
+		public ISingleResult<SP_BUSCAR_NUMERO_FACTURA_MEDIANTE_IMEIResult> SP_BUSCAR_NUMERO_FACTURA_MEDIANTE_IMEI([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Imei", DbType="VarChar(20)")] string imei)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), imei);
+			return ((ISingleResult<SP_BUSCAR_NUMERO_FACTURA_MEDIANTE_IMEIResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_MANTENIMIENTO_HISTORIAL_PRODUCTO_INVENTARIOResult
@@ -9185,6 +9192,140 @@ namespace DSMarket.Data.Conexion.ConexionLINQ
 				if ((this._MontoTarjetaMixto != value))
 				{
 					this._MontoTarjetaMixto = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCAR_NUMERO_FACTURA_MEDIANTE_IMEIResult
+	{
+		
+		private string _NumeroConector;
+		
+		private decimal _NumeroFactura;
+		
+		private string _Imei;
+		
+		private string _Equipo;
+		
+		private string _FacturadoA;
+		
+		private string _Fecha;
+		
+		private string _Hora;
+		
+		public SP_BUSCAR_NUMERO_FACTURA_MEDIANTE_IMEIResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroConector", DbType="VarChar(30)")]
+		public string NumeroConector
+		{
+			get
+			{
+				return this._NumeroConector;
+			}
+			set
+			{
+				if ((this._NumeroConector != value))
+				{
+					this._NumeroConector = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroFactura", DbType="Decimal(20,0) NOT NULL")]
+		public decimal NumeroFactura
+		{
+			get
+			{
+				return this._NumeroFactura;
+			}
+			set
+			{
+				if ((this._NumeroFactura != value))
+				{
+					this._NumeroFactura = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Imei", DbType="VarChar(50)")]
+		public string Imei
+		{
+			get
+			{
+				return this._Imei;
+			}
+			set
+			{
+				if ((this._Imei != value))
+				{
+					this._Imei = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Equipo", DbType="VarChar(200)")]
+		public string Equipo
+		{
+			get
+			{
+				return this._Equipo;
+			}
+			set
+			{
+				if ((this._Equipo != value))
+				{
+					this._Equipo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FacturadoA", DbType="VarChar(100)")]
+		public string FacturadoA
+		{
+			get
+			{
+				return this._FacturadoA;
+			}
+			set
+			{
+				if ((this._FacturadoA != value))
+				{
+					this._FacturadoA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fecha", DbType="NVarChar(4000)")]
+		public string Fecha
+		{
+			get
+			{
+				return this._Fecha;
+			}
+			set
+			{
+				if ((this._Fecha != value))
+				{
+					this._Fecha = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Hora", DbType="NVarChar(4000)")]
+		public string Hora
+		{
+			get
+			{
+				return this._Hora;
+			}
+			set
+			{
+				if ((this._Hora != value))
+				{
+					this._Hora = value;
 				}
 			}
 		}

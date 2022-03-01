@@ -843,4 +843,16 @@
       <Column Name="MontoTarjetaMixto" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Servicio.SP_BUSCAR_NUMERO_FACTURA_MEDIANTE_IMEI" Method="SP_BUSCAR_NUMERO_FACTURA_MEDIANTE_IMEI">
+    <Parameter Name="Imei" Parameter="imei" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="SP_BUSCAR_NUMERO_FACTURA_MEDIANTE_IMEIResult">
+      <Column Name="NumeroConector" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="NumeroFactura" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Imei" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Equipo" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="FacturadoA" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Fecha" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="Hora" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

@@ -781,5 +781,30 @@ namespace DSMarket.Logica.Logica.LogicaServicio
         #endregion
         #endregion
 
+        #region BUSCAR FACTURA MEDIANTE IMEI
+        /// <summary>
+        /// Este metodo es para buscar el numero de factura mediante el imei
+        /// </summary>
+        /// <param name="Imei"></param>
+        /// <returns></returns>
+        public List<DSMarket.Logica.Entidades.EntidadesServicio.EBuscarFacturaMedianteImei> BuscarFacturaMedianteImei(string Imei = null) {
+
+            ObjData.CommandTimeout = 999999999;
+
+            var Registro = (from n in ObjData.SP_BUSCAR_NUMERO_FACTURA_MEDIANTE_IMEI(Imei)
+                            select new DSMarket.Logica.Entidades.EntidadesServicio.EBuscarFacturaMedianteImei
+                            {
+                                NumeroConector=n.NumeroConector,
+                                NumeroFactura=n.NumeroFactura,
+                                Imei=n.Imei,
+                                Equipo=n.Equipo,
+                                FacturadoA=n.FacturadoA,
+                                Fecha=n.Fecha,
+                                Hora=n.Hora
+                            }).ToList();
+            return Registro;
+        }
+        #endregion
+
     }
 }
