@@ -325,7 +325,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
         }
         enum TipoProductos { 
         Producto=1,
-        Servicio=2
+        Servicio=2,
+        Accesorio=3
         }
         private void ModoProducto() {
             ddlTipoProducto.Enabled = true;
@@ -390,6 +391,35 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             txtComentario.Enabled = true;
         }
 
+        private void ModoAccesorio() {
+            ddlTipoProducto.Enabled = true;
+            ddlCategoria.Enabled = true;
+            ddlMarca.Enabled = true;
+            ddlTipoSuplidor.Enabled = true;
+            ddlSuplidor.Enabled = true;
+            txtDescripcion.Enabled = true;
+            txtcodigobarra.Enabled = true;
+            txtReferencia.Enabled = true;
+            txtNumeroSeguimiento.Enabled = true;
+            txtCodigoproducto.Enabled = true;
+            txtPrecioCompra.Enabled = true;
+            txtPrecioVenta.Enabled = true;
+            txtstock.Enabled = true;
+            txtstockminimo.Enabled = true;
+            ddlUnidadMedida.Enabled = false;
+            txtUnidadMedinda.Enabled = false;
+            ddlModelo.Enabled = false;
+            txtModelo.Enabled = false;
+            ddlColor.Enabled = false;
+            txtColor.Enabled = false;
+            ddlCondicion.Enabled = false;
+            txtCondicion.Enabled = false;
+            ddlCpacidad.Enabled = false;
+            txtCapacidad.Enabled = false;
+            ddlTipoGarantia.Enabled = false;
+            txtTiempoGarantia.Enabled = false;
+            txtComentario.Enabled = true;
+        }
 
         private void ProcesarItem() {
             ProcesarInformacionProductoServicio();
@@ -417,8 +447,13 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
                 ModoProducto();
             }
 
-            else if (CodigoTipoProducto == (decimal)TipoProductos.Servicio) {
+            else if (CodigoTipoProducto == (decimal)TipoProductos.Servicio)
+            {
                 ModoServicio();
+            }
+            else if (CodigoTipoProducto == (decimal)TipoProductos.Accesorio) {
+                ModoAccesorio();
+
             }
         }
         #region CARGAR LAS LISTAS
