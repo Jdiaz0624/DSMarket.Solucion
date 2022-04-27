@@ -470,7 +470,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
             btnReporte.Enabled = true;
             btnRestablecer.Enabled = true;
 
-            if (IdTipoProducto == 1)
+            if (IdTipoProducto == 1 || IdTipoProducto==3)
             {
                 btnSuplir.Visible = true;
             }

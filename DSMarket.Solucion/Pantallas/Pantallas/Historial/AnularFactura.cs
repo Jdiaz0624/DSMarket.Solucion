@@ -138,7 +138,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
                     FechaIngresoAnulado = (DateTime)ProductosAgregados.FechaIngresoRespaldo;
                     CantidadFacturada = (decimal)ProductosAgregados.Cantidad;
 
-                    if (IdTipoProductoAnulado == 1)
+                    if (IdTipoProductoAnulado == 1 || IdTipoProductoAnulado == 3)
                     {
                         //VERIFICAMOS QUE EL PRODUCTO EXISTE EN EL INVENTARIO
                         var VerificarExistencia = ObjdataInventario.BuscaProductosServicios(IdRegistroAnulado, ConectorAnulado,
