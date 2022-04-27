@@ -388,7 +388,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
                     string TipoProducto = txtTipoProductoItemsseleccionado.Text;
 
-                    if (TipoProducto == "PRODUCTO")
+                    if (TipoProducto == "PRODUCTO" || TipoProducto== "ACCESORIO")
                     {
 
                         decimal StockActual = 0, CantidadFacturar = 0;
@@ -1546,7 +1546,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                     IdRegistro,
                     IdTipoProducto);
                 if (ValidarRegistro.Count() < 1) {
-                    if (IdTipoProducto == 1)
+                    if (IdTipoProducto == 1 || IdTipoProducto==3)
                     {
                         if (Stock <= 0)
                         {
