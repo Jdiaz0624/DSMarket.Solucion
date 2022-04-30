@@ -650,14 +650,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void ProcesarPreviewFacturacion() {
             DSMarket.Logica.Comunes.SacarPorcientoImpuesto Porciento = new Logica.Comunes.SacarPorcientoImpuesto(1);
             int PorcitneoImpuesto = Porciento.PorcientoImpuesto();
+            decimal PrecioProductoSeleccionado = cbProductoSinCosto.Checked == true ? 0 : Convert.ToDecimal(txtPrecioItemSeleccionado.Text);
+            decimal CantidadItemSeleccionado = cbProductoSinCosto.Checked == true ? 1 : Convert.ToDecimal(txtCantidadItemSelecionado.Text);
+            decimal DescuentoItemSeleccionado = cbProductoSinCosto.Checked == true ? 0 : Convert.ToDecimal(txtDescuentoItemsSeleccionado.Text);
             DSMarket.Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFacturacionPreview Procesar = new Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFacturacionPreview(
                 VariablesGlobales.IdUsuario,
                 VariablesGlobales.NumeroConectorstring,
                 VariablesGlobales.IdProductoFacturarCotizar,
                 VariablesGlobales.IdTipoProductoFacturarCotizar,
-                Convert.ToDecimal(txtPrecioItemSeleccionado.Text),
-                Convert.ToInt32(txtCantidadItemSelecionado.Text),
-                Convert.ToDecimal(txtDescuentoItemsSeleccionado.Text),
+                PrecioProductoSeleccionado,
+                CantidadItemSeleccionado,
+                DescuentoItemSeleccionado,
                 PorcitneoImpuesto,
                 "INSERT");
             Procesar.ProcesarInformacion();
@@ -1233,7 +1236,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         #endregion
 
         private void SacarDatosProductoSeleccionado(ref DataGridView Grid, decimal IdRegistro,string NumeroConector) {
-           
+            string TipoProducto = "";
 
             var BuscarRegistros = ObjDataInventario.Value.BuscaProductosServicios(IdRegistro, NumeroConector, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1);
             dtListadoItems.DataSource = BuscarRegistros;
@@ -1242,6 +1245,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             {
                 txtDescripcionItemsSeleccionado.Text = n.Descripcion;
                 txtTipoProductoItemsseleccionado.Text = n.TipoProducto;
+                TipoProducto = n.TipoProducto;
                 decimal Precio = (decimal)n.PrecioVenta;
                 txtPrecioItemSeleccionado.Text = Precio.ToString("N2");
                 decimal Stock = (decimal)n.Stock;
@@ -1252,6 +1256,16 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                 btnRestablecerPantalla.Visible = true;
                 VariablesGlobales.ProductoSeleccionadoFacturarCotizar = "SI";
             }
+            if (TipoProducto == "ACCESORIO")
+            {
+                cbProductoSinCosto.Visible = true;
+                cbProductoSinCosto.Checked = false;
+            }
+            else {
+                cbProductoSinCosto.Visible = false;
+                cbProductoSinCosto.Checked = false;
+            }
+
         }
 
         private void MostrarComprobante() {
