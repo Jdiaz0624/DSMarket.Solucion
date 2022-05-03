@@ -406,7 +406,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
                             RestablecerPantallaFacturacion();
                             MostrarListadoProductos();
                         }
-
                     }
                     else if (TipoProducto == "SERVICIO")
                     {
