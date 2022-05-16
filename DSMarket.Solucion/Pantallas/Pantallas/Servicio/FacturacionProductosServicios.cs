@@ -1457,34 +1457,34 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void txtDescripcion_TextChanged(object sender, EventArgs e)
         {
-            if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
-            {
-                MostrarListadoProductos();
-            }
+            //if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
+            //{
+            //    MostrarListadoProductos();
+            //}
         }
 
         private void txtCodigoProducto_TextChanged(object sender, EventArgs e)
         {
-            if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
-            {
-                MostrarListadoProductos();
-            }
+            //if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
+            //{
+            //    MostrarListadoProductos();
+            //}
         }
 
         private void txtReferencia_TextChanged(object sender, EventArgs e)
         {
-            if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
-            {
-                MostrarListadoProductos();
-            }
+            //if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
+            //{
+            //    MostrarListadoProductos();
+            //}
         }
 
         private void txtCodigoBarra_TextChanged(object sender, EventArgs e)
         {
-            if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
-            {
-                MostrarListadoProductos();
-            }
+            //if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
+            //{
+            //    MostrarListadoProductos();
+            //}
         }
 
         private void txtNumeroRegistros_ValueChanged(object sender, EventArgs e)
@@ -1898,16 +1898,29 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
 
         private void txtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
-            {
-                MostrarListadoProductos();
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
+
+                if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
+                {
+                    MostrarListadoProductos();
+                }
             }
+          
         }
 
         private void txtCodigoProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
-                txtDescripcion.Focus();
+               
+                if (string.IsNullOrEmpty(txtCodigoProducto.Text.Trim())) {
+                    txtReferencia.Focus();
+                }
+                else {
+                    if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
+                    {
+                        MostrarListadoProductos();
+                    }
+                }
             }
         }
 
@@ -1937,7 +1950,34 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
         private void txtCodigoBarra_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
-                txtCodigoProducto.Focus();
+               
+            
+
+                if (string.IsNullOrEmpty(txtCodigoBarra.Text.Trim())) {
+                    txtCodigoProducto.Focus();
+                }
+                else {
+                    if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
+                    {
+                        MostrarListadoProductos();
+                    }
+                }
+            }
+        }
+
+        private void txtReferencia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
+
+                if (string.IsNullOrEmpty(txtReferencia.Text.Trim())) {
+                    txtDescripcion.Focus();
+                }
+                else {
+                    if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
+                    {
+                        MostrarListadoProductos();
+                    }
+                }
             }
         }
     }

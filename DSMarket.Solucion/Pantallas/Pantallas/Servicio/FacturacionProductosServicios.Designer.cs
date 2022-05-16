@@ -61,6 +61,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.lbCantidadProductosTitulo = new System.Windows.Forms.Label();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.gbGeneral = new System.Windows.Forms.GroupBox();
+            this.cbProductoSinCosto = new System.Windows.Forms.CheckBox();
             this.lbValorPagoMixto = new System.Windows.Forms.Label();
             this.lbPagoMixto = new System.Windows.Forms.Label();
             this.txtTarjetaPagoMixto = new System.Windows.Forms.TextBox();
@@ -127,7 +128,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.lbComprobante = new System.Windows.Forms.Label();
             this.txtFiltroCliente = new System.Windows.Forms.TextBox();
             this.lbLetreroFiltroCliente = new System.Windows.Forms.Label();
-            this.cbProductoSinCosto = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel1.SuspendLayout();
             this.gbGeneral.SuspendLayout();
@@ -536,6 +536,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.gbGeneral.TabIndex = 4;
             this.gbGeneral.TabStop = false;
             this.gbGeneral.Text = "Datos de Facturación";
+            // 
+            // cbProductoSinCosto
+            // 
+            this.cbProductoSinCosto.AutoSize = true;
+            this.cbProductoSinCosto.Location = new System.Drawing.Point(116, 453);
+            this.cbProductoSinCosto.Name = "cbProductoSinCosto";
+            this.cbProductoSinCosto.Size = new System.Drawing.Size(165, 24);
+            this.cbProductoSinCosto.TabIndex = 124;
+            this.cbProductoSinCosto.Text = "Producto Sin Costo";
+            this.cbProductoSinCosto.UseVisualStyleBackColor = true;
+            this.cbProductoSinCosto.Visible = false;
             // 
             // lbValorPagoMixto
             // 
@@ -1084,6 +1095,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.txtReferencia.Size = new System.Drawing.Size(261, 26);
             this.txtReferencia.TabIndex = 77;
             this.txtReferencia.TextChanged += new System.EventHandler(this.txtReferencia_TextChanged);
+            this.txtReferencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtReferencia_KeyPress);
             // 
             // txtCodigoProducto
             // 
@@ -1282,22 +1294,11 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.lbLetreroFiltroCliente.TabIndex = 58;
             this.lbLetreroFiltroCliente.Text = "Filtro de Cliente";
             // 
-            // cbProductoSinCosto
-            // 
-            this.cbProductoSinCosto.AutoSize = true;
-            this.cbProductoSinCosto.Location = new System.Drawing.Point(116, 453);
-            this.cbProductoSinCosto.Name = "cbProductoSinCosto";
-            this.cbProductoSinCosto.Size = new System.Drawing.Size(165, 24);
-            this.cbProductoSinCosto.TabIndex = 124;
-            this.cbProductoSinCosto.Text = "Producto Sin Costo";
-            this.cbProductoSinCosto.UseVisualStyleBackColor = true;
-            this.cbProductoSinCosto.Visible = false;
-            // 
             // FacturacionProductosServicios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 797);
+            this.ClientSize = new System.Drawing.Size(1200, 749);
             this.Controls.Add(this.gbGeneral);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -30,8 +30,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnAnularfactura = new System.Windows.Forms.Button();
@@ -48,6 +48,8 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.lbTitulo = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtImeiReferencia = new System.Windows.Forms.TextBox();
+            this.lbImei = new System.Windows.Forms.Label();
             this.txtFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.txtFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.ddlUsuario = new System.Windows.Forms.ComboBox();
@@ -67,9 +69,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
-            this.txtImeiReferencia = new System.Windows.Forms.TextBox();
-            this.lbImei = new System.Windows.Forms.Label();
-            this.cbBuscarPorImei = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCerrar)).BeginInit();
             this.panel2.SuspendLayout();
@@ -282,7 +281,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cbBuscarPorImei);
             this.groupBox1.Controls.Add(this.txtImeiReferencia);
             this.groupBox1.Controls.Add(this.lbImei);
             this.groupBox1.Controls.Add(this.txtFechaHasta);
@@ -303,6 +301,25 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.groupBox1.TabIndex = 104;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de Historial";
+            // 
+            // txtImeiReferencia
+            // 
+            this.txtImeiReferencia.Location = new System.Drawing.Point(867, 61);
+            this.txtImeiReferencia.MaxLength = 15;
+            this.txtImeiReferencia.Name = "txtImeiReferencia";
+            this.txtImeiReferencia.Size = new System.Drawing.Size(205, 26);
+            this.txtImeiReferencia.TabIndex = 13;
+            this.txtImeiReferencia.TextChanged += new System.EventHandler(this.txtImeiReferencia_TextChanged);
+            this.txtImeiReferencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImeiReferencia_KeyPress);
+            // 
+            // lbImei
+            // 
+            this.lbImei.AutoSize = true;
+            this.lbImei.Location = new System.Drawing.Point(822, 64);
+            this.lbImei.Name = "lbImei";
+            this.lbImei.Size = new System.Drawing.Size(39, 20);
+            this.lbImei.TabIndex = 12;
+            this.lbImei.Text = "Imei";
             // 
             // txtFechaHasta
             // 
@@ -338,6 +355,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.txtFacturadoA.Size = new System.Drawing.Size(352, 26);
             this.txtFacturadoA.TabIndex = 8;
             this.txtFacturadoA.TextChanged += new System.EventHandler(this.txtFacturadoA_TextChanged);
+            this.txtFacturadoA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFacturadoA_KeyPress);
             // 
             // txtNumerofactura
             // 
@@ -433,21 +451,21 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             // 
             this.dtListado.AllowUserToAddRows = false;
             this.dtListado.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtListado.BackgroundColor = System.Drawing.Color.LightGray;
             this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Select});
@@ -531,39 +549,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
             this.lbNumeroPagina.TabIndex = 109;
             this.lbNumeroPagina.Text = "No.Pagina";
             // 
-            // txtImeiReferencia
-            // 
-            this.txtImeiReferencia.Location = new System.Drawing.Point(867, 61);
-            this.txtImeiReferencia.MaxLength = 15;
-            this.txtImeiReferencia.Name = "txtImeiReferencia";
-            this.txtImeiReferencia.Size = new System.Drawing.Size(205, 26);
-            this.txtImeiReferencia.TabIndex = 13;
-            this.txtImeiReferencia.Visible = false;
-            this.txtImeiReferencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImeiReferencia_KeyPress);
-            // 
-            // lbImei
-            // 
-            this.lbImei.AutoSize = true;
-            this.lbImei.Location = new System.Drawing.Point(822, 64);
-            this.lbImei.Name = "lbImei";
-            this.lbImei.Size = new System.Drawing.Size(39, 20);
-            this.lbImei.TabIndex = 12;
-            this.lbImei.Text = "Imei";
-            this.lbImei.Visible = false;
-            // 
-            // cbBuscarPorImei
-            // 
-            this.cbBuscarPorImei.AutoSize = true;
-            this.cbBuscarPorImei.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbBuscarPorImei.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbBuscarPorImei.Location = new System.Drawing.Point(219, 25);
-            this.cbBuscarPorImei.Name = "cbBuscarPorImei";
-            this.cbBuscarPorImei.Size = new System.Drawing.Size(137, 24);
-            this.cbBuscarPorImei.TabIndex = 14;
-            this.cbBuscarPorImei.Text = "Buscar por Imei";
-            this.cbBuscarPorImei.UseVisualStyleBackColor = true;
-            this.cbBuscarPorImei.CheckedChanged += new System.EventHandler(this.cbBuscarPorImei_CheckedChanged);
-            // 
             // HistorialFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -637,7 +622,6 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
         private System.Windows.Forms.Label lbNumeroPagina;
         public System.Windows.Forms.Label lbGananciaVariable;
         public System.Windows.Forms.Label lbGananciaTitulo;
-        private System.Windows.Forms.CheckBox cbBuscarPorImei;
         private System.Windows.Forms.TextBox txtImeiReferencia;
         private System.Windows.Forms.Label lbImei;
     }

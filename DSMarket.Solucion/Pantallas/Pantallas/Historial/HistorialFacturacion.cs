@@ -179,6 +179,64 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
 
         }
         #endregion
+
+        #region BUSCAR REGISTROS
+        private void BuscarRegistros() {
+            if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
+            {
+                if (string.IsNullOrEmpty(txtImeiReferencia.Text.Trim())) {
+                    ListadoFacturas();
+                }
+                else {
+                    if (string.IsNullOrEmpty(txtImeiReferencia.Text.Trim()))
+                    {
+
+                        MessageBox.Show("El campo Imei no puede estar vacio para realizar esta busqueda, favor de verificar.", "Campo Vacio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+
+                        decimal NumeroFactura = 0;
+                        string _Imei = string.IsNullOrEmpty(txtImeiReferencia.Text.Trim()) ? null : txtImeiReferencia.Text.Trim();
+
+                        var SacarNumeroFactura = ObjdataServicio.Value.BuscarFacturaMedianteImei(_Imei);
+                        if (SacarNumeroFactura.Count() < 1)
+                        {
+                            MessageBox.Show("No se encontrarón registros mediante el imei ingresado, favor de verificar", "Registro no Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+
+                            foreach (var n in SacarNumeroFactura)
+                            {
+                                NumeroFactura = (decimal)n.NumeroFactura;
+                            }
+
+                            var BuscarHistorial = ObjdataHistorial.Value.HistorialFacturacion(
+                           NumeroFactura,
+                           null,
+                           null,
+                           null,
+                           null,
+                           null,
+                           1, 1);
+                            dtListado.DataSource = BuscarHistorial;
+                            OcultarColumnas();
+
+
+                        }
+
+
+                    }
+                }
+
+
+
+             
+
+            }
+        }
+        #endregion
         private void RestablecerPantalla() {
             txtNumerofactura.Text = string.Empty;
             txtFacturadoA.Text = string.Empty;
@@ -450,70 +508,17 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
-            {
-                if (cbBuscarPorImei.Checked == true) {
-
-                    if (string.IsNullOrEmpty(txtImeiReferencia.Text.Trim())) {
-
-                        MessageBox.Show("El campo Imei no puede estar vacio para realizar esta busqueda, favor de verificar.", "Campo Vacio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    else {
-
-                        decimal NumeroFactura = 0;
-                        string _Imei = string.IsNullOrEmpty(txtImeiReferencia.Text.Trim()) ? null : txtImeiReferencia.Text.Trim();
-
-                        var SacarNumeroFactura = ObjdataServicio.Value.BuscarFacturaMedianteImei(_Imei);
-                        if (SacarNumeroFactura.Count() < 1) {
-                            MessageBox.Show("No se encontrarón registros mediante el imei ingresado, favor de verificar", "Registro no Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                        else {
-
-                            foreach (var n in SacarNumeroFactura) {
-                                NumeroFactura = (decimal)n.NumeroFactura;
-                            }
-
-                            var BuscarHistorial = ObjdataHistorial.Value.HistorialFacturacion(
-                           NumeroFactura,
-                           null,
-                           null,
-                           null,
-                           null,
-                           null,
-                           1, 1);
-                            dtListado.DataSource = BuscarHistorial;
-                            OcultarColumnas();
-
-
-                        }
-
-                       
-                    }
-                }
-                else {
-                    ListadoFacturas();
-                }
-                
-            }
+            BuscarRegistros();
         }
 
         private void txtNumerofactura_TextChanged(object sender, EventArgs e)
         {
-            try {
-                if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado) {
-                    ListadoFacturas();
-                }
-                
-            }
-            catch (Exception) { }
+           
         }
 
         private void txtFacturadoA_TextChanged(object sender, EventArgs e)
         {
-            if (VariablesGlobales.ProductoSeleccionadoFacturacion == (int)TipoProductoSeleccionado.ProductoNoSeleccionado)
-            {
-                ListadoFacturas();
-            }
+          
         }
 
         private void txtNumeroPagina_ValueChanged(object sender, EventArgs e)
@@ -553,6 +558,15 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
         private void txtNumerofactura_KeyPress(object sender, KeyPressEventArgs e)
         {
             DSMarket.Logica.Comunes.ValidarControles.SoloNumeros(e);
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
+
+                if (string.IsNullOrEmpty(txtNumerofactura.Text.Trim())){
+                    txtFacturadoA.Focus();
+                }
+                else {
+                    BuscarRegistros();
+                }
+            }
         }
 
         private void btnrestablecer_Click(object sender, EventArgs e)
@@ -638,18 +652,31 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Historial
         private void txtImeiReferencia_KeyPress(object sender, KeyPressEventArgs e)
         {
             DSMarket.Logica.Comunes.ValidarControles.SoloNumeros(e);
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
+                BuscarRegistros();
+            }
         }
 
-        private void cbBuscarPorImei_CheckedChanged(object sender, EventArgs e)
+        
+
+        private void txtImeiReferencia_TextChanged(object sender, EventArgs e)
         {
-            if (cbBuscarPorImei.Checked == true) {
-                lbImei.Visible = true;
-                txtImeiReferencia.Visible = true;
-                txtImeiReferencia.Text = string.Empty;
-            }
-            else if (cbBuscarPorImei.Checked == false) {
-                lbImei.Visible = false;
-                txtImeiReferencia.Visible = false;
+
+        }
+
+        private void txtFacturadoA_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
+
+                if (string.IsNullOrEmpty(txtFacturadoA.Text.Trim())) {
+
+                
+                        txtImeiReferencia.Focus();
+             
+                }
+                else {
+                    BuscarRegistros();
+                }
             }
         }
     }
