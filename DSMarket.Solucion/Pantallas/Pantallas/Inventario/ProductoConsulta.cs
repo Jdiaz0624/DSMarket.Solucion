@@ -604,32 +604,74 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Inventario
 
         private void txtDescripcion_TextChanged_1(object sender, EventArgs e)
         {
-            if (variablesGlobales.NumeroConectorstring == "-1") {
-                MostrarListadoInventario();
-            }
+            //if (variablesGlobales.NumeroConectorstring == "-1") {
+            //    MostrarListadoInventario();
+            //}
         }
 
         private void txtCodigoBarra_TextChanged_1(object sender, EventArgs e)
         {
-            if (variablesGlobales.NumeroConectorstring == "-1")
-            {
-                MostrarListadoInventario();
-            }
+            //if (variablesGlobales.NumeroConectorstring == "-1")
+            //{
+            //    MostrarListadoInventario();
+            //}
         }
 
         private void txtReferencia_TextChanged_1(object sender, EventArgs e)
         {
-            if (variablesGlobales.NumeroConectorstring == "-1")
-            {
-                MostrarListadoInventario();
-            }
+            //if (variablesGlobales.NumeroConectorstring == "-1")
+            //{
+            //    MostrarListadoInventario();
+            //}
         }
 
         private void txtCodigoProducto_TextChanged(object sender, EventArgs e)
         {
-            if (variablesGlobales.NumeroConectorstring == "-1")
-            {
-                MostrarListadoInventario();
+            //if (variablesGlobales.NumeroConectorstring == "-1")
+            //{
+            //    MostrarListadoInventario();
+            //}
+        }
+
+        private void txtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
+
+                if (string.IsNullOrEmpty(txtDescripcion.Text.Trim())) {
+                    txtCodigoBarra.Focus();
+                }
+                else {
+                    if (variablesGlobales.NumeroConectorstring == "-1")
+                    {
+                        MostrarListadoInventario();
+                    }
+                }
+            }
+        }
+
+        private void txtCodigoBarra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
+                if (string.IsNullOrEmpty(txtCodigoBarra.Text.Trim())) {
+                    txtReferencia.Focus();
+                }
+                else {
+                    if (variablesGlobales.NumeroConectorstring == "-1")
+                    {
+                        MostrarListadoInventario();
+                    }
+                }
+            }
+          
+        }
+
+        private void txtReferencia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
+                if (variablesGlobales.NumeroConectorstring == "-1")
+                {
+                    MostrarListadoInventario();
+                }
             }
         }
     }
