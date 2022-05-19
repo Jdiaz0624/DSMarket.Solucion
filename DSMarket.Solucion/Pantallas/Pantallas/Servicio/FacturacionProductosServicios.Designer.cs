@@ -272,9 +272,9 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             this.btnCompletarOperaciom.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCompletarOperaciom.Image = global::DSMarket.Solucion.Properties.Resources.Completar;
             this.btnCompletarOperaciom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCompletarOperaciom.Location = new System.Drawing.Point(737, 645);
+            this.btnCompletarOperaciom.Location = new System.Drawing.Point(737, 636);
             this.btnCompletarOperaciom.Name = "btnCompletarOperaciom";
-            this.btnCompletarOperaciom.Size = new System.Drawing.Size(406, 76);
+            this.btnCompletarOperaciom.Size = new System.Drawing.Size(406, 58);
             this.btnCompletarOperaciom.TabIndex = 97;
             this.btnCompletarOperaciom.Text = "Completar Operación";
             this.toolTip1.SetToolTip(this.btnCompletarOperaciom, "Completar Operación");

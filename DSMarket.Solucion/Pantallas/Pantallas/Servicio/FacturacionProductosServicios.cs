@@ -650,7 +650,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             DSMarket.Logica.Comunes.SacarPorcientoImpuesto Porciento = new Logica.Comunes.SacarPorcientoImpuesto(1);
             int PorcitneoImpuesto = Porciento.PorcientoImpuesto();
             decimal PrecioProductoSeleccionado = cbProductoSinCosto.Checked == true ? 0 : Convert.ToDecimal(txtPrecioItemSeleccionado.Text);
-            decimal CantidadItemSeleccionado = cbProductoSinCosto.Checked == true ? 1 : Convert.ToDecimal(txtCantidadItemSelecionado.Text);
+            decimal CantidadItemSeleccionado = Convert.ToDecimal(txtCantidadItemSelecionado.Text);
             decimal DescuentoItemSeleccionado = cbProductoSinCosto.Checked == true ? 0 : Convert.ToDecimal(txtDescuentoItemsSeleccionado.Text);
             DSMarket.Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFacturacionPreview Procesar = new Logica.Comunes.ProcesarInformacion.Servicio.ProcesarInformacionFacturacionPreview(
                 VariablesGlobales.IdUsuario,
