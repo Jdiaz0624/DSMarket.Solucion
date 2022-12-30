@@ -642,6 +642,7 @@ namespace DSMarket.Solucion.Pantallas.Pantallas.Servicio
             txtDescuentoItemsSeleccionado.Text = string.Empty;
             txtCantidadItemSelecionado.Text = string.Empty;
             VariablesGlobales.ProductoSeleccionadoFacturarCotizar = "NO";
+            txtCodigoBarra.Focus();
         }
         #endregion
 
